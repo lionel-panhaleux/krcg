@@ -248,58 +248,7 @@ class _TWDA(collections.OrderedDict):
 def _get_card(line):
     """Find card name and count in a TWDA.html line
 
-    There are a lot of circumvoluted cases to take into account
-    >>> _get_card('deny')
-    ('deny', 1)
-    >>> _get_card('2 deny')
-    ('deny', 2)
-    >>> _get_card('deny 2')
-    ('deny', 2)
-    >>> _get_card('2x deny')
-    ('deny', 2)
-    >>> _get_card('2 x deny')
-    ('deny', 2)
-    >>> # 'x' is usually separated from card name, but '*' may not be
-    >>> _get_card('2*deny')
-    ('deny', 2)
-    >>> _get_card('deny *2')
-    ('deny', 2)
-    >>> _get_card('deny x2')
-    ('deny', 2)
-    >>> _get_card('deny x 2')
-    ('deny', 2)
-    >>> _get_card('deny (2)')
-    ('deny', 2)
-    >>> _get_card('deny [2]')
-    ('deny', 2)
-    >>> # many forms are used, with or without parenthesis, 'x', '=', etc.
-    >>> _get_card('deny (x2)')
-    ('deny', 2)
-    >>> _get_card('deny =2')
-    ('deny', 2)
-    >>> _get_card('deny /2')
-    ('deny', 2)
-    >>> # crypt needs special handling as we got a number in front and back
-    >>> _get_card('2x anvil			6   cel pot dom pre tha	 primogen  brujah:1')
-    ('anvil', 2)
-    >>> # names beginning with an 'x' and parenthesied '(adv)' must be correctly matched
-    >>> _get_card('2x xaviar (adv)		10  abo ani for pro aus cel pot	 gangrel:3')
-    ('xaviar (adv)', 2)
-    >>> # names beginning with a number are hard
-    >>> _get_card('2nd tradition')
-    ('2nd tradition', 1)
-    >>> # name ending with a number even harder
-    >>> _get_card('ak-47')
-    ('ak-47', 1)
-    >>> # channel 10 is unique: other cards will match 10 as the count
-    >>> _get_card('channel 10')
-    ('channel 10', 1)
-    >>> # pier 13 is hard to match fully, note there is no ',' atter card counts
-    >>> _get_card('2 pier 13, port of baltimore')
-    ('pier 13, port of baltimore', 2)
-    >>> # local 1111 is hard, card counts have less than 3 digits
-    >>> _get_card('local 1111 2')
-    ('local 1111', 2)
+    There are a lot of circumvoluted cases to take into account, cf. tests.
     """
     card_match = re.match(
         r"^\s*(?:-|_)?(?:(?:x|X|\*|_)?\s*"

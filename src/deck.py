@@ -77,11 +77,6 @@ class Deck(collections.Counter):
 
     def cards(self, condition=None):
         """Generator yielding (card_name, count), with an optional filter.
-
-        >>> d = Deck()
-        >>> d.update({"Fame": 3})
-        >>> list(d.cards())
-        [('Fame', 3)]
         """
         for card, count in self.items():
             if condition and not condition(card):
@@ -96,10 +91,5 @@ class Deck(collections.Counter):
 
     def cards_count(self, condition=None):
         """Card counts with an optional filter.
-
-        >>> d = Deck()
-        >>> d.update({"Fame": 3, "Bum's Rush": 10, "Crusher": 4})
-        >>> d.cards_count()
-        17
         """
         return sum(count for card, count in self.cards(condition))
