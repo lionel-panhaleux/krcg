@@ -1,0 +1,11 @@
+dist: xenial
+language: python
+cache: pip
+python:
+    - "3.7"
+install:
+    - "pip install -e .[dev]"
+script:
+    - black --check src tests
+    - flake8
+    - pytest

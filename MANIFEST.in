@@ -1,0 +1,6 @@
+include LICENSE README.md CHANGELOG.rst
+
+graft src
+prune tests
+
+global-exclude __pycache__ *.egg-info *.pkl

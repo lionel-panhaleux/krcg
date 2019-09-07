@@ -1,0 +1,14 @@
+# Build & distribution
+__pycache__/
+build/
+dist/
+*.egg-info/
+*.pkl
+
+# test
+.pytest_cache/
+
+# editors & OS
+.vscode/
+*.DS_Store
+.idea/
