@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3 (unreleased)
+0.3 (2019-09-07)
 ----------------
 
 - Fix "ModuleNotFoundError: No module named 'src'" error for pip install.
