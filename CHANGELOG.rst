@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.2 (unreleased)
+0.2 (2019-09-07)
 ----------------
 
 - Fix setup classifier for a clean release
