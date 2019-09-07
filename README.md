@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/lionel-panhaleux/krcg.svg?branch=master)](https://travis-ci.org/lionel-panhaleux/krcg)
+[![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
+[![Code Style](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
+
 # KRCG
 
 A command-line interface based on
