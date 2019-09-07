@@ -6,7 +6,7 @@ and the [Tournament Winning Deck Archive (TWDA)](http://www.vekn.fr/decks/twd.ht
 
 ## Installation
 
-Use pip to install th ``krcg`` tool:
+Use pip to install the ``krcg`` tool:
 
 ```shell
 pip install krcg
