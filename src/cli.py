@@ -298,7 +298,7 @@ parser = subparsers.add_parser("build", help="build a deck")
 parser.add_argument(
     "-d",
     "--date",
-    type=arrow.get,
+    type=lambda s: arrow.get(s, "YYYY"),
     default=arrow.get(2008, 1, 1),
     help="do not consider decks that won before this date (default 2008-01-01)",
 )
