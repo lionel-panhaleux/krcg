@@ -3,4 +3,6 @@ include LICENSE README.md CHANGELOG.rst
 graft src
 prune tests
 
-global-exclude __pycache__ *.egg-info *.pkl
+global-exclude *__pycache__*
+global-exclude *.egg-info*
+global-exclude *.pkl*
