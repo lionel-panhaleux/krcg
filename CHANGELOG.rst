@@ -4,7 +4,7 @@ Changelog
 0.4 (unreleased)
 ----------------
 
-- Improve tests.
+- The build command now correctly uses --fom and --to options.
 
 
 0.3 (2019-09-07)
