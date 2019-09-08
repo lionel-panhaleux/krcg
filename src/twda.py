@@ -53,6 +53,13 @@ class _TWDA(collections.OrderedDict):
         """Load from TWDA.html
         """
         self.clear()
+        # used to check if discipline or clan has been added after the card name
+        self.tail_re = "(.+?)\\s+(?:{})".format(
+            "|".join(
+                re.escape(s.lower())
+                for s in vtes.VTES.clans + vtes.VTES.disciplines + ["trifle"]
+            )
+        )
         for count, (lines, twda_id) in enumerate(self._get_decks_html(source)):
             try:
                 self[twda_id] = self._load_deck_html(lines, twda_id)
@@ -219,12 +226,22 @@ class _TWDA(collections.OrderedDict):
                     continue
                 if not headers and not current:
                     continue
+                card = None
                 try:
                     card = vtes.VTES[name]
                 except KeyError:
-                    logger.error(
-                        "[{:<6}] unknown card [{}] - [{}]".format(line_num, name, line)
+                    match = re.match(r"(.+?)\s+(?:\(|\[|-|/)", name) or re.match(
+                        self.tail_re, name
                     )
+                    if match:
+                        name = match.group(1)
+                    try:
+                        card = vtes.VTES[name]
+                        logger.warning(
+                            f"[{line_num:<6}] fuzzy [{card['Name']}] - [{line}]"
+                        )
+                    except KeyError:
+                        logger.warning(f"[{line_num:<6}] unknown [{name}] - [{line}]")
                     continue
                 current.update({card["Name"]: count})
             else:
@@ -261,21 +278,20 @@ def _get_card(line):
     There are a lot of circumvoluted cases to take into account, cf. tests.
     """
     card_match = re.match(
-        r"^\s*(?:-|_)?(?:(?:x|X|\*|_)?\s*"
-        r"(?P<count>\d{1,2})(?!(?:(?:st)|(?:nd)|(?:rd)|(?:th))))?"
-        r"\s*(?:(?:x|X|-)\s)?\*?\s*"
-        r"(?P<name>(?:(?:channel 10)|.+?))"
-        r"(?:(?:"
-        r"(?:\s|\(|\[|:|/|=)+(?:-|x|\*|\s)*"
-        r"(?P<count_or_cap>\d{1,3})"
-        r"(?!(?:(?:st)|(?:nd)|(?:rd)|(?:th)|(?:.?\d)|b|p|(?:..?port)))"
-        r")|$)",
+        r"^\s*(-|_)?((x|X|\*|_)?\s*"
+        r"(?P<count>\d{1,2})(?!((st)|(nd)|(rd)|(th))))?"
+        r"\s*((x|X|-)\s)?\*?\s*"
+        r"(?P<name>((channel 10)|.+?))"
+        r"((\s|\(|\[|\s/|:)+|\s=+)(-|x|\*|\s)*"
+        r"(?P<count_or_capacity>\d{1,2})"
+        r"(?!((st)|(nd)|(rd)|(th)|(.?\d)|b|p|(..?port)))"
+        r")|(\.|,|\s)*$)",
         line,
     )
     if not card_match:
         return None, None
     name = card_match.group("name").strip()
-    count = int(card_match.group("count") or card_match.group("count_or_cap") or 1)
+    count = int(card_match.group("count") or card_match.group("count_or_capacity") or 1)
     return name, count
 
 

@@ -40,3 +40,7 @@ def test_get_card():
     )
     # local 1111 is hard, card counts have less than 3 digits
     assert twda._get_card("local 1111 2") == ("local 1111", 2)
+    assert twda._get_card("1x alia, god=92s messenger") == (
+        "alia, god=92s messenger",
+        1,
+    )
