@@ -34,8 +34,9 @@ class Deck(collections.Counter):
         self.comments = ""
 
     def __getstate__(self):
-        """For pickle serialization: Deck inherits dict and their special
-        handling of pickle.
+        """For pickle serialization.
+
+        Deck inherits `dict` and its special handling of pickle.
         """
         return {
             "cards": collections.OrderedDict(self.cards()),
@@ -68,7 +69,7 @@ class Deck(collections.Counter):
         self.update(state.get("cards", {}))
 
     def __reduce__(self):
-        """For pickle.
+        """For pickle serialization.
         """
         return (Deck, (), self.__getstate__())
 
@@ -77,6 +78,12 @@ class Deck(collections.Counter):
 
     def cards(self, condition=None):
         """Generator yielding (card_name, count), with an optional filter.
+
+        Args:
+            condition (func): (opt.) Condition each card must validate to be selected
+
+        Yields:
+            card, count (str, int)
         """
         for card, count in self.items():
             if condition and not condition(card):
@@ -85,11 +92,23 @@ class Deck(collections.Counter):
 
     def card_names(self, condition=None):
         """Generator yielding card names with an optional filter.
+
+        Args:
+            condition (func): (opt.) Condition each card must validate to be selected
+
+        Yields:
+            card (str)
         """
         for card, count in self.cards(condition):
             yield card
 
     def cards_count(self, condition=None):
         """Card counts with an optional filter.
+
+        Args:
+            condition (func): (opt.) Condition each card must validate to be selected
+
+        Returns:
+            int: the count of all cards (matching the condition if any)
         """
         return sum(count for card, count in self.cards(condition))

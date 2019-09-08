@@ -18,15 +18,25 @@ class AnalysisError(Exception):
 
 class Analyzer(object):
     """Used to analyze TWDA, find affinity between cards and build decks.
+
+    The "affinity" is the number of decks where two cards are played together.
+
+    Attributes:
+        examples (dict): Selected example decks from TWDA
+        played (dict): For each card, number of decks playing it at least once
+        average (dict): For each card, average number of exemplaries played
+        affinity (dict): For each card, dict of cards and their affinity (int)
+        refresh_cursor (int): Card count for next refresh (when building deck)
+        deck (deck.Deck): Deck being built
     """
 
     def __init__(self):
-        self.examples = None  # dict of example decks from TWDA
-        self.played = None  # number of decks playing each card
-        self.average = None  # average number of exemplaries played
-        self.affinity = None  # affinity score of cards relative to each card
-        self.refresh_cursor = 0  # when to refresh next
-        self.deck = None  # deck being build
+        self.examples = None
+        self.played = None
+        self.average = None
+        self.affinity = None
+        self.refresh_cursor = 0
+        self.deck = None
 
     def build_deck(self, *args):
         """Build a deck, using optional card names as reference.
@@ -35,11 +45,18 @@ class Analyzer(object):
         It includes reference decks in the description.
 
         If no card name is given, a random first-tier card is chosen for seed.
+
+        Args:
+            *args (str): (opt.) card names as reference for deck building
+
+        Returns:
+            deck.Deck: The deck built
         """
         self.deck = deck.Deck(author="Fame")
         self.refresh(*args, condition=vtes.VTES.is_crypt)
+        # if no seed is given, choose one of the 100 most played cards,
+        # but do not pick a spoiler (card played in more than 25% decks).
         if not args:
-            # do not consider spoilers when choosing the seed
             args = [
                 [
                     c
@@ -67,12 +84,9 @@ class Analyzer(object):
         If card names are given as args, only examples containing similar cards
         are selected as examples and `self.affinity` is computed for all given cards.
 
-        Similarity is used to select example decks from TWDA.
-        A default similarity of 60% (6 out of 10 cards matching) is used to select
-        example decks for the `build_deck` feature.
-        When trying to find decks containing specific cards,
-        similarity=1 can be used to have a 100% match, meaning all cards given as
-        args must be present in the deck for it to be selected as an example.
+        Similarity is used to select example decks from TWDA, using Jaccard index.
+        similarity=1 can be used to ensure all cards given as args must be present
+        in the deck for it to be selected as an example.
 
         If `self.deck` has been created (e.g. by calling `build_deck`),
         `self.average` of number played is computed for each example card
@@ -83,9 +97,9 @@ class Analyzer(object):
         in O(log) of cards count.
 
         Args:
-            - args: (opt.) card names, choose decks containing them
-            - similarity: (opt.) matching cards proportion for selection
-            - condition: (opt.) filter on card types, clans, etc.
+            args: (opt.) card names, choose decks containing them
+            similarity: (opt.) matching cards proportion for selection
+            condition: (opt.) filter on card types, clans, etc.
         """
         reference = []
         if args:
@@ -93,7 +107,7 @@ class Analyzer(object):
         if self.deck:
             reference += list(self.deck.card_names(twda.TWDA.no_spoil))
         self.refresh_cursor = len(reference) * len(reference)
-        # examples are similar (jaccard) decks chosen from TWDA
+        # examples are similar (jaccard index > similarity) decks chosen from TWDA
         # spoilers (cards played in more than 25% decks) are not considered
         if reference:
             self.examples = {
@@ -147,6 +161,10 @@ class Analyzer(object):
 
     def refresh_affinity(self, card, condition=None):
         """Add a card to `self.affinity` using current examples.
+
+        Args:
+            card (str): The card for which to refresh affinity
+            condition (func): The conditional function candidates have to validate
         """
         for example in self.examples.values():
             if card not in example:
@@ -157,6 +175,13 @@ class Analyzer(object):
 
     def candidates(self, *args):
         """Select candidates using `self.affinity`. Filter banned cards out.
+
+        Args:
+            *args (str): Reference cards
+            limit: Maximum number of candidates to return
+
+        Returns:
+            list: List of (card, affinity_score) candidates by decreasing affinity
         """
         # score candidates by affinity
         candidates = collections.Counter()
@@ -173,8 +198,12 @@ class Analyzer(object):
     def build_deck_part(self, *args, condition=None):
         """Build a deck part using given condition
 
-        Condition is usually `VTES.is_crypt` or `VTES.is_library` nut any
+        Condition is usually `VTES.is_crypt` or `VTES.is_library` but any
         condition on cards will work.
+
+        Args:
+            *args: cards already selected for the deck
+            condition: condition on the next card to select
         """
         while self.cards_left > 0:
             if len(self.deck) >= self.refresh_cursor:

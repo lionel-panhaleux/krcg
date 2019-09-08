@@ -41,16 +41,29 @@ HEADERS.update([h + ":" for h in HEADERS])
 
 class _TWDA(collections.OrderedDict):
     """ An OrderedDict of the TWDA. Parsing TWDA.html is the hard part.
+
+    Attributes:
+        spoilers (set): cards played in over 25% of decks
+        tail_re (str): regexp used to parse tail part of card line
     """
 
     def load_from_vekn(self, limit=None):
         """Load from vekn.net
+
+        Args:
+            limit: Maximum number of decks to load (used to speed up tests)
         """
         r = requests.request("GET", config.VEKN_TWDA_URL)
         self.load_html(io.StringIO(r.content.decode("utf-8")), limit)
 
     def load_html(self, source, limit=None):
         """Load from TWDA.html
+
+        The TWDA is then pickled for future use, to avoid loading it too often.
+
+        Args:
+            source (file): The HTML
+            limit: Maximum number of decks to load (used to speed up tests)
         """
         self.clear()
         # used to check if discipline or clan has been added after the card name
@@ -71,7 +84,14 @@ class _TWDA(collections.OrderedDict):
         pickle.dump(TWDA, open(config.TWDA_FILE, "wb"))
 
     def configure(self, date_from=None, date_to=None, min_players=0):
-        """Compute `self.spoilers`: cards played in over 25% of decks
+        """Prepare the TWDA, taking date and players count filters into account.
+
+        Also compute `self.spoilers`.
+
+        Args:
+            date_from (datetime): filter out decks before this date
+            date_to (datetime): filter out decks after this date
+            min_players (int): if > 0, filter out decks with less players
         """
         if date_from:
             for key in [key for key, value in self.items() if value.date < date_from]:
@@ -100,6 +120,9 @@ class _TWDA(collections.OrderedDict):
 
     def _get_decks_html(self, source):
         """Get lines for each deck, using HTML tags as separators.
+
+        Args:
+            source (file): HTML source file-like object implementing `readlines()`
         """
         lines = []
         for line_num, line in enumerate(source.readlines(), start=1):
@@ -116,6 +139,10 @@ class _TWDA(collections.OrderedDict):
 
     def _load_deck_html(self, lines, twda_id):
         """Parse TWDA.html lines to build a deck.
+
+        Args:
+            lines (list): lines of the deck as a list of `str`
+            twda_id (str): the TWDA ID for this deck
         """
         current = deck.Deck()
         headers = False
@@ -242,7 +269,7 @@ class _TWDA(collections.OrderedDict):
                         )
                     except KeyError:
                         logger.warning(f"[{line_num:<6}] unknown [{name}] - [{line}]")
-                    continue
+                        continue
                 current.update({card["Name"]: count})
             else:
                 logger.warning("[{:<6}] no card matched [{}]".format(line_num, line))
@@ -276,21 +303,45 @@ def _get_card(line):
     """Find card name and count in a TWDA.html line
 
     There are a lot of circumvoluted cases to take into account, cf. tests.
+    Capturing the card comments here has proven difficult,
+    since comments take so many forms in TWDA.
+    We just capture the whole line and try and extract the card number if possible.
+
+    Args:
+        line (str): Test line
     """
     card_match = re.match(
+        # beginning of line, optional punctuation
         r"^\s*(-|_)?((x|X|\*|_)?\s*"
+        # count
+        # 2 digits maximum to avoid miscounting "419 Operation" and such
+        # negative lookahead to avoid matching part of a card name (2nd, 3rd, 4th, ...)
         r"(?P<count>\d{1,2})(?!((st)|(nd)|(rd)|(th))))?"
+        # optional punctuation
         r"\s*((x|X|-)\s)?\*?\s*"
+        # non-greedy qualifier for card name, matches what the tail expression does not
+        # special case for "channel 10" to avoid parsing 10x "channel".
+        # "local 1111" and such are OK: we only consider 1 or 2 digits as valid count.
         r"(?P<name>((channel 10)|.+?))"
+        # open parentheses for optional tail expression (separated for clarity)
+        r"(("
+        # mandatory punctuation (beware of "AK-47", "Kpist m/45", ...)
         r"((\s|\(|\[|\s/|:)+|\s=+)(-|x|\*|\s)*"
+        # sometimes (old deck lists) count is after the card name
+        # for vampires, this is the capacity of the vampire
         r"(?P<count_or_capacity>\d{1,2})"
+        # negative lookahead to avoid matching part of a card name (2nd, 3rd, 4th, ...)
+        # also ignore blood ("b") / pool ("p") cost sometimes indicated after card name
+        # also special exception for "Pier 13, Port of Baltimore"
         r"(?!((st)|(nd)|(rd)|(th)|(.?\d)|b|p|(..?port)))"
+        # closing parentheses for tail expression (separated for clarity)
         r")|(\.|,|\s)*$)",
         line,
     )
     if not card_match:
         return None, None
     name = card_match.group("name").strip()
+    # when count is not given on the line, default to 1 (common in old deck lists)
     count = int(card_match.group("count") or card_match.group("count_or_capacity") or 1)
     return name, count
 
