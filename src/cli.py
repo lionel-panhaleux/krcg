@@ -80,7 +80,7 @@ def top(args):
 
 
 def build(args):
-    twda.TWDA.configure()
+    twda.TWDA.configure(args.date_from, args.date_to)
     print(vtes.VTES.deck_to_txt(analyzer.Analyzer().build_deck(*args.cards)))
 
 
@@ -150,6 +150,25 @@ def _card_text(card):
     return text
 
 
+def add_year_boundaries(parser):
+    """Common arguments: --from and --to to control year boundaries of TWDA analysis.
+    """
+    parser.add_argument(
+        "--from",
+        type=lambda s: arrow.get(s, "YYYY"),
+        default=arrow.get(2008, 1, 1),
+        dest="date_from",
+        help="do not consider decks that won before this year (default 2008-01-01)",
+    )
+    parser.add_argument(
+        "--to",
+        type=lambda s: arrow.get(s, "YYYY"),
+        default=arrow.get(),
+        dest="date_to",
+        help="do not consider decks that won after this year",
+    )
+
+
 root_parser = argparse.ArgumentParser(prog="krcg", description="VTES tool")
 root_parser.add_argument(
     "-v",
@@ -181,6 +200,7 @@ parser.set_defaults(func=init)
 parser = subparsers.add_parser(
     "affinity", help="display cards with the most affinity to given cards"
 )
+add_year_boundaries(parser)
 parser.add_argument(
     "-n",
     "--number",
@@ -188,20 +208,6 @@ parser.add_argument(
     default=10,
     metavar="N",
     help="Number of cards to print (default 10)",
-)
-parser.add_argument(
-    "--from",
-    type=lambda s: arrow.get(s, "YYYY"),
-    default=arrow.get(2008, 1, 1),
-    dest="date_from",
-    help="do not consider decks that won before this year (default 2008-01-01)",
-)
-parser.add_argument(
-    "--to",
-    type=lambda s: arrow.get(s, "YYYY"),
-    default=arrow.get(),
-    dest="date_to",
-    help="do not consider decks that won after this year",
 )
 parser.add_argument(
     "-s",
@@ -223,22 +229,9 @@ parser.set_defaults(func=affinity)
 parser = subparsers.add_parser(
     "top", help="display top cards (played in most TW decks)"
 )
+add_year_boundaries(parser)
 parser.add_argument(
     "-n", "--number", type=int, default=10, help="Number of cards to print (default 10)"
-)
-parser.add_argument(
-    "--from",
-    type=lambda s: arrow.get(s, "YYYY"),
-    default=arrow.get(2008, 1, 1),
-    dest="date_from",
-    help="do not consider decks that won before this year (default 2008-01-01)",
-)
-parser.add_argument(
-    "--to",
-    type=lambda s: arrow.get(s, "YYYY"),
-    default=arrow.get(),
-    dest="date_to",
-    help="do not consider decks that won after this year",
 )
 parser.add_argument(
     "-d",
@@ -273,13 +266,7 @@ parser.add_argument("-f", "--full", action="store_true", help="display card text
 parser.set_defaults(func=top)
 # ################################################################################ build
 parser = subparsers.add_parser("build", help="build a deck")
-parser.add_argument(
-    "-d",
-    "--date",
-    type=lambda s: arrow.get(s, "YYYY"),
-    default=arrow.get(2008, 1, 1),
-    help="do not consider decks that won before this date (default 2008-01-01)",
-)
+add_year_boundaries(parser)
 parser.add_argument(
     "cards",
     metavar="CARD",
@@ -290,25 +277,12 @@ parser.add_argument(
 parser.set_defaults(func=build)
 # ################################################################################# deck
 parser = subparsers.add_parser("deck", help="show TWDA decks")
+add_year_boundaries(parser)
 parser.add_argument(
     "-f", "--full", action="store_true", help="display each deck content"
 )
 parser.add_argument(
     "cards_or_id", metavar="TXT", nargs="*", help="list TWDA decks from ID or cards"
-)
-parser.add_argument(
-    "--from",
-    type=lambda s: arrow.get(s, "YYYY"),
-    default=arrow.get(2008, 1, 1),
-    dest="date_from",
-    help="do not consider decks that won before this year (default 2008-01-01)",
-)
-parser.add_argument(
-    "--to",
-    type=lambda s: arrow.get(s, "YYYY"),
-    default=arrow.get(),
-    dest="date_to",
-    help="do not consider decks that won after this year",
 )
 parser.add_argument(
     "-p",
