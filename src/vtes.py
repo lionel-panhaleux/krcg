@@ -16,7 +16,6 @@ import zipfile
 
 from . import config
 
-
 logger = logging.getLogger()
 
 
@@ -24,9 +23,12 @@ class _VTES(dict):
     """VTES cards database that matches incomplete or misspelled card names.
 
     Keys are lower case card names.
+    Contains both crypt and library cards in a single dict.
     """
 
     def load_from_vekn(self):
+        """Load the card database from vekn.net
+        """
         self.clear()
         r = requests.request("GET", config.VEKN_VTES_URL)
         with tempfile.NamedTemporaryFile("wb", suffix=".zip") as f:
@@ -41,8 +43,11 @@ class _VTES(dict):
     def __getitem__(self, key):
         """Get a card, try to find a good matching.
 
-        Use lowercase only, config.REMAP for common errors and abbreviations.
-        Use difflib to match incomplete or misspelled names
+        It uses lowercase only, plus config.REMAP for common errors and abbreviations.
+        It also uses difflib to match incomplete or misspelled names
+
+        Args:
+            key (str): the card to search for
         """
         key = key.lower()
         try:
@@ -54,13 +59,6 @@ class _VTES(dict):
             match = self._fuzzy_match(key)
             if match:
                 return self[match]
-            try:
-                while key:
-                    key, _ = key.rsplit(maxsplit=1)
-                    if key in self:
-                        return self[key]
-            except ValueError:
-                pass
             raise
 
     def __contains__(self, key):
@@ -77,13 +75,11 @@ class _VTES(dict):
     def __delitem__(self, key, value):
         return super().__setitem__(key.lower(), value)
 
-    def __contains__(self, item):
-        return super().__contains__(item.lower())
-
     def configure(self):
         """Add alternative names for some cards
         """
-        # note we difflib match on AKA but not on REMAP.
+        # we difflib match on AKA but not on REMAP
+        # some items on REMAP are too short and match too many things.
         for alternative, card in config.AKA.items():
             self[alternative] = self[card]
 
@@ -92,9 +88,17 @@ class _VTES(dict):
 
     @functools.lru_cache()
     def _fuzzy_match(self, name):
-        """Use a cache to accelerate matching of common misspellings.
+        """Use difflib to match incomplete or misspelled names
+
+        It uses a cache to accelerate matching of common misspellings.
+
+        Args:
+            name (str): the card name
+
+        Returns:
+            The matched card name, or None
         """
-        # 0.8 is an empirical value, seems to work nice
+        # 0.8 is an empirical value, seems to work nicely
         result = difflib.get_close_matches(name, self.keys(), n=1, cutoff=0.8)
         if result:
             match = result[0]
@@ -104,10 +108,37 @@ class _VTES(dict):
     def trait_choices(self, trait):
         """Get all registered values for a given card trait.
 
+        Available traits:
+        - Adv
+        - Aka
+        - Artist
+        - Banned
+        - Blood Cost
+        - Burn Option
+        - Capacity
+        - Card Text
+        - Clan
+        - Conviction Cost
+        - Discipline (Library card)
+        - Disciplines (Crypt card)
+        - Draft
+        - Flavor Text
+        - Group
+        - Id
+        - Name
+        - Pool Cost
+        - Requirement
+        - Set
+        - Title
+        - Type
+
         Empty values are removed.
 
-        >>> sorted(VTES.trait_choices('Banned'))
-        ['1995', '1997', '1999', '2005', '2008', '2013']
+        Args:
+            trait (str): The trait to get choices for.
+
+        Yields:
+            All possible values
         """
 
         def get_traits(trait_value):
@@ -127,17 +158,27 @@ class _VTES(dict):
 
     @property
     def disciplines(self):
+        """Return a list of disciplines
+        """
         return sorted(self.trait_choices("Discipline"))
 
     @property
     def types(self):
+        """Return a list of card types
+        """
         return sorted(self.trait_choices("Type"))
 
     @property
     def clans(self):
+        """Return a list of clans
+        """
         return sorted(self.trait_choices("Clan"))
 
     def load_csv(self, stream):
+        """Load a crypt or library CSV (VEKN format)
+
+        The VTES card list is pickled for future use.
+        """
         for card in csv.DictReader(stream):
             if card.get("Adv"):
                 name = card["Name"] + " (ADV)"
@@ -169,13 +210,39 @@ class _VTES(dict):
 
     # usual traits selectors
     def is_crypt(self, card):
+        """A function to check if a card is a crypt card
+
+        Args:
+            card (str): card name
+
+        Returns:
+            bool: true if the card is a crypt card
+        """
         return VTES[card]["Type"] in ("Vampire", "Imbued")
 
     def is_library(self, card):
-        return VTES[card]["Type"] not in ("Vampire", "Imbued")
+        """A function to check if a card is a library card
 
-    # handle multi valued traits
+        Args:
+            card (str): card name
+
+        Returns:
+            bool: true if the card is a library card
+        """
+        return not self.is_crypt(card)
+
     def is_disc(self, card, discipline):
+        """A function to check if a card is of given discipline
+
+        Handles multi-valued cards too (combo or outferior option).
+
+        Args:
+            card (str): card name
+            discipline (str): a discipline name
+
+        Returns:
+            bool: true if the card is of the given discipline
+        """
         if discipline == "Combo":
             return "&" in VTES[card].get("Discipline", "")
         return {discipline} & {
@@ -185,13 +252,45 @@ class _VTES(dict):
         }
 
     def is_type(self, card, type_):
+        """A function to check if a card is of the given type
+
+        Handles multiple types too (e.g. Modifier/Reaction)
+
+        Args:
+            card (str): card name
+            type_ (str): a card type
+
+        Returns:
+            bool: true if the card has the given type
+        """
         return {type_} & {t.strip() for t in VTES[card]["Type"].split("/")}
 
     def is_clan(self, card, clan):
+        """A function to check if a card is of the given clan (or requires said clan)
+
+        Handles multiple clans too (e.g. Gangrel/Gangrel Antitribu)
+
+        Args:
+            card (str): card name
+            clan (str): a clan
+
+        Returns:
+            bool: true if the card is of the given clan.
+        """
         return {clan} & {t.strip() for t in VTES[card]["Clan"].split("/")}
 
-    # a consistent deck display matching our parsing rules of TWDA.html
     def deck_to_txt(self, deck):
+        """A consistent deck display matching our parsing rules of TWDA.html
+
+        Cards are displayed in the order given by the config.TYPE_ORDER list.
+
+        Args:
+            deck (deck.Deck): A deck
+
+        Returns:
+            str: The normalized text version of the deck
+        """
+
         def _type(card):
             return config.TYPE_ORDER.index(self[card[0]]["Type"])
 
@@ -231,10 +330,12 @@ class _VTES(dict):
                 )
             )
         lines.append("-- Library ({})".format(deck.cards_count(self.is_library)))
-        # sort by type, count (dec.), name
+        # sort by type, count (descending), name
+        # note ordering must match the `itertools.groupby` function afterwards.
         library_cards = sorted(
             deck.cards(self.is_library), key=lambda a: (_type(a), -a[1], a[0])
         )
+        # form a section for each type with a header displaying the total
         for kind, cards in itertools.groupby(library_cards, key=_type):
             c1, c2 = itertools.tee(cards)
             lines.append(

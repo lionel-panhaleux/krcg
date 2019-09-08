@@ -2,12 +2,15 @@
 """
 from os import path
 
+#: what to download
 VEKN_TWDA_URL = "http://www.vekn.fr/decks/twd.htm"
 VEKN_VTES_URL = "http://www.vekn.net/images/stories/downloads/vtescsv_utf8.zip"
 VEKN_VTES_LIBRARY_FILENAME = "vteslib.csv"
 VEKN_VTES_CRYPT_FILENAME = "vtescrypt.csv"
+#: where to store our data
 TWDA_FILE = path.join(path.dirname(__file__), "TWDA.pkl")
 VTES_FILE = path.join(path.dirname(__file__), "VTES.pkl")
+#: classic headers in deck lists
 HEADERS = [
     "master",
     "minion",
@@ -31,6 +34,7 @@ HEADERS = [
     "modifier",
     "mod",
 ]
+#: custom headers some players have used
 ADDITIONAL_HEADERS = [
     "combo",
     "combos",
@@ -48,6 +52,7 @@ ADDITIONAL_HEADERS = [
     "equip",
     "total",
 ]
+#: official cards renaming
 AKA = {
     # due to our card parsing
     "bang nakh": "Bang Nakh -- Tiger's Claws",
@@ -57,6 +62,7 @@ AKA = {
     "mask of 1,000 faces": "Mask of a Thousand Faces",
     "carlton van wyk (hunter)": "Carlton Van Wyk",
 }
+#: custom remap to match players abbreviations and typos
 REMAP = {
     # traditions - players really do whatever they want
     "the first tradition": "First Tradition: The Masquerade",
@@ -238,6 +244,7 @@ REMAP = {
     "2th tradition": "Second Tradition: Domain",
     "info superhighway": "Information Highway",
 }
+#: type order for deck display
 TYPE_ORDER = [
     "Master",
     "Conviction",
@@ -261,8 +268,8 @@ TYPE_ORDER = [
     "Retainer",
     "Event",
 ]
+#: list of banned cards - VEKN card lists are not up to date.
 BANNED = [
-    # VEKN card lists are not up to date.
     "Anthelios, The Red Star",
     "Dramatic Upheaval",
     "Edge Explosion",
