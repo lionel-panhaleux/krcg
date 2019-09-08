@@ -4,13 +4,15 @@ If it has not been initialized, TWDA will evaluate to False.
 TWDA must be configured with `TWDA.configure()` before being used.
 """
 import collections
+import io
 import itertools
 import logging
 import pickle
 import re
 
 import arrow
-from arrow.parser import ParserError
+import arrow.parser
+import requests
 
 from . import config
 from . import deck
@@ -41,14 +43,23 @@ class _TWDA(collections.OrderedDict):
     """ An OrderedDict of the TWDA. Parsing TWDA.html is the hard part.
     """
 
-    def load_html(self, source, binary=False):
+    def load_from_vekn(self, limit=None):
+        """Load from vekn.net
+        """
+        r = requests.request("GET", config.VEKN_TWDA_URL)
+        self.load_html(io.StringIO(r.content.decode("utf-8")), limit)
+
+    def load_html(self, source, limit=None):
         """Load from TWDA.html
         """
-        for lines, twda_id in self._get_decks_html(source, binary):
+        self.clear()
+        for count, (lines, twda_id) in enumerate(self._get_decks_html(source)):
             try:
                 self[twda_id] = self._load_deck_html(lines, twda_id)
-            except ParserError as e:
+            except arrow.parser.ParserError as e:
                 logger.error(e)
+            if limit and count >= limit:
+                break
         logger.info("TWDA loaded")
         pickle.dump(TWDA, open(config.TWDA_FILE, "wb"))
 
@@ -80,13 +91,11 @@ class _TWDA(collections.OrderedDict):
         else:
             self.spoilers = {}
 
-    def _get_decks_html(self, source, binary):
+    def _get_decks_html(self, source):
         """Get lines for each deck, using HTML tags as separators.
         """
         lines = []
         for line_num, line in enumerate(source.readlines(), start=1):
-            if binary:
-                line = line.decode("utf-8")
             try:
                 twda_id = re.match(r"^<a id=([^\s]*)\s", line).group(1)
             except AttributeError:

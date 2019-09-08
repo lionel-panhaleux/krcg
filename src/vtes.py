@@ -6,9 +6,13 @@ VTES must be configured with `VTES.configure()` before being used.
 import csv
 import functools
 import difflib
+import io
 import itertools
 import logging
 import pickle
+import requests
+import tempfile
+import zipfile
 
 from . import config
 
@@ -21,6 +25,18 @@ class _VTES(dict):
 
     Keys are lower case card names.
     """
+
+    def load_from_vekn(self):
+        self.clear()
+        r = requests.request("GET", config.VEKN_VTES_URL)
+        with tempfile.NamedTemporaryFile("wb", suffix=".zip") as f:
+            f.write(r.content)
+            f.flush()
+            z = zipfile.ZipFile(f.name)
+            with z.open(config.VEKN_VTES_LIBRARY_FILENAME) as c:
+                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"))
+            with z.open(config.VEKN_VTES_CRYPT_FILENAME) as c:
+                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"))
 
     def __getitem__(self, key):
         """Get a card, try to find a good matching.

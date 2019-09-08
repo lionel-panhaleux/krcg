@@ -18,23 +18,6 @@ class AnalysisError(Exception):
 
 class Analyzer(object):
     """Used to analyze TWDA, find affinity between cards and build decks.
-
-    Usage:
-    >>> # Create analyzer and refresh - optionally, reference cards can be given
-    >>> A = Analyzer()
-    >>> A.refresh()
-    >>> # Get the number of decks playing any given card
-    >>> A.played["Octopod"]
-    5
-    >>> # Get affinity for cards given as argument to refresh
-    >>> # The score is the number of TWD playing these cards together
-    >>> A.refresh("Octopod")
-    >>> A.affinity["Octopod"].most_common()[0]
-    ('Immortal Grapple', 5)
-    >>> # Use similarity of 1 to get all decks matching the full card list
-    >>> A.refresh("Octopod", "Ivory Bow", similarity=1)
-    >>> len(A.examples)
-    1
     """
 
     def __init__(self):
@@ -77,11 +60,19 @@ class Analyzer(object):
         return self.deck
 
     def refresh(self, *args, similarity=0.6, condition=None):
-        """Sample TWDA.
+        """Sample TWDA. This is the core method of the Analyzer.
 
-        Fetch `self.examples` from TWDA.
+        Fetch `self.examples` decks from TWDA.
+
         If card names are given as args, only examples containing similar cards
-        are selected as examples. `self.affinity` is computed for given cards.
+        are selected as examples and `self.affinity` is computed for all given cards.
+
+        Similarity is used to select example decks from TWDA.
+        A default similarity of 60% (6 out of 10 cards matching) is used to select
+        example decks for the `build_deck` feature.
+        When trying to find decks containing specific cards,
+        similarity=1 can be used to have a 100% match, meaning all cards given as
+        args must be present in the deck for it to be selected as an example.
 
         If `self.deck` has been created (e.g. by calling `build_deck`),
         `self.average` of number played is computed for each example card

@@ -1,0 +1,47 @@
+from src import vtes
+
+
+def test_init():
+    vtes.VTES.load_from_vekn()
+    vtes.VTES.configure()
+    assert sorted(vtes.VTES.trait_choices("Discipline")) == [
+        "Abombwe",
+        "Animalism",
+        "Auspex",
+        "Celerity",
+        "Chimerstry",
+        "Combo",
+        "Daimoinon",
+        "Defense",
+        "Dementation",
+        "Dominate",
+        "Flight",
+        "Fortitude",
+        "Innocence",
+        "Judgment",
+        "Maleficia",
+        "Martyrdom",
+        "Melpominee",
+        "Mytherceria",
+        "Necromancy",
+        "Obeah",
+        "Obfuscate",
+        "Obtenebration",
+        "Potence",
+        "Presence",
+        "Protean",
+        "Quietus",
+        "Redemption",
+        "Sanguinus",
+        "Serpentis",
+        "Spiritus",
+        "Striga",
+        "Temporis",
+        "Thanatosis",
+        "Thaumaturgy",
+        "Valeren",
+        "Vengeance",
+        "Vicissitude",
+        "Visceratika",
+        "Vision",
+    ]
