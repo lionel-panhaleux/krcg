@@ -1,6 +1,7 @@
 include LICENSE README.md CHANGELOG.rst
 
 graft src
+prune Makefile
 prune tests
 
 global-exclude *__pycache__*
