@@ -1,20 +1,15 @@
 """Command-line interface.
 """
 import argparse
-import io
 import logging
 import sys
-import tempfile
-import zipfile
 
 import arrow
 import requests
 
 from . import analyzer
-from . import config
 from . import twda
 from . import vtes
-from . import deck
 
 logger = logging.getLogger()
 
@@ -32,18 +27,9 @@ def init(args):
         twda.TWDA.load_html(args.file)
     else:
         try:
-            with tempfile.NamedTemporaryFile("wb", suffix=".zip") as f:
-                r = requests.request("GET", config.VEKN_VTES_URL)
-                f.write(r.content)
-                f.flush()
-                z = zipfile.ZipFile(f.name)
-                with z.open(config.VEKN_VTES_LIBRARY_FILENAME) as c:
-                    vtes.VTES.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"))
-                with z.open(config.VEKN_VTES_CRYPT_FILENAME) as c:
-                    vtes.VTES.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"))
-                vtes.VTES.configure()
-            r = requests.request("GET", config.VEKN_TWDA_URL)
-            twda.TWDA.load_html(io.BytesIO(r.content), binary=True)
+            vtes.VTES.load_from_vekn()
+            vtes.VTES.configure()
+            twda.TWDA.load_from_vekn()
         except requests.exceptions.ConnectionError as e:
             logger.critical(
                 "failed to connect to {}"
@@ -124,6 +110,7 @@ def deck_(args):
 
 
 def card(args):
+    vtes.VTES.configure()
     for name in args.cards:
         try:
             card = vtes.VTES[name]
@@ -163,15 +150,6 @@ def _card_text(card):
     return text
 
 
-def test(args):
-    import doctest
-
-    doctest.testmod(vtes)
-    doctest.testmod(deck)
-    doctest.testmod(twda)
-    doctest.testmod(analyzer)
-
-
 root_parser = argparse.ArgumentParser(prog="krcg", description="VTES tool")
 root_parser.add_argument(
     "-v",
@@ -184,7 +162,7 @@ root_parser.add_argument(
 subparsers = root_parser.add_subparsers(
     metavar="", title="subcommands", dest="subcommand"
 )
-# ######################################################################### init
+# ################################################################################# init
 parser = subparsers.add_parser("init", help="initialize the local TWDA database")
 parser.add_argument(
     "-v", "--vtes", action="store_true", help="Initialize VTES cards database"
@@ -199,7 +177,7 @@ parser.add_argument(
     help="vtes.csv or TWDA.html file",
 )
 parser.set_defaults(func=init)
-# ##################################################################### affinity
+# ############################################################################# affinity
 parser = subparsers.add_parser(
     "affinity", help="display cards with the most affinity to given cards"
 )
@@ -241,7 +219,7 @@ parser.add_argument(
     help="reference cards",
 )
 parser.set_defaults(func=affinity)
-# ########################################################################## top
+# ################################################################################## top
 parser = subparsers.add_parser(
     "top", help="display top cards (played in most TW decks)"
 )
@@ -293,7 +271,7 @@ parser.add_argument(
 )
 parser.add_argument("-f", "--full", action="store_true", help="display card text")
 parser.set_defaults(func=top)
-# ######################################################################## build
+# ################################################################################ build
 parser = subparsers.add_parser("build", help="build a deck")
 parser.add_argument(
     "-d",
@@ -310,7 +288,7 @@ parser.add_argument(
     help="reference cards",
 )
 parser.set_defaults(func=build)
-# ######################################################################### deck
+# ################################################################################# deck
 parser = subparsers.add_parser("deck", help="show TWDA decks")
 parser.add_argument(
     "-f", "--full", action="store_true", help="display each deck content"
@@ -340,14 +318,11 @@ parser.add_argument(
     help="minimum number of players in tournament to consider this deck",
 )
 parser.set_defaults(func=deck_)
-# ######################################################################### card
+# ################################################################################# card
 parser = subparsers.add_parser("card", help="show VTES cards")
 parser.add_argument("-s", "--short", action="store_true", help="display only card name")
 parser.add_argument("cards", metavar="CARD", nargs="+", help="list these cards")
 parser.set_defaults(func=card)
-# ######################################################################### test
-parser = subparsers.add_parser("test", help="unit test")
-parser.set_defaults(func=test)
 
 
 def main():

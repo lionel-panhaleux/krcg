@@ -4,7 +4,7 @@ Changelog
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Improve tests.
 
 
 0.3 (2019-09-07)
