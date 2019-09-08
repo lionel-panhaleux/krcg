@@ -15,7 +15,7 @@ logger = logging.getLogger()
 
 
 def init(args):
-    if args.vtes:
+    if args.cards:
         vtes.VTES.load_csv(args.file)
     elif args.twda:
         if not vtes.VTES:
@@ -174,9 +174,9 @@ root_parser.add_argument(
     "-v",
     "--verbosity",
     type=int,
-    default=1,
+    default=0,
     metavar="N",
-    help="0: none, 1: errors, 2: info, 3: debug",
+    help="0: errors, 1: warnings , 2: info, 3: debug",
 )
 subparsers = root_parser.add_subparsers(
     metavar="", title="subcommands", dest="subcommand"
@@ -184,7 +184,7 @@ subparsers = root_parser.add_subparsers(
 # ################################################################################# init
 parser = subparsers.add_parser("init", help="initialize the local TWDA database")
 parser.add_argument(
-    "-v", "--vtes", action="store_true", help="Initialize VTES cards database"
+    "-c", "--cards", action="store_true", help="Initialize VTES cards database"
 )
 parser.add_argument(
     "-t", "--twda", action="store_true", help="Initialize TWDA database"
@@ -301,11 +301,12 @@ parser.set_defaults(func=card)
 
 def main():
     args = root_parser.parse_args(sys.argv[1:])
-    if args.verbosity > 0:
-        logger.addHandler(logging.StreamHandler(sys.stderr))
-        logger.setLevel(
-            {1: logging.ERROR, 2: logging.INFO, 3: logging.DEBUG}[args.verbosity]
-        )
+    logger.addHandler(logging.StreamHandler(sys.stderr))
+    logger.setLevel(
+        {0: logging.ERROR, 1: logging.WARNING, 2: logging.INFO, 3: logging.DEBUG}[
+            args.verbosity
+        ]
+    )
     if not args.subcommand:
         root_parser.print_help()
         return

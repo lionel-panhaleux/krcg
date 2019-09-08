@@ -228,22 +228,23 @@ class _TWDA(collections.OrderedDict):
                     continue
                 current.update({card["Name"]: count})
             else:
-                logger.error("[{:<6}] no card matched [{}]".format(line_num, line))
+                logger.warning("[{:<6}] no card matched [{}]".format(line_num, line))
+
         library_count = current.cards_count(vtes.VTES.is_library)
         if library_count < 60:
-            logger.info(
+            logger.warning(
                 "[{:<6}] Deck #{} is missing library cards [{}]".format(
                     line_num, twda_id, current
                 )
             )
         if library_count > 90:
-            logger.info(
+            logger.warning(
                 "[{:<6}] Deck #{} has too many cards [{}]".format(
                     line_num, twda_id, current
                 )
             )
         if current.cards_count(vtes.VTES.is_crypt) < 12:
-            logger.info(
+            logger.warning(
                 "[{:<6}] Deck #{} is missing crypt cards [{}]".format(
                     line_num, twda_id, current
                 )

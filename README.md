@@ -27,10 +27,6 @@ Then initialize the tool using the ``init`` subcommand:
 krcg init
 ```
 
-Note the initialization process usually displays a long list of lines mismatch.
-This is not an issue: many old decks in the TWDA are hard to parse,
-and these errors are usually of no consequence.
-
 ## Usage
 
 Use the help command for a full documentation of the tool:

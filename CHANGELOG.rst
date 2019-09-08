@@ -4,6 +4,7 @@ Changelog
 0.4 (unreleased)
 ----------------
 
+- No more warning spam by default when loading TWDA (use the --verbose option)
 - The build command now correctly uses --fom and --to options.
 
 
