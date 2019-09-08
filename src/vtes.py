@@ -63,6 +63,14 @@ class _VTES(dict):
                 pass
             raise
 
+    def __contains__(self, key):
+        """Also use config.REMAP and difflib on "in" tests
+        """
+        key = key.lower()
+        return (
+            super().__contains__(key) or key in config.REMAP or self._fuzzy_match(key)
+        )
+
     def __setitem__(self, key, value):
         return super().__setitem__(key.lower(), value)
 
