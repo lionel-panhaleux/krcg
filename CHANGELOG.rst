@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4 (unreleased)
+0.4 (2019-09-08)
 ----------------
 
 - No more warning spam by default when loading TWDA (use the --verbose option)
