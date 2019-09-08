@@ -1,5 +1,6 @@
 [![PyPI version](https://badge.fury.io/py/krcg.svg)](https://badge.fury.io/py/krcg)
 [![Build Status](https://travis-ci.org/lionel-panhaleux/krcg.svg?branch=master)](https://travis-ci.org/lionel-panhaleux/krcg)
+[![Python version](https://img.shields.io/badge/python-3.7-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Code Style](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
 
@@ -10,6 +11,9 @@ the VEKN [official card texts](http://www.vekn.net/card-lists)
 and the [Tournament Winning Deck Archive (TWDA)](http://www.vekn.fr/decks/twd.htm)
 
 ## Installation
+
+You need [Python 3](https://www.python.org/downloads/)
+installed on your system to use this tool.
 
 Use pip to install the ``krcg`` tool:
 
