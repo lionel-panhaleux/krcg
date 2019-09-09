@@ -14,6 +14,8 @@ import requests
 import tempfile
 import zipfile
 
+import unidecode
+
 from . import config
 
 logger = logging.getLogger()
@@ -174,36 +176,70 @@ class _VTES(dict):
         """
         return sorted(self.trait_choices("Clan"))
 
+    @staticmethod
+    def get_name_variants(card):
+        """Yields all name variants for a card
+
+        Add the " (ADV)" suffix for advanced vampires
+        Yield an ASCII variant for non-ASCII names
+        Yield a straightforward name for deported article:
+            "Second Tradition, The" -> "The Second Tradition"
+        Yield a shorten version for comma names:
+            "Akhenaten, The Sun Pharaoh" -> "Akhenaten"
+        Apply all of the above for official "Aka" variants
+
+        Important examples are in test.
+
+        Args:
+            card (dict): the card
+
+        Yields:
+            str: all name variants
+        """
+        advanced_suffix = " (ADV)" if card.get("Adv") else ""
+
+        def name_variants(name):
+            if not name:
+                return
+            yield name + advanced_suffix
+            ascii_variant = unidecode.unidecode(name)
+            if ascii_variant != name:
+                yield ascii_variant + advanced_suffix
+            if name[-5:] == ", The":
+                yield from name_variants("The " + name[:-5])
+            # suffix removal
+            # --------------
+            # Note the following code also removes the ", The" particle.
+            # Calling it multiple times can get all particles removed,
+            # eg. "Rumor Mill, Tabloid Newspaper, The" will yield:
+            # - "Rumor Mill, Tabloid Newspaper"
+            # - "Rumor Mill"
+            #
+            # ':' can not be seen as a suffix marker,
+            # because we would miss with "Praxis Seizure:" and "Crusade:" cards.
+            # Too bad, because we would like to get the "Second tradition:" variants.
+            # Henceforth, these variants are handled manually in config.REMAP.
+            if "," in name:
+                alternative = name.rsplit(",", 1)[0]
+                # We do not shorten too much or anything will fuzzy match
+                # eg. "Line" (without ", The") could mismatch "Redline" or "Zip Line".
+                # Still, "Gunther" should match "Gunther, Beast Lord'
+                if len(alternative) > 6:
+                    yield from name_variants(alternative)
+
+        yield from name_variants(card["Name"])
+        # multiple aliases are separated by semicolumn
+        for alias in card.get("Aka", "").split(";"):
+            yield from name_variants(alias.strip())
+
     def load_csv(self, stream):
         """Load a crypt or library CSV (VEKN format)
 
         The VTES card list is pickled for future use.
         """
         for card in csv.DictReader(stream):
-            if card.get("Adv"):
-                name = card["Name"] + " (ADV)"
-            else:
-                name = card["Name"]
-            self[name] = card
-            if card.get("Aka"):
-                self[card["Aka"]] = card
-                if card["Aka"][-5:] == ", The":
-                    self[("The " + card["Name"][:-5])] = card
-            if ", The" in name:
-                name = name.split(", The")[0]
-                self["The " + name] = card
+            for name in self.get_name_variants(card):
                 self[name] = card
-            # add name without suffix if any
-            # ':' can not be seen as a suffix marker, e.g. Praxis Seizure:
-            if "," in name:
-                alternative = name.split(",")[0]
-                if len(alternative) > 6:  # e.g. Pier 13, Port of Baltimore
-                    self[alternative] = card
-            if "(" in card["Name"]:
-                alternative = name.split("(")[0].strip()
-                # e.g. Pentex(TM) Subversion
-                if len(alternative) > 6:
-                    self[alternative] = card
 
         # pickle this
         pickle.dump(VTES, open(config.VTES_FILE, "wb"))
