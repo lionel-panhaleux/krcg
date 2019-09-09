@@ -67,7 +67,8 @@ class _TWDA(collections.OrderedDict):
         """
         self.clear()
         # used to match a card even if a comment, discipline or clan has been added.
-        self.tail_re = r"(.+?)\s+(?:\(|\[|-|/{})".format(
+        self.tail_re = r"(?P<card_name>.+?)\s+(((\(|\[|-|/)(?P<comment>.+))|(({})\s*$))"
+        self.tail_re = self.tail_re.format(
             "|".join(
                 re.escape(s.lower())
                 for s in vtes.VTES.clans + vtes.VTES.disciplines + ["trifle"]
@@ -145,7 +146,9 @@ class _TWDA(collections.OrderedDict):
             twda_id (str): the TWDA ID for this deck
         """
         current = deck.Deck()
+        card = None
         separator = False
+        tail_comment = []
         # First three lines are stable throughout TWDA
         current.event = lines[0][1]
         current.place = lines[1][1]
@@ -153,7 +156,7 @@ class _TWDA(collections.OrderedDict):
         start = 3
         # Score and players count are not always set
         try:
-            current.score = re.match(r"^(\d+)R\+F", lines[start][1]).group(1)
+            current.score = re.match(r"^(\d+R\+F)", lines[start][1]).group(1)
             start += 1
         except AttributeError:
             pass
@@ -168,37 +171,58 @@ class _TWDA(collections.OrderedDict):
         current.player = lines[start][1]
         start += 1
         # After this stable header, comments and format tricks happen
-        comment = None
+        comment = ""
+        comment_end = False
         for line_num, line in lines[start + 1 :]:
             # handle C-style multiline comments (very common) /* comment */
-            if "*/" in line:
-                comment = None
-                continue
+            # note this handles multi-line as well as inline
             if comment:
-                continue
-            if "/*" in line:
-                line, comment = line.split("/*")
-                if comment and "*/" in comment:
-                    comment = None
+                if comment_end:
+                    comment += "\n"
+                    if card and card["Name"] not in current.cards_comments:
+                        current.cards_comments[card["Name"]] = comment
+                        last_card_commented = card["Name"]
+                    else:
+                        current.comments += comment
+                    comment = ""
+                    comment_end = False
                 else:
-                    comment = True
-            if not line:
-                continue
+                    comment += "\n" + line
+                    line = ""
+            # new conditional, comment may have been set to "" in previous block
+            if not comment and "/*" in line:
+                line, comment = line.split("/*")
+                comment = comment.strip()
+            # new condiitonal, comment may have begun in the line just above
+            if "*/" in comment:
+                comment, tail = comment.split("*/")
+                comment = comment.strip()
+                line = line + tail
+                comment_end = True
             # separtor lines ("---" or "===") are used to detect the beginning of the
-            # actual deck list: this is the most reliable method.
-            if set(line).issubset({"=", "-"}):
+            # actual deck list: this is the most reliable method as the "Crypt" word
+            # can appear in deck comments.
+            if line and set(line).issubset({"=", "-"}):
                 separator = True
                 continue
-            # monoline [comment] is also common
-            if line[0] == "[" and line[-1] == "]":
-                continue
+            # monoline [comment] is common
+            if line and line[0] == "[" and line[-1] == "]":
+                comment = line[1:-1].strip()
+                comment_end = True
+                line = ""
             # "meaningful content -- comment" is widespread
             # this lead us to a partial parsing of "Bang Nakh -- Tiger's Claws"
             # but we fix it in config.REMAP. Also, this is a deprecated form
             # (official name is now spelled with a "—" instead of "--")
-            line = line.split("--", 1)[0]
-            # as is C-style "meaningful content //comment"
-            line = line.split("//", 1)[0]
+            if "--" in line:
+                line, comment = line.split("--", 1)
+                comment = comment.strip()
+                comment_end = True
+            # C-style "meaningful content //comment" is also common
+            if "//" in line:
+                line, comment = line.split("//", 1)
+                comment = comment.strip()
+                comment_end = True
             # remove misplaced spaces around punctuation for easy parsing
             line = line.replace(" :", ":")
             line = line.replace("( ", "(")
@@ -254,34 +278,59 @@ class _TWDA(collections.OrderedDict):
                 current.comments += line + "\n"
                 continue
             # lower all chars for easier parsing
-            line = line.lower()
-            name, count = _get_card(line)
+            name, count = _get_card(line.lower())
             if name and count:
-                if name.startswith("<a "):
-                    continue
                 if name in HEADERS:
-                    continue
-                if not separator and not current:
                     continue
                 card = None
                 try:
                     card = vtes.VTES[name]
+                    maybe_card_comment = None
                 except KeyError:
                     match = re.match(self.tail_re, name)
                     if match:
-                        name = match.group(1)
+                        name = match.group("card_name")
+                        maybe_card_comment = match.group("comment")
+                        if maybe_card_comment:
+                            maybe_card_comment = maybe_card_comment.strip(" )]/-")
+                            maybe_card_comment += "\n"
                     try:
                         card = vtes.VTES[name]
                         logger.warning(
                             f"[{line_num:<6}] fuzzy [{card['Name']}] - [{line}]"
                         )
                     except KeyError:
-                        logger.warning(f"[{line_num:<6}] unknown [{name}] - [{line}]")
-                        continue
-                current.update({card["Name"]: count})
+                        pass
+                finally:
+                    if card:
+                        if comment and comment_end:
+                            last_card_commented = card["Name"]
+                        else:
+                            last_card_commented = None
+                        if (
+                            maybe_card_comment
+                            and card["Name"] not in current.cards_comments
+                        ):
+                            current.cards_comments[card["Name"]] = maybe_card_comment
+                            last_card_commented = card["Name"]
+                        if tail_comment:
+                            logger.warning(
+                                f"[{line_num:<6}] failed to parse: {tail_comment}"
+                            )
+                        tail_comment.clear()
+                        current.update({card["Name"]: count})
+                    else:
+                        # most common case: unidentified line is a continuation comment
+                        if last_card_commented:
+                            current.cards_comments[last_card_commented] += line + "\n"
+                        else:
+                            tail_comment.append(line)
+            # should not happen: by default the whole line is captured by _get_card()
             else:
-                logger.warning("[{:<6}] no card matched [{}]".format(line_num, line))
+                tail_comment.append(line)
 
+        if tail_comment:
+            current.comments += "\n" + "\n".join(tail_comment) + "\n"
         library_count = current.cards_count(vtes.VTES.is_library)
         if library_count < 60:
             logger.warning(

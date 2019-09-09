@@ -5,6 +5,8 @@ Changelog
 ----------------
 
 - Advanced and base versions of vampires are now correctly identified
+- Better parsing of comments in decks
+- Inline cards comments are now retrieved and displayed
 
 
 0.4 (2019-09-08)
