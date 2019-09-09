@@ -66,8 +66,8 @@ class _TWDA(collections.OrderedDict):
             limit: Maximum number of decks to load (used to speed up tests)
         """
         self.clear()
-        # used to check if discipline or clan has been added after the card name
-        self.tail_re = "(.+?)\\s+(?:{})".format(
+        # used to match a card even if a comment, discipline or clan has been added.
+        self.tail_re = r"(.+?)\s+(?:\(|\[|-|/{})".format(
             "|".join(
                 re.escape(s.lower())
                 for s in vtes.VTES.clans + vtes.VTES.disciplines + ["trifle"]
@@ -145,7 +145,7 @@ class _TWDA(collections.OrderedDict):
             twda_id (str): the TWDA ID for this deck
         """
         current = deck.Deck()
-        headers = False
+        separator = False
         # First three lines are stable throughout TWDA
         current.event = lines[0][1]
         current.place = lines[1][1]
@@ -167,7 +167,7 @@ class _TWDA(collections.OrderedDict):
         # Player is always set, but after score and count if any
         current.player = lines[start][1]
         start += 1
-        # After this header, comments and format tricks happen
+        # After this stable header, comments and format tricks happen
         comment = None
         for line_num, line in lines[start + 1 :]:
             # handle C-style multiline comments (very common) /* comment */
@@ -184,14 +184,18 @@ class _TWDA(collections.OrderedDict):
                     comment = True
             if not line:
                 continue
-            # handle separtor lines
+            # separtor lines ("---" or "===") are used to detect the beginning of the
+            # actual deck list: this is the most reliable method.
             if set(line).issubset({"=", "-"}):
-                headers = True
+                separator = True
                 continue
             # monoline [comment] is also common
             if line[0] == "[" and line[-1] == "]":
                 continue
             # "meaningful content -- comment" is widespread
+            # this lead us to a partial parsing of "Bang Nakh -- Tiger's Claws"
+            # but we fix it in config.REMAP. Also, this is a deprecated form
+            # (official name is now spelled with a "—" instead of "--")
             line = line.split("--", 1)[0]
             # as is C-style "meaningful content //comment"
             line = line.split("//", 1)[0]
@@ -204,9 +208,9 @@ class _TWDA(collections.OrderedDict):
             # at this point we may not have a meaningful line anymore
             if not line:
                 continue
-            # if we did not hit any header (e.g. "Crypt"), try to find
-            # deck name, author and comments
-            if not headers:
+            # if we did not hit any separator (e.g. "=============="),
+            # try to find deck name, author and comments
+            if not separator:
                 try:
                     current.name = re.match(
                         r"^\s*(?:d|D)eck\s?(?:n|N)ame\s*:\s*(.*)$", line
@@ -234,15 +238,21 @@ class _TWDA(collections.OrderedDict):
                     pass
                 if not line:
                     continue
-                # if we hit the "Crypt" marker, deck list is beginning
-                if not re.match(r"^(c|C)rypt", line):
-                    # more often than not, first comment line is the deck name
-                    # they tend to be relatively short, though
-                    if not current.name and len(line) < 70:
-                        current.name = line
-                        continue
-                    current.comments += line + "\n"
+                # Deck lists usually begin with a "Crypt" line, but we use the
+                # "---" or "===" separators as they are more reliable.
+                # Still, do not consider the "Crypt" line as part of the comments
+                # or potential deck name
+                if re.match(r"^(c|C)rypt", line):
                     continue
+                # more often than not, first comment line is the deck name
+                # they tend to be relatively short, though
+                # Also, do not mistake the "Crypt" line for the deck name or comment
+                if not current.name and len(line) < 70:
+                    current.name = line
+                    continue
+                # Anything else is considered a comment, until a separator is hit
+                current.comments += line + "\n"
+                continue
             # lower all chars for easier parsing
             line = line.lower()
             name, count = _get_card(line)
@@ -251,15 +261,13 @@ class _TWDA(collections.OrderedDict):
                     continue
                 if name in HEADERS:
                     continue
-                if not headers and not current:
+                if not separator and not current:
                     continue
                 card = None
                 try:
                     card = vtes.VTES[name]
                 except KeyError:
-                    match = re.match(r"(.+?)\s+(?:\(|\[|-|/)", name) or re.match(
-                        self.tail_re, name
-                    )
+                    match = re.match(self.tail_re, name)
                     if match:
                         name = match.group(1)
                     try:
