@@ -67,7 +67,10 @@ def test_2k4dcqualifier():
             """
     POT/DOM is always good.  Let's add permanent rush, +strength,
     Nosferatu Kingdom and a bad attitude!
-
+    You can see from the crypt that an important part of playing this deck
+    is being incredibly lucky.  I drew Beast in three out of four games and
+    I drew Julio in every one.  How'd I get so lucky?  Dunno, I got a horrible
+    crypt draw in a casual game on Friday.
     I've discussed some of the combat above and in other threads.
     In many ways, it's your basic Potence package.  The key is the guys with
     +strength.  The first time they beat someone down, they'll need a few
@@ -439,10 +442,6 @@ def test_2010pwbla1():
             ),
             "Sargon Fragment, The": "recycle everything else\n",
             "Secure Haven": "to contest and to save a slave master.\n",
-            "Stonestrength": (
-                'a "good" combat ran "set close and agg hands, grapple, prevent and\n'
-                'untap"\n'
-            ),
             "Thin-Blooded Seer": 'Tupdog "spare" actions.\n',
         },
         "comments": textwrap.dedent(
@@ -466,6 +465,8 @@ def test_2010pwbla1():
             Heidleburg can save master vampires from dangerous hunting
             requirements, can empty a Tupdog of before it explodes and allows 2
             Hand of Conrad actions per turn.
+            a "good" combat ran "set close and agg hands, grapple, prevent and
+            untap"
             """
         )[1:],
     }
