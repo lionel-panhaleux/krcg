@@ -31,6 +31,7 @@ class Deck(collections.Counter):
         self.players_count = 0
         self.player = None
         self.name = None
+        self.cards_comments = {}
         self.comments = ""
 
     def __getstate__(self):
@@ -48,6 +49,7 @@ class Deck(collections.Counter):
             "players_count": self.players_count,
             "player": self.player,
             "name": self.name,
+            "cards_comments": self.cards_comments,
             "comments": self.comments,
         }
 
@@ -66,6 +68,7 @@ class Deck(collections.Counter):
         self.player = state.get("player")
         self.name = state.get("name")
         self.comments = state.get("comments", "")
+        self.cards_comments = state.get("cards_comments", {})
         self.update(state.get("cards", {}))
 
     def __reduce__(self):

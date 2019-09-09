@@ -380,7 +380,11 @@ class _VTES(dict):
                 )
             )
             for card, count in c2:
-                lines.append("{:<2} {}".format(count, card))
+                if card in deck.cards_comments:
+                    comment = deck.cards_comments[card].replace("\n", " ").strip()
+                    lines.append(f"{count:<2} {card:<23} -- {comment}")
+                else:
+                    lines.append(f"{count:<2} {card}")
         return "\n".join(lines)
 
 
