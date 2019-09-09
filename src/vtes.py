@@ -337,8 +337,8 @@ class _VTES(dict):
             lines.append(deck.place)
         if deck.date:
             lines.append(deck.date.format("MMMM Do YYYY"))
-        if deck.score:
-            lines.append(deck.score + "R+F")
+        if deck.tournament_format:
+            lines.append(deck.tournament_format)
         if deck.players_count:
             lines.append("{} players".format(deck.players_count))
         if deck.player:

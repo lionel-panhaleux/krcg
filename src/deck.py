@@ -16,7 +16,7 @@ class Deck(collections.Counter):
         - event: Event (for TWD)
         - place: Place where the event was held
         - date: Date on which the event was held
-        - score: Score of the deck at the event
+        - tournament_format: Format of the event
         - players_count: Count of players at the event
         - player: Player who played the deck
     """
@@ -27,7 +27,7 @@ class Deck(collections.Counter):
         self.event = None
         self.place = None
         self.date = None
-        self.score = None
+        self.tournament_format = None
         self.players_count = 0
         self.player = None
         self.name = None
@@ -45,7 +45,7 @@ class Deck(collections.Counter):
             "event": self.event,
             "place": self.place,
             "date": self.date.format("MMMM Do YYYY") if self.date else None,
-            "score": self.score,
+            "tournament_format": self.tournament_format,
             "players_count": self.players_count,
             "player": self.player,
             "name": self.name,
@@ -63,7 +63,7 @@ class Deck(collections.Counter):
             self.date = arrow.get(state.get("date"), "MMMM Do YYYY")
         except arrow.parser.ParserError:
             pass
-        self.score = state.get("score")
+        self.tournament_format = state.get("tournament_format")
         self.players_count = int(state.get("players_count", 0))
         self.player = state.get("player")
         self.name = state.get("name")
