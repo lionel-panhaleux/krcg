@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.5 (unreleased)
+0.5 (2019-09-10)
 ----------------
 
 - Advanced and base versions of vampires are now correctly identified
