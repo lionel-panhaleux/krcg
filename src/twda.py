@@ -154,9 +154,10 @@ class _TWDA(collections.OrderedDict):
         current.place = lines[1][1]
         current.date = arrow.get(lines[2][1], "MMMM Do YYYY")
         start = 3
-        # Score and players count are not always set
+        # tournament format and players count are not always set
         try:
-            current.score = re.match(r"^(\d+R\+F)", lines[start][1]).group(1)
+            regexp = r"^(\d+R\+F)"
+            current.tournament_format = re.match(regexp, lines[start][1]).group(1)
             start += 1
         except AttributeError:
             pass
@@ -167,7 +168,7 @@ class _TWDA(collections.OrderedDict):
             start += 1
         except AttributeError:
             pass
-        # Player is always set, but after score and count if any
+        # Player is always set, but after tournament format and count if any
         current.player = lines[start][1]
         start += 1
         # After this stable header, comments and format tricks happen

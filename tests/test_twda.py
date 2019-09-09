@@ -60,7 +60,7 @@ def test_2k4dcqualifier():
         "date": "June 12th 2004",
         "players_count": 33,
         "player": "Matt Morgan",
-        "score": None,
+        "tournament_format": None,
         "name": "Call me Julio",
         "author": None,
         "comments": textwrap.dedent(
@@ -151,7 +151,7 @@ def test_2010tcdbng():
         "date": "May 8th 2010",
         "players_count": 10,
         "player": "Rudolf Scholz",
-        "score": "2R+F",
+        "tournament_format": "2R+F",
         "name": "The Storage Procurers",
         "author": None,
         "cards": collections.OrderedDict(
@@ -230,7 +230,7 @@ def test_2012pslp():
         "date": "October 13th 2012",
         "players_count": 12,
         "player": "Patrick Gordo",
-        "score": "2R+F",
+        "tournament_format": "2R+F",
         "name": "Shadowfang",
         "author": None,
         "cards": collections.OrderedDict(
@@ -286,7 +286,7 @@ def test_2k7campeonatojuizforano():
         "date": "December 16th 2007",
         "players_count": 23,
         "player": "Pedro Paulo de Sousa Mendes (Pepê)",
-        "score": None,
+        "tournament_format": None,
         "name": "Imbued at Last",
         "author": None,
         "cards": collections.OrderedDict(
@@ -380,7 +380,7 @@ def test_2010pwbla1():
         "date": "May 29th 2010",
         "players_count": 12,
         "player": "Darby Keeney",
-        "score": "2R+F",
+        "tournament_format": "2R+F",
         "name": "[2010 TW] The World's Biggest Small Multirushers",
         "author": None,
         "cards": collections.OrderedDict(
