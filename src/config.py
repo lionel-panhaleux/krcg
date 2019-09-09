@@ -54,16 +54,18 @@ ADDITIONAL_HEADERS = [
 ]
 #: official cards renaming
 AKA = {
-    # due to our card parsing
-    "bang nakh": "Bang Nakh -- Tiger's Claws",
-    # edition changes
-    "raven": "Camille Devereux, The Raven",
-    "gangrel de-evolution": "Gangrel Atavism",
+    # print change not registered in cards "Aka" field
     "mask of 1,000 faces": "Mask of a Thousand Faces",
-    "carlton van wyk (hunter)": "Carlton Van Wyk",
+    # typo in VEKN official file
+    "thadius zho": "Thadius Zho{}",
 }
 #: custom remap to match players abbreviations and typos
 REMAP = {
+    # our card parsing removes the dash
+    "bang nakh": "Bang Nakh — Tiger's Claws",
+    # we not decode HTML properly as most of it is text
+    "alia, god=92s messenger": "Alia, God's Messenger",
+    "pentex=99 subversion": "Pentex Subversion",
     # traditions - players really do whatever they want
     "the first tradition": "First Tradition: The Masquerade",
     "first tradition": "First Tradition: The Masquerade",
@@ -178,7 +180,6 @@ REMAP = {
     "behind you": "Behind You!",
     "psyche": "Psyche!",
     # known abbreviations
-    "anthelios": "Anthelios, The Red Star",
     "anthelios, the": "Anthelios, The Red Star",
     "carlton": "Carlton Van Wyk",
     "con ag": "Conservative Agitation",
@@ -217,7 +218,6 @@ REMAP = {
     "pulse": "Pulse of the Canaille",
     "storage": "Storage Annex",
     "sudden": "Sudden Reversal",
-    "the rumor mill": "Rumor Mill, Tabloid Newspaper, The",
     "ventrue hq": "Ventrue Headquarters",
     "voter cap": "Voter Captivation",
     "wake with ef": "Wake with Evening's Freshness",
@@ -233,11 +233,8 @@ REMAP = {
     "wmrh": "WMRH Talk Radio",
     # misspellings not fixed by difflib
     "golgonda": "Golconda: Inner Peace",
-    "kine dominance": "Dominate Kine",
-    "pentex=99 subversion": "Pentex Subversion",
     "soul gems": "Soul Gem of Etrius",
     "carver's meat packing": "Carver's Meat Packing and Storage",
-    "alia, god=92s messenger": "Alia, God's Messenger",
     "truth of a 1000 lies": "Truth of a Thousand Lies",
     "krcg newspaper": "KRCG News Radio",
     "ps: istanbul": "Praxis Seizure: Istanbul",
@@ -270,19 +267,19 @@ TYPE_ORDER = [
 ]
 #: list of banned cards - VEKN card lists are not up to date.
 BANNED = [
-    "Anthelios, The Red Star",
+    "Anthelios, The Red Star",  # missing from VEKN file
+    "Cunctator Motion",
     "Dramatic Upheaval",
     "Edge Explosion",
+    "High Stakes",
     "Kindred Restructure",
     "Lilith's Blessing",
     "Madness of the Bard",
     "Memories of Mortality",
-    "Protect Thine Own",
-    "The Return to Innocence",
-    "Seeds of Corruption",
-    "Succubus Club",
-    "Temptation of Greater Power",
-    "Cunctator Motion",
-    "High Stakes",
     "Playing for Keeps",
+    "Protect Thine Own",
+    "Return to Innocence, The",
+    "Seeds of Corruption",  # missing from VEKN file
+    "Succubus Club",
+    "Temptation of Greater Power",  # missing from VEKN file
 ]
