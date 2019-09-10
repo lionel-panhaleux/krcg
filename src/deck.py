@@ -1,9 +1,12 @@
 """Deck class: pickling and card access under conditions.
 """
 import collections
+import logging
 
 import arrow
 import arrow.parser
+
+logger = logging.getLogger()
 
 
 class Deck(collections.Counter):
@@ -30,9 +33,75 @@ class Deck(collections.Counter):
         self.tournament_format = None
         self.players_count = 0
         self.player = None
+        self.score = None
         self.name = None
         self.cards_comments = {}
         self.comments = ""
+
+        # for comments parsing
+        self.separator = False
+        self.comment = None
+        self.card_name = None
+        self.line_num = None
+        self.multiline = False
+        self.marker = False
+
+    def comment_begin(
+        self, line_num, comment, card_name=None, multiline=False, marker=False
+    ):
+        if self.comment:
+            self._assign_comment()
+        self.line_num = line_num
+        if marker:
+            self.comment = comment.strip(" ")
+        else:
+            self.comment = comment.strip(" ()[]-/*")
+        self.card_name = card_name
+        self.multiline = multiline
+        self.marker = marker
+
+    def maybe_comment_line(self, line_num, comment, card_name=None):
+        if self.comment:
+            self.comment += "\n" + comment.strip(" ()[]-/*")
+        else:
+            self.comment_begin(
+                line_num,
+                comment,
+                card_name or self.card_name,
+                not self.separator,
+                not self.separator,
+            )
+
+    def comment_end(self):
+        if self.comment:
+            self._assign_comment()
+        self.comment = None
+        self.card_name = None
+        self.line_num = None
+        self.multiline = False
+        self.marker = False
+
+    def _assign_comment(self):
+        if not self.comment:
+            return
+        log_version = self.comment.replace("\n", " ").strip()
+        multiline = len(self.comment.strip("\n").split("\n")) > 1
+        if not self.marker:
+            if not multiline:
+                logger.warning(f"[{self.line_num}] failed to parse [{log_version}]")
+                return
+            logger.info(f"[{self.line_num}] unmarked comment [{log_version}]")
+        if multiline and not self.multiline:
+            logger.info(
+                f"[{self.line_num}] unexpected multiline comment [{log_version}]"
+            )
+        comment = self.comment.strip("\n") + "\n"
+        if self.card_name:
+            self.cards_comments[self.card_name] = comment
+            return
+        if self.comments and comment:
+            self.comments += "\n"
+        self.comments += comment
 
     def __getstate__(self):
         """For pickle serialization.
@@ -46,6 +115,7 @@ class Deck(collections.Counter):
             "place": self.place,
             "date": self.date.format("MMMM Do YYYY") if self.date else None,
             "tournament_format": self.tournament_format,
+            "score": self.score,
             "players_count": self.players_count,
             "player": self.player,
             "name": self.name,
@@ -64,6 +134,7 @@ class Deck(collections.Counter):
         except arrow.parser.ParserError:
             pass
         self.tournament_format = state.get("tournament_format")
+        self.score = state.get("score")
         self.players_count = int(state.get("players_count", 0))
         self.player = state.get("player")
         self.name = state.get("name")

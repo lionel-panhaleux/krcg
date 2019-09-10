@@ -340,19 +340,22 @@ class _VTES(dict):
         if deck.tournament_format:
             lines.append(deck.tournament_format)
         if deck.players_count:
-            lines.append("{} players".format(deck.players_count))
+            lines.append(f"{deck.players_count} players")
         if deck.player:
             lines.append(deck.player)
         lines.append("")
+        if deck.score:
+            lines.append(f"-- {deck.score}")
+            lines.append("")
         if deck.name:
-            lines.append("Deck Name: " + deck.name)
+            lines.append(f"Deck Name: {deck.name}")
         if deck.author:
-            lines.append("Created by: " + deck.author)
+            lines.append(f"Created by: {deck.author}")
         if deck.comments:
             lines.append("Description:")
             lines.append(deck.comments)
         lines.append("")
-        lines.append("-- Crypt: ({} cards)".format(deck.cards_count(self.is_crypt)))
+        lines.append(f"-- Crypt: ({deck.cards_count(self.is_crypt)} cards)")
         lines.append("---------------------------------------")
         for card, count in deck.cards(self.is_crypt):
             lines.append(
@@ -365,7 +368,7 @@ class _VTES(dict):
                     self[card]["Group"],
                 )
             )
-        lines.append("-- Library ({})".format(deck.cards_count(self.is_library)))
+        lines.append(f"-- Library ({deck.cards_count(self.is_library)})")
         # sort by type, count (descending), name
         # note ordering must match the `itertools.groupby` function afterwards.
         library_cards = sorted(
@@ -375,9 +378,7 @@ class _VTES(dict):
         for kind, cards in itertools.groupby(library_cards, key=_type):
             c1, c2 = itertools.tee(cards)
             lines.append(
-                "-- {} ({})".format(
-                    config.TYPE_ORDER[kind], sum(count for card, count in c1)
-                )
+                f"-- {config.TYPE_ORDER[kind]} ({sum(count for card, count in c1)})"
             )
             for card, count in c2:
                 if card in deck.cards_comments:
