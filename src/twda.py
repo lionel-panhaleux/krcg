@@ -138,19 +138,6 @@ class _TWDA(collections.OrderedDict):
             else:
                 lines.append((line_num, line[:-1]))
 
-    @staticmethod
-    def _assign_comment(separator, line_num, current_deck, comment, card):
-        if not comment:
-            return
-        if card:
-            current_deck.cards_comments[card["Name"]] = comment
-            return
-        # careful: many single lines inside decklist are undetected headers
-        if separator and len(comment.strip("\n").split("\n")) < 2:
-            comment = comment.strip("\n")
-            logger.warning(f"[{line_num - 1}] failed to parse: {comment}")
-        current_deck.comments += comment
-
     def _load_deck_html(self, lines, twda_id):
         """Parse TWDA.html lines to build a deck.
 
@@ -182,14 +169,7 @@ class _TWDA(collections.OrderedDict):
         current.player = lines[start][1]
         start += 1
         # After this stable header, comments and format tricks happen
-        current_comment = ""
-        previous_comment = ""
-        last_card = None
-        separator = False
         for line_num, line in lines[start + 1 :]:
-            if current_comment:
-                previous_comment += current_comment.strip(" ()[]-/*") + "\n"
-                current_comment = ""
             # remove misplaced spaces around punctuation for easy parsing
             line = line.strip()
             line = line.replace(" :", ":")
@@ -197,53 +177,44 @@ class _TWDA(collections.OrderedDict):
             line = line.replace(" )", ")")
             line = line.replace(" /", "/")
             line = line.replace("/ ", "/")
-            # blank lines are considered separation between comments blocks
-            # so a comment after a block line is not affected to the previous card
             if not line:
-                self._assign_comment(
-                    separator, line_num, current, previous_comment, last_card
-                )
-                previous_comment = ""
-                last_card = None
+                current.comment_end()
                 continue
             # separtor lines ("---" or "===") are used to detect the beginning of the
             # actual deck list: this is the most reliable method as the "Crypt" word
             # can appear in deck comments.
             if line and set(line).issubset({"=", "-"}):
-                separator = True
-                continue
-            # comments detection
-            if "/*" in line:
-                line, current_comment = line.split("/*", 1)
-            if "*/" in current_comment:
-                current_comment, tail = current_comment.split("*/", 1)
-                line = line + tail
-            if "*/" in line:
-                current_comment, line = line.split("*/", 1)
-            if line and line[0] == "[" and line[-1] == "]":
-                current_comment += " " + line[1:-1].strip()
-                line = ""
-            # inline comments "--" or "//"
-            # special case for "Bang Nakh -- Tiger's Claws"
-            comment_re = (
-                r"^(?P<line>.*?)\s*"
-                r"(--|//)\s*"
-                r"(?!(T|t)iger'?s? (C|c)laws?)"
-                r"(?P<comment>.*?)\s*$"
-            )
-            match = re.match(comment_re, line)
-            if match:
-                line = match.group("line")
-                current_comment += " " + match.group("comment")
-            if not line:
+                current.comment_end()
+                current.separator = True
                 continue
             # if we did not hit any separator (e.g. "=============="),
             # try to find deck name, author and comments
-            if not separator:
+            if not current.separator:
                 try:
-                    current.name = re.match(
+                    score = re.match(
+                        r"-?-?\s*((?P<round_wins>\d)(G|g)(W|w)"
+                        r"(?P<round_vps>\d\.?\d?)\s*\+?\s*)?"
+                        r"(?P<final>\d)(v|V)(p|P)",
+                        line,
+                    )
+                    if score.group("round_wins"):
+                        current.score = "{}GW{}+{}".format(
+                            score.group("round_wins"),
+                            score.group("round_vps"),
+                            score.group("final"),
+                        )
+                    else:
+                        current.score = "{}VP in final".format(score.group("final"))
+                    continue
+                except AttributeError:
+                    pass
+                try:
+                    name = re.match(
                         r"^\s*(?:d|D)eck\s?(?:n|N)ame\s*:\s*(.*)$", line
                     ).group(1)
+                    if current.name:
+                        current.maybe_comment_line(line_num, current.name)
+                    current.name = name
                     continue
                 except AttributeError:
                     pass
@@ -276,53 +247,92 @@ class _TWDA(collections.OrderedDict):
                     current.name = line
                     continue
                 # Anything else is considered a comment until a separator is hit
-                current_comment += " " + line
+                current.maybe_comment_line(line_num, line)
+                continue
+
+            # comments detection
+            # wait for card identification for all trailing comments
+            comment = ""
+            multiline = False
+            if "/*" in line:
+                line, comment = line.split("/*", 1)
+                multiline = True
+            if "*/" in comment:
+                comment, tail = comment.split("*/", 1)
+                line = line + tail
+                multiline = False
+            if "*/" in line:
+                comment_tail, line = line.split("*/", 1)
+                current.maybe_comment_line(line_num, comment_tail)
+                current.comment_end()
+            if line and line[0] in "([/" and line[-1] in "/])":
+                current.comment_begin(line_num, " " + line[1:-1].strip(), marker=True)
+                line = ""
+            # inline comments "--" or "//"
+            # special case for "Bang Nakh -- Tiger's Claws"
+            comment_re = (
+                r"^(?P<line>.*?)\s*"
+                r"(--|//)\s*"
+                r"(?!(T|t)iger'?s? (C|c)laws?)"
+                r"(?P<comment>.*?)\s*$"
+            )
+            match = re.match(comment_re, line)
+            if match:
+                line = match.group("line")
+                comment = match.group("comment")
+            if not line:
+                if comment:
+                    current.comment_begin(
+                        line_num, comment, marker=True, multiline=multiline
+                    )
                 continue
             # lower all chars for easier parsing
-            maybe_comment = ""
             name, count = _get_card(line.lower())
             if name and count:
                 if name in HEADERS:
+                    # discard comment on header line (most likely card count)
                     continue
-                new_card = None
+                card = None
                 try:
-                    new_card = vtes.VTES[name]
+                    card = vtes.VTES[name]
                 except KeyError:
                     match = re.match(self.tail_re, name)
                     if match:
                         name = match.group("card_name")
-                        maybe_comment = match.group("comment")
+                        tail = match.group("comment")
+                        if comment and tail:
+                            comment += " "
+                        if tail:
+                            comment += tail.rstrip(" )]-/\\")
                     try:
-                        new_card = vtes.VTES[name]
+                        card = vtes.VTES[name]
                         logger.info(
-                            f"[{line_num:<6}] fuzzy [{new_card['Name']}] - [{line}]"
+                            f"[{line_num:<6}] fuzzy [{card['Name']}] - [{line}]"
                         )
                     except KeyError:
                         pass
                 finally:
-                    if new_card:
-                        current.update({new_card["Name"]: count})
-                        self._assign_comment(
-                            separator, line_num, current, previous_comment, last_card
-                        )
-                        previous_comment = ""
-                        last_card = new_card
-                        if maybe_comment:
-                            current_comment = maybe_comment + " " + current_comment
+                    if card:
+                        current.update({card["Name"]: count})
+                        if comment:
+                            current.comment_begin(
+                                line_num,
+                                comment,
+                                card["Name"],
+                                marker=True,
+                                multiline=multiline,
+                            )
+                        else:
+                            # if no blank line, comments on following lines are
+                            # attached to his card
+                            current.comment_begin(line_num, "", card["Name"])
                     else:
-                        # most common case: unidentified line is a continuation comment
-                        current_comment += " " + line
+                        current.maybe_comment_line(line_num, line)
             # should not happen: by default the whole line is captured by _get_card()
             else:
-                current_comment += " " + line
+                current.maybe_comment_line(line_num, line)
 
-        # tail comments
-        if current_comment:
-            previous_comment += current_comment.strip(" ()[]-/*") + "\n"
-            current_comment = ""
-            line_num += 1
-        self._assign_comment(separator, line_num, current, previous_comment, last_card)
-
+        current.comment_end()
         # check deck composition rules
         library_count = current.cards_count(vtes.VTES.is_library)
         if library_count < 60:
@@ -385,7 +395,7 @@ def _get_card(line):
         # also special exception for "Pier 13, Port of Baltimore"
         r"(?!((st)|(nd)|(rd)|(th)|(.?\d)|b|p|(..?port)))"
         # closing parentheses for tail expression (separated for clarity)
-        r")|(\.|,|\s)*$)",
+        r")|\s*$)",
         line,
     )
     if not card_match:

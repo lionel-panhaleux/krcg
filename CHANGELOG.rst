@@ -4,8 +4,9 @@ Changelog
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- Keep blank lines in comments
+- Punctuation was missing at the end of some comments
+- Deck score in tournament is now correctly identified
 
 0.5 (2019-09-10)
 ----------------

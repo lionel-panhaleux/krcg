@@ -48,6 +48,199 @@ def test_get_card():
     )
 
 
+def test_2019grdojf():
+    """Recent classic layout, we must get everything seamlessly
+    """
+    with open(os.path.join(os.path.dirname(__file__), "2019grdojf.html")) as f:
+        twda.TWDA.load_html(f)
+    assert len(twda.TWDA) == 1
+    assert twda.TWDA["2019grdojf"].__getstate__() == {
+        "date": "June 29th 2019",
+        "event": "Garou Rim: Dawn Operation",
+        "place": "Joensuu, Finland",
+        "players_count": 10,
+        "player": "Esa-Matti Smolander",
+        "tournament_format": "3R+F",
+        "score": "1GW3.5+4",
+        "name": "Parliament of Shadows precon with no changes.",
+        "author": None,
+        "cards": collections.OrderedDict(
+            [
+                ("Luca Italicus", 2),
+                ("Antón de Concepción", 2),
+                ("Carolina Vález", 2),
+                ("Charles Delmare", 2),
+                ("Lord Leopold Valdemar", 2),
+                ("Percival", 2),
+                ("Information Highway", 1),
+                ("Jake Washington", 1),
+                ("Monastery of Shadows", 1),
+                ("Papillon", 1),
+                ("Political Hunting Ground", 1),
+                ("Power Structure", 1),
+                ("Powerbase: Madrid", 1),
+                ("Villein", 4),
+                ("Zillah's Valley", 2),
+                ("Govern the Unaligned", 6),
+                ("Under Siege", 2),
+                ("Mylan Horseed", 1),
+                ("Anarchist Uprising", 1),
+                ("Ancient Influence", 1),
+                ("Banishment", 2),
+                ("Kine Resources Contested", 8),
+                ("Neonate Breach", 1),
+                ("Political Stranglehold", 1),
+                ("Reins of Power", 1),
+                ("Blanket of Night", 2),
+                ("Conditioning", 4),
+                ("Seduction", 4),
+                ("Shadow Play", 4),
+                ("Shroud of Absence", 4),
+                ("Shroud of Night", 4),
+                ("Tenebrous Form", 2),
+                ("Deflection", 4),
+                ("Obedience", 2),
+                ("On the Qui Vive", 2),
+                ("Wake with Evening's Freshness", 2),
+                ("Oubliette", 3),
+                ("Shadow Body", 3),
+            ]
+        ),
+        "cards_comments": {},
+        "comments": "Finals Seating\n\n"
+        "Esa-Matti Smolander (Lasombra Starter) --> Petrus Makkonen (Epikasta TGB) "
+        "--> Simo Tiippana (Lydia + Al-Muntathir Trujah Toolbox) --> Aapo Järvelin "
+        "(Theo + Beast anarch Rush) --> Petro Hirvonen (Hektor Toolbox)\n",
+    }
+
+
+def test_2016ggs():
+    """Pretty straightforward, we must get everything seamlessly
+    """
+    with open(os.path.join(os.path.dirname(__file__), "2016ggs.html")) as f:
+        twda.TWDA.load_html(f)
+    assert len(twda.TWDA) == 1
+    assert twda.TWDA["2016ggs"].__getstate__() == {
+        "event": "Gothcon",
+        "place": "Goteborg, Sweden",
+        "date": "March 26th 2016",
+        "players_count": 16,
+        "player": "Hugh Angseesing",
+        "tournament_format": "3R+F",
+        "score": None,
+        "name": "DoC Swedish Sirens",
+        "author": None,
+        "cards": collections.OrderedDict(
+            [
+                ("Jost Werner", 2),
+                ("Sheila Mezarin", 2),
+                ("Angela Preston", 2),
+                ("Gaël Pilet", 1),
+                ("Yseult", 1),
+                ("Delilah Monroe", 1),
+                ("Maldavis", 1),
+                ("Remilliard, Devout Crusader", 1),
+                ("Céleste, The Voice of a Secret", 1),
+                ("Anarch Troublemaker", 3),
+                ("Archon Investigation", 1),
+                ("Blood Doll", 2),
+                ("Coven, The", 1),
+                ("Direct Intervention", 1),
+                ("Dreams of the Sphinx", 1),
+                ("Fetish Club Hunting Ground", 1),
+                ("Giant's Blood", 1),
+                ("Palla Grande", 1),
+                ("Paris Opera House", 1),
+                ("Pentex(TM) Subversion", 1),
+                ("Presence", 2),
+                ("Vessel", 3),
+                ("Entrancement", 4),
+                ("Legal Manipulations", 4),
+                ("Mind Numb", 2),
+                ("Social Charm", 3),
+                ("Aire of Elation", 6),
+                ("Daring the Dawn", 2),
+                ("Missing Voice, The", 4),
+                ("Phantom Speaker", 2),
+                ("Siren's Lure", 7),
+                ("Delaying Tactics", 3),
+                ("My Enemy's Enemy", 2),
+                ("On the Qui Vive", 2),
+                ("Telepathic Misdirection", 8),
+                ("Wake with Evening's Freshness", 5),
+                ("Majesty", 8),
+                ("Soak", 6),
+                ("Uncoiling, The", 1),
+            ]
+        ),
+        "cards_comments": {},
+        "comments": "2GW9 and winner in Sweden qualifier 26th March 2016\n",
+    }
+
+
+def test_2k5alboraya():
+    """Card name abbreviation (fetish club) with tailing point.
+    """
+    with open(os.path.join(os.path.dirname(__file__), "2k5alboraya.html")) as f:
+        twda.TWDA.load_html(f)
+    assert len(twda.TWDA) == 1
+    assert twda.TWDA["2k5alboraya"].__getstate__() == {
+        "event": "Spanish NCQ",
+        "place": "Alboraya (Valencia), Spain",
+        "date": "February 12th 2005",
+        "players_count": 34,
+        "player": "Jose Vicente Coll",
+        "tournament_format": "3R+F",
+        "score": None,
+        "name": None,
+        "author": None,
+        "cards": collections.OrderedDict(
+            [
+                ("Jost Werner", 3),
+                ("Le Dinh Tho", 2),
+                ("Greta Kircher", 1),
+                ("Ian Wallingford", 1),
+                ("Sheila Mezarin", 1),
+                ("Creamy Jade", 1),
+                ("Mercy, Knight Inquisitor", 1),
+                ("Remilliard, Devout Crusader", 1),
+                ("Lolita", 1),
+                ("Nicholas Chang", 1),
+                ("Palla Grande", 4),
+                ("Direct Intervention", 3),
+                ("Blood Doll", 3),
+                ("Pentex(TM) Subversion", 2),
+                ("Anarch Troublemaker", 2),
+                ("Hungry Coyote, The", 1),
+                ("Fetish Club Hunting Ground", 1),  # should be found
+                ("Sudden Reversal", 1),
+                ("Creepshow Casino", 1),
+                ("Coven, The", 1),
+                ("Art Scam", 8),
+                ("Embrace, The", 8),
+                ("Mind Numb", 4),
+                ("Enchant Kindred", 4),
+                ("Entrancement", 2),
+                ("Marijava Ghoul", 2),
+                ("Revelations", 2),
+                ("Owl Companion", 1),
+                ("Change of Target", 8),
+                ("Wake with Evening's Freshness", 5),
+                ("Delaying Tactics", 1),
+                ("Telepathic Misdirection", 7),
+                ("Telepathic Counter", 2),
+                ("My Enemy's Enemy", 3),
+                ("Eagle's Sight", 2),
+                ("Enhanced Senses", 2),
+                ("Majesty", 7),
+                ("Staredown", 3),
+            ]
+        ),
+        "cards_comments": {},
+        "comments": "",
+    }
+
+
 def test_2k4dcqualifier():
     """A lot of comments, in description, at the end, plus inline C-style card comment
     """
@@ -61,21 +254,25 @@ def test_2k4dcqualifier():
         "players_count": 33,
         "player": "Matt Morgan",
         "tournament_format": None,
+        "score": None,
         "name": "Call me Julio",
         "author": None,
         "comments": textwrap.dedent(
             """
     POT/DOM is always good.  Let's add permanent rush, +strength,
     Nosferatu Kingdom and a bad attitude!
+
     You can see from the crypt that an important part of playing this deck
     is being incredibly lucky.  I drew Beast in three out of four games and
     I drew Julio in every one.  How'd I get so lucky?  Dunno, I got a horrible
     crypt draw in a casual game on Friday.
+
     I've discussed some of the combat above and in other threads.
     In many ways, it's your basic Potence package.  The key is the guys with
     +strength.  The first time they beat someone down, they'll need a few
     cards (or a lot of cards) to do so.  After that, a Grapple might not
     even be necessary.  Pure goodness.
+
     An earlier version of the deck used Guardian Angels to avoid agg pokes
     and similar, but I took them out of the final version reasoning that most
     of the combat I see in tournaments is potence combat or guns and also that
@@ -155,6 +352,7 @@ def test_2010tcdbng():
         "players_count": 10,
         "player": "Rudolf Scholz",
         "tournament_format": "2R+F",
+        "score": "4VP in final",
         "name": "The Storage Procurers",
         "author": None,
         "cards": collections.OrderedDict(
@@ -211,7 +409,6 @@ def test_2010tcdbng():
         },
         "comments": textwrap.dedent(
             """
-    4vp in final
     Allies with Flash Grenades to keep troubles at bay.
     Storage Annex for card efficiency and a structured hand. Weenies and
     Midcaps with Obfuscate and/or Dominate to oust via Conditionings and
@@ -234,6 +431,7 @@ def test_2012pslp():
         "players_count": 12,
         "player": "Patrick Gordo",
         "tournament_format": "2R+F",
+        "score": None,
         "name": "Shadowfang",
         "author": None,
         "cards": collections.OrderedDict(
@@ -290,6 +488,7 @@ def test_2k7campeonatojuizforano():
         "players_count": 23,
         "player": "Pedro Paulo de Sousa Mendes (Pepê)",
         "tournament_format": None,
+        "score": None,
         "name": "Imbued at Last",
         "author": None,
         "cards": collections.OrderedDict(
@@ -338,24 +537,13 @@ def test_2k7campeonatojuizforano():
                 "saved me a lot of times, unfortunately\n"
                 "I couldn't pack more than one.\n"
             ),
-            "Ivory Bow": (
-                "Heart is no good when it shows up late, but this is a small price\n"
-                "to pay when compared to how good it is when I draw it early (it was\n"
-                "decisive in the final table).\n"
-            ),
-            "Millicent Smith, Puritan Vampire Hunter": "no comments needed\n",
+            "Millicent Smith, Puritan Vampire Hunter": "no comments needed.\n",
             "Slaughterhouse, The": (
                 "useful either to speed deck depletion\n"
                 "or to trade for something useful under Anthelios.\n"
             ),
-            "Smiling Jack, The Anarch": "crucial contest in the final table\n",
-            "Strike with Conviction": "It was enough. I never needed more than this.\n",
-            "Unmasking, The": (
-                "I only packed the extremely necessary events, so I wouldn't draw\n"
-                "any extra table hate, and was lucky enough to put all 3 in play in\n"
-                "every game. The decks runs wonderfully with those 3 on the table.\n"
-            ),
-            "Vigilance": "i started to win a game when i had those three in play\n",
+            "Smiling Jack, The Anarch": "crucial contest in the final table.\n",
+            "Vigilance": "i started to win a game when i had those three in play.\n",
             "Wash": (
                 "not as effective as i expected, but also not a hassle\n"
                 "because it's trifle.\n"
@@ -366,6 +554,16 @@ def test_2k7campeonatojuizforano():
             The deck's goal is to setup as fast as you can by
             depleting your library and to use Unity/Anthelios to cycle back
             whatever master you need the most at the time.
+
+            It was enough. I never needed more than this.
+
+            Heart is no good when it shows up late, but this is a small price
+            to pay when compared to how good it is when I draw it early (it was
+            decisive in the final table).
+
+            I only packed the extremely necessary events, so I wouldn't draw
+            any extra table hate, and was lucky enough to put all 3 in play in
+            every game. The decks runs wonderfully with those 3 on the table.
             """
         )[1:],
     }
@@ -384,6 +582,7 @@ def test_2010pwbla1():
         "players_count": 12,
         "player": "Darby Keeney",
         "tournament_format": "2R+F",
+        "score": None,
         "name": "[2010 TW] The World's Biggest Small Multirushers",
         "author": None,
         "cards": collections.OrderedDict(
@@ -450,21 +649,26 @@ def test_2010pwbla1():
             tournament.   Generally, I have found a 2.5:1 Tupdog-to-!Tremere ratio
             to work out pretty well, though a long string of Dogs at the top pf
             one's crypt is frustrating.
+
             The objective for this deck is to get additional mileage from the
             Tupdogs...decreasing their effective cost from 1 pool per action to
             0.5 pool per action and further leveraging both the rush and the slave
             option (rush first, untap, available for slave clause, take an action
             of the slave clause is not needed).
+
             The deck is supposed to carry 1 more Ashur Tablet, but I seem to own
             only 5 at this time.  4, 6 or 7 seem like the right numbers to me,
             depending on your risk tolerance and recycling needs.
+
             Synergies:
             Carver's + Dragonbound and Carver's + Vessel are pretty clear.
             Carver's + Raw Recruit is an indefinate hold on a Recruit target (that
             could not be Graverobbed).  Carver's not affecting Tupdogs is a bonus.
+
             Heidleburg can save master vampires from dangerous hunting
             requirements, can empty a Tupdog of before it explodes and allows 2
             Hand of Conrad actions per turn.
+
             a "good" combat ran "set close and agg hands, grapple, prevent and
             untap"
             """
