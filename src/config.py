@@ -247,6 +247,7 @@ REMAP = {
     "2th tradition": "Second Tradition: Domain",
     "carver's meat packing": "Carver's Meat Packing and Storage",
     "dominate: skillcard": "Dominate",
+    "dominat skill": "Dominate",
     "golgonda": "Golconda: Inner Peace",
     "info superhighway": "Information Highway",
     "judgement": "Judgment: Camarilla Segregation",
