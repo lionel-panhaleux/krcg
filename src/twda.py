@@ -287,10 +287,15 @@ class _TWDA(collections.OrderedDict):
                     )
                 continue
             # lower all chars for easier parsing
-            name, count = _get_card(line.lower())
+            name, count, explicit = _get_card(line.lower())
             if name and count:
                 if name in HEADERS:
                     # discard comment on header line (most likely card count)
+                    continue
+                if not explicit and name in set(
+                    a.lower() for a in vtes.VTES.clans + vtes.VTES.disciplines
+                ):
+                    logger.warning(f"[{line_num}] improper discipline [{line}]")
                     continue
                 card = None
                 try:
@@ -369,6 +374,10 @@ def _get_card(line):
 
     Args:
         line (str): Test line
+    Returns:
+        name (str): name of the card
+        count (int): number of exemplaries
+        explicit (bool): if False, count was not explicit
     """
     card_match = re.match(
         # beginning of line, optional punctuation
@@ -386,7 +395,7 @@ def _get_card(line):
         # open parentheses for optional tail expression (separated for clarity)
         r"(("
         # mandatory punctuation (beware of "AK-47", "Kpist m/45", ...)
-        r"((\s|\(|\[|\s/|:)+|\s=+)(-|x|\*|\s)*"
+        r"((\s|\(|\[|\s/|:)+|\s=+)(?P<post_count_symbol>-|x|\*|\s)*"
         # sometimes (old deck lists) count is after the card name
         # for vampires, this is the capacity of the vampire
         r"(?P<count_or_capacity>\d{1,2})"
@@ -399,11 +408,16 @@ def _get_card(line):
         line,
     )
     if not card_match:
-        return None, None
+        return None, None, False
     name = card_match.group("name").strip()
     # when count is not given on the line, default to 1 (common in old deck lists)
-    count = int(card_match.group("count") or card_match.group("count_or_capacity") or 1)
-    return name, count
+    count = int(card_match.group("count") or 0)
+    explicit = True
+    if not count:
+        count = int(card_match.group("count_or_capacity") or 1)
+        if not card_match.group("post_count_symbol"):
+            explicit = False
+    return name, count, explicit
 
 
 try:

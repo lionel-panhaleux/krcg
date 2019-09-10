@@ -4,6 +4,7 @@ Changelog
 0.6 (unreleased)
 ----------------
 
+- Better parsing of Master: Discipline cards
 - Keep blank lines in comments
 - Punctuation was missing at the end of some comments
 - Deck score in tournament is now correctly identified

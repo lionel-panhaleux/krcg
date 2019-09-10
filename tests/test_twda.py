@@ -6,45 +6,47 @@ from src import twda
 
 
 def test_get_card():
-    assert twda._get_card("deny") == ("deny", 1)
-    assert twda._get_card("2 deny") == ("deny", 2)
-    assert twda._get_card("deny 2") == ("deny", 2)
-    assert twda._get_card("2x deny") == ("deny", 2)
-    assert twda._get_card("2 x deny") == ("deny", 2)
+    assert twda._get_card("deny") == ("deny", 1, False)
+    assert twda._get_card("2 deny") == ("deny", 2, True)
+    assert twda._get_card("deny 2") == ("deny", 2, False)
+    assert twda._get_card("2x deny") == ("deny", 2, True)
+    assert twda._get_card("2 x deny") == ("deny", 2, True)
     # 'x' is usually separated from card name, but '*' may not be
-    assert twda._get_card("2*deny") == ("deny", 2)
-    assert twda._get_card("deny *2") == ("deny", 2)
-    assert twda._get_card("deny x2") == ("deny", 2)
-    assert twda._get_card("deny x 2") == ("deny", 2)
-    assert twda._get_card("deny (2)") == ("deny", 2)
-    assert twda._get_card("deny [2]") == ("deny", 2)
+    assert twda._get_card("2*deny") == ("deny", 2, True)
+    assert twda._get_card("deny *2") == ("deny", 2, True)
+    assert twda._get_card("deny x2") == ("deny", 2, True)
+    assert twda._get_card("deny x 2") == ("deny", 2, True)
+    assert twda._get_card("deny (2)") == ("deny", 2, False)
+    assert twda._get_card("deny [2]") == ("deny", 2, False)
     # many forms are used, with or without parenthesis, 'x', '=', etc.
-    assert twda._get_card("deny (x2)") == ("deny", 2)
-    assert twda._get_card("deny =2") == ("deny", 2)
-    assert twda._get_card("deny /2") == ("deny", 2)
+    assert twda._get_card("deny (x2)") == ("deny", 2, True)
+    assert twda._get_card("deny =2") == ("deny", 2, False)
+    assert twda._get_card("deny /2") == ("deny", 2, False)
     # crypt needs special handling as we got a number in front and back
     text = "2x anvil			6   cel pot dom pre tha	 primogen  brujah:1"
-    assert twda._get_card(text) == ("anvil", 2)
+    assert twda._get_card(text) == ("anvil", 2, True)
     # names beginning with an 'x' and parenthesied '(adv)' must be correctly matched
     assert twda._get_card(
         "2x xaviar (adv)		10  abo ani for pro aus cel pot	 gangrel:3"
-    ) == ("xaviar (adv)", 2)
+    ) == ("xaviar (adv)", 2, True)
     # names beginning with a number are hard
-    assert twda._get_card("2nd tradition") == ("2nd tradition", 1)
+    assert twda._get_card("2nd tradition") == ("2nd tradition", 1, False)
     # name ending with a number even harder
-    assert twda._get_card("ak-47") == ("ak-47", 1)
+    assert twda._get_card("ak-47") == ("ak-47", 1, False)
     # channel 10 is unique: other cards will match 10 as the count
-    assert twda._get_card("channel 10") == ("channel 10", 1)
+    assert twda._get_card("channel 10") == ("channel 10", 1, False)
     # pier 13 is hard to match fully, note there is no ',' atter card counts
     assert twda._get_card("2 pier 13, port of baltimore") == (
         "pier 13, port of baltimore",
         2,
+        True,
     )
     # local 1111 is hard, card counts have less than 3 digits
-    assert twda._get_card("local 1111 2") == ("local 1111", 2)
+    assert twda._get_card("local 1111 2") == ("local 1111", 2, False)
     assert twda._get_card("1x alia, god=92s messenger") == (
         "alia, god=92s messenger",
         1,
+        True,
     )
 
 
@@ -673,4 +675,71 @@ def test_2010pwbla1():
             untap"
             """
         )[1:],
+    }
+
+
+def test_2k5sharednun():
+    """Discipline name as header must not be mistaken for the Master card
+
+    Note "2 Animalism" was changed to "Animalism x2" in decklist
+    This serves as a test for post-name counts decklists like 2k9linkopingmay
+    """
+    with open(os.path.join(os.path.dirname(__file__), "2k5sharednun.html")) as f:
+        twda.TWDA.load_html(f)
+    assert len(twda.TWDA) == 1
+    assert twda.TWDA["2k5sharednun"].__getstate__() == {
+        "event": "Shared Nightmare",
+        "place": "Utrecht, Netherlands",
+        "date": "July 2nd 2005",
+        "players_count": 16,
+        "player": "Jeroen van Oort",
+        "tournament_format": "3R+F",
+        "score": None,
+        "name": "Name: Deeper Underground",
+        "author": None,
+        "cards": collections.OrderedDict(
+            [
+                ("Christanius Lionel, The Mad Chronicler", 1),
+                ("Calebros, The Martyr", 1),
+                ("Gemini", 1),
+                ("Nigel the Shunned", 1),
+                ("Bobby Lemon", 1),
+                ("Roger Farnsworth", 1),
+                ("Clarissa Steinburgen", 1),
+                ("Panagos Levidis", 1),
+                ("Shannon Price, the Whisperer", 1),
+                ("Watenda", 1),
+                ("Mouse", 1),
+                ("Zip", 1),
+                ("Blood Doll", 6),
+                ("Direct Intervention", 2),
+                ("Heidelberg Castle, Germany", 2),
+                ("Animalism", 2),
+                ("Slum Hunting Ground", 1),
+                ("Dreams of the Sphinx", 1),
+                ("Faceless Night", 3),
+                ("Cloak the Gathering", 6),
+                ("Lost in Crowds", 2),
+                ("Clotho's Gift", 2),
+                ("Behind You!", 4),
+                ("Cats' Guidance", 5),
+                ("Guard Dogs", 3),
+                ("Raven Spy", 7),
+                ("Aid from Bats", 7),
+                ("Carrion Crows", 8),
+                ("Pack Alpha", 3),
+                ("Canine Horde", 3),
+                ("Army of Rats", 1),
+                ("Forced Awakening", 7),
+                ("Computer Hacking", 5),
+                ("Delaying Tactics", 2),
+                ("J. S. Simmons, Esq.", 1),
+                ("Tasha Morgan", 1),
+                ("Dodge", 3),
+                ("Laptop Computer", 3),
+            ]
+        ),
+        "cards_comments": {},
+        "comments": "\"Look in the sky, it's a raven. No, it's a bat.\n"
+        "No, it's a crow, No it's a swarm of them all!!!\"\n",
     }
