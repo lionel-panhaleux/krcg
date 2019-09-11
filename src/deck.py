@@ -52,7 +52,7 @@ class Deck(collections.Counter):
         if self.comment:
             self._assign_comment()
         self.line_num = line_num
-        if marker:
+        if not self.separator or marker:
             self.comment = comment.strip(" ")
         else:
             self.comment = comment.strip(" ()[]-/*")

@@ -243,7 +243,12 @@ class _TWDA(collections.OrderedDict):
                     continue
                 # more often than not, first comment line is the deck name
                 # they tend to be relatively short, though
-                if not current.name and len(line) < 70:
+                if (
+                    not current.name
+                    and not current.comments
+                    and not current.comment
+                    and len(line) < 60
+                ):
                     current.name = line
                     continue
                 # Anything else is considered a comment until a separator is hit

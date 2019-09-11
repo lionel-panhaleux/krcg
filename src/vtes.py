@@ -12,6 +12,7 @@ import logging
 import pickle
 import requests
 import tempfile
+import textwrap
 import zipfile
 
 import unidecode
@@ -352,8 +353,10 @@ class _VTES(dict):
         if deck.author:
             lines.append(f"Created by: {deck.author}")
         if deck.comments:
-            lines.append("Description:")
-            lines.append(deck.comments)
+            if any(len(line) > 100 for line in deck.comments.splitlines()):
+                lines.extend(textwrap.wrap(deck.comments, 90))
+            else:
+                lines.append(deck.comments)
         lines.append("")
         lines.append(f"-- Crypt: ({deck.cards_count(self.is_crypt)} cards)")
         lines.append("---------------------------------------")
