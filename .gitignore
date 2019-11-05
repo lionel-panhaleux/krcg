@@ -4,6 +4,7 @@ build/
 dist/
 *.egg-info/
 *.pkl
+*.npy
 
 # test
 .pytest_cache/

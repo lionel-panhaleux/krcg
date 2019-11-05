@@ -9,6 +9,19 @@ import arrow.parser
 logger = logging.getLogger()
 
 
+def intersection(d1, d2):
+    """Returns the intersection of two decklists
+
+    Args:
+        d1 (dict): or collections.Counter, dict of form {(str): (int)}
+        d2 (dict): or collections.Counter, dict of form {(str): (int)}
+
+    Returns;
+        dict listing all common cards between d1 and d2
+    """
+    return {k: min(v, d2[k]) for k, v in d1.items() if k in d2}
+
+
 class Deck(collections.Counter):
     """A VTES deck, including meta information such as author and decription.
 
@@ -34,6 +47,7 @@ class Deck(collections.Counter):
         self.players_count = 0
         self.player = None
         self.score = None
+        self.archetype = None
         self.name = None
         self.cards_comments = {}
         self.comments = ""
@@ -109,7 +123,7 @@ class Deck(collections.Counter):
         Deck inherits `dict` and its special handling of pickle.
         """
         return {
-            "cards": collections.OrderedDict(self.cards()),
+            "cards": collections.OrderedDict(self),
             "author": self.author,
             "event": self.event,
             "place": self.place,
@@ -118,6 +132,7 @@ class Deck(collections.Counter):
             "score": self.score,
             "players_count": self.players_count,
             "player": self.player,
+            "archetype": self.archetype,
             "name": self.name,
             "cards_comments": self.cards_comments,
             "comments": self.comments,
@@ -131,12 +146,13 @@ class Deck(collections.Counter):
         self.place = state.get("place")
         try:
             self.date = arrow.get(state.get("date"), "MMMM Do YYYY")
-        except arrow.parser.ParserError:
+        except (TypeError, arrow.parser.ParserError):
             pass
         self.tournament_format = state.get("tournament_format")
         self.score = state.get("score")
         self.players_count = int(state.get("players_count", 0))
         self.player = state.get("player")
+        self.archetype = state.get("archetype")
         self.name = state.get("name")
         self.comments = state.get("comments", "")
         self.cards_comments = state.get("cards_comments", {})

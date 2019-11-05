@@ -64,6 +64,7 @@ def test_2019grdojf():
         "player": "Esa-Matti Smolander",
         "tournament_format": "3R+F",
         "score": "1GW3.5+4",
+        "archetype": None,
         "name": "Parliament of Shadows precon with no changes.",
         "author": None,
         "cards": collections.OrderedDict(
@@ -130,6 +131,7 @@ def test_2016ggs():
         "player": "Hugh Angseesing",
         "tournament_format": "3R+F",
         "score": None,
+        "archetype": None,
         "name": "DoC Swedish Sirens",
         "author": None,
         "cards": collections.OrderedDict(
@@ -194,6 +196,7 @@ def test_2k5alboraya():
         "player": "Jose Vicente Coll",
         "tournament_format": "3R+F",
         "score": None,
+        "archetype": None,
         "name": None,
         "author": None,
         "cards": collections.OrderedDict(
@@ -257,6 +260,7 @@ def test_2k4dcqualifier():
         "player": "Matt Morgan",
         "tournament_format": None,
         "score": None,
+        "archetype": None,
         "name": "Call me Julio",
         "author": None,
         "comments": textwrap.dedent(
@@ -355,6 +359,7 @@ def test_2010tcdbng():
         "player": "Rudolf Scholz",
         "tournament_format": "2R+F",
         "score": "4VP in final",
+        "archetype": None,
         "name": "The Storage Procurers",
         "author": None,
         "cards": collections.OrderedDict(
@@ -434,6 +439,7 @@ def test_2012pslp():
         "player": "Patrick Gordo",
         "tournament_format": "2R+F",
         "score": None,
+        "archetype": None,
         "name": "Shadowfang",
         "author": None,
         "cards": collections.OrderedDict(
@@ -491,6 +497,7 @@ def test_2k7campeonatojuizforano():
         "player": "Pedro Paulo de Sousa Mendes (Pepê)",
         "tournament_format": None,
         "score": None,
+        "archetype": None,
         "name": "Imbued at Last",
         "author": None,
         "cards": collections.OrderedDict(
@@ -585,6 +592,7 @@ def test_2010pwbla1():
         "player": "Darby Keeney",
         "tournament_format": "2R+F",
         "score": None,
+        "archetype": None,
         "name": "[2010 TW] The World's Biggest Small Multirushers",
         "author": None,
         "cards": collections.OrderedDict(
@@ -695,6 +703,7 @@ def test_2k5sharednun():
         "player": "Jeroen van Oort",
         "tournament_format": "3R+F",
         "score": None,
+        "archetype": None,
         "name": "Name: Deeper Underground",
         "author": None,
         "cards": collections.OrderedDict(

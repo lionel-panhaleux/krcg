@@ -1,8 +1,17 @@
 """TWDA analyzer: compute cards affinity and build decks based on TWDA.
 """
 import collections
+import functools
 import logging
-from random import randrange
+import pickle
+import random
+
+import arrow
+import numpy as np
+import scipy.sparse
+import scipy.spatial.distance
+import sklearn.cluster
+import yaml
 
 from . import config
 from . import deck
@@ -62,7 +71,7 @@ class Analyzer(object):
                     c
                     for c, _ in self.played.most_common()
                     if c not in twda.TWDA.spoilers
-                ][randrange(100)]
+                ][random.randrange(100)]
             ]
             logger.info("Randomly selected {}".format(args[0]))
         # build crypt first, then library
@@ -126,6 +135,12 @@ class Analyzer(object):
         self.played = collections.Counter()
         for example in self.examples.values():
             self.played.update(card for card, _ in example.cards(condition))
+            self.played.update(
+                config.ARCHETYPE_EQUIVALENCES[card]
+                for card, _ in example.cards(condition)
+                if card in config.ARCHETYPE_EQUIVALENCES
+            )
+
         self.affinity = collections.defaultdict(collections.Counter)
         for card in reference:
             self.refresh_affinity(card, condition)
@@ -222,3 +237,110 @@ class Analyzer(object):
             self.deck.update({next_card: count})
             self.cards_left -= count
             self.refresh_affinity(next_card, condition)
+
+
+class _MATRIX:
+    def __init__(self):
+        self.cards_indexes = {}
+        self.matrix = np.matrix([])
+        self.archetypes = {}
+
+    def load(self):
+        self.matrix = np.load(open(config.MATRIX_FILE, "rb"))
+        self.archetypes = (
+            yaml.safe_load(open(config.ARCHETYPES_FILE, "r", encoding="utf-8")) or {}
+        )
+        self.cards_indexes = pickle.load(open(config.CARDS_INDEXES_FILE, "rb"))
+
+    def recompute(self):
+        A = Analyzer()
+        A.refresh()
+        # Build TWDA matrix
+        self.cards_indexes.clear()
+        codes, indices, data = [], [], []
+        indptr = [0]
+        profiles = {
+            code: vtes.VTES.archetype_profile(decklist)
+            for code, decklist in twda.TWDA.items()
+            if decklist.date >= arrow.get(2008, 1, 1)
+        }
+        for code, profile in profiles.items():
+            codes.append(code)
+            for name, count in profile.items():
+                index = self.cards_indexes.setdefault(name, len(self.cards_indexes))
+                indices.append(index)
+                data.append(count * len(twda.TWDA) / A.played[name])
+            indptr.append(len(indices))
+        self.matrix = scipy.sparse.csr_matrix(
+            (data, indices, indptr), dtype=int
+        ).toarray()
+        pickle.dump(self.cards_indexes, open(config.CARDS_INDEXES_FILE, "wb"))
+        np.save(open(config.MATRIX_FILE, "wb"), self.matrix, allow_pickle=False)
+        eps = 0.2
+        clusters = {}
+        while eps < 0.45:
+            eps = round(eps + 0.05, 2)
+            # Compute distance matrix
+            distance_vector = scipy.spatial.distance.squareform(
+                [
+                    1
+                    - np.sum(np.minimum(self.matrix[i], self.matrix[j]))
+                    / (min(np.sum(self.matrix[i]), np.sum(self.matrix[j])))
+                    for i in range(self.matrix.shape[0])
+                    for j in range(i + 1, self.matrix.shape[0])
+                ]
+            )
+            # Compute clusters with DBSCAN
+            core_samples, labels = sklearn.cluster.dbscan(
+                distance_vector, eps=eps, min_samples=5, metric="precomputed"
+            )
+            to_remove = []
+            for i, label in enumerate(labels):
+                if label < 0:
+                    continue
+                clusters.setdefault(eps, {}).setdefault(label, set()).add(codes[i])
+                to_remove.append(i)
+            codes = [str(a) for a in np.delete(codes, to_remove, 0)]
+            self.matrix = np.delete(self.matrix, to_remove, 0)
+        # For each cluster, compute a core of common cards and try to match it to
+        # a known pre-configured archetype.
+        result = {}
+        for eps, labels in clusters.items():
+            for label, codes in labels.items():
+                decklists = [profiles[code] for code in codes]
+                core = functools.reduce(deck.intersection, decklists, decklists.pop())
+                if sum(core.values()) < 18:
+                    continue
+                match = None
+                for name, archetype in self.archetypes.get(str(eps), {}).items():
+                    candidate_core = archetype["Core"]
+                    if deck.intersection(candidate_core, core) == candidate_core:
+                        match = name
+                        break
+                match = match or str(label)
+                # different cores can match the same archetype
+                if match in result:
+                    core = deck.intersection(result[match]["Core"], core)
+                    codes = set(result[match]["Decks"]) | codes
+                result.setdefault(str(eps), {})[match] = {
+                    "Core": core,
+                    "Decks": sorted(codes),
+                }
+                for code in codes:
+                    twda.TWDA[code].archetype = match
+        self.archetypes = result
+        yaml.safe_dump(
+            self.archetypes,
+            open(config.ARCHETYPES_FILE, "w", encoding="utf-8"),
+            encoding="utf-8",
+            allow_unicode=True,
+        )
+        logger.info("TWDA updated with archetypes")
+        pickle.dump(twda.TWDA, open(config.TWDA_FILE, "wb"))
+
+
+MATRIX = _MATRIX()
+try:
+    MATRIX.load()
+except (FileNotFoundError, EOFError):
+    pass

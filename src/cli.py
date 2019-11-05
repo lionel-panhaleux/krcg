@@ -15,29 +15,22 @@ logger = logging.getLogger()
 
 
 def init(args):
-    if args.cards:
-        vtes.VTES.load_csv(args.file)
-    elif args.twda:
-        if not vtes.VTES:
-            logger.critical(
-                "VTES cards database must be initialized before TWDA database."
-            )
-            exit(1)
+    try:
+        print("Loading cards list...")
+        vtes.VTES.load_from_vekn()
         vtes.VTES.configure()
-        twda.TWDA.load_html(args.file)
-    else:
-        try:
-            vtes.VTES.load_from_vekn()
-            vtes.VTES.configure()
-            twda.TWDA.load_from_vekn()
-        except requests.exceptions.ConnectionError as e:
-            logger.critical(
-                "failed to connect to {}"
-                " - check your Internet connection and firewall settings".format(
-                    e.request.url
-                )
+        print("Loading TWDA...")
+        twda.TWDA.load_from_vekn()
+        print("Computing Archetypes...")
+        analyzer.MATRIX.recompute()
+    except requests.exceptions.ConnectionError as e:
+        logger.critical(
+            "failed to connect to {}"
+            " - check your Internet connection and firewall settings".format(
+                e.request.url
             )
-            exit(1)
+        )
+        exit(1)
 
 
 def affinity(args):
@@ -84,6 +77,32 @@ def build(args):
     print(vtes.VTES.deck_to_txt(analyzer.Analyzer().build_deck(*args.cards)))
 
 
+def archetype(args):
+    if args.recompute:
+        analyzer.MATRIX.recompute()
+    if not args.archetypes:
+        classified = sum(
+            len(archetype["Decks"])
+            for _eps, archetypes in analyzer.MATRIX.archetypes.items()
+            for archetype in archetypes.values()
+        )
+        print(f"{classified} / {len(twda.TWDA)} decks classified")
+        for eps, archetypes in sorted(analyzer.MATRIX.archetypes.items()):
+            for name, archetype in sorted(archetypes.items()):
+                print(f"{name} ({len(archetype['Decks'])})")
+        return
+    for name in args.archetypes:
+        for eps, archetypes in sorted(analyzer.MATRIX.archetypes.items()):
+            if name in archetypes:
+                print(f"{name} ({len(archetypes[name]['Decks'])})")
+                for deck_id in archetypes[name]["Decks"]:
+                    if args.full:
+                        print(f"[{deck_id:<15}]" + "=" * 65)
+                        print(vtes.VTES.deck_to_txt(twda.TWDA[deck_id]))
+                    else:
+                        print("[{}] {}".format(deck_id, twda.TWDA[deck_id]))
+
+
 def deck_(args):
     twda.TWDA.configure(args.date_from, args.date_to, min_players=args.players)
     decks = {i: twda.TWDA[i] for i in args.cards_or_id if i in twda.TWDA}
@@ -99,11 +118,7 @@ def deck_(args):
         args.full = True
     for twda_id, example in sorted(decks.items(), key=lambda a: a[1].date):
         if args.full:
-            print(
-                "[{:<15}]===================================================".format(
-                    twda_id
-                )
-            )
+            print(f"[{twda_id:<15}]" + "=" * 65)
             print(vtes.VTES.deck_to_txt(example))
         else:
             print("[{}] {}".format(twda_id, example))
@@ -183,18 +198,6 @@ subparsers = root_parser.add_subparsers(
 )
 # ################################################################################# init
 parser = subparsers.add_parser("init", help="initialize the local TWDA database")
-parser.add_argument(
-    "-c", "--cards", action="store_true", help="Initialize VTES cards database"
-)
-parser.add_argument(
-    "-t", "--twda", action="store_true", help="Initialize TWDA database"
-)
-parser.add_argument(
-    "file",
-    type=argparse.FileType("r", encoding="utf-8"),
-    nargs="?",
-    help="vtes.csv or TWDA.html file",
-)
 parser.set_defaults(func=init)
 # ############################################################################# affinity
 parser = subparsers.add_parser(
@@ -275,6 +278,21 @@ parser.add_argument(
     help="reference cards",
 )
 parser.set_defaults(func=build)
+# ########################################################################### archetypes
+parser = subparsers.add_parser("archetype", help="list deck archetypes")
+parser.add_argument(
+    "-r", "--recompute", action="store_true", help="Recompute archetypes"
+)
+parser.add_argument(
+    "archetypes",
+    metavar="TXT",
+    nargs="*",
+    help="Archetypes to display (list archetypes if none is given)",
+)
+parser.add_argument(
+    "-f", "--full", action="store_true", help="display each deck content"
+)
+parser.set_defaults(func=archetype)
 # ################################################################################# deck
 parser = subparsers.add_parser("deck", help="show TWDA decks")
 add_year_boundaries(parser)

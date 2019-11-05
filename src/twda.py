@@ -82,7 +82,7 @@ class _TWDA(collections.OrderedDict):
             if limit and count >= limit:
                 break
         logger.info("TWDA loaded")
-        pickle.dump(TWDA, open(config.TWDA_FILE, "wb"))
+        pickle.dump(self, open(config.TWDA_FILE, "wb"))
 
     def configure(self, date_from=None, date_to=None, min_players=0):
         """Prepare the TWDA, taking date and players count filters into account.
@@ -94,7 +94,7 @@ class _TWDA(collections.OrderedDict):
             date_to (datetime): filter out decks after this date
             min_players (int): if > 0, filter out decks with less players
         """
-        if date_from:
+        if date_from and date_from > arrow.get("1994", "YYYY"):
             for key in [key for key, value in self.items() if value.date < date_from]:
                 del self[key]
         if date_to:

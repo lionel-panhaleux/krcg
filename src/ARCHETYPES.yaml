@@ -1,0 +1,2510 @@
+'0.25':
+  Aim & Chain:
+    Core:
+      Catherine du Bois: 1
+      DOM Bleed Modifier: 4
+      DOM Bounce: 7
+      Daring the Dawn: 2
+      Delaying Tactics: 2
+      Earl: 1
+      Esoara: 1
+      FOR Prevention: 8
+      Govern the Unaligned: 10
+      Jephta Hester: 2
+      João Bilé: 1
+      Katherine Stoddard: 1
+      Keith Moody: 1
+      Lana Butcher: 1
+      Randel, The Coward: 1
+      Target Vitals: 6
+      Ulrike Rothbart: 1
+      Wake: 1
+      Zip Gun: 2
+    Decks:
+    - 2010bevapnaer
+    - 2010ncqcaen
+    - 2011wp13bp
+    - 2015decqun
+    - 2k9ecday1
+    - 2k9hospf
+  Akunanse Wall:
+    Core:
+      Amavi: 1
+      Canine Horde: 1
+      Carrion Crows: 6
+      Cats' Guidance: 2
+      Deep Song: 7
+      FOR Prevention: 2
+      Giant's Blood: 1
+      Invoking the Beast: 5
+      Leech: 5
+      Matata: 2
+      'Powerbase: Montreal': 1
+      Predator's Communion: 5
+      Rack, The: 1
+      Raven Spy: 3
+      Sense the Savage Way: 4
+      Taste of Vitae: 4
+      Uchenna: 1
+    Decks:
+    - 2010ecday2
+    - 2011cacbh
+    - 2011iiwyvbg
+    - 2012bhecq
+    - 2013aicbh
+    - 2013jcicbh
+    - 2016hgpbh
+    - 2017lnebaspb
+    - 2017lnebnsb
+    - 2018hgpbh
+  Al-Muntathir Hour:
+    Core:
+      AUS Bounce: 6
+      Al-Muntathir, God's Witness: 4
+      Andre LeRoux: 1
+      Domain of Evernight: 8
+      Freak Drive: 2
+      Giant's Blood: 1
+      Leech: 4
+      Outside the Hourglass: 7
+      Quicksilver Contemplation: 6
+      Recurring Contemplation: 1
+      Tabriz Assembly: 1
+      Tangle Atropos' Hand: 2
+      Tyler McGill: 1
+      Vaticination: 2
+      Wake: 2
+    Decks:
+    - 2010hncnh
+    - 2011acqqcp
+    - 2011fmnoa
+    - 2012a3enqms
+    - 2012cdppf
+    - 2013dnhms
+    - 2015btmbh
+  Anarch Madness:
+    Core:
+      .44 Magnum: 1
+      AUS Bounce: 10
+      AUS Intercept: 7
+      Aleph: 1
+      Anarch Convert: 2
+      Anarch Revolt: 1
+      Brazil: 1
+      Delaying Tactics: 2
+      Disguised Weapon: 1
+      Dollface: 1
+      Eyes of Argus: 3
+      Ivory Bow: 1
+      Madness Network: 2
+      Permacept: 1
+      'Powerbase: Montreal': 1
+      Rack, The: 1
+      Smiling Jack, The Anarch: 1
+      Sniper Rifle: 1
+      Target Vitals: 2
+      Victoria: 2
+      Wake: 8
+      Zöe: 2
+    Decks:
+    - 2010newspringmq
+    - 2011asbi
+    - 2011ropecon
+    - 2k9eclcq
+    - 2k9marseillemq
+  Anson Guns:
+    Core:
+      .44 Magnum: 5
+      Anson: 4
+      Ashur Tablets: 6
+      Blur: 1
+      Bum's Rush: 1
+      Concealed Weapon: 5
+      Haven Uncovered: 1
+      Psyche!: 4
+      Pursuit: 2
+      'Second Tradition: Domain': 5
+      Taste of Vitae: 2
+      Volker, The Puppet Prince: 1
+    Decks:
+    - 2010wpbpoct
+    - 2011mos
+    - 2011psss
+    - 2012ecqbuk
+    - 2012ibotuk
+    - 2012lsttf
+    - 2012secqggs
+    - 2012uknluk
+    - 2012wktpcr
+    - 2013ctims
+    - 2013hicpdms
+    - 2013psbp
+    - 2015gitamv2bng
+    - 2017pnclp
+    - 2017ttpoopf
+    - 2018bncbb
+    - 2019pncwp
+    - 2k9gangbydgoszcz
+    - 2k9hungarianecq
+  Anti Ventrue Grinder:
+    Core:
+      AUS Intercept: 2
+      Blackhorse Tanner: 2
+      DOM Bleed Modifier: 3
+      DOM Bounce: 4
+      FOR Prevention: 10
+      Govern the Unaligned: 8
+      Jephta Hester: 1
+      Neighbor John: 1
+      Owain Evans, The Wanderer: 2
+      Wake: 4
+      Weighted Walking Stick: 3
+    Decks:
+    - 2010atalp
+    - 2010lcmhj
+    - 2010nmrnh
+    - 2010psbarcelona
+    - 2011cncjcr
+    - 2011dtdhf
+    - 2011dutchecq
+    - 2011wp10bp
+    - 2011wp11bp
+    - 2011wp9bp
+    - 2012bktpcrsept
+    - 2012ftpf
+    - 2012jttmbh
+    - 2012wwslf
+    - 2013addbspb
+    - 2013bdmspb
+    - 2013bssbotuk
+    - 2013ecqllf
+    - 2013tnotbspb
+    - 2013ukdcp
+    - 2014bkspb
+    - 2014cdppf
+    - 2014decqcd
+    - 2014fsciibncqcb
+    - 2014ythspb
+    - 2016pbwtmr
+    - 2019gppwp
+    - 2k9bs3mnj
+    - 2k9hungariannc
+    - 2k9icelandeq
+    - 2k9nacday1
+  Arika Royalty:
+    Core:
+      Arika: 3
+      Banishment: 2
+      DOM Bleed Modifier: 3
+      DOM Bounce: 6
+      Forgotten Labyrinth: 3
+      Freak Drive: 5
+      Govern the Unaligned: 3
+      Katarina Kornfeld: 1
+      Kine Resources Contested: 4
+      Leech: 5
+      Lucinde, Alastor: 2
+      Marcus Vitel: 2
+      Monastery of Shadows: 1
+      OBF Stealth: 7
+      PRE Combat Ends: 6
+      PRE Votes: 2
+      Parity Shift: 3
+      Queen Anne: 2
+      Reins of Power: 1
+      'Second Tradition: Domain': 3
+      Voter Captivation: 4
+      Zillah's Valley: 3
+    Decks:
+    - 2011cecqoc
+    - 2011lsoc
+    - 2011wokr4
+    - 2012bncmb
+    - 2016wueiivb
+  Assamite Black Hand:
+    Core:
+      Art of Memory, The: 1
+      Blood Awakening: 1
+      Deed the Heart's Desire: 2
+      Djuhah, The Bronze Bow: 3
+      Giant's Blood: 1
+      'Haqim''s Law: Leadership': 4
+      Information Highway: 1
+      Izhim abd Azrael: 2
+      'Khabar: Glory': 2
+      Leech: 4
+      Loss: 9
+      OBF Stealth: 5
+      Reunion Kamut: 9
+      Reza Fatir, The Dark Angel: 1
+      Seraph's Second: 4
+      Tattoo Signal: 3
+      'Watchtower: The Wolves Feed': 1
+      Yoruba Shrine: 1
+    Decks:
+    - 2011zban
+    - 2013cdppf
+    - 2014satws2pdms
+    - 2018igpadhs
+    - 2018ztvf
+    - 2k9governos
+  Brujah Debate:
+    Core:
+      Angel: 1
+      Brujah Debate: 6
+      Brujah Justicar: 1
+      Consanguineous Boon: 2
+      Dre, Leader of the Cold Dawn: 1
+      Hector Sosa: 1
+      Lupo: 1
+      'Praxis Seizure: Rome': 1
+      Rake: 2
+      Raziya Samater: 1
+      'Second Tradition: Domain': 5
+      Uma Hatch: 1
+      Volker, The Puppet Prince: 2
+      Yuri, The Talon: 1
+    Decks:
+    - 2011atse
+    - 2011bos4bp
+    - 2011wonootfp
+    - 2012vmabi
+    - 2013vcqma
+    - 2014pbucbc
+    - 2014tsqtti
+    - 2015cdppf
+    - 2k9dtdgi
+  Carna:
+    Core:
+      Aisling Sturbridge: 1
+      Apportation: 8
+      Arcane Library: 1
+      Blythe Candeleria: 1
+      Bowl of Convergence: 1
+      Carna, The Princess Witch: 2
+      Cohn Rose: 1
+      Leech: 4
+      Magic of the Smith: 2
+      Theft of Vitae: 9
+      Wake: 4
+      Walk of Flame: 2
+    Decks:
+    - 2011fotmlac
+    - 2011qvespdms
+    - 2013anzccsa
+    - 2013msabpdms
+    - 2013nbpdms
+    - 2014teafb
+    - 2017psffb
+    - 2k8aolnewarkohio
+    - 2k9acclcq
+  Cats:
+    Core:
+      Carrion Crows: 8
+      Cats' Guidance: 2
+      Effie Lowery: 2
+      Falcon's Eye: 3
+      Gentha Shale: 1
+      Leech: 5
+      Muricia: 3
+      Speak with Spirits: 7
+      Stick: 1
+      Swiftness of the Stag: 6
+      Taste of Vitae: 2
+      Wake: 2
+    Decks:
+    - 2010mqpf
+    - 2011coldaurano
+    - 2011qcfvvf
+    - 2011szczecinopen
+    - 2012othpf
+    - 2018pncwp
+    - 2019cmjdfb
+  Death Star:
+    Core:
+      Alamut: 2
+      Alu: 1
+      Anarch Convert: 4
+      Anarch Salon: 1
+      Basir: 1
+      Black Throne, The: 1
+      Consanguineous Boon: 5
+      CrimethInc.: 4
+      Exclusion Principle: 1
+      'Fee Stake: Boston': 1
+      'Fee Stake: Corte': 1
+      'Fee Stake: Los Angeles': 1
+      'Fee Stake: New York': 1
+      'Fee Stake: Perth': 1
+      Hafsa, The Watcher: 1
+      Kine Resources Contested: 2
+      Layla bint-Nadr: 1
+      Leech: 2
+      Michael diCarlo: 1
+      OBF Stealth: 14
+      Patsy: 1
+      Revolutionary Council: 2
+      Vardar Vardarian: 1
+      Web of Knives Recruit: 4
+      Yoruba Shrine: 1
+    Decks:
+    - 2012std2co
+    - 2k8dcmd1
+    - 2k8nacday1
+    - 2k8nacday2
+    - 2k8orgyofmysteryiny
+    - 2k9tbandss
+  Giotto Politics:
+    Core:
+      Ashur Tablets: 6
+      Freak Drive: 5
+      Giotto Verducci: 5
+      Information Highway: 1
+      Kaymakli Fragment: 4
+      Leech: 2
+      OBF Stealth: 11
+      Parity Shift: 1
+      Unleash Hell's Fury: 1
+      Wider View: 1
+    Decks:
+    - 2013rr5pf
+    - 2014ffepf
+    - 2014yofpf
+    - 2015encle
+    - 2017rsms
+    - 2017sncas
+    - 2019ddspdmsp
+  Giovanni Powerbleed:
+    Core:
+      Call of the Hungry Dead: 6
+      DOM Bleed Modifier: 6
+      DOM Bounce: 6
+      Gillespi Giovanni: 2
+      Gloria Giovanni: 2
+      Govern the Unaligned: 6
+      Isabel Giovanni: 2
+      Le Dinh Tho: 1
+      Seduction: 6
+      Spectral Divination: 4
+      Spiritual Intervention: 6
+      Wake: 2
+    Decks:
+    - 2010eriecq
+    - 2011hflbs
+    - 2011iecqbi
+    - 2012ecqocs
+    - 2013ecqoc
+    - 2013wftspb
+    - 2014dtcb
+    - 2k9massacarrara
+  Girls Will Find AIDS:
+    Core:
+      Aid from Bats: 8
+      Aksinya Daclau: 3
+      Ashur Tablets: 9
+      Carrion Crows: 7
+      Cybele: 2
+      Deep Song: 2
+      Dragonbound: 1
+      Dreams of the Sphinx: 1
+      Enkidu, The Noah: 1
+      Fame: 1
+      Giant's Blood: 1
+      'Golconda: Inner Peace': 1
+      Gustaphe Brunnelle: 1
+      Haven Uncovered: 1
+      Information Highway: 2
+      Leech: 6
+      Liquidation: 4
+      Lost in Translation: 1
+      Nana Buruku: 1
+      Nangila Were: 1
+      Target Vitals: 1
+      Taste of Vitae: 2
+    Decks:
+    - 2011ecqgothcon
+    - 2011fcqco
+    - 2011nqonm
+    - 2011pbla2
+    - 2012f13no
+    - 2012fncpf
+    - 2014sqtmi
+    - 2014tti
+  Girls Will Find Inner Circle:
+    Core:
+      Aire of Elation: 1
+      Aksinya Daclau: 3
+      Ashur Tablets: 6
+      Coven, The: 1
+      Cybele: 3
+      Dreams of the Sphinx: 1
+      Entrancement: 1
+      Giant's Blood: 1
+      'Golconda: Inner Peace': 1
+      Information Highway: 1
+      Jake Washington: 1
+      Leech: 6
+      Liquidation: 3
+      Lost in Translation: 1
+      Lutz von Hohenzollern: 1
+      Metro Underground: 1
+      Monastery of Shadows: 1
+      OBF Stealth: 7
+      PRE Combat Ends: 1
+      Parthenon, The: 1
+      Rafael de Corazon: 1
+      Zillah's Valley: 4
+    Decks:
+    - 2010ecday1
+    - 2010eclegvam
+    - 2010gothconeq
+    - 2010neonateparis
+    - 2010sncorebro
+    - 2011nrqtwri
+    - 2012ecday2
+    - 2012rtb35ocr
+    - 2012shgs
+    - 2013lnlcqco
+    - 2015sncbdvs
+    - 2018fncef
+    - 2019elw3ef
+    - 2019fnclf
+    - 2k9phantomsgs
+  Goratrix Wall:
+    Core:
+      AUS Bounce: 7
+      AUS Intercept: 7
+      Anarch Convert: 2
+      Army of Rats: 1
+      Bowl of Convergence: 1
+      Canine Horde: 1
+      Carrion Crows: 6
+      Cats' Guidance: 6
+      Enkil Cog: 1
+      Eyes of Argus: 6
+      Giant's Blood: 1
+      Goratrix: 3
+      Ivory Bow: 1
+      Kevlar Vest: 1
+      Leech: 3
+      Magic of the Smith: 3
+      Mylan Horseed: 1
+      Omaya: 2
+      Permacept: 1
+      'Powerbase: Montreal': 1
+      Ruins of Ceoris: 1
+      Sense the Savage Way: 6
+    Decks:
+    - 2012ecfcq
+    - 2012tpvlfpp
+    - 2013ncqbh
+    - 2013nqhhhs
+    - 2014tbapf
+    - 2015bobp
+    - 2015ecday2wp
+    - 2015hgpbh
+    - 2016bvpfb
+    - 2017wawp
+    - 20182tlaef
+    - 2018fsffb
+    - 2018pupdms
+    - 2018rfgphf
+  Gotsdam Grinder:
+    Core:
+      AUS Bounce: 4
+      Bowl of Convergence: 1
+      DOM Bounce: 3
+      Gotsdam, The Tired Warrior: 3
+      Govern the Unaligned: 7
+      Ivory Bow: 1
+      Neighbor John: 1
+      Wake: 3
+    Decks:
+    - 2010spanishnats
+    - 2014aecqwa
+    - 2014mgsms
+    - 2016bncsb
+    - 2017jrxxxivlchf
+  Howler:
+    Core:
+      Aid from Bats: 6
+      Animalism: 2
+      Army of Rats: 1
+      Canine Horde: 2
+      Carrion Crows: 8
+      Cats' Guidance: 3
+      Cynthia Ingold: 2
+      Ears of the Hare: 2
+      Falcon's Eye: 4
+      Howler: 4
+      Leech: 5
+      Permacept: 1
+      'Powerbase: Montreal': 1
+      Raven Spy: 3
+      Siamese, The: 2
+      Smiling Jack, The Anarch: 1
+      Speak with Spirits: 9
+      Swiftness of the Stag: 6
+    Decks:
+    - 2010finalresistance
+    - 2010polnats
+    - 2011eclv
+    - 2011epvlwp
+    - 2012aebotuk
+    - 2014mdtbdvbs
+    - 2016wone4co
+  Ishtarri Politics:
+    Core:
+      Ancestor Spirit: 1
+      Ancilla Empowerment: 2
+      Ayo Igoli: 3
+      Banishment: 1
+      Dreams of the Sphinx: 1
+      Entrancement: 1
+      Forced March: 5
+      Forgotten Labyrinth: 1
+      Ishtarri Kholo: 1
+      Kine Resources Contested: 4
+      Leech: 5
+      PRE Combat Ends: 5
+      PRE Votes: 1
+      Strange Day: 1
+      Ubende: 2
+      Uncontrolled Impulse: 2
+      Voter Captivation: 3
+    Decks:
+    - 2012sclcqmbs
+    - 2012scmbs
+    - 2012tdbdvs
+    - 2014eecqbote
+    - 2k9psghent
+  Khazar Diary:
+    Core:
+      Cristofero Giovanni: 1
+      DOM Bounce: 4
+      Delaying Tactics: 1
+      Jake Washington: 3
+      Khazar's Diary (Endless Night): 7
+      Lia Milliner: 1
+      Marciana Giovanni, Investigator: 1
+      Paul DiCarlo, The Alpha: 1
+      Repo Man: 1
+      Rudolfo Giovanni: 1
+      Sudario Refraction: 4
+      Unmasking, The: 1
+      Wake: 1
+    Decks:
+    - 2010warpartybp
+    - 2012ajspgs
+    - 2012helenaadv
+    - 2013bncmb
+    - 2013sofsvqsjc
+    - 2013stass
+    - 2016fecqbrgpf
+    - 2018eclcqwp
+    - 2018jmspb
+    - 2018nmno
+    - 2k8eclcqpcr
+    - 2k8fnqnancyfr
+    - 2k8gothenburgapril
+    - 2k8lcqfnc
+    - 2k9ecminiqsabadell
+    - 2k9finalsacrifice
+  Kiasyd S&B:
+    Core:
+      Aura Absorption: 2
+      DOM Bounce: 4
+      Dame Hollerton: 1
+      Fae Contortion: 3
+      Govern the Unaligned: 4
+      Omme Enberbenight: 1
+      Pherydima: 1
+      Wake: 2
+    Decks:
+    - 2010belorussiannats
+    - 2010dbatl
+    - 2010fscolumbus
+    - 2010playtestbs
+    - 2010slovakecq
+    - 2010unleashpf
+    - 2011frenchecq
+    - 2011wtbms
+    - 2012amri
+    - 2013ussjc
+    - 2013yices
+    - 2014rvvb
+    - 2015dncutn
+    - 2015fsciiibncqcb
+    - 2016bncmb
+    - 2017lnebfmmb
+    - 2017tgb5hf
+    - 2019nnho
+    - 2k8burtonukjuly
+    - 2k8mexicoqualifier
+  Lasombra Nocturn:
+    Core:
+      DOM Bleed Modifier: 2
+      DOM Bounce: 5
+      Ermenegildo, The Rake: 1
+      Govern the Unaligned: 6
+      Leila Monroe: 1
+      Lucy Markowitz: 1
+      Nocturn: 9
+      OBT Stealth: 7
+      Onaedo: 1
+      Path of Night, The: 1
+      Wake: 2
+    Decks:
+    - 2010lisboaeq
+    - 2012eotd4hf
+    - 2013eubbpdms
+    - 2013jr19siphf
+    - 2013mtv3bdvs
+    - 2013qcfrf
+    - 2014esplcpdms
+    - 2014nmacpdms
+    - 2019kojpms
+    - 2k8lcqnbrasil
+    - 2k9fdsn
+    - 2k9mondaymayhemxiii
+    - 2k9royalrumble2
+    - 2k9tbtbs
+  Lasombra Nocturn Swarm:
+    Core:
+      Andrew Emory: 2
+      DOM Bounce: 5
+      Ermenegildo, The Rake: 2
+      Leech: 3
+      Leila Monroe: 2
+      Lucy Markowitz: 2
+      Nocturn: 15
+      OBT Stealth: 4
+      Onaedo: 1
+      Path of Night, The: 3
+      Unmasking, The: 1
+      Wake: 6
+    Decks:
+    - 2010huntforkbi
+    - 2011wokr5
+    - 2k8crimsongenova
+    - 2k8xmasjundiai
+    - 2k9udfllc
+  Lucian Madness:
+    Core:
+      DOM Bleed Modifier: 3
+      Gilbert Duane: 2
+      Greger Anderssen: 2
+      Leech: 2
+      Lucian: 3
+      Madness Network: 3
+      OBF Stealth: 8
+      Obedience: 6
+      Parity Shift: 4
+      'Second Tradition: Domain': 6
+      Victoria: 1
+    Decks:
+    - 2011bddcpa
+    - 2011vlrbs
+    - 2012rac
+    - 2013psbiibp
+    - 2014cncjcr
+    - 2k8mpmarseille
+    - 2k8thevics
+  Lutz Resonance:
+    Core:
+      AUS Bounce: 5
+      Giant's Blood: 1
+      Information Highway: 2
+      Kine Resources Contested: 2
+      Leech: 2
+      Lutz von Hohenzollern: 3
+      OBF Stealth: 10
+      Petra Resonance: 5
+      Political Stranglehold: 1
+      Reins of Power: 1
+      Tryphosa: 2
+      Unmada: 3
+    Decks:
+    - 2011hkktf
+    - 2015bnmb
+    - 2015bococr
+    - 2k9impflamess
+    - 2k9pstl
+  Mistress Circle:
+    Core:
+      Alastor: 1
+      Alonso Petrodon: 2
+      Ancient Influence: 1
+      DOM Bounce: 4
+      Enkil Cog: 1
+      Gabrielle di Righetti: 1
+      Giant's Blood: 1
+      Helicopter: 1
+      Information Highway: 3
+      Leech: 6
+      Mental Maze: 1
+      Mistress Fanchon: 3
+      Monastery of Shadows: 1
+      OBF Stealth: 16
+      Obedience: 4
+      Orlando Oriundus: 1
+      Parity Shift: 2
+      Rafael de Corazon: 2
+      Reins of Power: 1
+      Tryphosa: 1
+    Decks:
+    - 2015hecqbh
+    - 2016pecqap
+    - 2016sncrs
+    - 2016vdap
+    - 2018dnccd
+  Mummies:
+    Core:
+      Ahmose Chambers: 1
+      Amam the Devourer: 1
+      Charisma: 1
+      DOM Bleed Modifier: 1
+      DOM Bounce: 3
+      Delaying Tactics: 1
+      Effective Management: 3
+      FBI Special Affairs Division: 1
+      Halim Bey: 2
+      Nakhthorheb: 1
+      Nephren-Ka: 1
+      OBF Stealth: 6
+      Opium Den: 1
+      Ossian: 1
+      Pentweret: 1
+      Porphyrion: 1
+      Set's Curse: 1
+      Seterpenre: 1
+      Shemti: 1
+      Spell of Life: 10
+      Tutu the Doubly Evil One: 1
+      Unmasking, The: 1
+      Vagabond Mystic: 1
+      Veil the Legions: 2
+      Wake: 3
+    Decks:
+    - 2011bodeki
+    - 2011bodekii
+    - 2013acc
+    - 2014bfbvvb
+    - 2k8nycqual
+  Nephandus Piper:
+    Core:
+      Anarch Convert: 4
+      Anarch Revolt: 5
+      Antonio d'Erlette: 4
+      Ashur Tablets: 9
+      Computer Hacking: 3
+      DOM Bleed Modifier: 3
+      DOM Bounce: 6
+      Delaying Tactics: 2
+      Dreams of the Sphinx: 2
+      Ember Wright: 1
+      FBI Special Affairs Division: 1
+      Fame: 1
+      Gregory Winter: 1
+      Haven Uncovered: 3
+      Keith Moody: 2
+      Leech: 3
+      Molotov Cocktail: 3
+      Nephandus: 18
+      Not to Be: 1
+      Parthenon, The: 4
+      Piper: 7
+      Saiz: 1
+      Target Vitals: 3
+      Unmasking, The: 2
+      Vagabond Mystic: 1
+      Wake: 7
+    Decks:
+    - 2016saclcqspb
+    - 2017blnebspb
+    - 2017rsaccb
+    - 2018oespb
+    - 2018osdispb
+    - 2018prspb
+  Nephandus Tablets:
+    Core:
+      Antonio d'Erlette: 5
+      Ashur Tablets: 9
+      DOM Bounce: 5
+      Delaying Tactics: 1
+      Dragonbound: 1
+      Fame: 1
+      Fortschritt Library: 1
+      Frontal Assault: 1
+      Haven Uncovered: 3
+      Jake Washington: 1
+      Keith Moody: 1
+      Liquidation: 5
+      Nephandus: 8
+      Parthenon, The: 5
+      Secure Haven: 1
+      Slow Withering, The: 1
+      Target Vitals: 4
+      Trap: 4
+      Unmasking, The: 1
+      Wake: 2
+    Decks:
+    - 2010crusadebreslau
+    - 2011alastorparis
+    - 2011biwwp
+    - 2013ccpdms
+    - 2013popp
+    - 2015pecqlp
+    - 2015pncpp
+    - 2018ovs2018of
+    - 2019gtuap
+  Rachel Madness:
+    Core:
+      AUS Bounce: 4
+      Earth Meld: 10
+      Greger Anderssen: 2
+      Homunculus: 2
+      Madness Network: 3
+      OBF Stealth: 6
+      Perfectionist: 2
+      Rachel Brandywine: 4
+      'Second Tradition: Domain': 6
+      Victoria: 1
+      Zöe: 1
+    Decks:
+    - 2010uknats
+    - 2011panoa
+    - 2011pncgpm
+    - 2011wp18bp
+    - 2015yofpgb
+    - 2k8dirtycontractitaly
+    - 2k9tolgothsweden
+  Ravnos Clown Car:
+    Core:
+      Anka, Priestess of Thorns: 1
+      Consanguineous Boon: 5
+      Eldest Are Kholo, The: 9
+      Embrace, The: 14
+      Lázár Dobrescu: 1
+      Mozambique Allure: 9
+      Ravnos Carnival: 4
+      Salbatore Bokkengro: 1
+      Sasha Miklos: 1
+      Sennuwy, The Promoter: 1
+      Spleen, Georgio Gutterpunk: 1
+      Tsigane: 1
+      Vedel Esbreno: 1
+      Week of Nightmares: 1
+      Zip: 1
+    Decks:
+    - 2010motenyc
+    - 2012ecqfcqlf
+    - 2013ecsodss
+    - 2013titrmi
+    - 2014fncmf
+    - 2019nacfcqco
+    - 2k8powerbasecataluna
+  Shambling Hordes Rush:
+    Core:
+      Call of the Hungry Dead: 4
+      Delaying Tactics: 2
+      Fame: 1
+      Isabel Giovanni: 1
+      Lia Milliner: 1
+      Liquidation: 4
+      Path of Bone, The: 2
+      Rudolfo Giovanni: 1
+      Shambling Hordes: 14
+      Sudario Refraction: 3
+      Trap: 2
+      Unmasking, The: 1
+    Decks:
+    - 2011snc
+    - 2011wp19bp
+    - 2012fsh4hf
+    - 2013wbdpp
+    - 2014sieqmi
+    - 2k8boxedinfq
+    - 2k8fcqprague
+    - 2k8montpellierqcf
+    - 2k8orebromq
+  Stanislava G1:
+    Core:
+      Ancient Influence: 1
+      Caitlin: 1
+      DOM Bounce: 2
+      Earth Control: 4
+      Ecoterrorists: 1
+      Form of Mist: 5
+      Freak Drive: 4
+      Genevieve: 1
+      Govern the Unaligned: 3
+      Iliana: 1
+      Ingrid Rossler: 1
+      Leech: 4
+      Stanislava: 4
+      Wake: 2
+    Decks:
+    - 20126ptbh
+    - 2013ckkp
+    - 2013ftlbocr
+    - 2014ceqcbcr
+    - 2014jrxxiihdhf
+    - 2015sacb
+    - 2015vteslbh
+    - 2016rfehf
+    - 2k8psturku45
+    - 2k9bloodformbi
+  Stanislava G3:
+    Core:
+      Ancilla Empowerment: 2
+      Backways: 1
+      DOM Bleed Modifier: 3
+      DOM Bounce: 4
+      Dreams of the Sphinx: 1
+      Earth Control: 5
+      Earth Meld: 3
+      Enkil Cog: 1
+      Ennoia's Theater: 1
+      Form of Mist: 5
+      Giant's Blood: 1
+      Govern the Unaligned: 7
+      Hartmut Stover: 1
+      Information Highway: 1
+      Ingrid Rossler: 2
+      Instantaneous Transformation: 3
+      Leech: 6
+      Mark Decker: 1
+      Monastery of Shadows: 1
+      Parity Shift: 5
+      Rapid Change: 2
+      Reins of Power: 1
+      Stanislava: 4
+      Xaviar: 1
+    Decks:
+    - 2015ecd1wp
+    - 2015qcfaf
+    - 2017nacd2co
+    - 2017raaanc
+    - 2018bsgb
+    - 2019bopf
+  The Bleeding Vignes:
+    Core:
+      Anarch Troublemaker: 1
+      Bonding: 4
+      Boss Callihan: 1
+      Catherine du Bois: 1
+      Coven, The: 1
+      DOM Bleed Modifier: 7
+      DOM Bounce: 7
+      Daring the Dawn: 1
+      Delaying Tactics: 2
+      Diana Vick: 1
+      Edward Vignes: 2
+      Elena Gutierrez: 1
+      Govern the Unaligned: 8
+      Ingrid Russo: 1
+      Jake Washington: 1
+      Leech: 3
+      Mind Numb: 3
+      PRE Combat Ends: 7
+      Ranjan Rishi, Camarilla Scholar: 2
+      Seduction: 3
+    Decks:
+    - 2010belgianecq
+    - 2012anvosa
+    - 2013ebhvpms
+    - 2013nmacps
+    - 2k8celestial1
+    - 2k9fbtpcat
+    - 2k9nycqualifier
+  The unnamed:
+    Core:
+      Enkil Cog: 2
+      Homunculus: 2
+      Horde, The: 2
+      I am Legion: 1
+      OBF Stealth: 8
+      Perfectionist: 2
+      Sense the Sin: 3
+      Tend the Flock: 3
+      Unleash Hell's Fury: 1
+      Xeper, Sultan of Lepers: 1
+      unnamed, The: 4
+    Decks:
+    - 2012lcqdcdf
+    - 2013fotcbi
+    - 2015ecqmvf
+    - 2015ovrqno
+    - 2016nacd2co
+    - 2017pkmr
+    - 2018cwdtsw
+    - 2018ot1co
+    - 2018r2vh
+    - 2019hwgasc
+    - 2019matf
+  Tunnel Runners:
+    Core:
+      Aid from Bats: 3
+      Charisma: 2
+      Computer Hacking: 9
+      Delaying Tactics: 2
+      Dolie: 1
+      Jacob Fermor: 3
+      Leech: 4
+      Mapatano Utando: 1
+      Meno Ngari: 1
+      'Powerbase: Tshwane': 2
+      Predator's Transformation: 4
+      Tunnel Runner: 7
+      Unmasking, The: 2
+      Vagabond Mystic: 1
+      Wake: 3
+      Wider View: 3
+    Decks:
+    - 2012wone1seco
+    - 2013ecfcqss
+    - 2013nacd2co
+    - 2013wone1
+    - 2015iqtfsbbi
+  Tupdog Nephandus:
+    Core:
+      Antonio d'Erlette: 2
+      Brick by Brick: 6
+      Immortal Grapple: 8
+      Nephandus: 3
+      Raking Talons: 8
+      Tupdog: 16
+    Decks:
+    - 2011pvllp
+    - 2012cybeleitaly
+    - 2014bncspb
+    - 2014laoncb
+    - 2014sacspb
+    - 2018bccqjmspb
+    - 2019tdclf
+  Ventrue Stickmen:
+    Core:
+      DOM Bleed Modifier: 2
+      DOM Bounce: 8
+      FOR Prevention: 10
+      Govern the Unaligned: 5
+      Graham Gottesman: 1
+      João Bilé: 1
+      Lodin (Olaf Holte): 3
+      'Second Tradition: Domain': 6
+      Weighted Walking Stick: 3
+    Decks:
+    - 2010fscoimbra
+    - 2010nerqwri
+    - 2011apvltkp
+    - 2012ncrvh
+    - 2012pnclp
+    - 2013d2stco
+    - 2013ecd2ss
+    - 2013grmvid
+    - 2013wone6
+    - 2014avoeccqba
+    - 2014ccpdms
+    - 2014cspb
+    - 2014pacn2014pdms
+    - 2014tdibti
+    - 2015secqgs
+    - 2016mfb
+    - 2016selwef
+    - 2017ecday1bg
+    - 2018won6co
+    - 2019nacd1co
+  Weenie Ani:
+    Core:
+      Aid from Bats: 9
+      Beetleman: 1
+      Canine Horde: 1
+      Carrion Crows: 8
+      Deep Song: 8
+      Fame: 1
+      Stick: 1
+      Taste of Vitae: 3
+    Decks:
+    - 2010badiajune
+    - 2010bfw
+    - 2010espoomq
+    - 2010hunrb
+    - 2010treatmentboston
+    - 2011NACd2
+    - 2011eclcq
+    - 2011fsmoscow
+    - 2011hncrkn
+    - 2011md2lf
+    - 2011pvpbs
+    - 2011wp15bp
+    - 2012cbpf
+    - 2012fsssh
+    - 2012ncrkh
+    - 2012qcfmf
+    - 2013tsiems
+    - 2014cnccb
+    - 2014gncmg
+    - 2014lfb
+    - 2015ce03fb
+    - 2015fssiimb
+    - 2015pncap
+    - 2015saclcqfb
+    - 2016gncbg
+    - 2016ncqmmf
+    - 2018csmno
+    - 2018fnclf
+    - 2018lkpf
+    - 2019bncfb
+    - 2k9blackplanet
+    - 2k9ecqautstria
+  Weenie Dem:
+    Core:
+      Apache Jones: 1
+      Cassandra Langely, The Waif: 1
+      Confusion: 6
+      Deny: 4
+      Eyes of Chaos: 8
+      Kindred Spirits: 11
+      Midget: 1
+      Mind Tricks: 2
+      Persia, The Beautiful Statue: 1
+    Decks:
+    - 2010nycq
+    - 2011bl1
+    - 2011dncutn
+    - 2011nycq
+    - 2012cbbs
+    - 2012fotcbs
+    - 2012othss
+    - 2012pdvpf
+    - 2012tfttaspb
+    - 2013gncbc
+    - 2015adnbdvs
+    - 2015incti
+    - 2016cavvb
+    - 2016iecqgi
+    - 2018mtmfb
+'0.3':
+  AAA:
+    Core:
+      Alexandra: 2
+      Anneke: 2
+      Anson: 3
+      Banishment: 1
+      Entrancement: 1
+      Jake Washington: 1
+      Kine Resources Contested: 2
+      Leech: 6
+      Neonate Breach: 1
+      PRE Votes: 3
+      Parity Shift: 2
+      Parthenon, The: 1
+      Reins of Power: 1
+      Toreador Grand Ball: 6
+      Voter Captivation: 3
+      Zillah's Valley: 4
+    Decks:
+    - 2010fpwlmb
+    - 2012bktpcr
+    - 2012eclcq
+    - 2013psss
+    - 2014cccqoc
+  Ambrosio Parliament:
+    Core:
+      Alvaro, The Scion of Angelica: 1
+      Ambrosio Luis Monçada, Plenipotentiary: 3
+      Banishment: 1
+      DOM Bleed Modifier: 2
+      DOM Bounce: 4
+      Elysian Fields: 1
+      Francisco Domingo de Polonia: 2
+      Govern the Unaligned: 6
+      Gratiano: 2
+      Kine Resources Contested: 6
+      Leech: 3
+      Marcus Vitel: 2
+      OBT Stealth: 6
+      PRE Combat Ends: 5
+      PRE Votes: 2
+      Power Structure: 1
+      Shroud of Absence: 2
+      Voter Captivation: 5
+    Decks:
+    - 2010100krfk
+    - 2011wp21bp
+    - 2012serbianecq
+    - 2014gtgi
+    - 2k9huwohio
+  Arika Rape:
+    Core:
+      Arika: 3
+      Banishment: 1
+      DOM Bounce: 5
+      Enkil Cog: 1
+      Leech: 4
+      Lucinde, Alastor: 1
+      Marcus Vitel: 3
+      Mind Rape: 2
+      OBF Stealth: 4
+      PRE Votes: 2
+      Queen Anne: 2
+    Decks:
+    - 2013c2cp
+    - 2013tgrmivusjf
+    - 2015graiwswiajf
+    - 2k9fcqnac
+    - 2k9fncqsf
+  Circle of Doom:
+    Core:
+      Arika: 2
+      DOM Bounce: 1
+      Etrius: 1
+      Giant's Blood: 1
+      'Golconda: Inner Peace': 1
+      Huitzilopochtli: 3
+      Information Highway: 1
+      Leandro: 1
+      Leech: 6
+      OBF Stealth: 10
+      Obedience: 3
+      Wake: 1
+    Decks:
+    - 2012ropecon
+    - 2012twsss
+    - 2013ebsvavsppdms
+    - 2013grmtdjf
+    - 2014tgrmivyofjf
+    - 2k9lvmq
+  Guillaume Powerbleed:
+    Core:
+      Call of the Hungry Dead: 5
+      DOM Bleed Modifier: 5
+      DOM Bounce: 7
+      Govern the Unaligned: 6
+      Gualtiero Ghiberti: 1
+      Guillaume Giovanni: 4
+      Leech: 2
+      Morgue Hunting Ground: 1
+      Parthenon, The: 1
+      'Powerbase: Cape Verde': 1
+      Raphaela Giovanni: 1
+      Secure Haven: 1
+      Seduction: 2
+      Spectral Divination: 3
+      Spiritual Intervention: 5
+      Storage Annex: 1
+    Decks:
+    - 2010portuguesenc
+    - 2015camb
+    - 2016rvvb
+    - 2017bttdun
+    - 2k8futuregothenburg
+    - 2k9czestochowa
+  Jacob Team:
+    Core:
+      Calvin Cleaver: 1
+      Claws of the Dead: 2
+      Delaying Tactics: 1
+      Dreams of the Sphinx: 1
+      Earth Meld: 2
+      Ecoterrorists: 2
+      Fame: 1
+      Fergus Alexander: 1
+      Flesh of Marble: 3
+      Gunnar: 1
+      Jacob Fermor: 2
+      Lillian: 1
+      Renegade Garou: 3
+      Robert Price: 1
+      Tribute to the Master: 2
+      Unmasking, The: 1
+      Wake: 3
+      Weighted Walking Stick: 4
+    Decks:
+    - 2010psnnshf
+    - 2018fevvb
+    - 2k9alastorsvilleins
+    - 2k9avangarda
+    - 2k9dansemacabrelublin
+    - 2k9fangdirdennikograus
+  Kiasyd Nocturn:
+    Core:
+      Bonding: 1
+      Coven, The: 1
+      DOM Bleed Modifier: 4
+      DOM Bounce: 4
+      Dame Hollerton: 1
+      Dreams of the Sphinx: 3
+      Ermenegildo, The Rake: 1
+      Govern the Unaligned: 9
+      Great Symposium: 1
+      Isanwayen: 1
+      Lucy Markowitz: 1
+      Nocturn: 3
+      OBT Stealth: 3
+      Seduction: 1
+      Shroud of Absence: 3
+      Stone Travel: 2
+      Wake: 1
+    Decks:
+    - 2012ggs
+    - 2012gmgs
+    - 2014sncss
+    - 2015snss
+    - 2017rsvrqsjc
+    - 2019zzks
+  Lutz Captivation:
+    Core:
+      Banishment: 2
+      Entrancement: 1
+      Forgotten Labyrinth: 4
+      Kine Resources Contested: 10
+      Leech: 7
+      Lutz von Hohenzollern: 4
+      OBF Stealth: 11
+      PRE Votes: 6
+      Reins of Power: 1
+      Secure Haven: 1
+      Stavros: 3
+      Voter Captivation: 6
+    Decks:
+    - 2010dylangi
+    - 2011npbdvs
+    - 2011thevics
+    - 2011tjavvs
+    - 2k9pallagrandeti
+  Malkav 94:
+    Core:
+      DOM Bleed Modifier: 7
+      DOM Bounce: 5
+      Didi Meyers: 1
+      Dreams of the Sphinx: 1
+      Gilbert Duane: 2
+      Govern the Unaligned: 7
+      Mariel, Lady Thunder: 2
+      OBF Stealth: 15
+      Wake: 2
+      Zebulon: 1
+    Decks:
+    - 2010wineandcheese
+    - 2014trsqttri
+    - 2015stgib
+    - 2k8tampereminiq
+    - 2k9alacrity2bc
+  Maris Lutz:
+    Core:
+      Kine Resources Contested: 2
+      Lutz von Hohenzollern: 3
+      Madness Network: 1
+      Maris Streck: 3
+      Mental Maze: 6
+      Monastery of Shadows: 1
+      My Kin Against the World: 2
+      OBF Stealth: 10
+      Parity Shift: 8
+      Quentin King III: 1
+      Rachel Brandywine: 1
+      Zillah's Valley: 8
+    Decks:
+    - 2012italyqualifier
+    - 2013bwmi
+    - 2015bccqdbbbb
+    - 2016eclvgi
+    - 2017pbycbc
+  Montano Purge:
+    Core:
+      Baltimore Purge: 3
+      DOM Bleed Modifier: 3
+      DOM Bounce: 2
+      Dreams of the Sphinx: 2
+      Enkil Cog: 1
+      Freak Drive: 9
+      Graverobbing: 2
+      Leech: 2
+      Lucita: 1
+      Montano: 4
+      OBT Combat Ends: 2
+      OBT Stealth: 6
+      Shroud of Absence: 2
+    Decks:
+    - 2016mvldbg
+    - 2016wnmvvb
+    - 2017lnebhspb
+    - 2017tgb2hf
+    - 2018ocspb
+  Nakhthorheb Mummies:
+    Core:
+      Entrancement: 2
+      Eternals of Sirius, The: 3
+      Nakhthorheb: 3
+      OBF Stealth: 10
+      Opium Den: 1
+      PRE Combat Ends: 3
+      Spell of Life: 10
+      Unmasking, The: 1
+    Decks:
+    - 2012dncffutn
+    - 2012jr8owb
+    - 2013sosp
+    - 2014ajspb
+    - 2014tlydms
+  Palla Grande:
+    Core:
+      AUS Bounce: 7
+      Aire of Elation: 2
+      Anarch Troublemaker: 1
+      Art Scam: 5
+      Creamy Jade: 1
+      Entrancement: 2
+      Greta Kircher: 1
+      Jost Werner: 2
+      PRE Combat Ends: 6
+      Palla Grande: 3
+      Remilliard, Devout Crusader: 1
+      Sheila Mezarin: 1
+      Wake: 3
+    Decks:
+    - 2013hqtaspdms
+    - 2013rfss
+    - 2018ccpms
+    - 2018stgadvpdms
+    - 2k9italychamp
+  Shambling Hordes Bleed:
+    Core:
+      Andrea Giovanni: 2
+      Call of the Hungry Dead: 5
+      DOM Bleed Modifier: 3
+      DOM Bounce: 3
+      Isabel Giovanni: 1
+      Le Dinh Tho: 2
+      Rudolfo Giovanni: 1
+      Shambling Hordes: 11
+      Spectral Divination: 5
+      Sudario Refraction: 2
+    Decks:
+    - 2010tbbarcelona
+    - 2014bfocr
+    - 2014ybsf
+    - 2k8grandesttuscany
+    - 2k8marchvitoria
+  Undele Unmada Lutz:
+    Core:
+      AUS Bounce: 3
+      Ancient Influence: 1
+      Ancilla Empowerment: 2
+      Approximation of Loyalty: 1
+      Banishment: 2
+      Dmitra Ilyanova: 1
+      Enkil Cog: 1
+      Eyes of Argus: 1
+      Giant's Blood: 1
+      Information Highway: 1
+      Kine Resources Contested: 2
+      Leech: 5
+      Lutz von Hohenzollern: 3
+      Monastery of Shadows: 1
+      OBF Stealth: 9
+      Parity Shift: 5
+      Reins of Power: 1
+      Undele: 2
+      Unmada: 3
+      Voter Captivation: 1
+      Wake: 1
+      Zillah's Valley: 7
+    Decks:
+    - 2012ecday1
+    - 2012nacd1co
+    - 2016bgpecqbh
+    - 2016ecfcqgi
+    - 2016nacd1co
+  Ventrue 94:
+    Core:
+      Ancilla Empowerment: 1
+      DOM Bleed Modifier: 3
+      Daring the Dawn: 2
+      Emerson Bridges: 2
+      Entrancement: 2
+      Freak Drive: 8
+      Govern the Unaligned: 6
+      Kine Resources Contested: 5
+      Mind Numb: 2
+      PRE Combat Ends: 8
+      PRE Votes: 2
+      Parity Shift: 3
+      Ranjan Rishi, Camarilla Scholar: 1
+      Sir Walter Nash: 2
+      Timothy Crowley: 1
+      Ventrue Headquarters: 1
+      Voter Captivation: 3
+      Wilhelm Waldburg: 1
+    Decks:
+    - 2012pfss
+    - 2012prss
+    - 2k8torneoguardian
+    - 2k9enerosangriento
+    - 2k9powerbasecataluna
+  Ventrue Royalty:
+    Core:
+      DOM Bleed Modifier: 4
+      DOM Bounce: 5
+      Emily Carson: 1
+      Freak Drive: 5
+      Govern the Unaligned: 4
+      Graham Gottesman: 1
+      Johannes Castelein: 1
+      Lodin (Olaf Holte): 1
+      Mary Anne Blaire: 2
+      Mustafa, The Heir: 1
+      PRE Combat Ends: 6
+      Parity Shift: 2
+      Victor Donaldson: 1
+    Decks:
+    - 2011ffqjdfb
+    - 2012sino
+    - 2k9bwhorth
+    - 2k9imperatorco
+    - 2k9karlsruhemq
+    - 2k9mm3tf
+    - 2k9uknats
+  Weenie Pre:
+    Core:
+      Aire of Elation: 6
+      Anarch Troublemaker: 1
+      Angela Decker: 1
+      Delilah Easton: 1
+      Enchant Kindred: 4
+      Entrancement: 1
+      Gideon Fontaine: 1
+      Igo the Hungry: 1
+      Jazz Wentworth: 1
+      Mind Numb: 6
+      PRE Bleed: 10
+      PRE Combat Ends: 16
+      Violette Prentiss: 1
+    Decks:
+    - 2011ppomjdfb
+    - 2011shsco
+    - 2011spdmno
+    - 2014foacpf
+    - 2015litlp
+'0.35':
+  Assamite Politics:
+    Core:
+      Alamut: 3
+      Alu: 1
+      Amaravati: 3
+      Black Throne, The: 1
+      Consanguineous Boon: 6
+      Embrace, The: 8
+      'Haqim''s Law: Leadership': 6
+      Kamau Jafari: 1
+      Kine Resources Contested: 3
+      Layla bint-Nadr: 1
+      Vardar Vardarian: 1
+      Web of Knives Recruit: 4
+    Decks:
+    - 2014tam2vi
+    - 2k8erandiomq
+    - 2k8flsmilan
+    - 2k8fsbarakaldo
+    - 2k9livingmansemi
+  Dark Politics:
+    Core:
+      Annazir: 3
+      Arishat: 3
+      Contagion: 1
+      Forgotten Labyrinth: 2
+      I am Legion: 1
+      Kine Resources Contested: 3
+      Leech: 4
+      OBF Stealth: 8
+      PRE Votes: 3
+      Reckless Agitation: 4
+      Tend the Flock: 1
+      Unleash Hell's Fury: 2
+      Voter Captivation: 5
+      Xeper, Sultan of Lepers: 3
+    Decks:
+    - 2010shfsd1
+    - 2012nsdag
+    - 2018nncspb
+    - 2018rvbi
+    - 2019dofpdmsp
+  Euro Brujah Bestial:
+    Core:
+      Beast, The Leatherface of Detroit: 2
+      Blur: 1
+      Constanza Vinti: 2
+      Disarm: 3
+      Dónal O'Connor: 2
+      Giant's Blood: 1
+      Govern the Unaligned: 5
+      Immortal Grapple: 8
+      Leech: 2
+      Pursuit: 5
+      'Second Tradition: Domain': 10
+      Taste of Vitae: 5
+      Theo Bell: 2
+      Torn Signpost: 7
+      Volker, The Puppet Prince: 1
+    Decks:
+    - 2011cdppf
+    - 2011wokrjdfb
+    - 2012qcflille
+    - 2017fwutbi
+    - 2018wpspb
+  Gargoyles:
+    Core:
+      Antonio d'Erlette: 2
+      Brick by Brick: 3
+      Chaundice: 2
+      DOM Bounce: 4
+      Dive Bomb: 4
+      Immortal Grapple: 7
+      Leech: 3
+      Nephandus: 1
+      Permacept: 1
+      Raking Talons: 5
+      Rockheart: 4
+      Stonestrength: 2
+      Torn Signpost: 3
+      Wake: 4
+    Decks:
+    - 2011bos2
+    - 2016hbpmb
+    - 2016rwlcmb
+    - 2017cadvmb
+    - 2017lnebfowmb
+  Imbued:
+    Core:
+      Angel of Berlin: 2
+      Church of Vindicated Faith, The: 1
+      Conviction: 16
+      Crusader Sword, The: 1
+      Discern: 2
+      François "Warden" Loehr: 1
+      Jack "Hannibal137" Harmon: 1
+      Jennie "Cassie247" Orne: 1
+      Travis "Traveler72" Miller: 2
+      Unmasking, The: 1
+      Vigilance: 2
+    Decks:
+    - 2010fsbny
+    - 2010kinintno
+    - 2010primorome
+    - 2010shfsd2
+    - 2011acchamp
+    - 2011ccesb
+    - 2011ecqserbia
+    - 2011saclcq
+    - 2011wontd
+    - 2013bsspb
+    - 2013pbspb
+    - 2014ekspb
+    - 2015kqspb
+    - 2019wfgpbcz
+    - 2k8bewaretheidesofmarch
+    - 2k8targetheaddc
+  Presence Bleed:
+    Core:
+      Aire of Elation: 5
+      Antoinette Dubois: 1
+      Entrancement: 2
+      PRE Bleed: 3
+      PRE Combat Ends: 7
+      Shasa Abu Badr: 1
+    Decks:
+    - 2010mtidbc1
+    - 2011eotdhf
+    - 2011rncmr
+    - 2014penpdms
+    - 2016dmsss
+    - 2k8bbla
+    - 2k9fhthgs
+  The unnamed Horde:
+    Core:
+      Enkil Cog: 1
+      Giant's Blood: 1
+      Horde, The: 5
+      OBF Stealth: 17
+      Ruins of Charizel: 1
+      Tend the Flock: 6
+      unnamed, The: 4
+    Decks:
+    - 2011nbjf
+    - 2013fsccb
+    - 2014acspb
+    - 2017nfb
+    - 2017stdfb
+  Undue Influencce:
+    Core:
+      Delaying Tactics: 2
+      PRE Combat Ends: 6
+      Power of One: 2
+      Undue Influence: 13
+    Decks:
+    - 2010pshilversum
+    - 2012cgtpamg
+    - 2013ritdspb
+    - 2013rothldutn
+    - 2015othpf
+    - 2k9apleague
+  Ventrue Modern Politics:
+    Core:
+      DOM Bounce: 5
+      Emily Carson: 1
+      Freak Drive: 3
+      Govern the Unaligned: 6
+      Graham Gottesman: 1
+      Kine Resources Contested: 4
+      Lodin (Olaf Holte): 1
+      PRE Combat Ends: 6
+      Parity Shift: 1
+      Ventrue Headquarters: 1
+      Victor Donaldson: 1
+    Decks:
+    - 2012nhcg
+    - 2013fsciicb
+    - 2013fsss
+    - 2k8chilesabbat
+    - 2k9dutchecq
+    - 2k9glrqw
+    - 2k9regomotusno
+  Weenie Aus:
+    Core:
+      AUS Bounce: 9
+      AUS Intercept: 12
+      Almiro Suarez: 1
+      Feo Ramos: 1
+      Franciscus: 1
+      Idalia, Prophet of Guadalajara: 1
+      Isabel de Leon: 1
+      Leech: 4
+      Maldavis: 1
+      Martin Franckel: 1
+      Permacept: 1
+      Remilliard, Devout Crusader: 1
+      Richard Tauber, Ayelea's Puppet: 1
+      Wake: 6
+      Zöe: 1
+    Decks:
+    - 2011cttfxb
+    - 2016aaap
+    - 2k8ecday1
+    - 2k8spanishnatday1
+    - 2k9dtdbs
+    - 2k9ecqcordoba
+'0.4':
+  AAA Grand Ball:
+    Core:
+      Alexandra: 2
+      Anneke: 1
+      Anson: 4
+      Banishment: 1
+      Leech: 4
+      Parity Shift: 2
+      Reins of Power: 1
+      Toreador Grand Ball: 3
+      Voter Captivation: 1
+    Decks:
+    - 2010boogalooii
+    - 2010ozcc
+    - 2011md1lf
+    - 2012mosieb
+    - 2013cncpf2
+    - 2018cncsc
+    - 2k8maabarabi
+    - 2k8swedeq
+    - 2k9darkibrussels
+    - 2k9thevics
+  Ahrimanes Wall:
+    Core:
+      Aid from Bats: 8
+      Carrion Crows: 8
+      Cats' Guidance: 3
+      Effie Lowery: 2
+      Falcon's Eye: 1
+      Gentha Shale: 1
+      Leech: 3
+      Muricia: 3
+      Permacept: 1
+      'Powerbase: Montreal': 1
+      Speak with Spirits: 4
+      Swiftness of the Stag: 4
+      Wake: 2
+    Decks:
+    - 2011tbassbi
+    - 2013fnpf
+    - 2016ecday1gi
+    - 2016tmhmb
+    - 2k8gothjan
+  Animal Rush:
+    Core:
+      Aid from Bats: 9
+      Beetleman: 1
+      Canine Horde: 1
+      Carrion Crows: 8
+      Deep Song: 3
+      Effie Lowery: 1
+      Fame: 1
+      Leech: 2
+      Stick: 1
+      Taste of Vitae: 4
+      Yuri Kerezenski: 1
+    Decks:
+    - 2010hungarianecq
+    - 2011ccpdms
+    - 2011rog
+    - 2013jbglac
+    - 2013sacpgesb
+    - 2014cfhspb
+    - 2015ctb
+  Anneke Guns:
+    Core:
+      .44 Magnum: 4
+      Anneke: 3
+      Concealed Weapon: 4
+      Leech: 2
+      Marcellus: 1
+      Pursuit: 2
+      'Second Tradition: Domain': 4
+      Taste of Vitae: 2
+    Decks:
+    - 2011ndyfm
+    - 2013sogpf
+    - 2013wslfwp
+    - 2014decqun
+    - 2014gccqbg
+    - 2016motqmi
+    - 2018rggc
+    - 2k8diversityco
+    - 2k8ectlsantiago
+  Armin Hammer:
+    Core:
+      Armin Brenner: 3
+      Banishment: 1
+      Black Forest Base: 1
+      Forced March: 6
+      Iron Glare: 3
+      Kine Resources Contested: 4
+      Leech: 5
+      PRE Votes: 2
+      Political Stranglehold: 1
+      Reins of Power: 1
+      Voter Captivation: 5
+    Decks:
+    - 2011bleedingmoscow
+    - 2011cb
+    - 2011hncrvo
+    - 2011lvctmorning
+    - 2013h1hh
+    - 2013wone5
+    - 2015pqstbhb
+  Black Hand:
+    Core:
+      Banjoko: 1
+      Guarded Rubrics: 1
+      Piotr Andreikov: 1
+      Recruitment Exercise: 4
+      Reunion Kamut: 12
+      Sennadurek: 1
+      Tattoo Signal: 3
+      Teresita, The Godmother: 1
+    Decks:
+    - 2013bncbb
+    - 2013mqfpspf
+    - 2014sile
+    - 2015wone6co
+    - 2018ot2co
+  Dementation S&B:
+    Core:
+      AUS Bounce: 4
+      Apache Jones: 1
+      Confusion: 6
+      Eyes of Chaos: 8
+      Jason, The World's Voice: 1
+      Kindred Spirits: 16
+      OBF Stealth: 18
+      Persephone Tar-Anis: 1
+      Rodolfo: 2
+      Uncle George: 1
+      Wake: 2
+    Decks:
+    - 2011wp12bp
+    - 2015gufb
+    - 2k8bilbaomarch
+  Giovanni Powerbleed:
+    Core:
+      Call of the Hungry Dead: 5
+      DOM Bleed Modifier: 6
+      DOM Bounce: 6
+      Francesca Giovanni: 1
+      Gillespi Giovanni: 1
+      Gloria Giovanni: 1
+      Govern the Unaligned: 5
+      Isabel Giovanni: 2
+      Le Dinh Tho: 2
+      Lia Milliner: 1
+      Seduction: 4
+      Spectral Divination: 4
+      Spiritual Intervention: 4
+      Wake: 2
+    Decks:
+    - 2010czechecq
+    - 2011nwnacq
+    - 2012jacpdms
+    - 2012mppdms
+    - 2014pbl1ms
+  Girls Will Find Inner Peace:
+    Core:
+      Ancient Influence: 1
+      Ancilla Empowerment: 2
+      Ashur Tablets: 6
+      Banishment: 1
+      Blind Spot: 1
+      Fortschritt Library: 1
+      Giant's Blood: 1
+      'Golconda: Inner Peace': 1
+      Information Highway: 3
+      Jake Washington: 1
+      Leech: 7
+      Liquidation: 4
+      Maris Streck: 2
+      Muddled Vampire Hunter: 1
+      OBF Stealth: 10
+      Parthenon, The: 2
+      Political Stranglehold: 1
+      Reins of Power: 1
+      Sudden Reversal: 1
+      Unleash Hell's Fury: 1
+    Decks:
+    - 2010psvillefort
+    - 2011pordenoneeq
+    - 2011trentoqual
+    - 2012theunnamed
+    - 2013aiqtmi
+  Imbued:
+    Core:
+      Angel of Berlin: 4
+      Champion: 1
+      Church of Vindicated Faith, The: 1
+      Conviction: 14
+      Determine: 2
+      Discern: 2
+      François "Warden" Loehr: 1
+      Jack "Hannibal137" Harmon: 1
+      Jennie "Cassie247" Orne: 1
+      Rejuvenate: 1
+      Unmasking, The: 1
+      Vigilance: 3
+    Decks:
+    - 2011gb2hh
+    - 2011nogmb
+    - 2011rtuhsjc
+    - 2013tip
+    - 2015jrxxxvityvsphf
+    - 2019sofbsp
+    - 2k9tmobobs
+  Lasombra Nocturn:
+    Core:
+      Badr, Shadow of Granada: 2
+      DOM Bleed Modifier: 4
+      DOM Bounce: 6
+      Dame Hollerton: 1
+      Ermenegildo, The Rake: 1
+      Govern the Unaligned: 8
+      Isanwayen: 1
+      Lord Vauxhall: 1
+      Nocturn: 5
+      OBT Combat Ends: 2
+      OBT Stealth: 12
+      Wake: 3
+    Decks:
+    - 2014domswbg
+    - 2018cm2spb
+    - 2018fntnbg
+    - 2019gncekbng
+    - 2019nytnbb
+  Malgorzata:
+    Core:
+      AUS Bounce: 6
+      AUS Intercept: 1
+      Bowl of Convergence: 1
+      Chiropteran Marauder: 2
+      Dreams of the Sphinx: 1
+      Eyes of Argus: 4
+      Giant's Blood: 1
+      Information Highway: 2
+      Leech: 5
+      Malgorzata: 4
+      Reins of Power: 1
+      Sha-Ennu: 2
+      Wake: 3
+    Decks:
+    - 2013dsotb4mg
+    - 2014jrxxviivhf
+    - 2015citwd1bcr
+    - 2016bavvb
+    - 2016ecday2gi
+    - 2016tgbhf
+  Malkavian S&B:
+    Core:
+      Confusion: 6
+      Dolphin Black: 1
+      Eyes of Chaos: 5
+      Kindred Spirits: 13
+      OBF Stealth: 5
+    Decks:
+    - 2010originsthu1
+    - 2011qcfagn
+    - 2015wone3co
+    - 2k11fsh2
+    - 2k8frenchnc
+    - 2k8germanecq
+    - 2k8sunriseparis
+    - 2k8tsmiskolc
+    - 2k9dmcun
+  Nephandus:
+    Core:
+      Antonio d'Erlette: 4
+      DOM Bounce: 4
+      Keith Moody: 1
+      Leech: 3
+      Molotov Cocktail: 3
+      Nephandus: 8
+      Saiz: 1
+      Target Vitals: 3
+      Trap: 4
+      Unmasking, The: 2
+      Wake: 3
+    Decks:
+    - 2010campeonatopaulista
+    - 2012incbi
+    - 2013clacrm
+    - 2013mct11ms
+    - 2016bccqspb
+    - 2k9owabtampere
+  Saulot Marionette:
+    Core:
+      Giant's Blood: 1
+      Heidelberg Castle, Germany: 2
+      Information Highway: 1
+      Neutral Guard: 3
+      Repulsion: 2
+      Saulot, The Wanderer: 4
+      Spirit Marionette: 7
+    Decks:
+    - 2011biwwps
+    - 2013avoma
+    - 2016pbdubc
+    - 2018mtv3bdvs
+    - 2k8crusadebreslau
+  Toreador Powerbleed:
+    Core:
+      AUS Bounce: 12
+      Aire of Elation: 6
+      Anarch Troublemaker: 2
+      Delaying Tactics: 2
+      Dreams of the Sphinx: 2
+      Enchant Kindred: 5
+      Entrancement: 3
+      Giant's Blood: 1
+      Gideon Fontaine: 1
+      Isabel de Leon: 1
+      Jost Werner: 2
+      Mariana Gilbert: 1
+      PRE Bleed: 4
+      PRE Combat Ends: 8
+      Remilliard, Devout Crusader: 1
+      Sheila Mezarin: 1
+      Wake: 2
+    Decks:
+    - 2010czestochowabn
+    - 2011englishecq
+    - 2015lcqwp
+    - 2018ecday2wp
+    - 2k9ecday2
+  Toreador Royalty:
+    Core:
+      Aching Beauty: 2
+      Anneke: 1
+      Anson: 2
+      Art Museum: 1
+      Entrancement: 1
+      François Villon: 2
+      Kine Resources Contested: 1
+      Leech: 4
+      PRE Combat Ends: 2
+      Papillon: 1
+      Parity Shift: 3
+      Voter Captivation: 4
+    Decks:
+    - 20114toccd
+    - 2012ecsod
+    - 2013eotd5lbhf
+    - 2013nunui
+    - 2k9wsnewark
+  Tremere Toolbox G23:
+    Core:
+      AUS Bounce: 1
+      Bonding: 2
+      Brooke: 1
+      Carna, The Princess Witch: 1
+      DOM Bleed Modifier: 5
+      DOM Bounce: 4
+      Dreams of the Sphinx: 1
+      Ehrich Weiss: 1
+      Eyes of Argus: 2
+      Govern the Unaligned: 9
+      Ladislas Toth, The Torch: 1
+      Mirror Walk: 6
+      Selena: 1
+      Wake: 3
+    Decks:
+    - 2013secqbms
+    - 2013vinnss
+    - 2014rfecqef
+    - 2016cmmxvivvb
+    - 2019czgpbcz
+  Tremere Toolbox G45:
+    Core:
+      DOM Bleed Modifier: 2
+      DOM Bounce: 3
+      Gabrielle di Righetti: 2
+      Gerald Windham: 1
+      Information Highway: 1
+      Leech: 5
+      Mirror Walk: 9
+      Mistress Fanchon: 1
+      Obedience: 7
+    Decks:
+    - 2012pncgp
+    - 2013dnccd
+    - 2014litsss
+    - 2017crncjcr
+    - 2k9ofcolumbus
+  Tzimisce Wall:
+    Core:
+      AUS Bounce: 8
+      AUS Intercept: 5
+      Breath of the Dragon: 4
+      Caliban: 1
+      Chiropteran Marauder: 6
+      Corine Marcón: 1
+      Leech: 2
+      Library Hunting Ground: 1
+      Lolita Houston: 1
+      Meshenka: 1
+      'Powerbase: Montreal': 1
+      Rack, The: 1
+      Read the Winds: 1
+      Rötschreck: 3
+      Smiling Jack, The Anarch: 1
+    Decks:
+    - 2010dorkside
+    - 2013gsspb
+    - 2014rds1pdms
+    - 2015yofib
+    - 2k8gusanillo
+    - 2k9hungariannb
+'0.45':
+  Obfuscate Spirits G3:
+    Core:
+      Apache Jones: 1
+      Confusion: 7
+      Deny: 3
+      Kindred Spirits: 15
+      Morel: 1
+      OBF Stealth: 10
+      Tony: 1
+      Uncle George: 1
+    Decks:
+    - 2010eclcq
+    - 2011rtthbp
+    - 2011wtano
+    - 2016sacsp
+    - 2k9mm8tampere
+  Anson Will Find Powerbleed:
+    Core:
+      Aire of Elation: 4
+      Anson: 2
+      Ashur Tablets: 9
+      Coven, The: 1
+      DOM Bounce: 3
+      Dreams of the Sphinx: 2
+      Entrancement: 2
+      Jake Washington: 1
+      Liquidation: 4
+      Mariana Gilbert: 1
+      Mind Numb: 2
+      Misdirection: 1
+      PRE Combat Ends: 8
+      Parthenon, The: 1
+      Victoria Ash: 1
+    Decks:
+    - 2010danishecq
+    - 2011pombmg
+    - 2011uknat
+    - 2012dnccd
+    - 2017culf
+  Anti Ventrue Toolbox:
+    Core:
+      AUS Bounce: 2
+      AUS Intercept: 4
+      Blackhorse Tanner: 1
+      Charice Fontaigne: 1
+      Corporate Hunting Ground: 1
+      DOM Bleed Modifier: 3
+      DOM Bounce: 2
+      FOR Prevention: 6
+      Govern the Unaligned: 2
+      Jefferson Foster: 1
+      Leech: 3
+      Neighbor John: 1
+      Owain Evans, The Wanderer: 1
+      Wake: 2
+    Decks:
+    - 2010fncsdplf
+    - 2010theunnamedctsa
+    - 2012rtb2ocr
+    - 2k8glqindi
+    - 2k8pwbsla3
+  Arika & Friends:
+    Core:
+      Arika: 2
+      Banishment: 2
+      Forgotten Labyrinth: 1
+      Freak Drive: 2
+      Kine Resources Contested: 5
+      Leech: 2
+      Lucinde, Alastor: 1
+      OBF Stealth: 4
+      PRE Combat Ends: 4
+      PRE Votes: 2
+      Queen Anne: 1
+      Ventrue Headquarters: 1
+      Voter Captivation: 5
+    Decks:
+    - 2011matbcd
+    - 2012ttti
+    - 2012vhbg
+    - 2013ccp
+    - 2015bvvb
+    - 2016bccqfssivfb
+    - 2k8sbitfachile
+  Gabrin Toolbox:
+    Core:
+      False Resonance: 1
+      Fata Morgana: 6
+      Fatuus Mastery: 2
+      Gabrin: 3
+      Mirror Image: 4
+      Path of Paradox, The: 1
+      Sensory Deprivation: 3
+      Treasured Samadji: 1
+    Decks:
+    - 2010conklaavimq
+    - 2010wpbydgoszczpoland
+    - 2011qtlcqs
+    - 2013fscccb
+    - 2014cerfb2
+    - 2015odsb
+    - 2019nacstco
+  Imbued Apocalypse:
+    Core:
+      Angel of Berlin: 1
+      Church of Vindicated Faith, The: 1
+      Conviction: 15
+      Discern: 1
+      François "Warden" Loehr: 1
+      Jack "Hannibal137" Harmon: 1
+      Jennie "Cassie247" Orne: 1
+      Rejuvenate: 1
+      Slow Withering, The: 1
+      Unmasking, The: 1
+      Vagabond Mystic: 1
+      Vigilance: 2
+    Decks:
+    - 2010famousims
+    - 2012ffnmg
+    - 2015ce06fb
+    - 2015scspb
+    - 2016rspb
+    - 2k9Conditioningos
+    - 2k9fnvno
+  Lasombra Big Cap:
+    Core:
+      Ambrosio Luis Monçada, Plenipotentiary: 2
+      Banishment: 1
+      DOM Bleed Modifier: 1
+      DOM Bounce: 4
+      Elysian Fields: 1
+      Govern the Unaligned: 4
+      Gratiano: 2
+      Kine Resources Contested: 1
+      Leech: 4
+      OBT Stealth: 6
+    Decks:
+    - 2011comssjc
+    - 2012fcqco
+    - 2015errs
+    - 2015icqqbi
+    - 2015qtqtbi
+    - 2k8groundfightinghf
+    - 2k8jmisantiago
+    - 2k9avsnitt1
+    - jr4sohf
+  Legacy of Pander:
+    Core:
+      Angela Decker: 1
+      Basil: 1
+      Consanguineous Boon: 6
+      Día de los Muertos: 1
+      Feo Ramos: 1
+      Huang, Blood Cultist: 1
+      Information Highway: 1
+      Jimmy Dunn: 1
+      Kine Resources Contested: 11
+      Legacy of Pander: 2
+      Lena Rowe: 1
+      March Halcyon: 1
+      Mitchell, The Headhunter: 1
+      Rex, The Necronomist: 1
+      Royce: 1
+    Decks:
+    - 2010erolsbdt
+    - 2015nwqtw
+    - 2k8sanfranqual
+    - 2k9artscampi
+    - 2k9laylowcolumbus
+  Legionnaire G5:
+    Core:
+      AUS Bounce: 4
+      Call of the Hungry Dead: 2
+      Emerald Legionnaire: 6
+      Eyes of Argus: 3
+      Hecate: 1
+      Leech: 3
+      Mordechai Ben-Nun: 1
+      Wake: 1
+    Decks:
+    - 2018pbetrbc
+    - 2018sncss
+    - 2019adcfb
+    - 2019atrsfb
+    - 2019gbzzc
+    - 2019psmmn
+  Nana & Friends:
+    Core:
+      Ashur Tablets: 6
+      Carrion Crows: 5
+      Fame: 1
+      Giant's Blood: 1
+      Glancing Blow: 1
+      Gustaphe Brunnelle: 1
+      Immortal Grapple: 4
+      Leech: 5
+      Nana Buruku: 3
+      Nangila Were: 2
+      'Powerbase: Luanda': 1
+      Taste of Vitae: 3
+      Torn Signpost: 4
+      Well-Marked: 1
+    Decks:
+    - 2011aoetpa
+    - 2011ecday2
+    - 2013fntf
+    - 2014jrxxviiinnhf
+    - 2014sncms
+  Obfuscate Spirits G5:
+    Core:
+      Confusion: 2
+      Gem Ghastly: 1
+      Kindred Spirits: 10
+      Morel: 1
+      OBF Stealth: 12
+    Decks:
+    - 2010finalnightsno
+    - 2011ssno
+    - 2012pslp
+    - 2014citwbcr
+    - 2014wupocvvb
+    - 2015bccqstfb
+    - 2015cmjdfb
+    - 2019oc2co
+    - 2k9lunaticeruptionri
+    - 2k9mondaymayhemxii
+  Old School Tzimisce Wall:
+    Core:
+      AUS Bounce: 2
+      Breath of the Dragon: 2
+      Caliban: 1
+      Chiropteran Marauder: 7
+      Eternal Vigilance: 1
+      Eyes of Argus: 4
+      Giant's Blood: 1
+      Horrid Form: 4
+      Leech: 4
+      Meshenka: 1
+      Sascha Vykos, The Angel of Caine: 1
+    Decks:
+    - 2013nacd1co
+    - 2014aamb
+    - 2014ecday2mg
+    - 2015espb
+    - 2015lnspb
+  Sabbat Ani Wall:
+    Core:
+      Abbot: 2
+      Cats' Guidance: 3
+      Céleste Lamontagne: 2
+      Delaying Tactics: 1
+      Doyle Fincher: 1
+      Earth Meld: 8
+      Form of Mist: 2
+      Janey Pickman: 3
+      Leech: 2
+      Raven Spy: 5
+      Wake: 3
+    Decks:
+    - 2011bos1
+    - 2011ovrqno
+    - 2011ssbs
+    - 2012plvsspf
+    - 2k8avangarda
+    - 2k8burtonontecq
+  Shambling Hordes:
+    Core:
+      Call of the Hungry Dead: 3
+      Charisma: 1
+      Path of Bone, The: 2
+      Shambling Hordes: 15
+      Unmasking, The: 1
+    Decks:
+    - 2010italyqualifier
+    - 2011fnctf
+    - 2012sancpsa
+    - 2014afpfb
+    - 2014raleafb
+    - 2015ce02fb
+    - 2015pcsb
+  Ventrue Old School Politics:
+    Core:
+      DOM Bounce: 3
+      Emerson Bridges: 2
+      Freak Drive: 4
+      Kine Resources Contested: 2
+      Leech: 1
+      PRE Combat Ends: 5
+      Parity Shift: 1
+      Ranjan Rishi, Camarilla Scholar: 1
+      Sir Walter Nash: 2
+      Ventrue Headquarters: 1
+      Voter Captivation: 4
+    Decks:
+    - 2011bncbogm
+    - 2011mm23tf
+    - 2k8karapordenone
+    - 2k8volsdc
+    - 2k9mqemontpellier

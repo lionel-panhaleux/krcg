@@ -241,9 +241,7 @@ class _VTES(dict):
         for card in csv.DictReader(stream):
             for name in self.get_name_variants(card):
                 self[name] = card
-
-        # pickle this
-        pickle.dump(VTES, open(config.VTES_FILE, "wb"))
+        pickle.dump(self, open(config.VTES_FILE, "wb"))
 
     # usual traits selectors
     def is_crypt(self, card):
@@ -255,7 +253,10 @@ class _VTES(dict):
         Returns:
             bool: true if the card is a crypt card
         """
-        return VTES[card]["Type"] in ("Vampire", "Imbued")
+        try:
+            return self[card]["Type"] in ("Vampire", "Imbued")
+        except KeyError:
+            return False
 
     def is_library(self, card):
         """A function to check if a card is a library card
@@ -316,6 +317,24 @@ class _VTES(dict):
         """
         return {clan} & {t.strip() for t in VTES[card]["Clan"].split("/")}
 
+    def archetype_profile(self, deck_):
+        """Return the archetype profile of a deck
+
+        Uses config.ARCHETYPE_ variables to produce a more stable form of the deck
+        Args:
+            deck_: deck.Deck
+
+        Returns:
+            dict: A more stable form for archetype computations
+        """
+        result = {}
+        for card, count in deck_.items():
+            if card in config.ARCHETYPE_NOOP or card in config.BANNED:
+                continue
+            card = config.ARCHETYPE_EQUIVALENCES.get(card, card)
+            result[card] = result.setdefault(card, 0) + count
+        return result
+
     def deck_to_txt(self, deck):
         """A consistent deck display matching our parsing rules of TWDA.html
 
@@ -344,10 +363,13 @@ class _VTES(dict):
             lines.append(f"{deck.players_count} players")
         if deck.player:
             lines.append(deck.player)
-        lines.append("")
+        if lines:
+            lines.append("")
         if deck.score:
             lines.append(f"-- {deck.score}")
             lines.append("")
+        if deck.archetype:
+            lines.append(f"Archetype: {deck.archetype}")
         if deck.name:
             lines.append(f"Deck Name: {deck.name}")
         if deck.author:
@@ -357,7 +379,8 @@ class _VTES(dict):
                 lines.extend(textwrap.wrap(deck.comments, 90))
             else:
                 lines.append(deck.comments)
-        lines.append("")
+        if lines:
+            lines.append("")
         lines.append(f"-- Crypt: ({deck.cards_count(self.is_crypt)} cards)")
         lines.append("---------------------------------------")
         for card, count in deck.cards(self.is_crypt):
