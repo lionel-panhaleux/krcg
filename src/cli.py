@@ -49,7 +49,7 @@ def affinity(args):
             and (not args.library or vtes.VTES.is_library(card))
         )
 
-    twda.TWDA.configure(args.date_from, args.date_to)
+    twda.TWDA.configure(args.date_from, args.date_to, args.players)
     A = analyzer.Analyzer()
     A.refresh(*args.cards, condition=condition)
     for candidate in A.candidates(*args.cards)[: args.number]:
@@ -68,7 +68,7 @@ def top(args):
             )
         )
 
-    twda.TWDA.configure(args.date_from, args.date_to)
+    twda.TWDA.configure(args.date_from, args.date_to, args.players)
     A = analyzer.Analyzer()
     A.refresh(condition=condition)
     for card_name, count in A.played.most_common()[: args.number]:
@@ -80,12 +80,12 @@ def top(args):
 
 
 def build(args):
-    twda.TWDA.configure(args.date_from, args.date_to)
+    twda.TWDA.configure(args.date_from, args.date_to, args.players)
     print(vtes.VTES.deck_to_txt(analyzer.Analyzer().build_deck(*args.cards)))
 
 
 def deck_(args):
-    twda.TWDA.configure(args.date_from, args.date_to, min_players=args.players)
+    twda.TWDA.configure(args.date_from, args.date_to, args.players)
     decks = {i: twda.TWDA[i] for i in args.cards_or_id if i in twda.TWDA}
     cards = [vtes.VTES[c]["Name"] for c in args.cards_or_id if c not in twda.TWDA]
     if not decks:
@@ -97,6 +97,8 @@ def deck_(args):
         decks.update(A.examples)
     if len(decks) == 1:
         args.full = True
+    if not args.full:
+        print(f"-- {len(decks)} decks --")
     for twda_id, example in sorted(decks.items(), key=lambda a: a[1].date):
         if args.full:
             print(
@@ -150,7 +152,7 @@ def _card_text(card):
     return text
 
 
-def add_year_boundaries(parser):
+def add_deck_boundaries(parser):
     """Common arguments: --from and --to to control year boundaries of TWDA analysis.
     """
     parser.add_argument(
@@ -166,6 +168,12 @@ def add_year_boundaries(parser):
         default=arrow.get(),
         dest="date_to",
         help="do not consider decks that won after this year",
+    )
+    parser.add_argument(
+        "--players",
+        type=int,
+        default=0,
+        help="do not consider decks with less players than this",
     )
 
 
@@ -200,7 +208,7 @@ parser.set_defaults(func=init)
 parser = subparsers.add_parser(
     "affinity", help="display cards with the most affinity to given cards"
 )
-add_year_boundaries(parser)
+add_deck_boundaries(parser)
 parser.add_argument(
     "-n",
     "--number",
@@ -229,7 +237,7 @@ parser.set_defaults(func=affinity)
 parser = subparsers.add_parser(
     "top", help="display top cards (played in most TW decks)"
 )
-add_year_boundaries(parser)
+add_deck_boundaries(parser)
 parser.add_argument(
     "-n", "--number", type=int, default=10, help="Number of cards to print (default 10)"
 )
@@ -266,7 +274,7 @@ parser.add_argument("-f", "--full", action="store_true", help="display card text
 parser.set_defaults(func=top)
 # ################################################################################ build
 parser = subparsers.add_parser("build", help="build a deck")
-add_year_boundaries(parser)
+add_deck_boundaries(parser)
 parser.add_argument(
     "cards",
     metavar="CARD",
@@ -277,19 +285,12 @@ parser.add_argument(
 parser.set_defaults(func=build)
 # ################################################################################# deck
 parser = subparsers.add_parser("deck", help="show TWDA decks")
-add_year_boundaries(parser)
+add_deck_boundaries(parser)
 parser.add_argument(
     "-f", "--full", action="store_true", help="display each deck content"
 )
 parser.add_argument(
     "cards_or_id", metavar="TXT", nargs="*", help="list TWDA decks from ID or cards"
-)
-parser.add_argument(
-    "-p",
-    "--players",
-    type=int,
-    default=0,
-    help="minimum number of players in tournament to consider this deck",
 )
 parser.set_defaults(func=deck_)
 # ################################################################################# card
