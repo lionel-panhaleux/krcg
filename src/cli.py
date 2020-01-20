@@ -154,6 +154,14 @@ def _card_text(card):
     return text
 
 
+def complete(args):
+    for name in set(
+        vtes.VTES.get_name(v) for k, v in vtes.VTES.items() if args.name.lower() in k
+    ):
+        print(name)
+
+
+# ############################################################################# argparse
 def add_deck_boundaries(parser):
     """Common arguments: --from and --to to control year boundaries of TWDA analysis.
     """
@@ -191,6 +199,7 @@ root_parser.add_argument(
 subparsers = root_parser.add_subparsers(
     metavar="", title="subcommands", dest="subcommand"
 )
+
 # ################################################################################# init
 parser = subparsers.add_parser("init", help="initialize the local TWDA database")
 parser.add_argument(
@@ -206,6 +215,7 @@ parser.add_argument(
     help="vtes.csv or TWDA.html file",
 )
 parser.set_defaults(func=init)
+
 # ############################################################################# affinity
 parser = subparsers.add_parser(
     "affinity", help="display cards with the most affinity to given cards"
@@ -322,6 +332,7 @@ parser.add_argument(
 )
 parser.add_argument("-f", "--full", action="store_true", help="display card text")
 parser.set_defaults(func=top)
+
 # ################################################################################ build
 parser = subparsers.add_parser("build", help="build a deck")
 add_deck_boundaries(parser)
@@ -333,6 +344,7 @@ parser.add_argument(
     help="reference cards",
 )
 parser.set_defaults(func=build)
+
 # ################################################################################# deck
 parser = subparsers.add_parser("deck", help="show TWDA decks")
 add_deck_boundaries(parser)
@@ -343,11 +355,18 @@ parser.add_argument(
     "cards_or_id", metavar="TXT", nargs="*", help="list TWDA decks from ID or cards"
 )
 parser.set_defaults(func=deck_)
+
 # ################################################################################# card
 parser = subparsers.add_parser("card", help="show VTES cards")
 parser.add_argument("-s", "--short", action="store_true", help="display only card name")
 parser.add_argument("cards", metavar="CARD", nargs="+", help="list these cards")
 parser.set_defaults(func=card)
+
+# ############################################################################# complete
+parser = subparsers.add_parser("complete", help="card name completion")
+parser.add_argument("-f", "--full", action="store_true", help="display cards text")
+parser.add_argument("name", metavar="NAME", help="partial name")
+parser.set_defaults(func=complete)
 
 
 def main():
