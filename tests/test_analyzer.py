@@ -9,7 +9,7 @@ def test_base():
     twda.TWDA.load_from_vekn(limit=100)
     A = analyzer.Analyzer()
     A.refresh()
-    assert A.played["Stavros"] == 1
+    assert A.played["Stavros"] == 2
     A.refresh("Stavros")
     assert sorted(A.affinity["Stavros"].most_common())[0] == ("Adana de Sforza", 1)
     A.refresh("Stavros", "Adana de Sforza", similarity=1)
