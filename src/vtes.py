@@ -29,7 +29,7 @@ class _VTES(dict):
     Contains both crypt and library cards in a single dict.
     """
 
-    def load_from_vekn(self):
+    def load_from_vekn(self, save=True):
         """Load the card database from vekn.net
         """
         self.clear()
@@ -39,9 +39,9 @@ class _VTES(dict):
             f.flush()
             z = zipfile.ZipFile(f.name)
             with z.open(config.VEKN_VTES_LIBRARY_FILENAME) as c:
-                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"))
+                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
             with z.open(config.VEKN_VTES_CRYPT_FILENAME) as c:
-                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"))
+                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
 
     def __getitem__(self, key):
         """Get a card, try to find a good matching.
@@ -243,7 +243,7 @@ class _VTES(dict):
         for alias in card.get("Aka", "").split(";"):
             yield from name_variants(alias.strip())
 
-    def load_csv(self, stream):
+    def load_csv(self, stream, save=True):
         """Load a crypt or library CSV (VEKN format)
 
         The VTES card list is pickled for future use.
@@ -253,7 +253,8 @@ class _VTES(dict):
                 self[name] = card
 
         # pickle this
-        pickle.dump(VTES, open(config.VTES_FILE, "wb"))
+        if save:
+            pickle.dump(self, open(config.VTES_FILE, "wb"))
 
     # usual traits selectors
     def is_crypt(self, card):
@@ -415,6 +416,44 @@ class _VTES(dict):
                 else:
                     lines.append(f"{count:<2} {card}")
         return "\n".join(lines)
+
+    def deck_to_dict(self, deck):
+        ret = {
+            "event": deck.event,
+            "place": deck.place,
+            "date": deck.date.format("YYYY, MMMM Do"),
+            "tournament_format": deck.tournament_format,
+            "players_count": deck.players_count,
+            "player": deck.player,
+            "score": deck.score,
+            "name": deck.name,
+            "author": deck.author,
+            "comments": deck.comments,
+            "crypt": [
+                deck.cards_count(self.is_crypt),
+                [[count, card] for card, count in deck.cards(self.is_crypt)],
+            ],
+            "library": [deck.cards_count(self.is_library), {}],
+        }
+
+        def _type(card):
+            return config.TYPE_ORDER.index(self[card[0]]["Type"])
+
+        # sort by type, count (descending), name
+        # note ordering must match the `itertools.groupby` function afterwards.
+        library_cards = sorted(
+            deck.cards(self.is_library), key=lambda a: (_type(a), -a[1], a[0])
+        )
+        # form a section for each type with a header displaying the total
+        for kind, cards in itertools.groupby(library_cards, key=_type):
+            c1, c2 = itertools.tee(cards)
+            ret["library"][1][config.TYPE_ORDER[kind]] = [
+                sum(count for card, count in c1),
+                [],
+            ]
+            for card, count in c2:
+                ret["library"][1][config.TYPE_ORDER[kind]][1].append([count, card])
+        return ret
 
 
 try:

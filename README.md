@@ -240,3 +240,7 @@ Inspired by:
 
 Feel free to submit pull requests, they will be merged as long as they pass the tests.
 Do not hestitate to submit issues or vote on them if you want a feature implemented.
+
+# Online API
+
+KRCG is available as an [online API on Heroku](https://krcg.herokuapp.com/).

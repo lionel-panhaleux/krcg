@@ -47,16 +47,16 @@ class _TWDA(collections.OrderedDict):
         tail_re (str): regexp used to parse tail part of card line
     """
 
-    def load_from_vekn(self, limit=None):
+    def load_from_vekn(self, limit=None, save=True):
         """Load from vekn.net
 
         Args:
             limit: Maximum number of decks to load (used to speed up tests)
         """
         r = requests.request("GET", config.VEKN_TWDA_URL)
-        self.load_html(io.StringIO(r.content.decode("utf-8")), limit)
+        self.load_html(io.StringIO(r.content.decode("utf-8")), limit, save)
 
-    def load_html(self, source, limit=None):
+    def load_html(self, source, limit=None, save=True):
         """Load from TWDA.html
 
         The TWDA is then pickled for future use, to avoid loading it too often.
@@ -82,7 +82,8 @@ class _TWDA(collections.OrderedDict):
             if limit and count >= limit:
                 break
         logger.info("TWDA loaded")
-        pickle.dump(TWDA, open(config.TWDA_FILE, "wb"))
+        if save:
+            pickle.dump(TWDA, open(config.TWDA_FILE, "wb"))
 
     def configure(self, date_from=None, date_to=None, min_players=0):
         """Prepare the TWDA, taking date and players count filters into account.
