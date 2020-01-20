@@ -8,6 +8,7 @@ import arrow
 import requests
 
 from . import analyzer
+from . import config
 from . import twda
 from . import vtes
 
@@ -59,14 +60,17 @@ def affinity(args):
 def top(args):
     # build a condition matching options
     def condition(card):
-        return (
-            (not args.clan or vtes.VTES.is_clan(card, args.clan))
-            and (not args.type or vtes.VTES.is_type(card, args.type))
-            and (not args.disc or vtes.VTES.is_disc(card, args.disc))
-            and (
-                not args.exclude_type or not vtes.VTES.is_type(card, args.exclude_type)
-            )
-        )
+        if args.clan and not any(vtes.VTES.is_clan(card, clan) for clan in args.clan):
+            return False
+        if args.type and not any(vtes.VTES.is_type(card, type_) for type_ in args.type):
+            return False
+        if args.disc and not any(vtes.VTES.is_disc(card, disc) for disc in args.disc):
+            return False
+        if args.no_disc and not vtes.VTES.no_disc(card):
+            return False
+        if any(vtes.VTES.is_type(card, exclude) for exclude in args.exclude_type or []):
+            return False
+        return True
 
     twda.TWDA.configure(args.date_from, args.date_to, args.players)
     A = analyzer.Analyzer()
@@ -233,7 +237,45 @@ parser.add_argument(
     help="reference cards",
 )
 parser.set_defaults(func=affinity)
+
+
 # ################################################################################## top
+class NARGS_CHOICE_WITH_ALIASES(argparse.Action):
+    # choices with nargs +/* : this is a known issue for argparse
+    # cf. https://bugs.python.org/issue9625
+    CHOICES = []
+    ALIASES = {}
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        values = [v.lower() for v in values]
+        if values:
+            for value in values:
+                if value not in self.ALIASES:
+                    raise argparse.ArgumentError(
+                        self, f"invalid choice: {value} (choose from {self.CHOICES})"
+                    )
+        setattr(namespace, self.dest, [self.ALIASES[value] for value in values])
+
+
+class DisciplineChoice(NARGS_CHOICE_WITH_ALIASES):
+    CHOICES = vtes.VTES.disciplines
+    ALIASES = dict(
+        [(k.lower(), k) for k in vtes.VTES.disciplines] + list(config.DISC_AKA.items())
+    )
+
+
+class ClanChoice(NARGS_CHOICE_WITH_ALIASES):
+    CHOICES = vtes.VTES.clans
+    ALIASES = dict(
+        [(k.lower(), k) for k in vtes.VTES.clans] + list(config.CLANS_AKA.items())
+    )
+
+
+class TypeChoice(NARGS_CHOICE_WITH_ALIASES):
+    CHOICES = vtes.VTES.types
+    ALIASES = {k.lower(): k for k in vtes.VTES.types}
+
+
 parser = subparsers.add_parser(
     "top", help="display top cards (played in most TW decks)"
 )
@@ -244,30 +286,40 @@ parser.add_argument(
 parser.add_argument(
     "-d",
     "--discipline",
-    choices=vtes.VTES.disciplines,
+    action=DisciplineChoice,
     dest="disc",
     metavar="DISC",
+    nargs="+",
     help="Filter by discipline ({})".format(", ".join(vtes.VTES.disciplines)),
+)
+parser.add_argument(
+    "--no-discipline",
+    action="store_true",
+    dest="no_disc",
+    help="Only cards requiring no discipline",
 )
 parser.add_argument(
     "-c",
     "--clan",
-    choices=vtes.VTES.clans,
+    action=ClanChoice,
     metavar="CLAN",
+    nargs="+",
     help="Filter by clan ({})".format(", ".join(vtes.VTES.clans)),
 )
 parser.add_argument(
     "-t",
     "--type",
-    choices=vtes.VTES.types,
+    action=TypeChoice,
     metavar="TYPE",
+    nargs="+",
     help="Filter by type ({})".format(", ".join(vtes.VTES.types)),
 )
 parser.add_argument(
     "-e",
     "--exclude-type",
-    choices=vtes.VTES.types,
+    action=TypeChoice,
     metavar="TYPE",
+    nargs="+",
     help="Exclude given type ({})".format(", ".join(vtes.VTES.types)),
 )
 parser.add_argument("-f", "--full", action="store_true", help="display card text")

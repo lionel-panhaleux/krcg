@@ -8,6 +8,10 @@ Changelog
 - Keep blank lines in comments
 - Punctuation was missing at the end of some comments
 - Deck score in tournament is now correctly identified
+- Better "top" command:
+    + multiple clans & disciplines allowed
+    + now case insensitive
+    + common abbreviations accepted
 
 0.5 (2019-09-10)
 ----------------

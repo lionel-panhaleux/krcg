@@ -280,13 +280,27 @@ class _VTES(dict):
         Returns:
             bool: true if the card is of the given discipline
         """
-        if discipline == "Combo":
+        if discipline in ["Combo", "combo"]:
             return "&" in VTES[card].get("Discipline", "")
-        return {discipline} & {
-            disc.strip()
-            for d in VTES[card].get("Discipline", "").split("/")
-            for disc in d.split("&")
-        }
+        return (
+            {discipline.strip().lower()}
+            & {
+                disc.strip().lower()
+                for d in VTES[card].get("Discipline", "").split("/")
+                for disc in d.split("&")
+            }
+        )
+
+    def no_disc(self, card):
+        """A function to check if a card requires no discipline
+
+        Args:
+            card (str): card name
+
+        Returns:
+            bool: true if the card requires no discipline
+        """
+        return VTES[card].get("Discipline", "").strip() == ""
 
     def is_type(self, card, type_):
         """A function to check if a card is of the given type
@@ -300,7 +314,10 @@ class _VTES(dict):
         Returns:
             bool: true if the card has the given type
         """
-        return {type_} & {t.strip() for t in VTES[card]["Type"].split("/")}
+        return (
+            {type_.strip().lower()}
+            & {t.strip().lower() for t in VTES[card]["Type"].split("/")}
+        )
 
     def is_clan(self, card, clan):
         """A function to check if a card is of the given clan (or requires said clan)
@@ -314,7 +331,10 @@ class _VTES(dict):
         Returns:
             bool: true if the card is of the given clan.
         """
-        return {clan} & {t.strip() for t in VTES[card]["Clan"].split("/")}
+        return (
+            {clan.strip().lower()}
+            & {t.strip().lower() for t in VTES[card]["Clan"].split("/")}
+        )
 
     def deck_to_txt(self, deck):
         """A consistent deck display matching our parsing rules of TWDA.html
