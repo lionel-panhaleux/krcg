@@ -29,6 +29,11 @@ def test_get_card():
     assert twda._get_card(
         "2x xaviar (adv)		10  abo ani for pro aus cel pot	 gangrel:3"
     ) == ("xaviar (adv)", 2, True)
+    # names with a comman and parenthesied '(adv)' must be correctly matched
+    assert twda._get_card(
+        "5x sascha vykos, the angel of caine (adv) 8   "
+        "aus tha vic ani dom  archbishop	tzimisce:2"
+    ) == ("sascha vykos, the angel of caine (adv)", 5, True)
     # names beginning with a number are hard
     assert twda._get_card("2nd tradition") == ("2nd tradition", 1, False)
     # name ending with a number even harder
@@ -146,7 +151,7 @@ def test_2016ggs():
                 ("Anarch Troublemaker", 3),
                 ("Archon Investigation", 1),
                 ("Blood Doll", 2),
-                ("Coven, The", 1),
+                ("The Coven", 1),
                 ("Direct Intervention", 1),
                 ("Dreams of the Sphinx", 1),
                 ("Fetish Club Hunting Ground", 1),
@@ -162,7 +167,7 @@ def test_2016ggs():
                 ("Social Charm", 3),
                 ("Aire of Elation", 6),
                 ("Daring the Dawn", 2),
-                ("Missing Voice, The", 4),
+                ("The Missing Voice", 4),
                 ("Phantom Speaker", 2),
                 ("Siren's Lure", 7),
                 ("Delaying Tactics", 3),
@@ -172,7 +177,7 @@ def test_2016ggs():
                 ("Wake with Evening's Freshness", 5),
                 ("Majesty", 8),
                 ("Soak", 6),
-                ("Uncoiling, The", 1),
+                ("The Uncoiling", 1),
             ]
         ),
         "cards_comments": {},
@@ -213,13 +218,13 @@ def test_2k5alboraya():
                 ("Blood Doll", 3),
                 ("Pentex(TM) Subversion", 2),
                 ("Anarch Troublemaker", 2),
-                ("Hungry Coyote, The", 1),
+                ("The Hungry Coyote", 1),
                 ("Fetish Club Hunting Ground", 1),  # should be found
                 ("Sudden Reversal", 1),
                 ("Creepshow Casino", 1),
-                ("Coven, The", 1),
+                ("The Coven", 1),
                 ("Art Scam", 8),
-                ("Embrace, The", 8),
+                ("The Embrace", 8),
                 ("Mind Numb", 4),
                 ("Enchant Kindred", 4),
                 ("Entrancement", 2),
@@ -388,7 +393,7 @@ def test_2010tcdbng():
                 ("FBI Special Affairs Division", 1),
                 ("Hunger Moon", 1),
                 ("Restricted Vitae", 1),
-                ("Unmasking, The", 1),
+                ("The Unmasking", 1),
                 ("Channel 10", 1),
                 ("Charisma", 2),
                 ("Creepshow Casino", 1),
@@ -445,7 +450,7 @@ def test_2012pslp():
                 ("Drusilla Euphemia", 1),
                 ("Apache Jones", 1),
                 ("Bela", 1),
-                ("Barrens, The", 1),
+                ("The Barrens", 1),
                 ("Blood Doll", 1),
                 ("Dreams of the Sphinx", 2),
                 ("Giant's Blood", 1),
@@ -507,22 +512,22 @@ def test_2k7campeonatojuizforano():
                 ("React with Conviction", 4),
                 ("Second Sight", 5),
                 ("Strike with Conviction", 5),
-                ("Crusader Sword, The", 1),
+                ("The Crusader Sword", 1),
                 ("Heart of Nizchetus", 1),
                 ("Ivory Bow", 1),
                 ("Anthelios, The Red Star", 1),
                 ("Edge Explosion", 1),
-                ("Unmasking, The", 1),
+                ("The Unmasking", 1),
                 ("Angel of Berlin", 2),
-                ("Barrens, The", 1),
-                ("Church of Vindicated Faith, The", 1),
+                ("The Barrens", 1),
+                ("The Church of Vindicated Faith", 1),
                 ("Direct Intervention", 1),
                 ("Fortschritt Library", 1),
                 ("Memories of Mortality", 6),
                 ("Millicent Smith, Puritan Vampire Hunter", 1),
-                ("Parthenon, The", 3),
+                ("The Parthenon", 3),
                 ("Rötschreck", 1),
-                ("Slaughterhouse, The", 4),
+                ("The Slaughterhouse", 4),
                 ("Smiling Jack, The Anarch", 1),
                 ("Tension in the Ranks", 1),
                 ("Unity", 1),
@@ -540,7 +545,7 @@ def test_2k7campeonatojuizforano():
                 "I couldn't pack more than one.\n"
             ),
             "Millicent Smith, Puritan Vampire Hunter": "no comments needed.\n",
-            "Slaughterhouse, The": (
+            "The Slaughterhouse": (
                 "useful either to speed deck depletion\n"
                 "or to trade for something useful under Anthelios.\n"
             ),
@@ -608,7 +613,7 @@ def test_2010pwbla1():
                 ("Raking Talons", 9),
                 ("Stonestrength", 10),
                 ("Hand of Conrad", 1),
-                ("Sargon Fragment, The", 1),
+                ("The Sargon Fragment", 1),
                 ("Dragonbound", 1),
                 ("Ashur Tablets", 5),
                 ("Carver's Meat Packing and Storage", 1),
@@ -641,7 +646,7 @@ def test_2010pwbla1():
             "Reins of Power": (
                 'eradicate your predator and call as a "spare"\n' "Tupdog action\n"
             ),
-            "Sargon Fragment, The": "recycle everything else\n",
+            "The Sargon Fragment": "recycle everything else\n",
             "Secure Haven": "to contest and to save a slave master.\n",
             "Thin-Blooded Seer": 'Tupdog "spare" actions.\n',
         },
@@ -742,4 +747,92 @@ def test_2k5sharednun():
         "cards_comments": {},
         "comments": "\"Look in the sky, it's a raven. No, it's a bat.\n"
         "No, it's a crow, No it's a swarm of them all!!!\"\n",
+    }
+
+
+def test_2019ecwon1pf():
+    """Discipline name as header must not be mistaken for the Master card
+
+    Using long vampire name with comma and (ADV)
+    """
+    with open(os.path.join(os.path.dirname(__file__), "2019ecwon1pf.html")) as f:
+        twda.TWDA.load_html(f)
+    assert len(twda.TWDA) == 1
+    assert twda.TWDA["2019ecwon1pf"].__getstate__() == {
+        "event": "EC WoN - Monday",
+        "place": "Paris, France",
+        "date": "August 12th 2019",
+        "players_count": 25,
+        "player": "Randal Rudstam",
+        "tournament_format": "2R+F",
+        "score": "1GW4.5+1.5",
+        "name": "Sascha Vykos Toolbox",
+        "author": None,
+        "cards": collections.OrderedDict(
+            [
+                ("Sascha Vykos, The Angel of Caine (ADV)", 5),
+                ("Meshenka", 3),
+                ("Lambach", 1),
+                ("John Paleologus", 1),
+                ("Stravinsky", 1),
+                ("Velya, The Flayer", 1),
+                ("Ashur Tablets", 6),
+                ("Black Forest Base", 1),
+                ("Dreams of the Sphinx", 1),
+                ("Fear of Mekhet", 1),
+                ("Information Highway", 1),
+                ("Legendary Vampire", 1),
+                ("Library Hunting Ground", 1),
+                ("Papillon", 3),
+                ("Pentex(TM) Subversion", 1),
+                ("Powerbase: Madrid", 1),
+                ("Vessel", 2),
+                ("Villein", 5),
+                ("Wider View", 1),
+                ("Abbot", 1),
+                ("Army of Rats", 1),
+                ("Deep Song", 1),
+                ("Under Siege", 1),
+                ("Asanbonsam Ghoul", 2),
+                ("Carlton Van Wyk", 1),
+                ("Bowl of Convergence", 1),
+                ("Anarchist Uprising", 1),
+                ("Ancient Influence", 1),
+                ("Ancilla Empowerment", 1),
+                ("Banishment", 2),
+                ("Kine Resources Contested", 2),
+                ("Neonate Breach", 1),
+                ("Political Stranglehold", 1),
+                ("Reins of Power", 1),
+                ("Changeling", 2),
+                ("Mind of the Wilds", 1),
+                ("Private Audience", 1),
+                ("Plasmic Form", 1),
+                ("Cats' Guidance", 1),
+                ("Delaying Tactics", 1),
+                ("Eagle's Sight", 1),
+                ("Enhanced Senses", 1),
+                ("Eyes of Argus", 3),
+                ("Guard Dogs", 1),
+                ("My Enemy's Enemy", 1),
+                ("On the Qui Vive", 2),
+                ("Precognition", 1),
+                ("Rat's Warning", 1),
+                ("Read the Winds", 1),
+                ("Sense the Savage Way", 1),
+                ("Spirit's Touch", 1),
+                ("Telepathic Misdirection", 5),
+                ("Aid from Bats", 1),
+                ("Breath of the Dragon", 1),
+                ("Canine Horde", 1),
+                ("Carrion Crows", 2),
+                ("Chiropteran Marauder", 3),
+                ("Drawing Out the Beast", 1),
+                ("Inner Essence", 1),
+                ("Meld with the Land", 1),
+                ("Starvation of Marena", 1),
+            ]
+        ),
+        "cards_comments": {},
+        "comments": "Card selection is strong! Randyman\n",
     }

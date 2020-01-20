@@ -77,7 +77,7 @@ def top(args):
     A.refresh(condition=condition)
     for card_name, count in A.played.most_common()[: args.number]:
         card = vtes.VTES[card_name]
-        print("{:<30} (played in {} decks)".format(_card_name(card), count))
+        print("{:<30} (played in {} decks)".format(vtes.VTES.get_name(card), count))
         if args.full:
             print(_card_text(card))
             print()
@@ -91,7 +91,9 @@ def build(args):
 def deck_(args):
     twda.TWDA.configure(args.date_from, args.date_to, args.players)
     decks = {i: twda.TWDA[i] for i in args.cards_or_id if i in twda.TWDA}
-    cards = [vtes.VTES[c]["Name"] for c in args.cards_or_id if c not in twda.TWDA]
+    cards = [
+        vtes.VTES.get_name(vtes.VTES[c]) for c in args.cards_or_id if c not in twda.TWDA
+    ]
     if not decks:
         A = analyzer.Analyzer()
         try:
@@ -123,12 +125,8 @@ def card(args):
         except KeyError:
             logger.critical("Card not found: {}".format(name))
             exit(1)
-        print(_card_name(card))
+        print(vtes.VTES.get_name(card))
         print(_card_text(card))
-
-
-def _card_name(card):
-    return card["Name"] + (" (ADV)" if card.get("Adv") else "")
 
 
 def _card_text(card):
@@ -233,7 +231,7 @@ parser.add_argument(
     "cards",
     metavar="CARD",
     nargs="+",
-    type=lambda a: vtes.VTES[a]["Name"],
+    type=lambda a: vtes.VTES.get_name(vtes.VTES[a]),
     help="reference cards",
 )
 parser.set_defaults(func=affinity)
@@ -331,7 +329,7 @@ parser.add_argument(
     "cards",
     metavar="CARD",
     nargs="*",
-    type=lambda a: vtes.VTES[a]["Name"],
+    type=lambda a: vtes.VTES.get_name(vtes.VTES[a]),
     help="reference cards",
 )
 parser.set_defaults(func=build)

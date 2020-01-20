@@ -192,9 +192,9 @@ class _TWDA(collections.OrderedDict):
             if not current.separator:
                 try:
                     score = re.match(
-                        r"-?-?\s*((?P<round_wins>\d)(G|g)(W|w)"
-                        r"(?P<round_vps>\d\.?\d?)\s*\+?\s*)?"
-                        r"(?P<final>\d)(v|V)(p|P)",
+                        r"-?-?\s*((?P<round_wins>\d)\s*(G|g)(W|w)\s*"
+                        r"(?P<round_vps>\d\.?\d?)\s*((v|V)(p|P))?\s*\+?\s*)?"
+                        r"(?P<final>\d\.?\d?)\s*(v|V)(p|P)",
                         line,
                     )
                     if score.group("round_wins"):
@@ -323,19 +323,20 @@ class _TWDA(collections.OrderedDict):
                         pass
                 finally:
                     if card:
-                        current.update({card["Name"]: count})
+                        name = vtes.VTES.get_name(card)
+                        current.update({name: count})
                         if comment:
                             current.comment_begin(
                                 line_num,
                                 comment,
-                                card["Name"],
+                                name,
                                 marker=True,
                                 multiline=multiline,
                             )
                         else:
                             # if no blank line, comments on following lines are
                             # attached to his card
-                            current.comment_begin(line_num, "", card["Name"])
+                            current.comment_begin(line_num, "", name)
                     else:
                         current.maybe_comment_line(line_num, line)
             # should not happen: by default the whole line is captured by _get_card()

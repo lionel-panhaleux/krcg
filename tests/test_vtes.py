@@ -224,5 +224,5 @@ Deflections.
 1  FBI Special Affairs Division
 1  Hunger Moon
 1  Restricted Vitae
-1  Unmasking, The"""
+1  The Unmasking"""
     )

@@ -12,6 +12,10 @@ Changelog
     + multiple clans & disciplines allowed
     + now case insensitive
     + common abbreviations accepted
+- Better score parsing
+- Fix Advanced vampires parsing
+- Default card names now use "The" as a prefix (as on card)
+  instead of as a suffix (as in official CSV)
 
 0.5 (2019-09-10)
 ----------------
