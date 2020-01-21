@@ -16,6 +16,7 @@ Changelog
 - Fix Advanced vampires parsing
 - Default card names now use "The" as a prefix (as on card)
   instead of as a suffix (as in official CSV)
+- Basic JSON API for Heroku deployment
 
 0.5 (2019-09-10)
 ----------------
