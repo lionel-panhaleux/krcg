@@ -1,4 +1,4 @@
-include LICENSE README.md CHANGELOG.rst
+include LICENSE README.md CHANGELOG.rst requirements.txt runtime.txt Procfile
 
 graft src
 prune Makefile
