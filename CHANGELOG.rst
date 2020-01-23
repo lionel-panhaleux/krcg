@@ -4,7 +4,9 @@ Changelog
 0.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- New API, more RESTful, more consistent
+- Fixed a 404 when searching for very widespread cards (eg. Pentex) would fail
+- Now using OpenAPI & Swagger UI
 
 
 0.6 (2020-01-21)

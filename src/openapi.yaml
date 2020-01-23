@@ -1,0 +1,254 @@
+openapi: "3.0.2"
+info:
+    title: "KRCG"
+    version: "0.6"
+    description: "**V:tES** cards and decks based on VEKN resources, including the [TWDA](http://www.vekn.fr/decks/twd.htm)."
+    contact:
+        name: "KRCG"
+        url: https://github.com/lionel-panhaleux/krcg
+    license:
+        name: MIT License
+        url: https://opensource.org/licenses/MIT
+    host: krcg.herokuapp.com
+    tags:
+        -
+            name: Deck
+            description: TWDA decks
+        -
+            name: Card
+            description: VTES cards
+schemes: [http]
+components:
+    schemas:
+        card_count:
+            type: object
+            properties:
+                name: {type: string, required: true}
+                count: {type: integer, required: true}
+                coments: {type: string}
+            example: {count: 4, name: Anson}
+        deck:
+            type: object
+            properties:
+                twda_id: {type: string, required: true}
+                name: {type: string}
+                event: {type: string}
+                place: {type: string}
+                date: {type: string, format: date, required: true}
+                player: {type: string, required: true}
+                author: {type: string}
+                players_count: {type: integer}
+                tournament_format: {type: string}
+                score: {type: string}
+                comments: {type: string}
+                crypt:
+                    type: object
+                    required: true
+                    properties:
+                        count: {type: integer, required: true}
+                        cards:
+                            type: array
+                            required: true
+                            minLength: 1
+                            items: {$ref: "#/components/schemas/card_count"}
+                library:
+                    type: object
+                    required: true
+                    properties:
+                        count: {type: integer, required: true}
+                        cards:
+                            type: array
+                            required: true
+                            minLength: 1
+                            maxLength: 20
+                            items:
+                                type: object
+                                properties:
+                                    type: {type: string, required: true}
+                                    count: {type: integer, required: true}
+                                    cards:
+                                        type: array
+                                        required: true
+                                        minLength: 1
+                                        maxLength: 90
+                                        items: {$ref: "#/components/schemas/card_count"}
+            example:
+                twd_id: "2014incbi"
+                name: "AAA - Alert Attention Alarm"
+                event: "Italian NC 2014"
+                place: "Bologna, Italy"
+                date: "2014-06-01"
+                player: "Enrico De Stefano (Embraced)"
+                author: null
+                players_count: 25
+                tournament_format: "3R+F"
+                score: null
+                comments: "-- Once again, our Enrico De Stefano defend his national title. Congratulations.\n"
+                crypt:
+                    count: 12
+                    cards: [
+                        {count: 4, name: Anson},
+                        {count: 2, name: Alexandra},
+                        {count: 2, name: Anneke},
+                        {count: 1, name: François Villon},
+                        {count: 1, name: Marcellus},
+                        {count: 1, name: Tatiana Romanov},
+                        {count: 1, name: "Volker, The Puppet Prince"}
+                    ]
+                library:
+                    count: 90
+                    cards:
+                        -   type: Master
+                            count: 30
+                            cards: [
+                                    {count: 9, name: Ashur Tablets},
+                                    {count: 7, name: Liquidation},
+                                    {count: 5, name: Villein},
+                                    {count: 3, name: Haven Uncovered},
+                                    {count: 1, name: Art Museum},
+                                    {count: 1, name: "Golconda: Inner Peace"},
+                                    {count: 1, name: Information Highway},
+                                    {count: 1, name: Papillon},
+                                    {count: 1, name: "Pentex(TM) Subversion"},
+                                    {count: 1, name: Wider View}
+                            ]
+                        -   type: Action
+                            count: 3
+                            cards: [
+                                {count: 2, name: Entrancement},
+                                {count: 1, name: Heart of the City}
+                            ]
+                        -   type: Political Action
+                            count: 4
+                            cards: [
+                                {count: 3, name: Parity Shift},
+                                {count: 1, name: Political Stranglehold}
+                            ]
+                        -   type: Action Modifier
+                            count: 2
+                            cards: [{count: 2, name: Aire of Elation}]
+                        -   type: Action Modifier/Combat
+                            count: 4
+                            cards: [{count: 4, name: "Resist Earth's Grasp"}]
+                        -   type: Combat
+                            count: 21
+                            cards: [
+                                    {count: 4, name: Blur},
+                                    {count: 4, name: Concealed Weapon},
+                                    {count: 4, name: "Psyche!"},
+                                    {count: 4, name: Taste of Vitae},
+                                    {count: 3, name: Charismatic Aura},
+                                    {count: 2, name: Side Strike}
+                            ]
+                        -   type: Reaction
+                            count: 13
+                            cards: [
+                                {count: 8, name: "Second Tradition: Domain"},
+                                {count: 5, name: Telepathic Misdirection}
+                            ]
+                        -   type: Equipment
+                            count: 11
+                            cards: [
+                                    {count: 6, name: ".44 Magnum"},
+                                    {count: 3, name: Heart of Nizchetus},
+                                    {count: 1, name: Bowl of Convergence},
+                                    {count: 1, name: Codex of the Edenic Groundskeepers}
+                            ]
+                        -   type: Event
+                            count: 2
+                            cards: [
+                                {count: 1, name: "Anthelios, The Red Star"},
+                                {count: 1, name: Scourge of the Enochians}
+                            ]
+paths:
+    /deck:
+        post:
+            tags: [Deck]
+            summary: Get TWDA decks that include given cards
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                card_names:
+                                    type: array
+                                    required: true
+                                    minLength: 1
+                                    items:
+                                        description: "Case-insensitive card name"
+                                        type: string
+                                date_from:
+                                    description: "Only consider decks from this date on"
+                                    type: string
+                                    format: date
+                                    default: "2008-01-01"
+                                date_to:
+                                    description: "Only consider decks until this date"
+                                    type: string
+                                    format: date
+                                    default: null
+                                players:
+                                    description: "Only consider tournaments with at least this number of players"
+                                    type: integer
+                                    minimum: 0
+                                    default: 0
+                            example:
+                                cards: ["François Villon"]
+                                date_from: "1994-01-01"
+                                players: 25
+            responses:
+                "200":
+                    description: Successful operation
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                required: true
+                                minLength: 1
+                                items: {$ref: "#/components/schemas/deck"}
+                "404":
+                    description: Not found
+    /deck/{twda_id}:
+        get:
+            tags: [Deck]
+            summary: Get a deck by its TWDA ID
+            description: Returns the deck with the given ID
+            parameters:
+                - name: twda_id
+                  in: path
+                  description: "TWDA ID"
+                  required: true
+                  type: string
+            responses:
+            "200":
+                description: Successful operation
+                content:
+                    application/json:
+                        schema: {$ref: "#/components/schemas/deck"}
+            "404":
+                description: Not Found
+    /complete/{partial_name}:
+        get:
+            tags: [Card]
+            summary: Complete a card name
+            description: Return all candidates matching the partial name
+            parameters:
+                - name: partial_name
+                  in: path
+                  description: "Partial card name"
+                  required: true
+                  type: string
+            responses:
+                "200":
+                    description: Successful operation
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+                                    description: Card name
+                            example: ["The unnamed", "Unnatural Disaster"]
+                "404":
+                    description: Not found

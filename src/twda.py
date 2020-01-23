@@ -85,7 +85,7 @@ class _TWDA(collections.OrderedDict):
         if save:
             pickle.dump(TWDA, open(config.TWDA_FILE, "wb"))
 
-    def configure(self, date_from=None, date_to=None, min_players=0):
+    def configure(self, date_from=None, date_to=None, min_players=0, spoilers=True):
         """Prepare the TWDA, taking date and players count filters into account.
 
         Also compute `self.spoilers`.
@@ -94,6 +94,7 @@ class _TWDA(collections.OrderedDict):
             date_from (datetime): filter out decks before this date
             date_to (datetime): filter out decks after this date
             min_players (int): if > 0, filter out decks with less players
+            spoilers (bool): if True, compute spoilers to filter them out for analysis
         """
         if date_from:
             for key in [key for key, value in self.items() if value.date < date_from]:
@@ -108,7 +109,7 @@ class _TWDA(collections.OrderedDict):
                 if value.players_count and value.players_count < min_players
             ]:
                 del self[key]
-        if len(self) > 50:
+        if spoilers and len(self) > 50:
             self.spoilers = {
                 name
                 for name, count in collections.Counter(
