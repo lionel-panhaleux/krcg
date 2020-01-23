@@ -417,11 +417,23 @@ class _VTES(dict):
                     lines.append(f"{count:<2} {card}")
         return "\n".join(lines)
 
-    def deck_to_dict(self, deck):
+    def deck_to_dict(self, deck, twda_id):
+        """A consistent deck serialization for the API
+
+        Cards are listed in the order given by the config.TYPE_ORDER list.
+
+        Args:
+            deck (deck.Deck): A deck
+            twda_id (str): The deck TWDA ID
+
+        Returns:
+            dict: The serialized deck
+        """
         ret = {
+            "twda_id": twda_id,
             "event": deck.event,
             "place": deck.place,
-            "date": deck.date.format("YYYY, MMMM Do"),
+            "date": deck.date.date().isoformat(),
             "tournament_format": deck.tournament_format,
             "players_count": deck.players_count,
             "player": deck.player,
@@ -429,11 +441,14 @@ class _VTES(dict):
             "name": deck.name,
             "author": deck.author,
             "comments": deck.comments,
-            "crypt": [
-                deck.cards_count(self.is_crypt),
-                [[count, card] for card, count in deck.cards(self.is_crypt)],
-            ],
-            "library": [deck.cards_count(self.is_library), {}],
+            "crypt": {
+                "count": deck.cards_count(self.is_crypt),
+                "cards": [
+                    {"count": count, "name": card}
+                    for card, count in deck.cards(self.is_crypt)
+                ],
+            },
+            "library": {"count": deck.cards_count(self.is_library), "cards": []},
         }
 
         def _type(card):
@@ -447,12 +462,17 @@ class _VTES(dict):
         # form a section for each type with a header displaying the total
         for kind, cards in itertools.groupby(library_cards, key=_type):
             c1, c2 = itertools.tee(cards)
-            ret["library"][1][config.TYPE_ORDER[kind]] = [
-                sum(count for card, count in c1),
-                [],
-            ]
+            ret["library"]["cards"].append(
+                {
+                    "type": config.TYPE_ORDER[kind],
+                    "count": sum(count for card, count in c1),
+                    "cards": [],
+                }
+            )
             for card, count in c2:
-                ret["library"][1][config.TYPE_ORDER[kind]][1].append([count, card])
+                ret["library"]["cards"][-1]["cards"].append(
+                    {"count": count, "name": card}
+                )
         return ret
 
 

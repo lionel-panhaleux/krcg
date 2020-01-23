@@ -89,7 +89,7 @@ def build(args):
 
 
 def deck_(args):
-    twda.TWDA.configure(args.date_from, args.date_to, args.players)
+    twda.TWDA.configure(args.date_from, args.date_to, args.players, spoilers=False)
     decks = {i: twda.TWDA[i] for i in args.cards_or_id if i in twda.TWDA}
     cards = [
         vtes.VTES.get_name(vtes.VTES[c]) for c in args.cards_or_id if c not in twda.TWDA

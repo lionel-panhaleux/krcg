@@ -3,7 +3,7 @@ import functools
 import threading
 
 import arrow
-from flask import Flask, request, jsonify, make_response
+from flask import Flask, request, jsonify, render_template
 
 from . import analyzer
 from . import twda
@@ -31,64 +31,74 @@ class KRCG(Flask):
                     self.completion_trie[part[:i]].add(vtes.VTES.get_name(card))
 
         threading.Thread(target=init_twda).start()
-        super().__init__("krcg")
+        super().__init__("krcg", template_folder=".")
+
+    def make_default_options_response(self,):
+        response = super().make_default_options_response()
+        response.headers.add("Access-Control-Allow-Headers", "*")
+        response.headers.add("Access-Control-Allow-Methods", "*")
+        return response
+
+    def process_response(self, response):
+        response.headers.add("Access-Control-Allow-Origin", "*")
+        return response
 
 
 app = KRCG()
 
 
-def allow_cors_option():
-    response = make_response()
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "*")
-    response.headers.add("Access-Control-Allow-Methods", "*")
-    return response
-
-
-def allow_cors_response(data, *args, **kwargs):
-    response = make_response(jsonify(data), *args, **kwargs)
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    return response
-
-
 def twda_required(f):
     def check_init(*args, **kwargs):
         if not initialized.wait(5):
-            return allow_cors_response("Initializing", 503)
+            return "Initializing", 503
         return f(*args, **kwargs)
 
     return check_init
 
 
-@app.route("/deck", methods=["OPTIONS", "POST"])
+@app.route("/", methods=["GET"])
+def swagger():
+    return render_template("src/index.html")
+
+
+@app.route("/openapi.yaml", methods=["GET"])
+def openapi():
+    return render_template("src/openapi.yaml")
+
+
 @twda_required
-def deck():
-    if request.method == "OPTIONS":
-        return allow_cors_option()
+@app.route("/deck", methods=["POST"])
+def deck_by_cards():
     data = request.get_json()
-    if data.get("twda_id"):
-        return allow_cors_response([vtes.VTES.deck_to_dict(twda.TWDA[data["twda_id"]])])
     twda.TWDA.configure(
-        data.get("date_from") or arrow.get(2008, 1, 1),
-        data.get("date_to") or arrow.get(),
+        arrow.get(data.get("date_from") or "2008-01-01"),
+        arrow.get(data.get("date_to") or None),
         data.get("players") or 0,
+        spoilers=False,
     )
     if data.get("cards"):
         A = analyzer.Analyzer()
         try:
             A.refresh(*data["cards"], similarity=1)
         except analyzer.AnalysisError:
-            return allow_cors_response([])
-        return allow_cors_response(
-            [[k, vtes.VTES.deck_to_dict(v)] for k, v in A.examples.items()]
-        )
+            return "No result in TWDA", 404
+        return jsonify([vtes.VTES.deck_to_dict(v, k) for k, v in A.examples.items()])
+    return "Bad Request", 400
+
+
+@twda_required
+@app.route("/deck/<twda_id>", methods=["GET"])
+def deck_by_id(twda_id):
+    if not twda_id:
+        return "Bad Request", 400
+    if twda_id not in twda.TWDA:
+        return "Not Found", 404
+    return jsonify(vtes.VTES.deck_to_dict(twda.TWDA[twda_id], twda_id))
 
 
 @app.route("/complete/<text>", methods=["GET"])
 def complete(text):
-    if request.method == "OPTIONS":
-        return allow_cors_option()
-    return allow_cors_response(
+    return jsonify(
         sorted(
             functools.reduce(
                 lambda x, y: x & y if x and y else x | y,
