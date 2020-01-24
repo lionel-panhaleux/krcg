@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.8 (unreleased)
+0.8 (2020-01-24)
 ----------------
 
 - API: add cards comments
