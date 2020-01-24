@@ -8,6 +8,7 @@ Changelog
 - API: add cards official ID
 - API: deck endpoint now returns all TWDA decks by default
 - Add tests for the API
+- Make the use of Python 3.8 official
 
 0.7 (2020-01-24)
 ----------------

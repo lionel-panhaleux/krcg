@@ -1,10 +1,10 @@
+# KRCG
+
 [![PyPI version](https://badge.fury.io/py/krcg.svg)](https://badge.fury.io/py/krcg)
 [![Build Status](https://travis-ci.org/lionel-panhaleux/krcg.svg?branch=master)](https://travis-ci.org/lionel-panhaleux/krcg)
-[![Python version](https://img.shields.io/badge/python-3.7-blue)](https://www.python.org/downloads/)
+[![Python version](https://img.shields.io/badge/python-3.8-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Code Style](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
-
-# KRCG
 
 A command-line interface based on
 the VEKN [official card texts](http://www.vekn.net/card-lists)
@@ -241,6 +241,6 @@ Inspired by:
 Feel free to submit pull requests, they will be merged as long as they pass the tests.
 Do not hestitate to submit issues or vote on them if you want a feature implemented.
 
-# Online API
+## Online API
 
 KRCG is available as an [online API on Heroku](https://krcg.herokuapp.com/).
