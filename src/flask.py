@@ -69,21 +69,27 @@ def openapi():
 @twda_required
 @app.route("/deck", methods=["POST"])
 def deck_by_cards():
-    data = request.get_json()
+    data = request.get_json() or {}
     twda.TWDA.configure(
         arrow.get(data.get("date_from") or "2008-01-01"),
         arrow.get(data.get("date_to") or None),
         data.get("players") or 0,
         spoilers=False,
     )
-    if data.get("cards"):
+    decks = twda.TWDA
+    if data and data.get("cards"):
         A = analyzer.Analyzer()
         try:
-            A.refresh(*data["cards"], similarity=1)
+            A.refresh(
+                *[vtes.VTES.get_name(vtes.VTES[card]) for card in data["cards"]],
+                similarity=1
+            )
+            decks = A.examples
         except analyzer.AnalysisError:
             return "No result in TWDA", 404
-        return jsonify([vtes.VTES.deck_to_dict(v, k) for k, v in A.examples.items()])
-    return "Bad Request", 400
+        except KeyError:
+            return "Invalid card name", 400
+    return jsonify([vtes.VTES.deck_to_dict(v, k) for k, v in decks.items()])
 
 
 @twda_required
