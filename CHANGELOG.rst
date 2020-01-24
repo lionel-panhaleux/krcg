@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7 (unreleased)
+0.7 (2020-01-24)
 ----------------
 
 - New API, more RESTful, more consistent
