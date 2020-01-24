@@ -4,8 +4,10 @@ Changelog
 0.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- API: add cards comments
+- API: add cards official ID
+- API: deck endpoint now returns all TWDA decks by default
+- Add tests for the API
 
 0.7 (2020-01-24)
 ----------------

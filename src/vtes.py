@@ -444,7 +444,12 @@ class _VTES(dict):
             "crypt": {
                 "count": deck.cards_count(self.is_crypt),
                 "cards": [
-                    {"count": count, "name": card}
+                    {
+                        "id": self[card]["Id"],
+                        "count": count,
+                        "name": card,
+                        "comments": deck.cards_comments.get(card),
+                    }
                     for card, count in deck.cards(self.is_crypt)
                 ],
             },
@@ -471,7 +476,12 @@ class _VTES(dict):
             )
             for card, count in c2:
                 ret["library"]["cards"][-1]["cards"].append(
-                    {"count": count, "name": card}
+                    {
+                        "id": self[card]["Id"],
+                        "count": count,
+                        "name": card,
+                        "comments": deck.cards_comments.get(card),
+                    }
                 )
         return ret
 

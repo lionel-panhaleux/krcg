@@ -74,7 +74,7 @@ class _TWDA(collections.OrderedDict):
                 for s in vtes.VTES.clans + vtes.VTES.disciplines + ["trifle"]
             )
         )
-        for count, (lines, twda_id) in enumerate(self._get_decks_html(source)):
+        for count, (lines, twda_id) in enumerate(self._get_decks_html(source), 1):
             try:
                 self[twda_id] = self._load_deck_html(lines, twda_id)
             except arrow.parser.ParserError as e:

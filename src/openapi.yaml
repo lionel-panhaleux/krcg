@@ -23,6 +23,7 @@ components:
         card_count:
             type: object
             properties:
+                id: {type: integer, required: true}
                 name: {type: string, required: true}
                 count: {type: integer, required: true}
                 coments: {type: string}
@@ -164,7 +165,7 @@ paths:
     /deck:
         post:
             tags: [Deck]
-            summary: Get TWDA decks that include given cards
+            summary: Get TWDA decks matching given filters
             requestBody:
                 content:
                     application/json:
@@ -172,9 +173,10 @@ paths:
                             type: object
                             properties:
                                 card_names:
+                                    description: "If absent, all decks are returned"
                                     type: array
-                                    required: true
-                                    minLength: 1
+                                    required: false
+                                    minLength: 0
                                     items:
                                         description: "Case-insensitive card name"
                                         type: string

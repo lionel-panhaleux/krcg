@@ -4,9 +4,9 @@ from src import vtes
 
 
 def test_base():
-    vtes.VTES.load_from_vekn()
+    vtes.VTES.load_from_vekn(save=False)
     # speed up the tests: parse the first 100 decks only to avoid useless 25 seconds.
-    twda.TWDA.load_from_vekn(limit=100)
+    twda.TWDA.load_from_vekn(limit=100, save=False)
     A = analyzer.Analyzer()
     A.refresh()
     assert A.played["Stavros"] == 3
