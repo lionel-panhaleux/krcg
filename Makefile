@@ -10,6 +10,9 @@ update:
 serve:
 	gunicorn --reload src.flask:app
 
+deploy:
+	git push --force heroku master
+
 clean:
 	rm src/TWDA.pkl
 	rm src/VTES.pkl
