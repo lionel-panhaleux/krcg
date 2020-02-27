@@ -69,19 +69,19 @@ def test_deck(client):
         "own.\n",
         "crypt": {
             "cards": [
-                {"comments": None, "count": 5, "name": "Anarch Convert",},
-                {"comments": None, "count": 1, "name": "Francesca Giovanni",},
-                {"comments": None, "count": 1, "name": "Gloria Giovanni",},
-                {"comments": None, "count": 1, "name": "Cristofero Giovanni",},
+                {"comments": None, "count": 5, "name": "Anarch Convert"},
+                {"comments": None, "count": 1, "name": "Francesca Giovanni"},
+                {"comments": None, "count": 1, "name": "Gloria Giovanni"},
+                {"comments": None, "count": 1, "name": "Cristofero Giovanni"},
                 {"comments": None, "count": 1, "name": "Lia Milliner"},
-                {"comments": None, "count": 1, "name": "Mario Giovanni",},
-                {"comments": None, "count": 1, "name": "Rudolfo Giovanni",},
+                {"comments": None, "count": 1, "name": "Mario Giovanni"},
+                {"comments": None, "count": 1, "name": "Rudolfo Giovanni"},
                 {
                     "comments": None,
                     "count": 1,
                     "name": "Marciana Giovanni, Investigator",
                 },
-                {"comments": None, "count": 1, "name": "Paul DiCarlo, The Alpha",},
+                {"comments": None, "count": 1, "name": "Paul DiCarlo, The Alpha"},
             ],
             "count": 13,
         },
@@ -91,17 +91,17 @@ def test_deck(client):
             "cards": [
                 {
                     "cards": [
-                        {"comments": None, "count": 5, "name": "Liquidation",},
+                        {"comments": None, "count": 5, "name": "Liquidation"},
                         {"comments": None, "count": 3, "name": "Piper"},
-                        {"comments": None, "count": 2, "name": "Anarch Railroad",},
-                        {"comments": None, "count": 2, "name": "Creepshow Casino",},
-                        {"comments": None, "count": 2, "name": "Jake Washington",},
+                        {"comments": None, "count": 2, "name": "Anarch Railroad"},
+                        {"comments": None, "count": 2, "name": "Creepshow Casino"},
+                        {"comments": None, "count": 2, "name": "Jake Washington"},
                         {
                             "comments": "this can probably be omitted " "now.\n",
                             "count": 1,
                             "name": "Anarch Troublemaker",
                         },
-                        {"comments": None, "count": 1, "name": "Direct Intervention",},
+                        {"comments": None, "count": 1, "name": "Direct Intervention"},
                         {
                             "comments": "unused this tournament\n",
                             "count": 1,
@@ -138,7 +138,7 @@ def test_deck(client):
                             "count": 5,
                             "name": "Sudario Refraction",
                         },
-                        {"comments": None, "count": 4, "name": "The Embrace",},
+                        {"comments": None, "count": 4, "name": "The Embrace"},
                     ],
                     "count": 18,
                     "type": "Action",
@@ -155,22 +155,22 @@ def test_deck(client):
                     "type": "Action Modifier",
                 },
                 {
-                    "cards": [{"comments": None, "count": 5, "name": "Target Vitals",}],
+                    "cards": [{"comments": None, "count": 5, "name": "Target Vitals"}],
                     "count": 5,
                     "type": "Combat",
                 },
                 {
                     "cards": [
-                        {"comments": None, "count": 5, "name": "On the Qui Vive",},
-                        {"comments": None, "count": 4, "name": "Deflection",},
-                        {"comments": None, "count": 2, "name": "Delaying Tactics",},
+                        {"comments": None, "count": 5, "name": "On the Qui Vive"},
+                        {"comments": None, "count": 4, "name": "Deflection"},
+                        {"comments": None, "count": 2, "name": "Delaying Tactics"},
                     ],
                     "count": 11,
                     "type": "Reaction",
                 },
                 {
                     "cards": [
-                        {"comments": None, "count": 1, "name": "Heart of Nizchetus",}
+                        {"comments": None, "count": 1, "name": "Heart of Nizchetus"}
                     ],
                     "count": 1,
                     "type": "Equipment",
@@ -182,27 +182,27 @@ def test_deck(client):
                             "count": 8,
                             "name": "Cry Wolf",
                         },
-                        {"comments": None, "count": 1, "name": "Carlton Van Wyk",},
+                        {"comments": None, "count": 1, "name": "Carlton Van Wyk"},
                         {
                             "comments": "Burn guns, get an entry in the Diary.\n",
                             "count": 1,
                             "name": "Gianna di Canneto",
                         },
-                        {"comments": None, "count": 1, "name": "Ossian",},
+                        {"comments": None, "count": 1, "name": "Ossian"},
                         {
                             "comments": "synergy with Wolves, see also "
                             "dumb, dumb, dumb.\n",
                             "count": 1,
                             "name": "Tye Cooper",
                         },
-                        {"comments": None, "count": 1, "name": "Vivienne Géroux",},
+                        {"comments": None, "count": 1, "name": "Vivienne Géroux"},
                     ],
                     "count": 13,
                     "type": "Ally",
                 },
                 {
                     "cards": [
-                        {"comments": None, "count": 2, "name": "The Unmasking",},
+                        {"comments": None, "count": 2, "name": "The Unmasking"},
                         {
                             "comments": None,
                             "count": 1,
