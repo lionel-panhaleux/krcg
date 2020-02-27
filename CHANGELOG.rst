@@ -4,7 +4,7 @@ Changelog
 0.11 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- API: reintroduce the "Id" field for cards
 
 
 0.10 (2020-02-27)
