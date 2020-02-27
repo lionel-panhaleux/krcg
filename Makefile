@@ -8,7 +8,7 @@ update:
 	pip install --upgrade -e .[dev]
 
 serve:
-	gunicorn --reload src.flask:app
+	gunicorn --reload --access-logfile - src.flask:app
 
 deploy:
 	git push --force heroku master
