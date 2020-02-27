@@ -222,13 +222,13 @@ paths:
                   required: true
                   type: string
             responses:
-            "200":
-                description: Successful operation
-                content:
-                    application/json:
-                        schema: {$ref: "#/components/schemas/deck"}
-            "404":
-                description: Not Found
+                "200":
+                    description: Successful operation
+                    content:
+                        application/json:
+                            schema: {$ref: "#/components/schemas/deck"}
+                "404":
+                    description: Not Found
     /complete/{partial_name}:
         get:
             tags: [Card]

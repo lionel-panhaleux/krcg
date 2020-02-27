@@ -4,7 +4,7 @@ Changelog
 0.10 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix OpenAPI /deck endpoint
 
 
 0.9 (2020-02-27)
