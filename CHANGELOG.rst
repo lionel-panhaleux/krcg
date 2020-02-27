@@ -4,7 +4,7 @@ Changelog
 0.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Check the validity of VEKN responses
 
 
 0.8 (2020-01-24)

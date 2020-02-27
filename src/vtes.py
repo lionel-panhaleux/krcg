@@ -34,6 +34,7 @@ class _VTES(dict):
         """
         self.clear()
         r = requests.request("GET", config.VEKN_VTES_URL)
+        r.raise_for_status()
         with tempfile.NamedTemporaryFile("wb", suffix=".zip") as f:
             f.write(r.content)
             f.flush()

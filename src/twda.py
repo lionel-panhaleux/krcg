@@ -54,6 +54,7 @@ class _TWDA(collections.OrderedDict):
             limit: Maximum number of decks to load (used to speed up tests)
         """
         r = requests.request("GET", config.VEKN_TWDA_URL)
+        r.raise_for_status()
         self.load_html(io.StringIO(r.content.decode("utf-8")), limit, save)
 
     def load_html(self, source, limit=None, save=True):
