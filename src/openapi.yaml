@@ -23,7 +23,7 @@ components:
         card_count:
             type: object
             properties:
-                id: {type: integer, required: true}
+                id: {type: string, required: true}
                 name: {type: string, required: true}
                 count: {type: integer, required: true}
                 coments: {type: string}
@@ -88,13 +88,13 @@ components:
                 crypt:
                     count: 12
                     cards: [
-                        {count: 4, name: Anson},
-                        {count: 2, name: Alexandra},
-                        {count: 2, name: Anneke},
-                        {count: 1, name: François Villon},
-                        {count: 1, name: Marcellus},
-                        {count: 1, name: Tatiana Romanov},
-                        {count: 1, name: "Volker, The Puppet Prince"}
+                        {count: 4, name: Anson, id: "200107"},
+                        {count: 2, name: Alexandra, id: "200049"},
+                        {count: 2, name: Anneke, id: "200106"},
+                        {count: 1, name: François Villon, id: "200478"},
+                        {count: 1, name: Marcellus, id: "200910"},
+                        {count: 1, name: Tatiana Romanov, id: "201347"},
+                        {count: 1, name: "Volker, The Puppet Prince", id: "201458"}
                     ]
                 library:
                     count: 90
@@ -102,64 +102,64 @@ components:
                         -   type: Master
                             count: 30
                             cards: [
-                                    {count: 9, name: Ashur Tablets},
-                                    {count: 7, name: Liquidation},
-                                    {count: 5, name: Villein},
-                                    {count: 3, name: Haven Uncovered},
-                                    {count: 1, name: Art Museum},
-                                    {count: 1, name: "Golconda: Inner Peace"},
-                                    {count: 1, name: Information Highway},
-                                    {count: 1, name: Papillon},
-                                    {count: 1, name: "Pentex(TM) Subversion"},
-                                    {count: 1, name: Wider View}
+                                    {count: 9, name: Ashur Tablets, id: "100106"},
+                                    {count: 7, name: Liquidation, id: "101112"},
+                                    {count: 5, name: Villein, id: "102121"},
+                                    {count: 3, name: Haven Uncovered, id: "100897"},
+                                    {count: 1, name: Art Museum, id: "100095"},
+                                    {count: 1, name: "Golconda: Inner Peace", id: "100842"},
+                                    {count: 1, name: Information Highway, id: "100984"},
+                                    {count: 1, name: Papillon, id: "101350"},
+                                    {count: 1, name: "Pentex(TM) Subversion", id: "101384"},
+                                    {count: 1, name: Wider View, id: "102180"}
                             ]
                         -   type: Action
                             count: 3
                             cards: [
-                                {count: 2, name: Entrancement},
-                                {count: 1, name: Heart of the City}
+                                {count: 2, name: Entrancement, id: "100652"},
+                                {count: 1, name: Heart of the City, id: "100904"}
                             ]
                         -   type: Political Action
                             count: 4
                             cards: [
-                                {count: 3, name: Parity Shift},
-                                {count: 1, name: Political Stranglehold}
+                                {count: 3, name: Parity Shift, id: "101353"},
+                                {count: 1, name: Political Stranglehold, id: "101417"}
                             ]
                         -   type: Action Modifier
                             count: 2
-                            cards: [{count: 2, name: Aire of Elation}]
+                            cards: [{count: 2, name: Aire of Elation, id: "100031"}]
                         -   type: Action Modifier/Combat
                             count: 4
-                            cards: [{count: 4, name: "Resist Earth's Grasp"}]
+                            cards: [{count: 4, name: "Resist Earth's Grasp", id: "101610"}]
                         -   type: Combat
                             count: 21
                             cards: [
-                                    {count: 4, name: Blur},
-                                    {count: 4, name: Concealed Weapon},
-                                    {count: 4, name: "Psyche!"},
-                                    {count: 4, name: Taste of Vitae},
-                                    {count: 3, name: Charismatic Aura},
-                                    {count: 2, name: Side Strike}
+                                    {count: 4, name: Blur, id: "100227"},
+                                    {count: 4, name: Concealed Weapon, id: "100392"},
+                                    {count: 4, name: "Psyche!", id: "101507"},
+                                    {count: 4, name: Taste of Vitae, id: "101945"},
+                                    {count: 3, name: Charismatic Aura, id: "100333"},
+                                    {count: 2, name: Side Strike, id: "101778"}
                             ]
                         -   type: Reaction
                             count: 13
                             cards: [
-                                {count: 8, name: "Second Tradition: Domain"},
-                                {count: 5, name: Telepathic Misdirection}
+                                {count: 8, name: "Second Tradition: Domain", id: "101706"},
+                                {count: 5, name: Telepathic Misdirection, id: "101949"}
                             ]
                         -   type: Equipment
                             count: 11
                             cards: [
-                                    {count: 6, name: ".44 Magnum"},
-                                    {count: 3, name: Heart of Nizchetus},
-                                    {count: 1, name: Bowl of Convergence},
-                                    {count: 1, name: Codex of the Edenic Groundskeepers}
+                                    {count: 6, name: ".44 Magnum", id: "100001"},
+                                    {count: 3, name: Heart of Nizchetus, id: "100903"},
+                                    {count: 1, name: Bowl of Convergence, id: "100243"},
+                                    {count: 1, name: Codex of the Edenic Groundskeepers, id: "100374"}
                             ]
                         -   type: Event
                             count: 2
                             cards: [
-                                {count: 1, name: "Anthelios, The Red Star"},
-                                {count: 1, name: Scourge of the Enochians}
+                                {count: 1, name: "Anthelios, The Red Star", id: "100074"},
+                                {count: 1, name: Scourge of the Enochians, id: "101697"}
                             ]
 paths:
     /deck:
