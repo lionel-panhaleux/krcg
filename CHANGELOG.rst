@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.11 (unreleased)
+0.11 (2020-02-27)
 -----------------
 
 - API: reintroduce the "Id" field for cards
