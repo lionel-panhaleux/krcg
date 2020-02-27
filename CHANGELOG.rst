@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.9 (unreleased)
+0.9 (2020-02-27)
 ----------------
 
 - Check the validity of VEKN responses
