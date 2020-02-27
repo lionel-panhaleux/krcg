@@ -23,6 +23,7 @@ components:
         card_count:
             type: object
             properties:
+                id: {type: integer, required: true}
                 name: {type: string, required: true}
                 count: {type: integer, required: true}
                 coments: {type: string}

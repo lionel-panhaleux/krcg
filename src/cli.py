@@ -147,7 +147,7 @@ def _card_text(card):
         text += "(Burn Option)"
     if card.get("Banned"):
         text += " -- BANNED"
-    text += " -- ({})".format(card["Set"])
+    text += " -- ({} - #{})".format(card["Set"], card["Id"])
     if "Disciplines" in card:
         text += "\n{}".format(card["Disciplines"] or "-- No discipline")
     text += "\n{}".format(card["Card Text"])
