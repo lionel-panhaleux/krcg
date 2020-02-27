@@ -5,6 +5,7 @@ Changelog
 -----------------
 
 - Fix OpenAPI /deck endpoint
+- Update VEKN cards file (2020-02-27)
 
 
 0.9 (2020-02-27)
