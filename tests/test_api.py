@@ -69,55 +69,19 @@ def test_deck(client):
         "own.\n",
         "crypt": {
             "cards": [
-                {
-                    "comments": None,
-                    "count": 5,
-                    "id": "200076",
-                    "name": "Anarch Convert",
-                },
-                {
-                    "comments": None,
-                    "count": 1,
-                    "id": "200474",
-                    "name": "Francesca Giovanni",
-                },
+                {"comments": None, "count": 5, "name": "Anarch Convert",},
+                {"comments": None, "count": 1, "name": "Francesca Giovanni",},
+                {"comments": None, "count": 1, "name": "Gloria Giovanni",},
+                {"comments": None, "count": 1, "name": "Cristofero Giovanni",},
+                {"comments": None, "count": 1, "name": "Lia Milliner"},
+                {"comments": None, "count": 1, "name": "Mario Giovanni",},
+                {"comments": None, "count": 1, "name": "Rudolfo Giovanni",},
                 {
                     "comments": None,
                     "count": 1,
-                    "id": "200525",
-                    "name": "Gloria Giovanni",
-                },
-                {
-                    "comments": None,
-                    "count": 1,
-                    "id": "200301",
-                    "name": "Cristofero Giovanni",
-                },
-                {"comments": None, "count": 1, "id": "200834", "name": "Lia Milliner"},
-                {
-                    "comments": None,
-                    "count": 1,
-                    "id": "200932",
-                    "name": "Mario Giovanni",
-                },
-                {
-                    "comments": None,
-                    "count": 1,
-                    "id": "201209",
-                    "name": "Rudolfo Giovanni",
-                },
-                {
-                    "comments": None,
-                    "count": 1,
-                    "id": "200913",
                     "name": "Marciana Giovanni, Investigator",
                 },
-                {
-                    "comments": None,
-                    "count": 1,
-                    "id": "201101",
-                    "name": "Paul DiCarlo, The Alpha",
-                },
+                {"comments": None, "count": 1, "name": "Paul DiCarlo, The Alpha",},
             ],
             "count": 13,
         },
@@ -127,65 +91,35 @@ def test_deck(client):
             "cards": [
                 {
                     "cards": [
-                        {
-                            "comments": None,
-                            "count": 5,
-                            "id": "101112",
-                            "name": "Liquidation",
-                        },
-                        {"comments": None, "count": 3, "id": "101401", "name": "Piper"},
-                        {
-                            "comments": None,
-                            "count": 2,
-                            "id": "100054",
-                            "name": "Anarch Railroad",
-                        },
-                        {
-                            "comments": None,
-                            "count": 2,
-                            "id": "100444",
-                            "name": "Creepshow Casino",
-                        },
-                        {
-                            "comments": None,
-                            "count": 2,
-                            "id": "101019",
-                            "name": "Jake Washington",
-                        },
+                        {"comments": None, "count": 5, "name": "Liquidation",},
+                        {"comments": None, "count": 3, "name": "Piper"},
+                        {"comments": None, "count": 2, "name": "Anarch Railroad",},
+                        {"comments": None, "count": 2, "name": "Creepshow Casino",},
+                        {"comments": None, "count": 2, "name": "Jake Washington",},
                         {
                             "comments": "this can probably be omitted " "now.\n",
                             "count": 1,
-                            "id": "100058",
                             "name": "Anarch Troublemaker",
                         },
-                        {
-                            "comments": None,
-                            "count": 1,
-                            "id": "100545",
-                            "name": "Direct Intervention",
-                        },
+                        {"comments": None, "count": 1, "name": "Direct Intervention",},
                         {
                             "comments": "unused this tournament\n",
                             "count": 1,
-                            "id": "100809",
                             "name": "Garibaldi-Meucci Museum",
                         },
                         {
                             "comments": None,
                             "count": 1,
-                            "id": "101384",
                             "name": "Pentex(TM) Subversion",
                         },
                         {
                             "comments": None,
                             "count": 1,
-                            "id": "101433",
                             "name": "Powerbase: Cape Verde",
                         },
                         {
                             "comments": None,
                             "count": 1,
-                            "id": "101435",
                             "name": "Powerbase: Los Angeles",
                         },
                     ],
@@ -197,21 +131,14 @@ def test_deck(client):
                         {
                             "comments": 'The "Moose Juice" of this deck.\n',
                             "count": 9,
-                            "id": "101046",
                             "name": "Khazar's Diary (Endless Night)",
                         },
                         {
                             "comments": "Recursion is dumb, dumb, dumb.\n",
                             "count": 5,
-                            "id": "101895",
                             "name": "Sudario Refraction",
                         },
-                        {
-                            "comments": None,
-                            "count": 4,
-                            "id": "100633",
-                            "name": "The Embrace",
-                        },
+                        {"comments": None, "count": 4, "name": "The Embrace",},
                     ],
                     "count": 18,
                     "type": "Action",
@@ -221,7 +148,6 @@ def test_deck(client):
                         {
                             "comments": None,
                             "count": 3,
-                            "id": "100279",
                             "name": "Call of the Hungry Dead",
                         }
                     ],
@@ -229,49 +155,22 @@ def test_deck(client):
                     "type": "Action Modifier",
                 },
                 {
-                    "cards": [
-                        {
-                            "comments": None,
-                            "count": 5,
-                            "id": "101942",
-                            "name": "Target Vitals",
-                        }
-                    ],
+                    "cards": [{"comments": None, "count": 5, "name": "Target Vitals",}],
                     "count": 5,
                     "type": "Combat",
                 },
                 {
                     "cards": [
-                        {
-                            "comments": None,
-                            "count": 5,
-                            "id": "101321",
-                            "name": "On the Qui Vive",
-                        },
-                        {
-                            "comments": None,
-                            "count": 4,
-                            "id": "100518",
-                            "name": "Deflection",
-                        },
-                        {
-                            "comments": None,
-                            "count": 2,
-                            "id": "100519",
-                            "name": "Delaying Tactics",
-                        },
+                        {"comments": None, "count": 5, "name": "On the Qui Vive",},
+                        {"comments": None, "count": 4, "name": "Deflection",},
+                        {"comments": None, "count": 2, "name": "Delaying Tactics",},
                     ],
                     "count": 11,
                     "type": "Reaction",
                 },
                 {
                     "cards": [
-                        {
-                            "comments": None,
-                            "count": 1,
-                            "id": "100903",
-                            "name": "Heart of Nizchetus",
-                        }
+                        {"comments": None, "count": 1, "name": "Heart of Nizchetus",}
                     ],
                     "count": 1,
                     "type": "Equipment",
@@ -281,56 +180,32 @@ def test_deck(client):
                         {
                             "comments": "extra entries in the Diary.\n",
                             "count": 8,
-                            "id": "100475",
                             "name": "Cry Wolf",
                         },
-                        {
-                            "comments": None,
-                            "count": 1,
-                            "id": "100298",
-                            "name": "Carlton Van Wyk",
-                        },
+                        {"comments": None, "count": 1, "name": "Carlton Van Wyk",},
                         {
                             "comments": "Burn guns, get an entry in the Diary.\n",
                             "count": 1,
-                            "id": "100823",
                             "name": "Gianna di Canneto",
                         },
-                        {
-                            "comments": None,
-                            "count": 1,
-                            "id": "101333",
-                            "name": "Ossian",
-                        },
+                        {"comments": None, "count": 1, "name": "Ossian",},
                         {
                             "comments": "synergy with Wolves, see also "
                             "dumb, dumb, dumb.\n",
                             "count": 1,
-                            "id": "102053",
                             "name": "Tye Cooper",
                         },
-                        {
-                            "comments": None,
-                            "count": 1,
-                            "id": "102128",
-                            "name": "Vivienne Géroux",
-                        },
+                        {"comments": None, "count": 1, "name": "Vivienne Géroux",},
                     ],
                     "count": 13,
                     "type": "Ally",
                 },
                 {
                     "cards": [
-                        {
-                            "comments": None,
-                            "count": 2,
-                            "id": "102079",
-                            "name": "The Unmasking",
-                        },
+                        {"comments": None, "count": 2, "name": "The Unmasking",},
                         {
                             "comments": None,
                             "count": 1,
-                            "id": "100709",
                             "name": "FBI Special Affairs Division",
                         },
                     ],

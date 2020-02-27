@@ -5,6 +5,8 @@ Changelog
 ----------------
 
 - Check the validity of VEKN responses
+- VEKN cards list change (2020-02-21)
+- API: Remove the "Id" field (it has been removed from the official cards list)
 
 
 0.8 (2020-01-24)

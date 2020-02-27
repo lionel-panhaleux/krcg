@@ -4,9 +4,10 @@ from os import path
 
 #: what to download
 VEKN_TWDA_URL = "http://www.vekn.fr/decks/twd.htm"
-VEKN_VTES_URL = "http://www.vekn.net/images/stories/downloads/vtescsv_utf8.zip"
+VEKN_VTES_URL = "http://www.vekn.net/images/stories/downloads/vtescsv.zip"
 VEKN_VTES_LIBRARY_FILENAME = "vteslib.csv"
 VEKN_VTES_CRYPT_FILENAME = "vtescrypt.csv"
+VEKN_VTES_ENCODING = "iso-8859-1"
 #: where to store our data
 TWDA_FILE = path.join(path.dirname(__file__), "TWDA.pkl")
 VTES_FILE = path.join(path.dirname(__file__), "VTES.pkl")
@@ -150,6 +151,63 @@ REMAP = {
     # we not decode HTML properly as most of it is text
     "alia, god=92s messenger": "Alia, God's Messenger",
     "pentex=99 subversion": "Pentex Subversion",
+    # AKA (removed from VEKN cards file)
+    "akhenaten, the sun pharaoh (mummy)": "Akhenaten, The Sun Pharaoh",
+    "amam the devourer (bane mummy)": "Amam the Devourer",
+    "ambrosius, the ferryman (wraith)": "Ambrosius, The Ferryman",
+    "bloodhunt": "Blood Hunt",
+    "brigitte gebauer (wraith)": "Brigitte Gebauer",
+    "carlton van wyk (hunter)": "Carlton Van Wyk",
+    "dauntain black magician (changeling)": "Dauntain Black Magician",
+    "draeven softfoot (changeling)": "Draeven Softfoot",
+    "eco terrorists": "Ecoterrorists",
+    'felix "fix" hessian (wraith)': 'Felix "Fix" Hessian',
+    "fifth tradition: hospitality, the": "Fifth Tradition: Hospitality",
+    "first tradition: the masquerade, the": "First Tradition: The Masquerade",
+    "flame thrower": "Flamethrower",
+    "fourth tradition: the accounting, the": "Fourth Tradition: The Accounting",
+    "gangrel de-evolution": "Gangrel Atavism",
+    "grave robbing": "Graverobbing",
+    "guiseppe, gravedigger": "Giuseppe, Gravedigger",
+    "heidelburg castle, germany": "Heidelberg Castle, Germany",
+    "hell hound": "Hellhound",
+    "jake washington (hunter)": "Jake Washington",
+    "jake washington, hunter": "Jake Washington",
+    "kherebutu (bane mummy)": "Kherebutu",
+    "kine dominance": "Dominate Kine",
+    "mehemet of the ahl-i-batin (mage)": "Mehemet of the Ahl-i-Batin",
+    "mylan horseed (goblin)": "Mylan Horseed",
+    "neighborhood watch commander (hunter)": "Neighborhood Watch Commander",
+    "nephandus (mage)": "Nephandus",
+    "pere lachaise, france": "Père Lachaise, France",
+    "physchic projection": "Psychic Projection",
+    "puppeteer (wraith)": "Puppeteer",
+    "qetu the evil doer (bane mummy)": "Qetu the Evil Doer",
+    "renagade garou": "Renegade Garou",
+    "ruins of villars abbey, belgium": "Ruins of Villers Abbey, Belgium",
+    "saatet-ta (bane mummy)": "Saatet-ta",
+    "sacre-cour cathedral, france": "Sacré-Cœur Cathedral, France",
+    "second tradition: domain, the": "Second Tradition: Domain",
+    "shadow court satyr (changeling)": "Shadow Court Satyr",
+    "sixth tradition: destruction, the": "Sixth Tradition: Destruction",
+    "stake": "Wooden Stake",
+    "tara, the hollow one (mage)": "Tara, The Hollow One",
+    "thadius zho, mage": "Thadius Zho",
+    "third tradition: progeny, the": "Third Tradition: Progeny",
+    "tutu the doubly evil one (bane mummy)": "Tutu the Doubly Evil One",
+    "veneficti (mage)": "Veneficti",
+    "venture justicar": "Ventrue Justicar",
+    "wendell delburton (hunter)": "Wendell Delburton",
+    "andrei puxton": "Andrei Puxon",
+    'beatrice "oracle171" tremblay': 'Béatrice "Oracle171" Tremblay',
+    "camille devereux": "Camille Devereux, The Raven",
+    "raven": "Camille Devereux, The Raven",
+    "celeste lamontagne": "Céleste Lamontagne",
+    "etienne fauberge": "Étienne Fauberge",
+    'francois "warden" loehr': 'François "Warden" Loehr',
+    "l'epuisette": "L'Épuisette",
+    "sebastian goulet": "Sébastien Goulet",
+    "sebastian goulet (adv)": "Sébastien Goulet (ADV)",
     # traditions - players really do whatever they want
     "the first tradition": "First Tradition: The Masquerade",
     "first tradition": "First Tradition: The Masquerade",

@@ -40,9 +40,13 @@ class _VTES(dict):
             f.flush()
             z = zipfile.ZipFile(f.name)
             with z.open(config.VEKN_VTES_LIBRARY_FILENAME) as c:
-                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
+                self.load_csv(
+                    io.TextIOWrapper(c, encoding=config.VEKN_VTES_ENCODING), save
+                )
             with z.open(config.VEKN_VTES_CRYPT_FILENAME) as c:
-                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
+                self.load_csv(
+                    io.TextIOWrapper(c, encoding=config.VEKN_VTES_ENCODING), save
+                )
 
     def __getitem__(self, key):
         """Get a card, try to find a good matching.
@@ -446,7 +450,6 @@ class _VTES(dict):
                 "count": deck.cards_count(self.is_crypt),
                 "cards": [
                     {
-                        "id": self[card]["Id"],
                         "count": count,
                         "name": card,
                         "comments": deck.cards_comments.get(card),
@@ -478,7 +481,6 @@ class _VTES(dict):
             for card, count in c2:
                 ret["library"]["cards"][-1]["cards"].append(
                     {
-                        "id": self[card]["Id"],
                         "count": count,
                         "name": card,
                         "comments": deck.cards_comments.get(card),
