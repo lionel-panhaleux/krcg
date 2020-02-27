@@ -4,10 +4,10 @@ from os import path
 
 #: what to download
 VEKN_TWDA_URL = "http://www.vekn.fr/decks/twd.htm"
-VEKN_VTES_URL = "http://www.vekn.net/images/stories/downloads/vtescsv.zip"
+VEKN_VTES_URL = "http://www.vekn.net/images/stories/downloads/vtescsv_utf8.zip"
 VEKN_VTES_LIBRARY_FILENAME = "vteslib.csv"
 VEKN_VTES_CRYPT_FILENAME = "vtescrypt.csv"
-VEKN_VTES_ENCODING = "iso-8859-1"
+VEKN_VTES_ENCODING = "utf-8"
 #: where to store our data
 TWDA_FILE = path.join(path.dirname(__file__), "TWDA.pkl")
 VTES_FILE = path.join(path.dirname(__file__), "VTES.pkl")
