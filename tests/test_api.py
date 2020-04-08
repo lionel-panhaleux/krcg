@@ -48,10 +48,12 @@ def test_card(client):
         "Card Text": (
             "Requires a justicar or Inner Circle member.\n"
             "Choose a ready Camarilla vampire. If this referendum is successful, "
-            "search your library for an equipment card and place this card and the equipment on the chosen vampire. "
+            "search your library for an equipment card and place this card "
+            "and the equipment on the chosen vampire. "
             "Pay half the cost (round down) of the equipment. "
-            "This vampire may enter combat with any vampire controlled by another Methuselah "
-            "as a +1 stealth Ⓓ  action. This vampire cannot commit diablerie. A vampire may have only one Alastor."
+            "This vampire may enter combat with any vampire "
+            "controlled by another Methuselah as a +1 stealth Ⓓ  action. "
+            "This vampire cannot commit diablerie. A vampire may have only one Alastor."
         ),
         "Flavor Text": "",
         "Set": ["Gehenna:R", "KMW:PAl", "KoT:R"],
@@ -61,12 +63,14 @@ def test_card(client):
         "Capacity": "",
         "Draft": "",
         "Rulings": [
-            "If the weapon given costs blood, the target Alastor pays the cost. [LSJ 20040518]"
+            "If the weapon given costs blood, "
+            "the target Alastor pays the cost. [LSJ 20040518]"
         ],
         "Rulings Links": [
             {
                 "Reference": "LSJ 20040518",
-                "URL": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ",
+                "URL": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
+                "4emymfUPwAM/B2SCC7L6kuMJ",
             }
         ],
     }

@@ -4,7 +4,6 @@ import collections
 import logging
 from random import randrange
 
-from . import config
 from . import deck
 from . import vtes
 from . import twda
