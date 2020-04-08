@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.12 (unreleased)
+0.12 (2020-04-08)
 -----------------
 
 - Use official ban list (now up to date)
