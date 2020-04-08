@@ -18,7 +18,7 @@ def client():
         yield client
 
 
-def test_card(client):
+def test_complete(client):
     response = client.get("/complete")
     assert response.status_code == 404
     response = client.get("/complete/NotACard")
@@ -27,6 +27,49 @@ def test_card(client):
     response = client.get("/complete/unn")
     assert response.status_code == 200
     assert response.json == ["The unnamed", "Unnatural Disaster"]
+
+
+def test_card(client):
+    response = client.get("/card/NotACard")
+    assert response.status_code == 404
+    response = client.get("/card/Alastor")
+    assert response.status_code == 200
+    assert response.json == {
+        "Id": "100038",
+        "Name": "Alastor",
+        "Aka": "",
+        "Type": ["Political Action"],
+        "Clan": [],
+        "Discipline": [],
+        "Pool Cost": "",
+        "Blood Cost": "",
+        "Conviction Cost": "",
+        "Burn Option": False,
+        "Card Text": (
+            "Requires a justicar or Inner Circle member.\n"
+            "Choose a ready Camarilla vampire. If this referendum is successful, "
+            "search your library for an equipment card and place this card and the equipment on the chosen vampire. "
+            "Pay half the cost (round down) of the equipment. "
+            "This vampire may enter combat with any vampire controlled by another Methuselah "
+            "as a +1 stealth Ⓓ  action. This vampire cannot commit diablerie. A vampire may have only one Alastor."
+        ),
+        "Flavor Text": "",
+        "Set": ["Gehenna:R", "KMW:PAl", "KoT:R"],
+        "Requirement": ["justicar", "inner circle"],
+        "Banned": "",
+        "Artist": "Monte Moore",
+        "Capacity": "",
+        "Draft": "",
+        "Rulings": [
+            "If the weapon given costs blood, the target Alastor pays the cost. [LSJ 20040518]"
+        ],
+        "Rulings Links": [
+            {
+                "Reference": "LSJ 20040518",
+                "URL": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ",
+            }
+        ],
+    }
 
 
 def test_deck(client):

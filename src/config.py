@@ -11,6 +11,8 @@ VEKN_VTES_ENCODING = "utf-8"
 #: where to store our data
 TWDA_FILE = path.join(path.dirname(__file__), "TWDA.pkl")
 VTES_FILE = path.join(path.dirname(__file__), "VTES.pkl")
+RULINGS_FILE = path.join(path.dirname(__file__), "rulings.yaml")
+RULINGS_LINK_FILE = path.join(path.dirname(__file__), "rulings-links.yaml")
 #: classic headers in deck lists
 HEADERS = [
     "master",

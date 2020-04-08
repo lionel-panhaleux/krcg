@@ -10,12 +10,14 @@ import io
 import itertools
 import logging
 import pickle
+import re
 import requests
 import tempfile
 import textwrap
 import zipfile
 
 import unidecode
+import yaml
 
 from . import config
 
@@ -30,7 +32,7 @@ class _VTES(dict):
     """
 
     def load_from_vekn(self, save=True):
-        """Load the card database from vekn.net
+        """Load the card database from vekn.net, with rulings
         """
         self.clear()
         r = requests.request("GET", config.VEKN_VTES_URL)
@@ -43,6 +45,19 @@ class _VTES(dict):
                 self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
             with z.open(config.VEKN_VTES_CRYPT_FILENAME) as c:
                 self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
+        # load rulings from local yaml files
+        links = yaml.safe_load(open(config.RULINGS_LINK_FILE, "r"))
+        card_rulings = yaml.safe_load(open(config.RULINGS_FILE, "r"))
+        for card, rulings in card_rulings.items():
+            self[card].setdefault("Rulings", []).extend(rulings)
+            self[card].setdefault("Rulings Links", [])
+            for ruling in rulings:
+                for reference in re.findall(r"\[[a-zA-Z]*\s[0-9-]*\]", ruling):
+                    reference = reference[1:-1]
+                    self[card].setdefault("Rulings Links", []).append(
+                        {"Reference": reference, "URL": links[reference]}
+                    )
+        pickle.dump(self, open(config.VTES_FILE, "wb"))
 
     def __getitem__(self, key):
         """Get a card, try to find a good matching.
@@ -145,14 +160,12 @@ class _VTES(dict):
             All possible values
         """
 
-        def get_traits(trait_value):
-            if "/" in trait_value:
-                for value in trait_value.split("/"):
-                    yield value.strip()
-            elif "&" in trait_value:
-                yield "Combo"
-            else:
-                yield trait_value
+        def get_traits(traits):
+            for trait_value in traits:
+                if "&" in trait_value:
+                    yield "Combo"
+                else:
+                    yield trait_value
 
         return set(
             itertools.chain.from_iterable(
@@ -250,6 +263,28 @@ class _VTES(dict):
         The VTES card list is pickled for future use.
         """
         for card in csv.DictReader(stream):
+            card["Set"] = [s.strip() for s in card["Set"].split(",") if s.strip()]
+            card["Clan"] = [c.strip() for c in card["Clan"].split("/") if c.strip()]
+            card["Type"] = [t.strip() for t in card["Type"].split("/") if t.strip()]
+            card["Card Text"] = card["Card Text"].replace("{", "")
+            card["Card Text"] = card["Card Text"].replace("}", "")
+            card["Card Text"] = card["Card Text"].replace("(D)", "Ⓓ ")
+            if "Disciplines" in card:
+                card["Disciplines"] = [
+                    d.strip() for d in card["Disciplines"].split(" ") if d.strip()
+                ]
+            if "Requirement" in card:
+                card["Requirement"] = [
+                    r.strip() for r in card["Requirement"].split(",") if r.strip()
+                ]
+            if "Discipline" in card:
+                card["Discipline"] = [
+                    d.strip() for d in card["Discipline"].split("/") if d.strip()
+                ]
+            if "Burn Option" in card:
+                card["Burn Option"] = bool(card["Burn Option"])
+            if "Adv" in card:
+                card["Adv"] = bool(card["Adv"])
             for name in self.get_name_variants(card):
                 self[name] = card
 
@@ -267,7 +302,7 @@ class _VTES(dict):
         Returns:
             bool: true if the card is a crypt card
         """
-        return VTES[card]["Type"] in ("Vampire", "Imbued")
+        return set(VTES[card]["Type"]) & {"Vampire", "Imbued"}
 
     def is_library(self, card):
         """A function to check if a card is a library card
@@ -293,10 +328,10 @@ class _VTES(dict):
             bool: true if the card is of the given discipline
         """
         if discipline in ["Combo", "combo"]:
-            return "&" in VTES[card].get("Discipline", "")
+            return any("&" in d for d in VTES[card].get("Discipline", []))
         return {discipline.strip().lower()} & {
             disc.strip().lower()
-            for d in VTES[card].get("Discipline", "").split("/")
+            for d in VTES[card].get("Discipline", [])
             for disc in d.split("&")
         }
 
@@ -309,7 +344,7 @@ class _VTES(dict):
         Returns:
             bool: true if the card requires no discipline
         """
-        return VTES[card].get("Discipline", "").strip() == ""
+        return not VTES[card].get("Discipline", [])
 
     def is_type(self, card, type_):
         """A function to check if a card is of the given type
@@ -323,9 +358,7 @@ class _VTES(dict):
         Returns:
             bool: true if the card has the given type
         """
-        return {type_.strip().lower()} & {
-            t.strip().lower() for t in VTES[card]["Type"].split("/")
-        }
+        return {type_.strip().lower()} & {t.strip().lower() for t in VTES[card]["Type"]}
 
     def is_clan(self, card, clan):
         """A function to check if a card is of the given clan (or requires said clan)
@@ -339,9 +372,7 @@ class _VTES(dict):
         Returns:
             bool: true if the card is of the given clan.
         """
-        return {clan.strip().lower()} & {
-            t.strip().lower() for t in VTES[card]["Clan"].split("/")
-        }
+        return {clan.strip().lower()} & {t.strip().lower() for t in VTES[card]["Clan"]}
 
     def deck_to_txt(self, deck):
         """A consistent deck display matching our parsing rules of TWDA.html
@@ -356,7 +387,7 @@ class _VTES(dict):
         """
 
         def _type(card):
-            return config.TYPE_ORDER.index(self[card[0]]["Type"])
+            return config.TYPE_ORDER.index("/".join(self[card[0]]["Type"]))
 
         lines = []
         if deck.event:
@@ -393,8 +424,8 @@ class _VTES(dict):
                     count,
                     card + (" (ADV)" if self[card]["Adv"] else ""),
                     self[card]["Capacity"],
-                    self[card]["Disciplines"],
-                    self[card]["Clan"],
+                    " ".join(self[card]["Disciplines"]),
+                    self[card]["Clan"][0],
                     self[card]["Group"],
                 )
             )
@@ -458,7 +489,7 @@ class _VTES(dict):
         }
 
         def _type(card):
-            return config.TYPE_ORDER.index(self[card[0]]["Type"])
+            return config.TYPE_ORDER.index("/".join(self[card[0]]["Type"]))
 
         # sort by type, count (descending), name
         # note ordering must match the `itertools.groupby` function afterwards.

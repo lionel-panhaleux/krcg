@@ -66,6 +66,14 @@ def openapi():
     return render_template("src/openapi.yaml")
 
 
+@app.route("/card/<text>", methods=["GET"])
+def card(text):
+    try:
+        return jsonify(vtes.VTES[text])
+    except KeyError:
+        return "Card not found", 404
+
+
 @twda_required
 @app.route("/deck", methods=["POST"])
 def deck_by_cards():

@@ -1,7 +1,7 @@
-openapi: "3.0.2"
+openapi: "3.0.3"
 info:
     title: "KRCG"
-    version: "0.11"
+    version: "0.12"
     description: "**V:tES** cards and decks based on VEKN resources, including the [TWDA](http://www.vekn.fr/decks/twd.htm)."
     contact:
         name: "KRCG"
@@ -9,70 +9,72 @@ info:
     license:
         name: MIT License
         url: https://opensource.org/licenses/MIT
-    host: krcg.herokuapp.com
-    tags:
-        -
-            name: Deck
-            description: TWDA decks
-        -
-            name: Card
-            description: VTES cards
-schemes: [http]
+servers:
+    - url: krcg.herokuapp.com
+      description: Heroku server
+tags:
+    - name: Deck
+      description: TWDA decks
+    - name: Card
+      description: VTES cards
 components:
     schemas:
         card_count:
             type: object
+            required: ["id", "name", "count"]
             properties:
-                id: {type: string, required: true}
-                name: {type: string, required: true}
-                count: {type: integer, required: true}
-                coments: {type: string}
-            example: {count: 4, name: Anson}
+                id: { type: string }
+                name: { type: string }
+                count: { type: integer }
+                coments: { type: string }
+            example: { count: 4, name: Anson }
         deck:
             type: object
+            required: ["twda_id", "date", "player", "crypt", "library"]
             properties:
-                twda_id: {type: string, required: true}
-                name: {type: string}
-                event: {type: string}
-                place: {type: string}
-                date: {type: string, format: date, required: true}
-                player: {type: string, required: true}
-                author: {type: string}
-                players_count: {type: integer}
-                tournament_format: {type: string}
-                score: {type: string}
-                comments: {type: string}
+                twda_id: { type: string }
+                name: { type: string }
+                event: { type: string }
+                place: { type: string }
+                date: { type: string, format: date }
+                player: { type: string }
+                author: { type: string }
+                players_count: { type: integer }
+                tournament_format: { type: string }
+                score: { type: string }
+                comments: { type: string }
                 crypt:
                     type: object
-                    required: true
+                    required: ["count", "cards"]
                     properties:
-                        count: {type: integer, required: true}
+                        count: { type: integer }
                         cards:
                             type: array
-                            required: true
                             minLength: 1
-                            items: {$ref: "#/components/schemas/card_count"}
+                            items: { $ref: "#/components/schemas/card_count" }
                 library:
                     type: object
-                    required: true
+                    required: ["count", "cards"]
                     properties:
-                        count: {type: integer, required: true}
+                        count: { type: integer }
                         cards:
                             type: array
-                            required: true
                             minLength: 1
                             maxLength: 20
                             items:
                                 type: object
+                                required: ["type", "count", "cards"]
                                 properties:
-                                    type: {type: string, required: true}
-                                    count: {type: integer, required: true}
+                                    type: { type: string }
+                                    count: { type: integer }
                                     cards:
                                         type: array
-                                        required: true
                                         minLength: 1
                                         maxLength: 90
-                                        items: {$ref: "#/components/schemas/card_count"}
+                                        items:
+                                            {
+                                                $ref: "#/components/schemas/card_count",
+                                            }
             example:
                 twd_id: "2014incbi"
                 name: "AAA - Alert Attention Alarm"
@@ -87,81 +89,347 @@ components:
                 comments: "-- Once again, our Enrico De Stefano defend his national title. Congratulations.\n"
                 crypt:
                     count: 12
-                    cards: [
-                        {count: 4, name: Anson, id: "200107"},
-                        {count: 2, name: Alexandra, id: "200049"},
-                        {count: 2, name: Anneke, id: "200106"},
-                        {count: 1, name: François Villon, id: "200478"},
-                        {count: 1, name: Marcellus, id: "200910"},
-                        {count: 1, name: Tatiana Romanov, id: "201347"},
-                        {count: 1, name: "Volker, The Puppet Prince", id: "201458"}
-                    ]
+                    cards:
+                        [
+                            { count: 4, name: Anson, id: "200107" },
+                            { count: 2, name: Alexandra, id: "200049" },
+                            { count: 2, name: Anneke, id: "200106" },
+                            { count: 1, name: François Villon, id: "200478" },
+                            { count: 1, name: Marcellus, id: "200910" },
+                            { count: 1, name: Tatiana Romanov, id: "201347" },
+                            {
+                                count: 1,
+                                name: "Volker, The Puppet Prince",
+                                id: "201458",
+                            },
+                        ]
                 library:
                     count: 90
                     cards:
-                        -   type: Master
-                            count: 30
-                            cards: [
-                                    {count: 9, name: Ashur Tablets, id: "100106"},
-                                    {count: 7, name: Liquidation, id: "101112"},
-                                    {count: 5, name: Villein, id: "102121"},
-                                    {count: 3, name: Haven Uncovered, id: "100897"},
-                                    {count: 1, name: Art Museum, id: "100095"},
-                                    {count: 1, name: "Golconda: Inner Peace", id: "100842"},
-                                    {count: 1, name: Information Highway, id: "100984"},
-                                    {count: 1, name: Papillon, id: "101350"},
-                                    {count: 1, name: "Pentex(TM) Subversion", id: "101384"},
-                                    {count: 1, name: Wider View, id: "102180"}
-                            ]
-                        -   type: Action
-                            count: 3
-                            cards: [
-                                {count: 2, name: Entrancement, id: "100652"},
-                                {count: 1, name: Heart of the City, id: "100904"}
-                            ]
-                        -   type: Political Action
-                            count: 4
-                            cards: [
-                                {count: 3, name: Parity Shift, id: "101353"},
-                                {count: 1, name: Political Stranglehold, id: "101417"}
-                            ]
-                        -   type: Action Modifier
-                            count: 2
-                            cards: [{count: 2, name: Aire of Elation, id: "100031"}]
-                        -   type: Action Modifier/Combat
-                            count: 4
-                            cards: [{count: 4, name: "Resist Earth's Grasp", id: "101610"}]
-                        -   type: Combat
-                            count: 21
-                            cards: [
-                                    {count: 4, name: Blur, id: "100227"},
-                                    {count: 4, name: Concealed Weapon, id: "100392"},
-                                    {count: 4, name: "Psyche!", id: "101507"},
-                                    {count: 4, name: Taste of Vitae, id: "101945"},
-                                    {count: 3, name: Charismatic Aura, id: "100333"},
-                                    {count: 2, name: Side Strike, id: "101778"}
-                            ]
-                        -   type: Reaction
-                            count: 13
-                            cards: [
-                                {count: 8, name: "Second Tradition: Domain", id: "101706"},
-                                {count: 5, name: Telepathic Misdirection, id: "101949"}
-                            ]
-                        -   type: Equipment
-                            count: 11
-                            cards: [
-                                    {count: 6, name: ".44 Magnum", id: "100001"},
-                                    {count: 3, name: Heart of Nizchetus, id: "100903"},
-                                    {count: 1, name: Bowl of Convergence, id: "100243"},
-                                    {count: 1, name: Codex of the Edenic Groundskeepers, id: "100374"}
-                            ]
-                        -   type: Event
-                            count: 2
-                            cards: [
-                                {count: 1, name: "Anthelios, The Red Star", id: "100074"},
-                                {count: 1, name: Scourge of the Enochians, id: "101697"}
-                            ]
+                        - type: Master
+                          count: 30
+                          cards:
+                              [
+                                  {
+                                      count: 9,
+                                      name: Ashur Tablets,
+                                      id: "100106",
+                                  },
+                                  { count: 7, name: Liquidation, id: "101112" },
+                                  { count: 5, name: Villein, id: "102121" },
+                                  {
+                                      count: 3,
+                                      name: Haven Uncovered,
+                                      id: "100897",
+                                  },
+                                  { count: 1, name: Art Museum, id: "100095" },
+                                  {
+                                      count: 1,
+                                      name: "Golconda: Inner Peace",
+                                      id: "100842",
+                                  },
+                                  {
+                                      count: 1,
+                                      name: Information Highway,
+                                      id: "100984",
+                                  },
+                                  { count: 1, name: Papillon, id: "101350" },
+                                  {
+                                      count: 1,
+                                      name: "Pentex(TM) Subversion",
+                                      id: "101384",
+                                  },
+                                  { count: 1, name: Wider View, id: "102180" },
+                              ]
+                        - type: Action
+                          count: 3
+                          cards:
+                              [
+                                  {
+                                      count: 2,
+                                      name: Entrancement,
+                                      id: "100652",
+                                  },
+                                  {
+                                      count: 1,
+                                      name: Heart of the City,
+                                      id: "100904",
+                                  },
+                              ]
+                        - type: Political Action
+                          count: 4
+                          cards:
+                              [
+                                  {
+                                      count: 3,
+                                      name: Parity Shift,
+                                      id: "101353",
+                                  },
+                                  {
+                                      count: 1,
+                                      name: Political Stranglehold,
+                                      id: "101417",
+                                  },
+                              ]
+                        - type: Action Modifier
+                          count: 2
+                          cards:
+                              [
+                                  {
+                                      count: 2,
+                                      name: Aire of Elation,
+                                      id: "100031",
+                                  },
+                              ]
+                        - type: Action Modifier/Combat
+                          count: 4
+                          cards:
+                              [
+                                  {
+                                      count: 4,
+                                      name: "Resist Earth's Grasp",
+                                      id: "101610",
+                                  },
+                              ]
+                        - type: Combat
+                          count: 21
+                          cards:
+                              [
+                                  { count: 4, name: Blur, id: "100227" },
+                                  {
+                                      count: 4,
+                                      name: Concealed Weapon,
+                                      id: "100392",
+                                  },
+                                  { count: 4, name: "Psyche!", id: "101507" },
+                                  {
+                                      count: 4,
+                                      name: Taste of Vitae,
+                                      id: "101945",
+                                  },
+                                  {
+                                      count: 3,
+                                      name: Charismatic Aura,
+                                      id: "100333",
+                                  },
+                                  { count: 2, name: Side Strike, id: "101778" },
+                              ]
+                        - type: Reaction
+                          count: 13
+                          cards:
+                              [
+                                  {
+                                      count: 8,
+                                      name: "Second Tradition: Domain",
+                                      id: "101706",
+                                  },
+                                  {
+                                      count: 5,
+                                      name: Telepathic Misdirection,
+                                      id: "101949",
+                                  },
+                              ]
+                        - type: Equipment
+                          count: 11
+                          cards:
+                              [
+                                  {
+                                      count: 6,
+                                      name: ".44 Magnum",
+                                      id: "100001",
+                                  },
+                                  {
+                                      count: 3,
+                                      name: Heart of Nizchetus,
+                                      id: "100903",
+                                  },
+                                  {
+                                      count: 1,
+                                      name: Bowl of Convergence,
+                                      id: "100243",
+                                  },
+                                  {
+                                      count: 1,
+                                      name: Codex of the Edenic Groundskeepers,
+                                      id: "100374",
+                                  },
+                              ]
+                        - type: Event
+                          count: 2
+                          cards:
+                              [
+                                  {
+                                      count: 1,
+                                      name: "Anthelios, The Red Star",
+                                      id: "100074",
+                                  },
+                                  {
+                                      count: 1,
+                                      name: Scourge of the Enochians,
+                                      id: "101697",
+                                  },
+                              ]
 paths:
+    /card/{name}:
+        get:
+            tags: [Card]
+            summary: Get card text and rulings
+            description: Return the matching card information
+            parameters:
+                - name: name
+                  in: path
+                  required: true
+                  schema:
+                      type: string
+                      description: "Card name"
+            responses:
+                "200":
+                    description: Successful operation
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                required:
+                                    [
+                                        "Id",
+                                        "Name",
+                                        "Type",
+                                        "Card Text",
+                                        "Set",
+                                        "Artist",
+                                    ]
+                                properties:
+                                    Id:
+                                        description: Card ID
+                                        type: string
+                                        minLength: 1
+                                    Name:
+                                        description: Card name
+                                        type: string
+                                        minLength: 1
+                                    Aka:
+                                        description: Alternative card name
+                                        type: string
+                                        minLength: 0
+                                    Type:
+                                        description: Card types
+                                        type: array
+                                        minLength: 1
+                                        items:
+                                            description: Type
+                                            type: string
+                                            minLength: 1
+                                    Card Text:
+                                        description: Card text
+                                        type: string
+                                        minLength: 1
+                                    Set:
+                                        description: "Sets the card has been edited in"
+                                        type: array
+                                        minLength: 1
+                                        items:
+                                            description: "[Set]:[Rarity]"
+                                            type: string
+                                            minLength: 1
+                                    Clan:
+                                        description: Clan (crypt cards) or clan requirement (library cards)
+                                        type: array
+                                        minLength: 0
+                                        items:
+                                            description: Clan name
+                                            type: string
+                                            minLength: 1
+                                    Artist:
+                                        description: Card artists
+                                        type: string
+                                        minLength: 1
+                                    Capacity:
+                                        description: Capacity (crypt card) or capacity bonus (library card)
+                                        type: string
+                                        minLength: 0
+                                    Discipline:
+                                        description: Disciplines requirements (library cards only)
+                                        type: array
+                                        minLength: 0
+                                        items:
+                                            description: Discipline name
+                                            type: string
+                                            minLength: 1
+                                    Banned:
+                                        description: Year of banishment
+                                        type: string
+                                    Pool Cost:
+                                        description: Pool cost (library cards only)
+                                        type: string
+                                        minLength: 0
+                                    Blood Cost:
+                                        description: Blood cost (library cards only)
+                                        type: string
+                                        minLength: 0
+                                    Conviction Cost:
+                                        description: Conviction cost (library cards only)
+                                        type: string
+                                        minLength: 0
+                                    Burn Option:
+                                        description: Burn option (library cards only)
+                                        type: boolean
+                                    Flavor Text:
+                                        description: Flavor text (library cards only)
+                                        type: string
+                                        minLength: 0
+                                    Requirement:
+                                        description: Requirement (library cards only)
+                                        type: string
+                                        minLength: 0
+                                    Draft:
+                                        description: Draft text (library card only)
+                                        type: string
+                                        minLength: 0
+                                    Group:
+                                        description: Group (crypt cards only) - can be "ANY"
+                                        type: string
+                                        minLength: 0
+                                    Disciplines:
+                                        description: Disciplines (crypt cards only)
+                                        type: array
+                                        minLength: 0
+                                        items:
+                                            description: Discipline trigram
+                                            type: string
+                                            minLength: 1
+                                    Title:
+                                        description: Title (crypt cards only)
+                                        type: string
+                                        minLength: 0
+                                    Rulings:
+                                        description: Rulings
+                                        type: array
+                                        minLength: 0
+                                        items:
+                                            description: Ruling text
+                                            type: string
+                                            minLength: 1
+                                    Rulings Links:
+                                        description: Official rulings URLs
+                                        type: array
+                                        minLength: 0
+                                        items:
+                                            description: Ruling URL
+                                            type: object
+                                            required: ["Reference", "URL"]
+                                            properties:
+                                                Reference:
+                                                    description: Ruling reference
+                                                    type: string
+                                                    minLength: 1
+                                                URL:
+                                                    description: Ruling URL
+                                                    type: string
+                                                    format: url
+                                                    minLength: 1
+                            example: { "Obedience" }
+                "404":
+                    description: Not found
     /deck:
         post:
             tags: [Deck]
@@ -175,7 +443,6 @@ paths:
                                 card_names:
                                     description: "If absent, all decks are returned"
                                     type: array
-                                    required: false
                                     minLength: 0
                                     items:
                                         description: "Case-insensitive card name"
@@ -206,9 +473,8 @@ paths:
                         application/json:
                             schema:
                                 type: array
-                                required: true
                                 minLength: 1
-                                items: {$ref: "#/components/schemas/deck"}
+                                items: { $ref: "#/components/schemas/deck" }
                 "404":
                     description: Not found
     /deck/{twda_id}:
@@ -219,15 +485,16 @@ paths:
             parameters:
                 - name: twda_id
                   in: path
-                  description: "TWDA ID"
                   required: true
-                  type: string
+                  schema:
+                      type: string
+                      description: "TWDA ID"
             responses:
                 "200":
                     description: Successful operation
                     content:
                         application/json:
-                            schema: {$ref: "#/components/schemas/deck"}
+                            schema: { $ref: "#/components/schemas/deck" }
                 "404":
                     description: Not Found
     /complete/{partial_name}:
@@ -238,9 +505,10 @@ paths:
             parameters:
                 - name: partial_name
                   in: path
-                  description: "Partial card name"
                   required: true
-                  type: string
+                  schema:
+                      type: string
+                      description: "Partial card name"
             responses:
                 "200":
                     description: Successful operation

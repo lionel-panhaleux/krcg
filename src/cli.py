@@ -130,9 +130,9 @@ def card(args):
 
 
 def _card_text(card):
-    text = "[{}]".format(card["Type"])
+    text = "[{}]".format("/".join(card["Type"]))
     if card.get("Clan"):
-        text += "[{}]".format(card["Clan"])
+        text += "[{}]".format("/".join(card["Clan"]))
     if card.get("Pool Cost"):
         text += "[{}P]".format(card["Pool Cost"])
     if card.get("Blood Cost"):
@@ -146,11 +146,19 @@ def _card_text(card):
     if card.get("Burn Option"):
         text += "(Burn Option)"
     if card.get("Banned"):
-        text += " -- BANNED"
-    text += " -- ({} - #{})".format(card["Set"], card["Id"])
+        text += " -- BANNED in " + card["Banned"]
+    text += " -- ({} - #{})".format(", ".join(card["Set"]), card["Id"])
     if "Disciplines" in card:
-        text += "\n{}".format(card["Disciplines"] or "-- No discipline")
-    text += "\n{}".format(card["Card Text"])
+        text += "\n{}".format("/".join(card["Disciplines"]) or "-- No discipline")
+    text += "\n{}\n".format(card["Card Text"])
+    if "Rulings" not in card:
+        return text
+    text += "\n-- Rulings\n"
+    for ruling in card["Rulings"]:
+        text += ruling + "\n"
+    for link in card["Rulings Links"]:
+        text += f"[{link['Reference']}]: {link['URL']}\n"
+    text += "\n"
     return text
 
 
