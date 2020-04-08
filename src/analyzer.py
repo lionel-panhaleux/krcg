@@ -190,7 +190,7 @@ class Analyzer(object):
                 {
                     candidate: score
                     for candidate, score in self.affinity.get(card, {}).items()
-                    if not (candidate in config.BANNED or candidate in args)
+                    if not (vtes.VTES[candidate].get("Banned") or candidate in args)
                 }
             )
         return candidates.most_common()

@@ -369,21 +369,3 @@ TYPE_ORDER = [
     "Retainer",
     "Event",
 ]
-#: list of banned cards - VEKN card lists are not up to date.
-BANNED = [
-    "Anthelios, The Red Star",  # missing from VEKN file
-    "Cunctator Motion",
-    "Dramatic Upheaval",
-    "Edge Explosion",
-    "High Stakes",
-    "Kindred Restructure",
-    "Lilith's Blessing",
-    "Madness of the Bard",
-    "Memories of Mortality",
-    "Playing for Keeps",
-    "Protect Thine Own",
-    "Return to Innocence, The",
-    "Seeds of Corruption",  # missing from VEKN file
-    "Succubus Club",
-    "Temptation of Greater Power",  # missing from VEKN file
-]

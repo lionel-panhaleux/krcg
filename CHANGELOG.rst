@@ -4,8 +4,10 @@ Changelog
 0.12 (unreleased)
 -----------------
 
-- Nothing changed yet.
-
+- Use official ban list (now up to date)
+- Include rulings
+- Add an API endpoint to get official card text and rulings
+- Update OpenAPI to 3.0.3 specification
 
 0.11 (2020-02-27)
 -----------------
