@@ -63,7 +63,7 @@ def test_card(client):
         "Capacity": "",
         "Draft": "",
         "Rulings": [
-            "If the weapon given costs blood, "
+            "If the given weapon costs blood, "
             "the target Alastor pays the cost. [LSJ 20040518]"
         ],
         "Rulings Links": [
