@@ -66,6 +66,7 @@ Arika:
     - "Arika's prey cannot end her unlock phase if she controls a location that she hasn't burned a pool for, even if she gained control of that location during that unlock phase. [LSJ 19990405]"
 Arishat:
     - "Her ability to force a vampire to abstain can cancel the vote of the vampire. [LSJ 20100311]"
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
 Ashes to Ashes:
     - "The end of combat is triggered by the fact that the vampire is going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
 Astrid Thomas:
@@ -86,7 +87,7 @@ Banishment:
 Banshee Ironwail:
     - "Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]"
 Bauble:
-    - "If it is burned by another mean than its effect, the weapon is not burned. [LSJ 20090113]"
+    - "If it is burned by another mean than its effect, the weapon is not burned. [LSJ 20090113-1]"
 Bear-Baiting:
     - "Damage is environmental. [RTR 19970630]"
     - "{Change of Target} can be played after Bear-Baiting (younger, older, or the same age). [LSJ 20040312]"
@@ -125,6 +126,7 @@ Blood Agony:
     - "Must be played before strike resolution and damage prevention in order to affect the current strike [RTR 19960112]"
 Blood Brother Ambush:
     - "Can be used by a Brujah Antitribu taking an action while in torpor. If this happens, the blocker loses the opportunity to commit diablerie. [RTR 20010710]"
+    - "No other modifier can be played afterwards, combat begins immediately. [LSJ 20010806-2]"
 Blood Fury:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
@@ -232,8 +234,11 @@ Change of Target:
     - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
     - "Cannot be used if the action is ended by some other mean than by a blocking minion. [LSJ 19980224]"
     - "Is played after a minion successfully blocks but before the blocker is locked and combat begins. [RTR 19991206]"
-    - "Effects triggered when the action is blocked are still triggered. [PIB 20110417]"
-Changeling Skin Mask's: "The superior Obfuscate is not optional. [RTR 19980707], [LSJ 19980722]"
+    - "Effects triggered when the action is blocked are still applied. [PIB 20110417]"
+    - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803]"
+    - "If the acting minion was performing a mandatory action, he unlocks and is stuck and cannot act: he should but cannot take the mandatory action. [LSJ 19980112]"
+Changeling Skin Mask's:
+    - "The superior Obfuscate is not optional. [RTR 19980707], [LSJ 19980722]"
 Channeling the Beast:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Charge of the Buffalo:
@@ -423,7 +428,7 @@ Empowering the Puppet King:
 Enchanted Marionette:
     - "The effect is not optional. [RTR 19980707], [LSJ 19980722]"
 Enkil Cog:
-    - 'If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect "fizzle". [LSJ 20081213]'
+    - 'If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect "fizzle". [LSJ 20081213-1]'
 Enticement:
     - "Is directed at your prey. [LSJ 20010807]"
 Erosion:
@@ -685,11 +690,14 @@ Kiss of Ra:
 Kraken's Kiss:
     - "[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]"
 Kyoko Shinsegawa:
+    - "The action provided is a hunt action and benefit from hunt bonuses. [LSJ 20030311], [LSJ 20090113-2]"
     - "If other hunt actions are granted, she may choose from among those options. [LSJ 20060306]"
+    - "She cannot steal more blood than the target has when using a special hunt ability. [LSJ 20100915]"
 Lam Into:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Lambach (ADV):
     - 'The provided action is an "equip action" [TOM 19960130]'
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Lazar Dobrescu:
     - "Cannot use his special ability if his controller has no vampires in her uncontrolled region. [LSJ 19990215]"
 Lead Fist:
@@ -749,7 +757,7 @@ Lure of the Serpent:
 Machine Blitz:
     - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike by the bearer against a generic opponent at the appropriate range. [RTR 19980623]'
     - 'The "current damage" amount is set when Machine Blitz is announced. [LSJ 19970224]'
-    - "Does not count as using the weapon: no restriction nor side-effect apply. [LSJ 20010806]"
+    - "Does not count as using the weapon: no restriction nor side-effect apply. [LSJ 20010806-1]"
 Madness Network:
     - "Malkavians do not have to be ready to take an action via the Network. (i.e. a Torpored Malk could rescue himself from Torpor) [RTR 19950509]"
     - "A non-Malkavian cannot use {Mask of a Thousand Faces} to assume the action of a Malkavian on someone else's turn. [LSJ 19981007]"
@@ -802,6 +810,7 @@ Mass Reality:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Mata Hari:
     - "Orun and Aye cards cannot be placed on her as long as she's not a Laibon. [LSJ 20110611]"
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
 Maxwell:
     - "Cannot use his ability to become a Prince if he has changed sect and is no longer Camarilla. [LSJ 20030202]"
 Meddling of Semsith:
@@ -1064,7 +1073,7 @@ Rötschreck:
     - "A second Rötschreck cannot be played on the other opponent after a first has already been played. [LSJ 20020715]"
     - "Can only be played when a minion attempts to make a strike to inflict aggravated damage against the opposing vampire. [RTR 19961113], [RTR 20041202]"
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
-    - 'Is executed before "combat ends" strikes resolve and would prevent their whole effect, including any unlock effect. [LSJ 20060803]'
+    - 'Is executed before strikes resolve and prevents their whole effect, including any unlock effect of "combat ends" strikes. [LSJ 20060803]'
 Sabbat Threat:
     - "You can gain pool from the Edge before burning it to remove the threat counters, and loose no pool to the threat counters. [TOM 19951214-1]"
 Sacrificial Lamb:
@@ -1148,6 +1157,7 @@ Sheepdog:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Shemti:
     - "The damage inflicted by his ability is environmental. [RTR 19970630]"
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Shilmulo Tarot:
     - "There is no limit to the number of cards it can store. [PIB 20110712-2]"
 Sins of the Cauchemar:
@@ -1163,6 +1173,7 @@ Siren's Lure:
     - "Cannot be played by a vampire in torpor. [RTR 19970306]"
     - "Cannot be played to queue a second combat after a combat is already set up for later (e.g. by a previous Siren's Lure). [LSJ 20020125]"
     - "Other effects that queue a combat cannot be used until the new combat begins. [LSJ 20021121]"
+    - "Combat does not occur if the action ends prematurely. [LSJ 20090826]"
 Slam:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Sleight of Hand:
@@ -1224,6 +1235,8 @@ Strike at the True Flesh:
     - "[QUI]: The additional damage is the same type as the strike's damage. [TOM 19960225], [RTR 19970630]"
 Strike with Conviction:
     - "If the action to bleed is blocked or canceled, Strike with Conviction is not burned. [LSJ 20060421]"
+Strix:
+    - '[STR]: The bleed is considered successful and the Edge gained. The action is resolved before entering combat, effects happening "after action resolution" happen after combat. [ANK 20200221]'
 Stutter-Step:
     - "It is both a hand strike and a dodge. It cannot be used if only hand strikes or only dodges are allowed. [LSJ 20010919]"
 Succubus:
@@ -1340,6 +1353,7 @@ Theft of Vitae:
     - "Can target a minion with less blood or life than the amount stolen. [RTR 20010711]"
 "Third Tradition: Progeny":
     - "If the Progeny is moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]"
+    - "The Progeny gets the default Sect of the clan of its progenitor, even if the progenitor himself is not a member of that sect. [ANK 20200117]"
 Those Who Endure Judge:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
 Thoughts Betrayed:
@@ -1386,6 +1400,8 @@ Undead Strength:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Undying Tenacity:
     - "[for]: The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]"
+Undying Thirst:
+    - "If the vampire is empty, he must either hunt or diablerize, this is a mandatory action. [LSJ 20081213-2]"
 Unholy Penance:
     - "[PRE]: The additional effect takes place after the end of combat. [RTR 19970630]"
 Unleash Hell's Fury:
@@ -1479,3 +1495,75 @@ Zip Gun:
 Zombie:
     - 'A "strike: combat ends" will end combat before his damage is applied, as will sending his controller to torpor during first strike. [RTR 19941109], [TOM 19951216]'
     - "Does not gain any additional strikes of its controller. [RTR 19941109], [TOM 19951216]"
+Ambrogino Giovanni:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Amisa:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Annazir:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Augustus Giovanni:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Aziz, Dammar of Istanbul:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+The Baron:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Carmine Giovanni:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Danielle Diron:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Don Michael Antonio Giovanni:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Ezmerelda:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Hazimel:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Imanna:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Jamal:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Kahina the Sorceress:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Kashan:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Kemintiri (ADV):
+    - "[MERGED] Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Kephamos, High Priest of Marrakech:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Lady Constancia:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Luna Giovanni:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Lydia, Grand Praetor:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Marcia Felicia Licinia:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Maureen, Dark Priestess:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Montano:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Neferu:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Nehemiah:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Nehsi:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Randall:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Regina Giovanni, The Right Hand of Augustus:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Scout Youngwood:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Sutekh, The Dark God:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Synesios:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Thetmes, Caliph of Alamut:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Thucimia:
+    - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Ur-Shulgi, The Shepherd:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Xaviar:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Zayyat, The Sandstorm:
+    - "Keeps his title and votes if he changes sects. [LSJ 20010714]"

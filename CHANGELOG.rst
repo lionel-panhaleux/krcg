@@ -4,7 +4,8 @@ Changelog
 0.13 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- API: The card/ endpoint now provides normalized card names
+- Minor ruling fixes
 
 
 0.12 (2020-04-08)
