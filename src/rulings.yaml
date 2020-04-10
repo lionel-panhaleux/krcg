@@ -239,7 +239,7 @@ Cats' Guidance:
 Cauldron of Blood:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Celestial Harmony:
-    - "[AUS] Is undirected. [LSJ 20080809]"
+    - "[AUS] Is undirected. [LSJ 20080809-1]"
 Chain of Command:
     - "Cannot bring more than one copy of a unique vampire out, by the rule prohibiting self-contesting. [LSJ 20040722]"
 Chalice of Kinship:
@@ -260,6 +260,8 @@ Change of Target:
     - "If the acting minion was performing a mandatory action, he unlocks and is stuck and cannot act: he should but cannot take the mandatory action. [LSJ 19980112]"
 Changeling Skin Mask's:
     - "The superior Obfuscate is not optional. [RTR 19980707], [LSJ 19980722]"
+Chanjelin Ward:
+    - "Applies to an undirected action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2]"
 Channeling the Beast:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Charge of the Buffalo:
@@ -302,7 +304,7 @@ Concealed Weapon:
     - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike against a generic opponent. [RTR 19980623]'
     - "Strength or other bonus from the minion are not counted. [LSJ 20020821]"
 Condemn the Sins of the Father:
-    - "The action is undirected. [LSJ 20080809]"
+    - "The action is undirected. [LSJ 20080809-1]"
 Condemnation Mute:
     - "Only affects votes, and not ballots. [PIB 20110802]"
 Conscripted Statue:
@@ -790,6 +792,8 @@ Living Manse:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 Local 1111:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
+Lock:
+    - "Once in play, applies to an undirected action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2]"
 Loner:
     - "Only considers the minions controlled during the influence phase. It does not care if minions you no longer control acted this turn. [LSJ 20060616-1]"
 Loving Agony:
@@ -1243,7 +1247,7 @@ Shemti:
     - "The damage inflicted by his ability is environmental. [RTR 19970630]"
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Shepherd's Innocence:
-    - "[ANI] Is undirected. [LSJ 20080809]"
+    - "[ANI] Is undirected. [LSJ 20080809-1]"
 Shilmulo Tarot:
     - "There is no limit to the number of cards it can store. [PIB 20110712-2]"
 Sins of the Cauchemar:
@@ -1361,6 +1365,8 @@ Talbot's Chainsaw:
     - "The damage inflicted during the unlock phase is weapon damage. Only combat damage can be environmental. [LSJ 20090304], [PIB 20110216]"
 Talith:
     - 'The "strike: destroy weapon" cannot be chosen if there is no weapon to destroy. [RTR 19980928]'
+"Talley, the Hound":
+    - "Gets his +1 intercept if an undirected action has any one target that would be enough to enable his effect. [RTR 20080808]"
 Taming the Beast:
     - "[abo] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Tangle Atropo's Hand:
@@ -1555,7 +1561,7 @@ Wash:
 "Wasserschloss Anif, Austria":
     - "Can only receive blood from one Tremere on any given turn. [RTR 19960221]"
 Wave of Insanity:
-    - "[DEM] Is undirected. [LSJ 20080809]"
+    - "[DEM] Is undirected. [LSJ 20080809-1]"
 Wave of Lethargy:
     - "Only the cost of playing the cards is increased: if a card provides multiple maneuvers and presses, its cost is only increased by one. Maneuvers from other sources in play do not cost extra. [LSJ 20011023]"
 Weather Control:
