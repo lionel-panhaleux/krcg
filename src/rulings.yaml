@@ -130,7 +130,6 @@ Black Gloves:
     - "Damage done to the bearer is environmental. [LSJ 19970801]"
 Blanket of Night:
     - "[OBT] Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "[OBT] Cannot be played by a vampire in torpor. [RTR 19970306]"
     - "[OBT] Can be played by a locked vampire. [LSJ 19980210]"
 Blessed Blade:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -297,7 +296,6 @@ Cleave:
     - "The effect lasts until the end of the action. [LSJ 20060412]"
 Cloak the Gathering:
     - "[OBF] Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "[OBF] Cannot be played by a vampire in torpor. [RTR 19970306]"
     - "[OBF] Can be played by a locked vampire. [RTR 19941109], [LSJ 19980210]"
 Cold Aura:
     - "No other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]"
@@ -451,9 +449,7 @@ Earth Meld:
     - "[PRO] The vampire still unlocks if an effect continues the combat or begins a new combat. [RTR 20020501]"
 Echo of Harmonies:
     - "[mel], [MEL] Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "[mel], [MEL] Cannot be played by a vampire in torpor. [RTR 19970306]"
     - "[mel], [MEL] Can be played by a locked vampire. [LSJ 19980210]"
-    - "[MEL] The Political Action card retained is not considered to be in play. [RTR 20070707]"
     - "[MEL] The referendum retained can only be called if the vampire meets the requirements given on the card. [LSJ 20011205]"
     - "[MEL] Cannot be used if no Political Action card was played for the action or if it is not in the ash heap. [LSJ 20020911]"
 Edged Illusion:
@@ -466,7 +462,6 @@ Elephant Guardian:
     - "If the minion with Elephant successfully played an inferior {Deep Song} action, the target minion would take Elephant Guardian’s damage in the resulting combat if range is close. [PIB 20110609]"
 Empowering the Puppet King:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "Cannot be played by a vampire in torpor. [RTR 19970306]"
 Enchanted Marionette:
     - "The effect is not optional. [RTR 19980707], [LSJ 19980722]"
 Enkil Cog:
@@ -635,7 +630,6 @@ Hidden Lurker:
     - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "Cannot be played by a vampire in torpor. [RTR 19970306]"
 Hidden Strength:
     - "The 'X' in card text refers to the cost of the card. [LSJ 19970224]"
     - "Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
@@ -697,7 +691,6 @@ Inscription:
     - "The vampire receiving the card must meet all of the requirements of the card other than the Thaumaturgy requirement. The vampire playing the Inscription need not meet any of the requirements (other than the Thaumaturgy needed to play Inscription in the first place). [LSJ 20031116]"
 Inspire Greatness:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "Cannot be played by a vampire in torpor. [RTR 19970306]"
     - "Can be played by a locked vampire. [LSJ 19980210]"
 Internal Recursion:
     - "Is played before the combat begins. [LSJ 20020204]"
@@ -877,7 +870,6 @@ Martyr's Resilience:
     - "[AUS][FOR] Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
 Mask of a Thousand Faces:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "Cannot be played by a vampire in torpor. [RTR 19970306]"
     - "Cannot be used to take over an action granted by an equipment the acting minion has, even if the new minion also has the same equipment. [LSJ 20020926]"
     - "The action remains the same. All action modifiers remain in effect, but inherent modifiers (a minion's inherent +1 bleed for example) do not. Other effects applied to the action also carry over to the new masking vampire. [RTR 19951110] [LSJ 19971201] [RTR 20030519] [LSJ 20030521]"
     - "Cannot be used to mask an action if the masking vampire is not capable of taking that action, nor if any action modifiers, reactions, or other effects, including inherent stealth, have been played on this action that could not have been played/used if the masking vampire were the acting minion. Not counting blood that has already been spent. [RTR 19980623] [RTR 20030519] [RTR 20041202]"
@@ -951,7 +943,6 @@ Morphean Blow:
     - '[VAL] If the combat continues or a new combat begins, the \"action continues as if unblocked\" effect is lost. [LSJ 19980109], [RTR 20020501]'
 Mouthpiece:
     - "[DOM] Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "[DOM] Cannot be played by a vampire in torpor. [RTR 19970306]"
     - "[DOM] Can be played by a locked vampire. [LSJ 19980210]"
 "Muaziz, Archon of Ulugh Beg":
     - "Her ability does not apply to the {Blood Hunt} card. [TOM 19960604]"
@@ -1283,7 +1274,6 @@ Sire's Index Finger:
     - "Losing the use of the Finger won't make the vampire vulnerable to a previously-played Frenzy card, and gaining it won't render him immune to a previously-played Frenzy card. [LSJ 20040210]"
 Siren's Lure:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "Cannot be played by a vampire in torpor. [RTR 19970306]"
     - "Cannot be played to queue a second combat after a combat is already set up for later (e.g. by a previous Siren's Lure). [LSJ 20020125]"
     - "Other effects that queue a combat cannot be used until the new combat begins. [LSJ 20021121]"
     - "Combat does not occur if the action ends prematurely. [LSJ 20090826]"
@@ -1371,7 +1361,6 @@ Supernatural Resistance:
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 Suppressing Fire:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "Cannot be played by a vampire in torpor. [RTR 19970306]"
 Surge:
     - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403], [LSJ 20070413]"
 "Sutekh, The Dark God":
@@ -1557,7 +1546,6 @@ Veil of Darkness:
     - 'Does not affect allies who play cards requiring a Discipline "as a vampire". [LSJ 20050606]'
 Veil the Legions:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "Cannot be played by a vampire in torpor. [RTR 19970306]"
 Veiled Sight:
     - "[CHI] The strike can be used on a minion with no blood. [RTR 20010711]"
     - "[CHI] The strike is not ranged. [TOM 19951215-2]"
@@ -1628,7 +1616,6 @@ Zaire River Ferry:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 Zapaderin:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "Cannot be played by a vampire in torpor. [RTR 19970306]"
 "Zayyat, The Sandstorm":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Zip Gun:
