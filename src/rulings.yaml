@@ -1,5 +1,5 @@
 Aaron's Feeding Razor:
-    - "The effect is not optional. [RTR 19980707], [LSJ 19980722]"
+    - "The effect is not optional. [RTR 19980707] [LSJ 19980722]"
     - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519]"
 Ablative Skin:
     - "Cannot be used to prevent damage that cannot be prevented by cards that require Fortitude. [LSJ 19990216]"
@@ -13,7 +13,7 @@ Aching Beauty:
     - "If an Aching Beauty vampire is blocked and the combat is canceled, the blocker's controller still loses a pool. [RTR 19991206]"
     - "The cost is cumulative if a vampire has multiple copies of the card on him. [LSJ 19980225]"
 Aeron:
-    - "The damage inflicted by his ability is environmental. [RTR 19970630], [LSJ 20070328]"
+    - "The damage inflicted by his ability is environmental. [RTR 19970630] [LSJ 20070328]"
 Agent of Power:
     - 'If it is used as a placeholder to represent something else, then its text does not apply, including the "Unique" part. A {Shock Troops} vampire would simply be a 1-cap Sabbat with no clan and no discipline. [LSJ 20071001-1]'
 Akram:
@@ -23,7 +23,7 @@ Alastor:
     - "If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]"
 Alexandra:
     - "Can use her unlock ability at any point during the turn, including during a political action. [TOM 19960214]"
-    - "If she locks a Toreador who was attempting to block, then that block will fail. [TOM 19951007], [LSJ 19991025]"
+    - "If she locks a Toreador who was attempting to block, then that block will fail. [TOM 19951007] [LSJ 19991025]"
 Amaranth:
     - 'Performing diablerie at the end of the combat that is ended by a "combat ends and the action continues as if unblocked" effect will nullify the "continue action" part. [LSJ 19980819]'
     - "If a vampire is prohibited from commiting diablerie, he cannot use Amaranth to overcome the restriction. [RTR 19991001]"
@@ -45,7 +45,7 @@ Anathema:
     - "Multiple Anathemas don't multiply the pool gain. Once one Anathema resolves it burns the vampire and the others are burned before they get to resolve. [LSJ 20021117]"
     - "Damage done by combat effects after combat ends do not trigger Anathema. [LSJ 19980225]"
 Ancestor's Talisman:
-    - "The effect is not optional. [RTR 19980707], [LSJ 19980722]"
+    - "The effect is not optional. [RTR 19980707] [LSJ 19980722]"
 Anesthetic Touch:
     - "Does not end combat as a strike; it ends combat after strike resolution. It is still just a hand strike. [LSJ 20011210-1]"
     - "A dodge won't prevent combat from ending after strike resolution. [LSJ 20011210-2]"
@@ -63,7 +63,7 @@ Annabelle Triabell:
 Annazir:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Anneke:
-    - "Her ability only affects the rule restricting who gets to block an action. She must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 20020501], [LSJ 20041203]"
+    - "Her ability only affects the rule restricting who gets to block an action. She must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 20020501] [LSJ 20041203]"
 Apparition:
     - "[CHI] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
 Archon:
@@ -140,7 +140,7 @@ Blessing of the Name:
 Blissful Agony:
     - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "[val] Damage is environmental. [RTR 19970630]"
-    - "[VAL] In the new combat, the initial opponent goes first. [LSJ 20011214-3], [LSJ 20031212]"
+    - "[VAL] In the new combat, the initial opponent goes first. [LSJ 20011214-3] [LSJ 20031212]"
     - "[VAL] Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 Blood Agony:
     - "Must be played before strike resolution and damage prevention in order to affect the current strike [RTR 19960112]"
@@ -158,7 +158,7 @@ Blood Tears of Kephran:
 Blood Tempering:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Blood of Acid:
-    - "Damage from Blood of Acid is environmental. [RTR 19970630], [LSJ 20020708]"
+    - "Damage from Blood of Acid is environmental. [RTR 19970630] [LSJ 20020708]"
     - "Environmental damage is not counted by Blood of Acid. [RTR 19970630]"
 Blood of the Cobra:
     - "[QUI] If the chosen strike says to make a hand strike or a melee weapon strike, then the strike is ranged, but the hand or melee weapon portion of the strike is still only effective at close range. [RTR 20010710]"
@@ -173,10 +173,10 @@ Bollix:
 Bomb:
     - "Using the provided action does not force the minion to strike with it if he is blocked. [LSJ 19971215]"
     - "Damage done to the bearer is environmental. [LSJ 19970801]"
-    - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221], [LSJ 20020926]"
+    - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221] [LSJ 20020926]"
 Bond with the Mountain:
-    - "[vis], [VIS] The unlock effect takes place before the end of combat. [RTR 19970630]"
-    - "[vis], [VIS] The vampires still unlock if an effect continues the combat or begins a new combat. [RTR 20020501], [LSJ 20030717]"
+    - "[vis] [VIS] The unlock effect takes place before the end of combat. [RTR 19970630]"
+    - "[vis] [VIS] The vampires still unlock if an effect continues the combat or begins a new combat. [RTR 20020501] [LSJ 20030717]"
 Bonding:
     - "[DOM] The superior version cannot be used if you do not need the stealth at the time you play it. [TOM 19951109]"
 Bone Spur:
@@ -201,7 +201,7 @@ Brute Force:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Bundi:
     - "Preventing damage with it does not force the minion to strike with it. [LSJ 19971215]"
-    - "Inherits all of the properties of the base hand strike. [TOM 19960225], [LSJ 20071020]"
+    - "Inherits all of the properties of the base hand strike. [TOM 19960225] [LSJ 20071020]"
     - "Effects that affect or improve hand strikes can be used on its strike. [LSJ 20071020]"
     - 'You cannot use it with a strike card that would read: "Strike: make a hand strike." but you can use it with a strike card that reads "strike: make a hand weapon strike". [LSJ 20080702]'
 Burning Wrath:
@@ -237,7 +237,7 @@ Carrion Crows:
 Catacombs:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 Catatonic Fear:
-    - "[PRE] Damage is done by the vampire (not environmental). [RTR 19970630], [LSJ 19990723]"
+    - "[PRE] Damage is done by the vampire (not environmental). [RTR 19970630] [LSJ 19990723]"
     - "[PRE] The damage is assigned after the end of combat. [RTR 19970630]"
     - "[PRE] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
     - "[PRE] If the strike is dodged, no damage is done. [LSJ 19980526]"
@@ -255,18 +255,18 @@ Chameleon's Colors:
     - '[SPI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - '[SPI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[SPI] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
-    - '[SPI] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109], [RTR 20020501]'
+    - '[SPI] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 Champion:
-    - "Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403], [LSJ 20070413]"
+    - "Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 Change of Target:
     - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
     - "Cannot be used if the action is ended by some other mean than by a blocking minion. [LSJ 19980224]"
     - "Is played after a minion successfully blocks but before the blocker is locked and combat begins. [RTR 19991206]"
     - "Effects triggered when the action is blocked are still applied. [PIB 20110417]"
-    - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803], [RTR 20180719]"
+    - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803] [RTR 20180719]"
     - "If the acting minion was performing a mandatory action, he unlocks and is stuck and cannot act: he should but cannot take the mandatory action. [LSJ 19980112]"
 Changeling Skin Mask's:
-    - "The superior Obfuscate is not optional. [RTR 19980707], [LSJ 19980722]"
+    - "The superior Obfuscate is not optional. [RTR 19980707] [LSJ 19980722]"
 Chanjelin Ward:
     - "Applies to an undirected action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2]"
 Channeling the Beast:
@@ -296,13 +296,13 @@ Cleave:
     - "The effect lasts until the end of the action. [LSJ 20060412]"
 Cloak the Gathering:
     - "[OBF] Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "[OBF] Can be played by a locked vampire. [RTR 19941109], [LSJ 19980210]"
+    - "[OBF] Can be played by a locked vampire. [RTR 19941109] [LSJ 19980210]"
 Cold Aura:
     - "No other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]"
 Coma:
     - '[DEM] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Compel the Spirit:
-    - "Can only be played if the ally or retainer is in the ash heap, not if he was moved elsewhere. [RTR 19980928], [LSJ 19980929]"
+    - "Can only be played if the ally or retainer is in the ash heap, not if he was moved elsewhere. [RTR 19980928] [LSJ 19980929]"
     - "Can only retrieve allies and retainers. Cards that are not allies or retainers in the ash heap cannot be retrieved (e.g. {Jake Washington}). [LSJ 20030128]"
 Compress:
     - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -349,7 +349,7 @@ Danielle Diron:
 Daring the Dawn:
     - "If the action is blocked, damage is applied after combat [RTR 19980623]"
 Darkling Trickery:
-    - "[MYT] Damage is environmental. [RTR 19970630], [LSJ19971028]"
+    - "[MYT] Damage is environmental. [RTR 19970630] [LSJ19971028]"
 "Dartmoor, England":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 Dead Hand:
@@ -379,7 +379,7 @@ Derange:
 Descent into Darkness:
     - "Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]"
 Detect Authority:
-    - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [PIB 20110511], [RTR 20180719]"
+    - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [PIB 20110511] [RTR 20180719]"
 Detection:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Diamond Thunderbolt:
@@ -400,7 +400,7 @@ Disarming Presence:
     - "Locking is a side effect, not a cost. Locked vampires can still vote. [RTR 19941109]"
     - "Vampires are locked when they cast their votes. [RTR 19970425]"
 Discern:
-    - "Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403], [LSJ 20070413]"
+    - "Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 Disguised Weapon:
     - "If used to equip and contest a unique weapon possessed by the opposing minion, neither weapon is available for use during the combat. If the opposing minion had already chosen that weapon as his strike, then the strike fizzles. [LSJ 19980319]"
 Disputed Territory:
@@ -418,7 +418,7 @@ Donal O'Connor:
     - "An empty blocking vampire may still block and will try and fail to burn a blood if the block is successful. [TOM 19951215-1]"
     - "The blocking vampire burns 1 blood immediately upon successfully blocking Donal, regardless of whether combat begins. [RTR 19960530]"
 Donate:
-    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403], [LSJ 20070413]"
+    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 Donnybrook:
     - "[ser] can target a minion with less than 2 blood or life. [RTR 20010711]"
 "Dr. Morrow, The Skindoctor":
@@ -440,16 +440,16 @@ Dual Form:
     - "[PRO] If one of the pair leaves the ready region, the other is burned. That burning of the other won't cause the first to burn. [LSJ 20050117]"
     - "[PRO] The reduction in capacity is permanent, even if the Dual Form is burned. It still applies in the uncontrolled region if the vampire gets back into it. [LSJ 20051103]"
 Dust Up:
-    - "[ani], [pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+    - "[ani] [pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Día de los Muertos:
     - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
 Eagle's Sight:
-    - "Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413], [RTR 20020501]"
+    - "Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [RTR 20020501]"
 Earth Meld:
     - "[PRO] The vampire still unlocks if an effect continues the combat or begins a new combat. [RTR 20020501]"
 Echo of Harmonies:
-    - "[mel], [MEL] Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "[mel], [MEL] Can be played by a locked vampire. [LSJ 19980210]"
+    - "[mel] [MEL] Can only be played by the controller of the acting minion. [LSJ 19990425]"
+    - "[mel] [MEL] Can be played by a locked vampire. [LSJ 19980210]"
     - "[MEL] The referendum retained can only be called if the vampire meets the requirements given on the card. [LSJ 20011205]"
     - "[MEL] Cannot be used if no Political Action card was played for the action or if it is not in the ash heap. [LSJ 20020911]"
 Edged Illusion:
@@ -463,7 +463,7 @@ Elephant Guardian:
 Empowering the Puppet King:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
 Enchanted Marionette:
-    - "The effect is not optional. [RTR 19980707], [LSJ 19980722]"
+    - "The effect is not optional. [RTR 19980707] [LSJ 19980722]"
 Enkil Cog:
     - 'If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect "fizzle". [LSJ 20081213-1]'
 Ennoia's Theater:
@@ -486,7 +486,7 @@ Ezmerelda:
 Faerie Wards:
     - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Falcon's Eye:
-    - "Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413], [LSJ 20020112], [RTR 20020501]"
+    - "Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]"
 Fall of the Camarilla:
     - 'Once the card is out of play (by ousting the controller, for instance), the underlying sect of the vampires is again "active". [LSJ 20040519]'
 Fall of the Sabbat:
@@ -509,15 +509,15 @@ Fire Dance:
     - "The target vampire is chosen when the action is announced. [RTR 19970425]"
 Flash Grenade:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
-    - 'If the opponent dodges, the "is locked and does not unlock as normal" effect do not apply. [LSJ 19980526], [LSJ 20060808]'
-    - 'If the combat continues or a new combat begins, the "is locked and does not unlock as normal" effect do not apply, but the grenade still burns. [RTR 20020501], [LSJ 20040601], '
+    - 'If the opponent dodges, the "is locked and does not unlock as normal" effect do not apply. [LSJ 19980526] [LSJ 20060808]'
+    - 'If the combat continues or a new combat begins, the "is locked and does not unlock as normal" effect do not apply, but the grenade still burns. [RTR 20020501] [LSJ 20040601], '
 Fleshcraft:
     - "The action to burn Fleshcraft suffers the -1 stealth penalty as well, so is usually at zero stealth to start (or -1 stealth if superior [VIC]). [LSJ 19970224]"
 Flow Within the Mountain:
     - '[VIS] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - '[VIS] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[VIS] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
-    - '[VIS] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109], [RTR 20020501]'
+    - '[VIS] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 Follow the Alpha:
     - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
     - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
@@ -546,7 +546,7 @@ Form of Mist:
     - '[PRO] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - '[PRO] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[PRO] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
-    - '[PRO] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost and the blood is not paid. [LSJ 19980109], [RTR 20020501], [LSJ 20031123]'
+    - '[PRO] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost and the blood is not paid. [LSJ 19980109] [RTR 20020501] [LSJ 20031123]'
 Fractured Armament:
     - "Cannot be used if there is no equipment to destroy. [RTR 19980928]"
     - "[pot] Is not a damaging strike. [LSJ 19970225]"
@@ -565,7 +565,7 @@ Frenzy:
 From a Sinking Ship:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 Frondator:
-    - "The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2], [PIB 20110918]"
+    - "The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2] [PIB 20110918]"
 Gambit Accepted:
     - "If the controller of a Gambit in play withdraws, his or her predator gets a VP from the Gambit (the Methuselah who withdraws still gets a VP for withdrawing, of course). [RTR 20040501]"
 Gangrel Conspiracy:
@@ -622,7 +622,7 @@ Haymaker:
 Hazimel:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 "Heidelberg Castle, Germany":
-    - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110], [LSJ 20050111]'
+    - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
 Herald of Topeth:
     - 'Can use {Charming Lobby} to call a referendum "as a vampire". [RTR 20020501]'
 Hidden Lurker:
@@ -634,7 +634,7 @@ Hidden Strength:
     - "The 'X' in card text refers to the cost of the card. [LSJ 19970224]"
     - "Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
 Hide:
-    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403], [LSJ 20070413]"
+    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 High Ground:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
 Horatio Ballard:
@@ -747,13 +747,13 @@ Kindred Segregation:
 Kindred Society Games:
     - "If a vampire has two copies of Kindred Society Games, each copy exerts its own effect. Unlocking the vampire normally would require a total of 2 blood. If the vampire does not unlock normally, both Games are moved to other vampire(s), although the vampire could burn 1 blood to prevent one of the Games from moving on. [RTR 19951017]"
 King of the Mountain:
-    - "[FOR] Damage dealt to the opponent is environmental. [RTR 19970630], [LSJ 19970801]"
+    - "[FOR] Damage dealt to the opponent is environmental. [RTR 19970630] [LSJ 19970801]"
 Kiss of Ra:
     - "Can be played by an acting vampire in torpor. [LSJ 19970325]"
 Kraken's Kiss:
     - "[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]"
 Kyoko Shinsegawa:
-    - "The action provided is a hunt action and benefit from hunt bonuses. [LSJ 20030311], [LSJ 20090113-2]"
+    - "The action provided is a hunt action and benefit from hunt bonuses. [LSJ 20030311] [LSJ 20090113-2]"
     - "If other hunt actions are granted, she may choose from among those options. [LSJ 20060306]"
     - "She cannot steal more blood than the target has when using a special hunt ability. [LSJ 20100915]"
 Lady Constancia:
@@ -806,7 +806,7 @@ Loner:
     - "Only considers the minions controlled during the influence phase. It does not care if minions you no longer control acted this turn. [LSJ 20060616-1]"
 Loving Agony:
     - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
-    - "[val], [VAL] If the combat continues or a new combat begins, no damage is done. The vampire can still burn 1 blood to unlock. [RTR 20020501]"
+    - "[val] [VAL] If the combat continues or a new combat begins, no damage is done. The vampire can still burn 1 blood to unlock. [RTR 20020501]"
     - "[val] If the strike is dodged, no damage is done. [LSJ 19980526]"
 Loyalist:
     - "If the Loyalist vampire's votes are changed to be in favor, the votes granted by Loyalist are silenced (not cast). [LSJ 20031115]"
@@ -854,7 +854,7 @@ Malkavian Rider Clause:
 Malkavian Time Auction:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 Malleable Visage:
-    - 'Does not change the acting minion (for purposes of the "No Repeat Actions" rule, among other things) and may be played by a minion who is not capable of taking the action. [LSJ 20011023], [RTR 20020501]'
+    - 'Does not change the acting minion (for purposes of the "No Repeat Actions" rule, among other things) and may be played by a minion who is not capable of taking the action. [LSJ 20011023] [RTR 20020501]'
     - "Requires a ready, unlocked vampire. [RTR 20010710]"
 Manstopper Rounds:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -898,8 +898,8 @@ Mehemet of the Ahl-i-Batin:
 Melange:
     - "Works on any minion, not just on vampires. [RTR 20020501]"
 Meld with the Land:
-    - "[vic] The unlock effect occurs when the strike resolves, before the combat ends. [RTR 19970630], [RTR 20020501]"
-    - "[vic] The opponent still unlocks if an effect continues the combat or begins a new combat. [RTR 20020501], [LSJ 20030717]"
+    - "[vic] The unlock effect occurs when the strike resolves, before the combat ends. [RTR 19970630] [RTR 20020501]"
+    - "[vic] The opponent still unlocks if an effect continues the combat or begins a new combat. [RTR 20020501] [LSJ 20030717]"
 Memory's Fading Glimpse:
     - "Any cards on the target minion are burned. [SFC 19960919]"
 Mercy for the Weak:
@@ -926,7 +926,7 @@ Mirror Image:
     - '[CHI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - '[CHI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[CHI] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
-    - '[CHI] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109], [RTR 20020501]'
+    - '[CHI] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 Mob Rule:
     - "Each Methuselah must decide how much blood to burn for it during the resolution. It does not give an ability for the rest of the political action. However, there can be some give and take during the resolution. For example, Methuselahs can choose to burn one blood at a time and wait to see what the others do. [LSJ 20030602]"
 Momentary Delay:
@@ -940,7 +940,7 @@ Morphean Blow:
     - '[VAL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - '[VAL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[VAL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
-    - '[VAL] If the combat continues or a new combat begins, the \"action continues as if unblocked\" effect is lost. [LSJ 19980109], [RTR 20020501]'
+    - '[VAL] If the combat continues or a new combat begins, the \"action continues as if unblocked\" effect is lost. [LSJ 19980109] [RTR 20020501]'
 Mouthpiece:
     - "[DOM] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[DOM] Can be played by a locked vampire. [LSJ 19980210]"
@@ -948,7 +948,7 @@ Mouthpiece:
     - "Her ability does not apply to the {Blood Hunt} card. [TOM 19960604]"
 Mummify:
     - "The unlock effect takes place before the end of combat. The rest of the effect takes place after the end of combat. [RTR 19970630]"
-    - "If combat continues or a new combat begins, the vampire unlocks but does not go to torpor. [RTR 20020501], [LSJ 20020505]"
+    - "If combat continues or a new combat begins, the vampire unlocks but does not go to torpor. [RTR 20020501] [LSJ 20020505]"
 Mummy's Tongue:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Murder of Crows:
@@ -1081,7 +1081,7 @@ Pushing the Limit:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Putrefaction:
     - "[THN] Damage is environmental. [RTR 19970630]"
-    - "[thn], [THN] It can still be burned if the vampire is already prevented from unlocking as normal by another effect. [RTR 20070707]"
+    - "[thn] [THN] It can still be burned if the vampire is already prevented from unlocking as normal by another effect. [RTR 20070707]"
 Putrescent Servitude:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 "Père Lachaise, France":
@@ -1114,7 +1114,7 @@ Reformation:
     - "[chi] Cannot be used if there is no equipment to destroy. [RTR 19980928]"
 Reg Driscol:
     - "His ability is activated after he equips with the equipment. He cannot use his ability to move the {Eye of Hazimel}. [LSJ 20060221]"
-    - "You may move all or none the equipment he gets to just one minion, but you cannot split. [LSJ 20050217], [LSJ 20090622]"
+    - "You may move all or none the equipment he gets to just one minion, but you cannot split. [LSJ 20050217] [LSJ 20090622]"
 Regeneration:
     - "Usable by an unlocked vampire with 0 blood in torpor. [PIB 20110613]"
 Regent:
@@ -1167,9 +1167,9 @@ Rötschreck:
     - "Cannot be played in response to an announcement of a strike that is not effective at the current range. [RTR 19980928]"
     - "Is played during the strike announcement phase, before any damage prevention can be played. It can be played after the other strike is announced, however. [LSJ 19990217]"
     - 'The vampire goes to torpor only after the combat has ended, so combat cards usable "when the opposing vampire is going / should go into torpor" cannot be used. [LSJ 20020402]'
-    - "If the combat continues or a new combat begins, the card is put on the vampire, he is not locked and does not go to torpor. He still does not unlock as normal. [RTR 20020501], [LSJ 20071009]"
+    - "If the combat continues or a new combat begins, the card is put on the vampire, he is not locked and does not go to torpor. He still does not unlock as normal. [RTR 20020501] [LSJ 20071009]"
     - "A second Rötschreck cannot be played on the other opponent after a first has already been played. [LSJ 20020715]"
-    - "Can only be played when a minion attempts to make a strike to inflict aggravated damage against the opposing vampire. [RTR 19961113], [RTR 20041202]"
+    - "Can only be played when a minion attempts to make a strike to inflict aggravated damage against the opposing vampire. [RTR 19961113] [RTR 20041202]"
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
     - 'Is executed before strikes resolve and prevents their whole effect, including any unlock effect of "combat ends" strikes. [LSJ 20060803]'
 Sabbat Threat:
@@ -1204,7 +1204,7 @@ Secret Horde:
 Secure Haven:
     - "All Methuselahs, including the target vampire's controller, must pay one extra pool when playing Master cards on the target minion. [TOM 19951208-1]"
     - "Adds one to the cost of the master card targetting the vampire, cost reductions from other effects do apply. [LSJ 20070829-1]"
-    - 'Only directed actions targeting the minion are restricted. Actions that target retainers, equipment, or other cards on the minion are allowed, as are actions that target cards not on the minion, even if such cards have "named" or "chosen" that minion. [TOM 19951208-1], [LSJ 19980302]'
+    - 'Only directed actions targeting the minion are restricted. Actions that target retainers, equipment, or other cards on the minion are allowed, as are actions that target cards not on the minion, even if such cards have "named" or "chosen" that minion. [TOM 19951208-1] [LSJ 19980302]'
     - "If contested, it will not be burned when the target (vampire) goes to torpor, nor will it be burned if it enters play while the target vampire is in torpor. [RTR 19960124]"
 Selective Silence:
     - "[QUI] no other effect can be used to reset the range. [RTR 19970630]"
@@ -1232,7 +1232,7 @@ Shadow Body:
     - '[OBT] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - '[OBT] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[OBT] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
-    - '[OBT] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109], [RTR 20020501]'
+    - '[OBT] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 Shadow Boxing:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
@@ -1267,7 +1267,7 @@ Shilmulo Tarot:
 Sins of the Cauchemar:
     - "[AUS] Can be played even if no block attempt is made, several minions can play it on the same action. [LSJ 19990611]"
 Siphon:
-    - "Vampires with no blood can be chosen [RTR 20010711], [PIB 20110725]"
+    - "Vampires with no blood can be chosen [RTR 20010711] [PIB 20110725]"
     - "The cards are chosen when the action is successful, not as part of the terms of the action. [PIB 20110725]"
     - "The Siphon card of the current action cannot be moved back in hand: it is in limbo (not in the ash heap) when resolving. [PIB 20110725]"
 Sire's Index Finger:
@@ -1337,9 +1337,9 @@ Steely Tenacity:
 Street Cred:
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
 Strike at the True Flesh:
-    - "[QUI] The additional damage is the same type as the strike's damage. [TOM 19960225], [RTR 19970630]"
+    - "[QUI] The additional damage is the same type as the strike's damage. [TOM 19960225] [RTR 19970630]"
 Strike with Conviction:
-    - "If the action to bleed is blocked or canceled, Strike with Conviction is not burned. [LSJ 20060421], [RTR 20111202]"
+    - "If the action to bleed is blocked or canceled, Strike with Conviction is not burned. [LSJ 20060421] [RTR 20111202]"
 Strix:
     - '[STR] The bleed is considered successful and the Edge gained. The action is resolved before entering combat, effects happening "after action resolution" happen after combat. [ANK 20200221]'
 Stunt Cycle:
@@ -1362,7 +1362,7 @@ Supernatural Resistance:
 Suppressing Fire:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
 Surge:
-    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403], [LSJ 20070413]"
+    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 "Sutekh, The Dark God":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Swarm:
@@ -1378,7 +1378,7 @@ Tainted Spring:
     - "While he can play cards that require [qui] or [tha], he does not actually have those Disciplines. He does not benefit from {Tremere Convocation}, for example. [LSJ 19980303]"
 Talbot's Chainsaw:
     - "Using the Chainsaw action to enter combat or preventing damage with it does not force the minion to strike with it. [LSJ 19971215]"
-    - "The damage inflicted during the unlock phase is weapon damage. Only combat damage can be environmental. [LSJ 20090304], [PIB 20110216]"
+    - "The damage inflicted during the unlock phase is weapon damage. Only combat damage can be environmental. [LSJ 20090304] [PIB 20110216]"
 Talith:
     - 'The "strike: destroy weapon" cannot be chosen if there is no weapon to destroy. [RTR 19980928]'
 "Talley, the Hound":
@@ -1405,7 +1405,7 @@ Taunt the Caged Beast:
 Telepathic Counter:
     - "Is played before the bleed can be considered successful. [TOM 19960303]"
 Telepathic Tracking:
-    - '[AUS] If used to continue a combat that was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109], [RTR 20020501]'
+    - '[AUS] If used to continue a combat that was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109] [RTR 20020501]'
     - "[AUS] Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
 Telepathic Vote Counting:
     - "May be played before, during, or after votes and ballots have been cast. [LSJ 19980130]"
@@ -1483,15 +1483,15 @@ Toreador Grand Ball:
     - 'The same vampire can serve as the "second Toreador" for multiple Toreador Grand Balls. [TOM 19960528]'
     - "The first Toreador chosen for the Toreador Grand Ball is unblockable on all non-bleed actions. This remains true even after the vampire attempts a bleed. [LSJ 19970814]"
 Toreador's Bane:
-    - '[mel], [MEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
-    - '[mel], [MEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
-    - '[mel], [MEL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
-    - '[mel], [MEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109], [RTR 20020501]'
+    - '[mel] [MEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+    - '[mel] [MEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
+    - '[mel] [MEL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
+    - '[mel] [MEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 Torrent:
     - '[CEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - '[CEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[CEL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
-    - '[CEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109], [RTR 20020501]'
+    - '[CEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 Tortured Confession:
     - "Not usable by vampires burned in combat, either. [RTR 19950622]"
 Transfusion:
@@ -1509,7 +1509,7 @@ Trochomancy:
 "Trophy: Diablerie":
     - "May be retrieved when diablerizing a Red List vampire prior to the blood hunt referendum: it protects the vampire in that referendum. All copies on the vampire are then burned at the end of that action. [LSJ 20050222]"
 Tunnel Runner:
-    - "Damage done from stealing blood to the Runner is environmental. [RTR 19970630], [LSJ19971028]"
+    - "Damage done from stealing blood to the Runner is environmental. [RTR 19970630] [LSJ19971028]"
 Uncontrollable Rage:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "All the damage is aggravated. [LSJ 20011204]"
@@ -1536,7 +1536,7 @@ Unseen Hibernation:
 Uriah Winter:
     - "Can still defect if in torpor, and will remain in torpor if he does so. [RTR 19941109]"
 Vast Wealth:
-    - 'The provided action is an "equip action" [TOM 19960130], [RTR 19960124]'
+    - 'The provided action is an "equip action" [TOM 19960130] [RTR 19960124]'
     - "You only search your library if the action is successful. [TOM 19951107]"
     - "Paying for the equipment found is not optional. If paying the cost will oust the controlling Methuselah, then she is ousted. [RTR 19941109] [RTR 20010710]"
     - "If the equipment cannot be legally placed on the vampire, it is burned without cost. [TOM 19950407]"
@@ -1552,7 +1552,7 @@ Veiled Sight:
 Vengeance of Samiel:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Vigilance:
-    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403], [LSJ 20070413]"
+    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 Visionquest:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Voter Captivation:
@@ -1622,5 +1622,5 @@ Zip Gun:
     - "Damage done to the bearer is environmental. [LSJ 19970801]"
     - "If used to maneuver, the bearer will take damage during strike resolution, even if the gun is destroyed with first strike. [LSJ 20050123]"
 Zombie:
-    - 'A "strike: combat ends" will end combat before his damage is applied, as will sending his controller to torpor during first strike. [RTR 19941109], [TOM 19951216]'
-    - "Does not gain any additional strikes of its controller. [RTR 19941109], [TOM 19951216]"
+    - 'A "strike: combat ends" will end combat before his damage is applied, as will sending his controller to torpor during first strike. [RTR 19941109] [TOM 19951216]'
+    - "Does not gain any additional strikes of its controller. [RTR 19941109] [TOM 19951216]"
