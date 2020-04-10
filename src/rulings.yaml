@@ -100,6 +100,7 @@ Banshee Ironwail:
     - "Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]"
 Bauble:
     - "If it is burned by another mean than its effect, the weapon is not burned. [LSJ 20090113-1]"
+    - "It cannot be burned if the target equipment is not in play. [RTR 20080808]"
 Bear-Baiting:
     - "Damage is environmental. [RTR 19970630]"
     - "{Change of Target} can be played after Bear-Baiting (younger, older, or the same age). [LSJ 20040312]"
@@ -237,6 +238,8 @@ Cats' Guidance:
     - "[ani] Is played after combat [RTR 19980623]"
 Cauldron of Blood:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+Celestial Harmony:
+    - "[AUS] Is undirected. [LSJ 20080809]"
 Chain of Command:
     - "Cannot bring more than one copy of a unique vampire out, by the rule prohibiting self-contesting. [LSJ 20040722]"
 Chalice of Kinship:
@@ -298,6 +301,8 @@ Compress:
 Concealed Weapon:
     - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike against a generic opponent. [RTR 19980623]'
     - "Strength or other bonus from the minion are not counted. [LSJ 20020821]"
+Condemn the Sins of the Father:
+    - "The action is undirected. [LSJ 20080809]"
 Condemnation Mute:
     - "Only affects votes, and not ballots. [PIB 20110802]"
 Conscripted Statue:
@@ -440,6 +445,8 @@ Echo of Harmonies:
     - "[mel], [MEL] Can be played by a locked vampire. [LSJ 19980210]"
     - "[MEL] The referendum retained can only be called if the vampire meets the requirements given on the card. [LSJ 20011205]"
     - "[MEL] Cannot be used if no Political Action card was played for the action or if it is not in the ash heap. [LSJ 20020911]"
+Edged Illusion:
+    - "[CHI] If some minions cannot be targeted because of another effect, the action will simply have no effect on the things it cannot target. [RTR 20080808]"
 Edith Blount:
     - "Edith may burn a blood to give {Enid Blount} stealth multiple times each action. [LSJ 20040617]"
 Elder Intervention:
@@ -697,6 +704,8 @@ Jar of Skin Eaters:
 Jar the Soul:
     - "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]"
     - "If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]"
+Jaroslav Pascek:
+    - "When using the action provided by his ability, if some minions cannot be targeted because of another effect, the action will simply have no effect on the things it cannot target. [RTR 20080808]"
 Jimmy Dunn:
     - "If a second Jimmy Dunn is brought out during an action, and the first Jimmy (if he has Vicissitude) plays {Reform Body}, the first Jimmy will go to torpor (from Reform Body), but will then be burned anyhow, since he cannot be contested. [LSJ 19990719] [RTR 19991001]"
     - 'If a second Jimmy Dunn is brought out during an action, the acting vampire is not considered to be "burning" the first Jimmy. [LSJ 19990719] [RTR 19991001]'
@@ -765,6 +774,8 @@ Legacy of Power:
     - "May be used if one of your vampires is in combat with an ally. In this case, your vampire goes into torpor and the ally is unaffected. [RTR 19960112]"
 Legend of the Leopard:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+Lesser Boon:
+    - "Effects that depend on the successful block do not see the block as successful. [RTR 20080808]"
 Lextalionis:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Liberty Club Intrigue:
@@ -965,7 +976,7 @@ Oubliette:
     - "Owain's ability can only be used once each unlock, even if control of Owain changes during that unlock phase. [LSJ 20040127]"
 Palatial Estate:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
-'Paul "Sixofswords29" Moreton':
+Paul "Sixofswords29" Moreton:
     - "When he is influenced out, his ability can be used during the ongoing influence phase. [RTR 20180303]"
 Peace Treaty:
     - "Only requires that the pool cost be paid in order to keep the weapon. Blood costs, if any, need not be repaid to keep a weapon. [RTR 20010710]"
@@ -1231,6 +1242,8 @@ Sheepdog:
 Shemti:
     - "The damage inflicted by his ability is environmental. [RTR 19970630]"
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Shepherd's Innocence:
+    - "[ANI] Is undirected. [LSJ 20080809]"
 Shilmulo Tarot:
     - "There is no limit to the number of cards it can store. [PIB 20110712-2]"
 Sins of the Cauchemar:
@@ -1461,6 +1474,8 @@ Tortured Confession:
     - "Not usable by vampires burned in combat, either. [RTR 19950622]"
 Transfusion:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+Travis "Traveler72" Miller:
+    - "Must announce which conviction he burns as part of the terms of the action granted by his ability. [RTR 20111202]"
 Treachery:
     - "[PRE] The pool loss occurs when the votes are tallied. [RTR 20010710]"
 Triole's Revenge:
@@ -1539,6 +1554,8 @@ Wash:
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 "Wasserschloss Anif, Austria":
     - "Can only receive blood from one Tremere on any given turn. [RTR 19960221]"
+Wave of Insanity:
+    - "[DEM] Is undirected. [LSJ 20080809]"
 Wave of Lethargy:
     - "Only the cost of playing the cards is increased: if a card provides multiple maneuvers and presses, its cost is only increased by one. Maneuvers from other sources in play do not cost extra. [LSJ 20011023]"
 Weather Control:
@@ -1586,5 +1603,3 @@ Zip Gun:
 Zombie:
     - 'A "strike: combat ends" will end combat before his damage is applied, as will sending his controller to torpor during first strike. [RTR 19941109], [TOM 19951216]'
     - "Does not gain any additional strikes of its controller. [RTR 19941109], [TOM 19951216]"
-Travis "Traveler72" Miller:
-    - "Must announce which conviction he burns as part of the terms of the action granted by his ability. [RTR 20111202]"
