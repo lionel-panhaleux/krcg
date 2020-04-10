@@ -112,6 +112,8 @@ Betrayer:
     - "You select an uncontrolled vampire when you play the card. If you have a choice (more than one of your uncontrolled vampires is controlled by the other Methuselah), you still have to choose just one of them to be the Betrayer. [LSJ 19990419]"
 Bima:
     - '"that Discipline" refers to the card on Bima. If the card is no longer there, then the effect cannot be used. [LSJ 20071006]'
+Bind the Night-Walker:
+    - "The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 Black Cat:
     - 'The lower pool cost is used for the "cost" of equipment on her. [RTR 19941109]'
     - "If she is equipped with something and that equipment is transferred to another minion, then it regains its normal pool value. Conversely, if a piece of equipment moves onto her, its effective pool cost is lowered by 1. [RTR 19941109]"
@@ -214,6 +216,8 @@ Camera Phone:
     - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
 Canine Horde:
     - "[ANI]: Cannot be used if there is no equipment to destroy. [RTR 19980928]"
+Car Bomb:
+    - "If the action ends, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 Carlotta Giovanni:
     - "The card being retrieved is announced when the action is declared. [LSJ 19970922]"
 Carmine Giovanni:
@@ -247,7 +251,7 @@ Change of Target:
     - "Cannot be used if the action is ended by some other mean than by a blocking minion. [LSJ 19980224]"
     - "Is played after a minion successfully blocks but before the blocker is locked and combat begins. [RTR 19991206]"
     - "Effects triggered when the action is blocked are still applied. [PIB 20110417]"
-    - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803]"
+    - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803], [RTR 20180719]"
     - "If the acting minion was performing a mandatory action, he unlocks and is stuck and cannot act: he should but cannot take the mandatory action. [LSJ 19980112]"
 Changeling Skin Mask's:
     - "The superior Obfuscate is not optional. [RTR 19980707], [LSJ 19980722]"
@@ -358,7 +362,7 @@ Derange:
 Descent into Darkness:
     - "Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]"
 Detect Authority:
-    - "Ends the action. Action modifiers cannot be played afterwards. [PIB 20110511]"
+    - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [PIB 20110511], [RTR 20180719]"
 Detection:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Diamond Thunderbolt:
@@ -1144,6 +1148,8 @@ Sargon:
     - "His controller gets the Edge after the effects of the successful action are applied. If it is a referendum, he gets the Edge after the referendum is concluded. [LSJ 20011222]"
 Scattershot:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+Scobax:
+    - "[STR]: If the action ends, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 Scorn of Adonis:
     - "May be played at any time during the voting process, and will retroactively cause the loss of pool to Methuselahs voting 'no' before it is played, as well as to Methuselahs voting 'no' after it is played. [RTR 19951110]"
     - "Each Scorn played may only cause the loss of one pool to a given Methuselah, regardless of how may 'no' votes that Methuselah casts. [RTR 19951110]"
@@ -1474,6 +1480,8 @@ Unleash Hell's Fury:
     - "If the block is successful, the aggravated damage is inflicted and the card burned even if the action is ended before block resolution. [LSJ 20100301]"
 Unlicensed Taxicab:
     - "Offers the additional stealth on actions to equip it from another friendly minion as well, even with other equipment in the same action. [LSJ 20060222]"
+Unseen Hibernation:
+    - "[abo]: The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 "Ur-Shulgi, The Shepherd":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Uriah Winter:
