@@ -1078,6 +1078,7 @@ Ravnos Cache:
     - "The blood may be used in place of pool or blood, as appropriate to the cost of the equipment. [RTR 19960112]"
 Ravnos Carnival:
     - "A Ravnos can attempt an action that he cannot pay for himself if the cost can be paid with the Carnival's help. [LSJ 20050408]"
+    - "How many counters are used from the Carnival must be annouced as part of the terms of the action. [RTR 20111202]"
 React with Conviction:
     - "If used to cancel a {Corruption} action, then the action is canceled in its entirety and the corruption counters are not burned. [LSJ 20070222-1]"
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
@@ -1306,7 +1307,7 @@ Street Cred:
 Strike at the True Flesh:
     - "[QUI] The additional damage is the same type as the strike's damage. [TOM 19960225], [RTR 19970630]"
 Strike with Conviction:
-    - "If the action to bleed is blocked or canceled, Strike with Conviction is not burned. [LSJ 20060421]"
+    - "If the action to bleed is blocked or canceled, Strike with Conviction is not burned. [LSJ 20060421], [RTR 20111202]"
 Strix:
     - '[STR] The bleed is considered successful and the Edge gained. The action is resolved before entering combat, effects happening "after action resolution" happen after combat. [ANK 20200221]'
 Stutter-Step:
@@ -1585,3 +1586,5 @@ Zip Gun:
 Zombie:
     - 'A "strike: combat ends" will end combat before his damage is applied, as will sending his controller to torpor during first strike. [RTR 19941109], [TOM 19951216]'
     - "Does not gain any additional strikes of its controller. [RTR 19941109], [TOM 19951216]"
+Travis "Traveler72" Miller:
+    - "Must announce which conviction he burns as part of the terms of the action granted by his ability. [RTR 20111202]"
