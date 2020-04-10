@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.14 (unreleased)
+0.14 (2020-04-10)
 -----------------
 
 - Upgrade runtime to Python 3.8.2
