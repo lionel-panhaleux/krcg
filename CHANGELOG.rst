@@ -6,7 +6,8 @@ Changelog
 
 - API: The card/ endpoint now provides normalized card names
 - Minor ruling fixes
-
+- Added additional rulings
+- Card search: Use card name as page title
 
 0.12 (2020-04-08)
 -----------------
