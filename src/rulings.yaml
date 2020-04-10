@@ -64,6 +64,8 @@ Annazir:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Anneke:
     - "Her ability only affects the rule restricting who gets to block an action. She must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 20020501], [LSJ 20041203]"
+Apparition:
+    - "[CHI] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
 Archon:
     - "If a vampire blocks an Archon, he or she burns 1 blood regardless of which action the Archon was taking. [RTR 19960221]"
     - "Multiple Archon cards provide different actions: if the vampire manage to unlock during the minion phase, he can perform the two actions. [RTR 20030519]"
@@ -75,6 +77,10 @@ Arika:
 Arishat:
     - "Her ability to force a vampire to abstain can cancel the vote of the vampire. [LSJ 20100311]"
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Armor of Caine's Fury:
+    - "[VAL] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
+Armor of Vitality:
+    - "Prevents up to 3 damage, it can be used to prevent less. [RTR 20041202]"
 Ashes to Ashes:
     - "The end of combat is triggered by the fact that the vampire is going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
 Astrid Thomas:
@@ -148,6 +154,8 @@ Blood Fury:
 Blood Rage:
     - "[THA] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
+Blood Tears of Kephran:
+    - "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 Blood Tempering:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Blood of Acid:
@@ -445,6 +453,7 @@ Echo of Harmonies:
     - "[mel], [MEL] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[mel], [MEL] Cannot be played by a vampire in torpor. [RTR 19970306]"
     - "[mel], [MEL] Can be played by a locked vampire. [LSJ 19980210]"
+    - "[MEL] The Political Action card retained is not considered to be in play. [RTR 20070707]"
     - "[MEL] The referendum retained can only be called if the vampire meets the requirements given on the card. [LSJ 20011205]"
     - "[MEL] Cannot be used if no Political Action card was played for the action or if it is not in the ash heap. [LSJ 20020911]"
 Edged Illusion:
@@ -525,6 +534,8 @@ Force of Will:
     - "{Mask of a Thousand Faces} cannot be used to take over a Force of Will action, since the former requires an unlocked vampire and the latter requires a locked one. [LSJ 20020927]"
 Forced Awakening:
     - "If he fails to block, the vampire only burns a blood when the action begins to resolve (successfully or not). He can pay for reactions after declining to block, before burning a blood. [LSJ 19990421]"
+Forearm Block:
+    - "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 Foresee:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
@@ -627,6 +638,7 @@ Hidden Lurker:
     - "Cannot be played by a vampire in torpor. [RTR 19970306]"
 Hidden Strength:
     - "The 'X' in card text refers to the cost of the card. [LSJ 19970224]"
+    - "Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
 Hide:
     - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403], [LSJ 20070413]"
 High Ground:
@@ -731,6 +743,9 @@ Kemintiri (ADV):
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Kerrie:
     - "The damage done from the ranged strike is damage from the weapon, so it can be modified by effects that modify melee weapon damage. [LSJ 20051220]"
+Kevlar Vest:
+    - "Prevents up to 2 damage from gun strikes, it can be used to prevent less. [RTR 20041202]"
+    - "Can be used to prevent the damage from two separated gun strikes doing one damage each. [LSJ 20081210]"
 Kindred Coercion:
     - "Cannot 'change' the votes of vampires who haven't voted yet, but can cancel the votes of vampires who haven't voted yet and change the votes of vampires who have voted. [RTR 19991001]"
 Kindred Segregation:
@@ -858,6 +873,8 @@ Maris Streck:
     - "Can use her ability multiple times each action. [LSJ 20020926]"
 Marthe Dizier:
     - "Her ability can only move cards from the ash heap that were played in the normal manner. If the card was put in play in some other way, it cannot be retrieved by her special. [LSJ 20041119]"
+Martyr's Resilience:
+    - "[AUS][FOR] Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
 Mask of a Thousand Faces:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "Cannot be played by a vampire in torpor. [RTR 19970306]"
@@ -963,6 +980,8 @@ New Management:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 Nightmares upon Nightmares:
     - "Mortal allies are not affected, and vampires with capacity above the number of Gehenna cards in play are not affected. [LSJ 20040415]"
+Nightstick:
+    - "Can prevent up to 3 damage, it can prevent less. [RTR 20041202]"
 Obedience:
     - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
     - "Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat. [LSJ 19991025]"
@@ -1111,10 +1130,14 @@ Regent:
     - 'It is a title card, so it is out of play if the title is contested, and the "enter combat" action is not usable when the card is not in play. [LSJ 20070808-2]'
 "Regina Giovanni, The Right Hand of Augustus":
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Rego Motus:
+    - "Prevents up to 2 or 4 damage, it can be used to prevent less. [RTR 20041202]"
 Relentless Reaper:
     - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
 Repulsion:
     - "[OBE] Can be used even if the stealth is not currently needed. [LSJ 20011214-2]"
+Resilience:
+    - "Prevents up to 3 non-aggravated damage, it can be used to prevent less. [RTR 20041202]"
 Resilient Mind:
     - "Can be used when a {Form of Corruption} is put into play to protect that vampire from that {Form of Corruption}. [LSJ 20031223]"
 Restructure:
@@ -1276,6 +1299,8 @@ Snipe Hunt:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Sniper Rifle:
     - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
+Soak:
+    - "Prevents up to 2 or 4 non-aggravated damage, it can prevent less. [RTR 20041202]"
 Sonja Blue:
     - '"block as an ally" only affects the "who can block this action" check. She can play cards that require Disicplines when blocking "as an ally". [LSJ 20050224-1]'
     - "{The Unmasking} will not give her intercept. [LSJ 20060503]"
@@ -1327,6 +1352,8 @@ Strike with Conviction:
     - "If the action to bleed is blocked or canceled, Strike with Conviction is not burned. [LSJ 20060421], [RTR 20111202]"
 Strix:
     - '[STR] The bleed is considered successful and the Edge gained. The action is resolved before entering combat, effects happening "after action resolution" happen after combat. [ANK 20200221]'
+Stunt Cycle:
+    - "[POT] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
 Stutter-Step:
     - "It is both a hand strike and a dodge. It cannot be used if only hand strikes or only dodges are allowed. [LSJ 20010919]"
 Succubus:
@@ -1500,6 +1527,7 @@ Uncontrollable Rage:
 Undead Persistence:
     - "[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]"
     - 'If an effect causes a new combat to occur at the end of combat, then the "go to torpor" effect will be delayed until after that new combat. However, the vampire will no longer benefit from Undead Persistence in the new combat, so it will end immediately with the vampire not ready unless he plays a new Undead Persistence in the new combat. [LSJ 20030214]'
+    - "[FOR] Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 Undead Strength:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Undying Tenacity:
