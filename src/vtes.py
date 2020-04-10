@@ -195,11 +195,12 @@ class _VTES(dict):
     def get_name(card):
         """Returns main name for a card
         """
-        advanced_suffix = " (ADV)" if card.get("Adv") else ""
         name = card["Name"]
         if name[-5:] == ", The":
             name = "The " + name[:-5]
-        return name + advanced_suffix
+        if name[-6:] != " (ADV)" and card.get("Adv"):
+            name = name + " (ADV)"
+        return name
 
     @staticmethod
     def get_name_variants(card):
@@ -287,6 +288,7 @@ class _VTES(dict):
                 card["Adv"] = bool(card["Adv"])
             for name in self.get_name_variants(card):
                 self[name] = card
+            card["Name"] = self.get_name(card)
 
         # pickle this
         if save:
