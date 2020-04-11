@@ -54,8 +54,6 @@ Angel of Berlin:
     - "May be played after a block is successful before combat begins. [LSJ 20060410]"
 Angela Preston:
     - "When she is influenced out, her ability to unlock a vampire can be used during the ongoing influence phase. [RTR 20180303]"
-"Angelica, The Canonicus":
-    - "Can only use her ability once each action (when attempting to block). [RTR 20030519]"
 Ankara Citadel:
     - "Multiplication and divisions are applied first, followed by addition and substraction. [RTR 20070707]"
 Annabelle Triabell:
@@ -472,6 +470,8 @@ Enticement:
     - "Is directed at your prey. [LSJ 20010807]"
 Erosion:
     - "Erosion resets a minion's base strength. Any modifiers, including inherent modifiers, are applied to the new base. If another effect like {Torn Signpost} later resets the base damage again, then the new amount wins out. [LSJ 19971211-2]"
+Escaped Mental Patient:
+    - 'Do not burn at the end of combat if another effect let him make a hand strike at +1 damage. "If he does so" only applies if his own effect is used directly. [RTR 20020501]'
 Ethan Locke:
     - "Ethan's Ⓓ action is directed at the controller of the skill card, not the controller of the vampire. [LSJ 19970224]"
     - "When he steals a master Discipline card, his controller becomes the controller of the Discipline card. [LSJ 19990709]"
@@ -507,6 +507,8 @@ Filchware's Pawn Shop:
     - "Cannot be used to replay a card that can be played only once in a game. [LSJ 20040518]"
 Fire Dance:
     - "The target vampire is chosen when the action is announced. [RTR 19970425]"
+Flaming Candle:
+    - "Is not burned if another effect make the vampire burn 1 blood upon action declaration. [RTR 20020501]"
 Flash Grenade:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
     - 'If the opponent dodges, the "is locked and does not unlock as normal" effect do not apply. [LSJ 19980526] [LSJ 20060808]'
@@ -683,6 +685,7 @@ Infection:
     - "[THA] Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
 Infernal Familiar:
     - "Can be used to meet one (not both) of the normal Discipline requirements of a multi-Discipline card. [LSJ 20011217]"
+    - "No counter is added if the vampire uses a game effect other than the Familiar to play a card that requires a Discipline he or she does not have. [RTR 20020501]"
 Infernal Pursuit:
     - "[CEL] The card you discard need not be one of the cards that you just drew. [TOM 19950924]"
 Ingrid Rossler:
@@ -694,6 +697,7 @@ Inspire Greatness:
     - "Can be played by a locked vampire. [LSJ 19980210]"
 Internal Recursion:
     - "Is played before the combat begins. [LSJ 20020204]"
+    - "[pre] The blocking vampire do not unlock if the vampire uses another effect to end combat as a strike. [RTR 20020501]"
 "Inveraray, Scotland":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 Invoke Poison Glands:
@@ -933,6 +937,8 @@ Momentary Delay:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
+Monomancy:
+    - "The card is not put on the target vampire if he or she uses another effect than Monomancy to end combat. [RTR 20020501]"
 Montano:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Morphean Blow:
@@ -1073,7 +1079,8 @@ Psyche!:
     - "[CEL] Is played during combat, when combat is about to end. This is a reversal of previous rulings. [PIB 20111202]"
     - "Can be retrieved by {Marthe Dizier} (reversal of previous ruling). [PIB 20111208]"
 Psychomachia:
-    - "Is played before the successful blocker locks for blocking. The blocker is not locked. [LSJ 20030902-1]"
+    - "The blocker is not locked. [LSJ 20030902-1]"
+    - "[pre]: The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [RTR 20020501]"
 Pulled Fangs:
     - "Counts up damage successfully inflicted during the round by the minions, retainers do not count. [TOM 19950304]"
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
@@ -1289,6 +1296,7 @@ Snipe Hunt:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Sniper Rifle:
     - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
+    - "The bearer is not commited to use it if he or she uses another effect to set the range. [RTR 20020501]"
 Soak:
     - "Prevents up to 2 or 4 non-aggravated damage, it can prevent less. [RTR 20041202]"
 Sonja Blue:
