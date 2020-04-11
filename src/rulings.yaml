@@ -433,6 +433,8 @@ Dreams of the Sphinx:
     - "Cannot move blood to Imbued in the uncontrolled region. [LSJ 20070516]"
     - "If another player contest it, it cannot be locked before it enters contest. [PIB 20110328]"
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
+Drum of Xipe Totec:
+    - "The minion cannot use the discipline nor the maneuver provided if some effect prevents him to use the equipment (eg. {Drawing Out the Beast}). [RTR 20010710]"
 Dual Form:
     - "[PRO] A vampire's capacity can never be reduced below one. [RTR 19990712]"
     - "[PRO] If one of the pair leaves the ready region, the other is burned. That burning of the other won't cause the first to burn. [LSJ 20050117]"
@@ -611,6 +613,8 @@ Guarded Rubrics:
     - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
 Hagar Stone:
     - 'The "do not replace" effect stacks with whatever "do not replace" clause the card itself has, so that the longest one wins out. [LSJ 20070320-1]'
+Hand of Conrad:
+    - "The minion cannot use the discipline provided if some effect prevents him to use the equipment (eg. {Drawing Out the Beast}). [RTR 20010710]"
 Harvest Rites:
     - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519]"
 Haven Hunting:
@@ -746,7 +750,7 @@ Kevlar Vest:
 Kindred Coercion:
     - "Cannot 'change' the votes of vampires who haven't voted yet, but can cancel the votes of vampires who haven't voted yet and change the votes of vampires who have voted. [RTR 19991001]"
 Kindred Segregation:
-    - "Blood costs, if any, must be repaid too. [RTR 20010710]"
+    - "Only requires that the pool cost be paid in order to keep the ally. Blood costs, if any, need not be repaid to keep an ally. [RTR 20010710]"
     - "Can be called even if there are no allies in play. [RTR 20010710]"
 Kindred Society Games:
     - "If a vampire has two copies of Kindred Society Games, each copy exerts its own effect. Unlocking the vampire normally would require a total of 2 blood. If the vampire does not unlock normally, both Games are moved to other vampire(s), although the vampire could burn 1 blood to prevent one of the Games from moving on. [RTR 19951017]"
@@ -1307,7 +1311,7 @@ Soul Burn:
     - "Side-effect damage from a weapon is unaffected. [LSJ 19980216]"
 Soul Gem of Etrius:
     - "Functions even if the bearer (now burned) was prohibited from using equipments. [LSJ 20010729]"
-    - "If the drawn vampire (B) is younger and would be put into play with Gem but is burned instead (self-contestinging, for example), then the Gem activates again, drawing a new vampire (C) and comparing his capacity to B's capacity. [LSJ 20030918]"
+    - "If the drawn vampire (B) is younger and would be put into play with Gem but is burned instead (self-contestinging, for example), then the Gem activates again, drawing a new vampire (C) and comparing his capacity to B's capacity. [RTR 20010710] [LSJ 20030918]"
     - "Can grab an imbued. In that case, the imbued is either placed in the uncontrolled region or placed empty into the incapacitated region with the Gem, as determined by his starting life. [LSJ 20060323]"
 Soul Stealing:
     - "Cannot be used if a vampire is burned as a result of a political action. [RTR 19960124]"
@@ -1590,7 +1594,7 @@ Wash:
 Wave of Insanity:
     - "[DEM] Is undirected. [LSJ 20080809-1]"
 Wave of Lethargy:
-    - "Only the cost of playing the cards is increased: if a card provides multiple maneuvers and presses, its cost is only increased by one. Maneuvers from other sources in play do not cost extra. [LSJ 20011023]"
+    - "Card text was changed in 2007, previous rulings do not apply. [ANK 20200408]"
 Weather Control:
     - "Damage is environmental. [RTR 19970630]"
     - "The damage will occur even if combat is subsequently ended before range. [LSJ 19971110]"
