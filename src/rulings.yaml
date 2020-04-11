@@ -748,8 +748,6 @@ Kindred Society Games:
     - "If a vampire has two copies of Kindred Society Games, each copy exerts its own effect. Unlocking the vampire normally would require a total of 2 blood. If the vampire does not unlock normally, both Games are moved to other vampire(s), although the vampire could burn 1 blood to prevent one of the Games from moving on. [RTR 19951017]"
 King of the Mountain:
     - "[FOR] Damage dealt to the opponent is environmental. [RTR 19970630] [LSJ 19970801]"
-Kiss of Ra:
-    - "Can be played by an acting vampire in torpor. [LSJ 19970325]"
 Kraken's Kiss:
     - "[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]"
 Kyoko Shinsegawa:
@@ -927,6 +925,8 @@ Mirror Image:
     - '[CHI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[CHI] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
     - '[CHI] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
+Mistaken Identity:
+    - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
 Mob Rule:
     - "Each Methuselah must decide how much blood to burn for it during the resolution. It does not give an ability for the rest of the political action. However, there can be some give and take during the resolution. For example, Methuselahs can choose to burn one blood at a time and wait to see what the others do. [LSJ 20030602]"
 Momentary Delay:
@@ -1451,6 +1451,9 @@ The Hungry Coyote:
     - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519]"
 "The Khabar: Honor":
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+The Kiss of Ra:
+    - "Can be played by an acting vampire in torpor. [LSJ 19970325]"
+    - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
 The Name Forgotten:
     - "Each Methuselah must find as many copies of the vampire as possible when searching. [LSJ 20050611]"
 The Rack:
