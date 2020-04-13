@@ -48,6 +48,11 @@ Anathema:
     - "Damage done by combat effects after combat ends do not trigger Anathema. [LSJ 19980225]"
 Ancestor's Talisman:
     - "The effect is not optional. [RTR 19980707] [LSJ 19980722]"
+Andre LeRoux:
+    - "His ability can only be used once per successful bleed. [LSJ 20081123]"
+    - 'It is used in the "would/about to be successful" window like {Spying Mission}. [LSJ 20081123]'
+    - 'Only modifiers and reactions that can be played "when the action/bleed would be successful" can be played after it. [LSJ 20090205]'
+    - "He can use his ability on his own bleed to get (-1 +2) = +1 bleed. [LSJ 20081124-2]"
 Anesthetic Touch:
     - "Does not end combat as a strike; it ends combat after strike resolution. It is still just a hand strike. [LSJ 20011210-1]"
     - "A dodge won't prevent combat from ending after strike resolution. [LSJ 20011210-2]"
@@ -93,6 +98,8 @@ Augustus Giovanni:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Aura of Invincibility:
     - "If the initial referendum does not pass, then the card is not put into play and the vampire playing it is not sent to torpor. [LSJ 20040730]"
+Autonomic Mastery:
+    - "[DOM] Is a hand strike, and its resolution is simultaneous with the opponent's strike, unlike a normal combat ends strike. The opponent's strike do damage. [LSJ 20071112]"
 "Aziz, Dammar of Istanbul":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Backstab:
@@ -223,6 +230,10 @@ Call the Lamprey:
 Call the Wild Hunt:
     - "At superior, you choose X and then discard that many animals form your hand and cannot use any animals drawn to replace the ones you are discarding as further discards. [LSJ 20060215]"
     - "The damage inflicted by the superior is environmental damage. [LSJ 20060217]"
+Camarilla Exemplary:
+    - "Burn blood effects are cumulative. [LSJ 19980225]"
+    - "A vampire with no blood can still block, he burns what he can. [LSJ 19970707]"
+    - "The same vampire can be chosen multiple times if multiple copies are played. [LSJ 19970707]"
 Camarilla Vitae Slave:
     - "The vampire keeps his chosen Discipline at superior until his controller's next unlock phase even if the retainer is burned or stolen. [LSJ 19970224]"
 Camera Phone:
@@ -482,6 +493,8 @@ Enkil Cog:
     - 'If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect "fizzle". [LSJ 20081213-1]'
 Ennoia's Theater:
     - "Can be used at any moment during the influence phase to get the additional transfer. [RTR 20180303]"
+Ensconced:
+    - "[VIS][REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
 Enticement:
     - "Is directed at your prey. [LSJ 20010807]"
 Erosion:
@@ -826,6 +839,8 @@ Lock:
     - "Once in play, applies to an undirected action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2]"
 Loner:
     - "Only considers the minions controlled during the influence phase. It does not care if minions you no longer control acted this turn. [LSJ 20060616-1]"
+Lost in Translation:
+    - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 Loving Agony:
     - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "[val] [VAL] If the combat continues or a new combat begins, no damage is done. The vampire can still burn 1 blood to unlock. [RTR 20020501]"
@@ -927,6 +942,8 @@ Meld with the Land:
     - "[vic] The opponent still unlocks if an effect continues the combat or begins a new combat. [RTR 20020501] [LSJ 20030717]"
 Memory's Fading Glimpse:
     - "Any cards on the target minion are burned. [SFC 19960919]"
+Mental Maze:
+    - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 Mercy for the Weak:
     - "The blood gain takes place after the end of combat. [RTR 19970630]"
     - "The blood is not gained if an effect continues the combat or begins a new combat. [RTR 20020501]"
@@ -984,6 +1001,8 @@ Murder of Crows:
     - 'A "strike: combat ends" will end combat before their damage is applied, as will sending their controller to torpor during first strike. [RTR 19941109]'
     - "Do not gain any additional strikes of its controller. [RTR 19941109]"
     - "The number of lives is set when it is recruited and will not change if its controller's level of Animalism changes. [RTR 19941109]"
+My Enemy's Enemy:
+    - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 Nakhthorheb:
     - "He can unlock at any time during his controller's minion phase, including during an action. [PIB 20110415]"
 Necrosis:
@@ -996,6 +1015,8 @@ Nehemiah:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Nehsi:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Nephandus:
+    - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630]"
 New Management:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 Nightmares upon Nightmares:
@@ -1039,6 +1060,11 @@ Philippe Rigaud:
     - 'If he cannot commit diablerie, then his card text does not force him to: he is not "stuck", he is free to take any other legal action. [LSJ 20050514]'
 "Pier 13, Port of Baltimore":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
+Piper:
+    - "When used to recruit an ally, the ally cannot act this turn. [LSJ 20080630] [RTR 20180303]"
+    - "This is not an action, so cost reductions refering to an action like {Charisma} or {Erichtho} do not apply. [LSJ 20090115] [ANK 20170309]"
+    - "This does not count as performing the action to recruit this ally in respect to section 6.1 of the rules. The same vampire can recruit the same ally the normal way later this turn if he unlocks (and/or Piper it a second time). [LSJ 20080815]"
+    - "When recruiting an ally or retainer whose effect depend on Discipline level, the chosen vampire decides in respect to his disciplines the normal way. [LSJ 20080803]"
 Pocket Out of Time:
     - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
@@ -1139,6 +1165,10 @@ Ravnos Carnival:
 React with Conviction:
     - "If used to cancel a {Corruption} action, then the action is canceled in its entirety and the corruption counters are not burned. [LSJ 20070222-1]"
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
+Reality Mirror:
+    - "Cannot be used to bypass restrictions (like Clan restriction or any other play restriction). [LSJ 20020426]"
+Redirection:
+    - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 Reform Body:
     - "If the vampire saves himself from diablerie, the diablerie is considered unsuccessful. The diablerist gets nothing from the victim, and no Blood Hunt is called. [LSJ 19970224]"
     - "Cannot be played by vampires who aren't controlled. [LSJ 19970224]"
@@ -1205,6 +1235,10 @@ Rötschreck:
     - "Can only be played when a minion attempts to make a strike to inflict aggravated damage against the opposing vampire. [RTR 19961113] [RTR 20041202]"
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
     - 'Is executed before strikes resolve and prevents their whole effect, including any unlock effect of "combat ends" strikes. [LSJ 20060803]'
+Sabbat Priest:
+    - "Burn blood effects are cumulative. [LSJ 19980225]"
+    - "A vampire with no blood can still block, he burns what he can. [LSJ 19970707]"
+    - "The same vampire can be chosen multiple times if multiple copies are played. [LSJ 19970707]"
 Sabbat Threat:
     - "You can gain pool from the Edge before burning it to remove the threat counters, and loose no pool to the threat counters. [TOM 19951214-1]"
 Sacrificial Lamb:
@@ -1441,6 +1475,8 @@ Taunt the Caged Beast:
     - "Allegiance counters continue to function even if Tegyrius leaves play. [LSJ 20030522]"
 Telepathic Counter:
     - "Is played before the bleed can be considered successful. [TOM 19960303]"
+Telepathic Misdirection:
+    - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 Telepathic Tracking:
     - '[AUS] If used to continue a combat that was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109] [RTR 20020501]'
     - "[AUS] Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
@@ -1660,47 +1696,11 @@ Zapaderin:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
 "Zayyat, The Sandstorm":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Zephyr:
+    - "Is played after combat, if any. [ANK 20181219]"
 Zip Gun:
     - "Damage done to the bearer is environmental. [LSJ 19970801]"
     - "If used to maneuver, the bearer will take damage during strike resolution, even if the gun is destroyed with first strike. [LSJ 20050123]"
 Zombie:
     - 'A "strike: combat ends" will end combat before his damage is applied, as will sending his controller to torpor during first strike. [RTR 19941109] [TOM 19951216]'
     - "Does not gain any additional strikes of its controller. [RTR 19941109] [TOM 19951216]"
-Piper:
-    - "When used to recruit an ally, the ally cannot act this turn. [LSJ 20080630] [RTR 20180303]"
-    - "This is not an action, so cost reductions refering to an action like {Charisma} or {Erichtho} do not apply. [LSJ 20090115] [ANK 20170309]"
-    - "This does not count as performing the action to recruit this ally in respect to section 6.1 of the rules. The same vampire can recruit the same ally the normal way later this turn if he unlocks (and/or Piper it a second time). [LSJ 20080815]"
-    - "When recruiting an ally or retainer whose effect depend on Discipline level, the chosen vampire decides in respect to his disciplines the normal way. [LSJ 20080803]"
-Reality Mirror:
-    - "Cannot be used to bypass restrictions (like Clan restriction or any other play restriction). [LSJ 20020426]"
-Nephandus:
-    - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630]"
-Camarilla Exemplary:
-    - "Burn blood effects are cumulative. [LSJ 19980225]"
-    - "A vampire with no blood can still block, he burns what he can. [LSJ 19970707]"
-    - "The same vampire can be chosen multiple times if multiple copies are played. [LSJ 19970707]"
-Sabbat Priest:
-    - "Burn blood effects are cumulative. [LSJ 19980225]"
-    - "A vampire with no blood can still block, he burns what he can. [LSJ 19970707]"
-    - "The same vampire can be chosen multiple times if multiple copies are played. [LSJ 19970707]"
-Ensconced:
-    - "[VIS][REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
-Zephyr:
-    - "Is played after combat, if any. [ANK 20181219]"
-Andre LeRoux:
-    - "His ability can only be used once per successful bleed. [LSJ 20081123]"
-    - 'It is used in the "would/about to be successful" window like {Spying Mission}. [LSJ 20081123]'
-    - 'Only modifiers and reactions that can be played "when the action/bleed would be successful" can be played after it. [LSJ 20090205]'
-    - "He can use his ability on his own bleed to get (-1 +2) = +1 bleed. [LSJ 20081124-2]"
-Redirection:
-    - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
-Telepathic Misdirection:
-    - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
-My Enemy's Enemy:
-    - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
-Lost in Translation:
-    - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
-Mental Maze:
-    - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
-Autonomic Mastery:
-    - "[DOM] Is a hand strike, and its resolution is simultaneous with the opponent's strike, unlike a normal combat ends strike. The opponent's strike do damage. [LSJ 20071112]"
