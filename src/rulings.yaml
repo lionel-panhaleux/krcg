@@ -274,6 +274,7 @@ Chameleon's Colors:
 Champion:
     - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
     - "[REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
+    - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]"
 Change of Target:
     - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
     - "Cannot be used if the action is ended by some other mean than by a blocking minion. [LSJ 19980224]"
@@ -421,7 +422,7 @@ Disarming Presence:
     - "Locking is a side effect, not a cost. Locked vampires can still vote. [RTR 19941109]"
     - "Vampires are locked when they cast their votes. [RTR 19970425]"
 Discern:
-    - "Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
+    - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 Disguised Weapon:
     - "If used to equip and contest a unique weapon possessed by the opposing minion, neither weapon is available for use during the combat. If the opposing minion had already chosen that weapon as his strike, then the strike fizzles. [LSJ 19980319]"
 Disputed Territory:
@@ -441,7 +442,7 @@ Donal O'Connor:
     - "An empty blocking vampire may still block and will try and fail to burn a blood if the block is successful. [TOM 19951215-1]"
     - "The blocking vampire burns 1 blood immediately upon successfully blocking Donal, regardless of whether combat begins. [RTR 19960530]"
 Donate:
-    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
+    - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 Donnybrook:
     - "[ser] can target a minion with less than 2 blood or life. [RTR 20010711]"
 "Dr. Morrow, The Skindoctor":
@@ -481,6 +482,8 @@ Edged Illusion:
     - "[CHI] If some minions cannot be targeted because of another effect, the action will simply have no effect on the things it cannot target. [RTR 20080808]"
 Edith Blount:
     - "Edith may burn a blood to give {Enid Blount} stealth multiple times each action. [LSJ 20040617]"
+Edward Vignes:
+    - "His ability cannot be used if the action is blocked. [LSJ 20041022]"
 Elder Intervention:
     - "Can be used during any bleed attempt made against you, not just ones declared against you. [RTR 19960530]"
 Elephant Guardian:
@@ -495,6 +498,7 @@ Ennoia's Theater:
     - "Can be used at any moment during the influence phase to get the additional transfer. [RTR 20180303]"
 Ensconced:
     - "[VIS][REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
+    - "[VIS][REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]"
 Enticement:
     - "Is directed at your prey. [LSJ 20010807]"
 Erosion:
@@ -514,6 +518,7 @@ Ezmerelda:
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
 Faerie Wards:
     - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
+    - "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
 Falcon's Eye:
     - "Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]"
 Fall of the Camarilla:
@@ -536,6 +541,8 @@ Festivo dello Estinto:
     - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
 Filchware's Pawn Shop:
     - "Cannot be used to replay a card that can be played only once in a game. [LSJ 20040518]"
+Final Loosening:
+    - "[for] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
 Fire Dance:
     - "The target vampire is chosen when the action is announced. [RTR 19970425]"
 Flaming Candle:
@@ -669,7 +676,10 @@ Hidden Strength:
     - "The 'X' in card text refers to the cost of the card. [LSJ 19970224]"
     - "Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
 Hide:
-    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
+    - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
+    - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
+Hide the Heart:
+    - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
 High Ground:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
 Horatio Ballard:
@@ -888,6 +898,8 @@ Major Boon:
 Malkavian Dementia:
     - "Does not require control of a ready Malkavian. [RTR 19951124]"
     - "The loss of control happens at the start of unlock phase, before unlocking. This can not be ordered among other unlock effects, the Malkavian is not unlocked. [RTR 19951017]"
+"Malkavian Derangement: Alternate Personality":
+    - "Modifier and reactions that can be used at the end/after an action can still be used after the action fails. [LSJ 20041022]"
 Malkavian Rider Clause:
     - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
 Malkavian Time Auction:
@@ -1431,7 +1443,7 @@ Supernatural Resistance:
 Suppressing Fire:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
 Surge:
-    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
+    - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 "Sutekh, The Dark God":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Swarm:
@@ -1630,7 +1642,7 @@ Veiled Sight:
 Vengeance of Samiel:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Vigilance:
-    - "The reaction effect can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
+    - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 Visionquest:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 Voter Captivation:
