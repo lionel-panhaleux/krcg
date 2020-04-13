@@ -4,7 +4,7 @@ Changelog
 0.17 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Include 2020 rulings from VEKN forum.
 
 
 0.16 (2020-04-13)
