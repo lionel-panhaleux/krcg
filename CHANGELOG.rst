@@ -4,7 +4,7 @@ Changelog
 0.16 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Update rulings.
 
 
 0.15 (2020-04-11)
