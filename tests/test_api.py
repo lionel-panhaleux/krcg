@@ -82,7 +82,7 @@ def test_deck(client):
     assert len(response.json) == 100
     response = client.post("/deck", json={"cards": ["Stavros"]})
     assert response.status_code == 200
-    assert len(response.json) == 3
+    assert len(response.json) == 2
     response = client.post("/deck", json={"cards": ["Not a Card"]})
     assert response.status_code == 400
     response = client.post("/deck", json={"cards": ["Antithesis"]})
