@@ -21,8 +21,6 @@ Agent of Power:
 Akram:
     - 'If his ability is used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
     - "His ability cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
-"Al-Ashrad, Amr of Alamut":
-    - "Can burn locations requiring any clan (not only Camarilla clans). [BCP 20191224]"
 Alastor:
     - "If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]"
 Alexandra:
@@ -75,6 +73,7 @@ Archon:
     - "The cost is cumulative if a vampire has multiple copies of the card on him. [LSJ 19980225]"
 Archon Investigation:
     - "It must be played after blocks are declined. Playing it implicitly declines block. [LSJ 20070203]"
+    - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 Arika:
     - "Arika's prey cannot end her unlock phase if she controls a location that she hasn't burned a pool for, even if she gained control of that location during that unlock phase. [LSJ 19990405]"
 Arishat:
@@ -368,6 +367,7 @@ Decapitate:
 Deflection:
     - "Cannot be used to direct a bleed to a Methuselah who would be an invalid target for a bleed. [RTR 19950622]"
     - "Declaring that one is not blocking is implicit in playing Deflection. [LSJ 20000507]"
+    - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 Delaying Tactics:
     - "May be played before, during, or after votes and ballots have been cast. [LSJ 19980130]"
     - "The acting minion is still considered to have taken a political action, so cannot perform another in the same turn. [RTR 19970630]"
@@ -755,7 +755,7 @@ Kemintiri:
     - "Merged Keminitiri can play {Closed Session} as a Justicar, and it will prevent her from casting votes if she's still independent. [LSJ 20050131]"
     - "Merged Kemintiri does not enable you to play master cards, it only enables her to play certain minion cards. [LSJ 20050721]"
 Kemintiri (ADV):
-    - "[MERGED] Keeps her title and votes if he changes sects. [LSJ 20010714]"
+    - "[MERGED] Keeps her title and votes if she changes sects. [LSJ 20010714]"
 "Kephamos, High Priest of Marrakech":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Kerrie:
@@ -801,7 +801,7 @@ Legacy of Caine:
     - "The vampire must take the action directed at a vampire, even if no vampire has any blood left. [LSJ 19970224]"
     - "When hunting on a target that has no blood to steal, the hunt action will simply have no effect, stealing zero blood. [LSJ 19970224]"
     - "The vampire cannot hunt if there are no vampires at all. [LSJ 19970224]"
-    - 'If the vampire with the card "cannot gain blood", then the stolen blood is moved to the blood bank when he hunts. [LSJ 20010809]'
+    - 'If the vampire with the card "cannot gain blood", then the stolen blood is moved to the blood bank when he hunts. [LSJ 20010809-1]'
 Legacy of Power:
     - "May be used if one of your vampires is in combat with an ally. In this case, your vampire goes into torpor and the ally is unaffected. [RTR 19960112]"
 Legend of the Leopard:
@@ -844,6 +844,7 @@ Luna Giovanni:
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
 Lunatic Eruption:
     - "The mandatory attack action must be taken before any non-mandatory actions. [LSJ 20001127]"
+    - "If the minion it is on has entered combat and unlocks, he is free to take any other action. [ANK 20200227]"
 Lure of the Serpent:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 "Lydia, Grand Praetor":
@@ -1004,6 +1005,7 @@ Nightstick:
 Obedience:
     - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
     - "Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat. [LSJ 19991025]"
+    - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 Omael Kuman:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
 Orun:
@@ -1117,8 +1119,6 @@ Putrescent Servitude:
 "Père Lachaise, France":
     - "The vampire retrieved need only be in your ash heap. It does not have to be a vampire that you had first controlled. [LSJ 20040812]"
     - "The crypt card on it is out of play and should be face down. [LSJ 20040812]"
-Qadir ul-Ghani:
-    - "The clan he changes to must be another clan than the clan to which he currently belongs. [BCP 20191224]"
 "Rabbat, The Sewer Goddess":
     - "Her hunt ability may be used even when she is at full capacity. One blood goes to your pool directly even if it would have exceeded her capacity. [LSJ 20050331]"
 Rachel Brandywine:
@@ -1496,6 +1496,8 @@ The Name Forgotten:
 The Rack:
     - "May not select a new target just for falling out of contention. [RTR 19960112]"
     - "Will not target a new copy of the same vampire if the original is burned or yielded. [TOM 19960122]"
+    - "Does not give blood to a target that is not controlled (eg. after a {Banishment}). [LSJ 20010623]"
+    - "Tracks the target if it leaves the game by contesting or {Banishment}: if the target gets back into play, The Rack gives it blood again. [LSJ 20010809-2]"
 The Stranger Among Us:
     - "Shuffle your crypt afterwards. [LSJ 20020304-1]"
 The Summoning:
@@ -1573,7 +1575,6 @@ Unseen Hibernation:
     - "[abo] The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 "Ur-Shulgi, The Shepherd":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
-    - "The {Tajdid} that is retrieved from the library is revealed. [BCP 20191224]"
 Uriah Winter:
     - "Can still defect if in torpor, and will remain in torpor if he does so. [RTR 19941109]"
 Vast Wealth:
@@ -1604,9 +1605,9 @@ Vox Senis:
 Wake with Evening's Freshness:
     - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
 Walk-With-Might:
-    - "Only affects the cost of masters played by his controller. [LSJ 20081124]"
+    - "Only affects the cost of masters played by his controller. [LSJ 20081124-1]"
 Walker Grimes:
-    - "His special ability only affects the cost of masters played by his controller. [LSJ 20081124]"
+    - "His special ability only affects the cost of masters played by his controller. [LSJ 20081124-1]"
 Wamukota:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
@@ -1653,8 +1654,6 @@ Yawp Court:
     - "If the acting minion is not ready after the combat, then the action ends and no referendum is conducted. [LSJ 20060902]"
 Young Bloods:
     - "They may use their built-in action against a vampire with only 1 blood. If successful, that vampire burns his 1 blood. [LSJ 20070213]"
-"Zahir, Hand of the Silsila":
-    - "The contract that is retrieved from the library is revealed. [BCP 20191224]"
 Zaire River Ferry:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 Zapaderin:
@@ -1688,3 +1687,20 @@ Ensconced:
     - "[VIS][REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
 Zephyr:
     - "Is played after combat, if any. [ANK 20181219]"
+Andre LeRoux:
+    - "His ability can only be used once per successful bleed. [LSJ 20081123]"
+    - 'It is used in the "would/about to be successful" window like {Spying Mission}. [LSJ 20081123]'
+    - 'Only modifiers and reactions that can be played "when the action/bleed would be successful" can be played after it. [LSJ 20090205]'
+    - "He can use his ability on his own bleed to get (-1 +2) = +1 bleed. [LSJ 20081124-2]"
+Redirection:
+    - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
+Telepathic Misdirection:
+    - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
+My Enemy's Enemy:
+    - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
+Lost in Translation:
+    - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
+Mental Maze:
+    - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
+Autonomic Mastery:
+    - "[DOM] Is a hand strike, and its resolution is simultaneous with the opponent's strike, unlike a normal combat ends strike. The opponent's strike do damage. [LSJ 20071112]"
