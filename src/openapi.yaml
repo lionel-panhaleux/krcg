@@ -9,9 +9,6 @@ info:
     license:
         name: MIT License
         url: https://opensource.org/licenses/MIT
-servers:
-    - url: krcg.herokuapp.com
-      description: Heroku server
 tags:
     - name: Deck
       description: TWDA decks
@@ -28,6 +25,170 @@ components:
                 count: { type: integer }
                 coments: { type: string }
             example: { count: 4, name: Anson }
+        card:
+            type: object
+            required: ["Id", "Name", "Type", "Card Text", "Set", "Artist"]
+            properties:
+                Id:
+                    description: Card ID
+                    type: string
+                    minLength: 1
+                Name:
+                    description: Card name
+                    type: string
+                    minLength: 1
+                Aka:
+                    description: Alternative card name
+                    type: string
+                    minLength: 0
+                Type:
+                    description: Card types
+                    type: array
+                    minLength: 1
+                    items:
+                        description: Type
+                        type: string
+                        minLength: 1
+                Card Text:
+                    description: Card text
+                    type: string
+                    minLength: 1
+                Set:
+                    description: "Sets the card has been edited in"
+                    type: array
+                    minLength: 1
+                    items:
+                        description: "[Set]:[Rarity]"
+                        type: string
+                        minLength: 1
+                Clan:
+                    description: Clan (crypt cards) or clan requirement (library cards)
+                    type: array
+                    minLength: 0
+                    items:
+                        description: Clan name
+                        type: string
+                        minLength: 1
+                Artist:
+                    description: Card artists
+                    type: string
+                    minLength: 1
+                Capacity:
+                    description: Capacity (crypt card) or capacity bonus (library card)
+                    type: string
+                    minLength: 0
+                Discipline:
+                    description: Disciplines requirements (library cards only)
+                    type: array
+                    minLength: 0
+                    items:
+                        description: Discipline name
+                        type: string
+                        minLength: 1
+                Banned:
+                    description: Year of banishment
+                    type: string
+                Pool Cost:
+                    description: Pool cost (library cards only)
+                    type: string
+                    minLength: 0
+                Blood Cost:
+                    description: Blood cost (library cards only)
+                    type: string
+                    minLength: 0
+                Conviction Cost:
+                    description: Conviction cost (library cards only)
+                    type: string
+                    minLength: 0
+                Burn Option:
+                    description: Burn option (library cards only)
+                    type: boolean
+                Flavor Text:
+                    description: Flavor text (library cards only)
+                    type: string
+                    minLength: 0
+                Requirement:
+                    description: Requirement (library cards only)
+                    type: string
+                    minLength: 0
+                Draft:
+                    description: Draft text (library card only)
+                    type: string
+                    minLength: 0
+                Group:
+                    description: Group (crypt cards only) - can be "ANY"
+                    type: string
+                    minLength: 0
+                Disciplines:
+                    description: Disciplines (crypt cards only)
+                    type: array
+                    minLength: 0
+                    items:
+                        description: Discipline trigram
+                        type: string
+                        minLength: 1
+                Title:
+                    description: Title (crypt cards only)
+                    type: string
+                    minLength: 0
+                Rulings:
+                    description: Rulings
+                    type: array
+                    minLength: 0
+                    items:
+                        description: Ruling text
+                        type: string
+                        minLength: 1
+                Rulings Links:
+                    description: Official rulings URLs
+                    type: array
+                    minLength: 0
+                    items:
+                        description: Ruling URL
+                        type: object
+                        required: ["Reference", "URL"]
+                        properties:
+                            Reference:
+                                description: Ruling reference
+                                type: string
+                                minLength: 1
+                            URL:
+                                description: Ruling URL
+                                type: string
+                                format: url
+                                minLength: 1
+            example:
+                Id: "100038"
+                Name: "Alastor"
+                Aka: ""
+                Type: ["Political Action"]
+                Clan: []
+                Discipline: []
+                Pool Cost": ""
+                Blood Cost": ""
+                Conviction Cost: ""
+                Burn Option: False
+                Card Text: |
+                    Requires a justicar or Inner Circle member.
+                    Choose a ready Camarilla vampire. If this referendum is successful,
+                    search your library for an equipment card and place this card
+                    and the equipment on the chosen vampire.
+                    Pay half the cost (round down) of the equipment.
+                    This vampire may enter combat with any vampire
+                    controlled by another Methuselah as a +1 stealth Ⓓ  action.
+                    This vampire cannot commit diablerie. A vampire may have only one Alastor.
+                Flavor Text: ""
+                Set: ["Gehenna:R", "KMW:PAl", "KoT:R"]
+                Requirement: ["justicar", "inner circle"]
+                Banned: ""
+                Artist: "Monte Moore"
+                Capacity: ""
+                Draft: ""
+                Rulings:
+                    - "If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]"
+                Rulings Links:
+                    - Reference: "LSJ 20040518"
+                      URL: "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ"
         deck:
             type: object
             required: ["twda_id", "date", "player", "crypt", "library"]
@@ -287,147 +448,7 @@ paths:
                     description: Successful operation
                     content:
                         application/json:
-                            schema:
-                                type: object
-                                required:
-                                    [
-                                        "Id",
-                                        "Name",
-                                        "Type",
-                                        "Card Text",
-                                        "Set",
-                                        "Artist",
-                                    ]
-                                properties:
-                                    Id:
-                                        description: Card ID
-                                        type: string
-                                        minLength: 1
-                                    Name:
-                                        description: Card name
-                                        type: string
-                                        minLength: 1
-                                    Aka:
-                                        description: Alternative card name
-                                        type: string
-                                        minLength: 0
-                                    Type:
-                                        description: Card types
-                                        type: array
-                                        minLength: 1
-                                        items:
-                                            description: Type
-                                            type: string
-                                            minLength: 1
-                                    Card Text:
-                                        description: Card text
-                                        type: string
-                                        minLength: 1
-                                    Set:
-                                        description: "Sets the card has been edited in"
-                                        type: array
-                                        minLength: 1
-                                        items:
-                                            description: "[Set]:[Rarity]"
-                                            type: string
-                                            minLength: 1
-                                    Clan:
-                                        description: Clan (crypt cards) or clan requirement (library cards)
-                                        type: array
-                                        minLength: 0
-                                        items:
-                                            description: Clan name
-                                            type: string
-                                            minLength: 1
-                                    Artist:
-                                        description: Card artists
-                                        type: string
-                                        minLength: 1
-                                    Capacity:
-                                        description: Capacity (crypt card) or capacity bonus (library card)
-                                        type: string
-                                        minLength: 0
-                                    Discipline:
-                                        description: Disciplines requirements (library cards only)
-                                        type: array
-                                        minLength: 0
-                                        items:
-                                            description: Discipline name
-                                            type: string
-                                            minLength: 1
-                                    Banned:
-                                        description: Year of banishment
-                                        type: string
-                                    Pool Cost:
-                                        description: Pool cost (library cards only)
-                                        type: string
-                                        minLength: 0
-                                    Blood Cost:
-                                        description: Blood cost (library cards only)
-                                        type: string
-                                        minLength: 0
-                                    Conviction Cost:
-                                        description: Conviction cost (library cards only)
-                                        type: string
-                                        minLength: 0
-                                    Burn Option:
-                                        description: Burn option (library cards only)
-                                        type: boolean
-                                    Flavor Text:
-                                        description: Flavor text (library cards only)
-                                        type: string
-                                        minLength: 0
-                                    Requirement:
-                                        description: Requirement (library cards only)
-                                        type: string
-                                        minLength: 0
-                                    Draft:
-                                        description: Draft text (library card only)
-                                        type: string
-                                        minLength: 0
-                                    Group:
-                                        description: Group (crypt cards only) - can be "ANY"
-                                        type: string
-                                        minLength: 0
-                                    Disciplines:
-                                        description: Disciplines (crypt cards only)
-                                        type: array
-                                        minLength: 0
-                                        items:
-                                            description: Discipline trigram
-                                            type: string
-                                            minLength: 1
-                                    Title:
-                                        description: Title (crypt cards only)
-                                        type: string
-                                        minLength: 0
-                                    Rulings:
-                                        description: Rulings
-                                        type: array
-                                        minLength: 0
-                                        items:
-                                            description: Ruling text
-                                            type: string
-                                            minLength: 1
-                                    Rulings Links:
-                                        description: Official rulings URLs
-                                        type: array
-                                        minLength: 0
-                                        items:
-                                            description: Ruling URL
-                                            type: object
-                                            required: ["Reference", "URL"]
-                                            properties:
-                                                Reference:
-                                                    description: Ruling reference
-                                                    type: string
-                                                    minLength: 1
-                                                URL:
-                                                    description: Ruling URL
-                                                    type: string
-                                                    format: url
-                                                    minLength: 1
-                            example: { "Obedience" }
+                            schema: { $ref: "#/components/schemas/card" }
                 "404":
                     description: Not found
     /deck:
