@@ -24,13 +24,20 @@ class KRCG(Flask):
         if not vtes.VTES:
             vtes.VTES.load_from_vekn(save=False)
         vtes.VTES.configure()
-        self.completion_trie = collections.defaultdict(set)
-        for name, card in vtes.VTES.items():
-            if not isinstance(name, str):
+        self.completion_trie = collections.defaultdict(
+            lambda: collections.defaultdict(int)
+        )
+        for card_id, card in vtes.VTES.items():
+            if not isinstance(card_id, int):
                 continue
-            for part in name.split(" "):
-                for i in range(3, len(part) + 1):
-                    self.completion_trie[part[:i]].add(vtes.VTES.get_name(card))
+            name = vtes.VTES.get_name(card)
+            for e, part in enumerate(name.lower().split()):
+                for i in range(1, len(part) + 1):
+                    self.completion_trie[part[:i]][name] += (
+                        # double score for matching name start
+                        i
+                        * (2 if e == 0 else 1)
+                    )
 
         threading.Thread(target=init_twda).start()
         super().__init__("krcg", template_folder=".")
@@ -119,14 +126,22 @@ def deck_by_id(twda_id):
 @app.route("/complete/<text>", methods=["GET"])
 def complete(text):
     return jsonify(
-        sorted(
-            functools.reduce(
-                lambda x, y: x & y if x and y else x | y,
-                [
-                    app.completion_trie.get(part.lower(), set())
-                    for part in text.split(" ")
-                ],
-                set(),
+        [
+            x[0]
+            for x in sorted(
+                functools.reduce(
+                    lambda x, y: (
+                        {k: v + y[k] for k, v in x.items() if k in y}
+                        if x and y
+                        else x or y
+                    ),
+                    [
+                        app.completion_trie.get(part.lower(), dict())
+                        for part in text.split()
+                    ],
+                    dict(),
+                ).items(),
+                key=lambda x: (-x[1], x[0]),
             )
-        )
+        ]
     )

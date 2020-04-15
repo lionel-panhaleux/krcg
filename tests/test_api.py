@@ -26,7 +26,22 @@ def test_complete(client):
     assert response.json == []
     response = client.get("/complete/unn")
     assert response.status_code == 200
-    assert response.json == ["The unnamed", "Unnatural Disaster"]
+    assert response.json == ["Unnatural Disaster", "The unnamed"]
+    response = client.get("/complete/pentex")
+    assert response.status_code == 200
+    assert response.json == [
+        "Pentex(TM) Loves You!",
+        "Pentex(TM) Subversion",
+        "Enzo Giovanni, Pentex Board of Directors",
+        "Enzo Giovanni, Pentex Board of Directors (ADV)",
+        "Harold Zettler, Pentex Director",
+    ]
+    response = client.get("/complete/the%20ru")
+    assert response.status_code == 200
+    assert response.json == [
+        "The Rumor Mill, Tabloid Newspaper",
+        "Darvag, The Butcher of Rus",
+    ]
 
 
 def test_card(client):

@@ -5,6 +5,7 @@ Changelog
 -----------------
 
 - Include 2020 rulings from VEKN forum.
+- Fixed completion API: match all words, better match are returned first.
 
 
 0.16 (2020-04-13)
