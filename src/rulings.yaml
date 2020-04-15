@@ -366,7 +366,7 @@ Claiming the Body:
 Clan Impersonation:
     - "Changing clan does not remove any slave status. [LSJ 20030511]"
     - "Changes the sect of the target to the default sect of the clan. [LSJ 20001011]"
-    - "Is a temporary effect that overrides the underlying clan and sect. The most recent override takes precendence. It stays active if another effect changes the underlying sect, like using the default action to become Anarch. [LSJ 20100811] [ANK 20190619]"
+    - "When removed, the vampire goes back ot its underlying clan, and the default sect of that clan (even if he was from another sect before). [ANK 20200415-2]"
     - "If the target changes clan or sect to a clan or sect inappropriate for his title, he loses its benefit until his clan or sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 Claws of the Dead:
     - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike [RTR 19960112]"
@@ -474,6 +474,7 @@ Derange:
     - "The clan is set when the card is played, it does not depend on the clan of the vampire that has the card on them. [LSJ 20070707]"
     - "Changes the sect of the target to the default sect of the clan. [LSJ 20001011]"
     - "If the target changes clan or sect to a clan or sect inappropriate for his title, he loses its benefit until his clan or sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
+    - "When removed, the vampire goes back ot its underlying clan, and the default sect of that clan (even if he was from another sect before). [ANK 20200415-2]"
 Descent into Darkness:
     - "Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]"
 Detect Authority:
@@ -622,13 +623,15 @@ Faerie Wards:
 Falcon's Eye:
     - "Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]"
 Fall of the Camarilla:
-    - 'Once the card is out of play (by ousting the controller, for instance), the underlying sect of the vampires is again "active". [LSJ 20040519]'
+    - "Cards that change a vampire's sect to Camarilla can still be played, but he becomes Independant until the Fall is removed from play. [LSJ 20040519]"
     - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Camarilla, it sets it to Independant instead while the Fall is in play. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]"
-    - "Vampires with a Camarilla title lose the benefit from it until they becomre Camarilla again. They immediately yields the title if it is contested or if they receives a new one. [LSJ 20060904]"
+    - "Vampires with a Camarilla title lose the benefit from it until they becomre Camarilla again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]"
 Fall of the Sabbat:
-    - 'Once the card is out of play (by ousting the controller, for instance), the underlying sect of the vampires is again "active". [LSJ 20040519]'
+    - "Cards that change a vampire's sect to Sabbat can still be played, but he becomes Independant until the Fall is removed from play. [LSJ 20040519]"
     - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Sabbat, it sets it to Independant instead while the Fall is in play. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]"
-    - "Vampires with a Sabbat title lose the benefit from it until they becomre Sabbat again. They immediately yields the title if it is contested or if they receives a new one. [LSJ 20060904]"
+    - "Vampires with a Sabbat title lose the benefit from it until they becomre Sabbat again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]"
+Gratiano:
+    - "If {Fall of the Sabbat} is in play, Priscii do not benefit from their title and have no ballot. The Priscii subreferendum still happens and Gratiano benefits from his bonus ballot. [LSJ 20040519]"
 Familial Bond:
     - "Cannot be played if intercept is not required (as per the rules, section 6.2.2). [ANK 20200329]"
 Fantasy World:
@@ -1817,8 +1820,8 @@ The Barrens:
 The Book of Going Forth by Night:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 The Capuchin:
-    - "If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20160404] [ANK 20200415]"
-    - "If his controller is not his original owner and he burns, he goes to his owner ash heap, breaking all temporary control effect, then to his last permanent controller's uncontrolled area. [ANK 20200130-2] [ANK 20200415]"
+    - "If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20160404] [ANK 20200415-1]"
+    - "If his controller is not his original owner and he burns, he goes to his owner ash heap, breaking all temporary control effect, then to his last permanent controller's uncontrolled area. The Methusalah who was controlling him when he burned gets the additional transfers. [ANK 20200130-2] [ANK 20200415-1]"
 The Eldest Command Undeath:
     - "If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]"
 The Embrace:
