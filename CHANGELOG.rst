@@ -6,25 +6,23 @@ Changelog
 
 - Include 2020 rulings from VEKN forum.
 - Fixed completion API: match all words, better match are returned first.
-
+- API: Cards can now be fetched by ID
+- Added general rulings applying to multiple cards
 
 0.16 (2020-04-13)
 -----------------
 
 - Update rulings.
 
-
 0.15 (2020-04-11)
 -----------------
 
 - Additional rulings.
 
-
 0.14 (2020-04-10)
 -----------------
 
 - Upgrade runtime to Python 3.8.2
-
 
 0.13 (2020-04-10)
 -----------------
@@ -47,19 +45,16 @@ Changelog
 
 - API: reintroduce the "Id" field for cards
 
-
 0.10 (2020-02-27)
 -----------------
 
 - Fix OpenAPI /deck endpoint
 - Update VEKN cards file (2020-02-27)
 
-
 0.9 (2020-02-27)
 ----------------
 
 - Check the validity of VEKN responses
-
 
 0.8 (2020-01-24)
 ----------------
@@ -76,7 +71,6 @@ Changelog
 - New API, more RESTful, more consistent
 - Fixed a 404 when searching for very widespread cards (eg. Pentex) would fail
 - Now using OpenAPI & Swagger UI
-
 
 0.6 (2020-01-21)
 ----------------
@@ -102,25 +96,21 @@ Changelog
 - Better parsing of comments in decks
 - Inline cards comments are now retrieved and displayed
 
-
 0.4 (2019-09-08)
 ----------------
 
 - No more warning spam by default when loading TWDA (use the --verbose option)
 - The build command now correctly uses --fom and --to options.
 
-
 0.3 (2019-09-07)
 ----------------
 
 - Fix "ModuleNotFoundError: No module named 'src'" error for pip install.
 
-
 0.2 (2019-09-07)
 ----------------
 
 - Fix setup classifier for a clean release
-
 
 0.1 (2019-09-07)
 ----------------
