@@ -1,13 +1,30 @@
+.44 Magnum:
+    - "Provides only ony maneuver each combat, even if the bearer changes. [LSJ 19980302-2]"
 Aaron's Feeding Razor:
     - "The effect is not optional. [RTR 19980707] [LSJ 19980722]"
-    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519]"
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
+Abactor:
+    - '"Successful resolution" means the action must not be blocked and the vampire must have gained blood. If the vampire cannot gain blood (eg., {Vampiric Disease}, {Ex Nihilo}), the blood hunt is not called even if the action is not blocked. [LSJ 20090411]'
+    - "This is not a diablerie. Neither {Rebirth} nor {Carlton Van Wyk}'s ability can be used. [LSJ 20090724]"
+    - "The Blood Hunt referendum is still a Blood Hunt: {Lay Low} can be used, {Trophy: Diablerie} would prevent the referendum, as well as vampires abilities like {Ariadne}. [LSJ 20091026] [LSJ 20100112] [ANK 20200212]"
+    - 'The Blood Hunt referendum is part of the action resolution. Cards that are played "after a successful action" or "after resolution" must be played after the referendum.. [LSJ 20100112]'
+Abandoning the Flesh:
+    - "Will not trigger the {Soul Gem of Etrius} since the vampire is removed from the game instead of being burned. [LSJ 20021010]"
 Abbot:
     - 'The +1 intercept bonus continues to apply once in play if the action was played by a minion acting "as a Sabbat vampire" when taking the action, even if he is not. [ANK 20200228-1]'
+Abjure:
+    - "Can be used by an incapacitated Imbued. [LSJ 20081016]"
 Ablative Skin:
     - "Cannot be used to prevent damage that cannot be prevented by cards that require Fortitude. [LSJ 19990216]"
-Absilmilard's Army:
-    - "The card used to represent the ally brought into play is face up, but the name on that card is ignored if something goes looking for a card by name. [LSJ 20040623]"
+Abombwe:
+    - "The requirements are ignored if the card is not played in the normal fashion (eg. diablerie or {Bima}). [LSJ 20051116-2]"
+Abomination:
+    - "Can be played by burning a werewolf that has been recruited the same turn. [RTR 20180303]"
+    - "If the Abomination is contested, the werewolf is still burned in order to play it. [LSJ 20060604]"
 Absimiliard's Army:
+    - "Putting the top card of your library in play as a ghoul does not count as playing the card. [LSJ 20040531]"
+    - "The card used to represent the ally is face up, but the name on that card is ignored if something goes looking for a card by name. They do not contest. [LSJ 20040623] [LSJ 20071003]"
+    - "A burned ghoul is removed from the game but is still burned first, triggering cards such as {Tension in the Ranks}. [LSJ 20090920]"
     - "The Ghouls are not mortal, they are monsters. [ANK 20200203-2]"
 Absorb the Mind:
     - "Can be played against a vampire with no blood. [RTR 20010711]"
@@ -16,12 +33,18 @@ Abyssal Hunter:
 Achilles' Heel:
     - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Aching Beauty:
-    - "If an Aching Beauty vampire is blocked and the combat is canceled, the blocker's controller still loses a pool. [RTR 19991206]"
+    - "The pool loss occurs if the block would be successful, even if the action is ended (eg. {Change of Target} or {Obedience}) or made unblockable ({Horrific Countenance}) at this point. [RTR 19991206] [LSJ 20091125]"
     - "The cost is cumulative if a vampire has multiple copies of the card on him. [LSJ 19980225]"
 Aeron:
     - "The damage inflicted by his ability is environmental. [RTR 19970630] [LSJ 20070328]"
+"Agaitas, The Scholar of Antiquities":
+    - "Additional draws are not subject to his ability (eg. {Infernal Pursuit}). [LSJ 20011202]"
+    - "If Agaitas is burned while cards owned by your prey are still face-up in front of you, you can still play and discard them as normal, but you cannot draw in your prey's library until you control Agaitas anew. [LSJ 20100304]"
 Agent of Power:
+    - "Provides a discipline even when it is not played in the normal fashion (eg. diablerie, {Deviki Presanta}, {Bima}). [LSJ 20071001-1]"
     - 'If it is used as a placeholder to represent something else, then its text does not apply, including the "Unique" part. A {Shock Troops} vampire would simply be a 1-cap Sabbat with no clan and no discipline. [LSJ 20071001-1]'
+    - "If you play Agent of Power on a vampire and that vampire plays a {Dual Form} at superior [PRO], the Dual Form gains the Discipline provided by the Agent of Power and keeps it once the Agent of Power burns. [LSJ 20071005]"
+    - "When put on a {Bima} it is into play, the card text applies and it is Unique. [LSJ 20100422]"
 Akram:
     - 'If his ability is used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
     - "His ability cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
@@ -30,6 +53,8 @@ Alastor:
 Alexandra:
     - "Can use her unlock ability at any point during the turn, including during a political action. [TOM 19960214]"
     - "If she locks a Toreador who was attempting to block, then that block will fail. [TOM 19951007] [LSJ 19991025]"
+Amadeo:
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
 Amaranth:
     - 'Performing diablerie at the end of the combat that is ended by a "combat ends and the action continues as if unblocked" effect will nullify the "continue action" part. [LSJ 19980819]'
     - "If a vampire is prohibited from commiting diablerie, he cannot use Amaranth to overcome the restriction. [RTR 19991001]"
@@ -90,6 +115,8 @@ Archon:
 Archon Investigation:
     - "It must be played after blocks are declined. Playing it implicitly declines block. [LSJ 20070203]"
     - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
+Ariadne:
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
 Arika:
     - "Arika's prey cannot end her unlock phase if she controls a location that she hasn't burned a pool for, even if she gained control of that location during that unlock phase. [LSJ 19990405]"
 Arishat:
@@ -437,7 +464,7 @@ Delaying Tactics:
     - "If played on a referendum called by a {Charming Lobby}, the political action card (if any) is retrieved, not the {Charming Lobby} card. [LSJ 20030426]"
     - "Will only retrieve a political action card played from the hand. It won't retrieve an in-play {Rumors of Gehenna} in the referendum to burn it, for example. [LSJ 20041130]"
 Demdemeh:
-    - 'The animal retainers turned into allies keep their current life counters and remember their original "starting life", for effects that notice "starting life". The retainers'' special abilities are lost. [LSJ 20051116]'
+    - 'The animal retainers turned into allies keep their current life counters and remember their original "starting life", for effects that notice "starting life". The retainers'' special abilities are lost. [LSJ 20051116-1]'
 Democritus:
     - "Does not affect the cost to contest titles, since it is paid in vampire blood, not pool. [RTR 19950509]"
 Depravity:
@@ -577,7 +604,7 @@ Ex Nihilo:
     - "The vampire with it cannot decide to burn due to Ex Nihilo's card text if he or she can burn the blood during the unlock phase. [PIB 20121013]"
     - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
 Excellent Thirst:
-    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519]"
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
 Extortion:
     - "Is usable by a locked vampire [LSJ 20010725]"
 Extremis Boon:
@@ -617,6 +644,7 @@ Fast Reaction:
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 Festivo dello Estinto:
     - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 Field Training:
     - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
     - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
@@ -673,6 +701,8 @@ Form of Mist:
     - '[PRO] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[PRO] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
     - '[PRO] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost and the blood is not paid. [LSJ 19980109] [RTR 20020501] [LSJ 20031123]'
+Foul Blood:
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 Fractured Armament:
     - "Cannot be used if there is no equipment to destroy. [RTR 19980928]"
     - "[pot] Is not a damaging strike. [LSJ 19970225]"
@@ -774,7 +804,7 @@ Hand of Conrad:
 Hard Case:
     - "The block needs to be successful, so the blocking minion is locked. [ANK 20190708]"
 Harvest Rites:
-    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519]"
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
 Haven Hunting:
     - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
     - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
@@ -794,6 +824,8 @@ Hellhound:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 Herald of Topeth:
     - 'Can use {Charming Lobby} to call a referendum "as a vampire". [RTR 20020501]'
+Hesha Ruhadze:
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
 Hidden Lurker:
     - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
     - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
@@ -818,12 +850,17 @@ Horrid Reality:
     - "If no weapon can be found, the cost is still paid. [TOM 19951212-1]"
     - "If the weapon retrieved has requirements that the vampire does not meet, then it is burned. [RTR 20010710]"
     - "If a copy of a unique card already in play is retrieved, then the weapon is contested until the end of combat. It becomes uncontested during the next appropriate unlock phase. [TOM 19951212-1]"
+Hospital Food:
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
+    - "The action is successful even if no blood is gained. [LSJ 20050720-2]"
 Hostile Takeover:
     - "The bidding is conducted in an open format, similar to a referendum. The player who played the card conducts the auction. [LSJ 19990104]"
 Hrothulf:
     - "Only burns the Edge if the action is successful. [LSJ 20030519]"
 Hukros:
     - "He can accumulate as many cards as he likes with his special, at the rate of one each unlock. [LSJ 20070320-2]"
+Hunger Moon:
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 Ian Forestal:
     - "His ability can be used to meet one (not both) of the normal Discipline requirements of a multi-Discipline card. [LSJ 20011217]"
 Ignore the Searing Flames:
@@ -843,6 +880,8 @@ Ilomba:
     - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 Imanna:
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Immaculate Vitae:
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 Immortal Grapple:
     - "If a minion is committed to using a strike other than a hand strike (e.g. used a maneuver from a gun), then he gets no strike. [TOM 19951217]"
 Improvised Flamethrower:
@@ -853,6 +892,7 @@ Impundulu:
     - "Can use his action on a vampire with no blood. [RTR 20010711]"
 "Inbase Discotek, Frankfurt":
     - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 Increased Strength:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - 'The additional damage is the same type as the strike"s damage, not the base damage [RTR 19970630]'
@@ -941,6 +981,8 @@ King of the Mountain:
     - "[FOR] Damage dealt to the opponent is environmental. [RTR 19970630] [LSJ 19970801]"
 Kraken's Kiss:
     - "[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]"
+Kyoko:
+    - "Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor})."
 Kyoko Shinsegawa:
     - "The action provided is a hunt action and benefit from hunt bonuses. [LSJ 20030311] [LSJ 20090113-2]"
     - "If other hunt actions are granted, she may choose from among those options. [LSJ 20060306]"
@@ -1075,6 +1117,7 @@ Marthe Dizier:
     - "Her ability can only move cards from the ash heap that were played in the normal manner. If the card was put in play in some other way, it cannot be retrieved by her special. [LSJ 20041119]"
     - "A card cancelled as it is played is still considered played, she can retrieve it. [LSJ 19980212] [ANK 20190701]"
 Martyr's Resilience:
+    - "Can be used by a vampire in torpor. [LSJ 20020416]"
     - "[AUS][FOR] Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
 Mask of a Thousand Faces:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
@@ -1088,6 +1131,7 @@ Masochism:
     - "[FOR] The additional counter is added after the presses are handled. It is added if the round ends prematurely and conditions are met. [RTR 20030519]"
 Masquerade Endangered:
     - "Multiple copies may be played by different Methusalahs after a single action, but all would be burned during the vampire's next unlock phase. [TOM 19950921]"
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 Masquerade Enforcement:
     - "Does not affect merging (base with advanced vampire cards). [LSJ 20030527]"
 Mass Reality:
@@ -1183,6 +1227,8 @@ Murder of Crows:
     - "Do not gain any additional strikes of its controller. [RTR 19941109]"
     - "The number of lives is set when it is recruited and will not change if its controller's level of Animalism changes. [RTR 19941109]"
     - "Are neither mortal nor monster. [ANK 20200203-2] [LSJ 20060515]"
+"Mustafa, The Heir":
+    - "If two Methuselahs want to use abilities to alter Mustafa's votes at the same time, whoever uses the ability first has priority. Whoever uses it last has the final say on his votes. [LSJ 20090304-2]"
 My Enemy's Enemy:
     - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
     - "[AUS] Can be played if there is only two players in the game. The target of the bleed is unchanged, there is no new block opportunity. [LSJ 20060525]"
@@ -1337,7 +1383,7 @@ Protected Resources:
     - "Does not alter the bleed amount: it merely limits the maximum amount of pool the target of the bleed burns for the successful bleed. [LSJ 20030211]"
     - "If you perform a bleed action that resolves as a bleed for 0, you don't burn your Protected Resources. [LSJ 20030701-1]"
 Proxy Kissed:
-    - "Can be played on a vampire who already has a Proxy Kissed (and was moved to uncontrolled and re-influenced). [LSJ 20050720]"
+    - "Can be played on a vampire who already has a Proxy Kissed (and was moved to uncontrolled and re-influenced). [LSJ 20050720-1]"
 Psyche!:
     - '[CEL] If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
     - "[CEL] Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
@@ -1421,6 +1467,8 @@ Resilience:
     - "Prevents up to 3 non-aggravated damage, it can be used to prevent less. [RTR 20041202]"
 Resilient Mind:
     - "Can be used when a {Form of Corruption} is put into play to protect that vampire from that {Form of Corruption}. [LSJ 20031223]"
+Restricted Vitae:
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 Restructure:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 Resurrection:
@@ -1444,7 +1492,7 @@ Riposte:
     - "[cel] [CEL] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
     - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20130319]"
 Ritual Scalpel:
-    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519]"
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
 Rowan Ring:
     - "Adding damage to the Ring strike will not deal damage. [RTR 19960221]"
 Ruins of Ceoris:
@@ -1482,6 +1530,8 @@ San Nicolás de los Servitas:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 Sargon:
     - "His controller gets the Edge after the effects of the successful action are applied. If it is a referendum, he gets the Edge after the referendum is concluded. [LSJ 20011222]"
+Save Face:
+    - "Can be used by a vampire in torpor. [LSJ 20020416]"
 Scarlet Lore:
     - "[nec] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 Scattershot:
@@ -1503,7 +1553,7 @@ Secret Horde:
 Secure Haven:
     - "All Methuselahs, including the target vampire's controller, must pay one extra pool when playing Master cards on the target minion. [TOM 19951208-1]"
     - "Adds one to the cost of the master card targetting the vampire, cost reductions from other effects do apply. [LSJ 20070829-1]"
-    - 'Only directed actions targeting the minion are restricted. Actions that target retainers, equipment, or other cards on the minion are allowed, as are actions that target cards not on the minion, even if such cards have "named" or "chosen" that minion. [TOM 19951208-1] [LSJ 19980302]'
+    - 'Only directed actions targeting the minion are restricted. Actions that target retainers, equipment, or other cards on the minion are allowed, as are actions that target cards not on the minion, even if such cards have "named" or "chosen" that minion. [TOM 19951208-1] [LSJ 19980302-1]'
     - "If contested, it will not be burned when the target (vampire) goes to torpor, nor will it be burned if it enters play while the target vampire is in torpor. [RTR 19960124]"
     - 'Cards that "choose" the vampire like {The Rack}, {Toreador Grand Ball} or {Piper} are considered targetting it, their cost is increased. [LSJ 20031010] [LSJ 20090319]'
 Selective Silence:
@@ -1604,6 +1654,8 @@ Sniper Rifle:
     - "If a Slave locks to enter combat instead of a blocking minion, he cannot use the Rifle to set the range [ANK 20200115]"
 Soak:
     - "Prevents up to 2 or 4 non-aggravated damage, it can prevent less. [RTR 20041202]"
+Songs of the Distant Vitae:
+    - "[QUI] A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 Sonja Blue:
     - '"block as an ally" only affects the "who can block this action" check. She can play cards that require Disicplines when blocking "as an ally". [LSJ 20050224-1]'
     - "{The Unmasking} will not give her intercept. [LSJ 20060503]"
@@ -1662,7 +1714,8 @@ Stutter-Step:
 Succubus:
     - "Can use her action on a vampire with no blood. [RTR 20010711]"
 Succulent Vitae:
-    - "[QUI] The hunt bonus applies to non-standard hunt actions. [RTR 20030519]"
+    - "[QUI] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 Sudden Reversal:
     - "Can only burn master cards that are played from the hand in the normal fashion. [RTR 20001020]"
 Summon History:
@@ -1689,11 +1742,14 @@ Synesios:
     - "His ability do not allow his owner to play more than one Master: Out of Turn between two master phases. [ANK 20191004]"
 Tainted Spring:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+Tainted Vitae:
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
 "Talaq, The Immortal":
     - "While he can play cards that require [qui] or [tha], he does not actually have those Disciplines. He does not benefit from {Tremere Convocation}, for example. [LSJ 19980303]"
 Talbot's Chainsaw:
     - "Using the Chainsaw action to enter combat or preventing damage with it does not force the minion to strike with it. [LSJ 19971215]"
-    - "The damage inflicted during the unlock phase is weapon damage. Only combat damage can be environmental. [LSJ 20090304] [PIB 20110216]"
+    - "The damage inflicted during the unlock phase is weapon damage. Only combat damage can be environmental. {Mictlantecuhtli} can be chosen and would take no damage. [LSJ 20090304-1] [PIB 20110216]"
 Talith:
     - 'The "strike: destroy weapon" cannot be chosen if there is no weapon to destroy. [RTR 19980928]'
 "Talley, the Hound":
@@ -1745,7 +1801,10 @@ Terrorists:
 Thanks for the Donation:
     - "If your prey cannot afford to contest, she pays what she has, she is ousted, and you still yield. [RTR 20010710]"
 The Admonitions:
-    - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
+    - 'Cannot be used when a card is played, to draw a card that would cancel it "as it is played". [RTR 20040501]'
+    - "If you are the only Methuselah to control a Sabbat vampire, you keep control of The Admonitions each turn. [LSJ 20031121]"
+The Anarch Free Press:
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 "The Ankara Citadel, Turkey":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 The Art of Love:
@@ -1777,8 +1836,10 @@ The Ghouls of Plaza Morería:
 The Grandest Trick:
     - 'The vampire as an ally has no "starting life" trait so {Vagabond Mystic} cannot give him life. [LSJ 20011214-1]'
     - 'If the vampire has an ability to play Discipline-requiring cards "as if" he has that Discipline ({Ian Forestal}, for example), then the vampire may use that ability even while he is treated as an ally. In that case, he is treated just as an ally with that ability would be treated (spends life for blood costs, for example). Similarly for {Mata Hari}''s ability. [LSJ 20070301]'
+The Guruhi Are the Land:
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
 The Hungry Coyote:
-    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519]"
+    - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
 "The Khabar: Honor":
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 The Kiss of Ra:
@@ -1927,6 +1988,9 @@ Walker Grimes:
 Wamukota:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
+Wanderer's Counsel:
+    - "[ACTION MODIFIER] A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
+    - "[ACTION MODIFIER] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [ANK 20180511]"
 War Ghoul:
     - "If you have no other allies and no retainers in play when it is recruited, then you burn it. [RTR 19961113]"
 Wash:
@@ -1972,6 +2036,8 @@ Writ of Acceptance:
     - "The effect is not optional. [RTR 19980707]"
     - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence. It stays active if another effect changes the underlying sect, like using the default action to become Anarch. [LSJ 20100811] [ANK 20190619]"
     - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
+XTC-Laced Blood:
+    - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 Xaviar:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 "Xeper, Sultan of Lepers":
