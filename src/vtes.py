@@ -26,6 +26,12 @@ logger = logging.getLogger()
 
 
 def _get_runling_links(links_dict, text):
+    """Yield ruling references and links from a dict of links and a ruling text
+
+    Args:
+        links_dict (dict): {reference: url} of rulings
+        text (str): A ruling with one or more ruling references like [ZZZ 20000101]
+    """
     references = re.findall(r"\[[a-zA-Z]+\s[0-9-]+\]", text)
     if not references:
         warnings.warn(f"no reference in ruling: {text}")
@@ -42,6 +48,8 @@ class _VTES(dict):
     """
 
     def _yaml_get_card(self, text):
+        """Get a card from a YAML card reference (id|Name)
+        """
         card_id, card_name = text.split("|")
         card_id = int(card_id)
         if self.get_name(self[card_id]) != card_name:
@@ -53,6 +61,9 @@ class _VTES(dict):
 
     def load_from_vekn(self, save=True):
         """Load the card database from vekn.net, with rulings
+
+        Args:
+            save (bool) : If True, card list is pickled to be retrieved faster later on.
         """
         self.clear()
         r = requests.request("GET", config.VEKN_VTES_URL)
