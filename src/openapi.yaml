@@ -1,7 +1,7 @@
 openapi: "3.0.3"
 info:
     title: "KRCG"
-    version: "0.17"
+    version: "0.18"
     description: "**V:tES** cards and decks based on VEKN resources, including the [TWDA](http://www.vekn.fr/decks/twd.htm)."
     contact:
         name: "KRCG"
@@ -431,18 +431,18 @@ components:
                                   },
                               ]
 paths:
-    /card/{name}:
+    /card/{name_or_id}:
         get:
             tags: [Card]
             summary: Get card text and rulings
             description: Return the matching card information
             parameters:
-                - name: name
+                - name: name_or_id
                   in: path
                   required: true
                   schema:
                       type: string
-                      description: "Card name"
+                      description: "Card name or ID"
             responses:
                 "200":
                     description: Successful operation

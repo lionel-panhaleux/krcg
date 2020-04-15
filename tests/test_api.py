@@ -74,6 +74,9 @@ def test_card(client):
             }
         ],
     }
+    id_response = client.get("/card/100038")
+    assert id_response.status_code == 200
+    assert id_response.json == response.json
 
 
 def test_deck(client):

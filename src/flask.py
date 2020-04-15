@@ -71,6 +71,10 @@ def openapi():
 @app.route("/card/<text>", methods=["GET"])
 def card(text):
     try:
+        text = int(text)
+    except ValueError:
+        pass
+    try:
         return jsonify(vtes.VTES[text])
     except KeyError:
         return "Card not found", 404
