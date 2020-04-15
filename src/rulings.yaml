@@ -287,6 +287,7 @@ Catatonic Fear:
     - "[PRE] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [LSJ 20071011] [ANK 20150821]"
 Cats' Guidance:
     - "[ani] Is played after combat [RTR 19980623]"
+    - "[ani] Can not be played if the vampire is in torpor, for example if he went into torpor during the combat resulting from the block. [LSJ 20000103]"
 Cauldron of Blood:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Celestial Harmony:
