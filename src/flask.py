@@ -26,6 +26,8 @@ class KRCG(Flask):
         vtes.VTES.configure()
         self.completion_trie = collections.defaultdict(set)
         for name, card in vtes.VTES.items():
+            if not isinstance(name, str):
+                continue
             for part in name.split(" "):
                 for i in range(3, len(part) + 1):
                     self.completion_trie[part[:i]].add(vtes.VTES.get_name(card))

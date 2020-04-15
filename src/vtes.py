@@ -14,6 +14,7 @@ import re
 import requests
 import tempfile
 import textwrap
+import warnings
 import zipfile
 
 import unidecode
@@ -27,7 +28,7 @@ logger = logging.getLogger()
 class _VTES(dict):
     """VTES cards database that matches incomplete or misspelled card names.
 
-    Keys are lower case card names.
+    Keys are lower case card names and card Ids.
     Contains both crypt and library cards in a single dict.
     """
 
@@ -49,12 +50,25 @@ class _VTES(dict):
         links = yaml.safe_load(open(config.RULINGS_LINK_FILE, "r"))
         card_rulings = yaml.safe_load(open(config.RULINGS_FILE, "r"))
         for card, rulings in card_rulings.items():
-            self[card].setdefault("Rulings", []).extend(rulings)
-            self[card].setdefault("Rulings Links", [])
-            for ruling in rulings:
-                for reference in re.findall(r"\[[a-zA-Z]*\s[0-9-]*\]", ruling):
+            card_id, card_name = card.split("|")
+            card_id = int(card_id)
+            if self.get_name(self[card_id]) != card_name:
+                warnings.warn(
+                    f"rulings: {card_id} listed as {card_name} "
+                    f"instead of {self.get_name(self[card_id])}"
+                )
+            self[card_id].setdefault("Rulings", []).extend(rulings)
+            self[card_id].setdefault("Rulings Links", [])
+            for i, ruling in enumerate(rulings):
+                references = re.findall(r"\[[a-zA-Z]+\s[0-9-]+\]", ruling)
+                if not len(references):
+                    warnings.warn(
+                        f"no reference for ruling #{i} "
+                        f"on card #{card_id}|{self.get_name(self[card_id])}"
+                    )
+                for reference in references:
                     reference = reference[1:-1]
-                    self[card].setdefault("Rulings Links", []).append(
+                    self[card_id].setdefault("Rulings Links", []).append(
                         {"Reference": reference, "URL": links[reference]}
                     )
         pickle.dump(self, open(config.VTES_FILE, "wb"))
@@ -68,7 +82,8 @@ class _VTES(dict):
         Args:
             key (str): the card to search for
         """
-        key = key.lower()
+        if isinstance(key, str):
+            key = key.lower()
         try:
             return super().__getitem__(key)
         except KeyError:
@@ -83,16 +98,17 @@ class _VTES(dict):
     def __contains__(self, key):
         """Also use config.REMAP and difflib on "in" tests
         """
-        key = key.lower()
+        if isinstance(key, str):
+            key = key.lower()
         return (
             super().__contains__(key) or key in config.REMAP or self._fuzzy_match(key)
         )
 
     def __setitem__(self, key, value):
-        return super().__setitem__(key.lower(), value)
+        return super().__setitem__(key.lower() if isinstance(key, str) else key, value)
 
     def __delitem__(self, key, value):
-        return super().__setitem__(key.lower(), value)
+        return super().__setitem__(key.lower() if isinstance(key, str) else key, value)
 
     def configure(self):
         """Add alternative names for some cards
@@ -106,6 +122,10 @@ class _VTES(dict):
         return id(self)
 
     @functools.lru_cache()
+    def all_card_names_variants(self):
+        return [k for k in self.keys() if isinstance(k, str)]
+
+    @functools.lru_cache()
     def _fuzzy_match(self, name):
         """Use difflib to match incomplete or misspelled names
 
@@ -117,8 +137,12 @@ class _VTES(dict):
         Returns:
             The matched card name, or None
         """
+        if not isinstance(name, str):
+            return
         # 0.8 is an empirical value, seems to work nicely
-        result = difflib.get_close_matches(name, self.keys(), n=1, cutoff=0.8)
+        result = difflib.get_close_matches(
+            name, self.all_card_names_variants(), n=1, cutoff=0.8
+        )
         if result:
             match = result[0]
             logger.info("misspelled [{}] matched [{}]".format(name, match))
@@ -286,6 +310,7 @@ class _VTES(dict):
                 card["Burn Option"] = bool(card["Burn Option"])
             if "Adv" in card:
                 card["Adv"] = bool(card["Adv"])
+            self[int(card["Id"])] = card
             for name in self.get_name_variants(card):
                 self[name] = card
             card["Name"] = self.get_name(card)
