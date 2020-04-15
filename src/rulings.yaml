@@ -13,6 +13,8 @@ Absorb the Mind:
     - "Can be played against a vampire with no blood. [RTR 20010711]"
 Abyssal Hunter:
     - "If ranged aggravated damage is inflicted at close range against him, he burns. [PIB 20110818]"
+Achilles' Heel:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Aching Beauty:
     - "If an Aching Beauty vampire is blocked and the combat is canceled, the blocker's controller still loses a pool. [RTR 19991206]"
     - "The cost is cumulative if a vampire has multiple copies of the card on him. [LSJ 19980225]"
@@ -34,6 +36,8 @@ Amaranth:
     - 'If both minions want to play a card "when a vampire should go into torpor", acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Amaranth} and vice-versa. [RTR 20010710]'
 Ambrogino Giovanni:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+"Ambrosius, The Ferryman":
+    - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
 Ambulance:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
@@ -64,6 +68,8 @@ Angel of Berlin:
     - "May be played after a block is successful before combat begins. [LSJ 20060410]"
 Angela Preston:
     - "When she is influenced out, her ability to unlock a vampire can be used during the ongoing influence phase. [RTR 20180303]"
+Angelo:
+    - "A vampire with no circle designation is in his own unique circle of one. Angelo cannot be seen as a member of such a circle. [LSJ 20020609]"
 Ankara Citadel:
     - "Multiplication and divisions are applied first, followed by addition and substraction. [RTR 20070707]"
 Annabelle Triabell:
@@ -126,6 +132,7 @@ Banshee Ironwail:
 Bauble:
     - "If it is burned by another mean than its effect, the weapon is not burned. [LSJ 20090113-1]"
     - "It cannot be burned if the target equipment is not in play. [RTR 20080808]"
+    - "Still cannot be burned if the target equipment was burned and somehow returned to play. [LSJ 20040726] [ANK 20191031]"
 Bear-Baiting:
     - "Damage is environmental. [RTR 19970630]"
     - "{Change of Target} can be played after Bear-Baiting (younger, older, or the same age). [LSJ 20040312]"
@@ -184,6 +191,10 @@ Blood of the Cobra:
     - "[QUI] If the chosen strike says to make a hand strike or a melee weapon strike, then the strike is ranged, but the hand or melee weapon portion of the strike is still only effective at close range. [RTR 20010710]"
 Bloodbath:
     - "The target does not get an extra vote if it already has or subsequently gains a title. If the target loses his title, then he again gets his extra vote. [LSJ 19970224]"
+Bloodform:
+    - "[VIC] Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
+Bloodstorm of Chorazin:
+    - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 Body Arsenal:
     - "Must be played before strike resolution and damage prevention in order to affect the current strike [RTR 19960112]"
 Body of Sun:
@@ -208,6 +219,8 @@ Brainwash:
     - "Transfers may not be made to the vampire - neither to put blood on nor to move blood off. [RTR 19950413]"
 Breath of the Dragon:
     - "Damage done to the striking minion is environmental. [LSJ 19970801]"
+Brother's Blood:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Brujah Debate:
     - "If more than one Brujah shares the highest capacity amount, the controller chooses which of them to lock during her master phase. [LSJ 19980224]"
     - "Can lock a locked Brujah. [PIB 20110310]"
@@ -242,6 +255,8 @@ Call the Lamprey:
 Call the Wild Hunt:
     - "At superior, you choose X and then discard that many animals form your hand and cannot use any animals drawn to replace the ones you are discarding as further discards. [LSJ 20060215]"
     - "The damage inflicted by the superior is environmental damage. [LSJ 20060217]"
+Camaraderie:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Camarilla Exemplary:
     - "Burn blood effects are cumulative. [LSJ 19980225]"
     - "A vampire with no blood can still block, he burns what he can. [LSJ 19970707]"
@@ -258,6 +273,8 @@ Carlotta Giovanni:
     - "The card being retrieved is announced when the action is declared. [LSJ 19970922]"
 Carmine Giovanni:
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Carolina Vález:
+    - "Immune means damage from allies and retainers are not considered inflicted. [LSJ 20010627]"
 Carrion Crows:
     - 'Does "1R each round" to the opposing minion, not once each strike. The "during strike resolution" only indicates when the damage is applied. [LSJ 19971211-1]'
 Catacombs:
@@ -316,16 +333,28 @@ Children of Stone:
     - 'This is an "equip action" [TOM 19960130]'
 Church of the Order of St. Blaise:
     - 'Can put counters on locations that use "blood" or "pool" counters. [PIB 20110712-1]'
+Claiming the Body:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
+    - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 Clan Impersonation:
     - "Changing clan does not remove any slave status. [LSJ 20030511]"
+    - "Changes the sect of the target to the default sect of the clan. [LSJ 20001011]"
+    - "Is a temporary effect that overrides the underlying clan and sect. The most recent override takes precendence. It stays active if another effect changes the underlying sect, like using the default action to become Anarch. [LSJ 20100811] [ANK 20190619]"
+    - "If the target changes clan or sect to a clan or sect inappropriate for his title, he loses its benefit until his clan or sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 Claws of the Dead:
     - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike [RTR 19960112]"
 Cleave:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "The effect lasts until the end of the action. [LSJ 20060412]"
+Clio's Kiss:
+    - "[tem] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 Cloak the Gathering:
     - "[OBF] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[OBF] Can be played by a locked vampire. [RTR 19941109] [LSJ 19980210]"
+Clockwerx:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
+Coagulated Entity:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Cold Aura:
     - "No other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]"
 Coma:
@@ -333,6 +362,7 @@ Coma:
 Compel the Spirit:
     - "Can only be played if the ally or retainer is in the ash heap, not if he was moved elsewhere. [RTR 19980928] [LSJ 19980929]"
     - "Can only retrieve allies and retainers. Cards that are not allies or retainers in the ash heap cannot be retrieved (e.g. {Jake Washington}). [LSJ 20030128]"
+    - "The ally or retainer retrieved is considered a new ally or retainer for all game purposes. In particular, he is not bound to not repeat an action his previous incarnation has already performed this turn. [LSJ 20010627]"
 Compress:
     - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Concealed Weapon:
@@ -348,6 +378,7 @@ Consignment to Duat:
     - "[ser] Can target a vampire with no blood. [RTR 20010711]"
 Coordinate Attacks:
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Corpse Balloon:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 Corpse Minion:
@@ -372,6 +403,8 @@ Curse of Nitocris:
     - "Only moves when a Methuselah gets the Edge who does not already have the Edge. [LSJ 19971006]"
 D'habi Revenant:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
+Daemonic Possession:
+    - "This is not a directed action. [LSJ 20010627]"
 Dagon's Call:
     - "[QUI] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Dam the Heart's River:
@@ -411,8 +444,9 @@ Depravity:
 Derange:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
     - "Cannot be moved to a Malkavian nor to a Malkavian antitribu vampire. [LSJ 19970224]"
-    - "When removing the Derange, a vampire returns to the former clan, and the default sect of that clan. [PIB 20110807]"
     - "The clan is set when the card is played, it does not depend on the clan of the vampire that has the card on them. [LSJ 20070707]"
+    - "Changes the sect of the target to the default sect of the clan. [LSJ 20001011]"
+    - "If the target changes clan or sect to a clan or sect inappropriate for his title, he loses its benefit until his clan or sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 Descent into Darkness:
     - "Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]"
 Detect Authority:
@@ -472,6 +506,7 @@ Donnybrook:
     - "Multiple graft counters may be placed on the same minion, but they have no additional effect. A minion with one or more graft counters gets -1 stealth, not -X stealth. [LSJ 20070306]"
 Draba:
     - "[CHI] Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Draba at the time it was played. [RTR 20030519]"
+    - "[CHI] Can be played by a minion who is not attempting to block the action. [ANK 20190628]"
 Dragos:
     - "If his opponent plays superior {Terror Frenzy}, Dragos has to burn one blood for each combat card he plays in that combat. [LSJ 19990223]"
 Drain Essence:
@@ -482,6 +517,8 @@ Dreams of the Sphinx:
     - "Cannot move blood to Imbued in the uncontrolled region. [LSJ 20070516]"
     - "If another player contest it, it cannot be locked before it enters contest. [PIB 20110328]"
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
+Drozodny:
+    - "When using his ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 Drum of Xipe Totec:
     - "The minion cannot use the discipline nor the maneuver provided if some effect prevents him to use the equipment (eg. {Drawing Out the Beast}). [RTR 20010710]"
 Dual Form:
@@ -531,17 +568,27 @@ Erosion:
     - "Erosion resets a minion's base strength. Any modifiers, including inherent modifiers, are applied to the new base. If another effect like {Torn Signpost} later resets the base damage again, then the new amount wins out. [LSJ 19971211-2]"
 Escaped Mental Patient:
     - 'Do not burn at the end of combat if another effect let him make a hand strike at +1 damage. "If he does so" only applies if his own effect is used directly. [RTR 20020501]'
+    - "Do not burn at the end of combat if his strike do not resolve, for example because his opponent uses a strike: combat ends. [LSJ 20010627]"
 Ethan Locke:
     - "Ethan's Ⓓ action is directed at the controller of the skill card, not the controller of the vampire. [LSJ 19970224]"
     - "When he steals a master Discipline card, his controller becomes the controller of the Discipline card. [LSJ 19990709]"
 Ex Nihilo:
     - "The vampire with it cannot decide to burn due to Ex Nihilo's card text if he or she can burn the blood during the unlock phase. [PIB 20121013]"
+    - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
 Excellent Thirst:
     - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519]"
 Extortion:
     - "Is usable by a locked vampire [LSJ 20010725]"
+Extremis Boon:
+    - "The pool of the highest bidder goes to the target Methusalah. The loosers do not lose pool. [LSJ 20031121-1]"
+    - "The starting bid must be enough to keep the target into play. [ANK 20190827]"
+Eyes of the Beast:
+    - "[PRO] The maneuver is only available during the action in which Eyes of the Beast was played. [ANK 20191108]"
+    - "[PRO] If the action is blocked but continues after combat (eg. with {Form of Mist}) and the reacting vampire blocks again, he gets the maneuver again. [ANK 20191108]"
 Ezmerelda:
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+Faceless Night:
+    - "A minion attempting to block before it is played cannot back out. [LSJ 20081202]"
 Faerie Wards:
     - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
     - "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
@@ -549,8 +596,12 @@ Falcon's Eye:
     - "Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]"
 Fall of the Camarilla:
     - 'Once the card is out of play (by ousting the controller, for instance), the underlying sect of the vampires is again "active". [LSJ 20040519]'
+    - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Camarilla, it sets it to Independant instead while the Fall is in play. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]"
+    - "Vampires with a Camarilla title lose the benefit from it until they becomre Camarilla again. They immediately yields the title if it is contested or if they receives a new one. [LSJ 20060904]"
 Fall of the Sabbat:
     - 'Once the card is out of play (by ousting the controller, for instance), the underlying sect of the vampires is again "active". [LSJ 20040519]'
+    - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Sabbat, it sets it to Independant instead while the Fall is in play. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]"
+    - "Vampires with a Sabbat title lose the benefit from it until they becomre Sabbat again. They immediately yields the title if it is contested or if they receives a new one. [LSJ 20060904]"
 Familial Bond:
     - "Cannot be played if intercept is not required (as per the rules, section 6.2.2). [ANK 20200329]"
 Fantasy World:
@@ -565,18 +616,26 @@ Fast Reaction:
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 Festivo dello Estinto:
     - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
+Field Training:
+    - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
+    - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 Filchware's Pawn Shop:
     - "Cannot be used to replay a card that can be played only once in a game. [LSJ 20040518]"
 Final Loosening:
     - "[for] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
 Fire Dance:
     - "The target vampire is chosen when the action is announced. [RTR 19970425]"
+"First Tradition: The Masquerade":
+    - "One or the other condition must be met fully for it to be burned. It is not burned if the controller skips two turns and pay 4 pool to play two other. [LSJ 20031011]"
+    - "The burn pool effect is cumulative with other copies (if there are two of them, you burn 4 pool to play your turn), the controller skipping a turn counts towards all his copies. [RTR 19941222]"
 Flaming Candle:
     - "Is not burned if another effect make the vampire burn 1 blood upon action declaration. [RTR 20020501]"
 Flash Grenade:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
     - 'If the opponent dodges, the "is locked and does not unlock as normal" effect do not apply. [RTR 20041202] [LSJ 20060808]'
     - 'If the combat continues or a new combat begins, the "is locked and does not unlock as normal" effect do not apply, but the grenade still burns. [RTR 20020501] [LSJ 20040601], '
+Flesh of Marble:
+    - "The vampire preventing the damage can choose which one of the damage he does not prevent, normal or aggravated. [LSJ 20021001]"
 Fleshcraft:
     - "The action to burn Fleshcraft suffers the -1 stealth penalty as well, so is usually at zero stealth to start (or -1 stealth if superior [VIC]). [LSJ 19970224]"
 Flow Within the Mountain:
@@ -602,8 +661,8 @@ Foresee:
     - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 Foreshadowing Destruction:
-    - "[DOM] Against a target with 10 or more pool, it will only have a lingering effect (+3 bleed if the target happens to have 9 or less, and no additional +bleed cards). [PIB 20110817-1]"
-    - "[DOM] Does not increase the bleed amount if the target is at 10 or more pool - you could play it after a limited bleed modifier against such a target, and it would still activate when deflected to someone with 9 or less pool. [PIB 20110817-2]"
+    - "[DOM] Can be played against a target with 10 or more pool and does not count against the limit in this case: it will only have a lingering effect (+3 bleed if the target happens to have 9 or less). [PIB 20110817]"
+    - "[DOM] When played against a target with 10 or more pool, it can be played alongside another bleed modifier that counts against the limit, and it would provide its +3 bonus in addition to that other bleed modifier if the target happens to have 9 or less. [PIB 20110817]"
 Forest of Shadows:
     - "May be used anytime it is unlocked, even if it has been used previously during the same action (it must be unlocked by some method, of course). [TOM 19960109]"
 Forger's Hammer:
@@ -624,6 +683,8 @@ Freak Drive:
     - "Is played after resolution, but still during the action. [LSJ 19981028]"
     - "Can only be played after all combats are handled. [LSJ 20030103]"
     - "[for] Can be played if the action is unblocked even if it fizzles (due to lack of a suitable target, for example). [LSJ 20070411]"
+Free Fight:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Free States Rant:
     - "If there are insuffient targets to which to allocate all of the points allowed, then the card cannot be played. [LSJ 20010810]"
 Frenzy:
@@ -632,6 +693,9 @@ From a Sinking Ship:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 Frondator:
     - "The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2] [PIB 20110918]"
+Galaric's Legacy:
+    - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
+    - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 Gambit Accepted:
     - "If the controller of a Gambit in play withdraws, his or her predator gets a VP from the Gambit (the Methuselah who withdraws still gets a VP for withdrawing, of course). [RTR 20040501]"
 Gangrel Conspiracy:
@@ -640,8 +704,14 @@ Gargoyle Slave:
     - 'Does not count as a "slave" nor as a "Gargoyle" for game purposes. He is just an ally. [LSJ 20011210-4]'
 Gather:
     - "Only usable to move the target vampire from your uncontrolled region to your ready region. It cannot rescue a vampire from torpor. [LSJ 20030520-1]"
+Gear Up:
+    - "[nec] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 Gemini's Mirror:
     - "Does not protect the minion's equipment, retainers, or any other cards on him. Just him and his blood. [LSJ 20031118]"
+Gestalt:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
+Ghost-Eater:
+    - "This is not a directed action. [LSJ 20010627]"
 Ghoul Escort:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 Ghoul Messenger:
@@ -653,16 +723,25 @@ Ghouled:
     - 'The ally is recruited as a mortal, with the normal starting life, and is then changed to a ghoul and gains a life. His "starting life" is still the base mortal amount, however. [LSJ 20030520-2]'
 Ghouled Street Thug:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
+Gift of Sleep:
+    - "[obe] [ACTION MODIFIER][REACTION] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 Giulia Giovanni Abruzzina:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
 Glaser Rounds:
     - "Must wait until the second time a given gun is used in a given combat to play it. [RTR 19941109]"
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+Go Anarch:
+    - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
+    - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 "Goodnight, Sweet Prince":
     - "Can be used on your own crypt. [TOM 19960419]"
+Goratrix:
+    - "Can steal 2 blood or life. [ANK 20190701]"
 Goth Band:
     - "The counter moved to your master card by Goth Band is transformed into the type of counter normally used by the target master card. [RTR 19970306]"
     - "Your Goth Band cannot move a counter from a card you control. [RTR 19980707]"
+Govern the Unaligned:
+    - "[DOM] You do not reveal the target vampire. [LSJ 20010108]"
 Gregory Winter:
     - "Can use his action on a vampire with no blood. [RTR 20010711]"
     - "Is not mortal, is a monster. [ANK 20200203-2]"
@@ -691,6 +770,8 @@ Hagar Stone:
     - 'The "do not replace" effect stacks with whatever "do not replace" clause the card itself has, so that the longest one wins out. [LSJ 20070320-1]'
 Hand of Conrad:
     - "The minion cannot use the discipline provided if some effect prevents him to use the equipment (eg. {Drawing Out the Beast}). [RTR 20010710]"
+Hard Case:
+    - "The block needs to be successful, so the blocking minion is locked. [ANK 20190708]"
 Harvest Rites:
     - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519]"
 Haven Hunting:
@@ -699,12 +780,15 @@ Haven Hunting:
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 Hay Ride:
     - "Must be played after combat if the action is blocked [RTR 19980623]"
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Haymaker:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Hazimel:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 "Heidelberg Castle, Germany":
     - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
+Helena (ADV):
+    - "[MERGED] Immune means damage from demons are not considered inflicted. [LSJ 20010627]"
 Hellhound:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 Herald of Topeth:
@@ -722,8 +806,11 @@ Hide:
     - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
 Hide the Heart:
     - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
+    - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
 High Ground:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
+Hive Mind:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Horatio Ballard:
     - "Cannot use his special ability to become a Prince if he has changed sect and is no longer Camarilla. [LSJ 20030202]"
 Horrid Reality:
@@ -738,6 +825,8 @@ Hukros:
     - "He can accumulate as many cards as he likes with his special, at the rate of one each unlock. [LSJ 20070320-2]"
 Ian Forestal:
     - "His ability can be used to meet one (not both) of the normal Discipline requirements of a multi-Discipline card. [LSJ 20011217]"
+Ignore the Searing Flames:
+    - "[DAI] Immune means aggravated damage are not considered inflicted. [LSJ 20010627]"
 Illegal Search and Seizure:
     - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike by the bearer against a generic opponent. [RTR 19980623]'
 Illusions of the Kindred:
@@ -775,6 +864,8 @@ Infernal Familiar:
     - "No counter is added if the vampire uses a game effect other than the Familiar to play a card that requires a Discipline he or she does not have. [RTR 20020501]"
 Infernal Pursuit:
     - "[CEL] The card you discard need not be one of the cards that you just drew. [TOM 19950924]"
+    - "[CEL] If the card is canceled as it is played, its effect is not applied and only one card is drawn as a replacement. [LSJ 20021022]"
+    - "[CEL] Once successfully played, if a subsequent combat card played by this minion gets canceled as it is played, an additional card is drawn for replacement. [ANK 20191211]"
 Ingrid Rossler:
     - "When she is influenced out, her bonus transfers do not apply for the ongoing influence phase. [RTR 20180303]"
 Inscription:
@@ -785,6 +876,9 @@ Inspire Greatness:
 Internal Recursion:
     - "Is played before the combat begins. [LSJ 20020204]"
     - "[pre] The blocking vampire do not unlock if the vampire uses another effect to end combat as a strike. [RTR 20020501]"
+Into the Fire:
+    - "Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]"
+    - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 "Inveraray, Scotland":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 Invoke Poison Glands:
@@ -832,11 +926,14 @@ Kerrie:
 Kevlar Vest:
     - "Prevents up to 2 damage from gun strikes, it can be used to prevent less. [RTR 20041202]"
     - "Can be used to prevent the damage from two separated gun strikes doing one damage each. [LSJ 20081210]"
+Khazar's Diary (Endless Night):
+    - "The action to put a minion from any ash heap into play is not a directed action. [LSJ 20010627]"
 Kindred Coercion:
     - "Cannot 'change' the votes of vampires who haven't voted yet, but can cancel the votes of vampires who haven't voted yet and change the votes of vampires who have voted. [RTR 19991001]"
 Kindred Segregation:
     - "Only requires that the pool cost be paid in order to keep the ally. Blood costs, if any, need not be repaid to keep an ally. [RTR 20010710]"
     - "Can be called even if there are no allies in play. [RTR 20010710]"
+    - "One can decide to burn an ally with no pool cost (not paying zero). [ANK 20190724]"
 Kindred Society Games:
     - "If a vampire has two copies of Kindred Society Games, each copy exerts its own effect. Unlocking the vampire normally would require a total of 2 blood. If the vampire does not unlock normally, both Games are moved to other vampire(s), although the vampire could burn 1 blood to prevent one of the Games from moving on. [RTR 19951017]"
 King of the Mountain:
@@ -913,6 +1010,7 @@ Lucian:
 Lucky Blow:
     - "Adding damage to strikes which are not damage dealing strikes will not deal damage [RTR 19960221]"
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+    - "You cannot use another strike card as the hand strike for Lucky Blow. [LSJ 20010627]"
 Luna Giovanni:
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
 Lunatic Eruption:
@@ -946,6 +1044,8 @@ Major Boon:
     - 'Only modifiers and reactions that can be played "when the action/bleed would be successful" can be played after Major Boon is played or burned. [LSJ 20090205]'
     - "Cannot be played in succession. The loss from the play of a Major Boon is due to a card effect, not a bleed. So a second cannot be played to Boon the first. [RTR 19960530]"
     - 'Multiple Major Boons in play cannot be burned on the same bleed action - after the first is burned, "you" are no longer the Methuselah burning pool. [LSJ 19990218]'
+Make an Example:
+    - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 Malkavian Dementia:
     - "Does not require control of a ready Malkavian. [RTR 19951124]"
     - "The loss of control happens at the start of unlock phase, before unlocking. This can not be ordered among other unlock effects, the Malkavian is not unlocked. [RTR 19951017]"
@@ -972,6 +1072,7 @@ Maris Streck:
     - "Can use her ability multiple times each action. [LSJ 20020926]"
 Marthe Dizier:
     - "Her ability can only move cards from the ash heap that were played in the normal manner. If the card was put in play in some other way, it cannot be retrieved by her special. [LSJ 20041119]"
+    - "A card cancelled as it is played is still considered played, she can retrieve it. [LSJ 19980212] [ANK 20190701]"
 Martyr's Resilience:
     - "[AUS][FOR] Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
 Mask of a Thousand Faces:
@@ -1022,6 +1123,8 @@ Michael Luther:
     - "His ability is only usable once each referendum, even if he unlocks somehow during the referendum. [LSJ 20041207]"
 Michael diCarlo:
     - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
+Mictlantecuhtli:
+    - "Immune means damage from weapons are not considered inflicted. [LSJ 20010627]"
 Mighty Grapple:
     - "[POT] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Mind Numb:
@@ -1029,6 +1132,8 @@ Mind Numb:
 Mind Rape:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
     - "The card can be burned to take control of the target at any point during the the appropriate minion phase. It does not have to be done before non-mandatory actions. [LSJ 20001201]"
+Mind of the Wilds:
+    - "The blocking minion is prohibited to strike: combat ends for the duration of the action (during any round of any combat). [LSJ 20100308]"
 Miriam Benyona:
     - "The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2]"
 Mirror Image:
@@ -1036,6 +1141,11 @@ Mirror Image:
     - '[CHI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[CHI] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
     - '[CHI] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
+Mirror Walk:
+    - "[THA] The would be blocker is locked even if he benefits from an effect that prevents him to lock when he blocks. He is not locked from the block, but from Mirror Walk's effect. [ANK 20191204]"
+    - "[THA] If the action is blocked, it ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
+Mirror's Visage:
+    - "[chi] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 Mistaken Identity:
     - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
 Mob Rule:
@@ -1074,6 +1184,10 @@ Murder of Crows:
     - "Are neither mortal nor monster. [ANK 20200203-2] [LSJ 20060515]"
 My Enemy's Enemy:
     - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
+    - "[AUS] Can be played if there is only two players in the game. The target of the bleed is unchanged, there is no new block opportunity. [LSJ 20060525]"
+Nahir:
+    - "The hand size is still +X if Nahir is in torpor. [ANK 20140523]"
+    - "Can use her ability multiple times during the same master phase if there are multiple master phase actions. [ANK 20191218]"
 Nakhthorheb:
     - "He can unlock at any time during his controller's minion phase, including during an action. [PIB 20110415]"
 Necrosis:
@@ -1082,12 +1196,15 @@ Neebi:
     - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
 Neferu:
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+    - "Cannot use her ability to force an abstaining vampire to vote. [ANK 20190731]"
 Nehemiah:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Nehsi:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Nephandus:
     - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630]"
+New Blood:
+    - "A vampire with no circle designation is in his own unique circle of one. New blood cannot choose to be part of such a circle. [LSJ 20020609]"
 New Management:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 Nightmares upon Nightmares:
@@ -1098,8 +1215,12 @@ Obedience:
     - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
     - "Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat. [LSJ 19991025]"
     - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
+Octopod:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Omael Kuman:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
+Oppugnant Night:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Orun:
     - "A vampire with multiple Oruns will only burn one Orun if he successfully bleeds for 2 or more. [LSJ 20090603]"
 Ossian:
@@ -1109,17 +1230,30 @@ Oubliette:
     - "[OBT] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
     - "[OBT] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202]"
     - "[OBT] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20130319]"
+Out of the Frying Pan:
+    - "Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]"
+    - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
+Outside the Hourglass:
+    - "No other effect can be used before the damage prevention window, it begins immediately. [ANK 20170930]"
+    - "Both minions can play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]"
 "Owain Evans, The Wanderer":
     - "Owain's ability can only be used once each unlock, even if control of Owain changes during that unlock phase. [LSJ 20040127]"
 Owl Companion:
     - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 Palatial Estate:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
+Pandora's Whisper:
+    - "The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
+Parity Shift:
+    - "Can not be played if there is no legal target (no other Methusalah with more pool than you). [ANK 20191228]"
+"Patrizia Giovanni, Collector of Secrets":
+    - "When using her ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 Paul "Sixofswords29" Moreton:
     - "When he is influenced out, his ability can be used during the ongoing influence phase. [RTR 20180303]"
 Peace Treaty:
     - "Only requires that the pool cost be paid in order to keep the weapon. Blood costs, if any, need not be repaid to keep a weapon. [RTR 20010710]"
     - "Can be called even if there are no weapons in play. [RTR 20010710]"
+    - "One can decide to burn a weapon with no pool cost (not paying zero). [ANK 20190724]"
 Peacemaker:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
     - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
@@ -1138,6 +1272,8 @@ Piper:
     - "This is not an action, so cost reductions refering to an action like {Charisma} or {Erichtho} do not apply. [LSJ 20090115-1] [ANK 20170309]"
     - "This does not count as performing the action to recruit this ally in respect to section 6.1 of the rules. The same vampire can recruit the same ally the normal way later this turn if he unlocks (and/or Piper it a second time). [LSJ 20080815]"
     - "When recruiting an ally or retainer whose effect depend on Discipline level, the chosen vampire decides in respect to his disciplines the normal way. [LSJ 20080803]"
+Pochtli:
+    - "When using his ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 Pocket Out of Time:
     - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
@@ -1146,6 +1282,8 @@ Political Seizure:
 Political Struggle:
     - "The acting vampire gains X votes if the vampire with this card is burned, no matter how that vampire is burned. [LSJ 19990119]"
     - "If the victim is burned by diablerie, the votes gained from Political Struggle are gained before the blood hunt referendum. [LSJ 20050707]"
+Ponticulus:
+    - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
 Portrait:
     - "If the revealed vampire is between 7 and 10 capacity and the acting vampire has bled this turn already, he simply unlocks and the remainder of the effect is lost. [LSJ 20021118]"
 Pounce:
@@ -1181,6 +1319,8 @@ Pounce:
     - "The additional capacity is lost if the title is lost. [TOM 19960210]"
 Precognition:
     - "The damage prevention can only be used if the block is successful, and only in the resulting (block-induced) combat. [LSJ 20010813]"
+Pressing Flesh:
+    - "This is not a directed action. [LSJ 20010627]"
 Primal Instincts:
     - "If the strike is canceled, the rest of the effect is also canceled. [RTR 20040501]"
 Principia Discordia:
@@ -1189,6 +1329,8 @@ Principia Discordia:
 Projectile:
     - "A minion who maneuvers with a gun may still use Projectile to shoot with that gun as his initial strike that round. [LSJ 20050304]"
     - "Cannot be used to strike with a weapon whose strike isn't ranged. [LSJ 20050224-3]"
+Promise of 1528:
+    - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 Protected Resources:
     - "All cards which modify the bleed amount are applied before Protected Resources's effect. [TOM 19960413]"
     - "Does not alter the bleed amount: it merely limits the maximum amount of pool the target of the bleed burns for the successful bleed. [LSJ 20030211]"
@@ -1204,7 +1346,7 @@ Psyche!:
     - "Can be retrieved by {Marthe Dizier} (reversal of previous ruling). [PIB 20111208]"
 Psychomachia:
     - "The blocker is not locked. [LSJ 20030902-1]"
-    - "[pre]: The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [RTR 20020501]"
+    - "[pre]: The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [RTR 20020501] [LSJ 20070709]"
 Pulled Fangs:
     - "Counts up damage successfully inflicted during the round by the minions, retainers do not count. [TOM 19950304]"
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
@@ -1244,8 +1386,14 @@ React with Conviction:
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 Reality Mirror:
     - "Cannot be used to bypass restrictions (like Clan restriction or any other play restriction). [LSJ 20020426]"
+Rebirth:
+    - "Cannot be used following an {Amaranth} or an {Abactor} as they are not diablerie actions. [ANK 20190701]"
+Red Herring:
+    - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [LSJ 20070709]"
 Redirection:
     - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
+Redistribution:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Reform Body:
     - "If the vampire saves himself from diablerie, the diablerie is considered unsuccessful. The diablerist gets nothing from the victim, and no Blood Hunt is called. [LSJ 19970224]"
     - "Cannot be played by vampires who aren't controlled. [LSJ 19970224]"
@@ -1264,6 +1412,8 @@ Rego Motum:
     - "Prevents up to 2 or 4 damage, it can be used to prevent less. [RTR 20041202]"
 Relentless Reaper:
     - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
+Repo Man:
+    - "Paying for the equipment found is not optional if a ready minion meet the requirements. If paying the cost will oust the controlling Methuselah, then she is ousted. [RTR 19941109] [RTR 20010710]"
 Repulsion:
     - "[OBE] Can be used even if the stealth is not currently needed. [LSJ 20011214-2]"
 Resilience:
@@ -1331,6 +1481,8 @@ San Nicolás de los Servitas:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 Sargon:
     - "His controller gets the Edge after the effects of the successful action are applied. If it is a referendum, he gets the Edge after the referendum is concluded. [LSJ 20011222]"
+Scarlet Lore:
+    - "[nec] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 Scattershot:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Scobax:
@@ -1342,6 +1494,7 @@ Scorpion Sting:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Scorpion’s Touch:
     - "If it is declared with first strike and if the opposing minion declared a strike based on strength, that minion’s strength is decreased by Scorpion’s Touch when it resolves. [PIB 20110830]"
+    - "You cannot play another strike card to serve as the hand strike for Scorpion's Touch. [LSJ 20010627]"
 Scout Youngwood:
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
 Secret Horde:
@@ -1386,8 +1539,11 @@ Shadow Boxing:
     - "Cannot be used if a Slave locked to enter combat instead of the blocking minion. [ANK 20200114]"
 Shadow Court Satyr:
     - "Cannot use an effect that requires two or more Disciplines. [LSJ 20021216]"
-    - "Can choose to use any single discipline effect of a split discipline card, each time they use it. [LSJ 20021210-2]"
+    - "Can choose to use any single discipline effect of a split discipline card, each time he uses it. [LSJ 20021210-2]"
     - "Can only use the combat card when he is in combat. [LSJ 20060502]"
+    - "If the card combat card is moved, the Satyr cannot use it as if played from your hand anymore. Even if it was moved on him (eg. {Weighted Walking Stick}) [LSJ 20010716] [LSJ]"
+    - "The card on him cannot be canceled as it is played when he plays it as if from your hand. [LSJ 20010716]"
+    - "The card put on him is not into play. [ANK 20190629]"
 Shadow Feint:
     - "Will not prohibit the opposing minion from choosing dodge as his strike, and, if chosen, the dodge will still resolve. The dodge simply has no effect on the Shadow Feinted strike. [LSJ 20030902-2]"
 Shadow Step:
@@ -1400,10 +1556,14 @@ Shambling Hordes:
     - 'The damage the strike does is determined when the strike resolution begins, before the Hordes loses life from any opposing "burn life" or "steal life" effect. Damage done before strike resolution, e.g. with First Strike, will reduce the damage done by the Hordes. [LSJ 20030307]'
 Shame:
     - "Damage is environmental. [RTR 19970630]"
+Shattered Mirror:
+    - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 Shattering Blow:
     - "Cannot be used if there is no equipment to destroy. [RTR 19980928]"
 Sheepdog:
     - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
+Shell Game:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Shemti:
     - "The damage inflicted by his ability is environmental. [RTR 19970630]"
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
@@ -1424,6 +1584,8 @@ Siren's Lure:
     - "Cannot be played to queue a second combat after a combat is already set up for later (e.g. by a previous Siren's Lure). [LSJ 20020125]"
     - "Other effects that queue a combat cannot be used until the new combat begins. [LSJ 20021121]"
     - "Combat does not occur if the action ends prematurely. [LSJ 20090826]"
+Slake the Thirst:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Slam:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Sleight of Hand:
@@ -1523,6 +1685,7 @@ Sword of the Righteous:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 Synesios:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+    - "His ability do not allow his owner to play more than one Master: Out of Turn between two master phases. [ANK 20191004]"
 Tainted Spring:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 "Talaq, The Immortal":
@@ -1568,6 +1731,9 @@ Templar:
     - "Multiple Templar cards provide different actions: if the vampire manage to unlock during the minion phase, he can perform the two actions. [RTR 20030519]"
 Temptation:
     - "When stealing a vampire in combat after strikes are announced before strikes resolution, any damage yet to resolve will still resolve before the change of control. [LSJ 20020618]"
+Tenebrous Form:
+    - "[OBT] A minion previously attempting to block can resign his attempt and pay no blood. [LSJ 20031121-2]"
+    - "[OBT] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
 Tereza Rotas:
     - "She cannot steal the Edge if it is uncontrolled. [TOM 19951214-2]"
     - "If the target of the action burns the Edge during the action, her controller still gets the Edge if the action succeeds. [RTR 19980623]"
@@ -1592,8 +1758,8 @@ The Barrens:
 The Book of Going Forth by Night:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 The Capuchin:
-    - "If his controller is not his original owner, he goes to his controller uncontrolled area when burned. [ANK 20200130-2]"
-    - "If he burns, he looses all cards and counters on him before going to his controller uncontrolled region. [ANK 20160404]"
+    - "If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20160404] [ANK 20200415]"
+    - "If his controller is not his original owner and he burns, he goes to his owner ash heap, breaking all temporary control effect, then to his last permanent controller's uncontrolled area. [ANK 20200130-2] [ANK 20200415]"
 The Eldest Command Undeath:
     - "If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]"
 The Embrace:
@@ -1602,6 +1768,9 @@ The Erciyes Fragments:
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
 The Eternal Mask:
     - "You cannot use the effect to burn the card and the vampire if the vampire is no longer in play to be burned. [LSJ 20070928-1]"
+    - "You still cannot burn it if the vampire that was brought back was burned and later returned to play. [LSJ 20040726] [ANK 20191031]"
+    - "[SER] is not a directed action, even when it targets another Methusalah's ash heap. [LSJ 20010627]"
+    - "If The Eternal Mask is burned by something else than its own effect (including when the vampire it is on is burned), the vampire that has been brought back is unaffected. [LSJ 20071206] [LSJ 20090725]"
 The Ghouls of Plaza Morería:
     - "Are not mortal, are a monster. [ANK 20200203-2]"
 The Grandest Trick:
@@ -1622,6 +1791,13 @@ The Rack:
     - "Does not give blood to a target that is not controlled (eg. after a {Banishment}). [LSJ 20010623]"
     - "Tracks the target if it leaves the game by contesting or {Banishment}: if the target gets back into play, The Rack gives it blood again. [LSJ 20010809-2]"
     - "If the target is stolen, the new controller chooses if the vampires gains blood during The Rack controllers unlock phase. [ANK 20200130-2]"
+The Red Question:
+    - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
+    - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
+The Sargon Fragment:
+    - "When using the provided action, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
+The Slow Withering:
+    - "The additional cost is paid at the same time the normal cost is paid. [ANK 20190625]"
 The Stranger Among Us:
     - "Shuffle your crypt afterwards. [LSJ 20020304-1]"
 The Summoning:
@@ -1634,6 +1810,8 @@ Theft of Vitae:
     - "If both opponents play Theft of Vitae, they resolve simultaneously: blood amounts are adjusted by the total of gain and loss and no blood wear off. [ANK 20200123]"
 "Thetmes, Caliph of Alamut":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+Thicker than Blood:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 "Third Tradition: Progeny":
     - "If the Progeny is moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]"
     - "The Progeny gets the default Sect of the clan of its progenitor, even if the progenitor himself is not a member of that sect. [ANK 20200117]"
@@ -1641,6 +1819,8 @@ Those Who Endure Judge:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
 Thoughts Betrayed:
     - "[dom] Damage is environmental. [RTR 19970630]"
+Three's a Crowd:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Thucimia:
     - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
 Tongue of the Serpent:
@@ -1678,12 +1858,14 @@ Trochomancy:
     - "May be retrieved when diablerizing a Red List vampire prior to the blood hunt referendum: it protects the vampire in that referendum. All copies on the vampire are then burned at the end of that action. [LSJ 20050222]"
 Tunnel Runner:
     - "Damage done from stealing blood to the Runner is environmental. [RTR 19970630] [LSJ19971028]"
+Tye Cooper:
+    - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
 Uncontrollable Rage:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "All the damage is aggravated. [LSJ 20011204]"
 Undead Persistence:
     - "[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]"
-    - 'If an effect causes a new combat to occur at the end of combat, then the "go to torpor" effect will be delayed until after that new combat. However, the vampire will no longer benefit from Undead Persistence in the new combat, so it will end immediately with the vampire not ready unless he plays a new Undead Persistence in the new combat. [LSJ 20030214]'
+    - 'If an effect causes a new combat to occur at the end of combat, then the "go to torpor" effect will be delayed until after that new combat. However, the vampire will no longer benefit from Undead Persistence in the new combat, so it will end immediately with the vampire not ready unless he plays a new Undead Persistence in the new combat. [LSJ 20030214] [ANK 20190624]'
     - "[FOR] Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 Undead Strength:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -1701,6 +1883,9 @@ Unlicensed Taxicab:
     - "Offers the additional stealth on actions to equip it from another friendly minion as well, even with other equipment in the same action. [LSJ 20060222]"
 Unseen Hibernation:
     - "[abo] The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
+Unwholesome Bond:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
+    - "Cannot be used by {Angelo} or {New Blood} on a uncontrolled vampire with no circle designation, even another {Angelo} or {New Blood}. [LSJ 20050927]"
 "Ur-Shulgi, The Shepherd":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 Uriah Winter:
@@ -1732,6 +1917,8 @@ Vox Senis:
     - 'May still be "canceled as it is played" when used as an out-of-turn master. [LSJ 20031201]'
 Wake with Evening's Freshness:
     - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
+Walk of Caine:
+    - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 Walk-With-Might:
     - "Only affects the cost of masters played by his controller. [LSJ 20081124-1]"
 Walker Grimes:
@@ -1753,12 +1940,16 @@ Wave of Lethargy:
 Weather Control:
     - "Damage is environmental. [RTR 19970630]"
     - "The damage will occur even if combat is subsequently ended before range. [LSJ 19971110]"
+    - "The minion can play other pre-range effects before applying the damage and opening the damage prevention window, but he has to apply damage before passing the impulse. [ANK 20170930]"
+    - "Both minions can play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]"
 Web of Knives Recruit:
     - "It is not an action to put a vampire in play. [LSJ 20060616-2]"
 Week of Nightmares:
     - "Ravnos can target a Ravnos with no blood with the +1 stealth hunt action. [RTR 20010711]"
 Wendell Delburton:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+Whispers from the Dead:
+    - "The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 White Phosphorus Grenade:
     - "Damage done to the bearer is environmental. [LSJ 19970801]"
 Winchester Mansion:
@@ -1776,8 +1967,12 @@ Wormwood:
     - "Ceils the vampire's capacity, including effects that have changed it, to X. {Orun} adds to that X, or the vampire's capacity if it is lower, for cards played by other players. [LSJ 20051205]"
 Writ of Acceptance:
     - "The effect is not optional. [RTR 19980707]"
+    - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence. It stays active if another effect changes the underlying sect, like using the default action to become Anarch. [LSJ 20100811] [ANK 20190619]"
+    - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 Xaviar:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+"Xeper, Sultan of Lepers":
+    - "Is not titled. If he gets a title, his additional votes are added to the ones provided by the title. [LSJ 20100601]"
 Yawp Court:
     - "Damage inflicted at the end of combat is environmental. [RTR 19970630]"
     - "If the acting minion is not ready after the combat, then the action ends and no referendum is conducted. [LSJ 20060902]"
