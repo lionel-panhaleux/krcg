@@ -25,12 +25,31 @@ from . import config
 logger = logging.getLogger()
 
 
+def _get_runling_links(links_dict, text):
+    references = re.findall(r"\[[a-zA-Z]+\s[0-9-]+\]", text)
+    if not references:
+        warnings.warn(f"no reference in ruling: {text}")
+    for reference in references:
+        reference = reference[1:-1]
+        yield reference, links_dict[reference]
+
+
 class _VTES(dict):
     """VTES cards database that matches incomplete or misspelled card names.
 
     Keys are lower case card names and card Ids.
     Contains both crypt and library cards in a single dict.
     """
+
+    def _yaml_get_card(self, text):
+        card_id, card_name = text.split("|")
+        card_id = int(card_id)
+        if self.get_name(self[card_id]) != card_name:
+            warnings.warn(
+                f"rulings: {card_id} listed as {card_name} "
+                f"instead of {self.get_name(self[card_id])}"
+            )
+        return self[card_id]
 
     def load_from_vekn(self, save=True):
         """Load the card database from vekn.net, with rulings
@@ -48,28 +67,25 @@ class _VTES(dict):
                 self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
         # load rulings from local yaml files
         links = yaml.safe_load(open(config.RULINGS_LINK_FILE, "r"))
-        card_rulings = yaml.safe_load(open(config.RULINGS_FILE, "r"))
-        for card, rulings in card_rulings.items():
-            card_id, card_name = card.split("|")
-            card_id = int(card_id)
-            if self.get_name(self[card_id]) != card_name:
-                warnings.warn(
-                    f"rulings: {card_id} listed as {card_name} "
-                    f"instead of {self.get_name(self[card_id])}"
-                )
-            self[card_id].setdefault("Rulings", []).extend(rulings)
-            self[card_id].setdefault("Rulings Links", [])
+        cards_rulings = yaml.safe_load(open(config.CARDS_RULINGS_FILE, "r"))
+        general_rulings = yaml.safe_load(open(config.GENERAL_RULINGS_FILE, "r"))
+        for card, rulings in cards_rulings.items():
+            card = self._yaml_get_card(card)
+            card.setdefault("Rulings", []).extend(rulings)
+            card.setdefault("Rulings Links", [])
             for i, ruling in enumerate(rulings):
-                references = re.findall(r"\[[a-zA-Z]+\s[0-9-]+\]", ruling)
-                if not len(references):
-                    warnings.warn(
-                        f"no reference for ruling #{i} "
-                        f"on card #{card_id}|{self.get_name(self[card_id])}"
+                for reference, link in _get_runling_links(links, ruling):
+                    card.setdefault("Rulings Links", []).append(
+                        {"Reference": reference, "URL": link}
                     )
-                for reference in references:
-                    reference = reference[1:-1]
-                    self[card_id].setdefault("Rulings Links", []).append(
-                        {"Reference": reference, "URL": links[reference]}
+        for ruling in general_rulings:
+            for card in ruling["cards"]:
+                card = self._yaml_get_card(card)
+                card.setdefault("Rulings", []).append(ruling["ruling"])
+                card.setdefault("Rulings Links", [])
+                for reference, link in _get_runling_links(links, ruling["ruling"]):
+                    card.setdefault("Rulings Links", []).append(
+                        {"Reference": reference, "URL": link}
                     )
         pickle.dump(self, open(config.VTES_FILE, "wb"))
 

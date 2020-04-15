@@ -2,7 +2,6 @@
   - "Provides only ony maneuver each combat, even if the bearer changes. [LSJ 19980302-2]"
 100003|Aaron's Feeding Razor:
   - "The effect is not optional. [RTR 19980707] [LSJ 19980722]"
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 100004|Abactor:
   - '"Successful resolution" means the action must not be blocked and the vampire must have gained blood. If the vampire cannot gain blood (eg., {Vampiric Disease}, {Ex Nihilo}), the blood hunt is not called even if the action is not blocked. [LSJ 20090411]'
   - "This is not a diablerie. Neither {Rebirth} nor {Carlton Van Wyk}'s ability can be used. [LSJ 20090724]"
@@ -29,8 +28,6 @@
   - "Can be played against a vampire with no blood. [RTR 20010711]"
 100014|Abyssal Hunter:
   - "If ranged aggravated damage is inflicted at close range against him, he burns. [PIB 20110818]"
-100017|Achilles' Heel:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 100018|Aching Beauty:
   - "The pool loss occurs if the block would be successful, even if the action is ended (eg. {Change of Target} or {Obedience}) or made unblockable ({Horrific Countenance}) at this point. [RTR 19991206] [LSJ 20091125]"
   - "The cost is cumulative if a vampire has multiple copies of the card on him. [LSJ 19980225]"
@@ -207,8 +204,6 @@
   - "Transfers may not be made to the vampire - neither to put blood on nor to move blood off. [RTR 19950413]"
 100250|Breath of the Dragon:
   - "Damage done to the striking minion is environmental. [LSJ 19970801]"
-100257|Brother's Blood:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 100260|Brujah Debate:
   - "If more than one Brujah shares the highest capacity amount, the controller chooses which of them to lock during her master phase. [LSJ 19980224]"
   - "Can lock a locked Brujah. [PIB 20110310]"
@@ -239,8 +234,6 @@
 100282|Call the Wild Hunt:
   - "At superior, you choose X and then discard that many animals form your hand and cannot use any animals drawn to replace the ones you are discarding as further discards. [LSJ 20060215]"
   - "The damage inflicted by the superior is environmental damage. [LSJ 20060217]"
-100283|Camaraderie:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 100284|Camarilla Exemplary:
   - "Burn blood effects are cumulative. [LSJ 19980225]"
   - "A vampire with no blood can still block, he burns what he can. [LSJ 19970707]"
@@ -313,7 +306,6 @@
 100347|Church of the Order of St. Blaise:
   - 'Can put counters on locations that use "blood" or "pool" counters. [PIB 20110712-1]'
 100352|Claiming the Body:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
   - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 100353|Clan Impersonation:
   - "Changing clan does not remove any slave status. [LSJ 20030511]"
@@ -330,10 +322,6 @@
 100362|Cloak the Gathering:
   - "[OBF] Can only be played by the controller of the acting minion. [LSJ 19990425]"
   - "[OBF] Can be played by a locked vampire. [RTR 19941109] [LSJ 19980210]"
-100363|Clockwerx:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
-100369|Coagulated Entity:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 100376|Cold Aura:
   - "No other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]"
 100378|Coma:
@@ -357,7 +345,6 @@
   - "[ser] Can target a vampire with no blood. [RTR 20010711]"
 100423|Coordinate Attacks:
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 100427|Corpse Balloon:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100428|Corpse Minion:
@@ -535,8 +522,6 @@
 100669|Ex Nihilo:
   - "The vampire with it cannot decide to burn due to Ex Nihilo's card text if he or she can burn the blood during the unlock phase. [PIB 20121013]"
   - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
-100670|Excellent Thirst:
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 100675|Extortion:
   - "Is usable by a locked vampire [LSJ 20010725]"
 100676|Extremis Boon:
@@ -644,8 +629,6 @@
   - "Is played after resolution, but still during the action. [LSJ 19981028]"
   - "Can only be played after all combats are handled. [LSJ 20030103]"
   - "[for] Can be played if the action is unblocked even if it fizzles (due to lack of a suitable target, for example). [LSJ 20070411]"
-100789|Free Fight:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 100790|Free States Rant:
   - "If there are insuffient targets to which to allocate all of the points allowed, then the card cannot be played. [LSJ 20010810]"
 100791|Frenzy:
@@ -667,8 +650,6 @@
   - "[nec] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 100814|Gemini's Mirror:
   - "Does not protect the minion's equipment, retainers, or any other cards on him. Just him and his blood. [LSJ 20031118]"
-100815|Gestalt:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 100816|Ghost-Eater:
   - "This is not a directed action. [LSJ 20010627]"
 100817|Ghoul Escort:
@@ -728,21 +709,16 @@
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100872|Guru:
   - "The blood is gained after the referendum effects are applied. [LSJ 20090115-2]"
-100873|The Guruhi Are the Land:
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 100882|Hand of Conrad:
   - "The minion cannot use the discipline provided if some effect prevents him to use the equipment (eg. {Drawing Out the Beast}). [RTR 20010710]"
 100887|Hard Case:
   - "The block needs to be successful, so the blocking minion is locked. [ANK 20190708]"
-100889|Harvest Rites:
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 100896|Haven Hunting:
   - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
   - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
   - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100899|Hay Ride:
   - "Must be played after combat if the action is blocked [RTR 19980623]"
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 100900|Haymaker:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 "100908|Heidelberg Castle, Germany":
@@ -767,21 +743,16 @@
   - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
 100925|High Ground:
   - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
-100931|Hive Mind:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 100935|Horrid Reality:
   - "If no weapon can be found, the cost is still paid. [TOM 19951212-1]"
   - "If the weapon retrieved has requirements that the vampire does not meet, then it is burned. [RTR 20010710]"
   - "If a copy of a unique card already in play is retrieved, then the weapon is contested until the end of combat. It becomes uncontested during the next appropriate unlock phase. [TOM 19951212-1]"
 100938|Hospital Food:
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
   - "The action is successful even if no blood is gained. [LSJ 20050720-2]"
 100939|Hostile Takeover:
   - "The bidding is conducted in an open format, similar to a referendum. The player who played the card conducts the auction. [LSJ 19990104]"
 100944|Hunger Moon:
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
-100945|The Hungry Coyote:
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 100949|Ignore the Searing Flames:
   - "[DAI] Immune means aggravated damage are not considered inflicted. [LSJ 20010627]"
 100951|Illegal Search and Seizure:
@@ -1087,12 +1058,8 @@
   - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
   - "Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat. [LSJ 19991025]"
   - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
-101314|Octopod:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 101320|Omael Kuman:
   - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
-101327|Oppugnant Night:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 101331|Orun:
   - "A vampire with multiple Oruns will only burn one Orun if he successfully bleeds for 2 or more. [LSJ 20090603]"
 101333|Ossian:
@@ -1253,8 +1220,6 @@
   - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 101578|Redirection:
   - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
-101579|Redistribution:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 101581|Reform Body:
   - "If the vampire saves himself from diablerie, the diablerie is considered unsuccessful. The diablerist gets nothing from the victim, and no Blood Hunt is called. [LSJ 19970224]"
   - "Cannot be played by vampires who aren't controlled. [LSJ 19970224]"
@@ -1298,8 +1263,6 @@
   - "[cel] [CEL] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202]"
   - "[cel] [CEL] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
   - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20130319]"
-101643|Ritual Scalpel:
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 101654|Rötschreck:
   - "Should be played on the vampire whose opponent in combat attempts to use aggravated damage against him. [RTR 19980623]"
   - "Cannot be played in response to an announcement of a strike that is not effective at the current range. [RTR 19980928]"
@@ -1417,8 +1380,6 @@
   - "Cannot be used if there is no equipment to destroy. [RTR 19980928]"
 101762|Sheepdog:
   - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
-101764|Shell Game:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 101765|Shepherd's Innocence:
   - "[ANI] Is undirected. [LSJ 20080809-1]"
 101767|Shilmulo Tarot:
@@ -1436,8 +1397,6 @@
   - "Cannot be played to queue a second combat after a combat is already set up for later (e.g. by a previous Siren's Lure). [LSJ 20020125]"
   - "Other effects that queue a combat cannot be used until the new combat begins. [LSJ 20021121]"
   - "Combat does not occur if the action ends prematurely. [LSJ 20090826]"
-101797|Slake the Thirst:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 101798|Slam:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101806|Sleight of Hand:
@@ -1536,7 +1495,6 @@
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101926|Tainted Vitae:
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 "101930|Talaq, The Immortal":
   - "While he can play cards that require [qui] or [tha], he does not actually have those Disciplines. He does not benefit from {Tremere Convocation}, for example. [LSJ 19980303]"
 101931|Talbot's Chainsaw:
@@ -1588,8 +1546,6 @@
 101966|Theft of Vitae:
   - "Can target a minion with less blood or life than the amount stolen. [RTR 20010711]"
   - "If both opponents play Theft of Vitae, they resolve simultaneously: blood amounts are adjusted by the total of gain and loss and no blood wear off. [ANK 20200123]"
-101969|Thicker than Blood:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 "101973|Third Tradition: Progeny":
   - "If the Progeny is moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]"
   - "The Progeny gets the default Sect of the clan of its progenitor, even if the progenitor himself is not a member of that sect. [ANK 20200117]"
@@ -1597,8 +1553,6 @@
   - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
 101976|Thoughts Betrayed:
   - "[dom] Damage is environmental. [RTR 19970630]"
-101979|Three's a Crowd:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 101988|Tongue of the Serpent:
   - "Can target a minion with less blood than the amount stolen. [RTR 20010711]"
 101989|Toreador Grand Ball:
@@ -1661,7 +1615,6 @@
 102081|Unseen Hibernation:
   - "[abo] The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 102082|Unwholesome Bond:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
   - "Cannot be used by {Angelo} or {New Blood} on a uncontrolled vampire with no circle designation, even another {Angelo} or {New Blood}. [LSJ 20050927]"
 102092|Vast Wealth:
   - 'The provided action is an "equip action" [TOM 19960130] [RTR 19960124]'
@@ -1690,8 +1643,6 @@
   - 'May still be "canceled as it is played" when used as an out-of-turn master. [LSJ 20031201]'
 102137|Wake with Evening's Freshness:
   - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
-102138|Walk of Caine:
-  - "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
 102141|Walks-With-Might:
   - "Only affects the cost of masters played by his controller. [LSJ 20081124-1]"
 102143|Wanderer's Counsel:
@@ -1772,8 +1723,6 @@
 200049|Alexandra:
   - "Can use her unlock ability at any point during the turn, including during a political action. [TOM 19960214]"
   - "If she locks a Toreador who was attempting to block, then that block will fail. [TOM 19951007] [LSJ 19991025]"
-200064|Amadeo:
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 200068|Ambrogino Giovanni:
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 200074|Amisa:
@@ -1793,8 +1742,6 @@
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 200106|Anneke:
   - "Her ability only affects the rule restricting who gets to block an action. She must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 20020501] [LSJ 20041203]"
-200131|Ariadne:
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 200135|Arika:
   - "Arika's prey cannot end her unlock phase if she controls a location that she hasn't burned a pool for, even if she gained control of that location during that unlock phase. [LSJ 19990405]"
 200136|Arishat:
@@ -1873,8 +1820,6 @@
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 200587|Helena (ADV):
   - "[MERGED] Immune means damage from demons are not considered inflicted. [LSJ 20010627]"
-200594|Hesha Ruhadze:
-  - "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 200604|Horatio Ballard:
   - "Cannot use his special ability to become a Prince if he has changed sect and is no longer Camarilla. [LSJ 20030202]"
 200608|Hrothulf:
