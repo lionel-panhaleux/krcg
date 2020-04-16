@@ -4,7 +4,9 @@ Changelog
 0.18 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- CLI card command: Ruling links are now optional
+- CLI card command: Card text can be displayed without rulings
+- CLI card command: Card IDs can be used
 
 
 0.17 (2020-04-16)

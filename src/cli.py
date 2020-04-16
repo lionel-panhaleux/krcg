@@ -119,7 +119,13 @@ def deck_(args):
 
 def card(args):
     vtes.VTES.configure()
-    for name in args.cards:
+    for i, name in enumerate(args.cards):
+        if i > 0:
+            print()
+        try:
+            name = int(name)
+        except ValueError:
+            pass
         try:
             card = vtes.VTES[name]
         except KeyError:
@@ -127,6 +133,7 @@ def card(args):
             exit(1)
         print(vtes.VTES.get_name(card))
         print(_card_text(card))
+        print(_card_rulings(args, card))
 
 
 def _card_text(card):
@@ -150,15 +157,19 @@ def _card_text(card):
     text += " -- ({} - #{})".format(", ".join(card["Set"]), card["Id"])
     if "Disciplines" in card:
         text += "\n{}".format("/".join(card["Disciplines"]) or "-- No discipline")
-    text += "\n{}\n".format(card["Card Text"])
-    if "Rulings" not in card:
-        return text
-    text += "\n-- Rulings\n"
+    text += "\n{}".format(card["Card Text"])
+    return text
+
+
+def _card_rulings(args, card):
+    if args.text or "Rulings" not in card:
+        return ""
+    text = "\n-- Rulings\n"
     for ruling in card["Rulings"]:
         text += ruling + "\n"
-    for link in card["Rulings Links"]:
-        text += f"[{link['Reference']}]: {link['URL']}\n"
-    text += "\n"
+    if args.links:
+        for link in card["Rulings Links"]:
+            text += f"[{link['Reference']}]: {link['URL']}\n"
     return text
 
 
@@ -367,7 +378,11 @@ parser.set_defaults(func=deck_)
 # ################################################################################# card
 parser = subparsers.add_parser("card", help="show VTES cards")
 parser.add_argument("-s", "--short", action="store_true", help="display only card name")
-parser.add_argument("cards", metavar="CARD", nargs="+", help="list these cards")
+parser.add_argument(
+    "-t", "--text", action="store_true", help="display card text only (no rulings)"
+)
+parser.add_argument("-l", "--links", action="store_true", help="display ruling links")
+parser.add_argument("cards", metavar="CARD", nargs="+", help="card names or IDs")
 parser.set_defaults(func=card)
 
 # ############################################################################# complete
