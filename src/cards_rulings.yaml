@@ -539,11 +539,11 @@
   - "Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]"
 100695|Fall of the Camarilla:
   - "Cards that change a vampire's sect to Camarilla can still be played, but he becomes Independant until the Fall is removed from play. [LSJ 20040519]"
-  - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Camarilla, it sets it to Independant instead while the Fall is in play. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]"
+  - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Camarilla, it sets it to Independant instead while the Fall is in play. If the Fall leaves play, the vampire retrieves his underlying sect. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]"
   - "Vampires with a Camarilla title lose the benefit from it until they becomre Camarilla again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]"
 100696|Fall of the Sabbat:
   - "Cards that change a vampire's sect to Sabbat can still be played, but he becomes Independant until the Fall is removed from play. [LSJ 20040519]"
-  - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Sabbat, it sets it to Independant instead while the Fall is in play. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]"
+  - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Sabbat, it sets it to Independant instead while the Fall is in play. If the Fall leaves play, the vampire retrieves his underlying sect. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]"
   - "Vampires with a Sabbat title lose the benefit from it until they becomre Sabbat again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]"
 100699|Familial Bond:
   - "Cannot be played if intercept is not required (as per the rules, section 6.2.2). [ANK 20200329]"
