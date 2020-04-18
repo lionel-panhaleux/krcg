@@ -299,8 +299,6 @@
 100335|Charnas the Imp:
   - "Does nothing to an empty vampire which unlocks in torpor. [RTR 19941109]"
   - "Cannot be damaged by host, but does not stop host from using effects which would normally damage it. [RTR 19941109]"
-100339|Children of Osiris:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 100340|Children of Stone:
   - 'This is an "equip action" [TOM 19960130]'
 100347|Church of the Order of St. Blaise:
@@ -400,7 +398,6 @@
 100526|Depravity:
   - "The +1 strength is always in effect, not just during diablerie attempts. [RTR 19961113]"
 100527|Derange:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
   - "Cannot be moved to a Malkavian nor to a Malkavian antitribu vampire. [LSJ 19970224]"
   - "The clan is set when the card is played, it does not depend on the clan of the vampire that has the card on them. [LSJ 20070707]"
   - "Changes the sect of the target to the default sect of the clan. [LSJ 20001011]"
@@ -410,8 +407,6 @@
   - "Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]"
 100532|Detect Authority:
   - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [PIB 20110511] [RTR 20180719]"
-100533|Detection:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 100536|Deviki Prasanta:
   - "Cannot put a Discipline card on a vampire if it could normally not be put on him (eg. because he already has the superior level of that discipline). [ANK 20200320]"
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
@@ -547,8 +542,6 @@
   - "Vampires with a Sabbat title lose the benefit from it until they becomre Sabbat again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]"
 100699|Familial Bond:
   - "Cannot be played if intercept is not required (as per the rules, section 6.2.2). [ANK 20200329]"
-100701|Fantasy World:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 100703|Far Mastery:
   - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 100704|Fast Hands:
@@ -575,7 +568,6 @@
 100743|Flaming Candle:
   - "Is not burned if another effect make the vampire burn 1 blood upon action declaration. [RTR 20020501]"
 100745|Flash Grenade:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
   - 'If the opponent dodges, the "is locked and does not unlock as normal" effect do not apply. [RTR 20041202] [LSJ 20060808]'
   - 'If the combat continues or a new combat begins, the "is locked and does not unlock as normal" effect do not apply, but the grenade still burns. [RTR 20020501] [LSJ 20040601], '
 100749|Flesh of Marble:
@@ -871,10 +863,6 @@
   - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 101095|Lesser Boon:
   - "Effects that depend on the successful block do not see the block as successful. [RTR 20080808]"
-101099|Lextalionis:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
-101101|Liberty Club Intrigue:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 101103|Life Boon:
   - "If a player is saved more than once by Life Boon, the various Boons reserve a series of victory points, rather than competing with each other for a single victory point. [RTR 19951017]"
   - "If a player has gone to negative pool, the Life Boon player must give her enough pool to compensate for that. [RTR 19970630]"
@@ -988,12 +976,9 @@
   - "Cannot be used if there is no equipment to steal. [RTR 19980928]"
 101209|Mighty Grapple:
   - "[POT] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
-101211|Mind Numb:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 101214|Mind of the Wilds:
   - "The blocking minion is prohibited to strike: combat ends for the duration of the action (during any round of any combat). [LSJ 20100308]"
 101215|Mind Rape:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
   - "The card can be burned to take control of the target at any point during the the appropriate minion phase. It does not have to be done before non-mandatory actions. [LSJ 20001201]"
 101222|Mirror Image:
   - '[CHI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
@@ -1030,8 +1015,6 @@
 101251|Mummify:
   - "The unlock effect takes place before the end of combat. The rest of the effect takes place after the end of combat. [RTR 19970630]"
   - "If combat continues or a new combat begins, the vampire unlocks but does not go to torpor. [RTR 20020501] [LSJ 20020505]"
-101252|Mummy's Tongue:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 101254|Murder of Crows:
   - 'A "strike: combat ends" will end combat before their damage is applied, as will sending their controller to torpor during first strike. [RTR 19941109]'
   - "Do not gain any additional strikes of its controller. [RTR 19941109]"
@@ -1271,12 +1254,12 @@
   - "If the combat continues or a new combat begins, the card is put on the vampire, he is not locked and does not go to torpor. He still does not unlock as normal. [RTR 20020501] [LSJ 20071009]"
   - "A second Rötschreck cannot be played on the other opponent after a first has already been played. [LSJ 20020715]"
   - "Can only be played when a minion attempts to make a strike to inflict aggravated damage against the opposing vampire. [RTR 19961113] [RTR 20041202]"
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
   - 'Is executed before strikes resolve and prevents their whole effect, including any unlock effect of "combat ends" strikes. [LSJ 20060803]'
   - 'Is effective even if the target vampires "treats aggravated damage as normal". [ANK 20200130-1]'
   - 'The "does not unlock as normal" stops if Rötschreck is burned or removed from game. [ANK 20191025]'
 101655|Rowan Ring:
   - "Adding damage to the Ring strike will not deal damage. [RTR 19960221]"
+  - 'If placed on a minion that cannot have equipment, the Ring is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]'
 101658|Ruins of Ceoris:
   - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 "101660|Ruins of Villers Abbey, Belgium":
@@ -1328,8 +1311,6 @@
 101714|Selective Silence:
   - "[QUI] no other effect can be used to reset the range. [RTR 19970630]"
   - "[QUI] The blood is not the cost of Selective Silence, it is the cost of using the mandatory range-setting effect. The cost is not reduced by cards reducing [qui] or combat cards cost, the card cannot be used by a vampire who has less than one blood. [LSJ 19970224]"
-101721|Sensory Deprivation:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 101724|Seraph's Second:
   - "Can be used to unlock a vampire who has just successfully resolved an action to become Black Hand. [LSJ 20070702]"
 101727|Serpent's Numbing Kiss:
@@ -1341,9 +1322,8 @@
   - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
   - "The acting vampire's controller is the one who makes the choices pertaining to the ally or retainer entry in play. [LSJ 20030701-2]"
 101733|Shackles of Enkidu:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
   - '"The shackled minion" refers to the minion the card is put upon (not the Gangrel the card is put upon with the equip action). [TOM 19951212-2]'
-  - 'Once placed "on" a minion, even as a result of diablerie or theft, the Shackles will harm the minion they are on. [LSJ 19990602]'
+  - "Once placed on a minion, even as a result of diablerie or theft, the Shackles will harm the minion they are on. [LSJ 19990602]"
   - 'An ally does not suffer the "burn 2 blood" effect from being shackled. [RTR 19971201]'
   - "Are controlled by the Methuselah who controls the vampire who used it; changing the controller of the vampire changes who controls the Shackles. (errata) [RTR 19960708]"
 101735|Shadow Body:
@@ -1379,8 +1359,6 @@
   - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 101760|Shattering Blow:
   - "Cannot be used if there is no equipment to destroy. [RTR 19980928]"
-101762|Sheepdog:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 101765|Shepherd's Innocence:
   - "[ANI] Is undirected. [LSJ 20080809-1]"
 101767|Shilmulo Tarot:
@@ -1406,8 +1384,6 @@
   - "The additional cost is paid at the same time the normal cost is paid. [ANK 20190625]"
 "101811|Smiling Jack, The Anarch":
   - "Each other player must burn a pool or a vampire blood for each counter on Jack. Failing to burn a blood from an empty vampire will not lessen the obligation. [LSJ 19971212]"
-101815|Snipe Hunt:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 101816|Sniper Rifle:
   - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
   - "The bearer is not commited to use it if he or she uses another effect to set the range. [RTR 20020501]"
@@ -1428,8 +1404,6 @@
   - "A vampire diablerizing an older vampire can play Soul Stealing before or after getting a Discipline card, at his option, so long as he plays it before the Blood Hunt. [RTR 19991206]"
 101845|Spell of Life:
   - 'The mummies put into play are unique by card name. The name is "in play" for anything that cares. They will contest unique minions of the same name, vampire or allies. If one is {Nefertiti}, then {Aabbt Kindred} will be able to take directed actions. [LSJ 20070928-2] [LSJ 20071001-2]'
-101846|Spike-Thrower:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 101847|Spirit Claws:
   - "[pro] Must be played before strike resolution (and damage prevention) in order to affect the current strike [RTR 19960112]"
 101848|Spirit Marionette:
@@ -1557,7 +1531,6 @@
 101988|Tongue of the Serpent:
   - "Can target a minion with less blood than the amount stolen. [RTR 20010711]"
 101989|Toreador Grand Ball:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
   - 'The same vampire can serve as the "second Toreador" for multiple Toreador Grand Balls. [TOM 19960528]'
   - "The first Toreador chosen for the Toreador Grand Ball is unblockable on all non-bleed actions. This remains true even after the vampire attempts a bleed. [LSJ 19970814]"
 101991|Toreador's Bane:
@@ -1635,8 +1608,6 @@
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 102120|Vigilance:
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
-102125|Visionquest:
-  - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 102131|Voter Captivation:
   - "Is played after the referendum is resolved. If the effect of the referendum ousts the acting Methuselah, there is no time to play it to prevent the ousting. [RTR 19951110]"
   - 'Can be played before or after other cards that are played "after action resolution" or "if the action was successful". [LSJ 20070327]'
@@ -2006,3 +1977,5 @@
   - "Is not titled. If he gets a title, his additional votes are added to the ones provided by the title. [LSJ 20100601]"
 "201502|Zayyat, The Sandstorm":
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+102192|Wooden Stake:
+  - 'If placed on a minion that cannot have equipment, the Stake is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]'
