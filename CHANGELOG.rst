@@ -7,7 +7,9 @@ Changelog
 - CLI card command: Ruling links are now optional
 - CLI card command: Card text can be displayed without rulings
 - CLI card command: Card IDs can be used
-
+- Analyzer gets affinity computation: now a proportion of presence, with variance
+- CLI affinity command: add expectation and deviance
+- API complete: Fix completion for special chars
 
 0.17 (2020-04-16)
 -----------------
