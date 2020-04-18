@@ -1274,6 +1274,7 @@
   - 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
   - 'Is executed before strikes resolve and prevents their whole effect, including any unlock effect of "combat ends" strikes. [LSJ 20060803]'
   - 'Is effective even if the target vampires "treats aggravated damage as normal". [ANK 20200130-1]'
+  - 'The "does not unlock as normal" stops if Rötschreck is burned or removed from game. [ANK 20191025]'
 101655|Rowan Ring:
   - "Adding damage to the Ring strike will not deal damage. [RTR 19960221]"
 101658|Ruins of Ceoris:
