@@ -70,7 +70,7 @@
   - "Does not end combat until after strike resolution, so the damage can be prevented or healed as normal. [LSJ 20011210-3]"
 100067|Angel of Berlin:
   - "May be played after a block is successful before combat begins. [LSJ 20060410]"
-100071|The Ankara Citadel, Turkey:
+"100071|The Ankara Citadel, Turkey":
   - "Multiplication and divisions are applied first, followed by addition and substraction. [RTR 20070707]"
   - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 100076|Apparition:
@@ -1260,6 +1260,7 @@
 101655|Rowan Ring:
   - "Adding damage to the Ring strike will not deal damage. [RTR 19960221]"
   - 'If placed on a minion that cannot have equipment, the Ring is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]'
+  - 'The "does not unlock as normal" effect continues to apply if the Ring is burned or moved. [LSJ 19980831]'
 101658|Ruins of Ceoris:
   - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 "101660|Ruins of Villers Abbey, Belgium":
@@ -1659,6 +1660,9 @@
   - "Does not gain any additional strikes of its controller. [RTR 19941109]"
   - "The number of lives is set when it is recruited and will not change if its controller's level of Animalism changes. [RTR 19941109]"
   - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
+102192|Wooden Stake:
+  - 'If placed on a minion that cannot have equipment, the Stake is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]'
+  - 'The "does not unlock as normal" effect continues to apply if the Stake is burned or moved. [LSJ 19980831]'
 102194|Wormwood:
   - "Ceils the vampire's capacity, including effects that have changed it, to X. {Orun} adds to that X, or the vampire's capacity if it is lower, for cards played by other players. [LSJ 20051205]"
 102196|Writ of Acceptance:
@@ -1977,5 +1981,3 @@
   - "Is not titled. If he gets a title, his additional votes are added to the ones provided by the title. [LSJ 20100601]"
 "201502|Zayyat, The Sandstorm":
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
-102192|Wooden Stake:
-  - 'If placed on a minion that cannot have equipment, the Stake is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]'
