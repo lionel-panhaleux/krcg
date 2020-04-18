@@ -24,9 +24,11 @@ def test_complete(client):
     response = client.get("/complete/NotACard")
     assert response.status_code == 200
     assert response.json == []
+    # same match level, order alphabetically
     response = client.get("/complete/unn")
     assert response.status_code == 200
-    assert response.json == ["Unnatural Disaster", "The unnamed"]
+    assert response.json == ["The unnamed", "Unnatural Disaster"]
+    # first word is a better match
     response = client.get("/complete/pentex")
     assert response.status_code == 200
     assert response.json == [
@@ -36,12 +38,17 @@ def test_complete(client):
         "Enzo Giovanni, Pentex Board of Directors (ADV)",
         "Harold Zettler, Pentex Director",
     ]
+    # for multiple words, all must match
     response = client.get("/complete/the%20ru")
     assert response.status_code == 200
     assert response.json == [
         "The Rumor Mill, Tabloid Newspaper",
         "Darvag, The Butcher of Rus",
     ]
+    # match names with special chars
+    response = client.get("/complete/rot")
+    assert response.status_code == 200
+    assert response.json == ["Rötschreck", "Ulrike Rothbart"]
 
 
 def test_card(client):
