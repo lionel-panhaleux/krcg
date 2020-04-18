@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.18 (unreleased)
+0.18 (2020-04-18)
 -----------------
 
 - CLI card command: Ruling links are now optional
