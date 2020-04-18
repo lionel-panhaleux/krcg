@@ -2,6 +2,7 @@
 """
 import argparse
 import logging
+import math
 import sys
 
 import arrow
@@ -41,20 +42,51 @@ def init(args):
             exit(1)
 
 
+def typical_copies(A, card_name):
+    deviation = math.sqrt(A.variance[card_name])
+    min_copies = max(1, round(A.average[card_name] - deviation))
+    max_copies = round(A.average[card_name] + deviation)
+    if min_copies == max_copies:
+        ret = f"{min_copies}"
+    else:
+        ret = f"{min_copies}-{max_copies}"
+    if max_copies > 1:
+        ret += " copies"
+    else:
+        ret += " copy"
+    return ret
+
+
 def affinity(args):
     # build a condition matching options
     def condition(card):
-        return (
-            (args.spoilers or twda.TWDA.no_spoil(card))
-            and (not args.crypt or vtes.VTES.is_crypt(card))
-            and (not args.library or vtes.VTES.is_library(card))
+        return (not args.crypt or vtes.VTES.is_crypt(card)) and (
+            not args.library or vtes.VTES.is_library(card)
         )
 
     twda.TWDA.configure(args.date_from, args.date_to, args.players)
     A = analyzer.Analyzer()
-    A.refresh(*args.cards, condition=condition)
-    for candidate in A.candidates(*args.cards)[: args.number]:
-        print("{0[0]:<30} (score: {0[1]:.2f})".format(candidate))
+    A.refresh(*args.cards, condition=condition, similarity=1)
+    if len(A.examples) < 4:
+        print("Too few example in TWDA.")
+        if len(A.examples) > 0:
+            print(
+                "To see them:\n\tkrcg deck {}".format(
+                    " ".join('"' + name + '"' for name in args.cards)
+                )
+            )
+        return
+    for name, score in A.candidates(*args.cards, no_filter=True)[: args.number or None]:
+        score = round(score * 100 / len(args.cards))
+        if args.minimum and args.minimum > score:
+            break
+        # do not include spoilers if affinity is within 50% of natural occurence
+        if score < twda.TWDA.spoilers.get(name, 0) * 150:
+            continue
+        print(
+            f"{name:<30} (in {score:.0f}% of decks, typically "
+            f"{typical_copies(A, name)})"
+        )
 
 
 def top(args):
@@ -77,7 +109,10 @@ def top(args):
     A.refresh(condition=condition)
     for card_name, count in A.played.most_common()[: args.number]:
         card = vtes.VTES[card_name]
-        print("{:<30} (played in {} decks)".format(vtes.VTES.get_name(card), count))
+        print(
+            f"{card_name:<30} (played in {count} decks, typically "
+            f"{typical_copies(A, card_name)})"
+        )
         if args.full:
             print(_card_text(card))
             print()
@@ -241,18 +276,15 @@ parser = subparsers.add_parser(
 )
 add_deck_boundaries(parser)
 parser.add_argument(
-    "-n",
-    "--number",
-    type=int,
-    default=10,
-    metavar="N",
-    help="Number of cards to print (default 10)",
+    "-n", "--number", type=int, default=0, metavar="N", help="Number of cards to print",
 )
 parser.add_argument(
-    "-s",
-    "--spoilers",
-    action="store_true",
-    help="Display spoiler cards in affinity list (not included by default)",
+    "-m",
+    "--minimum",
+    type=int,
+    default=50,
+    metavar="P",
+    help="Minimum affinity to display (default 50)",
 )
 parser.add_argument("-c", "--crypt", action="store_true", help="Only crypt cards")
 parser.add_argument("-l", "--library", action="store_true", help="Only library cards")

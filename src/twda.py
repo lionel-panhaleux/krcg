@@ -43,7 +43,7 @@ class _TWDA(collections.OrderedDict):
     """ An OrderedDict of the TWDA. Parsing TWDA.html is the hard part.
 
     Attributes:
-        spoilers (set): cards played in over 25% of decks
+        spoilers (dict): cards played in over 25% of decks
         tail_re (str): regexp used to parse tail part of card line
     """
 
@@ -112,7 +112,7 @@ class _TWDA(collections.OrderedDict):
                 del self[key]
         if spoilers and len(self) > 50:
             self.spoilers = {
-                name
+                name: count / len(self)
                 for name, count in collections.Counter(
                     itertools.chain.from_iterable(d.keys() for d in self.values())
                 ).items()

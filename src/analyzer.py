@@ -23,7 +23,8 @@ class Analyzer(object):
     Attributes:
         examples (dict): Selected example decks from TWDA
         played (dict): For each card, number of decks playing it at least once
-        average (dict): For each card, average number of exemplaries played
+        average (dict): For each card, average number of copies played
+        variance (dict): For each card, variance of the number of copies played
         affinity (dict): For each card, dict of cards and their affinity (int)
         refresh_cursor (int): Card count for next refresh (when building deck)
         deck (deck.Deck): Deck being built
@@ -33,6 +34,7 @@ class Analyzer(object):
         self.examples = None
         self.played = None
         self.average = None
+        self.variance = None
         self.affinity = None
         self.refresh_cursor = 0
         self.deck = None
@@ -87,10 +89,10 @@ class Analyzer(object):
         similarity=1 can be used to ensure all cards given as args must be present
         in the deck for it to be selected as an example.
 
-        If `self.deck` has been created (e.g. by calling `build_deck`),
-        `self.average` of number played is computed for each example card
-        and `self.cards_left` is set using an average of examples.
+        `self.average` of number played is computed for each example card.
 
+        If `self.deck` has been created (e.g. by calling `build_deck`),
+        `self.cards_left` is set using an average of examples.
         `self.refresh_cursor` is set to the number of cards to attain before
         a new refresh is required. It is quadratic, so refreshs happen
         in O(log) of cards count.
@@ -112,7 +114,14 @@ class Analyzer(object):
             self.examples = {
                 twda_id: example
                 for twda_id, example in twda.TWDA.items()
-                if len(set(reference) & set(example.card_names(twda.TWDA.no_spoil)))
+                if len(
+                    set(reference)
+                    & set(
+                        example.card_names(
+                            lambda c: c in reference or twda.TWDA.no_spoil(c)
+                        )
+                    )
+                )
                 / len(reference)
                 >= similarity
             }
@@ -128,17 +137,24 @@ class Analyzer(object):
         self.affinity = collections.defaultdict(collections.Counter)
         for card in reference:
             self.refresh_affinity(card, condition)
-
+        # compute average number played for each card
+        self.average = collections.Counter()
+        self.variance = collections.Counter()
+        for example in self.examples.values():
+            self.average.update(
+                {
+                    card: count / self.played[card]
+                    for card, count in example.cards(condition)
+                }
+            )
+        for example in self.examples.values():
+            self.variance.update(
+                {
+                    card: pow(count - self.average[card], 2) / self.played[card]
+                    for card, count in example.cards(condition)
+                }
+            )
         if self.deck is not None:
-            # compute average number played for each card
-            self.average = collections.Counter()
-            for example in self.examples.values():
-                self.average.update(
-                    {
-                        card: count / self.played[card]
-                        for card, count in example.cards(condition)
-                    }
-                )
             # compute number of cards left to find for this deck
             self.cards_left = round(
                 sum(
@@ -169,10 +185,13 @@ class Analyzer(object):
             if card not in example:
                 continue
             self.affinity[card].update(
-                friend for friend, _ in example.cards(condition) if friend != card
+                {
+                    friend: 1 / len(self.examples)
+                    for friend, _ in example.cards(condition)
+                }
             )
 
-    def candidates(self, *args):
+    def candidates(self, *args, no_filter=False):
         """Select candidates using `self.affinity`. Filter banned cards out.
 
         Args:
@@ -189,7 +208,8 @@ class Analyzer(object):
                 {
                     candidate: score
                     for candidate, score in self.affinity.get(card, {}).items()
-                    if not (vtes.VTES[candidate].get("Banned") or candidate in args)
+                    if no_filter
+                    or not (vtes.VTES[candidate].get("Banned") or candidate in args)
                 }
             )
         return candidates.most_common()
