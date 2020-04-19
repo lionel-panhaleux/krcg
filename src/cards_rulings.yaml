@@ -1746,7 +1746,7 @@
   - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
 200242|The Capuchin:
   - "If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20160404] [ANK 20200415-1]"
-  - "If his controller is not his original owner and he burns, he goes to his owner ash heap, breaking all temporary control effect, then to his last permanent controller's uncontrolled area. The Methusalah who was controlling him when he burned gets the additional transfers. [ANK 20200130-2] [ANK 20200415-1]"
+  - "If his controller is not his original owner and he burns, he goes to his original owner ash heap, breaking all control effect, then to his owner's uncontrolled area. The Methusalah who was controlling him when he burned gets the additional transfers. [ANK 20200417]"
 200245|Carlotta Giovanni:
   - "The card being retrieved is announced when the action is declared. [LSJ 19970922]"
 200247|Carmine Giovanni:
