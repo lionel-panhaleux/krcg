@@ -261,8 +261,6 @@
   - "[ani] Can not be played if the vampire is in torpor, for example if he went into torpor during the combat resulting from the block. [LSJ 20000103]"
 100309|Cauldron of Blood:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
-100313|Celestial Harmony:
-  - "[AUS] Is undirected. [LSJ 20080809-1]"
 100316|Chain of Command:
   - "Cannot bring more than one copy of a unique vampire out, by the rule prohibiting self-contesting. [LSJ 20040722]"
 100319|Chalice of Kinship:
@@ -286,7 +284,7 @@
 100325|Changeling Skin Mask:
   - "The superior Obfuscate is not optional. [RTR 19980707] [LSJ 19980722]"
 100326|Chanjelin Ward:
-  - "Applies to an undirected action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2]"
+  - "Applies to an action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2] [KOT 20081119]"
 100328|Channeling the Beast:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100330|Charge of the Buffalo:
@@ -333,8 +331,6 @@
 100392|Concealed Weapon:
   - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike against a generic opponent. [RTR 19980623]'
   - "Strength or other bonus from the minion are not counted. [LSJ 20020821]"
-100396|Condemn the Sins of the Father:
-  - "The action is undirected. [LSJ 20080809-1]"
 "100400|Condemnation: Mute":
   - "Only affects votes, and not ballots. [PIB 20110802]"
 100412|Conscripted Statue:
@@ -526,7 +522,8 @@
   - "[PRO] The maneuver is only available during the action in which Eyes of the Beast was played. [ANK 20191108]"
   - "[PRO] If the action is blocked but continues after combat (eg. with {Form of Mist}) and the reacting vampire blocks again, he gets the maneuver again. [ANK 20191108]"
 100687|Faceless Night:
-  - "A minion attempting to block before it is played cannot back out. [LSJ 20081202]"
+  - "[OBF]: A minion attempting to block before it is played cannot back out. [LSJ 20081202]"
+  - "[OBF]: A minion that as attempted to block but failed before it was played is not affected. [ANK 20190509]"
 100690|Faerie Wards:
   - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
   - "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
@@ -855,6 +852,7 @@
   - "When hunting on a target that has no blood to steal, the hunt action will simply have no effect, stealing zero blood. [LSJ 19970224]"
   - "The vampire cannot hunt if there are no vampires at all. [LSJ 19970224]"
   - 'If the vampire with the card "cannot gain blood", then the stolen blood is moved to the blood bank when he hunts. [LSJ 20010809-1]'
+  - "Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606] [ANK 20190707]"
 101088|Legacy of Power:
   - "May be used if one of your vampires is in combat with an ally. In this case, your vampire goes into torpor and the ally is unaffected. [RTR 19960112]"
   - "Is played during combat. Combat cards can be played to continue combat or begin a new combat. [ANK 20200109]"
@@ -874,7 +872,7 @@
 101117|Local 1111:
   - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101118|Lock:
-  - "Once in play, applies to an undirected action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2]"
+  - "Once in play, applies to an action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2] [KOT 20081119]"
 101121|Loner:
   - "Only considers the minions controlled during the influence phase. It does not care if minions you no longer control acted this turn. [LSJ 20060616-1]"
 101126|Lost in Translation:
@@ -958,8 +956,6 @@
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101192|The Meddling of Semsith:
   - "Will stay in play (uselessly) when the target is burned. [LSJ 20021008]"
-101194|Mehemet of the Ahl-i-Batin:
-  - "If the Discipline card is controlled by a Methuselah other than the controller of the vampire it is on, Mehemet's action to burn it and a blood from the vampire is undirected. [LSJ 20010816]"
 101195|Melange:
   - "Works on any minion, not just on vampires. [RTR 20020501]"
 101196|Meld with the Land:
@@ -981,6 +977,8 @@
   - "The blocking minion is prohibited to strike: combat ends for the duration of the action (during any round of any combat). [LSJ 20100308]"
 101215|Mind Rape:
   - "The card can be burned to take control of the target at any point during the the appropriate minion phase. It does not have to be done before non-mandatory actions. [LSJ 20001201]"
+101218|Ministry:
+  - "The additional intercept is gained or lost if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]"
 101222|Mirror Image:
   - '[CHI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
   - '[CHI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
@@ -1038,11 +1036,15 @@
   - "Mortal allies are not affected, and vampires with capacity above the number of Gehenna cards in play are not affected. [LSJ 20040415]"
 101287|Nightstick:
   - "Can prevent up to 3 damage, it can prevent less. [RTR 20041202]"
+101295|Nod:
+  - "Choose for each equipment which minion will receive it, then transfer all the equipment accordingly. [ANK 20190717]"
 101309|Obedience:
   - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
   - "Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat, if the opponent is still the acting vampire. [LSJ 19991025]"
   - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
   - "Cannot be played if the opponent is not the acting vampire, for example if a slave took his place. [ANK 20171212]"
+101315|Of Noble Blood:
+  - "Is a Ⓓ action if a vampire controlled by another Methusalah is chosen. [ANK 20190606]"
 101320|Omael Kuman:
   - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
 101331|Orun:
@@ -1104,6 +1106,8 @@
 101426|Pounce:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "Damage done to the striking minion is environmental. [LSJ 19970801]"
+101430|Power Structure:
+  - "Cannot be used during a Blood Hunt referendum, since there is no political action. [ANK 20190707]"
 "101431|Powerbase: Barranquilla":
   - "{Church of the Order of St. Blaise} may be used to add a counter to it before it burns if it has zero counters. [LSJ 20050105]"
 "101432|Powerbase: Berlin":
@@ -1150,6 +1154,8 @@
   - "All cards which modify the bleed amount are applied before Protected Resources's effect. [TOM 19960413]"
   - "Does not alter the bleed amount: it merely limits the maximum amount of pool the target of the bleed burns for the successful bleed. [LSJ 20030211]"
   - "If you perform a bleed action that resolves as a bleed for 0, you don't burn your Protected Resources. [LSJ 20030701-1]"
+101501|Protection Racket:
+  - "The additional intercept is gained or lost if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]"
 101504|Proxy Kissed:
   - "Can be played on a vampire who already has a Proxy Kissed (and was moved to uncontrolled and re-influenced). [LSJ 20050720-1]"
 101507|Psyche!:
@@ -1363,9 +1369,11 @@
 101760|Shattering Blow:
   - "Cannot be used if there is no equipment to destroy. [RTR 19980928]"
 101765|Shepherd's Innocence:
-  - "[ANI] Is undirected. [LSJ 20080809-1]"
+  - "[ANI] Is directed at all Methusalah controlling a card that require Animalism [ani]. [LSJ 20080809-1] [KOT 20081119]"
 101767|Shilmulo Tarot:
   - "There is no limit to the number of cards it can store. [PIB 20110712-2]"
+101781|The Signet of King Saul:
+  - "{Unleash Hell's Fury} cannot block the bearer. [ANK 20190501]"
 101783|Sins of the Cauchemar:
   - "[AUS] Can be played even if no block attempt is made, several minions can play it on the same action. [LSJ 19990611]"
 101784|Siphon:
@@ -1607,6 +1615,10 @@
 102098|Veiled Sight:
   - "[CHI] The strike can be used on a minion with no blood. [RTR 20010711]"
   - "[CHI] The strike is not ranged. [TOM 19951215-2]"
+102100|Velvet Tongue:
+  - "If an effect causes a minion to be unable to cast votes or ballots during a referendum, that minion is forced to abstain, whether he or she had already cast votes or ballots or not. [PIB 20141226]"
+102104|Venenation:
+  - "Modifiers that are played before block resolution like {Change of Target} can be played after Venenation and cancel the combat that would have occured. [ANK 20190524] [LSJ 20020126]"
 102106|Vengeance of Samiel:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 102120|Vigilance:
@@ -1631,7 +1643,7 @@
 "102152|Wasserschloss Anif, Austria":
   - "Can only receive blood from one Tremere on any given turn. [RTR 19960221]"
 102160|Wave of Insanity:
-  - "[DEM] Is undirected. [LSJ 20080809-1]"
+  - "[DEM] Is directed at all Methusalah controlling an ally. [LSJ 20080809-1] [KOT 20081119]"
 102161|Wave of Lethargy:
   - "Card text was changed in 2007, previous rulings do not apply. [ANK 20200408-1]"
 102164|Weather Control:
@@ -1641,6 +1653,8 @@
   - "Both minions can play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]"
 102165|Web of Knives Recruit:
   - "It is not an action to put a vampire in play. [LSJ 20060616-2]"
+102166|Week of Nightmare:
+  - "Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606] [ANK 20190707]"
 102166|Week of Nightmares:
   - "Ravnos can target a Ravnos with no blood with the +1 stealth hunt action. [RTR 20010711]"
 102169|Weighted Walking Stick:
@@ -1935,6 +1949,8 @@
   - "The damage he takes during the master phase from his ability is environmental. [RTR 19970630]"
 201240|Sargon:
   - "His controller gets the Edge after the effects of the successful action are applied. If it is a referendum, he gets the Edge after the referendum is concluded. [LSJ 20011222]"
+"201245|Sascha Vykos, The Angel of Caine (ADV)":
+  - "When using his ability to draw, discard afterwards. [ANK 20190707]"
 201253|Scout Youngwood:
   - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
 201282|Shemti:
@@ -1956,9 +1972,15 @@
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
   - "His ability do not allow his owner to play more than one Master: Out of Turn between two master phases. [ANK 20191004]"
 "201337|Talley, the Hound":
-  - "Gets his +1 intercept if an undirected action has any one target that would be enough to enable his effect. [RTR 20080808]"
+  - "Gets his +1 intercept if an action has any one target that would be enough to enable his effect. [RTR 20080808] [KOT 20081119]"
+"201344|Tariq, The Silent":
+  - "His capacity is reduced immediately when he get controlled, before it can be merged with the advanced version. [ANK 20190522]"
+"201345|Tariq, The Silent (ADV°":
+  - "His capacity is reduced immediately when he get controlled, before it can be merged with the base version. [ANK 20190522]"
 "201352|Tegyrius, Vizier":
   - "Allegiance counters continue to function even if Tegyrius leaves play. [LSJ 20030522]"
+"201354|Teresita, The Godmother":
+  - "She gains or looses intercept if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]"
 201355|Tereza Rostas:
   - "She cannot steal the Edge if it is uncontrolled. [TOM 19951214-2]"
   - "If the target of the action burns the Edge during the action, her controller still gets the Edge if the action succeeds. [RTR 19980623]"
