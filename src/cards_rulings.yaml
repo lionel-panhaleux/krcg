@@ -308,7 +308,7 @@
 100353|Clan Impersonation:
   - "Changing clan does not remove any slave status. [LSJ 20030511]"
   - "Changes the sect of the target to the default sect of the clan. [LSJ 20001011]"
-  - "When removed, the vampire goes back ot its underlying clan, and the default sect of that clan (even if he was from another sect before). [ANK 20200415-2]"
+  - "When removed, the vampire goes back ot its underlying clan, and the default sect of that clan (even if he was from another sect before). [ANK 20200415]"
   - "If the target changes clan or sect to a clan or sect inappropriate for his title, he loses its benefit until his clan or sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 100356|Claws of the Dead:
   - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike [RTR 19960112]"
@@ -402,7 +402,7 @@
   - "The clan is set when the card is played, it does not depend on the clan of the vampire that has the card on them. [LSJ 20070707]"
   - "Changes the sect of the target to the default sect of the clan. [LSJ 20001011]"
   - "If the target changes clan or sect to a clan or sect inappropriate for his title, he loses its benefit until his clan or sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
-  - "When removed, the vampire goes back ot its underlying clan, and the default sect of that clan (even if he was from another sect before). [ANK 20200415-2]"
+  - "When removed, the vampire goes back ot its underlying clan, and the default sect of that clan (even if he was from another sect before). [ANK 20200415]"
 100528|Descent into Darkness:
   - "Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]"
 100532|Detect Authority:
@@ -1745,7 +1745,7 @@
 200232|Cailean:
   - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
 200242|The Capuchin:
-  - "If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20160404] [ANK 20200415-1]"
+  - "If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20160404] [ANK 20200417]"
   - "If his controller is not his original owner and he burns, he goes to his original owner ash heap, breaking all control effect, then to his owner's uncontrolled area. The Methusalah who was controlling him when he burned gets the additional transfers. [ANK 20200417]"
 200245|Carlotta Giovanni:
   - "The card being retrieved is announced when the action is declared. [LSJ 19970922]"
