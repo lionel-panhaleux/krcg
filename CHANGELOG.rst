@@ -4,7 +4,8 @@ Changelog
 0.19 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Additional rulings
+- Fixed rulings pertaining to multi-target actions
 
 
 0.18 (2020-04-18)
