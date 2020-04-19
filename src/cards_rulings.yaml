@@ -969,6 +969,7 @@
   - "Any cards on the target minion are burned. [SFC 19960919]"
 101201|Mental Maze:
   - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
+  - "Can be played if the requirement was met at the time of block, even if an older slave replaced the acting vampire since. [ANK 20171212]"
 101204|Mercy for the Weak:
   - "The blood gain takes place after the end of combat. [RTR 19970630]"
   - "The blood is not gained if an effect continues the combat or begins a new combat. [RTR 20020501]"
@@ -1039,8 +1040,9 @@
   - "Can prevent up to 3 damage, it can prevent less. [RTR 20041202]"
 101309|Obedience:
   - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
-  - "Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat. [LSJ 19991025]"
+  - "Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat, if the opponent is still the acting vampire. [LSJ 19991025]"
   - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
+  - "Cannot be played if the opponent is not the acting vampire, for example if a slave took his place. [ANK 20171212]"
 101320|Omael Kuman:
   - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
 101331|Orun:
