@@ -76,6 +76,8 @@
 100076|Apparition:
   - "[CHI] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
   - "[CHI] Can prevent 1 damage twice on separated strikes in the same round. [ANK 20200318]"
+100078|Approximation of Loyalty:
+  - '[pre] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 100080|Arcane Appraiser:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100084|Archon:
@@ -122,6 +124,8 @@
 100144|Bear-Baiting:
   - "Damage is environmental. [RTR 19970630]"
   - "{Change of Target} can be played after Bear-Baiting (younger, older, or the same age). [LSJ 20040312]"
+100146|Beast Meld:
+  - '[ANI][PRO] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 100153|Bestial Vengeance:
   - "Damage is environmental. [RTR 19970630]"
   - "Bestial Vengeance's damage is inflicted whether or not the opposing minion's strike burns the retainer. [LSJ 20090616]"
@@ -440,6 +444,7 @@
   - "Locked minions are counted after the referendum is completed. [RTR 19941109]"
 100571|Domain of Evernight:
   - "[tem] Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [ANK 20130319]"
+  - '[TEM] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
 100575|Donate:
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 100576|Donnybrook:
@@ -547,6 +552,8 @@
   - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
   - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
   - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
+100706|Fata Amria:
+  - '[CHI] [REACTION] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
 100723|Festivo dello Estinto:
   - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
@@ -582,11 +589,15 @@
   - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100757|Follow the Blood:
   - "If played on a vampire who successfully hunts with a {Perfectionist}, {Perfectionist} grants the blood before combat. [LSJ 20110308]"
+100758|Force of Personality:
+  - '[PRE] [ACTION MODIFIER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 100759|Force of Will:
   - "If the action is canceled before the aggravated damage is done, then the damage is not done (it is lost). If the action is merely ended (by {Change of Target}), then the damage occurs as normal. [RTR 20020501] [LSJ 20020927]"
   - "{Mask of a Thousand Faces} cannot be used to take over a Force of Will action, since the former requires an unlocked vampire and the latter requires a locked one. [LSJ 20020927]"
 100760|Forced Awakening:
   - "If he fails to block, the vampire only burns a blood when the action begins to resolve (successfully or not). He can pay for reactions after declining to block, before burning a blood. [LSJ 19990421]"
+100761|Forced March:
+  - '[cel][for] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
 100763|Forearm Block:
   - "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 100764|Foresee:
@@ -727,6 +738,7 @@
 100919|Hide:
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
   - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
+  - '[ACTION MODIFIER] [1 CONVICTION] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 100920|Hide the Heart:
   - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
   - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
@@ -1138,6 +1150,8 @@
   - "The additional capacity is lost if the title is lost. [TOM 19960210]"
 101475|Precognition:
   - "The damage prevention can only be used if the block is successful, and only in the resulting (block-induced) combat. [LSJ 20010813]"
+101479|Predator's Transformation:
+  - '[abo] [ACTION MODIFIER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101481|Pressing Flesh:
   - "This is not a directed action. [LSJ 20010627]"
 101485|Primal Instincts:
@@ -1228,6 +1242,7 @@
   - "Paying for the equipment found is not optional if a ready minion meet the requirements. If paying the cost will oust the controlling Methuselah, then she is ousted. [RTR 19941109] [RTR 20010710]"
 101606|Repulsion:
   - "[OBE] Can be used even if the stealth is not currently needed. [LSJ 20011214-2]"
+  - '[pre] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101608|Resilience:
   - "Prevents up to 3 non-aggravated damage, it can be used to prevent less. [RTR 20041202]"
 101609|Resilient Mind:
@@ -1372,6 +1387,8 @@
   - "[ANI] Is directed at all Methusalah controlling a card that require Animalism [ani]. [LSJ 20080809-1] [KOT 20081119]"
 101767|Shilmulo Tarot:
   - "There is no limit to the number of cards it can store. [PIB 20110712-2]"
+101773|Shroud Mastery:
+  - '[NEC] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101781|The Signet of King Saul:
   - "{Unleash Hell's Fury} cannot block the bearer. [ANK 20190501]"
 101783|Sins of the Cauchemar:
@@ -1387,6 +1404,8 @@
   - "Cannot be played to queue a second combat after a combat is already set up for later (e.g. by a previous Siren's Lure). [LSJ 20020125]"
   - "Other effects that queue a combat cannot be used until the new combat begins. [LSJ 20021121]"
   - "Combat does not occur if the action ends prematurely. [LSJ 20090826]"
+101794|Skin of the Chameleon:
+  - '[tha] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101798|Slam:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101806|Sleight of Hand:
@@ -1433,6 +1452,8 @@
   - "{Archon Investigation} cannot be played after a Spying Mission is burned for +2 bleed, since the bleed is already resolved at that point. [LSJ 19980105]"
   - '{Mask of a Thousand Faces} cannot be played after playing a superior Spying Mission because Spying Mission is played "when the action resolves". [LSJ 19980105]'
   - "Is played when a bleed would be successful, before resolution. [LSJ 20110502]"
+101858|Squirrel Balance:
+  - '[cel] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101860|Starshell Grenade Launcher:
   - "Using the Launcher to reduce stealth does not force the minion to strike with it if he blocks. [LSJ 19971215]"
 101862|Static Virtue:
@@ -1572,6 +1593,8 @@
   - "If the recipient of the Trophy chooses to burn it, there is no other effect. He does not unlock and does not gain the four blood. [LSJ 20070309-1]"
 "102029|Trophy: Diablerie":
   - "May be retrieved when diablerizing a Red List vampire prior to the blood hunt referendum: it protects the vampire in that referendum. All copies on the vampire are then burned at the end of that action. [LSJ 20050222]"
+102044|Truth of a Thousand Lies:
+  - '[SER] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
 102047|Tunnel Runner:
   - "Damage done from stealing blood to the Runner is environmental. [RTR 19970630] [LSJ19971028]"
 102053|Tye Cooper:
@@ -1622,7 +1645,10 @@
 102106|Vengeance of Samiel:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 102120|Vigilance:
-  - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
+  - "[REACTION] [1 CONVICTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
+  - '[MODIFIER] Cards and effects that can be played "after resolution" (and only them) can be played after its use. [ANK 20190425]'
+102124|Virtuosa:
+  - '[MEL] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 102131|Voter Captivation:
   - "Is played after the referendum is resolved. If the effect of the referendum ousts the acting Methuselah, there is no time to play it to prevent the ousting. [RTR 19951110]"
   - 'Can be played before or after other cards that are played "after action resolution" or "if the action was successful". [LSJ 20070327]'
@@ -1657,6 +1683,8 @@
   - "Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606] [ANK 20190707]"
 102166|Week of Nightmares:
   - "Ravnos can target a Ravnos with no blood with the +1 stealth hunt action. [RTR 20010711]"
+102168|Weigh the Heart:
+  - '[AUS][SER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 102169|Weighted Walking Stick:
   - "If the damage is reduced (eg. {Nephandus}), the corresponding token is not burned (contrary to prevented damage). [LSJ 20100519]"
 102173|Wendell Delburton:
@@ -1665,6 +1693,8 @@
   - "The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 102179|White Phosphorus Grenade:
   - "Damage done to the bearer is environmental. [LSJ 19970801]"
+102183|Will-o'-the-Wisp":
+  - '[CHI] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 102184|Winchester Mansion:
   - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 102186|Winged Second:
