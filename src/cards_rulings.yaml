@@ -1688,10 +1688,9 @@
   - "Both minions can play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]"
 102165|Web of Knives Recruit:
   - "It is not an action to put a vampire in play. [LSJ 20060616-2]"
-102166|Week of Nightmare:
-  - "Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606] [ANK 20190707]"
 102166|Week of Nightmares:
   - "Ravnos can target a Ravnos with no blood with the +1 stealth hunt action. [RTR 20010711]"
+  - "Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606] [ANK 20190707]"
 102168|Weigh the Heart:
   - '[AUS][SER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 102169|Weighted Walking Stick:
@@ -1702,7 +1701,7 @@
   - "The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 102179|White Phosphorus Grenade:
   - "Damage done to the bearer is environmental. [LSJ 19970801]"
-102183|Will-o'-the-Wisp":
+102183|Will-o'-the-Wisp:
   - '[CHI] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 102184|Winchester Mansion:
   - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
@@ -2022,7 +2021,7 @@
   - "Gets his +1 intercept if an action has any one target that would be enough to enable his effect. [RTR 20080808] [KOT 20081119]"
 "201344|Tariq, The Silent":
   - "His capacity is reduced immediately when he get controlled, before it can be merged with the advanced version. [ANK 20190522]"
-"201345|Tariq, The Silent (ADV°":
+"201345|Tariq, The Silent (ADV)":
   - "His capacity is reduced immediately when he get controlled, before it can be merged with the base version. [ANK 20190522]"
 "201352|Tegyrius, Vizier":
   - "Allegiance counters continue to function even if Tegyrius leaves play. [LSJ 20030522]"
