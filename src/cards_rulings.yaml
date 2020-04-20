@@ -2005,3 +2005,7 @@
   - "Is not titled. If he gets a title, his additional votes are added to the ones provided by the title. [LSJ 20100601]"
 "201502|Zayyat, The Sandstorm":
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+"200072|Amelia, The Blood Red Tears":
+  - "Her ability triggers after combat if she's still in play, even in torpor. If she is burned during combat, it doesn't trigger. [ANK 20200420]"
+  - "If multiple combats occur in the same action, the opposing minion burns 1 blood or life each time the combat ends. [ANK 20200420]"
+  - "In the case of {Free Fight}, the last opposing minion burns the blood. [ANK 20200420]"
