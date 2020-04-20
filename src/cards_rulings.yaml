@@ -1717,6 +1717,10 @@
   - "If she locks a Toreador who was attempting to block, then that block will fail. [TOM 19951007] [LSJ 19991025]"
 200068|Ambrogino Giovanni:
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+"200072|Amelia, The Blood Red Tears":
+  - "Her ability triggers after combat if she's still in play, even in torpor. If she is burned during combat, it doesn't trigger. [ANK 20200420-1]"
+  - "If multiple combats occur in the same action, the opposing minion burns 1 blood or life each time the combat ends. [ANK 20200420-1]"
+  - "In the case of {Free Fight}, the last opposing minion burns the blood. [ANK 20200420-1]"
 200074|Amisa:
   - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
 200080|Andre LeRoux:
@@ -1947,6 +1951,8 @@
   - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
 201189|Rico Loco:
   - "The damage he takes during the master phase from his ability is environmental. [RTR 19970630]"
+201235|Santaleous:
+  - "Can use his ability to cancel a master card multiple times each turn. [ANK 20200420-2]"
 201240|Sargon:
   - "His controller gets the Edge after the effects of the successful action are applied. If it is a referendum, he gets the Edge after the referendum is concluded. [LSJ 20011222]"
 "201245|Sascha Vykos, The Angel of Caine (ADV)":
@@ -2005,9 +2011,3 @@
   - "Is not titled. If he gets a title, his additional votes are added to the ones provided by the title. [LSJ 20100601]"
 "201502|Zayyat, The Sandstorm":
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
-"200072|Amelia, The Blood Red Tears":
-  - "Her ability triggers after combat if she's still in play, even in torpor. If she is burned during combat, it doesn't trigger. [ANK 20200420-1]"
-  - "If multiple combats occur in the same action, the opposing minion burns 1 blood or life each time the combat ends. [ANK 20200420-1]"
-  - "In the case of {Free Fight}, the last opposing minion burns the blood. [ANK 20200420-1]"
-201235|Santaleous:
-  - "Can use his ability to cancel a master card multiple times each turn. [ANK 20200420-2]"
