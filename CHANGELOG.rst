@@ -4,7 +4,7 @@ Changelog
 0.20 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Improved rulings
 
 
 0.19 (2020-04-20)
