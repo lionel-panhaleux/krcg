@@ -142,6 +142,8 @@
   - "The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 100166|Black Gloves:
   - "Damage done to the bearer is environmental. [LSJ 19970801]"
+100172|The Black Throne:
+  - "The contract effect can be used even if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]"
 100177|Blanket of Night:
   - "[OBT] Can only be played by the controller of the acting minion. [LSJ 19990425]"
   - "[OBT] Can be played by a locked vampire. [LSJ 19980210]"
@@ -1170,6 +1172,8 @@
   - "If you perform a bleed action that resolves as a bleed for 0, you don't burn your Protected Resources. [LSJ 20030701-1]"
 101501|Protection Racket:
   - "The additional intercept is gained or lost if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]"
+101503|Provision of the Silsila:
+  - "Can be used even if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]"
 101504|Proxy Kissed:
   - "Can be played on a vampire who already has a Proxy Kissed (and was moved to uncontrolled and re-influenced). [LSJ 20050720-1]"
 101507|Psyche!:
