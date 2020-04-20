@@ -37,7 +37,7 @@
 100025|Agent of Power:
   - "Provides a discipline even when it is not played in the normal fashion (eg. diablerie, {Deviki Presanta}, {Bima}). [LSJ 20071001-1]"
   - 'If it is used as a placeholder to represent something else, then its text does not apply, including the "Unique" part. A {Shock Troops} vampire would simply be a 1-cap Sabbat with no clan and no discipline. [LSJ 20071001-1]'
-  - "If you play Agent of Power on a vampire and that vampire plays a {Dual Form} at superior [PRO], the Dual Form gains the Discipline provided by the Agent of Power and keeps it once the Agent of Power burns. [LSJ 20071005]"
+  - "If you play Agent of Power on a vampire and that vampire plays a {Dual Form} at superior [PRO], the Dual Form gains the Discipline provided by the Agent of Power and keeps it once the Agent of Power burns. [LSJ 20071005-1]"
   - "When put on a {Bima} it is into play, the card text applies and it is Unique. [LSJ 20100422]"
 100038|Alastor:
   - "If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]"
@@ -248,6 +248,8 @@
   - "The vampire keeps his chosen Discipline at superior until his controller's next unlock phase even if the retainer is burned or stolen. [LSJ 19970224]"
 100287|Camera Phone:
   - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
+100289|Can't Take it with You:
+  - "Each Methuselah burns 1 pool for each equipment, each location and each retainer. [LSJ 20071005-2]"
 100290|Canine Horde:
   - "[ANI] Cannot be used if there is no equipment to destroy. [RTR 19980928]"
 100293|Car Bomb:
