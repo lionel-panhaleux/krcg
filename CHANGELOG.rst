@@ -4,7 +4,7 @@ Changelog
 0.22 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Additional Rulings
 
 
 0.21 (2020-04-21)

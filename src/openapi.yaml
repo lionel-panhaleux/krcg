@@ -1,7 +1,7 @@
 openapi: "3.0.3"
 info:
     title: "KRCG"
-    version: "0.21"
+    version: "0.22"
     description: "**V:tES** cards and decks based on VEKN resources, including the [TWDA](http://www.vekn.fr/decks/twd.htm)."
     contact:
         name: "KRCG"
