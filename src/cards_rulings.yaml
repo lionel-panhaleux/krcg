@@ -96,6 +96,8 @@
   - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 100097|The Art of Memory:
   - "The effect is applied after resolving the action, including after all combats. [LSJ 20031112]"
+100100|Art's Traumatic Essence:
+  - "The action fizzles if the target is not unlocked anymore when it resolves. [ANK 20181121]"
 100103|Asanbonsam Ghoul:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100105|Ashes to Ashes:
@@ -697,6 +699,7 @@
   - "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
 100817|Ghoul Escort:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
+  - "Cannot be used if blocked when leaving torpor, as no combat would happen. [ANK 20181122]"
 100818|Ghoul Messenger:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100819|Ghoul Retainer:
@@ -1032,6 +1035,8 @@
   - "Cannot be used if there is no equipment to steal. [RTR 19980928]"
 101209|Mighty Grapple:
   - "[POT] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+101211|Mind Numb:
+  - "The action fizzles if the target is not unlocked anymore when it resolves. [ANK 20181121]"
 101214|Mind of the Wilds:
   - "The blocking minion is prohibited to strike: combat ends for the duration of the action (during any round of any combat). [LSJ 20100308]"
 101215|Mind Rape:
@@ -1505,10 +1510,11 @@
 101847|Spirit Claws:
   - "[pro] Must be played before strike resolution (and damage prevention) in order to affect the current strike [RTR 19960112]"
 101848|Spirit Marionette:
-  - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
-  - "The mandatory bleed action must be performed before any non-mandatory actions. [LSJ 20011216-2]"
-  - "If the bleed is canceled, the vampire still returns to its original controller. [RTR 20020501]"
-  - '"After resolution" effects are applied before the target vampire is returned to his or her previous controller. [LSJ 20030219]'
+  - "[OBE] Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+  - "[OBE] The mandatory bleed action must be performed before any non-mandatory actions. [LSJ 20011216-2]"
+  - "[OBE] If the bleed is canceled, the vampire still returns to its original controller. [RTR 20020501]"
+  - '[OBE] "After resolution" effects are applied before the target vampire is returned to his or her previous controller. [LSJ 20030219]'
+  - "[OBE] The action fizzles if the target is not unlocked anymore when it resolves. [ANK 20181121]"
 101853|Spiritual Protector:
   - "Does not restrict the opposing minion if no block occurred. [TOM 19951208-2]"
   - "Does not restrict the ability of retainers to use equipment. [RTR 19960112]"
