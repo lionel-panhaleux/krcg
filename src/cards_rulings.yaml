@@ -392,6 +392,12 @@
   - "The additional damage is the same type as the strike's damage, not the base damage [RTR 19970630]"
 100492|Daring the Dawn:
   - "If the action is blocked, damage is applied after combat [RTR 19980623]"
+100493|Dark Influences:
+  - 'If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]'
+  - "If used to cancel an action, the action is not performed in respect to section 6.1 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]"
+  - "If used to cancel a limited effect (bleed, additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]"
+  - "The card is still considered played. The same reaction or modifier cannot be played again by the same minion. [LSJ 19980212]"
+  - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]"
 100496|Darkling Trickery:
   - "[MYT] Damage is environmental. [RTR 19970630] [LSJ19971028]"
 "100499|Dartmoor, England":
@@ -400,6 +406,10 @@
   - "Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [ANK 20130319]"
 100503|Dead Hand:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+100510|Death Seeker:
+  - 'If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]'
+  - "If used to cancel a limited effect (additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]"
+  - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]"
 100511|Decapitate:
   - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - '"when a vampire is going into torpor" and "when a vampire should go into torpor" are the same window. If both minions want to play a card, acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Decapitate} and vice-versa. [RTR 20010710]'
@@ -440,8 +450,9 @@
 100545|Direct Intervention:
   - 'If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]'
   - "If used to cancel an action, the action is not performed in respect to section 6.1 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]"
+  - "If used to cancel a limited effect (bleed, additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]"
   - "The card is still considered played. The same reaction or modifier cannot be played again by the same minion. [LSJ 19980212]"
-  - "Can only burn minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]"
+  - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]"
 100547|Dirty Little Secrets:
   - "If the Methuselah you are bleeding does not burn any pool due to another effect, then she does not burn any cards from her library either. [LSJ 19970224]"
 100549|Disarm:
