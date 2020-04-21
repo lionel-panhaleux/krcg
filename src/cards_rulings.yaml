@@ -1782,6 +1782,7 @@
   - 'The "does not unlock as normal" effect continues to apply if the Stake is burned or moved. [LSJ 19980831]'
 102194|Wormwood:
   - "Ceils the vampire's capacity, including effects that have changed it, to X. {Orun} adds to that X, or the vampire's capacity if it is lower, for cards played by other players. [LSJ 20051205]"
+  - 'When a vampire is influenced, the excess blood drains off before entering contest (if any) and before playing "as played/as he enters play" effects. [LSJ 20100902]'
 102196|Writ of Acceptance:
   - "The effect is not optional. [RTR 19980707]"
   - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence. It stays active if another effect changes the underlying sect, like using the default action to become Anarch. [LSJ 20100811] [ANK 20190619]"
@@ -1822,6 +1823,8 @@
   - "In the case of {Free Fight}, the last opposing minion burns the blood. [ANK 20200420-1]"
 200074|Amisa:
   - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+200076|Anarch Convert:
+  - 'His "as he enters play" ability can be used before he enters contest if there is another one in play. [LSJ 20080526]'
 200080|Andre LeRoux:
   - "His ability can only be used once per successful bleed. [LSJ 20081123]"
   - 'It is used in the "would/about to be successful" window like {Spying Mission}. [LSJ 20081123]'
@@ -1890,6 +1893,8 @@
   - "His ability is still applied if the predator is ousted by the referendum effects. [LSJ 20090115-2]"
 "200381|Dr. Morrow, The Skindoctor":
   - "Multiple graft counters may be placed on the same minion, but they have no additional effect. A minion with one or more graft counters gets -1 stealth, not -X stealth. [LSJ 20070306]"
+200383|Dr. Solomon Grey:
+  - "You burn one pool before he enters contest if there is another one in play. [LSJ 20080526]"
 200386|Dragos:
   - "If his opponent plays superior {Terror Frenzy}, Dragos has to burn one blood for each combat card he plays in that combat. [LSJ 19990223]"
 200389|Drozodny:
@@ -1898,6 +1903,8 @@
   - "Edith may burn a blood to give {Enid Blount} stealth multiple times each action. [LSJ 20040617]"
 200403|Edward Vignes:
   - "His ability cannot be used if the action is blocked. [LSJ 20041022]"
+200434|Erlik:
+  - 'His "as he enters play" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902]'
 200438|Ethan Locke:
   - "Ethan's Ⓓ action is directed at the controller of the skill card, not the controller of the vampire. [LSJ 19970224]"
   - "When he steals a master Discipline card, his controller becomes the controller of the Discipline card. [LSJ 19990709]"
@@ -1927,6 +1934,8 @@
   - "His ability can be used to meet one (not both) of the normal Discipline requirements of a multi-Discipline card. [LSJ 20011217]"
 200630|Imanna:
   - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+200632|Inez ""Nurse216"" Villagrande:
+  - 'Her "as she enters play" ability can be used before she enters contest if there is another one in play. [LSJ 20080526]'
 200634|Ingrid Rossler:
   - "When she is influenced out, her bonus transfers do not apply for the ongoing influence phase. [RTR 20180303]"
 200666|Jalal Sayad:
@@ -2051,6 +2060,8 @@
   - 'If he cannot commit diablerie, then his card text does not force him to: he is not "stuck", he is free to take any other legal action. [LSJ 20050514]'
 201127|Pochtli:
   - "When using his ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
+201129|Porphyrion:
+  - 'His "as he enters play" ability can be used before he enters contest if there is another one in play. [LSJ 20080526]'
 "201147|Rabbat, The Sewer Goddess":
   - "Her hunt ability may be used even when she is at full capacity. One blood goes to your pool directly even if it would have exceeded her capacity. [LSJ 20050331]"
 201148|Rachel Brandywine:
@@ -2074,6 +2085,8 @@
   - "When using his ability to draw, discard afterwards. [ANK 20190707]"
 201253|Scout Youngwood:
   - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+201269|Seterpenre:
+  - 'His "as he enters play" ability can be used before he enters contest if there is another one in play. [LSJ 20080526]'
 201282|Shemti:
   - "The damage inflicted by his ability is environmental. [RTR 19970630]"
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
@@ -2120,8 +2133,12 @@
   - "Can still defect if in torpor, and will remain in torpor if he does so. [RTR 19941109]"
 "201422|Valerius Maior, Hell's Fool (ADV)":
   - "The prohibition to play certain cards applies from the moment he attempts to block until the end of the action, even if he fails to block. [LSJ 20080818]"
+201436|Verbruch:
+  - 'His "as he enters play" ability can be used before he enters contest if there is another one in play. [LSJ 20080526]'
 201439|Victor Gerard:
   - "When playing a card requiring a Camarilla vampire or a Prince, he is treated as a such for all effects generated by the play of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]"
+201440|Victor Pelletier:
+  - 'His "as he enters play" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902]'
 201456|Vlad Tepes:
   - "When playing a card requiring a title or a sect, he is treated as a such for all effects generated by the play of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]"
   - "His ability do not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]"
