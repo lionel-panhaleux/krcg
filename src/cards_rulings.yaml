@@ -358,6 +358,8 @@
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100439|Crawling Chamber:
   - "[VIS] Damage is environmental. [RTR 19970630]"
+100440|Create Gargoyle:
+  - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 100441|Creation Rites:
   - "If moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]"
 100450|Crocodile's Tongue:
@@ -392,6 +394,8 @@
 100511|Decapitate:
   - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - '"when a vampire is going into torpor" and "when a vampire should go into torpor" are the same window. If both minions want to play a card, acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Decapitate} and vice-versa. [RTR 20010710]'
+100517|Defender of the Haven:
+  - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 100518|Deflection:
   - "Cannot be used to direct a bleed to a Methuselah who would be an invalid target for a bleed. [RTR 19950622]"
   - "Declaring that one is not blocking is implicit in playing Deflection. [LSJ 20000507]"
@@ -409,6 +413,7 @@
   - "Changes the sect of the target to the default sect of the clan. [LSJ 20001011]"
   - "If the target changes clan or sect to a clan or sect inappropriate for his title, he loses its benefit until his clan or sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
   - "When removed, the vampire goes back ot its underlying clan, and the default sect of that clan (even if he was from another sect before). [ANK 20200415]"
+  - "Only requires one clan or the other (Malkavian or Malkavian antitribu) to be played. [ANK 20190203]"
 100528|Descent into Darkness:
   - "Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]"
 100532|Detect Authority:
@@ -504,6 +509,7 @@
 100645|Enkil Cog:
   - 'If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect "fizzle". [LSJ 20081213-1]'
 100646|Ennoia's Theater:
+  - "Only requires one clan or the other (Gangrel or Gangrel antitribu) to be played. [ANK 20190203]"
   - "Can be used at any moment during the influence phase to get the additional transfer. [RTR 20180303]"
 100648|Ensconced:
   - "[VIS][REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
@@ -823,6 +829,7 @@
 101017|Jackal:
   - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 101020|Jar of Skin Eaters:
+  - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
   - "Using the Jar action does not force the minion to strike with it if he is blocked. [LSJ 19971215]"
   - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
 101021|Jar the Soul:
@@ -1122,6 +1129,8 @@
   - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
 101422|The Portrait:
   - "If the revealed vampire is between 7 and 10 capacity and the acting vampire has bled this turn already, he simply unlocks and the remainder of the effect is lost. [LSJ 20021118]"
+101425|Potio Martyrium:
+  - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101426|Pounce:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "Damage done to the striking minion is environmental. [LSJ 19970801]"
@@ -1245,6 +1254,8 @@
   - 'It is a title card, so it is out of play if the title is contested, and the "enter combat" action is not usable when the card is not in play. [LSJ 20070808-2]'
 101588|Rego Motum:
   - "Prevents up to 2 or 4 damage, it can be used to prevent less. [RTR 20041202]"
+101589|Reindoctrination:
+  - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101595|Relentless Reaper:
   - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
 101605|Repo Man:
@@ -1440,6 +1451,8 @@
   - "Functions even if the bearer (now burned) was prohibited from using equipments. [LSJ 20010729]"
   - "If the drawn vampire (B) is younger and would be put into play with Gem but is burned instead (self-contestinging, for example), then the Gem activates again, drawing a new vampire (C) and comparing his capacity to B's capacity. [RTR 20010710] [LSJ 20030918]"
   - "Can grab an imbued. In that case, the imbued is either placed in the uncontrolled region or placed empty into the incapacitated region with the Gem, as determined by his starting life. [LSJ 20060323]"
+101833|Soul of the Earth:
+  - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101836|Soul Stealing:
   - "Cannot be used if a vampire is burned as a result of a political action. [RTR 19960124]"
   - "A vampire diablerizing an older vampire can play Soul Stealing before or after getting a Discipline card, at his option, so long as he plays it before the Blood Hunt. [RTR 19991206]"
