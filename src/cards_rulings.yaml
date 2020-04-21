@@ -48,7 +48,8 @@
 "100044|Ambrosius, The Ferryman":
   - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
 100045|Ambulance:
-  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100051|Ananasi Vampirephile:
@@ -276,7 +277,8 @@
 100319|Chalice of Kinship:
   - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
 100321|Chameleon's Colors:
-  - '[SPI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - '[SPI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - '[SPI] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[SPI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[SPI] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[SPI] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
@@ -365,7 +367,8 @@
 100450|Crocodile's Tongue:
   - "The canceled block isn't successful or unsuccessful. It is simply canceled. [LSJ 20110419]"
 100476|Crypt's Sons:
-  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100478|Cryptic Rider:
   - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
@@ -592,7 +595,8 @@
 100750|Fleshcraft:
   - "The action to burn Fleshcraft suffers the -1 stealth penalty as well, so is usually at zero stealth to start (or -1 stealth if superior [VIC]). [LSJ 19970224]"
 100751|Flow Within the Mountain:
-  - '[VIS] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - '[VIS] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - '[VIS] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[VIS] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[VIS] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[VIS] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
@@ -614,7 +618,8 @@
 100763|Forearm Block:
   - "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 100764|Foresee:
-  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100765|Foreshadowing Destruction:
@@ -625,7 +630,8 @@
 100767|Forger's Hammer:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100771|Form of Mist:
-  - '[PRO] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - '[PRO] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - '[PRO] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[PRO] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[PRO] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[PRO] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost and the blood is not paid. [LSJ 19980109] [RTR 20020501] [LSJ 20031123]'
@@ -971,6 +977,7 @@
   - "Cannot be used to take over an action requiring a locked vampire like {Force of Will}, since the former requires an unlocked vampire and the latter requires a locked one. [LSJ 20020927]"
   - "Cannot be used during the resolution of an action, like during a referendum or during combat. [LSJ 19980825]"
   - "A minion attempting to block before is still attempting to block after. [LSJ 19990106]"
+  - "The masking minion can play a modifier already played by the masked minion. He cannot use a limited effect (ie. bleed enhancer) if a limited effect has already been used on the action. [ANK 20190117-1]"
 101180|Masochism:
   - "[FOR] The additional counter is added after the presses are handled. It is added if the round ends prematurely and conditions are met. [RTR 20030519]"
 101183|Masquerade Endangered:
@@ -1006,7 +1013,8 @@
 101218|Ministry:
   - "The additional intercept is gained or lost if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]"
 101222|Mirror Image:
-  - '[CHI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - '[CHI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - '[CHI] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[CHI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[CHI] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[CHI] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
@@ -1022,7 +1030,8 @@
 101235|Molotov Cocktail:
   - "If the opponent strikes: combat ends, this strike is not resolved and the Cocktail is not put on this minion, even if combat continues thanks to another effect like {Relentless Reaper}. [ANK 20200203-1]"
 101236|Momentary Delay:
-  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - "Can be used if a Slave locked to enter combat instead of the blocking minion, if the other conditions are met. [ANK 20200114]"
@@ -1030,7 +1039,8 @@
   - "The card is not put on the target vampire if he or she uses another effect than Monomancy to end combat. [RTR 20020501]"
 101244|Morphean Blow:
   - "[val] If the combat continues or a new combat begins, the card is not put on the opposing minion, he can act and block. [RTR 20020501]"
-  - '[VAL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - '[VAL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - '[VAL] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[VAL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[VAL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[VAL] If the combat continues or a new combat begins, the \"action continues as if unblocked\" effect is lost. [LSJ 19980109] [RTR 20020501]'
@@ -1101,7 +1111,8 @@
   - "Can be called even if there are no weapons in play. [RTR 20010710]"
   - "One can decide to burn a weapon with no pool cost (not paying zero). [ANK 20190724]"
 101381|Peacemaker:
-  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 101383|Pentex(TM) Loves You!:
   - "The ability to increase bleed is treated as an action modifier: it can be used at any time during the action. [LSJ 19970718]"
@@ -1373,12 +1384,14 @@
   - 'An ally does not suffer the "burn 2 blood" effect from being shackled. [RTR 19971201]'
   - "Are controlled by the Methuselah who controls the vampire who used it; changing the controller of the vampire changes who controls the Shackles. (errata) [RTR 19960708]"
 101735|Shadow Body:
-  - '[OBT] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - '[OBT] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - '[OBT] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[OBT] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[OBT] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[OBT] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101736|Shadow Boxing:
-  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - "Cannot be used if a Slave locked to enter combat instead of the blocking minion. [ANK 20200114]"
@@ -1583,7 +1596,8 @@
   - "If the Progeny is moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]"
   - "The Progeny gets the default Sect of the clan of its progenitor, even if the progenitor himself is not a member of that sect. [ANK 20200117]"
 101975|Those Who Endure Judge:
-  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
 101976|Thoughts Betrayed:
   - "[dom] Damage is environmental. [RTR 19970630]"
 101988|Tongue of the Serpent:
@@ -1592,12 +1606,14 @@
   - 'The same vampire can serve as the "second Toreador" for multiple Toreador Grand Balls. [TOM 19960528]'
   - "The first Toreador chosen for the Toreador Grand Ball is unblockable on all non-bleed actions. This remains true even after the vampire attempts a bleed. [LSJ 19970814]"
 101991|Toreador's Bane:
-  - '[mel] [MEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - '[mel] [MEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - '[mel] [MEL] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[mel] [MEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[mel] [MEL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[mel] [MEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101995|Torrent:
-  - '[CEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - '[CEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - '[CEL] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[CEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[CEL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[CEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
@@ -1989,6 +2005,7 @@
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 201052|New Blood:
   - "A vampire with no circle designation is in his own unique circle of one. New blood cannot choose to be part of such a circle. [LSJ 20020609]"
+  - 'Cannot choose to be part of the "Inner Circle" and get the title. The Inner Circle title and a Blood Brothers circle are different things. [ANK 20190117-2]'
 "201087|Owain Evans, The Wanderer":
   - "Owain's ability can only be used once each unlock, even if control of Owain changes during that unlock phase. [LSJ 20040127]"
 "201098|Patrizia Giovanni, Collector of Secrets":
@@ -2083,7 +2100,8 @@
 201462|Walker Grimes:
   - "His special ability only affects the cost of masters played by his controller. [LSJ 20081124-1]"
 201463|Wamukota:
-  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect. [RTR 19941109]'
+  - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 201471|Winterlich:
   - "When recruit a changeling ally, he is treated as a meeting the requirements for all effects generated by the play of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [ANK 20190228]"
