@@ -6,7 +6,7 @@
   - '"Successful resolution" means the action must not be blocked and the vampire must have gained blood. If the vampire cannot gain blood (eg., {Vampiric Disease}, {Ex Nihilo}), the blood hunt is not called even if the action is not blocked. [LSJ 20090411]'
   - "This is not a diablerie. Neither {Rebirth} nor {Carlton Van Wyk}'s ability can be used. [LSJ 20090724]"
   - "The Blood Hunt referendum is still a Blood Hunt: {Lay Low} can be used, {Trophy: Diablerie} would prevent the referendum. [LSJ 20091026] [LSJ 20100112]"
-  - 'The Blood Hunt referendum is part of the action resolution. Cards that are played "after a successful action" or "after resolution" must be played after the referendum.. [LSJ 20100112]'
+  - 'The Blood Hunt referendum is part of the action resolution. Cards that are played "after a successful action" or "after resolution" must be played after the referendum. {Heidelberg Castle, Germany} can not be used before the referendum. [LSJ 20100112] [PIB 20121028]'
 100005|Abandoning the Flesh:
   - "Will not trigger the {Soul Gem of Etrius} since the vampire is removed from the game instead of being burned. [LSJ 20021010]"
 100006|Abbot:
@@ -58,6 +58,8 @@
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 100055|Anarch Revolt:
   - "The cost is cumulative if they are multiple copies in play. [LSJ 19980225]"
+100058|Anarch Troublemaker:
+  - "Can lock a vampire that is already locked. [PIB 20121031]"
 100060|Anathema:
   - "Burns the target vampire when the target is reduced to zero blood in combat, regardless of the source of the loss. [RTR 19980623]"
   - "Will not burn a vampire for entering a combat with zero blood: there must be an actual blood loss. [RTR 19980623]"
@@ -112,6 +114,7 @@
   - "Can be played at any time before strike resolution, including after both minions have selected their strikes. [LSJ 20000215]"
 100128|Baltimore Purge:
   - "There is no time to use other effects between the choosing of the vampires and those vampires going to torpor. [LSJ 20050111]"
+  - "The effect during the unlock phase is not an action, you can choose a vampire with a {Secure Haven} on him. [PIB 20121028]"
 100131|Banishment:
   - "A banished vampire can return to play when it again has blood >= capacity on it at the end of its Methuselah's influence phase. [TOM 19951209]"
   - "A banished vampire will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501]"
@@ -368,6 +371,8 @@
 100429|Corrupt Construction:
   - "If recruited in the normal fashion, the card will have been replaced by the time the ally enters play. In other cases however, it won't have been and the Methuselah will have to work with only the cards in hand (or ash heap) to add life to it before replacing. [LSJ 20070707]"
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
+100435|The Coven:
+  - "Can be locked during damage resolution, but not while healing damage or preventing destruction (you cannot take 2, lock The Coven, then take the rest). [PIB 20121031]"
 100439|Crawling Chamber:
   - "[VIS] Damage is environmental. [RTR 19970630]"
 100440|Create Gargoyle:
@@ -596,6 +601,8 @@
   - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100706|Fata Amria:
   - '[CHI] [REACTION] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
+100709|FBI Special Affairs Division:
+  - "Does not trigger if the ally is saved by {Left for Dead}. [PIB 20121028]"
 100723|Festivo dello Estinto:
   - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
@@ -1305,6 +1312,8 @@
   - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101595|Relentless Reaper:
   - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
+101602|Renegade Garou:
+  - "The additional strike is mandatory. [PIB 20121028]"
 101605|Repo Man:
   - "Paying for the equipment found is not optional if a ready minion meet the requirements. If paying the cost will oust the controlling Methuselah, then she is ousted. [RTR 19941109] [RTR 20010710]"
 101606|Repulsion:
@@ -1325,6 +1334,8 @@
 101626|Revelation of Wrath:
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
   - "Does not count environmental damage. [PIB 20110509]"
+101627|Revelations:
+  - "[aus] You do not get to see the card drawn as replacement. [PIB 20121031]"
 101633|Rewind Time:
   - 'Cannot be used to cancel the action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]'
   - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
@@ -1590,15 +1601,22 @@
   - "[abo] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101935|Tangle Atropos' Hand:
   - 'The canceled action has not been "performed" in respect to section 6.1 of the rules. The same vampire can undertake the same action again. [LSJ 20070709]'
+101938|Target Hand:
+  - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101939|Target Head:
   - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]"
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - 'The additional damage is the same type as the strike"s damage, not the base damage [RTR 19970630]'
+  - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
+101940|Target Leg:
+  - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101941|Target Retainer:
   - "If it is canceled, the strike resolves with the default target. [ANK 20200311]"
+  - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101942|Target Vitals:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - 'The additional damage is the same type as the strike"s damage, not the base damage [RTR 19970630]'
+  - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101945|Taste of Vitae:
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
   - 'Can be played before or after any other cards playable in the "end of round" step. [PIB 20110420]'
@@ -1712,6 +1730,9 @@
   - "Paying for the equipment found is not optional. If paying the cost will oust the controlling Methuselah, then she is ousted. [RTR 19941109] [RTR 20010710]"
   - "If the equipment cannot be legally placed on the vampire, it is burned without cost. [TOM 19950407]"
   - "Vast Wealth's ability is not usable if the vampire does not share the same controller as Vast Wealth. [RTR 19951017]"
+  - "You do not show cards when you search. [PIB 20121028]"
+102093|Vaticination:
+  - "You do not get to see the card drawn as replacement. [PIB 20121031]"
 102095|Veil of Darkness:
   - "The card that has no effect still counts as played. [PIB 20110623]"
   - 'Does not affect allies who play cards requiring a Discipline "as a vampire". [LSJ 20050606]'
@@ -1733,6 +1754,8 @@
   - "Pay the cost at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]"
 102124|Virtuosa:
   - '[MEL] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+102126|Visit from the Capuchin:
+  - "Cannot be played if you have another one, even if it has only one counter left. [PIB 20121031]"
 102131|Voter Captivation:
   - "Is played after the referendum is resolved. If the effect of the referendum ousts the acting Methuselah, there is no time to play it to prevent the ousting. [RTR 19951110]"
   - 'Can be played before or after other cards that are played "after action resolution" or "if the action was successful". [LSJ 20070327]'
@@ -1839,8 +1862,9 @@
   - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200076|Anarch Convert:
   - 'His "as he enters play" ability can be used before he enters contest if there is another one in play. [LSJ 20080526]'
+  - "Can convert an anarch vampire if he is not titled. [PIB 20121031]"
 200080|Andre LeRoux:
-  - "His ability can only be used once per successful bleed. [LSJ 20081123]"
+  - "His ability can be used only once per successful bleed, but can be used multiple times on different bleeds during the same turn. [LSJ 20081123]"
   - 'It is used in the "would/about to be successful" window like {Spying Mission}. [LSJ 20081123]'
   - 'Only modifiers and reactions that can be played "when the action/bleed would be successful" can be played after it. [LSJ 20090205]'
   - "He can use his ability on his own bleed to get (-1 +2) = +1 bleed. [LSJ 20081124-2]"
@@ -1989,6 +2013,8 @@
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 200819|Lázár Dobrescu:
   - "Cannot use his special ability if his controller has no vampires in her uncontrolled region. [LSJ 19990215]"
+200824|Le Dinh Tho:
+  - "When using his ability, you do not get to see the card drawn as replacement. [PIB 20121031]"
 200826|Leandro:
   - "Choice is mandatory, there is no default. If all players forget, forcing one choice or the other on the victim is not a suitable remedy. [LSJ 20021210-1]"
 200840|Lisandro Giovanni:
@@ -2141,6 +2167,8 @@
   - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 201386|Travis "Traveler72" Miller:
   - "Must announce which conviction he burns as part of the terms of the action granted by his ability. [RTR 20111202]"
+201390|Tryphosa:
+  - "The additional blood cost is not paid if the action does not succeed. [PIB 20121031]"
 "201413|Ur-Shulgi, The Shepherd":
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 201415|Uriah Winter:
