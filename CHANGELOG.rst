@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.21 (unreleased)
+0.21 (2020-04-21)
 -----------------
 
 - 2019-2020 rulings included
