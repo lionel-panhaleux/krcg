@@ -396,7 +396,7 @@
   - 'If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]'
   - "If used to cancel an action, the action is not performed in respect to section 6.1 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]"
   - "If used to cancel a limited effect (bleed, additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]"
-  - "The card is still considered played. The same reaction or modifier cannot be played again by the same minion. [LSJ 19980212]"
+  - "The card is still considered played. The same reaction or modifier cannot be played again by the same minion. Another Aim card can not be played once one has been canceled, nor any other card which text prohibits to be played more than once. [LSJ 19980212] [ANK 20190104]"
   - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]"
 100496|Darkling Trickery:
   - "[MYT] Damage is environmental. [RTR 19970630] [LSJ19971028]"
@@ -451,7 +451,7 @@
   - 'If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]'
   - "If used to cancel an action, the action is not performed in respect to section 6.1 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]"
   - "If used to cancel a limited effect (bleed, additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]"
-  - "The card is still considered played. The same reaction or modifier cannot be played again by the same minion. [LSJ 19980212]"
+  - "The card is still considered played. The same reaction or modifier cannot be played again by the same minion. Another Aim card can not be played once one has been canceled, nor any other card which text prohibits to be played more than once. [LSJ 19980212] [ANK 20190104]"
   - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]"
 100547|Dirty Little Secrets:
   - "If the Methuselah you are bleeding does not burn any pool due to another effect, then she does not burn any cards from her library either. [LSJ 19970224]"
