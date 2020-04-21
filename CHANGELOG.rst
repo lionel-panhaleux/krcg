@@ -4,7 +4,7 @@ Changelog
 0.21 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- 2019-2020 rulings included
 
 
 0.20 (2020-04-20)
