@@ -71,6 +71,12 @@
     - 101999|Touch of Pain
     - 102131|Voter Captivation
     - 102205|Zephyr
+- ruling: "Is played after combat, if any. [ANK 20181219]"
+  cards:
+    - 102205|Zephyr
+    - 101724|Seraph's Second
+    - 101236|Momentary Delay
+    - 100595|Dusk Work
 - ruling: 'Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
   cards:
     - 102138|Walk of Caine
