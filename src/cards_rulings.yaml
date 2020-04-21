@@ -505,7 +505,8 @@
 100597|Dust Up:
   - "[ani] [pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100598|Eagle's Sight:
-  - "Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [RTR 20020501]"
+  - "[AUS] Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [RTR 20020501]"
+  - "[AUS] Only applies to one block attempt. If the action later continues as if unblocked (eg.{Form of Mist}), another one is needed. [LSJ 20030227]"
 100601|Earth Meld:
   - "[PRO] The vampire still unlocks if an effect continues the combat or begins a new combat. [RTR 20020501]"
 100608|Echo of Harmonies:
@@ -570,7 +571,8 @@
   - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
   - "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
 100694|Falcon's Eye:
-  - "Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]"
+  - "[SPI] Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]"
+  - "[SPI] Only applies to one block attempt. If the action later continues as if unblocked (eg.{Form of Mist}), another one is needed. [LSJ 20030227]"
 100695|Fall of the Camarilla:
   - "Cards that change a vampire's sect to Camarilla can still be played, but he becomes Independant until the Fall is removed from play. [LSJ 20040519]"
   - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Camarilla, it sets it to Independant instead while the Fall is in play. If the Fall leaves play, the vampire retrieves his underlying sect. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]"
