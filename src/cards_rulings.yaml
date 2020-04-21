@@ -548,6 +548,8 @@
   - "You still cannot burn it if the vampire that was brought back was burned and later returned to play. [LSJ 20040726] [ANK 20191031]"
   - "[SER] is not a directed action, even when it targets another Methusalah's ash heap. [LSJ 20010627]"
   - "If The Eternal Mask is burned by something else than its own effect (including when the vampire it is on is burned), the vampire that has been brought back is unaffected. [LSJ 20071206] [LSJ 20090725]"
+100667|The Eternals of Sirius:
+  - "Pay the cost at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620] [LSJ 20080612]"
 100669|Ex Nihilo:
   - "The vampire with it cannot decide to burn due to Ex Nihilo's card text if he or she can burn the blood during the unlock phase. [PIB 20121013]"
   - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
@@ -1029,6 +1031,8 @@
   - "The blocking minion is prohibited to strike: combat ends for the duration of the action (during any round of any combat). [LSJ 20100308]"
 101215|Mind Rape:
   - "The card can be burned to take control of the target at any point during the the appropriate minion phase. It does not have to be done before non-mandatory actions. [LSJ 20001201]"
+101217|Minion Tap:
+  - "Pay the cost (if any, eg. {Secure Haven} or {Villein} on the target) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]"
 101218|Ministry:
   - "The additional intercept is gained or lost if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]"
 101222|Mirror Image:
@@ -1711,6 +1715,8 @@
 102120|Vigilance:
   - "[REACTION] [1 CONVICTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
   - '[MODIFIER] Cards and effects that can be played "after resolution" (and only them) can be played after its use. [ANK 20190425]'
+102121|Villein:
+  - "Pay the cost at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]"
 102124|Virtuosa:
   - '[MEL] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 102131|Voter Captivation:
