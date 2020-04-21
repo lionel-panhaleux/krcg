@@ -1040,7 +1040,9 @@
 101214|Mind of the Wilds:
   - "The blocking minion is prohibited to strike: combat ends for the duration of the action (during any round of any combat). [LSJ 20100308]"
 101215|Mind Rape:
-  - "The card can be burned to take control of the target at any point during the the appropriate minion phase. It does not have to be done before non-mandatory actions. [LSJ 20001201]"
+  - "[DOM] The card can be burned to take control of the target at any point during the the appropriate minion phase. It does not have to be done before non-mandatory actions. [LSJ 20001201]"
+  - "[DOM] The stolen minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]"
+  - "[DOM] If in play, the card is removed if its controller (the Methusalah who played it) is ousted (rulings before 2008-11-19 have been reversed). [ANK 20181110]"
 101217|Minion Tap:
   - "Pay the cost (if any, eg. {Secure Haven} or {Villein} on the target) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]"
 101218|Ministry:
@@ -1515,6 +1517,7 @@
   - "[OBE] If the bleed is canceled, the vampire still returns to its original controller. [RTR 20020501]"
   - '[OBE] "After resolution" effects are applied before the target vampire is returned to his or her previous controller. [LSJ 20030219]'
   - "[OBE] The action fizzles if the target is not unlocked anymore when it resolves. [ANK 20181121]"
+  - "[OBE] The minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]"
 101853|Spiritual Protector:
   - "Does not restrict the opposing minion if no block occurred. [TOM 19951208-2]"
   - "Does not restrict the ability of retainers to use equipment. [RTR 19960112]"
@@ -1615,6 +1618,7 @@
   - "Multiple Templar cards provide different actions: if the vampire manage to unlock during the minion phase, he can perform the two actions. [RTR 20030519]"
 101954|Temptation:
   - "When stealing a vampire in combat after strikes are announced before strikes resolution, any damage yet to resolve will still resolve before the change of control. [LSJ 20020618]"
+  - "The stolen minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]"
 101956|Tend the Flock:
   - "The blood comes from the blood bank. [ANK 20190511]"
 101957|Tenebrous Form:
@@ -1833,7 +1837,7 @@
   - "If multiple combats occur in the same action, the opposing minion burns 1 blood or life each time the combat ends. [ANK 20200420-1]"
   - "In the case of {Free Fight}, the last opposing minion burns the blood. [ANK 20200420-1]"
 200074|Amisa:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200076|Anarch Convert:
   - 'His "as he enters play" ability can be used before he enters contest if there is another one in play. [LSJ 20080526]'
 200080|Andre LeRoux:
@@ -1855,7 +1859,7 @@
   - "Arika's prey cannot end her unlock phase if she controls a location that she hasn't burned a pool for, even if she gained control of that location during that unlock phase. [LSJ 19990405]"
 200136|Arishat:
   - "Her ability to force a vampire to abstain can cancel the vote of the vampire. [LSJ 20100311]"
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200138|Armin Brenner:
   - "His ability is applied after the referendum effects are applied, including any oust and pool gained from it. [LSJ 20090115-2]"
 200148|Astrid Thomas:
@@ -1881,13 +1885,13 @@
 200245|Carlotta Giovanni:
   - "The card being retrieved is announced when the action is declared. [LSJ 19970922]"
 200247|Carmine Giovanni:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200249|Carolina Vález:
   - "Immune means damage from allies and retainers are not considered inflicted. [LSJ 20010627]"
 200297|Count Zaroff:
   - "His ability can be used more than once each turn. [RTR 20180511]"
 200316|Danielle Diron:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200333|Demdemeh:
   - 'The animal retainers turned into allies keep their current life counters and remember their original "starting life", for effects that notice "starting life". The retainers'' special abilities are lost. [LSJ 20051116-1]'
 200335|Democritus:
@@ -1920,7 +1924,7 @@
   - "Ethan's Ⓓ action is directed at the controller of the skill card, not the controller of the vampire. [LSJ 19970224]"
   - "When he steals a master Discipline card, his controller becomes the controller of the Discipline card. [LSJ 19990709]"
 200450|Ezmerelda:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200485|Frondator:
   - "The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2] [PIB 20110918]"
 200498|Gem Ghastly:
@@ -1944,7 +1948,7 @@
 200616|Ian Forestal:
   - "His ability can be used to meet one (not both) of the normal Discipline requirements of a multi-Discipline card. [LSJ 20011217]"
 200630|Imanna:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200632|Inez ""Nurse216"" Villagrande:
   - 'Her "as she enters play" ability can be used before she enters contest if there is another one in play. [LSJ 20080526]'
 200634|Ingrid Rossler:
@@ -1961,7 +1965,7 @@
   - 'If a second Jimmy Dunn is brought out during an action, the acting vampire is not considered to be "burning" the first Jimmy. [LSJ 19990719] [RTR 19991001]'
   - "If a non-contesting second copy of Jimmy enters play (via {Illusions of the Kindred}, for example), the first Jimmy won't burn himself. [LSJ 19991110]"
 200742|Kahina the Sorceress:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200758|Karsh (ADV):
   - "[MERGED] Imperator is a unique Camarilla title worth 3 votes, it is the same as the one granted by {Imperator}. [ANK 20190407]"
 200759|Kashan:
@@ -1980,7 +1984,7 @@
   - "She cannot steal more blood than the target has when using a special hunt ability. [LSJ 20100915]"
   - "Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606]"
 200804|Lady Constancia:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200811|Lambach (ADV):
   - 'The provided action is an "equip action" [TOM 19960130]'
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
@@ -1996,14 +2000,14 @@
 200870|Lucian:
   - "Cannot attempt to steal a piece of equipment that he is prohibited from having. [LSJ 19980206]"
 200885|Luna Giovanni:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200890|Lutz von Hohenzollern:
   - "His ability is applied after the referendum effects are applied, including any oust and pool gained from it. [LSJ 20090115-2]"
   - "His ability is still applied if his controller is ousted by the referendum effects. [LSJ 20090115-2]"
 "200891|Lydia, Grand Praetor":
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200912|Marcia Felicia Licinia:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 "200929|Mariel, Lady Thunder":
   - "If she locks to end combat, the damage is applied just after the combat ends. [RTR 19970630]"
 200935|Maris Streck:
@@ -2013,12 +2017,12 @@
   - "A card cancelled as it is played is still considered played, she can retrieve it. [LSJ 19980212] [ANK 20190701]"
 200955|Mata Hari:
   - "Orun and Aye cards cannot be placed on her as long as she's not a Laibon. [LSJ 20110611]"
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
   - "When playing a card requiring a sect and/or a clan, she is treated as a such for all effects generated by the play of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]"
   - "You can still use the burn options of cards with a requirement she could meet when you play them, but does not meet while in play. [LSJ 20050225]"
   - "Her ability do not let her fulfill card requirements if they are not played normally, like when using {Concealed Weapon} for an equipment or {Piper} or {The Summoning} for an ally. [LSJ 20050119]"
 "200964|Maureen, Dark Priestess":
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200966|Maxwell:
   - "Cannot use his ability to become a Prince if he has changed sect and is no longer Camarilla. [LSJ 20030202]"
 200979|Merrill Molitor:
@@ -2043,7 +2047,7 @@
 201033|Nakhthorheb:
   - "He can unlock at any time during his controller's minion phase, including during an action. [PIB 20110415]"
 201043|Neferu:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
   - "Cannot use her ability to force an abstaining vampire to vote. [ANK 20190731]"
 201044|Nehemiah:
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
@@ -2085,7 +2089,7 @@
   - "His ability is activated after he equips with the equipment. He cannot use his ability to move the {Eye of Hazimel}. [LSJ 20060221]"
   - "You may move all or none the equipment he gets to just one minion, but you cannot split. [LSJ 20050217] [LSJ 20090622]"
 "201175|Regina Giovanni, The Right Hand of Augustus":
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 201189|Rico Loco:
   - "The damage he takes during the master phase from his ability is environmental. [RTR 19970630]"
 201235|Santaleous:
@@ -2095,7 +2099,7 @@
 "201245|Sascha Vykos, The Angel of Caine (ADV)":
   - "When using his ability to draw, discard afterwards. [ANK 20190707]"
 201253|Scout Youngwood:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 201269|Seterpenre:
   - 'His "as he enters play" ability can be used before he enters contest if there is another one in play. [LSJ 20080526]'
 201282|Shemti:
@@ -2135,7 +2139,7 @@
 "201365|Thetmes, Caliph of Alamut":
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 201370|Thucimia:
-  - "Keeps her title and votes if he changes sects. [LSJ 20010714]"
+  - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 201386|Travis "Traveler72" Miller:
   - "Must announce which conviction he burns as part of the terms of the action granted by his ability. [RTR 20111202]"
 "201413|Ur-Shulgi, The Shepherd":
