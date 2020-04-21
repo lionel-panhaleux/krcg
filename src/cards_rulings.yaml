@@ -385,7 +385,7 @@
 100484|D'habi Revenant:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100486|Daemonic Possession:
-  - "This is not a directed action. [LSJ 20010627]"
+  - "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
 100488|Dagon's Call:
   - "[QUI] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100489|Dam the Heart's River:
@@ -549,7 +549,7 @@
 100665|The Eternal Mask:
   - "You cannot use the effect to burn the card and the vampire if the vampire is no longer in play to be burned. [LSJ 20070928-1]"
   - "You still cannot burn it if the vampire that was brought back was burned and later returned to play. [LSJ 20040726] [ANK 20191031]"
-  - "[SER] is not a directed action, even when it targets another Methusalah's ash heap. [LSJ 20010627]"
+  - "[SER] is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
   - "If The Eternal Mask is burned by something else than its own effect (including when the vampire it is on is burned), the vampire that has been brought back is unaffected. [LSJ 20071206] [LSJ 20090725]"
 100667|The Eternals of Sirius:
   - "Pay the cost at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620] [LSJ 20080612]"
@@ -693,7 +693,7 @@
 100814|Gemini's Mirror:
   - "Does not protect the minion's equipment, retainers, or any other cards on him. Just him and his blood. [LSJ 20031118]"
 100816|Ghost-Eater:
-  - "This is not a directed action. [LSJ 20010627]"
+  - "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
 100817|Ghoul Escort:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100818|Ghoul Messenger:
@@ -876,7 +876,7 @@
 "101044|The Khabar: Honor":
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101046|Khazar's Diary (Endless Night):
-  - "The action to put a minion from any ash heap into play is not a directed action. [LSJ 20010627]"
+  - "The action to put a minion from any ash heap into play is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
 101049|Kindred Coercion:
   - "Cannot 'change' the votes of vampires who haven't voted yet, but can cancel the votes of vampires who haven't voted yet and change the votes of vampires who have voted. [RTR 19991001]"
 101053|Kindred Segregation:
@@ -1208,7 +1208,7 @@
 101479|Predator's Transformation:
   - '[abo] [ACTION MODIFIER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101481|Pressing Flesh:
-  - "This is not a directed action. [LSJ 20010627]"
+  - "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
 101485|Primal Instincts:
   - "If the strike is canceled, the rest of the effect is also canceled. [RTR 20040501]"
 101486|Principia Discordia:
