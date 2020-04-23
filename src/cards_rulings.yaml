@@ -165,6 +165,9 @@
   - "Cannot be used if there is no equipment to steal. [RTR 19980928]"
 100185|Blessing of the Name:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+100189|Bliss:
+  - "[dom][pre] [COMBAT] Can be used during a combat by a vampire in torpor. [LSJ 20020416]"
+  - "[dom][pre] [COMBAT][REACTION] Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
 100190|Blissful Agony:
   - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "[val] Damage is environmental. [RTR 19970630]"
@@ -1016,6 +1019,7 @@
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 101175|Martyr's Resilience:
   - "Can be used by a vampire in torpor. [LSJ 20020416]"
+  - "Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
   - "[AUS][FOR] Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
 101179|Mask of a Thousand Faces:
   - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
@@ -1129,6 +1133,9 @@
   - "Can prevent up to 3 damage, it can prevent less. [RTR 20041202]"
 101295|Nod:
   - "Choose for each equipment which minion will receive it, then transfer all the equipment accordingly. [ANK 20190717]"
+101302|Nosferatu Putrescence:
+  - "Can be used by a vampire in torpor. [LSJ 20020416]"
+  - "Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
 101309|Obedience:
   - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
   - "Using the default (rulebook) action to take equipment from the same minion is the same action, whatever combination of equipments is announced. [ANK 20190213]"
@@ -1405,6 +1412,7 @@
   - "When using the provided action, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 101684|Save Face:
   - "Can be used by a vampire in torpor. [LSJ 20020416]"
+  - "Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
 101688|Scarlet Lore:
   - "[nec] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 101689|Scattershot:
