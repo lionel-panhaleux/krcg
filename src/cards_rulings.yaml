@@ -507,6 +507,10 @@
   - "[CHI] Can be played by a minion who is not attempting to block the action. [ANK 20190628]"
 100582|Drain Essence:
   - "Can target a minion with less blood or life than the amount stolen. [RTR 20010711]"
+100584|Draught of the Soul:
+  - "[COMBAT] If a minion is burned in combat, his opponent his always considered to have burned him. [LSJ 20090922]"
+  - "[MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
+  - "[MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
 100585|Drawing Out the Beast:
   - "[ANI] The additional damage done during the press step is environmental. [RTR 19970630]"
 100588|Dreams of the Sphinx:
@@ -1544,8 +1548,9 @@
 101833|Soul of the Earth:
   - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101836|Soul Stealing:
-  - "Cannot be used if a vampire is burned as a result of a political action. [RTR 19960124]"
-  - "A vampire diablerizing an older vampire can play Soul Stealing before or after getting a Discipline card, at his option, so long as he plays it before the Blood Hunt. [RTR 19991206]"
+  - "[COMBAT] If a minion is burned in combat, his opponent his always considered to have burned him. [LSJ 20090922]"
+  - "[MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
+  - "[MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
 101845|Spell of Life:
   - 'The mummies put into play are unique by card name. The name is "in play" for anything that cares. They will contest unique minions of the same name, vampire or allies. If one is {Nefertiti}, then {Aabbt Kindred} will be able to take directed actions. [LSJ 20070928-2] [LSJ 20071001-2]'
 101847|Spirit Claws:
@@ -1618,6 +1623,10 @@
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101926|Tainted Vitae:
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
+"101928|Taking the Skin: Minion":
+  - "[abo] [COMBAT] If a minion is burned in combat, his opponent his always considered to have burned him. [LSJ 20090922]"
+  - "[abo] [MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
+  - "[abo] [MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
 "101930|Talaq, The Immortal":
   - "While he can play cards that require [qui] or [tha], he does not actually have those Disciplines. He does not benefit from {Tremere Convocation}, for example. [LSJ 19980303]"
 101931|Talbot's Chainsaw:
