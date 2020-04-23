@@ -115,6 +115,8 @@
 100128|Baltimore Purge:
   - "There is no time to use other effects between the choosing of the vampires and those vampires going to torpor. [LSJ 20050111]"
   - "The effect during the unlock phase is not an action, you can choose a vampire with a {Secure Haven} on him. [PIB 20121028]"
+100129|Bamba:
+  - "You only fetch one discipline card in total, not one in each of hand, library and ash heap. [LSJ 20090528]"
 100131|Banishment:
   - "A banished vampire can return to play when it again has blood >= capacity on it at the end of its Methuselah's influence phase. [TOM 19951209]"
   - "A banished vampire will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501]"
@@ -184,6 +186,8 @@
 100208|Blood Rage:
   - "[THA] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
+100209|Blood Shield:
+  - "The blood is burned by the opponent when the owner prevents damage, immediately. Depending on the impulse order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528]"
 100212|Blood Tears of Kephran:
   - "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 100213|Blood Tempering:
@@ -1981,7 +1985,7 @@
   - "His ability can be used to meet one (not both) of the normal Discipline requirements of a multi-Discipline card. [LSJ 20011217]"
 200630|Imanna:
   - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
-'200632|Inez "Nurse216" Villagrande':
+200632|Inez "Nurse216" Villagrande:
   - 'Her "as she enters play" ability can be used before she enters contest if there is another one in play. [LSJ 20080526]'
 200634|Ingrid Rossler:
   - "When she is influenced out, her bonus transfers do not apply for the ongoing influence phase. [RTR 20180303]"
