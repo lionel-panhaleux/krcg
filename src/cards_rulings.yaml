@@ -1362,6 +1362,8 @@
   - "[cel] [CEL] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202]"
   - "[cel] [CEL] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
   - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20130319]"
+101640|The Rising:
+  - 'Anything that would increase the pool amount is considered "gaining pool". [ANK 20181105]'
 101654|Rötschreck:
   - "Should be played on the vampire whose opponent in combat attempts to use aggravated damage against him. [RTR 19980623]"
   - "Cannot be played in response to an announcement of a strike that is not effective at the current range. [RTR 19980928]"
