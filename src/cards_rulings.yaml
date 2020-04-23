@@ -268,6 +268,7 @@
   - "If the action ends, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 100301|Carrion Crows:
   - 'Does "1R each round" to the opposing minion, not once each strike. The "during strike resolution" only indicates when the damage is applied. [LSJ 19971211-1]'
+  - 'Damage is inflicted even if the opponent dodges. It is not inflicted if anyone uses a "strike: combat ends". [ANK 20200422]'
 100306|Catacombs:
   - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 100307|Catatonic Fear:
@@ -299,11 +300,14 @@
   - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]"
 100323|Change of Target:
   - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
-  - "Cannot be used if the action is ended by some other mean than by a blocking minion. [LSJ 19980224]"
+  - "Using the default (rulebook) action to take equipment from the same minion is the same action, whatever combination of equipments is announced. [ANK 20190213]"
+  - "Rescuing a vampire from torpor is not the same action if it is not the same target vampire. [LSJ 20080710]"
+  - "Cannot be used if the action is ended without being blocked. [LSJ 19980224]"
   - "Is played after a minion successfully blocks but before the blocker is locked and combat begins. [RTR 19991206]"
-  - "Effects triggered when the action is blocked are still applied. [PIB 20110417]"
+  - "Effects triggered when the action is blocked are still applied (eg. {Unleash Hell's Fury}). [PIB 20110417]"
   - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803] [RTR 20180719]"
   - "If the acting minion was performing a mandatory action, he unlocks and is stuck and cannot act: he should but cannot take the mandatory action. [LSJ 19980112]"
+  - "If used when blocked while leaving torpor, the action ends immediately and the blocker does not get an opportunity for diablerie. [LSJ 20050105]"
 100325|Changeling Skin Mask:
   - "The superior Obfuscate is not optional. [RTR 19980707] [LSJ 19980722]"
 100326|Chanjelin Ward:
@@ -1052,6 +1056,7 @@
   - "[DOM] If in play, the card is removed if its controller (the Methusalah who played it) is ousted (rulings before 2008-11-19 have been reversed). [ANK 20181110]"
 101217|Minion Tap:
   - "Pay the cost (if any, eg. {Secure Haven} or {Villein} on the target) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]"
+  - "If the target has less blood at resolution than the amount annouced, you take what you can. [LSJ 20100216]"
 101218|Ministry:
   - "The additional intercept is gained or lost if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]"
 101222|Mirror Image:
@@ -1118,6 +1123,8 @@
   - "Choose for each equipment which minion will receive it, then transfer all the equipment accordingly. [ANK 20190717]"
 101309|Obedience:
   - 'The "same" action with a different target can be undertaken afterwards. [RTR 19950509]'
+  - "Using the default (rulebook) action to take equipment from the same minion is the same action, whatever combination of equipments is announced. [ANK 20190213]"
+  - "Rescuing a vampire from torpor is not the same action if it is not the same target vampire. [LSJ 20080710]"
   - "Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat, if the opponent is still the acting vampire. [LSJ 19991025]"
   - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
   - "Cannot be played if the opponent is not the acting vampire, for example if a slave took his place. [ANK 20171212]"
@@ -1191,7 +1198,7 @@
 101430|Power Structure:
   - "Cannot be used during a Blood Hunt referendum, since there is no political action. [ANK 20190707]"
 "101431|Powerbase: Barranquilla":
-  - "{Church of the Order of St. Blaise} may be used to add a counter to it before it burns if it has zero counters. [LSJ 20050105]"
+  - "{Church of the Order of St. Blaise} may be used to add a counter to it before it burns if it has zero counters. [LSJ 20050105-1]"
 "101432|Powerbase: Berlin":
   - "Blood moved to it by a Ventrue action comes from the Ventrue. [LSJ 19970414]"
 "101440|Powerbase: New York":
@@ -1657,7 +1664,8 @@
   - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
   - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
 101976|Thoughts Betrayed:
-  - "[dom] Damage is environmental. [RTR 19970630]"
+  - "[dom] Damage is environmental. [RTR 19970630] [ANK 20200422]"
+  - '[dom] Damage is inflicted if the range is closed (only), even if the opponent dodges. It is not inflicted if anyone uses a "strike: combat ends". [ANK 20200422]'
 101988|Tongue of the Serpent:
   - "Can target a minion with less blood than the amount stolen. [RTR 20010711]"
 101989|Toreador Grand Ball:
@@ -1751,7 +1759,8 @@
   - "[REACTION] [1 CONVICTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
   - '[MODIFIER] Cards and effects that can be played "after resolution" (and only them) can be played after its use. [ANK 20190425]'
 102121|Villein:
-  - "Pay the cost at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]"
+  - "Pay the cost (if any) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]"
+  - "If the target has less blood at resolution than the amount annouced, you take what you can. [LSJ 20100216]"
 102124|Virtuosa:
   - '[MEL] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 102126|Visit from the Capuchin:
