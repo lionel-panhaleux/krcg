@@ -786,6 +786,7 @@
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 "100908|Heidelberg Castle, Germany":
   - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
+  - "Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]"
 100911|Hellhound:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100912|Herald of Topheth:
@@ -811,6 +812,7 @@
   - "If no weapon can be found, the cost is still paid. [TOM 19951212-1]"
   - "If the weapon retrieved has requirements that the vampire does not meet, then it is burned. [RTR 20010710]"
   - "If a copy of a unique card already in play is retrieved, then the weapon is contested until the end of combat. It becomes uncontested during the next appropriate unlock phase. [TOM 19951212-1]"
+  - "The weapon is burned or returned to the library if it is still in play, even if it is not on the minion anymore (eg. {Rowan Ring}, {Wooden Stake}). [LSJ 20001019]"
 100938|Hospital Food:
   - "The action is successful even if no blood is gained. [LSJ 20050720-2]"
 100939|Hostile Takeover:
@@ -1441,7 +1443,8 @@
 101731|Set's Curse:
   - "Can be used on a target that cannot be burned (eg. {Ilomba}), but then it is not put into play. [ANK 20190422]"
 101733|Shackles of Enkidu:
-  - '"The shackled minion" refers to the minion the card is put upon (not the Gangrel the card is put upon with the equip action). [TOM 19951212-2]'
+  - "If placed on a minion that cannot have equipment or weapon, the Shackles are burned. [LSJ 19980831]"
+  - '"The shackled minion" refers to the minion the card is placed upon (not the Gangrel the card is put on with the equip action). [TOM 19951212-2]'
   - "Once placed on a minion, even as a result of diablerie or theft, the Shackles will harm the minion they are on. [LSJ 19990602]"
   - 'An ally does not suffer the "burn 2 blood" effect from being shackled. [RTR 19971201]'
   - "Are controlled by the Methuselah who controls the vampire who used it; changing the controller of the vampire changes who controls the Shackles. (errata) [RTR 19960708]"
@@ -1887,6 +1890,7 @@
   - "When she is influenced out, her ability to unlock a vampire can be used during the ongoing influence phase. [RTR 20180303]"
 200094|Angelo:
   - "A vampire with no circle designation is in his own unique circle of one. Angelo cannot be seen as a member of such a circle. [LSJ 20020609]"
+  - "He cannot attempt an action to employ a retainer, nor strike to steal a retainer. [LSJ 20050315] [LSJ 20010210]"
 200103|Annabelle Triabell:
   - "Her ability applies to all Toreadors, not just ones in play at the time the action resolved. [LSJ 20030811]"
 200104|Annazir:
@@ -1910,6 +1914,9 @@
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 200167|The Baron:
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+"200179|Beast, The Leatherface of Detroit":
+  - "He cannot attempt an action to equip or employ, nor strike to steal an equipment or retainer. [LSJ 20050315] [LSJ 20010210]"
+  - "He can equip with an equipment that is a location when in play. [LSJ 20050315]"
 200201|Black Cat:
   - 'The reduction applies for other effects that check the "cost" of equipment on her. [RTR 19941109]'
   - "If she is equipped with something and that equipment is transferred to another minion, then it regains its normal pool value. Conversely, if a piece of equipment moves onto her, its effective pool cost is lowered by 1. [RTR 19941109]"
@@ -1956,6 +1963,9 @@
   - "Edith may burn a blood to give {Enid Blount} stealth multiple times each action. [LSJ 20040617]"
 200403|Edward Vignes:
   - "His ability cannot be used if the action is blocked. [LSJ 20041022]"
+"200424|Enkidu, The Noah":
+  - "He cannot attempt an action to equip nor strike to steal an equipment. [LSJ 20050315] [LSJ 20010210]"
+  - "He can equip with an equipment that is a location when in play. [LSJ 20050315]"
 200434|Erlik:
   - 'His "as he enters play" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902]'
 200438|Ethan Locke:
@@ -1975,10 +1985,15 @@
   - 'The "do not replace" effect stacks with whatever "do not replace" clause the card itself has, so that the longest one wins out. [LSJ 20070320-1]'
 200578|Hazimel:
   - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+200585|Helen Fairchild:
+  - "She cannot attempt an action to equip nor strike to steal an equipment. [LSJ 20050315] [LSJ 20010210]"
+  - "She can equip with an equipment that is a location when in play. [LSJ 20050315]"
 200587|Helena (ADV):
   - "[MERGED] Immune means damage from demons are not considered inflicted. [LSJ 20010627]"
 200604|Horatio Ballard:
   - "Cannot use his special ability to become a Prince if he has changed sect and is no longer Camarilla. [LSJ 20030202]"
+200607|Howler:
+  - "She cannot attempt an action to equip a weapon nor strike to steal a weapon. [LSJ 20050315] [LSJ 20010210]"
 200608|Hrothulf:
   - "Only burns the Edge if the action is successful. [LSJ 20030519]"
 200612|Hukros:
@@ -2035,6 +2050,9 @@
 200840|Lisandro Giovanni:
   - "When playing a card requiring a Ventrue antitribu or a Samedi, he is treated as a such for all effects generated by the play of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]"
   - "You can still use the burn options of cards with a requirement he could meet when you play them, but does not meet while in play. [LSJ 20050225]"
+200859|Lorrie Dunsirn:
+  - "She cannot attempt an action to equip or employ, nor strike to steal an equipment or retainer. [LSJ 20050315] [LSJ 20010210]"
+  - "She can equip with an equipment that is a location when in play. [LSJ 20050315]"
 200865|Lubomira Hradok:
   - "Lubomira is the one not to unlock as normal. [PIB 20110915-1]"
 200870|Lucian:
