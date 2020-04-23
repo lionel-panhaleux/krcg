@@ -1792,6 +1792,9 @@
   - "[ACTION MODIFIER] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 102144|War Ghoul:
   - "If you have no other allies and no retainers in play when it is recruited, then you burn it. [RTR 19961113]"
+102149|Warsaw Station:
+  - "Can be burned after the annoucement of a diablerie action to bring the target Nosferatu out of torpor. The diablerie will then fizzle. [ANK 20181107]"
+  - "Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action would fizzles if an effect tries to continue it (eg. {Ambulance}). [LSJ 20090325-2]"
 102151|Wash:
   - "If used to cancel an out-of-turn master, that Methuselah still cannot play another out-of-turn master against the same master phase, even though the first was canceled and won't count against that master phase. [LSJ 20070309-2]"
   - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
@@ -1849,6 +1852,7 @@
 102199|Yawp Court:
   - "Damage inflicted at the end of combat is environmental. [RTR 19970630]"
   - "If the acting minion is not ready after the combat, then the action ends and no referendum is conducted. [LSJ 20060902]"
+  - "If the acting vampire gets out of torpor immediately (eg. {Warsaw Station}), the action ends and no referendum is conducted. [LSJ 20090325-1]"
 102202|Young Bloods:
   - "They may use their built-in action against a vampire with only 1 blood. If successful, that vampire burns his 1 blood. [LSJ 20070213]"
 102203|Zaire River Ferry:
