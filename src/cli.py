@@ -167,6 +167,8 @@ def card(args):
             logger.critical("Card not found: {}".format(name))
             exit(1)
         print(vtes.VTES.get_name(card))
+        if args.short:
+            continue
         print(_card_text(card))
         print(_card_rulings(args, card))
 
@@ -282,9 +284,9 @@ parser.add_argument(
     "-m",
     "--minimum",
     type=int,
-    default=50,
+    default=33,
     metavar="P",
-    help="Minimum affinity to display (default 50)",
+    help="Minimum affinity to display (default 33)",
 )
 parser.add_argument("-c", "--crypt", action="store_true", help="Only crypt cards")
 parser.add_argument("-l", "--library", action="store_true", help="Only library cards")

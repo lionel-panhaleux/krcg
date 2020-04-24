@@ -53,7 +53,7 @@ class Analyzer(object):
         Returns:
             deck.Deck: The deck built
         """
-        self.deck = deck.Deck(author="Fame")
+        self.deck = deck.Deck(author="KRCG")
         self.refresh(*args, condition=vtes.VTES.is_crypt)
         # if no seed is given, choose one of the 100 most played cards,
         # but do not pick a spoiler (card played in more than 25% decks).

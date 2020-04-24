@@ -10,10 +10,60 @@ A command-line interface based on
 the VEKN [official card texts](http://www.vekn.net/card-lists)
 and the [Tournament Winning Deck Archive (TWDA)](http://www.vekn.fr/decks/twd.htm)
 
+## Online API
+
+KRCG is available as an [online API on Heroku](https://krcg.herokuapp.com/).
+Feel free to use it. Beware that this is still a beta, so breaking change can happen without notice.
+
+## Contribute
+
+Feel free to submit pull requests, they will be merged as long as they pass the tests.
+Do not hestitate to submit issues or vote on them if you want a feature implemented.
+
+### Contribute Rulings (non-developers)
+
+Please do not hestitate to contribute rulings: all help is welcome.
+
+Open an [issue](https://github.com/lionel-panhaleux/krcg/issues)
+with a ruling you think should be added,
+provide a link to an online post by one of the rules directors:
+
+- From 2016-12-04 onward, [Vincent Ripoll (ANK)](http://www.vekn.net/forum/news-and-announcements/75402-new-inner-circle-vekn-board-of-directors#79470)
+- From 2011-07-06 onward, [Pascal Bertrand (PIB)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/VzRGZO_Iuto/BjJGRVvJ5Z8J)
+- From 1998-06-22 onward, [L. Scott Johnson (LSJ)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/RIX1tLgOFjg/xKikfSarfd8J)
+- From 1994-12-15 onward, [Thomas R Wylie (TOM)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Dm_gIP3YvUs/qTyKyq2NWv4J)
+
+### Contribute Rulings (developers)
+
+Feel free to contribute rulings as Pull Requests directly, this is very appreciated.
+
+Add the ruling link to
+[rulings-links.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/src/rulings-links.yaml),
+and the ruling itself to
+[cards-rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/src/cards-rulings.yaml) or
+[general-rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/src/general-rulings.yaml)
+depending on the case.
+
+The format is mostly self-explanatory:
+
+- Cards are reference by ID and name in the format `ID|Name`.
+- Card names inside rulings text should be between bracers, eg. `{.44 Magnum}`
+- Individual rulings in `cards-rulings.yaml` must provide one or more references
+  to ruling links at the end of the text, between brackets, eg `[LSJ 20100101]`
+
+In doing so, please follow the following guidelines:
+
+- Keep the YAML files clean and alphabetically sorted (you can use a YAML formatter)
+- Make the rulings as concise as possible
+- Prefix the ruling with the discipline level and/or type the ruling applies to (if any),
+  eg. prefix with `[PRO] [COMBAT]` if the ruling applies only to the card played in combat at superior Protean.
+- Adapt the ruling wording to the cards it applies to (ie. use masculine/feminin forms)
+- You can run the tests with the `pytest` command to check everything is OK
+
 ## Installation
 
 You need [Python 3](https://www.python.org/downloads/)
-installed on your system to use this tool.
+installed on your system to use this tool in command line.
 
 Use pip to install the ``krcg`` tool:
 
@@ -46,17 +96,46 @@ You can use the `--from` and `--to` parameters to control the date range.
 
 ## Examples
 
-Get a card text:
+Get a card text (case is not relevant,
+some abbreviations and minor misspellings will be understood):
 
 ```shell
-$> krcg card "Fame"
-Fame
-[Master] -- (Jyhad:U, VTES:U, SW:PB, CE:PB, Anarchs:PG, BH:PN2, KMW:PAl, Third:PTz, KoT:U/PT2, HttB:PGar/PSal)
-Unique master.
-Put this card on a ready vampire. If this vampire goes to torpor, his or her controller burns 3 pool. While this vampire is in torpor, each Methuselah burns 1 pool during his or her unlock phase.
+$> krcg card krcg
+KRCG News Radio
+[Master][2P] -- (Jyhad:U, VTES:U, CE:U, LoB:PA, LotN:PG, KoT:U/PB, SP:PwN1 - #101067)
+Unique location.
+Lock to give a minion you control +1 intercept.
+Lock and burn 1 pool to give a minion controlled by another Methuselah +1 intercept.
 ```
 
-List TWDA decks containing this card:
+This provides rulings, if any:
+
+```shell
+$> krcg card ".44 magnum"
+.44 Magnum
+[Equipment][2P] -- (Jyhad:C, VTES:C, Sabbat:C, SW:PB, CE:PTo3, LoB:PO3, FB:PTr2 - #100001)
+Weapon: gun.
+Strike: 2R damage, with 1 optional maneuver each combat.
+
+-- Rulings
+Provides only ony maneuver each combat, even if the bearer changes. [LSJ 19980302-2]
+```
+
+Use the `-l` option to get ruling links:
+
+```shell
+$> krcg card -l ".44 magnum"
+.44 Magnum
+[Equipment][2P] -- (Jyhad:C, VTES:C, Sabbat:C, SW:PB, CE:PTo3, LoB:PO3, FB:PTr2 - #100001)
+Weapon: gun.
+Strike: 2R damage, with 1 optional maneuver each combat.
+
+-- Rulings
+Provides only ony maneuver each combat, even if the bearer changes. [LSJ 19980302-2]
+[LSJ 19980302-2]: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/9YVFkeiL3Js/4UZXMyicluwJ
+```
+
+List TWDA decks containing a card:
 
 ```shell
 $> krcg deck "Fame"
@@ -146,32 +225,26 @@ List cards most associated with a given card in TWD:
 
 ```shell
 $> krcg affinity "Fame"
-Taste of Vitae                 (score: 237.00)
-Dragonbound                    (score: 153.00)
-Powerbase: Montreal            (score: 131.00)
-Target Vitals                  (score: 119.00)
-Carrion Crows                  (score: 119.00)
-Carlton Van Wyk                (score: 118.00)
-Haven Uncovered                (score: 115.00)
-Ashur Tablets                  (score: 111.00)
-Archon Investigation           (score: 106.00)
-Deep Song                      (score: 103.00)
+Fame                           (in 100% of decks, typically 1-2 copies)
+Taste of Vitae                 (in 59% of decks, typically 3-6 copies)
+Dragonbound                    (in 38% of decks, typically 1 copy)
+Powerbase: Montreal            (in 34% of decks, typically 1 copy)
 ```
 
 List most played cards of a given type, clan or discipline:
 
 ```shell
 $> krcg top -d Animalism
-Carrion Crows                  (played in 240 decks)
-Cats' Guidance                 (played in 211 decks)
-Canine Horde                   (played in 187 decks)
-Deep Song                      (played in 180 decks)
-Raven Spy                      (played in 176 decks)
-Sense the Savage Way           (played in 156 decks)
-Aid from Bats                  (played in 144 decks)
-Army of Rats                   (played in 131 decks)
-Guard Dogs                     (played in 72 decks)
-Terror Frenzy                  (played in 70 decks)
+Carrion Crows                  (played in 252 decks, typically 5-10 copies)
+Cats' Guidance                 (played in 222 decks, typically 2-5 copies)
+Canine Horde                   (played in 195 decks, typically 1-3 copies)
+Deep Song                      (played in 194 decks, typically 3-10 copies)
+Raven Spy                      (played in 182 decks, typically 2-6 copies)
+Sense the Savage Way           (played in 167 decks, typically 2-6 copies)
+Aid from Bats                  (played in 152 decks, typically 6-14 copies)
+Army of Rats                   (played in 137 decks, typically 1-2 copies)
+Guard Dogs                     (played in 83 decks, typically 1-3 copies)
+Terror Frenzy                  (played in 73 decks, typically 1-4 copies)
 ```
 
 Build a deck from any given cards based on TWDA:
@@ -180,67 +253,48 @@ Build a deck from any given cards based on TWDA:
 $> krcg build "Fame" "Carrion Crows"
 
 Created by: KRCG
-Description:
 Inspired by:
- - 2016gncbg            weenie animalism minimal: "Ich bin eine von wir"
- - 2016sncss            Vampire-SM 2016. Field Training Bats v.3
- - 2016ecqmmf           Weenie Animalism v1.2
- - 2016ncqmmf           New Nana (27)
- - 2015saclcqfb         Cidade em Chamas
+ - 2020mdmlf            Nanarch Buruku
+ - 2019r6vh             Aksinya+Nana+Anarch+Ani 4.0
+ - 2019bncfb            Resistência Anarch
  ...
 
 -- Crypt: (12 cards)
 ---------------------------------------
-3  Nana Buruku                         8  ANI POT PRE               Guruhi:4
 1  Stick                               3  ANI                       Nosferatu antitribu:4
 1  Beetleman                           4  obf ANI                   Nosferatu:4
 1  Bobby Lemon                         4  pro ANI                   Gangrel:3
+3  Nana Buruku                         8  ANI POT PRE               Guruhi:4
+1  Céleste Lamontagne                  5  for ANI PRO               Gangrel antitribu:4
 1  Petra                               5  aus ANI OBF               Nosferatu:4
-1  Célèste Lamontagne                  5  for ANI PRO               Gangrel antitribu:4
-1  Zip                                 2  ani                       Ravnos:3
-1  Lisa Noble                          1  ani                       Caitiff:3
-1  Mouse                               2  ani                       Nosferatu:3
-1  Fish                                5  pre ANI POT               Guruhi:4
+4  Anarch Convert                      1  -none-                    Caitiff:ANY
 -- Library (90)
--- Master (25)
+-- Master (30)
 8  Ashur Tablets
-3  Blood Doll
-2  Animalism
+7  Anarch Revolt
+3  Liquidation
+3  Vessel
 2  Dreams of the Sphinx
 2  Haven Uncovered
-2  Vessel
 1  Archon Investigation
 1  Direct Intervention
 1  Fame
 1  Pentex(TM) Subversion
-1  Powerbase: Montreal
 1  Wider View
 -- Action (11)
 10 Deep Song
 1  Army of Rats
--- Combat (37)
+-- Combat (36)
 13 Aid from Bats
 10 Carrion Crows
-5  Taste of Vitae
 4  Target Vitals
+4  Taste of Vitae
 3  Terror Frenzy
 2  Canine Horde
--- Reaction (11)
+-- Reaction (9)
 4  Cats' Guidance
 3  On the Qui Vive
 2  Delaying Tactics
-2  Sense the Savage Way
--- Retainer (5)
-5  Raven Spy
--- Event (1)
-1  Dragonbound
+-- Retainer (4)
+4  Raven Spy
 ```
-
-## Contribute
-
-Feel free to submit pull requests, they will be merged as long as they pass the tests.
-Do not hestitate to submit issues or vote on them if you want a feature implemented.
-
-## Online API
-
-KRCG is available as an [online API on Heroku](https://krcg.herokuapp.com/).

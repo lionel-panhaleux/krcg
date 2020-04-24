@@ -4,8 +4,8 @@ Changelog
 0.24 (unreleased)
 -----------------
 
-- Nothing changed yet.
-
+- CLI command build: deck author is now KRCG
+- Improve README.md
 
 0.23 (2020-04-24)
 -----------------
