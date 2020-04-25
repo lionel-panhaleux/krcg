@@ -1,11 +1,18 @@
+.PHONY: test static release update serve deploy clean
+
 test:
 	pytest -vv --pdb --pdbcls=IPython.terminal.debugger:Pdb
 
-release:
+static:
+	krcg init
+	krcg-gen standard amaranth
+
+release: static
+	git commit -m "Update static files" static
 	fullrelease
 
 update:
-	pip install --upgrade -e .[dev]
+	pip install --upgrade -e .[dev,web]
 
 serve:
 	gunicorn --reload --access-logfile - src.flask:app
