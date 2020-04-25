@@ -902,6 +902,8 @@
 101021|Jar the Soul:
   - "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]"
   - "If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]"
+"101028|Judgment: Camarilla Segregation":
+  - "The effect must be applied during the unlock phase, but other effects can be applied before. If an effect applied before burns the last non-Camarilla vampire, no pool is lost. [ANK 20181016]"
 101031|Justicar Retribution:
   - "Counts the bleed amount that each vampire would have when attempting to bleed his prey. [RTR 19980623]"
 101033|Karavalanisha Vrana:
