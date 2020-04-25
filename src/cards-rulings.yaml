@@ -748,6 +748,7 @@
   - "Must wait until the second time a given gun is used in a given combat to play it. [RTR 19941109]"
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100840|Go Anarch:
+  - "Is not the default action, no blood is paid to become Anarch. [ANK 20181017]"
   - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
   - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 "100843|Goodnight, Sweet Prince":
@@ -796,6 +797,8 @@
   - "Must be played after combat if the action is blocked [RTR 19980623]"
 100900|Haymaker:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+100901|Healing Touch:
+  - "[OBE] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 "100908|Heidelberg Castle, Germany":
   - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
   - "Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]"
@@ -967,6 +970,8 @@
   - "Once in play, applies to an action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2] [KOT 20081119]"
 101121|Loner:
   - "Only considers the minions controlled during the influence phase. It does not care if minions you no longer control acted this turn. [LSJ 20060616-1]"
+101123|Lord of Serenity:
+  - "[for] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 101126|Lost in Translation:
   - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 101128|Loving Agony:
@@ -1304,7 +1309,8 @@
   - "Tracks the target if it leaves the game by contesting or {Banishment}: if the target gets back into play, The Rack gives it blood again. [LSJ 20010809-2]"
   - "If the target is stolen, the new controller chooses if the vampires gains blood during The Rack controllers unlock phase. [ANK 20200130-2]"
 101543|Rapid Healing:
-  - 'It is a "leave torpor" action. [LSJ 19980126]'
+  - "Is not the default action, no blood is paid to leave torpor. [ANK 20181017]"
+  - 'Is a "leave torpor" action. [LSJ 19980126]'
 101545|Raptor:
   - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 101546|Rastacourere:
@@ -1323,6 +1329,8 @@
   - "Cannot be used to bypass restrictions (like Clan restriction or any other play restriction). [LSJ 20020426]"
 101565|Rebirth:
   - "Cannot be used following an {Amaranth} or an {Abactor} as they are not diablerie actions. [ANK 20190701]"
+101571|Recure of the Homeland:
+  - "Is not the default action, no blood is paid to leave torpor. [ANK 20181017]"
 101573|Red Herring:
   - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [LSJ 20070709]"
 101575|The Red Question:
@@ -1360,6 +1368,8 @@
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 101615|Restructure:
   - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+101616|Resume the Coil:
+  - "Is not the default action, no blood is paid to leave torpor or rescue from torpor. [ANK 20181017]"
 101617|Resurrection:
   - "Can only resurrect allies or retainers burned from play. Discards and blocked actions do not qualify. [LSJ 20011216-1]"
 101624|Revelation of Ecstasy:
@@ -1382,6 +1392,8 @@
   - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20130319]"
 101640|The Rising:
   - 'Anything that would increase the pool amount is considered "gaining pool". [ANK 20181105]'
+101652|Root of Vitality:
+  - "[vic] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 101654|Rötschreck:
   - "Should be played on the vampire whose opponent in combat attempts to use aggravated damage against him. [RTR 19980623]"
   - "Cannot be played in response to an announcement of a strike that is not effective at the current range. [RTR 19980928]"
@@ -1451,6 +1463,8 @@
 101714|Selective Silence:
   - "[QUI] no other effect can be used to reset the range. [RTR 19970630]"
   - "[QUI] The blood is not the cost of Selective Silence, it is the cost of using the mandatory range-setting effect. The cost is not reduced by cards reducing [qui] or combat cards cost, the card cannot be used by a vampire who has less than one blood. [LSJ 19970224]"
+101720|Sense Vitality:
+  - "[val], [VAL] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 101724|Seraph's Second:
   - "Can be used to unlock a vampire who has just successfully resolved an action to become Black Hand. [LSJ 20070702]"
 101727|Serpent's Numbing Kiss:
@@ -1820,6 +1834,8 @@
   - "[ACTION MODIFIER] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 102144|War Ghoul:
   - "If you have no other allies and no retainers in play when it is recruited, then you burn it. [RTR 19961113]"
+102146|Warding the Beast:
+  - "[val] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 102149|Warsaw Station:
   - "Can be burned after the annoucement of a diablerie action to bring the target Nosferatu out of torpor. The diablerie will then fizzle. [ANK 20181107]"
   - "Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action would fizzles if an effect tries to continue it (eg. {Ambulance}). [LSJ 20090325-2]"
