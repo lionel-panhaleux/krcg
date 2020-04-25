@@ -1,11 +1,11 @@
 # KRCG
 
 [![PyPI version](https://badge.fury.io/py/krcg.svg)](https://badge.fury.io/py/krcg)
-<!-- [![Build Status](https://travis-ci.org/lionel-panhaleux/krcg.svg?branch=master)](https://travis-ci.org/lionel-panhaleux/krcg) -->
 [![Validation](https://github.com/lionel-panhaleux/krcg/workflows/Validation/badge.svg)](https://github.com/lionel-panhaleux/krcg/actions)
 [![Python version](https://img.shields.io/badge/python-3.8-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Code Style](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
+<!-- [![Build Status](https://travis-ci.org/lionel-panhaleux/krcg.svg?branch=master)](https://travis-ci.org/lionel-panhaleux/krcg) -->
 
 A command-line interface based on
 the VEKN [official card texts](http://www.vekn.net/card-lists)
