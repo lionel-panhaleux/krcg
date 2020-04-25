@@ -298,3 +298,15 @@ Inspired by:
 -- Retainer (4)
 4  Raven Spy
 ```
+
+## Static files generator
+
+In its development version, KRCG also offers a tool for generating static files
+for third parties, `krcg-gen`.
+
+```shell
+krcg init
+krcg-gen standard amaranth
+```
+
+will generate files in the static directory for `standard` and `amaranth` third parties.
