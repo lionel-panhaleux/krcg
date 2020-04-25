@@ -127,6 +127,8 @@
   - "Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]"
 100135|The Barrens:
   - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
+100137|Baseball Bat:
+  - "If put into play in a special way (eg. using {Concealed Weapon}), it is replaced immediately. [LSJ 20080702-2]"
 100142|Bauble:
   - "If it is burned by another mean than its effect, the weapon is not burned. [LSJ 20090113-1]"
   - "It cannot be burned if the target equipment is not in play. [RTR 20080808]"
@@ -242,7 +244,7 @@
   - "Preventing damage with it does not force the minion to strike with it. [LSJ 19971215]"
   - "Inherits all of the properties of the base hand strike. [TOM 19960225] [LSJ 20071020]"
   - "Effects that affect or improve hand strikes can be used on its strike. [LSJ 20071020]"
-  - 'You cannot use it with a strike card that would read: "Strike: make a hand strike." but you can use it with a strike card that reads "strike: make a hand weapon strike". [LSJ 20080702]'
+  - 'You cannot use it with a strike card that would read: "Strike: make a hand strike." but you can use it with a strike card that reads "strike: make a hand weapon strike". [LSJ 20080702-1]'
 100271|Burning Wrath:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "All the damage is aggravated. [LSJ 20020122]"
