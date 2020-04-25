@@ -9,3 +9,4 @@ script:
     - black --check src tests
     - flake8
     - pytest
+    - make validate

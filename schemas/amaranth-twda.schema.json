@@ -1,0 +1,86 @@
+{
+    "$id": "https://github.com/lionel-panhaleux/krcg/blob/master/schemas/amaranth-twda.schema.json",
+    "$schema": "http://json-schema.org/draft/2019-09/schema#",
+    "title": "TWDA",
+    "type": "array",
+    "items": {
+        "title": "Deck",
+        "type": "object",
+        "description": "Tournament Winning Deck",
+        "additionalProperties": false,
+        "properties": {
+            "author": {
+                "type": "string"
+            },
+            "date": {
+                "type": "string",
+                "format": "date"
+            },
+            "title": {
+                "type": "string"
+            },
+            "twda_key": {
+                "type": "string",
+                "description": "official TWDA ID"
+            },
+            "description": {
+                "type": "string",
+                "description": "Event and venue"
+            },
+            "cards": {
+                "type": "object",
+                "description": "Map of cards in the form Amaranth ID: # copies",
+                "additionalProperties": {
+                    "type": "integer"
+                }
+            }
+        },
+        "examples": [
+            {
+                "author": "Esa-Matti Smolander",
+                "date": "2020-03-14",
+                "title": "Stanislava Vote/Bleed v1.6",
+                "twda_key": "2020rtecftjf",
+                "description": "Road to EC: Field Training, Joensuu, Finland",
+                "cards": {
+                    "3137": 5,
+                    "1599": 4,
+                    "1294": 1,
+                    "1440": 1,
+                    "3635": 1,
+                    "2074": 1,
+                    "275": 1,
+                    "875": 1,
+                    "957": 1,
+                    "1318": 1,
+                    "1596": 1,
+                    "2210": 1,
+                    "2415": 1,
+                    "3531": 5,
+                    "3575": 1,
+                    "3607": 1,
+                    "1354": 6,
+                    "130": 2,
+                    "138": 1,
+                    "139": 2,
+                    "286": 2,
+                    "1816": 1,
+                    "2419": 3,
+                    "2516": 1,
+                    "2738": 1,
+                    "671": 3,
+                    "979": 4,
+                    "1051": 1,
+                    "1213": 4,
+                    "1249": 2,
+                    "1610": 4,
+                    "2678": 1,
+                    "830": 6,
+                    "2374": 3,
+                    "980": 3,
+                    "1223": 6
+                }
+            }
+        ]
+    }
+}

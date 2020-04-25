@@ -33,3 +33,6 @@ jobs:
     - name: Test
       run: |
         pytest
+    - name: JSON schemas validation
+      run: |
+        make validate

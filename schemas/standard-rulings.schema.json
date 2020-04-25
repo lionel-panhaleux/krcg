@@ -1,0 +1,47 @@
+{
+    "$id": "https://github.com/lionel-panhaleux/krcg/blob/master/schemas/standard-rulings.schema.json",
+    "$schema": "http://json-schema.org/draft/2019-09/schema#",
+    "title": "Rulings",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "rulings": {
+            "type": "object",
+            "description": "Map of rulings in the form {hash: ruling text}. The hash the first 6 bytes (in hex) of the SHA3-256 of the ruling text",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "references": {
+            "type": "object",
+            "description": "Map of rulings references in the form {ruling_reference: URI}",
+            "additionalProperties": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "cards": {
+            "type": "object",
+            "description": "Map of rulings attributed to cards in the form {card_id: [ruling_hash]}",
+            "additionalProperties": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "examples": [
+        {
+            "rulings": {
+                "f44e791a2c5e": "Provides only ony maneuver each combat, even if the bearer changes. [LSJ 19980302-2]"
+            },
+            "references": {
+                "[LSJ 19980302-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/9YVFkeiL3Js/4UZXMyicluwJ"
+            },
+            "cards": {
+                "100001": "f44e791a2c5e"
+            }
+        }
+    ]
+}

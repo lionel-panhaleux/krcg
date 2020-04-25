@@ -86,7 +86,7 @@ def amaranth_twda():
                     "title": deck.name or "",
                     "twda_key": twda_id,
                     "description": deck.event + ", " + deck.place,
-                    "card": {amaranth_ids[k]: v for k, v in deck.items()},
+                    "cards": {amaranth_ids[k]: v for k, v in deck.items()},
                 }
             )
         except KeyError as e:

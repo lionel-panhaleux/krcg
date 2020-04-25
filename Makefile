@@ -1,13 +1,19 @@
-.PHONY: test static release update serve deploy clean
+.PHONY: validate test init static release update serve deploy clean
+
+# used by CI
+validate: static/*.json
+	$(foreach f, $^, jsonschema -i $f schemas/$(basename $(notdir $f)).schema.json ;)
 
 test:
 	pytest -vv --pdb --pdbcls=IPython.terminal.debugger:Pdb
 
-static:
+init:
 	krcg init
+
+static:
 	krcg-gen standard amaranth
 
-release: static
+release: init static validate
 	git commit -m "Update static files" static
 	fullrelease
 
