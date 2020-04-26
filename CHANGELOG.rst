@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.26 (unreleased)
+0.26 (2020-04-27)
 -----------------
 
 - Better Discord bot
