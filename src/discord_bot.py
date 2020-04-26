@@ -136,6 +136,7 @@ def handle_message(message):
             "inline": False,
         }
     )
+    footer = ""
     if card.get("Banned") or card.get("Rulings"):
         rulings = ""
         if card.get("Banned"):
@@ -147,6 +148,10 @@ def handle_message(message):
                 ruling = ruling.replace(
                     f"{reference}", f"[{reference}]({links[reference[1:-1]]})"
                 )
+            if len(rulings) + len(ruling) > 1020:
+                rulings += "..."
+                footer = "More rulings available, click the title to see them."
+                break
             rulings += f"- {ruling}\n"
         fields.append({"name": "Rulings", "value": rulings, "inline": False})
     card_name = vtes.VTES.get_name(card)
@@ -166,6 +171,7 @@ def handle_message(message):
         "color": color,
         "fields": fields,
         "image": {"url": image_url},
+        "footer": {"text": footer},
     }
     logger.info(embed)
     return {
