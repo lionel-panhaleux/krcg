@@ -283,6 +283,7 @@ class _VTES(dict):
             if ascii_variant != name:
                 yield ascii_variant + advanced_suffix
             if name[-5:] == ", The":
+                yield from name_variants(name[:-5])
                 yield from name_variants("The " + name[:-5])
             # suffix removal
             # --------------
