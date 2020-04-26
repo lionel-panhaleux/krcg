@@ -119,14 +119,6 @@ def test_card_variants():
         "the rumor mill",
         "the rumor mill, tabloid newspaper",
     ]
-    # The "The" omission variant is not included if the base name is too short,
-    # even in multiple commas cases.
-    assert sorted_variant(louvre) == [
-        "louvre, paris",
-        "louvre, paris, the",
-        "the louvre",
-        "the louvre, paris",
-    ]
     # mixing commas, non-ASCII and "Aka" produces a lot of variants, too.
     # Note we do not produce "partial" unidecoded variants, like for example
     # "sacré-coeur" (keep the accent, asciify "œ").

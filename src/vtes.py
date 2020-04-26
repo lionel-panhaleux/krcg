@@ -283,7 +283,6 @@ class _VTES(dict):
             if ascii_variant != name:
                 yield ascii_variant + advanced_suffix
             if name[-5:] == ", The":
-                yield from name_variants(name[:-5])
                 yield from name_variants("The " + name[:-5])
             # suffix removal
             # --------------
@@ -302,7 +301,7 @@ class _VTES(dict):
                 # We do not shorten too much or anything will fuzzy match
                 # eg. "Line" (without ", The") could mismatch "Redline" or "Zip Line".
                 # Still, "Gunther" should match "Gunther, Beast Lord'
-                if len(alternative) > 6:
+                if len(alternative) > 4:
                     yield from name_variants(alternative)
 
         yield from name_variants(card["Name"])
