@@ -7,6 +7,7 @@ Changelog
 - CLI command build: deck author is now KRCG
 - Improve README.md
 - Add the krcg-gen tool, to generate static files for third parties
+- Additional rulings
 
 0.23 (2020-04-24)
 -----------------
