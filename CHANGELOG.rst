@@ -4,7 +4,7 @@ Changelog
 0.27 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Bot: fix disaply of cards with many rulings
 
 
 0.26 (2020-04-27)
