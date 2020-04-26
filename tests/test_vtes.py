@@ -78,8 +78,8 @@ def test_card_variants():
     }
     louvre = {"Name": "Louvre, Paris, The"}
 
-    def sorted_variant(card):
-        return sorted(n.lower() for n in vtes.VTES.get_name_variants(card))
+    def sorted_variant(card, safe=True):
+        return sorted(n.lower() for n in vtes.VTES.get_name_variants(card, safe))
 
     # "," suffixes in vampire names are common, and often omitted in deck lists
     assert sorted_variant(sacha_vykos) == [
@@ -97,6 +97,8 @@ def test_card_variants():
     assert sorted_variant(the_unnamed) == ["the unnamed", "unnamed", "unnamed, the"]
     # Do not omit the "The" particle on too short a name
     assert sorted_variant(the_line) == ["line, the", "the line"]
+    # Unless safe is False
+    assert sorted_variant(the_line, safe=False) == ["line", "line, the", "the line"]
     # Produce ascii variants of "Aka" variant ("sEbastiAn")
     assert sorted_variant(sebastien_goulet) == [
         "sebastian goulet",
@@ -118,6 +120,21 @@ def test_card_variants():
         "rumor mill, tabloid newspaper, the",
         "the rumor mill",
         "the rumor mill, tabloid newspaper",
+    ]
+    # The "The" omission variant is not included if the base name is too short,
+    # even in multiple commas cases.
+    assert sorted_variant(louvre) == [
+        "louvre, paris",
+        "louvre, paris, the",
+        "the louvre",
+        "the louvre, paris",
+    ]
+    assert sorted_variant(louvre, safe=False) == [
+        "louvre",
+        "louvre, paris",
+        "louvre, paris, the",
+        "the louvre",
+        "the louvre, paris",
     ]
     # mixing commas, non-ASCII and "Aka" produces a lot of variants, too.
     # Note we do not produce "partial" unidecoded variants, like for example

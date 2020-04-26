@@ -59,11 +59,13 @@ class _VTES(dict):
             )
         return self[card_id]
 
-    def load_from_vekn(self, save=True):
+    def load_from_vekn(self, save=True, safe_variants=True):
         """Load the card database from vekn.net, with rulings
 
         Args:
-            save (bool) : If True, card list is pickled to be retrieved faster later on.
+            save (bool): If True, card list is pickled to be retrieved faster later on.
+            safe_variants (bool): If True, use more card name variants
+                                  (unsafe for TWDA parsing)
         """
         self.clear()
         r = requests.request("GET", config.VEKN_VTES_URL)
@@ -73,9 +75,13 @@ class _VTES(dict):
             f.flush()
             z = zipfile.ZipFile(f.name)
             with z.open(config.VEKN_VTES_LIBRARY_FILENAME) as c:
-                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
+                self.load_csv(
+                    io.TextIOWrapper(c, encoding="utf_8_sig"), save, safe_variants
+                )
             with z.open(config.VEKN_VTES_CRYPT_FILENAME) as c:
-                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
+                self.load_csv(
+                    io.TextIOWrapper(c, encoding="utf_8_sig"), save, safe_variants
+                )
         # load rulings from local yaml files
         links = yaml.safe_load(open(config.RULINGS_LINK_FILE, "r"))
         cards_rulings = yaml.safe_load(open(config.CARDS_RULINGS_FILE, "r"))
@@ -254,7 +260,7 @@ class _VTES(dict):
         return name
 
     @staticmethod
-    def get_name_variants(card):
+    def get_name_variants(card, safe=True):
         """Yields all name variants for a card
 
         Add the " (ADV)" suffix for advanced vampires
@@ -269,6 +275,7 @@ class _VTES(dict):
 
         Args:
             card (dict): the card
+            safe (bool): if True, yield more variants (unsafe for TWDA parsing)
 
         Yields:
             str: all name variants
@@ -301,7 +308,7 @@ class _VTES(dict):
                 # We do not shorten too much or anything will fuzzy match
                 # eg. "Line" (without ", The") could mismatch "Redline" or "Zip Line".
                 # Still, "Gunther" should match "Gunther, Beast Lord'
-                if len(alternative) > 4:
+                if not safe or len(alternative) > 6:
                     yield from name_variants(alternative)
 
         yield from name_variants(card["Name"])
@@ -309,7 +316,7 @@ class _VTES(dict):
         for alias in card.get("Aka", "").split(";"):
             yield from name_variants(alias.strip())
 
-    def load_csv(self, stream, save=True):
+    def load_csv(self, stream, save=True, safe_variants=True):
         """Load a crypt or library CSV (VEKN format)
 
         The VTES card list is pickled for future use.
@@ -338,7 +345,7 @@ class _VTES(dict):
             if "Adv" in card:
                 card["Adv"] = bool(card["Adv"])
             self[int(card["Id"])] = card
-            for name in self.get_name_variants(card):
+            for name in self.get_name_variants(card, safe_variants):
                 self[name] = card
             card["Name"] = self.get_name(card)
 
