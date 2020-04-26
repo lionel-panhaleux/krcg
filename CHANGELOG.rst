@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.24 (unreleased)
+0.24 (2020-04-26)
 -----------------
 
 - CLI command build: deck author is now KRCG
