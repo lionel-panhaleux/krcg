@@ -136,6 +136,7 @@
 100144|Bear-Baiting:
   - "Damage is environmental. [RTR 19970630]"
   - "{Change of Target} can be played after Bear-Baiting (younger, older, or the same age). [LSJ 20040312]"
+  - "If the combat is canceled, the action is still blocked, {Mask of a Thousand Faces} cannot be used to continue it, but an effect can be used to continue the action as if unblocked (eg. {Crypt's Sons}, {Momentary Delay}). [LSJ 20090322] [ANK 20181003] [LSJ 20010803-2]"
 100146|Beast Meld:
   - '[ANI][PRO] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 100153|Bestial Vengeance:
@@ -315,7 +316,7 @@
   - "Cannot be used if the action is ended without being blocked. [LSJ 19980224]"
   - "Is played after a minion successfully blocks but before the blocker is locked and combat begins. [RTR 19991206]"
   - "Effects triggered when the action is blocked are still applied (eg. {Unleash Hell's Fury}). [PIB 20110417]"
-  - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803] [RTR 20180719]"
+  - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803-1] [RTR 20180719]"
   - "If the acting minion was performing a mandatory action, he unlocks and is stuck and cannot act: he should but cannot take the mandatory action. [LSJ 19980112]"
   - "If used when blocked while leaving torpor, the action ends immediately and the blocker does not get an opportunity for diablerie. [LSJ 20050105-2]"
 100325|Changeling Skin Mask:
@@ -1817,7 +1818,8 @@
 102100|Velvet Tongue:
   - "If an effect causes a minion to be unable to cast votes or ballots during a referendum, that minion is forced to abstain, whether he or she had already cast votes or ballots or not. [PIB 20141226]"
 102104|Venenation:
-  - "Modifiers that are played before block resolution like {Change of Target} can be played after Venenation and cancel the combat that would have occured. [ANK 20190524] [LSJ 20020126]"
+  - "Modifiers that are played before block resolution like {Change of Target} can be played after Venenation. [ANK 20190524] [LSJ 20020126]"
+  - "If the combat is canceled by Venenation, the action is still blocked, {Mask of a Thousand Faces} cannot be used to continue it, but an effect can be used to continue the action as if unblocked (eg. {Crypt's Sons}, {Momentary Delay}). [ANK 20181003] [LSJ 20010803-2]"
 102106|Vengeance of Samiel:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 102120|Vigilance:
