@@ -14,7 +14,7 @@ static:
 	krcg-gen standard amaranth
 
 release: init static validate
-	git commit -m "Update static files" static
+	-git commit -m "Update static files" static
 	fullrelease
 
 update:
