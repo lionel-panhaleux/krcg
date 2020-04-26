@@ -22,6 +22,9 @@ KRCG is available as a
 [Discord Bot](https://discordapp.com/oauth2/authorize?client_id=703921850270613505&scope=bot).
 Feel free to use it in your server.
 
+It let you retrieve cards official text, image and rulings:
+![Bot Example](bot-example.png)
+
 ## Contribute
 
 Feel free to submit pull requests, they will be merged as long as they pass the tests.
