@@ -18,12 +18,9 @@ Feel free to use it. Beware that this is still a beta, so breaking change can ha
 
 ## Discord BOT
 
-KRCG is available as a Discord Bot (ID 703921850270613505).
-Feel free to use it in your server by using this link:
-
-```url
-https://discordapp.com/oauth2/authorize?client_id=703921850270613505&scope=bot
-```
+KRCG is available as a
+[Discord Bot](https://discordapp.com/oauth2/authorize?client_id=703921850270613505&scope=bot).
+Feel free to use it in your server.
 
 ## Contribute
 
