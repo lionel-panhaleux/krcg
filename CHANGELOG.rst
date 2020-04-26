@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.27 (unreleased)
+0.27 (2020-04-27)
 -----------------
 
 - Bot: fix disaply of cards with many rulings
