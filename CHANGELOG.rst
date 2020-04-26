@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.25 (unreleased)
+0.25 (2020-04-26)
 -----------------
 
 - Add Discord Bot
