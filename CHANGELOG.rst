@@ -4,7 +4,7 @@ Changelog
 0.25 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Add Discord Bot
 
 
 0.24 (2020-04-26)
