@@ -40,7 +40,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith("krcd "):
+    if message.content.startswith("krcg "):
         content = message.content[5:]
         logger.info(f"Received: {content}")
         try:

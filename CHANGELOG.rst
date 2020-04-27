@@ -4,7 +4,7 @@ Changelog
 0.29 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix discord bot prefix value
 
 
 0.28 (2020-04-27)
