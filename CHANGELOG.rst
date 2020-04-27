@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.29 (unreleased)
+0.29 (2020-04-27)
 -----------------
 
 - Fix discord bot prefix value
