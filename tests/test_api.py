@@ -10,7 +10,7 @@ def client():
         yield client
 
 
-def test_complete(krcg, client):
+def test_complete(client):
     response = client.get("/complete")
     assert response.status_code == 404
     response = client.get("/complete/NotACard")
@@ -93,7 +93,7 @@ def test_card(client):
     assert id_response.json == response.json
 
 
-def test_deck(krcg, client):
+def test_deck(client):
     response = client.post("/deck")
     assert response.status_code == 200
     assert len(response.json) == 100

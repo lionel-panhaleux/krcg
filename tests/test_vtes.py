@@ -4,7 +4,7 @@ from src import twda
 from src import vtes
 
 
-def test_init(krcg):
+def test_init():
     assert sorted(vtes.VTES.trait_choices("Discipline")) == [
         "Abombwe",
         "Animalism",
@@ -48,7 +48,7 @@ def test_init(krcg):
     ]
 
 
-def test_card_variants(krcg):
+def test_card_variants():
     sacha_vykos = {"Name": "Sascha Vykos, The Angel of Caine"}
     sacha_vykos_adv = {"Name": "Sascha Vykos, The Angel of Caine", "Adv": "Advanced"}
     praxis_athens = {"Name": "Praxis Seizure: Athens"}
@@ -159,7 +159,7 @@ def test_card_variants(krcg):
     ]
 
 
-def test_deck_display(krcg):
+def test_deck_display():
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
         TWDA.load_html(f, save=False)

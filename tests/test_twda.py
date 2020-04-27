@@ -5,7 +5,7 @@ import textwrap
 from src import twda
 
 
-def test_get_card(krcg):
+def test_get_card():
     assert twda._get_card("deny") == ("deny", 1, False)
     assert twda._get_card("2 deny") == ("deny", 2, True)
     assert twda._get_card("deny 2") == ("deny", 2, False)
@@ -55,7 +55,7 @@ def test_get_card(krcg):
     )
 
 
-def test_2019grdojf(krcg):
+def test_2019grdojf():
     """Recent classic layout, we must get everything seamlessly
     """
     TWDA = twda._TWDA()
@@ -122,7 +122,7 @@ def test_2019grdojf(krcg):
     }
 
 
-def test_2016ggs(krcg):
+def test_2016ggs():
     """Pretty straightforward, we must get everything seamlessly
     """
     TWDA = twda._TWDA()
@@ -187,7 +187,7 @@ def test_2016ggs(krcg):
     }
 
 
-def test_2k5alboraya(krcg):
+def test_2k5alboraya():
     """Card name abbreviation (fetish club) with tailing point.
     """
     TWDA = twda._TWDA()
@@ -251,7 +251,7 @@ def test_2k5alboraya(krcg):
     }
 
 
-def test_2k4dcqualifier(krcg):
+def test_2k4dcqualifier():
     """A lot of comments, in description, at the end, plus inline C-style card comment
     """
     TWDA = twda._TWDA()
@@ -350,7 +350,7 @@ def test_2k4dcqualifier(krcg):
     }
 
 
-def test_2010tcdbng(krcg):
+def test_2010tcdbng():
     """Card-level parenthesised commends (common)
     """
     TWDA = twda._TWDA()
@@ -430,7 +430,7 @@ def test_2010tcdbng(krcg):
     }
 
 
-def test_2012pslp(krcg):
+def test_2012pslp():
     """Discipline included after card names (common)
     """
     TWDA = twda._TWDA()
@@ -486,7 +486,7 @@ def test_2012pslp(krcg):
     }
 
 
-def test_2k7campeonatojuizforano(krcg):
+def test_2k7campeonatojuizforano():
     """Very hard to parse comments (line braks, few markers)
     """
     TWDA = twda._TWDA()
@@ -583,7 +583,7 @@ def test_2k7campeonatojuizforano(krcg):
     }
 
 
-def test_2010pwbla1(krcg):
+def test_2010pwbla1():
     """Very hard to parse comments (line braks, few markers)
     """
     TWDA = twda._TWDA()
@@ -691,7 +691,7 @@ def test_2010pwbla1(krcg):
     }
 
 
-def test_2k5sharednun(krcg):
+def test_2k5sharednun():
     """Discipline name as header must not be mistaken for the Master card
     Note "2 Animalism" was changed to "Animalism x2" in decklist
     This serves as a test for post-name counts decklists like 2k9linkopingmay
@@ -758,7 +758,7 @@ def test_2k5sharednun(krcg):
     }
 
 
-def test_2019ecwon1pf(krcg):
+def test_2019ecwon1pf():
     """Discipline name as header must not be mistaken for the Master card
     Using long vampire name with comma and (ADV)
     """
