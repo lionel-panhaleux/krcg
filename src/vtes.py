@@ -25,6 +25,8 @@ from . import config
 
 logger = logging.getLogger()
 
+COMPLETION_TRIE = collections.defaultdict(lambda: collections.defaultdict(int))
+
 
 def _get_runling_links(links_dict, text):
     """Yield ruling references and links from a dict of links and a ruling text
@@ -68,7 +70,9 @@ class _VTES(dict):
             safe_variants (bool): If True, use more card name variants
                                   (unsafe for TWDA parsing)
         """
+        global COMPLETION_TRIE
         self.clear()
+        COMPLETION_TRIE.clear()
         r = requests.request("GET", config.VEKN_VTES_URL)
         r.raise_for_status()
         with tempfile.NamedTemporaryFile("wb", suffix=".zip") as f:
@@ -153,15 +157,13 @@ class _VTES(dict):
             self[alternative] = self[card]
 
         # build a completion trie for card names (use in web API and discord bot)
-        self.completion_trie = collections.defaultdict(
-            lambda: collections.defaultdict(int)
-        )
+        COMPLETION_TRIE.clear()
         for name, card in self.items():
             if isinstance(name, int):
                 continue
             for e, part in enumerate(name.lower().split()):
                 for i in range(1, len(part) + 1):
-                    self.completion_trie[part[:i]][self.get_name(card)] += (
+                    COMPLETION_TRIE[part[:i]][self.get_name(card)] += (
                         # double score for matching name start
                         i
                         * (2 if e == 0 else 1)
@@ -171,7 +173,7 @@ class _VTES(dict):
         ret = None
         for part in partial_name.split():
             part_match = {}
-            for match, score in self.completion_trie.get(part.lower(), dict()).items():
+            for match, score in COMPLETION_TRIE.get(part.lower(), dict()).items():
                 part_match[match] = max(part_match.get(match, 0), score)
             if ret:
                 ret = collections.Counter(

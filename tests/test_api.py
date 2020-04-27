@@ -3,17 +3,15 @@ import pytest
 from src import twda
 from src import vtes
 
-# speed up the tests: parse the first 100 decks only to avoid useless 25 seconds.
-# need to load before import flask.py to avoid launching the initialization thread.
-vtes.VTES.load_from_vekn(save=False)
-twda.TWDA.load_from_vekn(limit=100, save=False)
-
 from src import flask  # noqa: E402
 
 
 @pytest.fixture
 def client():
     flask.app.config["TESTING"] = True
+    vtes.VTES.load_from_vekn(save=False)
+    vtes.VTES.configure()
+    twda.TWDA.load_from_vekn(limit=100, save=False)
     with flask.app.test_client() as client:
         yield client
 
