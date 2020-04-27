@@ -1,4 +1,3 @@
-import collections
 import threading
 
 import arrow
@@ -23,19 +22,6 @@ class KRCG(Flask):
         if not vtes.VTES:
             vtes.VTES.load_from_vekn(save=False)
         vtes.VTES.configure()
-        self.completion_trie = collections.defaultdict(
-            lambda: collections.defaultdict(int)
-        )
-        for name, card in vtes.VTES.items():
-            if isinstance(name, int):
-                continue
-            for e, part in enumerate(name.lower().split()):
-                for i in range(1, len(part) + 1):
-                    self.completion_trie[part[:i]][vtes.VTES.get_name(card)] += (
-                        # double score for matching name start
-                        i
-                        * (2 if e == 0 else 1)
-                    )
         threading.Thread(target=init_twda).start()
         super().__init__("krcg", template_folder=".")
 
@@ -122,15 +108,4 @@ def deck_by_id(twda_id):
 
 @app.route("/complete/<text>", methods=["GET"])
 def complete(text):
-    ret = None
-    for part in text.split():
-        part_match = {}
-        for match, score in app.completion_trie.get(part.lower(), dict()).items():
-            part_match[match] = max(part_match.get(match, 0), score)
-        if ret:
-            ret = collections.Counter(
-                {k: v + part_match[k] for k, v in ret.items() if k in part_match}
-            )
-        else:
-            ret = collections.Counter(part_match)
-    return jsonify([x[0] for x in sorted(ret.items(), key=lambda x: (-x[1], x[0]),)])
+    return jsonify(vtes.VTES.complete(text))

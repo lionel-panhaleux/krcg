@@ -3,6 +3,7 @@
 If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
+import collections
 import csv
 import functools
 import difflib
@@ -150,6 +151,35 @@ class _VTES(dict):
         # some items on REMAP are too short and match too many things.
         for alternative, card in config.AKA.items():
             self[alternative] = self[card]
+
+        # build a completion trie for card names (use in web API and discord bot)
+        self.completion_trie = collections.defaultdict(
+            lambda: collections.defaultdict(int)
+        )
+        for name, card in self.items():
+            if isinstance(name, int):
+                continue
+            for e, part in enumerate(name.lower().split()):
+                for i in range(1, len(part) + 1):
+                    self.completion_trie[part[:i]][self.get_name(card)] += (
+                        # double score for matching name start
+                        i
+                        * (2 if e == 0 else 1)
+                    )
+
+    def complete(self, partial_name):
+        ret = None
+        for part in partial_name.split():
+            part_match = {}
+            for match, score in self.completion_trie.get(part.lower(), dict()).items():
+                part_match[match] = max(part_match.get(match, 0), score)
+            if ret:
+                ret = collections.Counter(
+                    {k: v + part_match[k] for k, v in ret.items() if k in part_match}
+                )
+            else:
+                ret = collections.Counter(part_match)
+        return [x[0] for x in sorted(ret.items(), key=lambda x: (-x[1], x[0]),)]
 
     def __hash__(self):
         return id(self)
