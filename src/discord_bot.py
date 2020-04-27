@@ -1,3 +1,5 @@
+import asyncio
+import collections
 import logging
 import os
 import re
@@ -12,6 +14,21 @@ from . import vtes
 logger = logging.getLogger()
 client = discord.Client()
 
+SELECTION_EMOJIS = collections.OrderedDict(
+    [
+        ("1️⃣", 1),
+        ("2️⃣", 2),
+        ("3️⃣", 3),
+        ("4️⃣", 4),
+        ("5️⃣", 5),
+        ("6️⃣", 6),
+        ("7️⃣", 7),
+        ("8️⃣", 8),
+        ("9️⃣", 9),
+        ("🔟", 10),
+    ]
+)
+
 
 @client.event
 async def on_ready():
@@ -23,9 +40,47 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith("krcg "):
-        logger.info(f"Received: {message.content[5:]}")
-        await message.channel.send(**handle_message(message.content[5:]))
+    if message.content.startswith("krcd "):
+        content = message.content[5:]
+        logger.info(f"Received: {content}")
+        try:
+            content = client.COMPLETION_WAITING[message.author][int(content) - 1]
+        except (ValueError, TypeError, IndexError, KeyError):
+            pass
+        response = handle_message(content)
+        candidates = response.pop("candidates", [])
+        if candidates:
+            logging.warning(f"53: {candidates}")
+            client.COMPLETION_WAITING[message.author] = candidates
+        response = await message.channel.send(**response)
+        try:
+            for reaction in list(SELECTION_EMOJIS.keys())[: len(candidates)]:
+                await response.add_reaction(reaction)
+        except discord.Forbidden:
+            logging.warning("Missing reaction permission")
+
+        def check(reaction, user):
+            return user == message.author and str(reaction.emoji) in SELECTION_EMOJIS
+
+        while candidates:
+            try:
+                reaction, user = await client.wait_for(
+                    "reaction_add", timeout=30, check=check
+                )
+            except asyncio.TimeoutError:
+                candidates = []
+                del client.COMPLETION_WAITING[message.author]
+                try:
+                    await response.clear_reactions()
+                except discord.Forbidden:
+                    logging.warning("Missing message management permission")
+            else:
+                content = candidates[SELECTION_EMOJIS[reaction.emoji] - 1]
+                try:
+                    await response.edit(**handle_message(content))
+                except discord.Forbidden:
+                    logging.warning("Missing message management permission")
+                    await message.channel.send(**handle_message(content))
 
 
 DEFAULT_COLOR = int("FFFFFF", 16)
@@ -89,10 +144,34 @@ def handle_message(message):
         message = int(message)
     except ValueError:
         pass
-    try:
-        card = vtes.VTES[message]
-    except KeyError:
-        return {"content": f"Card not found: {message}"}
+    if message not in vtes.VTES:
+        try:
+            candidates = vtes.VTES.complete(message)
+        except AttributeError:  # if message is int
+            candidates = []
+        if len(candidates) == 1:
+            message = candidates[0]
+        elif len(candidates) > 10:
+            return {"content": "Too many candidates, try a more complete card name."}
+        elif len(candidates):
+            embed = {
+                "type": "rich",
+                "title": "What card did you mean ?",
+                "color": DEFAULT_COLOR,
+                "description": "\n".join(
+                    f"{i}: {card}" for i, card in enumerate(candidates, 1)
+                ),
+                "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+            }
+            logger.info(embed)
+            return {
+                "content": "",
+                "embed": discord.Embed.from_dict(embed),
+                "candidates": candidates,
+            }
+        else:
+            return {"content": "No card match"}
+    card = vtes.VTES[message]
     card_type = "/".join(card["Type"])
     clan = "/".join(card.get("Clan", []))
     fields = [{"name": "Type", "value": card_type, "inline": True}]
@@ -150,7 +229,7 @@ def handle_message(message):
                 )
             if len(rulings) + len(ruling) > 1020:
                 rulings += "..."
-                footer = "More rulings available, click the title to see them."
+                footer += "More rulings available, click the title to see them."
                 break
             rulings += f"- {ruling}\n"
         fields.append({"name": "Rulings", "value": rulings, "inline": False})
@@ -185,4 +264,5 @@ def main():
     logger.setLevel(logging.INFO)
     vtes.VTES.load_from_vekn()
     vtes.VTES.configure()
+    client.COMPLETION_WAITING = {}
     client.run(os.getenv("DISCORD_TOKEN"))
