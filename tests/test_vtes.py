@@ -162,7 +162,7 @@ def test_card_variants(krcg):
 def test_deck_display(krcg):
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert (
         vtes.VTES.deck_to_txt(TWDA["2010tcdbng"])

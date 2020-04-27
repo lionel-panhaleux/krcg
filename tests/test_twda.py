@@ -60,7 +60,7 @@ def test_2019grdojf(krcg):
     """
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2019grdojf.html")) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert TWDA["2019grdojf"].__getstate__() == {
         "date": "June 29th 2019",
@@ -127,7 +127,7 @@ def test_2016ggs(krcg):
     """
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2016ggs.html")) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert TWDA["2016ggs"].__getstate__() == {
         "event": "Gothcon",
@@ -192,7 +192,7 @@ def test_2k5alboraya(krcg):
     """
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k5alboraya.html")) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert TWDA["2k5alboraya"].__getstate__() == {
         "event": "Spanish NCQ",
@@ -256,7 +256,7 @@ def test_2k4dcqualifier(krcg):
     """
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k4dcqualifier.html")) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert TWDA["2k4dcqualifier"].__getstate__() == {
         "event": "Atlantic Regional Qualifier",
@@ -355,7 +355,7 @@ def test_2010tcdbng(krcg):
     """
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert TWDA["2010tcdbng"].__getstate__() == {
         "event": "Trading Card Day",
@@ -435,7 +435,7 @@ def test_2012pslp(krcg):
     """
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2012pslp.html")) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert TWDA["2012pslp"].__getstate__() == {
         "event": "Praxis Seizure: Leiria",
@@ -493,7 +493,7 @@ def test_2k7campeonatojuizforano(krcg):
     with open(
         os.path.join(os.path.dirname(__file__), "2k7campeonatojuizforano.html")
     ) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert TWDA["2k7campeonatojuizforano"].__getstate__() == {
         "event": "Campeonato Juizforano 2007",
@@ -588,7 +588,7 @@ def test_2010pwbla1(krcg):
     """
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010pwbla1.html")) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert TWDA["2010pwbla1"].__getstate__() == {
         "event": "Powerbase: Los Angeles Event #1",
@@ -698,7 +698,7 @@ def test_2k5sharednun(krcg):
     """
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k5sharednun.html")) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert TWDA["2k5sharednun"].__getstate__() == {
         "event": "Shared Nightmare",
@@ -764,7 +764,7 @@ def test_2019ecwon1pf(krcg):
     """
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2019ecwon1pf.html")) as f:
-        TWDA.load_html(f)
+        TWDA.load_html(f, save=False)
     assert len(TWDA) == 1
     assert TWDA["2019ecwon1pf"].__getstate__() == {
         "event": "EC WoN - Monday",
