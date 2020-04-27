@@ -5,7 +5,7 @@ import textwrap
 from src import twda
 
 
-def test_get_card():
+def test_get_card(krcg):
     assert twda._get_card("deny") == ("deny", 1, False)
     assert twda._get_card("2 deny") == ("deny", 2, True)
     assert twda._get_card("deny 2") == ("deny", 2, False)
@@ -55,13 +55,14 @@ def test_get_card():
     )
 
 
-def test_2019grdojf():
+def test_2019grdojf(krcg):
     """Recent classic layout, we must get everything seamlessly
     """
+    TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2019grdojf.html")) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
-    assert twda.TWDA["2019grdojf"].__getstate__() == {
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["2019grdojf"].__getstate__() == {
         "date": "June 29th 2019",
         "event": "Garou Rim: Dawn Operation",
         "place": "Joensuu, Finland",
@@ -121,13 +122,14 @@ def test_2019grdojf():
     }
 
 
-def test_2016ggs():
+def test_2016ggs(krcg):
     """Pretty straightforward, we must get everything seamlessly
     """
+    TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2016ggs.html")) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
-    assert twda.TWDA["2016ggs"].__getstate__() == {
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["2016ggs"].__getstate__() == {
         "event": "Gothcon",
         "place": "Goteborg, Sweden",
         "date": "March 26th 2016",
@@ -185,13 +187,14 @@ def test_2016ggs():
     }
 
 
-def test_2k5alboraya():
+def test_2k5alboraya(krcg):
     """Card name abbreviation (fetish club) with tailing point.
     """
+    TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k5alboraya.html")) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
-    assert twda.TWDA["2k5alboraya"].__getstate__() == {
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["2k5alboraya"].__getstate__() == {
         "event": "Spanish NCQ",
         "place": "Alboraya (Valencia), Spain",
         "date": "February 12th 2005",
@@ -248,13 +251,14 @@ def test_2k5alboraya():
     }
 
 
-def test_2k4dcqualifier():
+def test_2k4dcqualifier(krcg):
     """A lot of comments, in description, at the end, plus inline C-style card comment
     """
+    TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k4dcqualifier.html")) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
-    assert twda.TWDA["2k4dcqualifier"].__getstate__() == {
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["2k4dcqualifier"].__getstate__() == {
         "event": "Atlantic Regional Qualifier",
         "place": "Washington, D.C.",
         "date": "June 12th 2004",
@@ -346,13 +350,14 @@ def test_2k4dcqualifier():
     }
 
 
-def test_2010tcdbng():
+def test_2010tcdbng(krcg):
     """Card-level parenthesised commends (common)
     """
+    TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
-    assert twda.TWDA["2010tcdbng"].__getstate__() == {
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["2010tcdbng"].__getstate__() == {
         "event": "Trading Card Day",
         "place": "Bad Naumheim, Germany",
         "date": "May 8th 2010",
@@ -425,13 +430,14 @@ def test_2010tcdbng():
     }
 
 
-def test_2012pslp():
+def test_2012pslp(krcg):
     """Discipline included after card names (common)
     """
+    TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2012pslp.html")) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
-    assert twda.TWDA["2012pslp"].__getstate__() == {
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["2012pslp"].__getstate__() == {
         "event": "Praxis Seizure: Leiria",
         "place": "Leiria, Portugal",
         "date": "October 13th 2012",
@@ -480,15 +486,16 @@ def test_2012pslp():
     }
 
 
-def test_2k7campeonatojuizforano():
+def test_2k7campeonatojuizforano(krcg):
     """Very hard to parse comments (line braks, few markers)
     """
+    TWDA = twda._TWDA()
     with open(
         os.path.join(os.path.dirname(__file__), "2k7campeonatojuizforano.html")
     ) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
-    assert twda.TWDA["2k7campeonatojuizforano"].__getstate__() == {
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["2k7campeonatojuizforano"].__getstate__() == {
         "event": "Campeonato Juizforano 2007",
         "place": "Juiz de Fora, Brazil",
         "date": "December 16th 2007",
@@ -576,13 +583,14 @@ def test_2k7campeonatojuizforano():
     }
 
 
-def test_2010pwbla1():
+def test_2010pwbla1(krcg):
     """Very hard to parse comments (line braks, few markers)
     """
+    TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010pwbla1.html")) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
-    assert twda.TWDA["2010pwbla1"].__getstate__() == {
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["2010pwbla1"].__getstate__() == {
         "event": "Powerbase: Los Angeles Event #1",
         "place": "Strategicon - GAMEX 2010, Los Angeles, California",
         "date": "May 29th 2010",
@@ -683,16 +691,16 @@ def test_2010pwbla1():
     }
 
 
-def test_2k5sharednun():
+def test_2k5sharednun(krcg):
     """Discipline name as header must not be mistaken for the Master card
-
     Note "2 Animalism" was changed to "Animalism x2" in decklist
     This serves as a test for post-name counts decklists like 2k9linkopingmay
     """
+    TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k5sharednun.html")) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
-    assert twda.TWDA["2k5sharednun"].__getstate__() == {
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["2k5sharednun"].__getstate__() == {
         "event": "Shared Nightmare",
         "place": "Utrecht, Netherlands",
         "date": "July 2nd 2005",
@@ -750,15 +758,15 @@ def test_2k5sharednun():
     }
 
 
-def test_2019ecwon1pf():
+def test_2019ecwon1pf(krcg):
     """Discipline name as header must not be mistaken for the Master card
-
     Using long vampire name with comma and (ADV)
     """
+    TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2019ecwon1pf.html")) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
-    assert twda.TWDA["2019ecwon1pf"].__getstate__() == {
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["2019ecwon1pf"].__getstate__() == {
         "event": "EC WoN - Monday",
         "place": "Paris, France",
         "date": "August 12th 2019",

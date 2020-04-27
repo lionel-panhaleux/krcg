@@ -1,22 +1,16 @@
 import pytest
 
-from src import twda
-from src import vtes
-
 from src import flask  # noqa: E402
 
 
 @pytest.fixture
 def client():
     flask.app.config["TESTING"] = True
-    vtes.VTES.load_from_vekn(save=False)
-    vtes.VTES.configure()
-    twda.TWDA.load_from_vekn(limit=100, save=False)
     with flask.app.test_client() as client:
         yield client
 
 
-def test_complete(client):
+def test_complete(krcg, client):
     response = client.get("/complete")
     assert response.status_code == 404
     response = client.get("/complete/NotACard")
@@ -99,7 +93,7 @@ def test_card(client):
     assert id_response.json == response.json
 
 
-def test_deck(client):
+def test_deck(krcg, client):
     response = client.post("/deck")
     assert response.status_code == 200
     assert len(response.json) == 100

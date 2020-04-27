@@ -4,9 +4,7 @@ from src import twda
 from src import vtes
 
 
-def test_init():
-    vtes.VTES.load_from_vekn()
-    vtes.VTES.configure()
+def test_init(krcg):
     assert sorted(vtes.VTES.trait_choices("Discipline")) == [
         "Abombwe",
         "Animalism",
@@ -50,7 +48,7 @@ def test_init():
     ]
 
 
-def test_card_variants():
+def test_card_variants(krcg):
     sacha_vykos = {"Name": "Sascha Vykos, The Angel of Caine"}
     sacha_vykos_adv = {"Name": "Sascha Vykos, The Angel of Caine", "Adv": "Advanced"}
     praxis_athens = {"Name": "Praxis Seizure: Athens"}
@@ -161,12 +159,13 @@ def test_card_variants():
     ]
 
 
-def test_deck_display():
+def test_deck_display(krcg):
+    TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
-        twda.TWDA.load_html(f)
-    assert len(twda.TWDA) == 1
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
     assert (
-        vtes.VTES.deck_to_txt(twda.TWDA["2010tcdbng"])
+        vtes.VTES.deck_to_txt(TWDA["2010tcdbng"])
         == """Trading Card Day
 Bad Naumheim, Germany
 May 8th 2010
