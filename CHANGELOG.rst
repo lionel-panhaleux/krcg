@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.28 (unreleased)
+0.28 (2020-04-27)
 -----------------
 
 - Improve discord bot: now handles card name completion
