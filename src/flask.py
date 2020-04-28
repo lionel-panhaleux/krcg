@@ -1,3 +1,5 @@
+import logging
+import sys
 import threading
 
 import arrow
@@ -20,22 +22,28 @@ class KRCG(Flask):
         return response
 
 
+logger = logging.getLogger()
 base = Blueprint("base", "krcg")
 initialized = threading.Event()
 
 
 def init_twda():
+    logger.info("loading TWDA")
     twda.TWDA.load_from_vekn(save=False)
     initialized.set()
 
 
 def create_app(test=False):
+    logger.addHandler(logging.StreamHandler(sys.stderr))
+    logger.setLevel(logging.WARNING)
     if test:
         initialized.set()
     else:
         vtes.VTES.load_from_vekn(save=False)
         vtes.VTES.configure()
+        logger.info("launching init thread for TWDA")
         threading.Thread(target=init_twda).start()
+    logger.info("launching app")
     app = KRCG("krcg", template_folder=".")
     app.register_blueprint(base)
     return app

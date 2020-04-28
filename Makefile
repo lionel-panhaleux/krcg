@@ -21,7 +21,7 @@ update:
 	pip install --upgrade -e .[dev,web]
 
 serve:
-	gunicorn --reload --access-logfile - src.flask:app
+	gunicorn --reload --access-logfile - "src.flask:create_app()"
 
 deploy:
 	git push --force heroku master
