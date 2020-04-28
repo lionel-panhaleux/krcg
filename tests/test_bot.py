@@ -55,7 +55,10 @@ def test_bot(monkeypatch):
         ],
         "footer": {"text": ""},
         "image": {
-            "url": "http://www.codex-of-the-damned.org/card-images/monasteryofshadows.jpg"
+            "url": (
+                "http://www.codex-of-the-damned.org/card-images/"
+                "monasteryofshadows.jpg"
+            )
         },
         "title": "Monastery of Shadows",
         "type": "rich",
