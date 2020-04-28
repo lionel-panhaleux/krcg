@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.30 (unreleased)
+0.30 (2020-04-28)
 -----------------
 
 - Discord bot: better card names matching
