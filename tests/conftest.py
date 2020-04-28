@@ -19,6 +19,6 @@ def pytest_sessionstart(session):
     except requests.exceptions.RequestException:
         pytest.fail("VEKN website not available")
     vtes.VTES.load_from_vekn(save=False)
-    twda.TWDA.load_from_vekn(limit=100, save=False)
     vtes.VTES.configure()
+    twda.TWDA.load_from_vekn(limit=100, save=False)
     twda.TWDA.configure()

@@ -4,7 +4,7 @@ Changelog
 0.30 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Discord bot: better card names matching
 
 
 0.29 (2020-04-27)

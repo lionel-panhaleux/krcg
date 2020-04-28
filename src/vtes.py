@@ -4,6 +4,7 @@ If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
 import collections
+import copy
 import csv
 import functools
 import difflib
@@ -25,8 +26,6 @@ from . import config
 
 logger = logging.getLogger()
 
-COMPLETION_TRIE = collections.defaultdict(lambda: collections.defaultdict(int))
-
 
 def _get_runling_links(links_dict, text):
     """Yield ruling references and links from a dict of links and a ruling text
@@ -43,24 +42,76 @@ def _get_runling_links(links_dict, text):
         yield reference, links_dict[reference]
 
 
-class _VTES(dict):
+class _VTES:
     """VTES cards database that matches incomplete or misspelled card names.
 
     Keys are lower case card names and card Ids.
     Contains both crypt and library cards in a single dict.
     """
 
+    def __init__(self):
+        """Initialize the cards map
+
+        `original_cards` and `rulings` are filled when loading the instance
+        (either by Pickling or using self.load_from_vekn()).
+        Other attributes are set on self.configure() call.
+
+
+        Attributes:
+            original_cards (dict): dict of original {id: card}
+            rulings (dict): dict of {
+                id: {
+                    "Rulings": [ruling],
+                    "Rulings Links": {
+                        "Reference": "XXX YYYMMDD"
+                        "URL": "http://www.example.com"
+                    }
+                }
+            }
+            cards (dict): dict of {card_name: card}
+            completion (dict): used for card name completion in web API and discord bot
+            fuzzy_threshold (int): do not try to fuzzy match text shorter than this
+            safe_variants (bool): do not use card name variants shorter than the
+                                  fuzzy threshold (avoids errors when parsing the TWDA)
+        """
+        self.original_cards = {}
+        self.rulings = {}
+        self.cards = {}
+        self.completion = collections.defaultdict(lambda: collections.defaultdict(int))
+        self.fuzzy_threshold = 6
+        self.safe_variants = True
+
+    def __getstate__(self):
+        """For pickle serialization.
+        """
+        return {"cards": self.original_cards, "rulings": self.rulings}
+
+    def __setstate__(self, state):
+        """For pickle deserialization.
+        """
+        self.original_cards = state.get("cards")
+        self.rulings = state.get("rulings")
+
+    def __reduce__(self):
+        """For pickle serialization.
+        """
+        return (_VTES, (), self.__getstate__())
+
     def _yaml_get_card(self, text):
         """Get a card from a YAML card reference (id|Name)
+
+        This is used before self.configure() is called: self.cards is empty,
+        self.original_cards is used.
         """
         card_id, card_name = text.split("|")
         card_id = int(card_id)
-        if self.get_name(self[card_id]) != card_name:
+        card = self.original_cards[card_id]
+        if self.get_name(card) != card_name:
             warnings.warn(
                 f"rulings: {card_id} listed as {card_name} "
-                f"instead of {self.get_name(self[card_id])}"
+                f"instead of {self.get_name(card)}"
             )
-        return self[card_id]
+        return card
 
     def load_from_vekn(self, save=True, safe_variants=True):
         """Load the card database from vekn.net, with rulings
@@ -70,9 +121,8 @@ class _VTES(dict):
             safe_variants (bool): If True, use more card name variants
                                   (unsafe for TWDA parsing)
         """
-        global COMPLETION_TRIE
-        self.clear()
-        COMPLETION_TRIE.clear()
+        self.original_cards.clear()
+        self.rulings.clear()
         r = requests.request("GET", config.VEKN_VTES_URL)
         r.raise_for_status()
         with tempfile.NamedTemporaryFile("wb", suffix=".zip") as f:
@@ -80,42 +130,38 @@ class _VTES(dict):
             f.flush()
             z = zipfile.ZipFile(f.name)
             with z.open(config.VEKN_VTES_LIBRARY_FILENAME) as c:
-                self.load_csv(
-                    io.TextIOWrapper(c, encoding="utf_8_sig"), save, safe_variants
-                )
+                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
             with z.open(config.VEKN_VTES_CRYPT_FILENAME) as c:
-                self.load_csv(
-                    io.TextIOWrapper(c, encoding="utf_8_sig"), save, safe_variants
-                )
+                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
         # load rulings from local yaml files
         links = yaml.safe_load(open(config.RULINGS_LINK_FILE, "r"))
         cards_rulings = yaml.safe_load(open(config.CARDS_RULINGS_FILE, "r"))
         general_rulings = yaml.safe_load(open(config.GENERAL_RULINGS_FILE, "r"))
         for card, rulings in cards_rulings.items():
-            card = self._yaml_get_card(card)
-            card.setdefault("Rulings", []).extend(rulings)
-            card.setdefault("Rulings Links", [])
-            for i, ruling in enumerate(rulings):
-                for reference, link in _get_runling_links(links, ruling):
-                    card.setdefault("Rulings Links", []).append(
-                        {"Reference": reference, "URL": link}
-                    )
+            card_name = self.get_name(self._yaml_get_card(card))
+            self.rulings.setdefault(card_name, {"Rulings": [], "Rulings Links": []})
+            self.rulings[card_name]["Rulings"].extend(rulings)
+            self.rulings[card_name]["Rulings Links"].extend(
+                {"Reference": reference, "URL": link}
+                for ruling in rulings
+                for reference, link in _get_runling_links(links, ruling)
+            )
         for ruling in general_rulings:
             for card in ruling["cards"]:
-                card = self._yaml_get_card(card)
-                card.setdefault("Rulings", []).append(ruling["ruling"])
-                card.setdefault("Rulings Links", [])
-                for reference, link in _get_runling_links(links, ruling["ruling"]):
-                    card.setdefault("Rulings Links", []).append(
-                        {"Reference": reference, "URL": link}
-                    )
+                card_name = self.get_name(self._yaml_get_card(card))
+                self.rulings.setdefault(card_name, {"Rulings": [], "Rulings Links": []})
+                self.rulings[card_name]["Rulings"].append(ruling["ruling"])
+                self.rulings[card_name]["Rulings Links"].extend(
+                    {"Reference": reference, "URL": link}
+                    for reference, link in _get_runling_links(links, ruling["ruling"])
+                )
         pickle.dump(self, open(config.VTES_FILE, "wb"))
 
     def __getitem__(self, key):
         """Get a card, try to find a good matching.
 
         It uses lowercase only, plus config.REMAP for common errors and abbreviations.
-        It also uses difflib to match incomplete or misspelled names
+        It also uses difflib to fuzzy match incomplete or misspelled names
 
         Args:
             key (str): the card to search for
@@ -123,57 +169,93 @@ class _VTES(dict):
         if isinstance(key, str):
             key = key.lower()
         try:
-            return super().__getitem__(key)
+            return self.cards.__getitem__(key)
         except KeyError:
             # REMAP must match exactly
             if key in config.REMAP:
-                return self[config.REMAP[key]]
+                return self.cards[config.REMAP[key].lower()]
             match = self._fuzzy_match(key)
             if match:
-                return self[match]
+                return self.cards[match]
             raise
 
     def __contains__(self, key):
-        """Also use config.REMAP and difflib on "in" tests
-        """
+        # Must have the same logic than self.__getitem__(): self.cards, REMAP, _fuzzy
         if isinstance(key, str):
             key = key.lower()
         return (
-            super().__contains__(key) or key in config.REMAP or self._fuzzy_match(key)
+            self.cards.__contains__(key)
+            or key in config.REMAP
+            or self._fuzzy_match(key)
         )
 
     def __setitem__(self, key, value):
-        return super().__setitem__(key.lower() if isinstance(key, str) else key, value)
+        return self.cards.__setitem__(
+            key.lower() if isinstance(key, str) else key, value
+        )
 
     def __delitem__(self, key, value):
-        return super().__setitem__(key.lower() if isinstance(key, str) else key, value)
+        return self.cards.__setitem__(
+            key.lower() if isinstance(key, str) else key, value
+        )
 
-    def configure(self):
-        """Add alternative names for some cards
+    def items(self):
+        return self.cards.items()
+
+    def keys(self):
+        return self.cards.keys()
+
+    def values(self):
+        return self.cards.values()
+
+    def configure(self, fuzzy_threshold=6, safe_variants=True):
+        """Add alternative names for cards, set up completion
+
+        Args:
+            fuzzy_match (int): min text length to try fuzzy matching on.
         """
+        self.cards.clear()
+        self.completion.clear()
+        self.fuzzy_threshold = fuzzy_threshold
+        self.safe_variants = safe_variants
+        # fill self.cards dict with all card names variants (including card ID)
+        for card_id, card in self.original_cards.items():
+            self[card_id] = card
+            for name in self.get_name_variants(card, safe_variants):
+                self[name] = card
         # we difflib match on AKA but not on REMAP
         # some items on REMAP are too short and match too many things.
         for alternative, card in config.AKA.items():
             self[alternative] = self[card]
-
-        # build a completion trie for card names (use in web API and discord bot)
-        COMPLETION_TRIE.clear()
-        for name, card in self.items():
+        # build the completion trie for card names
+        for name, card in self.cards.items():
             if isinstance(name, int):
                 continue
             for e, part in enumerate(name.lower().split()):
                 for i in range(1, len(part) + 1):
-                    COMPLETION_TRIE[part[:i]][self.get_name(card)] += (
+                    self.completion[part[:i]][self.get_name(card)] += (
                         # double score for matching name start
                         i
                         * (2 if e == 0 else 1)
                     )
 
     def complete(self, partial_name):
+        """Card name completion.
+
+        It uses a very basic Trie to match trigrams.
+        Matches on the start of the name are returned first,
+        other matches are returned alphabetically.
+
+        Args:
+            partial_name (str): Parts of the name (can contain spaces)
+
+        Returns:
+            (list): A sorted list of results, from most likely to less likely
+        """
         ret = None
         for part in partial_name.split():
             part_match = {}
-            for match, score in COMPLETION_TRIE.get(part.lower(), dict()).items():
+            for match, score in self.completion.get(part.lower(), dict()).items():
                 part_match[match] = max(part_match.get(match, 0), score)
             if ret:
                 ret = collections.Counter(
@@ -183,11 +265,18 @@ class _VTES(dict):
                 ret = collections.Counter(part_match)
         return [x[0] for x in sorted(ret.items(), key=lambda x: (-x[1], x[0]),)]
 
-    def __hash__(self):
-        return id(self)
+    # def __hash__(self):
+    #     return id(self)
 
     @functools.lru_cache()
     def all_card_names_variants(self):
+        """Return all cards names.
+
+        Used by self._fuzzy_match(), it uses a cache to accelerate matching.
+
+        Returns:
+            (list): All cards name and variants in no specific order
+        """
         return [k for k in self.keys() if isinstance(k, str)]
 
     @functools.lru_cache()
@@ -203,6 +292,8 @@ class _VTES(dict):
             The matched card name, or None
         """
         if not isinstance(name, str):
+            return
+        if len(name) < self.fuzzy_threshold:
             return
         # 0.8 is an empirical value, seems to work nicely
         result = difflib.get_close_matches(
@@ -291,6 +382,15 @@ class _VTES(dict):
             name = name + " (ADV)"
         return name
 
+    def normalized(self, card):
+        """Fix the card name
+        """
+        data = copy.copy(card)
+        name = self.get_name(card)
+        data["Name"] = name
+        data.update(self.rulings.get(name, {}))
+        return data
+
     @staticmethod
     def get_name_variants(card, safe=True):
         """Yields all name variants for a card
@@ -376,11 +476,7 @@ class _VTES(dict):
                 card["Burn Option"] = bool(card["Burn Option"])
             if "Adv" in card:
                 card["Adv"] = bool(card["Adv"])
-            self[int(card["Id"])] = card
-            for name in self.get_name_variants(card, safe_variants):
-                self[name] = card
-            card["Name"] = self.get_name(card)
-
+            self.original_cards[int(card["Id"])] = card
         # pickle this
         if save:
             pickle.dump(self, open(config.VTES_FILE, "wb"))

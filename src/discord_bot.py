@@ -14,6 +14,7 @@ from . import vtes
 logger = logging.getLogger()
 client = discord.Client()
 
+#: response emoji when multiple cards match
 SELECTION_EMOJIS = collections.OrderedDict(
     [
         ("1️⃣", 1),
@@ -32,33 +33,47 @@ SELECTION_EMOJIS = collections.OrderedDict(
 
 @client.event
 async def on_ready():
-    print(f"Logged in as {client.user}")
+    """Login success informative log
+    """
+    logger.info(f"Logged in as {client.user}")
 
 
 @client.event
 async def on_message(message):
+    """Main message loop.
+
+    Args:
+        message (object): a discord.Message
+    """
     if message.author == client.user:
         return
 
     if message.content.startswith("krcg "):
         content = message.content[5:]
         logger.info(f"Received: {content}")
+        # when waiting for a user choice for card name completion,
+        # do nothing on wrong answers (maybe the user is trying another card text)
         try:
             content = client.COMPLETION_WAITING[message.author][int(content) - 1]
         except (ValueError, TypeError, IndexError, KeyError):
             pass
+        # initial message handling. If multiple cards match, candidates are returned
+        # and stored to the COMPLETION_WAITING map
         response = handle_message(content)
         candidates = response.pop("candidates", [])
         if candidates:
             logging.warning(f"53: {candidates}")
             client.COMPLETION_WAITING[message.author] = candidates
         response = await message.channel.send(**response)
+        # If they are candidates, add response reactions in the form of
+        # square numbers emoji
         try:
             for reaction in list(SELECTION_EMOJIS.keys())[: len(candidates)]:
                 await response.add_reaction(reaction)
         except discord.Forbidden:
             logging.warning("Missing reaction permission")
 
+        # Wait 30 seconds for an answer when multiple candidates are found
         def check(reaction, user):
             return user == message.author and str(reaction.emoji) in SELECTION_EMOJIS
 
@@ -70,19 +85,24 @@ async def on_message(message):
             except asyncio.TimeoutError:
                 candidates = []
                 del client.COMPLETION_WAITING[message.author]
+                # try to clear reactions if the "message management" permission is up
+                # (this is not the default setting for bots, it will likely fail)
                 try:
                     await response.clear_reactions()
                 except discord.Forbidden:
                     logging.warning("Missing message management permission")
+            # reaction selected, modify message accordingly
             else:
                 content = candidates[SELECTION_EMOJIS[reaction.emoji] - 1]
                 try:
                     await response.edit(**handle_message(content))
+                # this should not fail: bots can modify their messages
                 except discord.Forbidden:
-                    logging.warning("Missing message management permission")
+                    logging.warning("Missing edit message permission")
                     await message.channel.send(**handle_message(content))
 
 
+#: Response embed color depends on card type / clan
 DEFAULT_COLOR = int("FFFFFF", 16)
 COLOR_MAP = {
     "Master": int("35624E", 16),
@@ -139,15 +159,30 @@ COLOR_MAP = {
 
 
 def handle_message(message):
+    """Message handling
+
+    Args:
+        message (str): The message received (without prefix)
+
+    Returns:
+        kwargs (dict): Keyword args for discord channel.send() function.
+                       It includes a "candidates" key if multiple cards match
+    """
     message = message.lower()
+    # Check for card ID
     try:
         message = int(message)
     except ValueError:
         pass
+    # use completion if no card is found
+    # all branches return in this conditional block
     if message not in vtes.VTES:
         try:
             candidates = vtes.VTES.complete(message)
-        except AttributeError:  # if message is int
+        # Ignore int messages, they can be wrong card IDs
+        # or (most likely) candidates selection for previous message that were
+        # out of range or not sent by author
+        except AttributeError:
             candidates = []
         if len(candidates) == 1:
             message = candidates[0]
@@ -171,7 +206,8 @@ def handle_message(message):
             }
         else:
             return {"content": "No card match"}
-    card = vtes.VTES[message]
+    # card is found, build fields
+    card = vtes.VTES.normalized(vtes.VTES[message])
     card_type = "/".join(card["Type"])
     clan = "/".join(card.get("Clan", []))
     fields = [{"name": "Type", "value": card_type, "inline": True}]
@@ -215,6 +251,8 @@ def handle_message(message):
             "inline": False,
         }
     )
+    # build rulings field
+    # if need be use the footer to indicate there are more of them available
     footer = ""
     if card.get("Banned") or card.get("Rulings"):
         rulings = ""
@@ -222,17 +260,22 @@ def handle_message(message):
             rulings += f"**BANNED in {card['Banned']}**\n"
         links = {l["Reference"]: l["URL"] for l in card.get("Rulings Links", {})}
         for ruling in card.get("Rulings", []):
+            # replace reference with markdown link, eg.
+            # [LSJ 20101010] -> [[LSJ 20101010]](https://googlegroupslink)
             ruling, _ = re.subn(r"{|}", "*", ruling)
             for reference in re.findall(r"\[\w+\s[0-9-]+\]", ruling):
                 ruling = ruling.replace(
                     f"{reference}", f"[{reference}]({links[reference[1:-1]]})"
                 )
-            if len(rulings) + len(ruling) > 1020:
+            # discord limits field content to 1024
+            # make sure we have the room for 3 dots
+            if len(rulings) + len(ruling) > 1021:
                 rulings += "..."
                 footer += "More rulings available, click the title to see them."
                 break
             rulings += f"- {ruling}\n"
         fields.append({"name": "Rulings", "value": rulings, "inline": False})
+    # handle title, image, link, color
     card_name = vtes.VTES.get_name(card)
     file_name = unidecode.unidecode(card_name).lower()
     file_name = file_name[4:] + "the" if file_name[:4] == "the " else file_name
@@ -262,7 +305,12 @@ def handle_message(message):
 def main():
     logger.addHandler(logging.StreamHandler(sys.stderr))
     logger.setLevel(logging.INFO)
-    vtes.VTES.load_from_vekn()
-    vtes.VTES.configure()
+    # use latest card texts
+    # only fuzzy match on long names as we already use completion — both are tricky, eg:
+    # - `krcg monastery` returns Monster (fuzzy match)
+    # - `krcg mona` returns Ramona (fuzzy match)
+    # - `krcg monas` returns Monastery of Shadows (completion)
+    vtes.VTES.load_from_vekn(save=False)
+    vtes.VTES.configure(fuzzy_threshold=12, safe_variants=False)
     client.COMPLETION_WAITING = {}
     client.run(os.getenv("DISCORD_TOKEN"))

@@ -5,8 +5,9 @@ from src import flask  # noqa: E402
 
 @pytest.fixture
 def client():
-    flask.app.config["TESTING"] = True
-    with flask.app.test_client() as client:
+    app = flask.create_app(test=True)
+    app.config["TESTING"] = True
+    with app.test_client() as client:
         yield client
 
 

@@ -1,30 +1,14 @@
 import threading
 
 import arrow
-from flask import Flask, request, jsonify, render_template
+from flask import Blueprint, Flask, request, jsonify, render_template
 
 from . import analyzer
 from . import twda
 from . import vtes
 
 
-initialized = threading.Event()
-
-
-def init_twda():
-    if not twda.TWDA:
-        twda.TWDA.load_from_vekn(save=False)
-    initialized.set()
-
-
 class KRCG(Flask):
-    def __init__(self):
-        if not vtes.VTES:
-            vtes.VTES.load_from_vekn(save=False)
-        vtes.VTES.configure()
-        threading.Thread(target=init_twda).start()
-        super().__init__("krcg", template_folder=".")
-
     def make_default_options_response(self,):
         response = super().make_default_options_response()
         response.headers.add("Access-Control-Allow-Headers", "*")
@@ -36,7 +20,25 @@ class KRCG(Flask):
         return response
 
 
-app = KRCG()
+base = Blueprint("base", "krcg")
+initialized = threading.Event()
+
+
+def init_twda():
+    twda.TWDA.load_from_vekn(save=False)
+    initialized.set()
+
+
+def create_app(test=False):
+    if test:
+        initialized.set()
+    else:
+        vtes.VTES.load_from_vekn(save=False)
+        vtes.VTES.configure()
+        threading.Thread(target=init_twda).start()
+    app = KRCG("krcg", template_folder=".")
+    app.register_blueprint(base)
+    return app
 
 
 def twda_required(f):
@@ -48,30 +50,30 @@ def twda_required(f):
     return check_init
 
 
-@app.route("/", methods=["GET"])
+@base.route("/", methods=["GET"])
 def swagger():
     return render_template("src/index.html")
 
 
-@app.route("/openapi.yaml", methods=["GET"])
+@base.route("/openapi.yaml", methods=["GET"])
 def openapi():
     return render_template("src/openapi.yaml")
 
 
-@app.route("/card/<text>", methods=["GET"])
+@base.route("/card/<text>", methods=["GET"])
 def card(text):
     try:
         text = int(text)
     except ValueError:
         pass
     try:
-        return jsonify(vtes.VTES[text])
+        return jsonify(vtes.VTES.normalized(vtes.VTES[text]))
     except KeyError:
         return "Card not found", 404
 
 
 @twda_required
-@app.route("/deck", methods=["POST"])
+@base.route("/deck", methods=["POST"])
 def deck_by_cards():
     data = request.get_json() or {}
     twda.TWDA.configure(
@@ -97,7 +99,7 @@ def deck_by_cards():
 
 
 @twda_required
-@app.route("/deck/<twda_id>", methods=["GET"])
+@base.route("/deck/<twda_id>", methods=["GET"])
 def deck_by_id(twda_id):
     if not twda_id:
         return "Bad Request", 400
@@ -106,6 +108,6 @@ def deck_by_id(twda_id):
     return jsonify(vtes.VTES.deck_to_dict(twda.TWDA[twda_id], twda_id))
 
 
-@app.route("/complete/<text>", methods=["GET"])
+@base.route("/complete/<text>", methods=["GET"])
 def complete(text):
     return jsonify(vtes.VTES.complete(text))

@@ -60,8 +60,6 @@ ADDITIONAL_HEADERS = [
 AKA = {
     # print change not registered in cards "Aka" field
     "mask of 1,000 faces": "Mask of a Thousand Faces",
-    # typo in VEKN official file
-    "thadius zho": "Thadius Zho{}",
 }
 
 CLANS_AKA = {
@@ -347,6 +345,14 @@ REMAP = {
     "soul gems": "Soul Gem of Etrius",
     "tomb of rameses the cheesemonger": "Tomb of Rameses III",
     "truth of a 1000 lies": "Truth of a Thousand Lies",
+    # 🥚
+    "enkil cock": "enkil cog",
+    "parity shit": "Parity Shift",
+    "heart of the shitty": "Heart of the City",
+    "heart of cheating": "Heart of Nizchetus",
+    "bounce": "Deflection",
+    "no": "Direct Intervention",
+    "bye": "Banishment",
 }
 #: type order for deck display
 TYPE_ORDER = [
