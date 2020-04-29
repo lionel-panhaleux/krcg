@@ -21,7 +21,7 @@ update:
 	pip install --upgrade -e .[dev,web]
 
 serve:
-	gunicorn --reload --access-logfile - "src.flask:create_app()"
+	uwsgi --socket 127.0.0.1:8000 --protocol=http  --module src.wsgi:application
 
 deploy:
 	git push --force heroku master
