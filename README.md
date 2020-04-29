@@ -13,7 +13,7 @@ and the [Tournament Winning Deck Archive (TWDA)](http://www.vekn.fr/decks/twd.ht
 
 ## Online API
 
-KRCG is available as an [online API on Heroku](https://krcg.herokuapp.com/).
+KRCG is available as an [online API](https://api.krcg.org/).
 Feel free to use it. Beware that this is still a beta, so breaking change can happen without notice.
 
 ## Discord BOT

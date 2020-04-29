@@ -26,13 +26,6 @@ class KRCG(Flask):
 
 logger = logging.getLogger()
 base = Blueprint("base", "krcg")
-initialized = threading.Event()
-
-
-def init_twda():
-    logger.info("loading TWDA")
-    twda.TWDA.load_from_vekn(save=False)
-    initialized.set()
 
 
 def create_app(test=False):
@@ -44,7 +37,8 @@ def create_app(test=False):
         vtes.VTES.load_from_vekn(save=False)
         vtes.VTES.configure()
         logger.info("launching init thread for TWDA")
-        threading.Thread(target=init_twda).start()
+        logger.info("loading TWDA")
+        twda.TWDA.load_from_vekn(save=False)
     logger.info("launching app")
     app = KRCG("krcg", template_folder="templates")
     app.register_blueprint(base)
