@@ -1,7 +1,6 @@
 import logging
 import pkg_resources  # part of setuptools
 import sys
-import threading
 
 import arrow
 from flask import Blueprint, Flask, request, jsonify, render_template
@@ -31,27 +30,17 @@ base = Blueprint("base", "krcg")
 def create_app(test=False):
     logger.addHandler(logging.StreamHandler(sys.stderr))
     logger.setLevel(logging.WARNING)
-    if test:
-        initialized.set()
-    else:
+    if not test:
         vtes.VTES.load_from_vekn(save=False)
         vtes.VTES.configure()
         logger.info("launching init thread for TWDA")
         logger.info("loading TWDA")
         twda.TWDA.load_from_vekn(save=False)
+        twda.TWDA.configure()
     logger.info("launching app")
     app = KRCG("krcg", template_folder="templates")
     app.register_blueprint(base)
     return app
-
-
-def twda_required(f):
-    def check_init(*args, **kwargs):
-        if not initialized.wait(5):
-            return "Initializing", 503
-        return f(*args, **kwargs)
-
-    return check_init
 
 
 @base.route("/", methods=["GET"])
@@ -78,7 +67,6 @@ def card(text):
         return "Card not found", 404
 
 
-@twda_required
 @base.route("/deck", methods=["POST"])
 def deck_by_cards():
     data = request.get_json() or {}
@@ -104,7 +92,6 @@ def deck_by_cards():
     return jsonify([vtes.VTES.deck_to_dict(v, k) for k, v in decks.items()])
 
 
-@twda_required
 @base.route("/deck/<twda_id>", methods=["GET"])
 def deck_by_id(twda_id):
     if not twda_id:
