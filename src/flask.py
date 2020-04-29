@@ -1,9 +1,11 @@
 import logging
+import pkg_resources  # part of setuptools
 import sys
 import threading
 
 import arrow
 from flask import Blueprint, Flask, request, jsonify, render_template
+
 
 from . import analyzer
 from . import twda
@@ -44,7 +46,7 @@ def create_app(test=False):
         logger.info("launching init thread for TWDA")
         threading.Thread(target=init_twda).start()
     logger.info("launching app")
-    app = KRCG("krcg", template_folder=".")
+    app = KRCG("krcg", template_folder="templates")
     app.register_blueprint(base)
     return app
 
@@ -60,12 +62,14 @@ def twda_required(f):
 
 @base.route("/", methods=["GET"])
 def swagger():
-    return render_template("src/index.html")
+    return render_template("index.html")
 
 
 @base.route("/openapi.yaml", methods=["GET"])
 def openapi():
-    return render_template("src/openapi.yaml")
+    return render_template(
+        "openapi.yaml", version=pkg_resources.require("krcg")[0].version,
+    )
 
 
 @base.route("/card/<text>", methods=["GET"])
