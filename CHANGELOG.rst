@@ -4,7 +4,8 @@ Changelog
 0.31 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Additional rulings
+- Now hosted on a dedicated server using uwsgi
 
 
 0.30 (2020-04-28)

@@ -9,11 +9,12 @@ VEKN_VTES_LIBRARY_FILENAME = "vteslib.csv"
 VEKN_VTES_CRYPT_FILENAME = "vtescrypt.csv"
 VEKN_VTES_ENCODING = "utf-8"
 #: where to store our data
-TWDA_FILE = path.join(path.dirname(__file__), "TWDA.pkl")
-VTES_FILE = path.join(path.dirname(__file__), "VTES.pkl")
-CARDS_RULINGS_FILE = path.join(path.dirname(__file__), "cards-rulings.yaml")
-GENERAL_RULINGS_FILE = path.join(path.dirname(__file__), "general-rulings.yaml")
-RULINGS_LINK_FILE = path.join(path.dirname(__file__), "rulings-links.yaml")
+ROOT_DIR = path.abspath(path.join(path.dirname(__file__), ".."))
+TWDA_FILE = path.join(ROOT_DIR, "TWDA.pkl")
+VTES_FILE = path.join(ROOT_DIR, "VTES.pkl")
+CARDS_RULINGS_FILE = path.join(ROOT_DIR, "rulings", "cards-rulings.yaml")
+GENERAL_RULINGS_FILE = path.join(ROOT_DIR, "rulings", "general-rulings.yaml")
+RULINGS_LINK_FILE = path.join(ROOT_DIR, "rulings", "rulings-links.yaml")
 #: classic headers in deck lists
 HEADERS = [
     "master",

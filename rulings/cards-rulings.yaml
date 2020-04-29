@@ -156,6 +156,8 @@
   - "The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 100166|Black Gloves:
   - "Damage done to the bearer is environmental. [LSJ 19970801]"
+100171|Black Sunrise:
+  - 'Can be used by a vampire who is already attempting to block". [ANK 20181122-2]'
 100172|The Black Throne:
   - "The contract effect can be used even if the target is burned or if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]"
 100177|Blanket of Night:
@@ -554,6 +556,8 @@
 100626|Elephant Guardian:
   - "If the minion with Elephant successfully played an inferior {Deep Song} action, the target minion would take Elephant Guardian’s damage in the resulting combat if range is close. [PIB 20110609]"
   - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
+100628|Eluding the Arms of Morpheus:
+  - 'Can be used by a vampire who is already attempting to block". [ANK 20181122-2]'
 100639|Empowering the Puppet King:
   - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
 100641|Enchanted Marionette:
@@ -727,7 +731,7 @@
   - "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
 100817|Ghoul Escort:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
-  - "Cannot be used if blocked when leaving torpor, as no combat would happen. [ANK 20181122]"
+  - "Cannot be used if blocked when leaving torpor, as no combat would happen. [ANK 20181122-1]"
 100818|Ghoul Messenger:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100819|Ghoul Retainer:
@@ -784,6 +788,10 @@
   - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
 100867|Guardian Ghoul:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
+100868|Guardian Vigil:
+  - "Must be played before block is successful, but can be played after the acting Methusalah declined to play add stealth. [ANK 20180926]"
+  - 'All effects apply for the duration of the action. They still apply if the action "continues as if unblocked". [ANK 20181127]'
+  - 'Can be used by a vampire who is already attempting to block". [ANK 20181122-2]'
 100872|Guru:
   - "The blood is gained after the referendum effects are applied. [LSJ 20090115-2]"
 100882|Hand of Conrad:
@@ -1110,6 +1118,8 @@
   - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
 101230|Mob Rule:
   - "Each Methuselah must decide how much blood to burn for it during the resolution. It does not give an ability for the rest of the political action. However, there can be some give and take during the resolution. For example, Methuselahs can choose to burn one blood at a time and wait to see what the others do. [LSJ 20030602]"
+101233|The Mole:
+  - '[ani] Can be used by a vampire who is already attempting to block". [ANK 20181122-2]'
 101235|Molotov Cocktail:
   - "If the opponent strikes: combat ends, this strike is not resolved and the Cocktail is not put on this minion, even if combat continues thanks to another effect like {Relentless Reaper}. [ANK 20200203-1]"
 101236|Momentary Delay:
@@ -1149,6 +1159,8 @@
   - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
 101272|Nephandus:
   - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630]"
+101275|Netwar:
+  - '[chi] Can be used by a vampire who is already attempting to block". [ANK 20181122-2]'
 101280|New Management:
   - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 101285|Nightmares upon Nightmares:
@@ -1171,6 +1183,8 @@
   - "Is a Ⓓ action if a vampire controlled by another Methusalah is chosen. [ANK 20190606]"
 101320|Omael Kuman:
   - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
+101322|Open Dossier:
+  - 'Can be used by a vampire who is already attempting to block". [ANK 20181122-2]'
 101331|Orun:
   - "A vampire with multiple Oruns will only burn one Orun if he successfully bleeds for 2 or more. [LSJ 20090603]"
 101333|Ossian:
@@ -1335,6 +1349,8 @@
 101557|React with Conviction:
   - "If used to cancel a {Corruption} action, then the action is canceled in its entirety and the corruption counters are not burned. [LSJ 20070222-1]"
   - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
+101559|Read the Winds:
+  - '[ANI][AUS] Can be used by a vampire who is already attempting to block". [ANK 20181122-2]'
 101561|Reality Mirror:
   - "Cannot be used to bypass restrictions (like Clan restriction or any other play restriction). [LSJ 20020426]"
 101565|Rebirth:
@@ -1458,6 +1474,8 @@
   - "You cannot play another strike card to serve as the hand strike for Scorpion's Touch. [LSJ 20010627]"
 101702|Scrying of Secrets:
   - 'Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425] [ANK 20190113]'
+"101706|Second Tradition: Domain":
+  - 'Can be used by a locked a vampire who is already attempting to block (eg. if he played a wake effect before)". [ANK 20181122-2]'
 101707|Secret Horde:
   - "If put into play with no counters (X=0), it burns immediately. [LSJ 20070308]"
 101711|Secure Haven:
@@ -1469,6 +1487,8 @@
 101714|Selective Silence:
   - "[QUI] no other effect can be used to reset the range. [RTR 19970630]"
   - "[QUI] The blood is not the cost of Selective Silence, it is the cost of using the mandatory range-setting effect. The cost is not reduced by cards reducing [qui] or combat cards cost, the card cannot be used by a vampire who has less than one blood. [LSJ 19970224]"
+101717|Sense the Savage Way:
+  - '[ANI] Can be used by a vampire who is already attempting to block". [ANK 20181122-2]'
 101720|Sense Vitality:
   - "[val], [VAL] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 101724|Seraph's Second:
@@ -1580,6 +1600,10 @@
   - "[COMBAT] If a minion is burned in combat, his opponent his always considered to have burned him. [LSJ 20090922]"
   - "[MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
   - "[MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
+101840|Speak with Spirits:
+  - '[SPI] Can be used by a vampire who is already attempting to block". [ANK 20181122-2]'
+101841|Special Report:
+  - 'Can be used on a vampire who is already attempting to block". [ANK 20181122-2]'
 101845|Spell of Life:
   - 'The mummies put into play are unique by card name. The name is "in play" for anything that cares. They will contest unique minions of the same name, vampire or allies. If one is {Nefertiti}, then {Aabbt Kindred} will be able to take directed actions. [LSJ 20070928-2] [LSJ 20071001-2]'
 101847|Spirit Claws:
