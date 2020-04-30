@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.33 (unreleased)
+0.33 (2020-04-30)
 -----------------
 
 - Proper data files handling
