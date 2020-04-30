@@ -4,7 +4,7 @@ Changelog
 0.32 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix setup
 
 
 0.31 (2020-04-30)
