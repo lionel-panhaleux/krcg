@@ -7,6 +7,7 @@ import collections
 import io
 import itertools
 import logging
+import os
 import pickle
 import re
 
@@ -430,6 +431,8 @@ def _get_card(line):
 
 
 try:
+    if not os.path.exists(config.TWDA_FILE) or os.stat(config.TWDA_FILE).st_size == 0:
+        raise FileNotFoundError(config.TWDA_FILE)
     TWDA = pickle.load(open(config.TWDA_FILE, "rb"))
 except (FileNotFoundError, EOFError):
     TWDA = _TWDA()  # evaluates to False as it is empty

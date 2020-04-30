@@ -11,7 +11,9 @@ import difflib
 import io
 import itertools
 import logging
+import os
 import pickle
+import pkg_resources
 import re
 import requests
 import tempfile
@@ -97,6 +99,11 @@ class _VTES:
         """
         return (_VTES, (), self.__getstate__())
 
+    def __bool__(self):
+        """Test for emptyness
+        """
+        return bool(self.original_cards)
+
     def _yaml_get_card(self, text):
         """Get a card from a YAML card reference (id|Name)
 
@@ -134,9 +141,15 @@ class _VTES:
             with z.open(config.VEKN_VTES_CRYPT_FILENAME) as c:
                 self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
         # load rulings from local yaml files
-        links = yaml.safe_load(open(config.RULINGS_LINK_FILE, "r"))
-        cards_rulings = yaml.safe_load(open(config.CARDS_RULINGS_FILE, "r"))
-        general_rulings = yaml.safe_load(open(config.GENERAL_RULINGS_FILE, "r"))
+        links = yaml.safe_load(
+            pkg_resources.resource_string("rulings", "rulings-links.yaml")
+        )
+        cards_rulings = yaml.safe_load(
+            pkg_resources.resource_string("rulings", "cards-rulings.yaml")
+        )
+        general_rulings = yaml.safe_load(
+            pkg_resources.resource_string("rulings", "general-rulings.yaml")
+        )
         for card, rulings in cards_rulings.items():
             card_name = self.get_name(self._yaml_get_card(card))
             self.rulings.setdefault(card_name, {"Rulings": [], "Rulings Links": []})
@@ -264,9 +277,6 @@ class _VTES:
             else:
                 ret = collections.Counter(part_match)
         return [x[0] for x in sorted(ret.items(), key=lambda x: (-x[1], x[0]),)]
-
-    # def __hash__(self):
-    #     return id(self)
 
     @functools.lru_cache()
     def all_card_names_variants(self):
@@ -708,6 +718,8 @@ class _VTES:
 
 
 try:
+    if not os.path.exists(config.VTES_FILE) or os.stat(config.VTES_FILE).st_size == 0:
+        raise FileNotFoundError(config.VTES_FILE)
     VTES = pickle.load(open(config.VTES_FILE, "rb"))
 except (FileNotFoundError, EOFError):
     VTES = _VTES()  # evaluates to False as it is empty

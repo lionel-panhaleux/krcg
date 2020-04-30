@@ -439,11 +439,11 @@ def main():
         return
     if args.subcommand != "init":
         if not vtes.VTES:
-            logger.critical("VTES cards database is not initialized. Use vtes init")
+            logger.critical('VTES cards database is not initialized. Use "krcg init"')
             exit(1)
         vtes.VTES.configure()
         if not twda.TWDA:
-            logger.critical("TWDA database is not initialized. Use vtes init")
+            logger.critical('TWDA database is not initialized. Use "krcg init"')
             exit(1)
         twda.TWDA.configure()
     args.func(args)

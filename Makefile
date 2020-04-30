@@ -24,8 +24,7 @@ serve:
 	uwsgi --socket 127.0.0.1:8000 --protocol=http  --module src.wsgi:application
 
 clean:
-	rm -f src/TWDA.pkl
-	rm -f src/VTES.pkl
+	rm -f `python -c "import tempfile as t; print(t.gettempdir())"`/krcg-vtes.pkl
+	rm -f `python -c "import tempfile as t; print(t.gettempdir())"`/krcg-twda.pkl
 	rm -rf dist
 	rm -rf .pytest_cache
-	rm static/*
