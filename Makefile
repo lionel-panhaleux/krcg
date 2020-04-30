@@ -1,10 +1,14 @@
-.PHONY: validate test init static release update serve deploy clean
+.PHONY: validate quality test init static release update serve deploy clean
 
 # used by CI
 validate: static/*.json
 	$(foreach f, $^, jsonschema -i $f schemas/$(basename $(notdir $f)).schema.json ;)
 
-test:
+quality: validate
+	black --check src tests
+	flake8
+
+test: quality
 	pytest -vvs
 
 init:
