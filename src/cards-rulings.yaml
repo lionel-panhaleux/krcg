@@ -180,7 +180,7 @@
   - "[VAL] In the new combat, the initial opponent goes first. [LSJ 20011214-3] [LSJ 20031212]"
   - "[VAL] Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100192|Blood Agony:
-  - "Must be played before strike resolution and damage prevention in order to affect the current strike [RTR 19960112]"
+  - "Must be played before strike resolution and damage prevention in order to affect the current strike (can be played after both strikes have been chosen). [RTR 19960112]"
 100195|Blood Brother Ambush:
   - "Can be used by a Brujah Antitribu taking an action while in torpor. If this happens, the blocker loses the opportunity to commit diablerie. [RTR 20010710]"
   - "No other modifier can be played afterwards, combat begins immediately. [LSJ 20010806-2]"
@@ -208,7 +208,7 @@
 100224|Bloodstorm of Chorazin:
   - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 100228|Body Arsenal:
-  - "Must be played before strike resolution and damage prevention in order to affect the current strike [RTR 19960112]"
+  - "Must be played before strike resolution and damage prevention in order to affect the current strike. (can be played after both strikes have been chosen) [RTR 19960112]"
 100231|Body of Sun:
   - "[pro] Damage done to the striking minion is environmental. [LSJ 19970801]"
 100232|Bollix:
@@ -223,7 +223,7 @@
 100236|Bonding:
   - "[DOM] The superior version cannot be used if you do not need the stealth at the time you play it. [TOM 19951109]"
 100237|Bone Spur:
-  - "Must be played before strike resolution and damage prevention in order to affect the current strike [RTR 19960112]"
+  - "Must be played before strike resolution and damage prevention in order to affect the current strike. (can be played after both strikes have been chosen) [RTR 19960112]"
 100239|The Book of Going Forth by Night:
   - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 100241|Botched Move:
@@ -339,6 +339,8 @@
   - "Cannot be damaged by host, but does not stop host from using effects which would normally damage it. [RTR 19941109]"
 100340|Children of Stone:
   - 'This is an "equip action" [TOM 19960130]'
+100344|Chiropteran Marauder:
+  - "[VIC] Must be played before strike resolution and damage prevention in order to affect the current strike (can be played after both strikes have been chosen). [RTR 19960112]"
 100347|Church of the Order of St. Blaise:
   - 'Can put counters on locations that use "blood" or "pool" counters. [PIB 20110712-1]'
 100352|Claiming the Body:
@@ -349,7 +351,7 @@
   - "When removed, the vampire goes back ot its underlying clan, and the default sect of that clan (even if he was from another sect before). [ANK 20200415]"
   - "If the target changes clan or sect to a clan or sect inappropriate for his title, he loses its benefit until his clan or sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 100356|Claws of the Dead:
-  - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike [RTR 19960112]"
+  - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike. (can be played after both strikes have been chosen) [RTR 19960112]"
 100358|Cleave:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "The effect lasts until the end of the action. [LSJ 20060412]"
