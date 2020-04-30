@@ -2,7 +2,6 @@ include LICENSE README.md CHANGELOG.rst requirements.txt runtime.txt Procfile
 
 graft src
 graft schemas
-graft rulings
 graft templates
 prune Makefile
 prune tests
