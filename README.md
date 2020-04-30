@@ -23,7 +23,7 @@ KRCG is available as a
 Feel free to use it in your server.
 
 It let you retrieve cards official text, image and rulings:
-![Bot Example](bot-example.png)
+![Bot Example](https://github.com/lionel-panhaleux/krcg/blob/master/bot-example.png)
 
 ## Contribute
 
