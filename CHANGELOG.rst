@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.31 (unreleased)
+0.31 (2020-04-30)
 -----------------
 
 - Additional rulings
