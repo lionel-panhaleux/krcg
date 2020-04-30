@@ -3,7 +3,6 @@ import collections
 import logging
 import os
 import re
-import sys
 import urllib.parse
 
 import discord
@@ -303,7 +302,7 @@ def handle_message(message):
 
 
 def main():
-    logger.addHandler(logging.StreamHandler(sys.stderr))
+    logger.addHandler(logging.StreamHandler())
     logger.setLevel(logging.INFO)
     # use latest card texts
     # only fuzzy match on long names as we already use completion — both are tricky, eg:

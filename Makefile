@@ -5,7 +5,7 @@ validate: static/*.json
 	$(foreach f, $^, jsonschema -i $f schemas/$(basename $(notdir $f)).schema.json ;)
 
 test:
-	pytest -vv --pdb --pdbcls=IPython.terminal.debugger:Pdb
+	pytest -vvs
 
 init:
 	krcg init
@@ -23,11 +23,9 @@ update:
 serve:
 	uwsgi --socket 127.0.0.1:8000 --protocol=http  --module src.wsgi:application
 
-deploy:
-	git push --force heroku master
-
 clean:
-	rm src/TWDA.pkl
-	rm src/VTES.pkl
+	rm -f TWDA.pkl
+	rm -f VTES.pkl
 	rm -rf dist
 	rm -rf .pytest_cache
+	rm static/*

@@ -1,6 +1,5 @@
 import logging
 import pkg_resources  # part of setuptools
-import sys
 
 import arrow
 from flask import Blueprint, Flask, request, jsonify, render_template
@@ -28,12 +27,11 @@ base = Blueprint("base", "krcg")
 
 
 def create_app(test=False):
-    logger.addHandler(logging.StreamHandler(sys.stderr))
+    logger.addHandler(logging.StreamHandler())
     logger.setLevel(logging.WARNING)
     if not test:
         vtes.VTES.load_from_vekn(save=False)
         vtes.VTES.configure()
-        logger.info("launching init thread for TWDA")
         logger.info("loading TWDA")
         twda.TWDA.load_from_vekn(save=False)
         twda.TWDA.configure()
