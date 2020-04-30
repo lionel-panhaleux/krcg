@@ -24,8 +24,8 @@ serve:
 	uwsgi --socket 127.0.0.1:8000 --protocol=http  --module src.wsgi:application
 
 clean:
-	rm -f TWDA.pkl
-	rm -f VTES.pkl
+	rm -f src/TWDA.pkl
+	rm -f src/VTES.pkl
 	rm -rf dist
 	rm -rf .pytest_cache
 	rm static/*
