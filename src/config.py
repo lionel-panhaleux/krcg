@@ -443,6 +443,7 @@ REMAP = {
     "bounce": "Deflection",
     "no": "Direct Intervention",
     "bye": "Banishment",
+    "hero fellation": "Aire of Elation",
 }
 #: type order for deck display
 TYPE_ORDER = [
