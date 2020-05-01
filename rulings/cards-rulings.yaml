@@ -1176,7 +1176,7 @@
   - "Using the default (rulebook) action to take equipment from the same minion is the same action, whatever combination of equipments is announced. [ANK 20190213]"
   - "Rescuing a vampire from torpor is not the same action if it is not the same target vampire. [LSJ 20080710]"
   - "Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat, if the opponent is still the acting vampire. [LSJ 19991025]"
-  - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
+  - "The action ends unsuccessfuly immediately, combat does not happen, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20170105] [ANK 20200207]"
   - "Cannot be played if the opponent is not the acting vampire, for example if a slave took his place. [ANK 20171212]"
 101315|Of Noble Blood:
   - "Is a Ⓓ action if a vampire controlled by another Methusalah is chosen. [ANK 20190606]"
