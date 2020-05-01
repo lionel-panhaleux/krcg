@@ -485,6 +485,7 @@
   - "If the Methuselah you are bleeding does not burn any pool due to another effect, then she does not burn any cards from her library either. [LSJ 19970224]"
 100549|Disarm:
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
+  - 'Can be played before or after effects that are played "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Cannot be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]'
 100550|Disarming Presence:
   - "Locking is a side effect, not a cost. Locked vampires can still vote. [RTR 19941109]"
   - "Vampires are locked when they cast their votes. [RTR 19970425]"
@@ -622,8 +623,7 @@
 100704|Fast Hands:
   - "Cannot be used if there is no weapon to steal. [RTR 19980928]"
 100705|Fast Reaction:
-  - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
-  - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
+  - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100706|Fata Amria:
   - '[CHI] [REACTION] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
@@ -660,8 +660,7 @@
   - '[VIS] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[VIS] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 100756|Follow the Alpha:
-  - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
-  - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
+  - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100757|Follow the Blood:
   - "If played on a vampire who successfully hunts with a {Perfectionist}, {Perfectionist} grants the blood before combat. [LSJ 20110308]"
@@ -800,8 +799,7 @@
 100887|Hard Case:
   - "The block needs to be successful, so the blocking minion is locked. [ANK 20190708]"
 100896|Haven Hunting:
-  - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
-  - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
+  - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100899|Hay Ride:
   - "Must be played after combat if the action is blocked [RTR 19980623]"
@@ -818,8 +816,7 @@
   - 'Can use {Charming Lobby} to call a referendum "as a vampire". [RTR 20020501]'
   - "If it uses its last life to pay for an action, the action still resolves fully. If that leads to an oust, the oust is resolved before resolving effects triggered by the fact that the Herald burns. [LSJ 20080512]"
 100916|Hidden Lurker:
-  - 'If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
-  - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
+  - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
   - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
 100918|Hidden Strength:
@@ -1308,11 +1305,10 @@
 101504|Proxy Kissed:
   - "Can be played on a vampire who already has a Proxy Kissed (and was moved to uncontrolled and re-influenced). [LSJ 20050720-1]"
 101507|Psyche!:
-  - '[CEL] If used to start a new combat after the combat was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109]'
-  - "[CEL] Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
-  - '[CEL] Cancels any pending "after combat" effect, including effects to continue the action. [RTR 19950509]'
+  - "[CEL] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "[CEL] Cannot be played if there is already a combat queued. [RTR 20020501]"
   - "[CEL] Is played during combat, when combat is about to end. This is a reversal of previous rulings. [PIB 20111202]"
+  - '[CEL] Replacements effects that are played when a combat "would end" cannot be play afterwards. [ANK 20191219]'
   - "Can be retrieved by {Marthe Dizier} (reversal of previous ruling). [PIB 20111208]"
 101511|Psychomachia:
   - "The blocker is not locked. [LSJ 20030902-1]"
@@ -1320,6 +1316,7 @@
 101515|Pulled Fangs:
   - "Counts up damage successfully inflicted during the round by the minions, retainers do not count. [TOM 19950304]"
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
+  - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Cannot be played after [CEL] {Psyche!} [LSJ 20021113] [PIB 20110420] [ANK 20191219] [ANK 20180910-1]'
 101524|Pushing the Limit:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101525|Putrefaction:
@@ -1379,7 +1376,9 @@
 101589|Reindoctrination:
   - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101595|Relentless Reaper:
-  - "Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
+  - "[THN] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+  - "[THN] Cannot be played after [CEL] {Psyche!}. When played before, combat continues and {Psyche!} can only be played at the end of it. [ANK 20191219]"
+  - '[THN] Must be played after presses, can be played before or after effects that are played "at then of the round" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]'
 101602|Renegade Garou:
   - "The additional strike is mandatory. [PIB 20121028]"
 101605|Repo Man:
@@ -1639,6 +1638,7 @@
   - "Shuffle your crypt afterwards. [LSJ 20020304-1]"
 101882|Street Cred:
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
+  - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Cannot be played after [CEL] {Psyche!} [LSJ 20021113] [PIB 20110420] [ANK 20191219] [ANK 20180910-1]'
 101885|Strike at the True Flesh:
   - "[QUI] The additional damage is the same type as the strike's damage. [TOM 19960225] [RTR 19970630]"
 101886|Strike with Conviction:
@@ -1713,7 +1713,7 @@
   - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101945|Taste of Vitae:
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
-  - 'Can be played before or after any other cards playable in the "end of round" step. [PIB 20110420]'
+  - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Cannot be played after [CEL] {Psyche!} [LSJ 20021113] [PIB 20110420] [ANK 20191219] [ANK 20180910-1]'
 101947|Taunt the Caged Beast:
   - "[ANI] The prey goes first in the combat (for declaring maneuvers, strikes, presses). [LSJ 20070319]"
 101948|Telepathic Counter:
@@ -1721,8 +1721,9 @@
 101949|Telepathic Misdirection:
   - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 101950|Telepathic Tracking:
-  - '[AUS] If used to continue a combat that was ended by a "combat ends and the action continues as if unblocked", it nullifies the "continue action" part. [LSJ 19980109] [RTR 20020501]'
-  - "[AUS] Effects that end combat and then do something else after combat will fizzle, except for unlock effects. [RTR 20020501]"
+  - "[AUS] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+  - "[AUS] Cannot be played after [CEL] {Psyche!}. When played before, combat continues and {Psyche!} can only be played at the end of it. [ANK 20191219]"
+  - '[AUS] Must be played after presses, can be played before or after effects that are played "at then of the round" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]'
 101951|Telepathic Vote Counting:
   - "May be played before, during, or after votes and ballots have been cast. [LSJ 19980130]"
 101952|Templar:
