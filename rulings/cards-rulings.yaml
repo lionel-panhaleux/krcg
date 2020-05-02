@@ -916,6 +916,9 @@
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101013|Island of Yiaros:
   - "Provides no additional strength to a Priscus for his ballots. [RTR 19970630]"
+101016|Jack of Both Sides:
+  - 'Requirements must be met but this does not count as an action "requiring" anything. [LSJ 20100303] [ANK 20180817]'
+  - "Does not prevent the acting vampire to play the equipment or retainer directly this turn if he unlocks (not the same action). [ANK 20180817]"
 101017|Jackal:
   - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 101019|Jake Washington:
@@ -1165,6 +1168,7 @@
   - "Are neither mortal nor monster. [ANK 20200203-2] [LSJ 20060515]"
 101255|Muricia's Call:
   - "Requirements must be met to employ the retainer. [LSJ 20100303]"
+  - "Does not prevent the acting vampire to play the equipment directly this turn if he unlocks (not the same action). [ANK 20180817]"
 101259|My Enemy's Enemy:
   - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
   - "[AUS] Can be played if there is only two players in the game. The target of the bleed is unchanged, there is no new block opportunity. [LSJ 20060525]"
