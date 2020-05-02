@@ -55,7 +55,7 @@
     - 101989|Toreador Grand Ball
     - 102125|Visionquest
     - 102192|Wooden Stake
-- ruling: 'Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
+- ruling: 'Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played after it. [LSJ 19981028] [ANK 20190425]'
   cards:
     - 100102|As the Crow
     - 100446|CrimethInc.
@@ -71,7 +71,7 @@
     - 101999|Touch of Pain
     - 102131|Voter Captivation
     - 102205|Zephyr
-- ruling: "Is played after combat, if any. [ANK 20181219]"
+- ruling: "Is played after all combats are handled. Can be played from torpor. [LSJ 20030103] [ANK 20181219] [ANK 20180906]"
   cards:
     - 102205|Zephyr
     - 101724|Seraph's Second

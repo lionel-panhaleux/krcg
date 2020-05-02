@@ -711,9 +711,7 @@
 100785|Fragment of the Book of Nod:
   - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
 100788|Freak Drive:
-  - "[FOR] Is played after combat. [RTR 19980623]"
-  - "Is played after resolution, but still during the action. [LSJ 19981028]"
-  - "Can only be played after all combats are handled. [LSJ 20030103]"
+  - "[FOR] Is played after all combats are handled. Can be played from torpor. [RTR 19980623] [LSJ 20030103] [ANK 20180906]"
   - "[for] Can be played if the action is unblocked even if it fizzles (due to lack of a suitable target, for example). [LSJ 20070411]"
 100790|Free States Rant:
   - "If there are insuffient targets to which to allocate all of the points allowed, then the card cannot be played. [LSJ 20010810]"
@@ -1502,9 +1500,9 @@
 101711|Secure Haven:
   - "All Methuselahs, including the target vampire's controller, must pay one extra pool when playing Master cards on the target minion. [TOM 19951208-1]"
   - "Adds one to the cost of the master card targetting the vampire, cost reductions from other effects do apply. [LSJ 20070829-1]"
+  - 'Choosing is targeting: cards that "choose" the vampire like {The Rack}, {Toreador Grand Ball}, {Piper} or {Tend the Flock} are considered to target it, their cost is increased. Actions that choose the vampire cannot be played against him (eg. {Propaganda}, {Spirit Marionette}, {Shattering Crescendo}) [LSJ 20031010] [LSJ 20090319] [ANK 20180907]'
   - 'Only directed actions targeting the minion are restricted. Actions that target retainers, equipment, or other cards on the minion are allowed, as are actions that target cards not on the minion, even if such cards have "named" or "chosen" that minion. [TOM 19951208-1] [LSJ 19980302-1]'
   - "If contested, it will not be burned when the target (vampire) goes to torpor, nor will it be burned if it enters play while the target vampire is in torpor. [RTR 19960124]"
-  - 'Cards that "choose" the vampire like {The Rack}, {Toreador Grand Ball} or {Piper} are considered targetting it, their cost is increased. [LSJ 20031010] [LSJ 20090319]'
 101714|Selective Silence:
   - "[QUI] no other effect can be used to reset the range. [RTR 19970630]"
   - "[QUI] The blood is not the cost of Selective Silence, it is the cost of using the mandatory range-setting effect. The cost is not reduced by cards reducing [qui] or combat cards cost, the card cannot be used by a vampire who has less than one blood. [LSJ 19970224]"
