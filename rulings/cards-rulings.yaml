@@ -370,6 +370,7 @@
 100389|Compress:
   - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100392|Concealed Weapon:
+  - "The weapon is announced when the card is played, it must be in hand but need not to be shown. You can put the card apart face down when announcing it. [LSJ 19991207] [ANK 20180925-2]"
   - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike against a generic opponent. [RTR 19980623]'
   - "Strength or other bonus from the minion are not counted. [LSJ 20020821]"
   - 'Cost reductions that are not limited to cards "played" apply before checking for card cost (eg. {Black Cat} can use Concealed Weapon to equip with a {Combat Shotgun}). [LSJ 20080125] [ANK 20181216]'
@@ -494,7 +495,8 @@
 100551|Discern:
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 100555|Disguised Weapon:
-  - "If used to equip and contest a unique weapon possessed by the opposing minion, neither weapon is available for use during the combat. If the opposing minion had already chosen that weapon as his strike, then the strike fizzles. [LSJ 19980319]"
+  - "The weapon is announced when the card is played, it must be in hand but need not to be shown. You can put the card apart face down when announcing it. [LSJ 19991207] [ANK 20180925-2]"
+  - "If used to equip and contest a unique weapon already in play, neither weapon is available for use during the combat. If the opposing minion had already chosen that weapon as his strike, then the strike fizzles. [LSJ 19980319]"
 100557|Disputed Territory:
   - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
   - 'If used to "change" the control of a location or equipment representing a location to the same Methusalah, the location cannot be moved to another minion controlled by the same Methusalah. [LSJ 19971002]'
@@ -888,8 +890,8 @@
   - "[CEL] The card you discard need not be one of the cards that you just drew. [TOM 19950924]"
   - "[CEL] If canceled as it is played, its effect is not applied and only one card is drawn as a replacement. [LSJ 20021022]"
   - "[CEL] Once successfully played, if a subsequent combat card played by this minion gets canceled as it is played, an additional card is drawn for replacement. [ANK 20191211]"
-  - "[CEL] If multiple cards are replaced, replace and discard one by one. [ANK 20180925] [LSJ 20100506]"
-  - "[CEL] Effects that make you discard (eg. {Nicomedes}) are subject to Infernal Pursuit. [ANK 20180925]"
+  - "[CEL] If multiple cards are replaced, replace and discard one by one. [ANK 20180925-1] [LSJ 20100506]"
+  - "[CEL] Effects that make you discard (eg. {Nicomedes}) are subject to Infernal Pursuit. [ANK 20180925-1]"
 100989|Inscription:
   - "The vampire receiving the card must meet all of the requirements of the card other than the Thaumaturgy requirement. The vampire playing the Inscription need not meet any of the requirements (other than the Thaumaturgy needed to play Inscription in the first place). [LSJ 20031116]"
 100992|Inspire Greatness:
@@ -1536,9 +1538,11 @@
   - "Cannot use an effect that requires two or more Disciplines. [LSJ 20021216]"
   - "Can choose to use any single discipline effect of a split discipline card, each time he uses it. [LSJ 20021210-2]"
   - "Can only use the combat card when he is in combat. [LSJ 20060502]"
-  - "If the card combat card is moved, the Satyr cannot use it as if played from your hand anymore. Even if it was moved on him (eg. {Weighted Walking Stick}) [LSJ 20010716] [LSJ]"
+  - "If the card combat card is moved, the Satyr cannot use it as if played from your hand anymore, even if it was moved on him (eg. {Weighted Walking Stick}) [LSJ 20010716] [LSJ]"
   - "The card on him cannot be canceled as it is played when he plays it as if from your hand. [LSJ 20010716]"
   - "The card put on him is not into play. [ANK 20190629]"
+  - 'Only plays the card "as a vampire" if it costs blood or require a discipline: he cannot play {Taste of Vitae}. [LSJ 20000128]'
+  - "If he ends up in torpor (eg. by using {Reform Body}), he cannot leave or be rescued. Going into torpor instead of being burned does not give him life back: if he has no life, he burns again immediately. [LSJ 20000128]"
 101738|Shadow Feint:
   - "Will not prohibit the opposing minion from choosing dodge as his strike, and, if chosen, the dodge will still resolve. The dodge simply has no effect on the Shadow Feinted strike. [LSJ 20030902-2]"
 101741|Shadow of the Wolf:
