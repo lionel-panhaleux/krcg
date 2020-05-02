@@ -637,6 +637,7 @@
   - '[CHI] [REACTION] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
 100709|FBI Special Affairs Division:
   - "Does not trigger if the ally is saved by {Left for Dead}. [PIB 20121028]"
+  - "Does not trigger if the ally is considered the acting minion during the combat (eg. {Nar-Sheptha}). [ANK 20180913-2]"
 100723|Festivo dello Estinto:
   - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
@@ -746,7 +747,7 @@
   - 'The Ghoul is never the "bearer" of the weapon that it uses. Any side-effect of using the weapon is applied to the employing minion, as normal. [TOM 19951114]'
   - "Is not mortal, is a monster. [ANK 20200203-2]"
 100820|Ghouled:
-  - 'The ally is recruited as a mortal, with the normal starting life, and is then changed to a ghoul and gains a life. His "starting life" is still the base mortal amount, however. [LSJ 20030520-2]'
+  - 'The ally is recruited as a mortal and changed to a ghoul afterwards (eg. {Sunset Strip, Hollywood} can be used to reduce its cost). His "starting life" is still the base mortal amount. [LSJ 20030520-2]'
 100821|Ghouled Street Thug:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100822|The Ghouls of Plaza Morería:
@@ -916,6 +917,7 @@
   - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 101019|Jake Washington:
   - "Is not an ally in the ash heap (eg. {Compel the Spirit} cannot be played on him). [LSJ 20020115] [LSJ 20030128]"
+  - 'His "starting life amount" is 1 ({Vagabond Mystic} cannot give hime more life). [LSJ 20030520-2]'
 101020|Jar of Skin Eaters:
   - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
   - "Using the Jar action does not force the minion to strike with it if he is blocked. [LSJ 19971215]"
@@ -1669,7 +1671,7 @@
   - "[POT] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
 101889|Stutter-Step:
   - "It is both a hand strike and a dodge. It cannot be used if only hand strikes or only dodges are allowed. [LSJ 20010919]"
-  - "The dodge part protects from the opponent's strike (even if done with First Strike), the hand strike part inflicts damage during the normal strike resolution. [ANK 20180913]"
+  - "The dodge part protects from the opponent's strike (even if done with First Strike), the hand strike part inflicts damage during the normal strike resolution. [ANK 20180913-1]"
 101892|Succubus:
   - "Can use her action on a vampire with no blood. [RTR 20010711]"
 101894|Succulent Vitae:
