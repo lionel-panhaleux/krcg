@@ -1669,6 +1669,7 @@
   - "[POT] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
 101889|Stutter-Step:
   - "It is both a hand strike and a dodge. It cannot be used if only hand strikes or only dodges are allowed. [LSJ 20010919]"
+  - "The dodge part protects from the opponent's strike (even if done with First Strike), the hand strike part inflicts damage during the normal strike resolution. [ANK 20180913]"
 101892|Succubus:
   - "Can use her action on a vampire with no blood. [RTR 20010711]"
 101894|Succulent Vitae:
