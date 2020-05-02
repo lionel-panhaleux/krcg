@@ -1891,6 +1891,7 @@
 102149|Warsaw Station:
   - "Can be burned after the annoucement of a diablerie action to bring the target Nosferatu out of torpor. The diablerie will then fizzle. [ANK 20181107]"
   - "Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action would fizzles if an effect tries to continue it (eg. {Ambulance}). [LSJ 20090325-2]"
+  - "The unlock effect is applied after the action is resolved and the referendum (if any) concluded. If the acting vampire is not a Nosferatu anymore at that point, he does not unlock. [LSJ 20090216] [ANK 20180922]"
 102151|Wash:
   - "If used to cancel an out-of-turn master, that Methuselah still cannot play another out-of-turn master against the same master phase, even though the first was canceled and won't count against that master phase. [LSJ 20070309-2]"
   - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
