@@ -47,7 +47,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith("krcg ") or message.content.startswith("Krcg "):
+    if message.content.lower().startswith("krcg "):
         content = message.content[5:]
         logger.info(f"Received: {content}")
         # when waiting for a user choice for card name completion,
