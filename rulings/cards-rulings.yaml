@@ -375,6 +375,8 @@
   - "Strength or other bonus from the minion are not counted. [LSJ 20020821]"
   - 'Cost reductions that are not limited to cards "played" apply before checking for card cost (eg. {Black Cat} can use Concealed Weapon to equip with a {Combat Shotgun}). [LSJ 20080125] [ANK 20181216]'
   - "Paying from another source (eg. {Alan Sovereign (ADV)}) does not reduce the cost as seen by Concealed Weapon. [LSJ 20080125]"
+100396|Condemn the Sins of the Father:
+  - "Is directed at all Methusalah controlling one of the chosen targets. [KOT 20081119] [ANK 20180917]"
 "100400|Condemnation: Mute":
   - "Only affects votes, and not ballots. [PIB 20110802]"
 100412|Conscripted Statue:
@@ -874,6 +876,7 @@
   - "[pot] Is a strike that requires Potence, so would be enhanced by {Increased Strength}. [LSJ 20030611]"
 100966|Impundulu:
   - "Can use his action on a vampire with no blood. [RTR 20010711]"
+  - "If he uses his ability to steal blood or life from one of his controller's minions, the action is undirected. [ANK 20180917]"
 "100968|Inbase Discotek, Frankfurt":
   - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
@@ -1102,8 +1105,9 @@
   - "The blocking minion is prohibited to strike: combat ends for the duration of the action (during any round of any combat). [LSJ 20100308]"
 101215|Mind Rape:
   - "[DOM] The card can be burned to take control of the target at any point during the the appropriate minion phase. It does not have to be done before non-mandatory actions. [LSJ 20001201]"
-  - "[DOM] The stolen minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]"
   - "[DOM] If in play, the card is removed if its controller (the Methusalah who played it) is ousted (rulings before 2008-11-19 have been reversed). [ANK 20181110]"
+  - "[DOM] The stolen minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]"
+  - "[DOM] The stolen minion returns to his previous controller even if he is in torpor (but stays in torpor). [LSJ 20010119]"
 101217|Minion Tap:
   - "Pay the cost (if any, eg. {Secure Haven} or {Villein} on the target) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]"
   - "If the target has less blood at resolution than the amount annouced, you take what you can. [LSJ 20100216]"
@@ -1745,6 +1749,9 @@
 101954|Temptation:
   - "When stealing a vampire in combat after strikes are announced before strikes resolution, any damage yet to resolve will still resolve before the change of control. [LSJ 20020618]"
   - "The stolen minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]"
+  - "The stolen minion returns to his previous controller even if he is in torpor (but stays in torpor). [LSJ 20010119]"
+  - "If played on one of your own vampires, the action is undirected. Its effect can be used to unlock the vampire. [LSJ 20010828] [ANK 20180917]"
+  - "Multiple Temptations on the same minion are handled separately: effects do not stask, stealing the minion only burns the counters on one of them. [LSJ 20010227]"
 101956|Tend the Flock:
   - "The blood comes from the blood bank. [ANK 20190511]"
 101957|Tenebrous Form:
