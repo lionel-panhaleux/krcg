@@ -1197,6 +1197,8 @@
   - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
 101322|Open Dossier:
   - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
+101325|Ophidian Gaze:
+  - '[SER][PRE] Can be used to cancel an action modifier player "after the action/referendum is successful" (eg. {Voter Captivatoin} or {Freak Drive}). [ANK 20180909]'
 101331|Orun:
   - "A vampire with multiple Oruns will only burn one Orun if he successfully bleeds for 2 or more. [LSJ 20090603]"
 101333|Ossian:
