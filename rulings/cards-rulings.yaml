@@ -982,6 +982,7 @@
 "100908|Heidelberg Castle, Germany":
     - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
     - "Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]"
+    - "Cannot be used before damage is inflicted after action resolution (eg. {Force of will}, {Daring the Dawn}): this is still during the action. [ANK 20171124]"
 100911|Hellhound:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100912|Herald of Topheth:
@@ -1876,7 +1877,7 @@
     - "There is no limit to the number of cards it can store. [PIB 20110712-2]"
 101770|Shotgun Ritual:
     - "[THA] The press can only be used during the current round. [TOM 19960521]"
-101771|Shoulder Drop :
+101771|Shoulder Drop:
     - "Is played and inflicts damage after the strikes have been resolved and inflicted damage, before any other pair of strikes and before the press step. [ANK 20171226]"
 101773|Shroud Mastery:
     - '[NEC] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
