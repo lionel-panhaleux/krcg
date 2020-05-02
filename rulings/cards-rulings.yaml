@@ -501,6 +501,7 @@
   - "If used to equip and contest a unique weapon already in play, neither weapon is available for use during the combat. If the opposing minion had already chosen that weapon as his strike, then the strike fizzles. [LSJ 19980319]"
 100557|Disputed Territory:
   - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+  - "If used to steal an equipment representing a location, it can be placed on any minion controlled by the new controller. [RTR 19960112]"
   - 'If used to "change" the control of a location or equipment representing a location to the same Methusalah, the location cannot be moved to another minion controlled by the same Methusalah. [LSJ 19971002]'
 100563|Diversion:
   - "[tha] can target a vampire with no blood. [RTR 20010711]"
@@ -512,6 +513,8 @@
 100571|Domain of Evernight:
   - "[tem] Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [ANK 20130319]"
   - '[TEM] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
+100573|Dominate Kine:
+  - "[DOM] If used to steal an equipment representing a location, it can be placed on any minion controlled by the new controller. [RTR 19960112]"
 100575|Donate:
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 100576|Donnybrook:
