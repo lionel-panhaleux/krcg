@@ -1020,7 +1020,8 @@
   - "A non-Malkavian cannot use {Mask of a Thousand Faces} to assume the action of a Malkavian on someone else's turn. [LSJ 19981007]"
   - "If a Malkavian has no blood, he may declare an action during another Methuselah's turn but, if he does, that action must be a hunt action. [LSJ 20060508]"
 101141|Madrigal:
-  - "[MEL] Will have no effect if the acting vampire abstains, even if he is forced to abstain. The effect operates on the final disposition of the vampire's votes at the time the votes are tallied. [LSJ 20020123]"
+  - "[MEL] Will have no effect if the vampire who played it abstains, even if he is forced to abstain. The effect operates on the final disposition of the vampire's votes at the time the votes are tallied. [LSJ 20020123]"
+  - "[MEL] When used as an action modifier, the acting vampire gains one blood if he does not abstain, as he can only vote in agreement with himself. [LSJ 20020123]"
 101143|Magic of the Smith:
   - "This is an equip action. [TOM 19960130]"
   - "You do not search your library until the action is successful. [TOM 19951107]"
