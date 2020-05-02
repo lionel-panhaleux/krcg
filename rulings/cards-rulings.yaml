@@ -1384,10 +1384,9 @@
 101589|Reindoctrination:
   - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101595|Relentless Reaper:
-  - "[THN] Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
   - "[THN] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "[THN] Cannot be played after [CEL] {Psyche!}. When played before, combat continues and {Psyche!} can only be played at the end of it. [ANK 20191219]"
-  - '[THN] Must be played after presses, can be played before or after effects that are played "at then of the round" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]'
+  - '[THN] Must be played after presses, can be played if the round ends prematurely and can be played before or after effects that are played "at then of the round" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]'
 101602|Renegade Garou:
   - "The additional strike is mandatory. [PIB 20121028]"
 101605|Repo Man:
@@ -1730,10 +1729,9 @@
 101949|Telepathic Misdirection:
   - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 101950|Telepathic Tracking:
-  - "[AUS] Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
   - "[AUS] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "[AUS] Cannot be played after [CEL] {Psyche!}. When played before, combat continues and {Psyche!} can only be played at the end of it. [ANK 20191219]"
-  - '[AUS] Must be played after presses, can be played before or after effects that are played "at then of the round" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]'
+  - '[AUS] Must be played after presses, can be played if the round ends prematurely and can be played before or after effects that are played "at then of the round" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]'
 101951|Telepathic Vote Counting:
   - "May be played before, during, or after votes and ballots have been cast. [LSJ 19980130]"
 101952|Templar:
