@@ -66,6 +66,8 @@
   - "Damage done by combat effects after combat ends do not trigger Anathema. [LSJ 19980225]"
 100063|The Ancestor's Talisman:
   - "The effect is not optional. [RTR 19980707] [LSJ 19980722]"
+100064|Ancient Influence:
+  - "Applies a pool gain then a pool loss. {Poison Pill} register a 5 pool loss in all cases, a Methusalah cannot withdraw even if the total was positive. [ANK 20180813]"
 100066|Anesthetic Touch:
   - "Does not end combat as a strike; it ends combat after strike resolution. It is still just a hand strike. [LSJ 20011210-1]"
   - "A dodge won't prevent combat from ending after strike resolution. [LSJ 20011210-2]"
@@ -1260,6 +1262,8 @@
 101405|Pocket Out of Time:
   - "If used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
+101406|Poison Pill:
+  - '"burning pool" is "loosing pool". [ANK 20180813]'
 101416|Political Seizure:
   - "If you yield the Political Seizure, the location it was contesting does not come into play under your control. [LSJ 19980223]"
 101418|Political Struggle:
