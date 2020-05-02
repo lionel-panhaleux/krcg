@@ -5,6 +5,7 @@ Changelog
 -----------------
 
 - API: Add a card search endpoint "card/"
+- Discord Bot: Will now answer if caps are used in his name.
 
 
 0.33 (2020-04-30)
