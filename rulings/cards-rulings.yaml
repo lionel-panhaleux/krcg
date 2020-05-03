@@ -249,7 +249,6 @@
   - "Effects that affect or improve hand strikes can be used on its strike. [LSJ 20071020]"
   - 'Cannot be used with a strike card that reads: "Strike: make a hand strike." but can be use it with a strike card that reads "strike: make a weapon strike" (eg. {Brute Force}). In that case, the strike is still considered a hand strike (ie. can be chosen if {Immortal Grapple} has been played) [LSJ 20080702-1] [LSJ 20090114]'
 100271|Burning Wrath:
-  - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "All the damage is aggravated. [LSJ 20020122]"
 100273|Burst of Sunlight:
   - "Damage done to the striking minion is environmental. [LSJ 19970801]"
@@ -414,8 +413,7 @@
   - "[QUI] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100489|Dam the Heart's River:
   - "Adding damage to strikes which are not damage dealing strikes will not deal damage [RTR 19960221]"
-  - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
-  - "The additional damage is the same type as the strike's damage, not the base damage [RTR 19970630]"
+  - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
   - "Applies to environmental damage inflicted to the opposing minion. [ANK 20181128]"
   - "[QUI] The opponent must pay 1 blood to use a strike that provides a maneuver if he plays it when choosing range. [ANK 20181026]"
 100492|Daring the Dawn:
@@ -874,8 +872,7 @@
   - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 100971|Increased Strength:
-  - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
-  - 'The additional damage is the same type as the strike"s damage, not the base damage [RTR 19970630]'
+  - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
 100972|Incriminating Videotape:
   - "If it is stolen, then the chosen minion is unable to block the new possessor of the Videotape (and can now block whoever used to have it). If it is removed from play, its effect ends. [TOM 19960114]"
 100977|Infection:
@@ -1702,8 +1699,7 @@
   - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101939|Target Head:
   - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]"
-  - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
-  - 'The additional damage is the same type as the strike"s damage, not the base damage [RTR 19970630]'
+  - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
   - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101940|Target Leg:
   - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
@@ -1711,8 +1707,7 @@
   - "If it is canceled, the strike resolves with the default target. [ANK 20200311]"
   - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101942|Target Vitals:
-  - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
-  - 'The additional damage is the same type as the strike"s damage, not the base damage [RTR 19970630]'
+  - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
   - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101945|Taste of Vitae:
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
