@@ -186,6 +186,7 @@
 100201|Blood Fury:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
+  - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
 100203|Blood of Acid:
   - "Damage from Blood of Acid is environmental. [RTR 19970630] [LSJ 20020708]"
   - "Environmental damage is not counted by Blood of Acid. [RTR 19970630]"
@@ -193,6 +194,7 @@
   - "[QUI] If the chosen strike says to make a hand strike or a melee weapon strike, then the strike is ranged, but the hand or melee weapon portion of the strike is still only effective at close range. [RTR 20010710]"
 100208|Blood Rage:
   - "[THA] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+  - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
   - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
 100209|Blood Shield:
   - "The blood is burned by the opponent when the owner prevents damage, immediately. Depending on the impulse order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528]"
@@ -1221,6 +1223,9 @@
 101388|Perfectionist:
   - "No blood can be gained if a reaction card is played and canceled as it is played: it has still been played. [LSJ 20070330]"
   - 'Cards and effects that can be played "after resolution" (and only them) can be played after the gain blood effect. [ANK 20190113]'
+101395|Personal Scourge:
+  - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
+  - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
 "101400|Pier 13, Port of Baltimore":
   - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101401|Piper:
@@ -1588,7 +1593,8 @@
 101828|Songs of the Distant Vitae:
   - "[QUI] A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 101829|Soul Burn:
-  - "Side-effect damage from a weapon is unaffected. [LSJ 19980216]"
+  - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
+  - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
 101832|Soul Gem of Etrius:
   - "If the new vampire is the same as the one who burned, he is still considered a new vampire for all purposes. (eg. he can bleed even if the previous version has already bled this turn) [LSJ 20100213]"
   - "Functions even if the bearer (now burned) was prohibited from using equipments (eg. because of {Drawing out the Beast}). [LSJ 20010729]"
