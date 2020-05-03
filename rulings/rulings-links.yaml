@@ -53,7 +53,6 @@ ANK 20190116: http://www.vekn.net/forum/rules-questions/77302-strike-combat-ends
 ANK 20190117-1: http://www.vekn.net/forum/rules-questions/77308-mask-of-a-1000-faces-and-bleed-modifiers#92987
 ANK 20190117-2: http://www.vekn.net/forum/rules-questions/77306-new-blood-is-overpowered#92966
 ANK 20190203: http://www.vekn.net/forum/rules-questions/77343-ennoia-s-theater-do-i-need-both-gangrel-and-gangrel#93265
-ANK 20190213: http://www.vekn.net/forum/rules-questions/77374-change-of-target-obedience-inf#93454
 ANK 20190228: http://www.vekn.net/forum/rules-questions/77427-mata-hari-and-hakim-s-law-leadership?start=42#93785
 ANK 20190407: http://www.vekn.net/forum/rules-questions/77533-title-imperator#94416
 ANK 20190412: http://www.vekn.net/forum/rules-questions/77543-strike-restriction-and-dog-pack?start=6#94497
@@ -117,6 +116,7 @@ ANK 20200420-2: http://www.vekn.net/forum/rules-questions/58209-santaleous-quest
 ANK 20200420-3: http://www.vekn.net/forum/rules-questions/78574-vulture-s-buffet#99642
 ANK 20200421: http://www.vekn.net/forum/rules-questions/78574-vulture-s-buffet?start=6#99660
 ANK 20200422: http://www.vekn.net/forum/rules-questions/78582-thoughts-betrayed-interaction-with-different-striking-situation#99680
+ANK 20200502: http://www.vekn.net/forum/rules-questions/78616-change-of-target-equip-from-a-minion#99734
 CTM 20100114: http://web.archive.org/web/20100114131747/http://white-wolf.com/vtes/migration.html
 KOT 20081119: http://www.vekn.net/card-lists/140-keepers-of-tradition
 LSJ 19970224: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/80KRDjVFkyg/TBJso9Ra_9QJ
@@ -259,6 +259,7 @@ LSJ 20020618: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/DVGe
 LSJ 20020620: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/WoXWzLYaFSY/ug3CHnpMCUQJ
 LSJ 20020708: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/KK_YwtQwA_A/mah4T5BCrqUJ
 LSJ 20020715: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/-FBxPz-oms0/OV6b9Cc6nl4J
+LSJ 20020729: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Tn1wLMpNbbA/-h07t8dtp6YJ
 LSJ 20020821: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/o_nBNZraMvE/g0xPNLGquKIJ
 LSJ 20020911: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/_lLSO5aevoM/7BXDmpWjdLIJ
 LSJ 20020926: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/C7vgb-0Mcbo/6UHJsQjBs9wJ
@@ -398,11 +399,13 @@ LSJ 20060502: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/EksU
 LSJ 20060503: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/ckLtVMUM4QA/YrTPgsyEHCkJ
 LSJ 20060508: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/5uz0i-W7BjM/xMfwRHMhvW4J
 LSJ 20060515: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/bzusnKlnYr8/OSMvzE7YjokJ
+LSJ 20060522: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/2f0wF9CECu8/SZn9iGo-LOQJ
 LSJ 20060525: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/0HqW_TzbJlM/WZecj55DSCkJ
 LSJ 20060616-1: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/YfU6gWr_rzw/u50SFeBMpoEJ
 LSJ 20060616-2: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/YGA7bnOj04Y/wOVi6CvB8Z0J
 LSJ 20060803: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/z8Nd8EFQsKc/sP8_LxnEpEIJ
 LSJ 20060808: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/ncZn3knH-Uo/sBjnMxAk1msJ
+LSJ 20060824: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/zsZTYTbRVRI/VmMfnKWuMlMJ
 LSJ 20060902: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/QAKz6Qtr7Ts/JpnA6qgxS2oJ
 LSJ 20060903: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/QAKz6Qtr7Ts/kyhzKIdtR54J
 LSJ 20060904: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/L9D4GK0yNv8/H9vnUciv2psJ
@@ -462,6 +465,7 @@ LSJ 20080630: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/nvuX
 LSJ 20080702-1: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/JtLgB7Apqq0/lWdtq38KJ-wJ
 LSJ 20080702-2: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/sCHpPQkjeAE/8N5_G2gMHAIJ
 LSJ 20080710: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/f1NpGhdtk-E/MEbLGzSGessJ
+LSJ 20080725: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/jWWCwKnran0/6JxzHnKdJkkJ
 LSJ 20080803: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/VgARso4nY7w/cAl0o7WpblAJ
 LSJ 20080805: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/SIbzFAwWDKs/BDkEg19txtoJ
 LSJ 20080809-1: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/1jW6GXrIRSU/7ywPFR39rb4J
@@ -496,6 +500,7 @@ LSJ 20090601: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/bKo8
 LSJ 20090603: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/LpFSLRuWONA/Ma_3LtLeyCAJ
 LSJ 20090606: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/-hy9E1u2t_o/CPU8rltzhesJ
 LSJ 20090616: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/6DEbXHjKGhE/1T4TclVRikoJ
+LSJ 20090617: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/OMTF0_ZqUL0/ijdnbYacuNkJ
 LSJ 20090622: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/6B8fFRz2030/1wg9mm0HxvUJ
 LSJ 20090705: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/3Ekxk6uQ_wo/Y25g9tS6qSoJ
 LSJ 20090724: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/1vJy-UKWR7Y/EOp-bsntrngJ
