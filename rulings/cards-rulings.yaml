@@ -1936,7 +1936,7 @@
   - "Damage inflicted at the end of combat is environmental. [RTR 19970630]"
   - "If the acting minion is not ready after the combat, then the action ends and no referendum is conducted. [LSJ 20060902]"
   - "If the acting vampire gets out of torpor immediately (eg. {Warsaw Station}), the action ends and no referendum is conducted. [LSJ 20090325-1]"
-  - 'The effect is applied after combats ends, after cards that are played "at the end of the round (eg. {Disarm}) or "when combat would end". If a combat ends and a new combat would begin, the effect applies between the two combats. [ANK 20180910-1]'
+  - 'The effect is applied after cards that are played "at the end of the round (eg. {Disarm}) or "when combat would end". If a combat ends and a new combat would begin, the damage is applied between the two combats and the referendum is conducted after all the combats if the acting vampire is still ready. [ANK 20180910-1] [LSJ 20060903]'
 102202|Young Bloods:
   - "They may use their built-in action against a vampire with only 1 blood. If successful, that vampire burns his 1 blood. [LSJ 20070213]"
 102203|Zaire River Ferry:
