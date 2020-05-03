@@ -1414,6 +1414,7 @@
 101633|Rewind Time:
   - 'Cannot be used to cancel the action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]'
   - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
+  - "[TEM] Other reaction cards (eg. wake effects) cannot be used as there is no action. [ANK 20120804]"
 101634|Riddle Phantastique:
   - "If put into play with no counters, it burns immediately. [LSJ 20070307]"
 101637|Riposte:
