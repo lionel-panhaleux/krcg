@@ -391,6 +391,7 @@
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100435|The Coven:
   - "Can be locked during damage resolution, but not while healing damage or preventing destruction (you cannot take 2, lock The Coven, then take the rest). [PIB 20121031]"
+  - "The predator must take control of it when he gets the impulse. If a players declares his turn ends, he does not get the opportunity to use it before it is moved to his predator, even retroactively if the mandatory effect was forgotten. [LSJ 20100723] [PIB 20111002]"
 100439|Crawling Chamber:
   - "[VIS] Damage is environmental. [RTR 19970630]"
 100440|Create Gargoyle:
@@ -2211,7 +2212,8 @@
   - "A vampire with no circle designation is in his own unique circle of one. New blood cannot choose to be part of such a circle. [LSJ 20020609]"
   - 'Cannot choose to be part of the "Inner Circle" and get the title. The Inner Circle title and a Blood Brothers circle are different things. [ANK 20190117-2]'
 "201087|Owain Evans, The Wanderer":
-  - "Owain's ability can only be used once each unlock, even if control of Owain changes during that unlock phase. [LSJ 20040127]"
+  - "His ability can only be used once each unlock, even if control of Owain changes during that unlock phase. [LSJ 20040127]"
+  - "His ability can only be used when his controller has the impulse. The acting player has to apply all mandatory effects (eg. lose pool to {Anarch Revolt}) before passing the impulse. [LSJ 20100723]"
 "201098|Patrizia Giovanni, Collector of Secrets":
   - "When using her ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 201103|Paul "Sixofswords29" Moreton:
