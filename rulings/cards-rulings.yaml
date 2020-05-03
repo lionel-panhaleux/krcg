@@ -1877,6 +1877,7 @@
   - "[ACTION MODIFIER] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 102144|War Ghoul:
   - "If you have no other allies and no retainers in play when it is recruited, then you burn it. [RTR 19961113]"
+  - 'Can use its ability "lock and burn to burn a location" during an action that would steal it (eg. [PRE] {Entrancement}). The action ends, neither successful nor failed. [PIB 20121031]'
 102146|Warding the Beast:
   - "[val] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 102149|Warsaw Station:
