@@ -317,7 +317,9 @@
   - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]"
 100323|Change of Target:
   - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [LSJ 20070709]"
-  - "Action cards with the same name are the same action if they have the same target (including political actions, allies, retainers and equipments). Action without card (provided by the rulebook) are the same if they have the same target. Getting an equipment from a minion (rulebook action) is the same if one of the target equipments is the same card. Actions provided by cards in play are not the same if the card is not the same copy, even if it has the same name. Action without cards are never the same as actions with cards. [RTR 19950509] [LSJ 20020729] [LSJ 20060522] [LSJ 20080710] [LSJ 20060824] [LSJ 20080725] [LSJ 20090617] [ANK 20200502]"
+  - >-
+    Action cards with the same name are the same action if they have the same target (including political actions, allies, retainers and equipments). Action without card (provided by the rulebook) are the same if they have the same target. Getting an equipment from a minion (rulebook action) is the same if one of the target equipments is the same card. Actions provided by cards in play are not the same if the card is not the same copy, even if it has the same name. Action without cards are never
+    the same as actions with cards. [RTR 19950509] [LSJ 20020729] [LSJ 20060522] [LSJ 20080710] [LSJ 20060824] [LSJ 20080725] [LSJ 20090617] [ANK 20200502]
   - "Is played after a minion successfully blocks but before the blocker is locked and combat begins. It cannot be used if the action is ended without being blocked. [LSJ 19980224] [RTR 19991206]"
   - "Effects triggered when the action is blocked are still applied (eg. {Unleash Hell's Fury}). [PIB 20110417]"
   - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803-1] [RTR 20180719]"
@@ -731,6 +733,8 @@
   - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
 100799|Gambit Accepted:
   - "If the controller of a Gambit in play withdraws, his or her predator gets a VP from the Gambit (the Methuselah who withdraws still gets a VP for withdrawing, of course). [RTR 20040501]"
+100801|Games of Instinct:
+  - "The gain blood effect is applied after combats ends, no combat card can be played afterwards. The acting player chooses the order of after-combat effects. [LSJ 20100324]"
 100805|Gangrel Conspiracy:
   - "May be played before, during, or after votes and ballots have been cast. [LSJ 19980130]"
 100808|Gargoyle Slave:
@@ -1199,7 +1203,9 @@
   - "Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
 101309|Obedience:
   - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [LSJ 20070709]"
-  - "Action cards with the same name are the same action if they have the same target (including political actions, allies, retainers and equipments). Action without card (provided by the rulebook) are the same if they have the same target. Getting an equipment from a minion (rulebook action) is the same if one of the target equipments is the same card. Actions provided by cards in play are not the same if the card is not the same copy, even if it has the same name. Action without cards are never the same as actions with cards. [RTR 19950509] [LSJ 20020729] [LSJ 20060522] [LSJ 20080710] [LSJ 20060824] [LSJ 20080725] [LSJ 20090617] [ANK 20200502]"
+  - >-
+    Action cards with the same name are the same action if they have the same target (including political actions, allies, retainers and equipments). Action without card (provided by the rulebook) are the same if they have the same target. Getting an equipment from a minion (rulebook action) is the same if one of the target equipments is the same card. Actions provided by cards in play are not the same if the card is not the same copy, even if it has the same name. Action without cards are never
+    the same as actions with cards. [RTR 19950509] [LSJ 20020729] [LSJ 20060522] [LSJ 20080710] [LSJ 20060824] [LSJ 20080725] [LSJ 20090617] [ANK 20200502]
   - "Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat, if the opponent is still the acting vampire. [LSJ 19991025]"
   - "The action ends unsuccessfuly immediately, combat does not happen, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20170105] [ANK 20200207]"
   - "Cannot be played if the opponent is not the acting vampire, for example if a slave took his place. [ANK 20171212]"
@@ -1392,7 +1398,9 @@
   - "Is not the default action, no blood is paid to leave torpor. [ANK 20181017]"
 101573|Red Herring:
   - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [LSJ 20070709]"
-  - "Action cards with the same name are the same action if they have the same target (including political actions, allies, retainers and equipments). Action without card (provided by the rulebook) are the same if they have the same target. Getting an equipment from a minion (rulebook action) is the same if one of the target equipments is the same card. Actions provided by cards in play are not the same if the card is not the same copy, even if it has the same name. Action without cards are never the same as actions with cards. [RTR 19950509] [LSJ 20020729] [LSJ 20060522] [LSJ 20080710] [LSJ 20060824] [LSJ 20080725] [LSJ 20090617] [ANK 20200502]"
+  - >-
+    Action cards with the same name are the same action if they have the same target (including political actions, allies, retainers and equipments). Action without card (provided by the rulebook) are the same if they have the same target. Getting an equipment from a minion (rulebook action) is the same if one of the target equipments is the same card. Actions provided by cards in play are not the same if the card is not the same copy, even if it has the same name. Action without cards are never
+    the same as actions with cards. [RTR 19950509] [LSJ 20020729] [LSJ 20060522] [LSJ 20080710] [LSJ 20060824] [LSJ 20080725] [LSJ 20090617] [ANK 20200502]
 101575|The Red Question:
   - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
   - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
@@ -1495,6 +1503,7 @@
 101684|Save Face:
   - "Can be used by a vampire in torpor. [LSJ 20020416]"
   - "Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
+  - "The gain blood effect is applied after combats ends, no combat card can be played afterwards. The acting player chooses the order of after-combat effects. [LSJ 20071116]"
 101688|Scarlet Lore:
   - "[nec] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 101689|Scattershot:
