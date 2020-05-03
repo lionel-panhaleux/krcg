@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.34 (unreleased)
+0.34 (2020-05-03)
 -----------------
 
 - API: Add a card search endpoint "card/"
