@@ -211,9 +211,7 @@ def _card_rulings(args, card):
 
 
 def complete(args):
-    for name in set(
-        vtes.VTES.get_name(v) for k, v in vtes.VTES.items() if args.name.lower() in k
-    ):
+    for name in vtes.VTES.complete(args.name.lower()):
         print(name)
 
 

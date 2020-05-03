@@ -102,3 +102,26 @@ def deck_by_id(twda_id):
 @base.route("/complete/<text>", methods=["GET"])
 def complete(text):
     return jsonify(vtes.VTES.complete(text))
+
+
+@base.route("/card", methods=["POST"])
+def card_search():
+    data = request.get_json() or {}
+    result = set(card["Id"] for card in vtes.VTES.original_cards.values())
+    for type_ in data.get("type") or []:
+        result &= vtes.VTES.search["type"].get(type_.lower(), set())
+    for clan in data.get("clan") or []:
+        result &= vtes.VTES.search["clan"].get(clan.lower(), set())
+    for group in data.get("group") or []:
+        result &= vtes.VTES.search["group"].get(group.lower(), set())
+    for sect in data.get("sect") or []:
+        result &= vtes.VTES.search["sect"].get(sect.lower(), set())
+    for trait in data.get("trait") or []:
+        result &= vtes.VTES.search["trait"].get(trait.lower(), set())
+    for discipline in data.get("discipline") or []:
+        result &= vtes.VTES.search["discipline"].get(discipline, set())
+    for bonus in data.get("bonus") or []:
+        result &= vtes.VTES.search.get(bonus.lower(), set())
+    if data.get("text"):
+        result &= set(vtes.VTES.search["text"].search(data["text"].lower()))
+    return jsonify(sorted(vtes.VTES.get_name(vtes.VTES[int(i)]) for i in result))

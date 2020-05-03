@@ -10,10 +10,10 @@ info:
         name: MIT License
         url: https://opensource.org/licenses/MIT
 tags:
-    - name: Deck
-      description: TWDA decks
     - name: Card
       description: VTES cards
+    - name: Deck
+      description: TWDA decks
 components:
     schemas:
         card_count:
@@ -149,7 +149,7 @@ components:
                         required: ["Reference", "URL"]
                         properties:
                             Reference:
-                                description: Ruling reference
+                                description: Ruling reference (without brackets)
                                 type: string
                                 minLength: 1
                             URL:
@@ -431,6 +431,305 @@ components:
                                   },
                               ]
 paths:
+    /card:
+        post:
+            tags: [Card]
+            summary: Get cards matching given filters.
+            description: |
+                If multiple filters are specified, only get cards matching all filters.
+                If no filter is specified, get all cards.
+                Only the "discipline" field is case-sensitive.
+
+                Note that:
+
+                - Crypt / library are included in "type".
+                - Sect and titles are included in "trait",
+                  independant titles are registered as "1 vote" and "2 votes".
+                - City titles are registered as a city trait
+                  with the name of the city, eg. "los angeles".
+                - Crypt cards in the "any" group are also registered in all groups.
+                - Disciplines are case-sensitive:
+                  ALL-UPPERCASE to denote the **superior** version
+                  and all-lowercase to denote the *inferior* version.
+                - Only crypt cards register superior disciplines.
+                - Multi-disciplines cards are also registered in the "*" discipline.
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                type:
+                                    description: Type of the card
+                                    type: string
+                                    enum:
+                                        - action
+                                        - action modifier
+                                        - ally
+                                        - combat
+                                        - conviction
+                                        - crypt
+                                        - equipment
+                                        - event
+                                        - imbued
+                                        - library
+                                        - master
+                                        - political action
+                                        - power
+                                        - reaction
+                                        - retainer
+                                        - vampire
+                                clan:
+                                    description: Clan/Creed or required clan/creed (or none)
+                                    type: string
+                                    enum:
+                                        - abomination
+                                        - ahrimane
+                                        - akunanse
+                                        - assamite
+                                        - avenger
+                                        - baali
+                                        - blood brother
+                                        - brujah
+                                        - brujah antitribu
+                                        - caitiff
+                                        - daughter of cacophony
+                                        - defender
+                                        - follower of set
+                                        - gangrel
+                                        - gangrel antitribu
+                                        - gargoyle
+                                        - giovanni
+                                        - guruhi
+                                        - harbinger of skulls
+                                        - innocent
+                                        - ishtarri
+                                        - judge
+                                        - kiasyd
+                                        - lasombra
+                                        - malkavian
+                                        - malkavian antitribu
+                                        - martyr
+                                        - nagaraja
+                                        - none
+                                        - nosferatu
+                                        - nosferatu antitribu
+                                        - osebo
+                                        - pander
+                                        - ravnos
+                                        - redeemer
+                                        - salubri
+                                        - salubri antitribu
+                                        - samedi
+                                        - toreador
+                                        - toreador antitribu
+                                        - tremere
+                                        - tremere antitribu
+                                        - true brujah
+                                        - tzimisce
+                                        - ventrue
+                                        - ventrue antitribu
+                                        - visionary
+                                group:
+                                    description: Group (crypt cards only)
+                                    type: string
+                                    enum:
+                                        - "1"
+                                        - "2"
+                                        - "3"
+                                        - "4"
+                                        - "5"
+                                        - "6"
+                                        - "any"
+                                trait:
+                                    description: Trait, title, city or sect
+                                    type: string
+                                    enum:
+                                        - 1 vote
+                                        - 2 votes
+                                        - amsterdam
+                                        - anarch
+                                        - aragon
+                                        - archbishop
+                                        - athens
+                                        - atlanta
+                                        - barcelona
+                                        - baron
+                                        - berlin
+                                        - bishop
+                                        - black hand
+                                        - boston
+                                        - brussels
+                                        - budapest
+                                        - cairo
+                                        - camarilla
+                                        - canberra
+                                        - cardinal
+                                        - chicago
+                                        - chicago
+                                        - cleveland
+                                        - columbus
+                                        - cordoba
+                                        - corte
+                                        - dallas
+                                        - detroit
+                                        - dublin
+                                        - fortaleza
+                                        - frankfurt
+                                        - geneva
+                                        - glasgow
+                                        - guadalajara
+                                        - guatemala city
+                                        - houston
+                                        - imperator
+                                        - independent
+                                        - infernal
+                                        - inner circle
+                                        - istanbul
+                                        - justicar
+                                        - kholo
+                                        - laibon
+                                        - liaison
+                                        - lisbon
+                                        - london
+                                        - los angeles
+                                        - magaji
+                                        - manila
+                                        - mexico city
+                                        - miami
+                                        - milan
+                                        - milwaukee
+                                        - monaco
+                                        - montreal
+                                        - new york
+                                        - paris
+                                        - perth
+                                        - philadelphia
+                                        - pittsburgh
+                                        - port-au-prince
+                                        - prague
+                                        - primogen
+                                        - prince
+                                        - priscus
+                                        - red list
+                                        - regent
+                                        - rome
+                                        - sabbat
+                                        - san diego
+                                        - seattle
+                                        - seraph
+                                        - slave
+                                        - stockholm
+                                        - strasbourg
+                                        - sydney
+                                        - toronto
+                                        - venice
+                                        - versailles
+                                        - washington, d.c.
+                                discipline:
+                                    description: Discipline
+                                    type: string
+                                    enum:
+                                        - "*"
+                                        - ANIMALISM
+                                        - AUSPEX
+                                        - CELERITY
+                                        - CHIMERSTRY
+                                        - DAIMOINON
+                                        - DEMENTATION
+                                        - DOMINATE
+                                        - FORTITUDE
+                                        - MELPOMINEE
+                                        - MYTHERCERIA
+                                        - NECROMANCY
+                                        - OBEAH
+                                        - OBFUSCATE
+                                        - OBTENEBRATION
+                                        - POTENCE
+                                        - PRESENCE
+                                        - PROTEAN
+                                        - QUIETUS
+                                        - SANGUINUS
+                                        - SERPENTIS
+                                        - SPIRITUS
+                                        - TEMPORIS
+                                        - THANATOSIS
+                                        - THAUMATURGY
+                                        - VALEREN
+                                        - VICISSITUDE
+                                        - VISCERATIKA
+                                        - abombwe
+                                        - animalism
+                                        - auspex
+                                        - celerity
+                                        - chimerstry
+                                        - daimoinon
+                                        - defense
+                                        - dementation
+                                        - dominate
+                                        - flight
+                                        - fortitude
+                                        - innocence
+                                        - judgment
+                                        - maleficia
+                                        - martyrdom
+                                        - melpominee
+                                        - mytherceria
+                                        - necromancy
+                                        - none
+                                        - obeah
+                                        - obfuscate
+                                        - obtenebration
+                                        - potence
+                                        - presence
+                                        - protean
+                                        - quietus
+                                        - redemption
+                                        - sanguinus
+                                        - serpentis
+                                        - spiritus
+                                        - striga
+                                        - temporis
+                                        - thanatosis
+                                        - thaumaturgy
+                                        - valeren
+                                        - vengeance
+                                        - vicissitude
+                                        - visceratika
+                                        - vision
+                                bonus:
+                                    description: Special bonus provided
+                                    type: string
+                                    enum:
+                                        - votes
+                                        - intercept
+                                        - bleed
+                                        - stealth
+                                text:
+                                    description: Card text to search for
+                                    type: string
+                            example:
+                                type: ["political action"]
+                                trait: ["anarch"]
+            responses:
+                "200":
+                    description: Success, returns a JSON array of card names
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                minLength: 1
+                                items:
+                                    description: Card name
+                                    type: string
+                                example:
+                                    - Anarch Salon
+                                    - Eat the Rich
+                                    - Firebrand
+                                    - Free States Rant
+                                    - Reckless Agitation
+                "404":
+                    description: Not found
     /card/{name_or_id}:
         get:
             tags: [Card]
@@ -445,10 +744,35 @@ paths:
                       description: "Card name or ID"
             responses:
                 "200":
-                    description: Successful operation
+                    description: Success, returns the card as JSON
                     content:
                         application/json:
                             schema: { $ref: "#/components/schemas/card" }
+                "404":
+                    description: Not found
+    /complete/{partial_name}:
+        get:
+            tags: [Card]
+            summary: Complete a card name
+            description: Return all candidates matching the partial name
+            parameters:
+                - name: partial_name
+                  in: path
+                  required: true
+                  schema:
+                      type: string
+                      description: "Partial card name"
+            responses:
+                "200":
+                    description: Success, returns a JSON array of card names
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: string
+                                    description: Card name
+                            example: ["The unnamed", "Unnatural Disaster"]
                 "404":
                     description: Not found
     /deck:
@@ -489,7 +813,7 @@ paths:
                                 players: 25
             responses:
                 "200":
-                    description: Successful operation
+                    description: Successful, returns a list of decks as a JSON array
                     content:
                         application/json:
                             schema:
@@ -512,34 +836,9 @@ paths:
                       description: "TWDA ID"
             responses:
                 "200":
-                    description: Successful operation
+                    description: Success, returns the deck as JSON
                     content:
                         application/json:
                             schema: { $ref: "#/components/schemas/deck" }
                 "404":
                     description: Not Found
-    /complete/{partial_name}:
-        get:
-            tags: [Card]
-            summary: Complete a card name
-            description: Return all candidates matching the partial name
-            parameters:
-                - name: partial_name
-                  in: path
-                  required: true
-                  schema:
-                      type: string
-                      description: "Partial card name"
-            responses:
-                "200":
-                    description: Successful operation
-                    content:
-                        application/json:
-                            schema:
-                                type: array
-                                items:
-                                    type: string
-                                    description: Card name
-                            example: ["The unnamed", "Unnatural Disaster"]
-                "404":
-                    description: Not found
