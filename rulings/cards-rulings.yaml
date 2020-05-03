@@ -580,6 +580,7 @@
 100658|Erosion:
   - "Erosion resets a minion's base strength. Any modifiers, including inherent modifiers, are applied to the new base. If another effect like {Torn Signpost} later resets the base damage again, then the new amount wins out. [LSJ 19971211-2]"
 100661|Escaped Mental Patient:
+  - "Must choose when declaring strike between a normal hand strike or the aggravated hand strike his ability gives him. [ANK 20190717-2]"
   - 'Do not burn at the end of combat if another effect let him make a hand strike at +1 damage. "If he does so" only applies if his own effect is used directly. [RTR 20020501]'
   - "Do not burn at the end of combat if his strike do not resolve, for example because his opponent uses a strike: combat ends. [LSJ 20010627]"
 100665|The Eternal Mask:
@@ -1167,7 +1168,7 @@
 101287|Nightstick:
   - "Can prevent up to 3 damage, it can prevent less. [RTR 20041202]"
 101295|Nod:
-  - "Choose for each equipment which minion will receive it, then transfer all the equipment accordingly. [ANK 20190717]"
+  - "Choose for each equipment which minion will receive it, then transfer all the equipment accordingly. [ANK 20190717-1]"
 101302|Nosferatu Putrescence:
   - "Can be used by a vampire in torpor. [LSJ 20020416]"
   - "Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
