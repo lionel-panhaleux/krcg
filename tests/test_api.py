@@ -406,3 +406,155 @@ def test_deck(client):
             "count": 74,
         },
     }
+
+
+def test_search(client):
+    response = client.post("/card")
+    assert response.status_code == 200
+    assert len(response.json) == 3738
+    # non-existing filters have no impact
+    response = client.post("/card", json={"foo": ["bar"]})
+    assert response.status_code == 200
+    assert len(response.json) == 3738
+    # non-existing values do not crash
+    response = client.post("/card", json={"bonus": ["foo"]})
+    assert response.status_code == 200
+    assert len(response.json) == 0
+    response = client.post("/card", json={"trait": ["foo"]})
+    assert response.status_code == 200
+    assert len(response.json) == 0
+    # discipline, title
+    response = client.post(
+        "/card", json={"trait": ["primogen"], "discipline": ["serpentis"]}
+    )
+    assert response.json == ["Amenophobis"]
+    # city title
+    response = client.post("/card", json={"trait": ["chicago"]})
+    assert response.json == [
+        "Antón de Concepción",
+        "Crusade: Chicago",
+        "Lachlan, Noddist",
+        "Lodin (Olaf Holte)",
+        "Maldavis (ADV)",
+        "Praxis Seizure: Chicago",
+        "Sir Walter Nash",
+    ]
+    # stealth, votes
+    response = client.post("/card", json={"bonus": ["stealth", "votes"]})
+    assert response.json == ["Loki's Gift", "Perfect Paragon", "Zayyat, The Sandstorm"]
+    # votes provided by master cards
+    response = client.post(
+        "/card", json={"bonus": ["votes"], "clan": ["Assamite"], "type": ["Master"]},
+    )
+    assert response.json == ["Alamut", "The Black Throne"]
+    # votes provided by titles
+    response = client.post(
+        "/card", json={"bonus": ["votes"], "clan": ["Assamite"], "group": ["3"]},
+    )
+    assert response.json == ["Rebekah"]
+    # title when MERGED
+    response = client.post("/card", json={"clan": ["Assamite"], "trait": ["justicar"]})
+    assert response.json == ["Tegyrius, Vizier (ADV)"]
+    # traits: black hand, red list ...
+    response = client.post(
+        "/card", json={"clan": ["Nagaraja"], "trait": ["black hand"]},
+    )
+    assert response.json == ["Sennadurek"]
+    response = client.post("/card", json={"clan": ["Assamite"], "trait": ["red list"]})
+    assert response.json == ["Jamal", "Tariq, The Silent (ADV)"]
+    # sect
+    response = client.post(
+        "/card", json={"clan": ["assamite"], "trait": ["camarilla"], "group": ["2"]},
+    )
+    assert response.json == [
+        "Al-Ashrad, Amr of Alamut (ADV)",
+        "Tegyrius, Vizier",
+        "Tegyrius, Vizier (ADV)",
+    ]
+    # traits on library cards
+    response = client.post(
+        "/card", json={"type": ["action modifier"], "trait": ["black hand"]},
+    )
+    assert response.json == [
+        "Circumspect Revelation",
+        "Seraph's Second",
+        "The Art of Memory",
+    ]
+    # required title
+    response = client.post("/card", json={"type": ["reaction"], "trait": ["justicar"]})
+    assert response.json == ["Legacy of Power", "Second Tradition: Domain"]
+    # "Requires titled Sabbat/Camarilla" maps to all possible titles
+    response = client.post(
+        "/card", json={"bonus": ["intercept"], "trait": ["archbishop"]},
+    )
+    assert response.json == [
+        "Matteus, Flesh Sculptor",
+        "National Guard Support",
+        "Persona Non Grata",
+        "Under Siege",
+    ]
+    # Reducing intercept is stealth
+    response = client.post(
+        "/card",
+        json={"bonus": ["stealth"], "discipline": ["chimerstry"], "type": ["library"]},
+    )
+    assert response.json == [
+        "Fata Morgana",
+        "Mirror's Visage",
+        "Smoke and Mirrors",
+        "Will-o'-the-Wisp",
+    ]
+    # Reducing stealth is intercept
+    response = client.post(
+        "/card",
+        json={
+            "bonus": ["intercept"],
+            "discipline": ["chimerstry"],
+            "type": ["library"],
+        },
+    )
+    assert response.json == [
+        "Draba",
+        "Ignis Fatuus",
+        # multi-disc are tricky: it has chi, it has intercept.
+        # chi doesn't provide intercept, but it matches - fair enough
+        "Netwar",
+        "Veiled Sight",
+    ]
+    # no discipline (crypt)
+    response = client.post("/card", json={"discipline": ["none"], "type": ["crypt"]})
+    assert response.json == ["Anarch Convert", "Sandra White", "Smudge the Ignored"]
+    response = client.post(
+        "/card",
+        json={"discipline": ["none"], "bonus": ["intercept"], "trait": ["sabbat"]},
+    )
+    # no discipline, sect (or independent) required
+    assert response.json == ["Abbot"]
+    response = client.post(
+        "/card", json={"type": ["political action"], "trait": ["independent"]},
+    )
+    assert response.json == ["Free States Rant", "Reckless Agitation"]
+    response = client.post(
+        "/card", json={"type": ["political action"], "trait": ["anarch"]},
+    )
+    assert response.json == [
+        "Anarch Salon",
+        "Eat the Rich",
+        "Firebrand",
+        "Free States Rant",
+        "Reckless Agitation",
+    ]
+    # multi-disciplines
+    response = client.post(
+        "/card", json={"discipline": ["*", "animalism"], "bonus": ["intercept"]},
+    )
+    assert response.json == [
+        "Detect Authority",
+        "Falcon's Eye",
+        "Read the Winds",
+        "Speak with Spirits",
+        "The Mole",
+    ]
+    # superior disciplines (vampires only)
+    response = client.post("/card", json={"discipline": ["OBEAH"], "group": ["2"]})
+    assert response.json == ["Blanche Hill", "Matthias"]

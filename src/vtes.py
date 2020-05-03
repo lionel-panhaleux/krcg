@@ -44,6 +44,53 @@ def _get_runling_links(links_dict, text):
         yield reference, links_dict[reference]
 
 
+class _Trie(collections.defaultdict):
+    """A Trie structure for text search
+    """
+
+    def __init__(self):
+        super().__init__(lambda: collections.defaultdict(int))
+
+    def add(self, text, reference):
+        """Add text to the Trie
+
+        Args:
+            text (str): The text to add.
+            reference (any): The reference to return on a match
+        """
+        for e, part in enumerate(text.lower().split()):
+            for i in range(1, len(part) + 1):
+                self[part[:i]][reference] += (
+                    # double score for matching name start
+                    i
+                    * (2 if e == 0 else 1)
+                )
+
+    def search(self, text):
+        """Search text into the Trie
+
+        The match is case-insensitive but otherwise exact.
+        Matches on start of words score higher.
+
+        Args:
+            text (str): The text to search
+        Returns:
+            list: References ordered by score
+        """
+        ret = None
+        for part in text.split():
+            part_match = {}
+            for match, score in self.get(part.lower(), dict()).items():
+                part_match[match] = max(part_match.get(match, 0), score)
+            if ret:
+                ret = collections.Counter(
+                    {k: v + part_match[k] for k, v in ret.items() if k in part_match}
+                )
+            else:
+                ret = collections.Counter(part_match)
+        return [x[0] for x in sorted(ret.items(), key=lambda x: (-x[1], x[0]),)]
+
+
 class _VTES:
     """VTES cards database that matches incomplete or misspelled card names.
 
@@ -71,7 +118,8 @@ class _VTES:
                 }
             }
             cards (dict): dict of {card_name: card}
-            completion (dict): used for card name completion in web API and discord bot
+            completion (_Trie): used for card name completion in web API and discord bot
+            search (dict): used for structured card search (cf. web API)
             fuzzy_threshold (int): do not try to fuzzy match text shorter than this
             safe_variants (bool): do not use card name variants shorter than the
                                   fuzzy threshold (avoids errors when parsing the TWDA)
@@ -79,7 +127,8 @@ class _VTES:
         self.original_cards = {}
         self.rulings = {}
         self.cards = {}
-        self.completion = collections.defaultdict(lambda: collections.defaultdict(int))
+        self.completion = _Trie()
+        self.search = {}
         self.fuzzy_threshold = 6
         self.safe_variants = True
 
@@ -244,13 +293,162 @@ class _VTES:
         for name, card in self.cards.items():
             if isinstance(name, int):
                 continue
-            for e, part in enumerate(name.lower().split()):
-                for i in range(1, len(part) + 1):
-                    self.completion[part[:i]][self.get_name(card)] += (
-                        # double score for matching name start
-                        i
-                        * (2 if e == 0 else 1)
-                    )
+            self.completion.add(name, self.get_name(card))
+        # build the cards map for structured search
+        # text is a completion trie, other dicts just contain a set of the cards IDs
+        self.search = {
+            "text": _Trie(),
+            "type": collections.defaultdict(set),
+            "clan": collections.defaultdict(set),
+            "trait": collections.defaultdict(set),
+            "group": collections.defaultdict(set),
+            "capacity": collections.defaultdict(set),
+            "discipline": collections.defaultdict(set),
+            "votes": set(),
+            "intercept": set(),
+            "bleed": set(),
+            "stealth": set(),
+        }
+        for card in self.original_cards.values():
+            self.add_card_to_search(card)
+
+    def add_card_to_search(self, card):
+        """Add a card to self.search
+
+        The card["Id"] is added to all matching sets.
+
+        Args:
+            card (dict): A card dict
+        """
+        self.search["text"].add(card["Card Text"], card["Id"])
+        for type_ in card["Type"]:
+            self.search["type"][type_.lower()].add(card["Id"])
+        if set(card["Type"]) & {"Vampire", "Imbued"}:
+            self.search["type"]["crypt"].add(card["Id"])
+            if re.search(r"^(\[MERGED\] )?Sabbat", card["Card Text"]):
+                self.search["trait"]["sabbat"].add(card["Id"])
+            if re.search(r"^(\[MERGED\] )?Camarilla", card["Card Text"]):
+                self.search["trait"]["camarilla"].add(card["Id"])
+            if re.search(r"^(\[MERGED\] )?Laibon", card["Card Text"]):
+                self.search["trait"]["laibon"].add(card["Id"])
+            if re.search(r"^(\[MERGED\] )?Anarch", card["Card Text"]):
+                self.search["trait"]["anarch"].add(card["Id"])
+            if re.search(r"^(\[MERGED\] )?Independent", card["Card Text"]):
+                self.search["trait"]["independent"].add(card["Id"])
+        else:
+            self.search["type"]["library"].add(card["Id"])
+        if card.get("Clan"):
+            for clan in card.get("Clan", []):
+                self.search["clan"][clan.lower()].add(card["Id"])
+        else:
+            self.search["clan"]["none"].add(card["Id"])
+        if card.get("Sect"):
+            self.search["trait"][card["Sect"].lower()].add(card["Id"])
+        if card.get("Title"):
+            self.search["trait"][card["Title"].lower()].add(card["Id"])
+        if card.get("Group"):
+            self.search["group"][card["Group"].lower()].add(card["Id"])
+            if card["Group"].lower() == "any":
+                for i in range(1, 7):
+                    self.search["group"][str(i)].add(card["Id"])
+        if card.get("Capacity"):
+            capacity = card["Capacity"].lower()
+            if len(card["Capacity"]) > 2:
+                capacity = "+1"
+            self.search["capacity"][capacity].add(card["Id"])
+        if re.search(r"(\d|X)\s+(v|V)ote", card["Card Text"]):
+            self.search["votes"].add(card["Id"])
+        if re.search(r"\+(\d|X)\s+(b|B)leed", card["Card Text"]):
+            self.search["bleed"].add(card["Id"])
+        if re.search(r"\+(\d|X)\s+(i|I)ntercept", card["Card Text"]):
+            self.search["intercept"].add(card["Id"])
+        if re.search(
+            r"\+(\d|X)\s+(s|S)tealth (?!Ⓓ|action|political)", card["Card Text"]
+        ):
+            self.search["stealth"].add(card["Id"])
+        if not set(card["Type"]) & {"Master", "Vampire", "Imbued"}:
+            if re.search(r"-(\d|X)\s+(s|S)tealth", card["Card Text"]):
+                self.search["intercept"].add(card["Id"])
+            if re.search(r"-(\d|X)\s+(i|I)ntercept", card["Card Text"]):
+                self.search["stealth"].add(card["Id"])
+        if re.search(r"stealth .* to 0", card["Card Text"]):
+            self.search["intercept"].add(card["Id"])
+        if re.search(r"attempt fails", card["Card Text"]):
+            self.search["stealth"].add(card["Id"])
+        for discipline in card.get("Discipline", []):
+            self.search["discipline"][discipline.lower()].add(card["Id"])
+        # add vampires with superior disciplines to both inf and sup sets
+        for discipline in card.get("Disciplines", []):
+            # Visceratika and Vision have the same trigram
+            if discipline.lower() == "vis" and "Imbued" in card["Type"]:
+                discipline = "vii"
+            self.search["discipline"][config.DIS_MAP[discipline.lower()]].add(
+                card["Id"]
+            )
+            if discipline in config.DIS_MAP:
+                self.search["discipline"][config.DIS_MAP[discipline]].add(card["Id"])
+        if not card.get("Disciplines") and not card.get("Discipline"):
+            self.search["discipline"]["none"].add(card["Id"])
+        if len(card.get("Discipline", [])) > 1:
+            self.search["discipline"]["*"].add(card["Id"])
+        city = re.search(
+            r"(?:Prince|Baron|Archbishop) of ((?:[A-Z][A-Za-z\s-]{3,})+)",
+            card["Card Text"],
+        )
+        if city:
+            city = city.group(1).lower()
+            if city[-5:] == "as a ":
+                city = city[:-5]
+            if city == "washington":
+                city = "washington, d.c."
+            self.search["trait"][city].add(card["Id"])
+        if re.search(r"Requires a( ready)? titled (S|s)abbat", card["Card Text"]):
+            self.search["trait"]["bishop"].add(card["Id"])
+            self.search["trait"]["archbishop"].add(card["Id"])
+            self.search["trait"]["cardinal"].add(card["Id"])
+            self.search["trait"]["regent"].add(card["Id"])
+            self.search["trait"]["priscus"].add(card["Id"])
+        if re.search(r"Requires a( ready)? titled (C|c)amarilla", card["Card Text"]):
+            self.search["trait"]["primogen"].add(card["Id"])
+            self.search["trait"]["prince"].add(card["Id"])
+            self.search["trait"]["justicar"].add(card["Id"])
+            self.search["trait"]["inner circle"].add(card["Id"])
+            self.search["trait"]["imperator"].add(card["Id"])
+        if re.search(r"Requires a( ready)? titled vampire", card["Card Text"]):
+            self.search["trait"]["primogen"].add(card["Id"])
+            self.search["trait"]["prince"].add(card["Id"])
+            self.search["trait"]["justicar"].add(card["Id"])
+            self.search["trait"]["inner circle"].add(card["Id"])
+            self.search["trait"]["imperator"].add(card["Id"])
+            self.search["trait"]["bishop"].add(card["Id"])
+            self.search["trait"]["archbishop"].add(card["Id"])
+            self.search["trait"]["cardinal"].add(card["Id"])
+            self.search["trait"]["regent"].add(card["Id"])
+            self.search["trait"]["priscus"].add(card["Id"])
+            self.search["trait"]["baron"].add(card["Id"])
+            self.search["trait"]["liaison"].add(card["Id"])
+            self.search["trait"]["magaji"].add(card["Id"])
+            self.search["trait"]["kholo"].add(card["Id"])
+        # consider sects as traits,
+        # but do not match them just anywhere in the card text
+        if re.search(r"Requires a( ready)? (S|s)abbat", card["Card Text"]):
+            self.search["trait"]["sabbat"].add(card["Id"])
+        if re.search(r"Requires a( ready)? (C|c)amarilla", card["Card Text"]):
+            self.search["trait"]["camarilla"].add(card["Id"])
+        if re.search(r"Requires a( ready)? (L|l)aibon", card["Card Text"]):
+            self.search["trait"]["laibon"].add(card["Id"])
+        if re.search(
+            r"Requires a( ready|n)( (I|i)ndependent or)? (A|a)narch", card["Card Text"],
+        ):
+            self.search["trait"]["anarch"].add(card["Id"])
+        if re.search(r"Requires an (I|i)ndependent", card["Card Text"]):
+            self.search["trait"]["independent"].add(card["Id"])
+        for trait in re.findall(
+            f"({'|'.join(config.TRAITS)})", card["Card Text"].lower()
+        ):
+            self.search["trait"][trait].add(card["Id"])
+        if "[FLIGHT]" in card["Card Text"]:
+            self.search["discipline"]["flight"].add(card["Id"])
 
     def complete(self, partial_name):
         """Card name completion.
@@ -265,18 +463,7 @@ class _VTES:
         Returns:
             (list): A sorted list of results, from most likely to less likely
         """
-        ret = None
-        for part in partial_name.split():
-            part_match = {}
-            for match, score in self.completion.get(part.lower(), dict()).items():
-                part_match[match] = max(part_match.get(match, 0), score)
-            if ret:
-                ret = collections.Counter(
-                    {k: v + part_match[k] for k, v in ret.items() if k in part_match}
-                )
-            else:
-                ret = collections.Counter(part_match)
-        return [x[0] for x in sorted(ret.items(), key=lambda x: (-x[1], x[0]),)]
+        return self.completion.search(partial_name)
 
     @functools.lru_cache()
     def all_card_names_variants(self):
@@ -349,17 +536,9 @@ class _VTES:
         Yields:
             All possible values
         """
-
-        def get_traits(traits):
-            for trait_value in traits:
-                if "&" in trait_value:
-                    yield "Combo"
-                else:
-                    yield trait_value
-
         return set(
             itertools.chain.from_iterable(
-                get_traits(card[trait]) for card in self.values() if card.get(trait)
+                card[trait] for card in self.values() if card.get(trait)
             )
         )
 
@@ -480,7 +659,10 @@ class _VTES:
                 ]
             if "Discipline" in card:
                 card["Discipline"] = [
-                    d.strip() for d in card["Discipline"].split("/") if d.strip()
+                    d.strip()
+                    for p in card["Discipline"].split("/")
+                    for d in p.split("&")
+                    if d.strip()
                 ]
             if "Burn Option" in card:
                 card["Burn Option"] = bool(card["Burn Option"])
@@ -526,12 +708,8 @@ class _VTES:
         Returns:
             bool: true if the card is of the given discipline
         """
-        if discipline in ["Combo", "combo"]:
-            return any("&" in d for d in VTES[card].get("Discipline", []))
         return {discipline.strip().lower()} & {
-            disc.strip().lower()
-            for d in VTES[card].get("Discipline", [])
-            for disc in d.split("&")
+            d.strip().lower() for d in VTES[card].get("Discipline", [])
         }
 
     def no_disc(self, card):
