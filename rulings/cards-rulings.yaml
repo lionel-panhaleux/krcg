@@ -247,7 +247,7 @@
   - "Preventing damage with it does not force the minion to strike with it. [LSJ 19971215]"
   - "Inherits all of the properties of the base hand strike. [TOM 19960225] [LSJ 20071020]"
   - "Effects that affect or improve hand strikes can be used on its strike. [LSJ 20071020]"
-  - 'You cannot use it with a strike card that would read: "Strike: make a hand strike." but you can use it with a strike card that reads "strike: make a hand weapon strike". [LSJ 20080702-1]'
+  - 'Cannot be used with a strike card that reads: "Strike: make a hand strike." but can be use it with a strike card that reads "strike: make a weapon strike" (eg. {Brute Force}). In that case, the strike is still considered a hand strike (ie. can be chosen if {Immortal Grapple} has been played) [LSJ 20080702-1] [LSJ 20090114]'
 100271|Burning Wrath:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "All the damage is aggravated. [LSJ 20020122]"
