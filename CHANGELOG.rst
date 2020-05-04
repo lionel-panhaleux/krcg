@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.36 (unreleased)
+0.36 (2020-05-04)
 -----------------
 
 - Discord Bot: Fix completion
