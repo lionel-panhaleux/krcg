@@ -1408,6 +1408,7 @@
 101269|Neebi:
     - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 101272|Nephandus:
+    - "His life total can exceed his starting life capacity (it is the case for all allies). [ANK 20171109]"
     - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630] [ANK 20170111]"
 101275|Netwar:
     - "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
@@ -1446,8 +1447,9 @@
 101331|Orun:
     - "A vampire with multiple Oruns will only burn one Orun if he successfully bleeds for 2 or more. [LSJ 20090603]"
 101333|Ossian:
+    - "His life total can exceed his starting life capacity (it is the case for all allies). [ANK 20171109]"
     - "The life is gained after the presses are handled. It is gained if the round ends prematurely. [RTR 20030519]"
-    - "The Auspex special applies to whatever the current action is, not just to his special enter combat action. [LSJ 20050201]"
+    - "The Auspex [aus] special applies to whatever the current action is, not just to his special enter combat action. [LSJ 20050201]"
     - "If Auspex [aus] was used to block him, the blocker can use an effect to set the range, but not a {Sniper Rifle} as it would require him to strike with it, which he cannot. [LSJ 20100827]"
 101334|Oubliette:
     - "[OBT] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
