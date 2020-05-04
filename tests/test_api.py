@@ -558,3 +558,16 @@ def test_search(client):
     # superior disciplines (vampires only)
     response = client.post("/card", json={"discipline": ["OBEAH"], "group": ["2"]})
     assert response.json == ["Blanche Hill", "Matthias"]
+    # clans abbreviations
+    response = client.post("/card", json={"clan": ["trujah"], "group": ["2"]})
+    assert response.json == ["Krassimir", "Nu, The Pillar", "Synesios"]
+    # Gwen Brand special case, disciplines abbreviations
+    response = client.post(
+        "/card",
+        json={
+            "clan": ["ravnos"],
+            "group": ["5"],
+            "discipline": ["AUS", "CHI", "FOR", "ANI"],
+        },
+    )
+    assert response.json == ["Gwen Brand"]

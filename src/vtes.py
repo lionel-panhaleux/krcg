@@ -311,6 +311,12 @@ class _VTES:
         }
         for card in self.original_cards.values():
             self.add_card_to_search(card)
+        # manual fixups
+        card = self["Gwen Brand"]
+        self.search["discipline"]["ANIMALISM"].add(card["Id"])
+        self.search["discipline"]["AUSPEX"].add(card["Id"])
+        self.search["discipline"]["CHIMERSTRY"].add(card["Id"])
+        self.search["discipline"]["FORTITUDE"].add(card["Id"])
 
     def add_card_to_search(self, card):
         """Add a card to self.search
@@ -381,7 +387,7 @@ class _VTES:
         for discipline in card.get("Disciplines", []):
             # Visceratika and Vision have the same trigram
             if discipline.lower() == "vis" and "Imbued" in card["Type"]:
-                discipline = "vii"
+                discipline = "vin"
             self.search["discipline"][config.DIS_MAP[discipline.lower()]].add(
                 card["Id"]
             )

@@ -4,7 +4,7 @@ Changelog
 0.35 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- API: Improve search endpoint
 
 
 0.34 (2020-05-03)
