@@ -94,11 +94,13 @@ async def on_message(message):
             else:
                 content = candidates[SELECTION_EMOJIS[reaction.emoji] - 1]
                 try:
-                    await response.edit(**handle_message(content))
+                    await response.edit(**handle_message(content, completion=False))
                 # this should not fail: bots can modify their messages
                 except discord.Forbidden:
                     logging.warning("Missing edit message permission")
-                    await message.channel.send(**handle_message(content))
+                    await message.channel.send(
+                        **handle_message(content, completion=False)
+                    )
 
 
 #: Response embed color depends on card type / clan
@@ -157,7 +159,7 @@ COLOR_MAP = {
 }
 
 
-def handle_message(message):
+def handle_message(message, completion=True):
     """Message handling
 
     Args:
@@ -173,33 +175,34 @@ def handle_message(message):
         message = int(message)
     except ValueError:
         pass
-    # Use completion
-    try:
-        candidates = vtes.VTES.complete(message)
-    except AttributeError:
-        candidates = []
-    if len(candidates) == 1:
-        message = candidates[0]
-    elif len(candidates) > 10 and message not in vtes.VTES:
-        return {"content": "Too many candidates, try a more complete card name."}
-    elif len(candidates) <= 10:
-        embed = {
-            "type": "rich",
-            "title": "What card did you mean ?",
-            "color": DEFAULT_COLOR,
-            "description": "\n".join(
-                f"{i}: {card}" for i, card in enumerate(candidates, 1)
-            ),
-            "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
-        }
-        logger.info(embed)
-        return {
-            "content": "",
-            "embed": discord.Embed.from_dict(embed),
-            "candidates": candidates,
-        }
+    # Use completion by default
+    if completion:
+        try:
+            candidates = vtes.VTES.complete(message)
+        except AttributeError:
+            candidates = []
+        if len(candidates) == 1:
+            message = candidates[0]
+        elif len(candidates) > 10 and message not in vtes.VTES:
+            return {"content": "Too many candidates, try a more complete card name."}
+        elif len(candidates) <= 10:
+            embed = {
+                "type": "rich",
+                "title": "What card did you mean ?",
+                "color": DEFAULT_COLOR,
+                "description": "\n".join(
+                    f"{i}: {card}" for i, card in enumerate(candidates, 1)
+                ),
+                "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+            }
+            logger.info(embed)
+            return {
+                "content": "",
+                "embed": discord.Embed.from_dict(embed),
+                "candidates": candidates,
+            }
     # Fuzzy match and known abbreviations only if completion did not help
-    elif message not in vtes.VTES:
+    if message not in vtes.VTES:
         return {"content": "No card match"}
     # card is found, build fields
     card = vtes.VTES.normalized(vtes.VTES[message])

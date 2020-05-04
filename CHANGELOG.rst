@@ -4,7 +4,7 @@ Changelog
 0.36 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Discord Bot: Fix completion
 
 
 0.35 (2020-05-04)
