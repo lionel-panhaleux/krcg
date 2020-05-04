@@ -173,38 +173,34 @@ def handle_message(message):
         message = int(message)
     except ValueError:
         pass
-    # use completion if no card is found
-    # all branches return in this conditional block
-    if message not in vtes.VTES:
-        try:
-            candidates = vtes.VTES.complete(message)
-        # Ignore int messages, they can be wrong card IDs
-        # or (most likely) candidates selection for previous message that were
-        # out of range or not sent by author
-        except AttributeError:
-            candidates = []
-        if len(candidates) == 1:
-            message = candidates[0]
-        elif len(candidates) > 10:
-            return {"content": "Too many candidates, try a more complete card name."}
-        elif len(candidates):
-            embed = {
-                "type": "rich",
-                "title": "What card did you mean ?",
-                "color": DEFAULT_COLOR,
-                "description": "\n".join(
-                    f"{i}: {card}" for i, card in enumerate(candidates, 1)
-                ),
-                "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
-            }
-            logger.info(embed)
-            return {
-                "content": "",
-                "embed": discord.Embed.from_dict(embed),
-                "candidates": candidates,
-            }
-        else:
-            return {"content": "No card match"}
+    # Use completion
+    try:
+        candidates = vtes.VTES.complete(message)
+    except AttributeError:
+        candidates = []
+    if len(candidates) == 1:
+        message = candidates[0]
+    elif len(candidates) > 10 and message not in vtes.VTES:
+        return {"content": "Too many candidates, try a more complete card name."}
+    elif len(candidates) <= 10:
+        embed = {
+            "type": "rich",
+            "title": "What card did you mean ?",
+            "color": DEFAULT_COLOR,
+            "description": "\n".join(
+                f"{i}: {card}" for i, card in enumerate(candidates, 1)
+            ),
+            "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+        }
+        logger.info(embed)
+        return {
+            "content": "",
+            "embed": discord.Embed.from_dict(embed),
+            "candidates": candidates,
+        }
+    # Fuzzy match and known abbreviations only if completion did not help
+    elif message not in vtes.VTES:
+        return {"content": "No card match"}
     # card is found, build fields
     card = vtes.VTES.normalized(vtes.VTES[message])
     card_type = "/".join(card["Type"])

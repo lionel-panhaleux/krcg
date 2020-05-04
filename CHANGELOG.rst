@@ -5,6 +5,7 @@ Changelog
 -----------------
 
 - API: Improve search endpoint
+- Discord Bot: Better card name search
 
 
 0.34 (2020-05-03)
