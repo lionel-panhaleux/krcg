@@ -6,6 +6,7 @@ from flask import Blueprint, Flask, request, jsonify, render_template
 
 
 from . import analyzer
+from . import config
 from . import twda
 from . import vtes
 
@@ -111,6 +112,7 @@ def card_search():
     for type_ in data.get("type") or []:
         result &= vtes.VTES.search["type"].get(type_.lower(), set())
     for clan in data.get("clan") or []:
+        clan = config.CLANS_AKA.get(clan.lower()) or clan
         result &= vtes.VTES.search["clan"].get(clan.lower(), set())
     for group in data.get("group") or []:
         result &= vtes.VTES.search["group"].get(group.lower(), set())
@@ -119,6 +121,7 @@ def card_search():
     for trait in data.get("trait") or []:
         result &= vtes.VTES.search["trait"].get(trait.lower(), set())
     for discipline in data.get("discipline") or []:
+        discipline = config.DIS_MAP.get(discipline) or discipline
         result &= vtes.VTES.search["discipline"].get(discipline, set())
     for bonus in data.get("bonus") or []:
         result &= vtes.VTES.search.get(bonus.lower(), set())

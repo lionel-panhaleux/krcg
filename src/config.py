@@ -107,6 +107,7 @@ CLANS_AKA = {
     "skulls": "Harbinger of Skulls",
     "harbinger": "Harbinger of Skulls",
     "harbingers": "Harbinger of Skulls",
+    "trujah": "True Brujah",
 }
 
 DISC_AKA = {
@@ -165,6 +166,8 @@ TRAITS = [
     "red list",
     "infernal",
     "slave",
+    "scarce",
+    "sterile",
 ]
 
 #: disciplines trigrams used in crypt CSV
@@ -203,7 +206,7 @@ DIS_MAP = {
     "val": "valeren",
     "ven": "vengeance",
     "vic": "vicissitude",
-    "vii": "vision",  # VIS is used in CSV
+    "vin": "vision",  # VIS is used in CSV
     "vis": "visceratika",
     "abo": "abombwe",
     "ANI": "ANIMALISM",
