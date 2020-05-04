@@ -738,8 +738,9 @@
     - "[PRO] The maneuver is only available during the action in which Eyes of the Beast was played. [ANK 20191108]"
     - "[PRO] If the action is blocked but continues after combat (eg. with {Form of Mist}) and the reacting vampire blocks again, he gets the maneuver again. [ANK 20191108]"
 100687|Faceless Night:
-    - "[OBF]: A minion attempting to block before it is played cannot back out. [LSJ 20081202]"
-    - "[OBF]: A minion that as attempted to block but failed before it was played is not affected. [ANK 20190509]"
+    - "[OBF] A minion attempting to block before it is played cannot back out. [LSJ 20081202]"
+    - "[OBF] A minion that has attempted to block but failed before it was played is not affected. [ANK 20190509]"
+    - '[OBF] The lock of the minion happens at action resolution. He still locks if he unlocked before that (eg. with {Guard Dogs}). Only cards that can be played "after action resolution" can be played after the lock. [ANK 20171017]'
 100690|Faerie Wards:
     - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]'
     - "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
