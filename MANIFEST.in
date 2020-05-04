@@ -9,6 +9,6 @@ prune static
 exclude Makefile
 exclude bot-example.png
 
-global-exclude *__pycache__*
-global-exclude *.egg-info*
-global-exclude *.pkl*
+global-exclude __pycache__
+global-exclude *.egg-info
+global-exclude *.pkl
