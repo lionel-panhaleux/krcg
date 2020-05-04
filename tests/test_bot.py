@@ -82,3 +82,41 @@ def test_bot(monkeypatch):
     response = discord_bot.handle_message("the")
     assert response["content"] == "Too many candidates, try a more complete card name."
     assert not response.get("embed")
+    # vampire with advanced version
+    response = discord_bot.handle_message("kemintiri")
+    assert response["embed"]
+    assert response["embed"].to_dict() == {
+        "color": 16777215,
+        "description": "1: Kemintiri\n" "2: Kemintiri (ADV)",
+        "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+        "title": "What card did you mean ?",
+        "type": "rich",
+    }
+    # vampire with comma in the name
+    response = discord_bot.handle_message("tariq")
+    assert response["embed"]
+    assert response["embed"].to_dict() == {
+        "color": 16777215,
+        "description": "1: Tariq, The Silent\n" "2: Tariq, The Silent (ADV)",
+        "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+        "title": "What card did you mean ?",
+        "type": "rich",
+    }
+    # card with column in the name
+    response = discord_bot.handle_message("condemnation")
+    assert response["embed"]
+    assert response["embed"].to_dict() == {
+        "color": 16777215,
+        "description": "1: Condemnation: Betrayed\n"
+        "2: Condemnation: Doomed\n"
+        "3: Condemnation: Languid\n"
+        "4: Condemnation: Mute\n"
+        "5: Consanguineous Condemnation",
+        "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+        "title": "What card did you mean ?",
+        "type": "rich",
+    }
+    # short easter egg
+    response = discord_bot.handle_message("no")
+    assert response["embed"]
+    assert response["embed"].title == "Direct Intervention"
