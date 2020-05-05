@@ -115,9 +115,9 @@ def main():
         with open(
             os.path.join(out_folder, "standard-rulings.json"), "w", encoding="utf-8",
         ) as out_file:
-            json.dump(standard_rulings(), out_file)
+            json.dump(standard_rulings(), out_file, indent=2)
     if "amaranth" in args.formats:
         with open(
             os.path.join(out_folder, "amaranth-twda.json"), "w", encoding="utf-8",
         ) as out_file:
-            json.dump(amaranth_twda(), out_file)
+            json.dump(amaranth_twda(), out_file, indent=2)
