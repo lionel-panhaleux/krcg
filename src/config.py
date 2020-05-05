@@ -1,5 +1,4 @@
-"""Configuration.
-"""
+"""Configuration."""
 import os.path
 import tempfile
 

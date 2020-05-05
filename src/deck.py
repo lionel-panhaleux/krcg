@@ -1,5 +1,4 @@
-"""Deck class: pickling and card access under conditions.
-"""
+"""Deck class: pickling and card access under conditions."""
 import collections
 import logging
 
@@ -143,8 +142,7 @@ class Deck(collections.Counter):
         self.update(state.get("cards", {}))
 
     def __reduce__(self):
-        """For pickle serialization.
-        """
+        """For pickle serialization."""
         return (Deck, (), self.__getstate__())
 
     def __str__(self):

@@ -32,8 +32,7 @@ SELECTION_EMOJIS = collections.OrderedDict(
 
 @client.event
 async def on_ready():
-    """Login success informative log
-    """
+    """Login success informative log."""
     logger.info(f"Logged in as {client.user}")
 
 
