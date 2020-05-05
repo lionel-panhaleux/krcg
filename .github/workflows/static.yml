@@ -33,6 +33,8 @@ jobs:
         run: |
           make validate
       - name: Coverage
+        env: # Or as an environment variable
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
         run: |
           coverage run -m pytest
           coverage xml
