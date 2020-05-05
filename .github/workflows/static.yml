@@ -32,3 +32,8 @@ jobs:
       - name: JSON schemas validation
         run: |
           make validate
+      - name: Coverage
+        run: |
+          coverage run -m pytest
+          coverage xml
+          python-codacy-coverage -r coverage.xml
