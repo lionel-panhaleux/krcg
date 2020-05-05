@@ -342,6 +342,7 @@ def test_search():
     ]
     assert sorted(vtes.VTES.search["discipline"]) == [
         "*",
+        "ABOMBWE",
         "ANIMALISM",
         "AUSPEX",
         "CELERITY",

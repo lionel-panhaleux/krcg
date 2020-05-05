@@ -207,7 +207,7 @@ DIS_MAP = {
     "vic": "vicissitude",
     "vin": "vision",  # VIS is used in CSV
     "vis": "visceratika",
-    "abo": "abombwe",
+    "ABO": "ABOMBWE",
     "ANI": "ANIMALISM",
     "AUS": "AUSPEX",
     "CEL": "CELERITY",

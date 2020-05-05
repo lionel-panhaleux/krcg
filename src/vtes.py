@@ -256,10 +256,8 @@ class _VTES:
             key.lower() if isinstance(key, str) else key, value
         )
 
-    def __delitem__(self, key, value):
-        return self.cards.__setitem__(
-            key.lower() if isinstance(key, str) else key, value
-        )
+    def __delitem__(self, key):
+        return self.cards.__delitem__(key.lower() if isinstance(key, str) else key)
 
     def items(self):
         return self.cards.items()
@@ -680,7 +678,8 @@ class _VTES:
             pickle.dump(self, open(config.VTES_FILE, "wb"))
 
     # usual traits selectors
-    def is_crypt(self, card):
+    @staticmethod
+    def is_crypt(card):
         """A function to check if a card is a crypt card
 
         Args:
@@ -702,7 +701,8 @@ class _VTES:
         """
         return not self.is_crypt(card)
 
-    def is_disc(self, card, discipline):
+    @staticmethod
+    def is_disc(card, discipline):
         """A function to check if a card is of given discipline
 
         Handles multi-valued cards too (combo or outferior option).
@@ -718,7 +718,8 @@ class _VTES:
             d.strip().lower() for d in VTES[card].get("Discipline", [])
         }
 
-    def no_disc(self, card):
+    @staticmethod
+    def no_disc(card):
         """A function to check if a card requires no discipline
 
         Args:
@@ -729,7 +730,8 @@ class _VTES:
         """
         return not VTES[card].get("Discipline", [])
 
-    def is_type(self, card, type_):
+    @staticmethod
+    def is_type(card, type_):
         """A function to check if a card is of the given type
 
         Handles multiple types too (e.g. Modifier/Reaction)
@@ -743,7 +745,8 @@ class _VTES:
         """
         return {type_.strip().lower()} & {t.strip().lower() for t in VTES[card]["Type"]}
 
-    def is_clan(self, card, clan):
+    @staticmethod
+    def is_clan(card, clan):
         """A function to check if a card is of the given clan (or requires said clan)
 
         Handles multiple clans too (e.g. Gangrel/Gangrel Antitribu)

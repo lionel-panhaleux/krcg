@@ -123,7 +123,8 @@ class _TWDA(collections.OrderedDict):
         else:
             self.spoilers = {}
 
-    def _get_decks_html(self, source):
+    @staticmethod
+    def _get_decks_html(source):
         """Get lines for each deck, using HTML tags as separators.
 
         Args:

@@ -171,7 +171,7 @@ class Deck(collections.Counter):
         Yields:
             card (str)
         """
-        for card, count in self.cards(condition):
+        for card, _count in self.cards(condition):
             yield card
 
     def cards_count(self, condition=None):
@@ -183,4 +183,4 @@ class Deck(collections.Counter):
         Returns:
             int: the count of all cards (matching the condition if any)
         """
-        return sum(count for card, count in self.cards(condition))
+        return sum(count for _card, count in self.cards(condition))

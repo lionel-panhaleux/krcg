@@ -77,7 +77,7 @@ async def on_message(message):
 
         while candidates:
             try:
-                reaction, user = await client.wait_for(
+                reaction, _user = await client.wait_for(
                     "reaction_add", timeout=30, check=check
                 )
             except asyncio.TimeoutError:
