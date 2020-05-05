@@ -57,17 +57,23 @@ depending on the case.
 The format is mostly self-explanatory:
 
 -   Cards are reference by ID and name in the format `ID|Name`.
+
 -   Card names inside rulings text should be between bracers, eg. `{.44 Magnum}`
+
 -   Individual rulings in `cards-rulings.yaml` must provide one or more references
     to ruling links at the end of the text, between brackets, eg `[LSJ 20100101]`
 
 In doing so, please follow the following guidelines:
 
 -   Keep the YAML files clean and alphabetically sorted (you can use a YAML formatter)
+
 -   Make the rulings as concise as possible
+
 -   Prefix the ruling with the discipline level and/or type the ruling applies to (if any),
     eg. prefix with `[PRO] [COMBAT]` if the ruling applies only to the card played in combat at superior Protean.
+
 -   Adapt the ruling wording to the cards it applies to (ie. use masculine/feminin forms)
+
 -   You can run the tests with the `pytest` command to check everything is OK
 
 ## Installation
