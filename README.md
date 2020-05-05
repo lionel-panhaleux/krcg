@@ -1,12 +1,11 @@
 # KRCG
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/32d1b809494e4935967608f13f52004a)](https://app.codacy.com/manual/lionel-panhaleux/krcg?utm_source=github.com&utm_medium=referral&utm_content=lionel-panhaleux/krcg&utm_campaign=Badge_Grade_Dashboard)
 [![PyPI version](https://badge.fury.io/py/krcg.svg)](https://badge.fury.io/py/krcg)
 [![Validation](https://github.com/lionel-panhaleux/krcg/workflows/Validation/badge.svg)](https://github.com/lionel-panhaleux/krcg/actions)
+[![Coverage](https://api.codacy.com/project/badge/Grade/32d1b809494e4935967608f13f52004a)](https://app.codacy.com/manual/lionel-panhaleux/krcg?utm_source=github.com&utm_medium=referral&utm_content=lionel-panhaleux/krcg&utm_campaign=Badge_Grade_Dashboard)
 [![Python version](https://img.shields.io/badge/python-3.8-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Code Style](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
-<!-- [![Build Status](https://travis-ci.org/lionel-panhaleux/krcg.svg?branch=master)](https://travis-ci.org/lionel-panhaleux/krcg) -->
 
 A command-line interface based on
 the VEKN [official card texts](http://www.vekn.net/card-lists)
@@ -39,10 +38,10 @@ Open an [issue](https://github.com/lionel-panhaleux/krcg/issues)
 with a ruling you think should be added,
 provide a link to an online post by one of the rules directors:
 
-- From 2016-12-04 onward, [Vincent Ripoll (ANK)](http://www.vekn.net/forum/news-and-announcements/75402-new-inner-circle-vekn-board-of-directors#79470)
-- From 2011-07-06 onward, [Pascal Bertrand (PIB)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/VzRGZO_Iuto/BjJGRVvJ5Z8J)
-- From 1998-06-22 onward, [L. Scott Johnson (LSJ)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/RIX1tLgOFjg/xKikfSarfd8J)
-- From 1994-12-15 onward, [Thomas R Wylie (TOM)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Dm_gIP3YvUs/qTyKyq2NWv4J)
+-   From 2016-12-04 onward, [Vincent Ripoll (ANK)](http://www.vekn.net/forum/news-and-announcements/75402-new-inner-circle-vekn-board-of-directors#79470)
+-   From 2011-07-06 onward, [Pascal Bertrand (PIB)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/VzRGZO_Iuto/BjJGRVvJ5Z8J)
+-   From 1998-06-22 onward, [L. Scott Johnson (LSJ)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/RIX1tLgOFjg/xKikfSarfd8J)
+-   From 1994-12-15 onward, [Thomas R Wylie (TOM)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Dm_gIP3YvUs/qTyKyq2NWv4J)
 
 ### Contribute Rulings (developers)
 
@@ -57,32 +56,32 @@ depending on the case.
 
 The format is mostly self-explanatory:
 
-- Cards are reference by ID and name in the format `ID|Name`.
-- Card names inside rulings text should be between bracers, eg. `{.44 Magnum}`
-- Individual rulings in `cards-rulings.yaml` must provide one or more references
-  to ruling links at the end of the text, between brackets, eg `[LSJ 20100101]`
+-   Cards are reference by ID and name in the format `ID|Name`.
+-   Card names inside rulings text should be between bracers, eg. `{.44 Magnum}`
+-   Individual rulings in `cards-rulings.yaml` must provide one or more references
+    to ruling links at the end of the text, between brackets, eg `[LSJ 20100101]`
 
 In doing so, please follow the following guidelines:
 
-- Keep the YAML files clean and alphabetically sorted (you can use a YAML formatter)
-- Make the rulings as concise as possible
-- Prefix the ruling with the discipline level and/or type the ruling applies to (if any),
-  eg. prefix with `[PRO] [COMBAT]` if the ruling applies only to the card played in combat at superior Protean.
-- Adapt the ruling wording to the cards it applies to (ie. use masculine/feminin forms)
-- You can run the tests with the `pytest` command to check everything is OK
+-   Keep the YAML files clean and alphabetically sorted (you can use a YAML formatter)
+-   Make the rulings as concise as possible
+-   Prefix the ruling with the discipline level and/or type the ruling applies to (if any),
+    eg. prefix with `[PRO] [COMBAT]` if the ruling applies only to the card played in combat at superior Protean.
+-   Adapt the ruling wording to the cards it applies to (ie. use masculine/feminin forms)
+-   You can run the tests with the `pytest` command to check everything is OK
 
 ## Installation
 
 You need [Python 3](https://www.python.org/downloads/)
 installed on your system to use this tool in command line.
 
-Use pip to install the ``krcg`` tool:
+Use pip to install the `krcg` tool:
 
 ```shell
 pip install krcg
 ```
 
-Then initialize the tool using the ``init`` subcommand:
+Then initialize the tool using the `init` subcommand:
 
 ```shell
 krcg init
