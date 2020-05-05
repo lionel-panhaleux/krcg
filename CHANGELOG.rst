@@ -4,7 +4,7 @@ Changelog
 0.37 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- API: Submit ruling endpoint
 
 
 0.36 (2020-05-04)
