@@ -25,7 +25,9 @@ def test_bot(monkeypatch):
                 "Methuselah +1 intercept.",
             },
         ],
-        "footer": {"text": ""},
+        "footer": {
+            "text": "Click the title to submit new rulings or rulings corrections"
+        },
         "image": {
             "url": "http://www.codex-of-the-damned.org/card-images/krcgnewsradio.jpg"
         },
@@ -53,7 +55,9 @@ def test_bot(monkeypatch):
                 "more +1 stealth.",
             },
         ],
-        "footer": {"text": ""},
+        "footer": {
+            "text": "Click the title to submit new rulings or rulings corrections"
+        },
         "image": {
             "url": (
                 "http://www.codex-of-the-damned.org/card-images/"

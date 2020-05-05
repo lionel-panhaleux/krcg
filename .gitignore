@@ -7,6 +7,7 @@ dist/
 
 # test
 .pytest_cache/
+.env
 
 # editors & OS
 .vscode/

@@ -775,6 +775,41 @@ paths:
                             example: ["The unnamed", "Unnatural Disaster"]
                 "404":
                     description: Not found
+    /submit-ruling/{card_name_or_id}:
+        post:
+            tags: [Card]
+            summary: Submit a new ruling for examination
+            parameters:
+                - name: card_name_or_id
+                  in: path
+                  required: true
+                  description: "Card name or ID"
+                  schema:
+                      type: string
+                      description: "Card name or ID"
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                text:
+                                    description: "Envisioned text for the ruling"
+                                    type: string
+                                link:
+                                    description: "Link to the official ruling from a Rules Director"
+                                    type: string
+                                    format: url
+                            example:
+                                text: Cannot be played by vampires who aren't controlled.
+                                link: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/80KRDjVFkyg/TBJso9Ra_9QJ
+            responses:
+                "201":
+                    description: Successful, request created
+                "400":
+                    description: Malformed body
+                "404":
+                    description: Card not found
     /deck:
         post:
             tags: [Deck]

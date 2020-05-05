@@ -25,7 +25,10 @@ update:
 	pip install --upgrade -e .[dev,web]
 
 serve:
-	uwsgi --socket 127.0.0.1:8000 --protocol=http  --module src.wsgi:application
+	source .env && uwsgi --socket 127.0.0.1:8000 --protocol=http  --module src.wsgi:application
+
+serve-bot:
+	source .env && krcg-bot
 
 clean:
 	rm -f `python -c "import tempfile as t; print(t.gettempdir())"`/krcg-vtes.pkl

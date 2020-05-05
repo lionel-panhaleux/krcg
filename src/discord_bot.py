@@ -251,7 +251,7 @@ def handle_message(message, completion=True):
     )
     # build rulings field
     # if need be use the footer to indicate there are more of them available
-    footer = ""
+    footer = "Click the title to submit new rulings or rulings corrections"
     if card.get("Banned") or card.get("Rulings"):
         rulings = ""
         if card.get("Banned"):
@@ -269,7 +269,7 @@ def handle_message(message, completion=True):
             # make sure we have the room for 3 dots
             if len(rulings) + len(ruling) > 1021:
                 rulings += "..."
-                footer += "More rulings available, click the title to see them."
+                footer = "More rulings available, click the title to see them"
                 break
             rulings += f"- {ruling}\n"
         fields.append({"name": "Rulings", "value": rulings, "inline": False})
