@@ -55,11 +55,14 @@ def standard_rulings():
     for key, data in vtes.VTES.items():
         if not isinstance(key, int):
             continue
-        for ruling in data.get("Rulings", []):
+        ruling_data = vtes.VTES.rulings.get(vtes.VTES.get_name(data))
+        if not ruling_data:
+            continue
+        for ruling in ruling_data.get("Rulings", []):
             h = hashlib.sha3_256(ruling.encode("utf-8")).hexdigest()[-12:]
             result["rulings"].setdefault(h, ruling)
             result["cards"][key].append(h)
-        for link in data.get("Rulings Links", []):
+        for link in ruling_data.get("Rulings Links", []):
             result["references"].setdefault("[" + link["Reference"] + "]", link["URL"])
     return result
 

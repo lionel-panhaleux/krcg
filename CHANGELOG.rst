@@ -5,6 +5,7 @@ Changelog
 -----------------
 
 - Additional rulings
+- krcg-gen: Fix  standard-rulings
 
 
 0.37 (2020-05-05)
