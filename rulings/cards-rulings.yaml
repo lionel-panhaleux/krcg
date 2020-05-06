@@ -104,7 +104,9 @@
 100103|Asanbonsam Ghoul:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100105|Ashes to Ashes:
-    - "The end of combat is triggered by the fact that the vampire is going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
+    - "[thn], [THN] The end of combat is triggered by the vampire going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
+    - "[thn], [THN] Cards that can be played at the end of combat (eg. {Amaranth}, {Decapitate}) can be played before combat ends. [LSJ 20011214-4]"
+    - "[for] If played on a diablerie attempt (eg. {Amaranth}), the diablerie is unsuccessful. Another {Amaranth} can be played. [LSJ 19970224] [LSJ 20011214-4]"
 100112|Aura of Invincibility:
     - "If the initial referendum does not pass, then the card is not put into play and the vampire playing it is not sent to torpor. [LSJ 20040730]"
 100117|Autonomic Mastery:
@@ -2065,6 +2067,7 @@
     - "If she is equipped with something and that equipment is transferred to another minion, then it regains its normal pool value. Conversely, if a piece of equipment moves onto her, its effective pool cost is lowered by 1. [RTR 19941109]"
 200229|Byzar:
     - "If he burns, he keeps all cards and counters on him. [ANK 20160404]"
+    - "If a diablerie is attempted on him, he goes to torpor and the diablerie is unsuccessful. [LSJ 20100228]"
 200232|Cailean:
     - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
 200242|The Capuchin:
