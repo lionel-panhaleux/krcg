@@ -8,6 +8,8 @@ prune tests
 prune static
 exclude Makefile
 exclude bot-example.png
+exclude .coverage
+exclude .markdownlint.json
 
 global-exclude */__pycache__/*
 global-exclude *.egg-info/*
