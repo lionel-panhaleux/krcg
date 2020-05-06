@@ -7,7 +7,7 @@
     "properties": {
         "rulings": {
             "type": "object",
-            "description": "Map of rulings in the form {hash: ruling text}. The hash the first 6 bytes (in hex) of the SHA3-256 of the ruling text",
+            "description": "Map of rulings in the form {hash: ruling text}. The hash is the first 6 bytes (in hex) of the SHA3-256 of the ruling text",
             "additionalProperties": {
                 "type": "string"
             }
