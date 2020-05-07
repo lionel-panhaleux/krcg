@@ -34,7 +34,7 @@
     "50c13c6ac34e": "When put on a {Bima} it is into play, the card text applies and it is Unique. [LSJ 20100422]",
     "4bb7767d5007": "If it uses its last life to play an action modifier, the action fails. If it uses its last life to play a strike, combat ends before strike resolution. [ANK 20180928-1]",
     "9cf9664222cf": "If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]",
-    "5e3164696ff8": "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
+    "b1fec34582a2": "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
     "e8bac3443476": "If both minions want to play a card \"when a vampire should go into torpor\", acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Amaranth} and vice-versa. [RTR 20010710]",
     "9a293fc01749": "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]",
     "142fbd669de3": "If the action continues \"as if unblocked\", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]",
@@ -71,7 +71,7 @@
     "8496bd7f8665": "Cards and effects that can be played \"as the action is announced\" can be played before it. [ANK 20190425]",
     "7e121a635a69": "Cards and effects that are played \"as the card is played\" must be played before it. Wake effects can be played before it. [ANK 20181208]",
     "dcf8541bd76c": "Replace the action card (if any) before playing it. [ANK 20181208]",
-    "c4d50cd32a9d": "The action fizzles if the target is not unlocked anymore when it resolves. [ANK 20181121]",
+    "782b0b9ce966": "The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]",
     "9f51778c0ba6": "Is played after resolution, but still during the action. Action modifiers and effects that can be played \"after resolution\" can be played after it. [LSJ 19981028] [ANK 20190425]",
     "fa99136a4db9": "[thn], [THN] The end of combat is triggered by the vampire going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]",
     "5607c34f24d6": "[thn], [THN] Cards that can be played at the end of combat (eg. {Amaranth}, {Decapitate}) can be played before combat ends. [LSJ 20011214-4]",
@@ -130,7 +130,7 @@
     "f5107e9f024d": "Environmental damage is not counted by Blood of Acid. [RTR 19970630]",
     "cbb6aee0916f": "[QUI] If the chosen strike says to make a hand strike or a melee weapon strike, then the strike is ranged, but the hand or melee weapon portion of the strike is still only effective at close range. [RTR 20010710]",
     "d2b687fb7ffa": "[THA] Additional damage inherits all of the properties of the base damage. [TOM 19960225]",
-    "273e851a40eb": "The blood is burned by the opponent when the owner prevents damage, immediately. Depending on the impulse order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528]",
+    "2e580abf703d": "The blood is burned by the opponent when the owner prevents damage, immediately. Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528]",
     "63810df1ad6a": "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]",
     "8d783d28dd05": "The target does not get an extra vote if it already has or subsequently gains a title. If the target loses his title, then he again gets his extra vote. [LSJ 19970224]",
     "3006fb2e0259": "[VIC] Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]",
@@ -139,7 +139,7 @@
     "1028767e41b2": "[pro] Damage done to the striking minion is environmental. [LSJ 19970801]",
     "70b2bad19a9b": "[tha] Additional damage inherits all of the properties of the base damage. [TOM 19960225]",
     "13713cbb3e0a": "Using the provided action does not force the minion to strike with it if he is blocked. [LSJ 19971215]",
-    "e927587f1632": "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221] [LSJ 20020926]",
+    "f50848df8ca6": "The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221] [LSJ 20020926]",
     "8a36270c973c": "[vis] [VIS] The unlock effect takes place before the end of combat. [RTR 19970630]",
     "11037d0ae7d6": "[vis] [VIS] The vampires still unlock if an effect continues the combat or begins a new combat. [RTR 20020501] [LSJ 20030717]",
     "bc3a96f20b7c": "[DOM] The superior version cannot be used if you do not need the stealth at the time you play it. [TOM 19951109]",
@@ -168,7 +168,7 @@
     "db4dd24317d1": "A vampire with no blood can still block, he burns what he can. [LSJ 19970707]",
     "6b8e44287e03": "The same vampire can be chosen multiple times if multiple copies are played. [LSJ 19970707]",
     "64a7c177b532": "The vampire keeps his chosen Discipline at superior until his controller's next unlock phase even if the retainer is burned or stolen. [LSJ 19970224]",
-    "d6fb49949766": "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]",
+    "cbced49796c1": "The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]",
     "68148293374e": "Each Methuselah burns 1 pool for each equipment, each location and each retainer. [LSJ 20071005-2]",
     "498d663a3498": "[ANI] Cannot be used if there is no equipment to destroy. [RTR 19980928]",
     "3140d05d38f6": "Cards and effects that can be played \"after resolution\" (and only them) can be played after the gain blood effect. [ANK 20190113]",
@@ -185,6 +185,7 @@
     "b515dcc81e93": "[ani] Can not be played if the vampire is in torpor, for example if he went into torpor during the combat resulting from the block. [LSJ 20000103]",
     "0f846fa61ceb": "Cards and effects that can be played \"after resolution\" (and only them) can be played after the unlock effect. [ANK 20190113]",
     "777bae030804": "Cannot bring more than one copy of a unique vampire out, by the rule prohibiting self-contesting. [LSJ 20040722]",
+    "03f35586b905": "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]",
     "4dce35e5e0dc": "[SPI] If the action continues \"as if unblocked\", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]",
     "36acfdacbc05": "[SPI] If the action continues \"as if unblocked\", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]",
     "3407b5547bff": "[SPI] An action cannot continue \"as if unblocked\" after a combat resulting from a successful action. [RTR 19970630]",
@@ -242,7 +243,7 @@
     "227f310a468d": "May be used any number of times during a single action. [TOM 19960109]",
     "778493135ff7": "If recruited in the normal fashion, the card will have been replaced by the time the ally enters play. In other cases however, it won't have been and the Methuselah will have to work with only the cards in hand (or ash heap) to add life to it before replacing. [LSJ 20070707]",
     "223434c9b288": "Can be locked during damage resolution, but not while healing damage or preventing destruction (you cannot take 2, lock The Coven, then take the rest). [PIB 20121031]",
-    "b067f1f36a16": "The predator must take control of it when he gets the impulse. If a players declares his turn ends, he does not get the opportunity to use it before it is moved to his predator, even retroactively if the mandatory effect was forgotten. [LSJ 20100723] [PIB 20111002]",
+    "9de82c9d3c3d": "The predator must take control of it when he gets the the opportunity to play effects. If a players declares his turn ends, he does not get the opportunity to use it before it is moved to his predator, even retroactively if the mandatory effect was forgotten. [LSJ 20100723] [PIB 20111002]",
     "f2616acac643": "[VIS] Damage is environmental. [RTR 19970630]",
     "c11e1f56843c": "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]",
     "1a396b2de71d": "If moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]",
@@ -287,12 +288,12 @@
     "e885d34603f2": "Can be played before or after effects that are played at the end of the round or \"when the combat would end\" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]",
     "047fb5a554aa": "Locking is a side effect, not a cost. Locked vampires can still vote. [RTR 19941109]",
     "c740336bc993": "Vampires are locked when they cast their votes. [RTR 19970425]",
-    "748dc18e435f": "If used to equip and contest a unique weapon already in play, neither weapon is available for use during the combat. If the opposing minion had already chosen that weapon as his strike, then the strike fizzles. [LSJ 19980319]",
+    "0eef610146ec": "If used to equip and contest a unique weapon already in play, neither weapon is available for use during the combat. If the opposing minion had already chosen that weapon as his strike, then the strike has no effect. [LSJ 19980319]",
     "01d7b9d5b95c": "If used to steal an equipment representing a location, it can be placed on any minion controlled by the new controller. [RTR 19960112]",
     "3c6b718c822d": "If used to \"change\" the control of a location or equipment representing a location to the same Methusalah, the location cannot be moved to another minion controlled by the same Methusalah. [LSJ 19971002]",
     "7ba96c1c04d6": "[tha] can target a vampire with no blood. [RTR 20010711]",
     "360ac24f4db7": "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]",
-    "00432879f9bf": "If put on a minion after an opponent as declared a \"strike: combat ends\" (eg. using {Pack Alpha} or {Summon Spirit Beast}), the opponent's strike fizzles. [ANK 20190412]",
+    "80ff61cea0c2": "If put on a minion after an opponent as declared a \"strike: combat ends\" (eg. using {Pack Alpha} or {Summon Spirit Beast}), the opponent's strike has no effect. [ANK 20190412]",
     "6f3f64d78cd1": "Locked minions are counted after the referendum is completed. [RTR 19941109]",
     "31ce8f89e758": "[tem] Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [ANK 20130319]",
     "8d696fe5b63e": "[TEM] Cards and effects that can be played \"after resolution\" (and only them) can be played after it. [ANK 20190425]",
@@ -328,7 +329,7 @@
     "9ff7c226cae5": "If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]",
     "1ce5166cae69": "If the minion with Elephant successfully played an inferior {Deep Song} action, the target minion would take Elephant Guardian\u2019s damage in the resulting combat if range is close. [PIB 20110609]",
     "ce6c5b423b12": "Can only be played by the controller of the acting minion. [LSJ 19990425]",
-    "753519db8fce": "If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect \"fizzle\". [LSJ 20081213-1]",
+    "378d8fd6c1de": "If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect be lost. [LSJ 20081213-1]",
     "d51aa557b23a": "Only requires one clan or the other (Gangrel or Gangrel antitribu) to be played. [ANK 20190203]",
     "6b5928d98e05": "Can be used at any moment during the influence phase to get the additional transfer. [RTR 20180303]",
     "d651af5b0416": "[VIS][REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]",
@@ -404,7 +405,7 @@
     "a64961273b65": "[pot] Is not a damaging strike. [LSJ 19970225]",
     "e3cae67d6908": "[POT] Is a damaging strike. [LSJ 19970225]",
     "bae43ea9f2d7": "[FOR] Is played after all combats are handled. Can be played from torpor. [RTR 19980623] [LSJ 20030103] [ANK 20180906]",
-    "f172291b2c18": "[for] Can be played if the action is unblocked even if it fizzles (due to lack of a suitable target, for example). [LSJ 20070411]",
+    "5871cc9f24b8": "[for] Can be played if the action is unblocked even if it has no effect (due to lack of a suitable target, for example). [LSJ 20070411]",
     "448ca53d2a05": "If there are insuffient targets to which to allocate all of the points allowed, then the card cannot be played. [LSJ 20010810]",
     "61a9a4da5cd9": "Only prevents the use of equipment after it is played - it will not cancel the effects of equipment used before it is played. [TOM 19960326]",
     "7b993086cf44": "If the controller of a Gambit in play withdraws, his or her predator gets a VP from the Gambit (the Methuselah who withdraws still gets a VP for withdrawing, of course). [RTR 20040501]",
@@ -652,11 +653,13 @@
     "8dcf29391996": "The vampire retrieved need only be in your ash heap. It does not have to be a vampire that you had first controlled. [LSJ 20040812]",
     "3e3825430ba3": "The crypt card on it is out of play and should be face down. [LSJ 20040812]",
     "bc2633df1b09": "No blood can be gained if a reaction card is played and canceled as it is played: it has still been played. [LSJ 20070330]",
+    "819125aeccdb": "Cards and effects that can be played \"after resolution\" can be played after the gain blood effect. [ANK 20190113]",
+    "f899f111fb67": "The blood can be gained if the action is unblocked even if it has no effect (due to lack of a suitable target, for example). [LSJ 20070411]",
     "d8664f8edc03": "When used to recruit an ally, the ally cannot act this turn. [LSJ 20080630] [RTR 20180303]",
     "d875c7e03cc5": "This is not an action, so cost reductions refering to an action like {Charisma} or {Erichtho} do not apply. [LSJ 20090115-1] [ANK 20170309]",
     "476103b78cdc": "This does not count as performing the action to recruit this ally in respect to section 6.1 of the rules. The same vampire can recruit the same ally the normal way later this turn if he unlocks (and/or Piper it a second time). [LSJ 20080815]",
     "08e666348f45": "When recruiting an ally or retainer whose effect depend on Discipline level, the chosen vampire decides in respect to his disciplines the normal way. [LSJ 20080803]",
-    "1b0e80da2bc6": "If used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
+    "5ee46404c715": "If used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
     "53bd945f2e48": "\"burning pool\" is \"loosing pool\". [ANK 20180813]",
     "90c2b0c2b802": "If you yield the Political Seizure, the location it was contesting does not come into play under your control. [LSJ 19980223]",
     "2fb721595f68": "The acting vampire gains X votes if the vampire with this card is burned, no matter how that vampire is burned. [LSJ 19990119]",
@@ -681,7 +684,7 @@
     "eb765e310dc7": "If you perform a bleed action that resolves as a bleed for 0, you don't burn your Protected Resources. [LSJ 20030701-1]",
     "b93b346b9813": "Can be used even if the target is burned ot if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]",
     "aa7bb94efa3a": "Can be played on a vampire who already has a Proxy Kissed (and was moved to uncontrolled and re-influenced). [LSJ 20050720-1]",
-    "50f617d4074a": "[CEL] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
+    "354847a1fd7c": "[CEL] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
     "6a265759b96f": "[CEL] Cannot be played if there is already a combat queued. [RTR 20020501]",
     "1b29c6c2996e": "[CEL] Is played during combat, when combat is about to end. It must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519], [PIB 20111202]",
     "07b3e1855119": "[CEL] Replacements effects that are played when a combat \"would end\" cannot be play afterwards. [ANK 20191219]",
@@ -714,7 +717,7 @@
     "d06a50beace0": "Usable by an unlocked vampire with 0 blood in torpor. [PIB 20110613]",
     "a5895205b441": "It is a title card, so it is out of play if the title is contested, and the \"enter combat\" action is not usable when the card is not in play. [LSJ 20070808-2]",
     "d846c8fcfd65": "Prevents up to 2 or 4 damage, it can be used to prevent less. [RTR 20041202]",
-    "a8b860409061": "[THN] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
+    "40c603fa04bc": "[THN] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
     "ecc1ae1720e9": "[THN] Cannot be played after [CEL] {Psyche!}. When played before, combat continues and {Psyche!} can only be played at the end of it. [ANK 20191219]",
     "fd16a8d026eb": "[THN] Must be played after presses, can be played if the round ends prematurely and can be played before or after effects that are played \"at then of the round\" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]",
     "ca6c1c4069f4": "The additional strike is mandatory. [PIB 20121028]",
@@ -834,7 +837,7 @@
     "68c6a5524128": "[OBE] The mandatory bleed action must be performed before any non-mandatory actions. [LSJ 20011216-2]",
     "9984624b2c6e": "[OBE] If the bleed is canceled, the vampire still returns to its original controller. [RTR 20020501]",
     "8e2a532f5500": "[OBE] \"After resolution\" effects are applied before the target vampire is returned to his or her previous controller. [LSJ 20030219]",
-    "e218f17fc3ac": "[OBE] The action fizzles if the target is not unlocked anymore when it resolves. [ANK 20181121]",
+    "798de9ae2738": "[OBE] The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]",
     "d6e1d94fd873": "[OBE] The minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]",
     "772322bfd009": "Does not restrict the opposing minion if no block occurred. [TOM 19951208-2]",
     "d1a4a8e6d9b5": "Does not restrict the ability of retainers to use equipment. [RTR 19960112]",
@@ -848,6 +851,7 @@
     "e08b40fb48b4": "[cel] Cards and effects that can be played \"as the action is announced\" (and only them) can be played before it. [ANK 20190425]",
     "140889f61be7": "Using the Launcher to reduce stealth does not force the minion to strike with it if he blocks. [LSJ 19971215]",
     "6ad9a0d248c8": "For a Laibon moved into the ready region in the last influence phase, you must retrieve Aye and Orun in pairs: the same number of Aye as Orun. [LSJ 20051127]",
+    "8c3d4dba5370": "The effect only applies to the default hunt action provided by the rulebook. [PIB 20120204]",
     "c18020884909": "Shuffle your crypt afterwards. [LSJ 20020304-1]",
     "131c475faad9": "[QUI] The additional damage is the same type as the strike's damage. [TOM 19960225] [RTR 19970630]",
     "c6e13ece58f0": "If the action to bleed is blocked or canceled, Strike with Conviction is not burned. [LSJ 20060421] [RTR 20111202]",
@@ -878,7 +882,7 @@
     "22bb19ebf97f": "If it is canceled, the strike resolves with the default target. [ANK 20200311]",
     "ccfa0c667a19": "[ANI] The prey goes first in the combat (for declaring maneuvers, strikes, presses). [LSJ 20070319]",
     "25caaff20711": "Is played before the bleed can be considered successful. [TOM 19960303]",
-    "caea86f0abcf": "[AUS] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
+    "a1e0ba683512": "[AUS] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
     "8a605b4b2629": "[AUS] Cannot be played after [CEL] {Psyche!}. When played before, combat continues and {Psyche!} can only be played at the end of it. [ANK 20191219]",
     "5c8a1ead1849": "[AUS] Must be played after presses, can be played if the round ends prematurely and can be played before or after effects that are played \"at then of the round\" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]",
     "5b52f694d5e2": "Multiple Templar cards provide different actions: if the vampire manage to unlock during the minion phase, he can perform the two actions. [RTR 20030519]",
@@ -962,17 +966,18 @@
     "21913ea17ec8": "[ACTION MODIFIER] A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]",
     "0d2aa1ae14ba": "[ACTION MODIFIER] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]",
     "d89e10d75d9e": "If you have no other allies and no retainers in play when it is recruited, then you burn it. [RTR 19961113]",
-    "2c076954891a": "Can use its ability \"lock and burn to burn a location\" during an action that would steal it (eg. [PRE] {Entrancement}). The action ends, neither successful nor failed. [PIB 20121031]",
+    "55c904facc89": "Can use its ability \"lock and burn to burn a location\" during an action that would steal it (eg. [PRE] {Entrancement}). The action will have no effect but is still successful if unblocked and must then be paid. [PIB 20121031]",
     "0ff80f8af56e": "[val] Is not the default action, no blood is paid for the rescue. [ANK 20181017]",
-    "cf5020096e50": "Can be burned after the annoucement of a diablerie action to bring the target Nosferatu out of torpor. The diablerie will then fizzle. [ANK 20181107]",
-    "b30cf1cefba2": "Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action would fizzles if an effect tries to continue it (eg. {Ambulance}). [LSJ 20090325-2]",
+    "4749d3d38242": "Can be burned after the annoucement of a diablerie action to bring the target Nosferatu out of torpor. The action will still be successful if unblocked, but will have no effect: no diablerie happen. [ANK 20181107]",
+    "345cd6cbc732": "Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action would end with no effect if an effect tries to continue it (eg. {Ambulance}). [LSJ 20090325-2]",
     "a22b64be4334": "The unlock effect is applied after the action is resolved and the referendum (if any) concluded. If the acting vampire is not a Nosferatu anymore at that point, he does not unlock. [LSJ 20090216] [ANK 20180922]",
     "2ab388e101f8": "If used to cancel an out-of-turn master, that Methuselah still cannot play another out-of-turn master against the same master phase, even though the first was canceled and won't count against that master phase. [LSJ 20070309-2]",
     "f51ab9441f44": "Can only receive blood from one Tremere on any given turn. [RTR 19960221]",
     "ebb43d09f86b": "[DEM] Is directed at all Methusalah controlling an ally. [LSJ 20080809-1] [KOT 20081119]",
     "67c0b7bd3f52": "Card text was changed in 2007, previous rulings do not apply. [ANK 20200408-1]",
     "6a1838a78bf3": "The damage will occur even if combat is subsequently ended before range. [LSJ 19971110]",
-    "47fac69bd883": "The minion can play other pre-range effects before applying the damage and opening the damage prevention window, but he has to apply damage before passing the impulse. [ANK 20170930]",
+    "e552201afc8e": "The minion can play other pre-range effects before applying the damage and opening the damage prevention window, but he has to apply damage before passing the opportunity to play effects to the next player. [ANK 20170930]",
+    "38dde6d6a237": "Both minions have the opportunity to play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]",
     "c8accc55ec4c": "It is not an action to put a vampire in play. [LSJ 20060616-2]",
     "b0b839035e53": "Ravnos can target a Ravnos with no blood with the +1 stealth hunt action. [RTR 20010711]",
     "c1de0ef0c8f1": "[AUS][SER] Cards and effects that can be played \"as the action is announced\" (and only them) can be played before it. [ANK 20190425]",
@@ -998,7 +1003,7 @@
     "144a5f286e14": "The damage inflicted by his ability is environmental. [RTR 19970630] [LSJ 20070328]",
     "77bc09101a3b": "Additional draws are not subject to his ability (eg. {Infernal Pursuit}). [LSJ 20011202]",
     "20669e05d258": "If Agaitas is burned while cards owned by your prey are still face-up in front of you, you can still play and discard them as normal, but you cannot draw in your prey's library until you control Agaitas anew. [LSJ 20100304]",
-    "bd0fe1c82242": "If his ability is used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
+    "807efbc6adb1": "If his ability is used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
     "4e47f464bb3c": "His ability cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]",
     "e8dc80b95485": "Can use her unlock ability at any point during the turn, including during a political action. [TOM 19960214]",
     "cabc1f73fcb1": "If she locks a Toreador who was attempting to block, then that block will fail. [TOM 19951007] [LSJ 19991025]",
@@ -1090,7 +1095,7 @@
     "a26329586e9c": "His ability is still applied if his controller is ousted by the referendum effects. [LSJ 20090115-2]",
     "8b589ec999e1": "Her ability must be used after combat has ended, cards that are played \"when the combat would end\" or \"when combat is about to end\" are played before that. [ANK 20180928-2]",
     "5c7636c12ed7": "When using her ability to enter combat she is not acting and cannot play action modifiers. {Obedience} cannot be played by the opponent. [ANK 20180929]",
-    "84f486231816": "When using her ability to enter combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501] [ANK 20180928-2]",
+    "f79a801ccd09": "When using her ability to enter combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501] [ANK 20180928-2]",
     "292e141bd827": "If she locks to end combat, the damage is applied just after the combat ends. [RTR 19970630]",
     "0a347e0fb177": "Can use her ability multiple times each action. [LSJ 20020926]",
     "fd6542a10f20": "Her ability can only move cards from the ash heap that were played in the normal manner. If the card was put in play in some other way, it cannot be retrieved by her special. [LSJ 20041119]",
@@ -1113,7 +1118,7 @@
     "5b60fee28fde": "A vampire with no circle designation is in his own unique circle of one. New blood cannot choose to be part of such a circle. [LSJ 20020609]",
     "8ab633ce8799": "Cannot choose to be part of the \"Inner Circle\" and get the title. The Inner Circle title and a Blood Brothers circle are different things. [ANK 20190117-2]",
     "4e5eb1596b43": "His ability can only be used once each unlock, even if control of Owain changes during that unlock phase. [LSJ 20040127]",
-    "c40dc1a0ebcc": "His ability can only be used when his controller has the impulse. The acting player has to apply all mandatory effects (eg. lose pool to {Anarch Revolt}) before passing the impulse. [LSJ 20100723]",
+    "c58514c65c7e": "His ability can only be used when his controller has the opportunity to play effects. The acting player has to apply all mandatory effects (eg. lose pool to {Anarch Revolt}) before passing the opportunity to play effects to another player. [LSJ 20100723]",
     "7555300c2c4d": "When using her ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]",
     "532c37b9faf0": "When he is influenced out, his ability can be used during the ongoing influence phase. [RTR 20180303]",
     "819f0a94a75f": "Additional damage done before range by her ability is environmental. [RTR 19970630]",
@@ -1658,6 +1663,7 @@
     "[TOM 19950620]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/XfsJaaWK9as/wgtWif3sEsAJ",
     "[LSJ 20110502]": "https://boardgamegeek.com/thread/648695/article/6701545",
     "[LSJ 20051127]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/1rIDrVs8Eyg/GN6WCp2IRUgJ",
+    "[PIB 20120204]": "http://www.vekn.net/index.php/forum/6-rules-questions/22233-strained-vitae-supply-vs-lokis-gift#22343",
     "[LSJ 20020304-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/oDdTAxootPQ/REL0GysRZrEJ",
     "[LSJ 20060421]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/5_Y7HxiR7wo/qLgr38ocXA8J",
     "[ANK 20200221]": "http://www.vekn.net/forum/rules-questions/78458-strix-daring-the-dawn-and-much-more#99036",
@@ -1885,7 +1891,7 @@
       "4bb7767d5007"
     ],
     "100043": [
-      "5e3164696ff8",
+      "b1fec34582a2",
       "e8bac3443476"
     ],
     "100044": [
@@ -1969,7 +1975,7 @@
       "dcf8541bd76c"
     ],
     "100100": [
-      "c4d50cd32a9d"
+      "782b0b9ce966"
     ],
     "100102": [
       "9f51778c0ba6"
@@ -2119,7 +2125,7 @@
       "645cd7e7aa15"
     ],
     "100209": [
-      "273e851a40eb"
+      "2e580abf703d"
     ],
     "100212": [
       "63810df1ad6a"
@@ -2151,7 +2157,7 @@
     "100233": [
       "13713cbb3e0a",
       "ba822fa8e732",
-      "e927587f1632"
+      "f50848df8ca6"
     ],
     "100235": [
       "8a36270c973c",
@@ -2237,7 +2243,7 @@
       "64a7c177b532"
     ],
     "100287": [
-      "d6fb49949766"
+      "cbced49796c1"
     ],
     "100289": [
       "68148293374e"
@@ -2282,7 +2288,7 @@
       "777bae030804"
     ],
     "100319": [
-      "d6fb49949766"
+      "03f35586b905"
     ],
     "100321": [
       "4dce35e5e0dc",
@@ -2428,7 +2434,7 @@
     ],
     "100435": [
       "223434c9b288",
-      "b067f1f36a16"
+      "9de82c9d3c3d"
     ],
     "100439": [
       "f2616acac643"
@@ -2604,7 +2610,7 @@
     ],
     "100555": [
       "271bf23ae253",
-      "748dc18e435f"
+      "0eef610146ec"
     ],
     "100557": [
       "91a593ec2fa1",
@@ -2621,7 +2627,7 @@
     ],
     "100568": [
       "360ac24f4db7",
-      "00432879f9bf"
+      "80ff61cea0c2"
     ],
     "100570": [
       "6f3f64d78cd1"
@@ -2725,7 +2731,7 @@
       "0d12c9473b76"
     ],
     "100645": [
-      "753519db8fce",
+      "378d8fd6c1de",
       "9f51778c0ba6"
     ],
     "100646": [
@@ -2815,7 +2821,7 @@
       "089e2bcd9a39"
     ],
     "100705": [
-      "5e3164696ff8",
+      "b1fec34582a2",
       "f472fa5c54da"
     ],
     "100706": [
@@ -2868,7 +2874,7 @@
       "ff1cf6c68046"
     ],
     "100756": [
-      "5e3164696ff8",
+      "b1fec34582a2",
       "f472fa5c54da"
     ],
     "100757": [
@@ -2927,7 +2933,7 @@
     ],
     "100788": [
       "bae43ea9f2d7",
-      "f172291b2c18",
+      "5871cc9f24b8",
       "9f51778c0ba6"
     ],
     "100789": [
@@ -3065,7 +3071,7 @@
       "9e5879ecaab4"
     ],
     "100865": [
-      "d6fb49949766"
+      "03f35586b905"
     ],
     "100867": [
       "87344f45c907"
@@ -3091,7 +3097,7 @@
       "673124cafe43"
     ],
     "100896": [
-      "5e3164696ff8",
+      "b1fec34582a2",
       "f472fa5c54da"
     ],
     "100899": [
@@ -3117,7 +3123,7 @@
       "4bb7767d5007"
     ],
     "100916": [
-      "5e3164696ff8",
+      "b1fec34582a2",
       "f472fa5c54da",
       "ce6c5b423b12"
     ],
@@ -3270,7 +3276,7 @@
     "101020": [
       "c11e1f56843c",
       "799a7ebb7236",
-      "d6fb49949766"
+      "03f35586b905"
     ],
     "101021": [
       "dca07fb086d1",
@@ -3283,7 +3289,7 @@
       "47ac564fb99e"
     ],
     "101033": [
-      "d6fb49949766"
+      "cbced49796c1"
     ],
     "101039": [
       "04bbb81d2e43"
@@ -3546,7 +3552,7 @@
       "a34bb674d7d5"
     ],
     "101211": [
-      "c4d50cd32a9d",
+      "782b0b9ce966",
       "1afeead35c56"
     ],
     "101214": [
@@ -3793,7 +3799,8 @@
     ],
     "101388": [
       "bc2633df1b09",
-      "3140d05d38f6"
+      "819125aeccdb",
+      "f899f111fb67"
     ],
     "101395": [
       "70938c518075",
@@ -3809,7 +3816,7 @@
       "08e666348f45"
     ],
     "101405": [
-      "1b0e80da2bc6",
+      "5ee46404c715",
       "f472fa5c54da"
     ],
     "101406": [
@@ -3928,7 +3935,7 @@
       "aa7bb94efa3a"
     ],
     "101507": [
-      "50f617d4074a",
+      "354847a1fd7c",
       "6a265759b96f",
       "1b29c6c2996e",
       "07b3e1855119",
@@ -4050,7 +4057,7 @@
       "c11e1f56843c"
     ],
     "101595": [
-      "a8b860409061",
+      "40c603fa04bc",
       "ecc1ae1720e9",
       "fd16a8d026eb"
     ],
@@ -4451,7 +4458,7 @@
       "68c6a5524128",
       "9984624b2c6e",
       "8e2a532f5500",
-      "e218f17fc3ac",
+      "798de9ae2738",
       "d6e1d94fd873"
     ],
     "101853": [
@@ -4488,6 +4495,9 @@
       "8496bd7f8665",
       "7e121a635a69",
       "dcf8541bd76c"
+    ],
+    "101879": [
+      "8c3d4dba5370"
     ],
     "101880": [
       "8496bd7f8665",
@@ -4625,7 +4635,7 @@
       "99bc22c1615f"
     ],
     "101950": [
-      "caea86f0abcf",
+      "a1e0ba683512",
       "8a605b4b2629",
       "5c8a1ead1849"
     ],
@@ -4892,14 +4902,14 @@
     ],
     "102144": [
       "d89e10d75d9e",
-      "2c076954891a"
+      "55c904facc89"
     ],
     "102146": [
       "0ff80f8af56e"
     ],
     "102149": [
-      "cf5020096e50",
-      "b30cf1cefba2",
+      "4749d3d38242",
+      "345cd6cbc732",
       "a22b64be4334"
     ],
     "102151": [
@@ -4922,8 +4932,8 @@
     "102164": [
       "0048a67d6c20",
       "6a1838a78bf3",
-      "47fac69bd883",
-      "3d09e41ad239"
+      "e552201afc8e",
+      "38dde6d6a237"
     ],
     "102165": [
       "c8accc55ec4c"
@@ -5022,7 +5032,7 @@
       "20669e05d258"
     ],
     "200033": [
-      "bd0fe1c82242",
+      "807efbc6adb1",
       "4e47f464bb3c"
     ],
     "200038": [
@@ -5303,7 +5313,7 @@
       "5d8ae33078fb"
     ],
     "200666": [
-      "bd0fe1c82242",
+      "807efbc6adb1",
       "4e47f464bb3c"
     ],
     "200667": [
@@ -5418,7 +5428,7 @@
     "200928": [
       "8b589ec999e1",
       "5c7636c12ed7",
-      "84f486231816"
+      "f79a801ccd09"
     ],
     "200929": [
       "292e141bd827"
@@ -5518,7 +5528,7 @@
     ],
     "201087": [
       "4e5eb1596b43",
-      "c40dc1a0ebcc"
+      "c58514c65c7e"
     ],
     "201098": [
       "7555300c2c4d"
