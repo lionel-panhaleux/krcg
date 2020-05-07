@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.39 (unreleased)
+0.39 (2020-05-07)
 -----------------
 
 - Discord Bot: Fixed answers on card not found
