@@ -42,7 +42,7 @@
 100038|Alastor:
     - "If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]"
 100043|Amaranth:
-    - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - 'If both minions want to play a card "when a vampire should go into torpor", acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Amaranth} and vice-versa. [RTR 20010710]'
 "100044|Ambrosius, The Ferryman":
     - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
@@ -100,7 +100,7 @@
 100097|The Art of Memory:
     - "The effect is applied after resolving the action, including after all combats. [LSJ 20031112]"
 100100|Art's Traumatic Essence:
-    - "The action fizzles if the target is not unlocked anymore when it resolves. [ANK 20181121]"
+    - "The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]"
 100103|Asanbonsam Ghoul:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100105|Ashes to Ashes:
@@ -201,7 +201,7 @@
     - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
     - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
 100209|Blood Shield:
-    - "The blood is burned by the opponent when the owner prevents damage, immediately. Depending on the impulse order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528]"
+    - "The blood is burned by the opponent when the owner prevents damage, immediately. Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528]"
 100212|Blood Tears of Kephran:
     - "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 100213|Blood Tempering:
@@ -221,7 +221,7 @@
 100233|Bomb:
     - "Using the provided action does not force the minion to strike with it if he is blocked. [LSJ 19971215]"
     - "Damage done to the bearer is environmental. [LSJ 19970801]"
-    - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221] [LSJ 20020926]"
+    - "The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221] [LSJ 20020926]"
 100235|Bond with the Mountain:
     - "[vis] [VIS] The unlock effect takes place before the end of combat. [RTR 19970630]"
     - "[vis] [VIS] The vampires still unlock if an effect continues the combat or begins a new combat. [RTR 20020501] [LSJ 20030717]"
@@ -276,7 +276,7 @@
 100286|Camarilla Vitae Slave:
     - "The vampire keeps his chosen Discipline at superior until his controller's next unlock phase even if the retainer is burned or stolen. [LSJ 19970224]"
 100287|Camera Phone:
-    - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
+    - "The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
 100289|Can't Take it with You:
     - "Each Methuselah burns 1 pool for each equipment, each location and each retainer. [LSJ 20071005-2]"
 100290|Canine Horde:
@@ -306,7 +306,7 @@
 100316|Chain of Command:
     - "Cannot bring more than one copy of a unique vampire out, by the rule prohibiting self-contesting. [LSJ 20040722]"
 100319|Chalice of Kinship:
-    - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
+    - "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
 100321|Chameleon's Colors:
     - '[SPI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
     - '[SPI] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
@@ -402,7 +402,7 @@
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100435|The Coven:
     - "Can be locked during damage resolution, but not while healing damage or preventing destruction (you cannot take 2, lock The Coven, then take the rest). [PIB 20121031]"
-    - "The predator must take control of it when he gets the impulse. If a players declares his turn ends, he does not get the opportunity to use it before it is moved to his predator, even retroactively if the mandatory effect was forgotten. [LSJ 20100723] [PIB 20111002]"
+    - "The predator must take control of it when he gets the the opportunity to play effects. If a players declares his turn ends, he does not get the opportunity to use it before it is moved to his predator, even retroactively if the mandatory effect was forgotten. [LSJ 20100723] [PIB 20111002]"
 100439|Crawling Chamber:
     - "[VIS] Damage is environmental. [RTR 19970630]"
 100440|Create Gargoyle:
@@ -506,7 +506,7 @@
     - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 100555|Disguised Weapon:
     - "The weapon is announced when the card is played, it must be in hand but need not to be shown. You can put the card apart face down when announcing it. [LSJ 19991207] [ANK 20180925-2]"
-    - "If used to equip and contest a unique weapon already in play, neither weapon is available for use during the combat. If the opposing minion had already chosen that weapon as his strike, then the strike fizzles. [LSJ 19980319]"
+    - "If used to equip and contest a unique weapon already in play, neither weapon is available for use during the combat. If the opposing minion had already chosen that weapon as his strike, then the strike has no effect. [LSJ 19980319]"
 100557|Disputed Territory:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
     - "If used to steal an equipment representing a location, it can be placed on any minion controlled by the new controller. [RTR 19960112]"
@@ -515,7 +515,7 @@
     - "[tha] can target a vampire with no blood. [RTR 20010711]"
 100568|Dog Pack:
     - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
-    - 'If put on a minion after an opponent as declared a "strike: combat ends" (eg. using {Pack Alpha} or {Summon Spirit Beast}), the opponent''s strike fizzles. [ANK 20190412]'
+    - 'If put on a minion after an opponent as declared a "strike: combat ends" (eg. using {Pack Alpha} or {Summon Spirit Beast}), the opponent''s strike has no effect. [ANK 20190412]'
 100570|Domain Challenge:
     - "Locked minions are counted after the referendum is completed. [RTR 19941109]"
 100571|Domain of Evernight:
@@ -582,7 +582,7 @@
 100641|Enchanted Marionette:
     - "The effect is not optional. [RTR 19980707] [LSJ 19980722]"
 100645|Enkil Cog:
-    - 'If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect "fizzle". [LSJ 20081213-1]'
+    - "If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect be lost. [LSJ 20081213-1]"
 100646|Ennoia's Theater:
     - "Only requires one clan or the other (Gangrel or Gangrel antitribu) to be played. [ANK 20190203]"
     - "Can be used at any moment during the influence phase to get the additional transfer. [RTR 20180303]"
@@ -642,7 +642,7 @@
 100704|Fast Hands:
     - "Cannot be used if there is no weapon to steal. [RTR 19980928]"
 100705|Fast Reaction:
-    - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100706|Fata Amria:
     - '[CHI] [REACTION] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
@@ -680,7 +680,7 @@
     - '[VIS] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
     - '[VIS] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 100756|Follow the Alpha:
-    - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100757|Follow the Blood:
     - "If played on a vampire who successfully hunts with a {Perfectionist}, {Perfectionist} grants the blood before combat. [LSJ 20110308]"
@@ -723,7 +723,7 @@
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
 100788|Freak Drive:
     - "[FOR] Is played after all combats are handled. Can be played from torpor. [RTR 19980623] [LSJ 20030103] [ANK 20180906]"
-    - "[for] Can be played if the action is unblocked even if it fizzles (due to lack of a suitable target, for example). [LSJ 20070411]"
+    - "[for] Can be played if the action is unblocked even if it has no effect (due to lack of a suitable target, for example). [LSJ 20070411]"
 100790|Free States Rant:
     - "If there are insuffient targets to which to allocate all of the points allowed, then the card cannot be played. [LSJ 20010810]"
 100791|Frenzy:
@@ -805,7 +805,7 @@
 100862|Growing Fury:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100865|Guarded Rubrics:
-    - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
+    - "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
 100867|Guardian Ghoul:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100868|Guardian Vigil:
@@ -819,7 +819,7 @@
 100887|Hard Case:
     - "The block needs to be successful, so the blocking minion is locked. [ANK 20190708]"
 100896|Haven Hunting:
-    - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100899|Hay Ride:
     - "Must be played after combat if the action is blocked [RTR 19980623]"
@@ -836,7 +836,7 @@
     - 'Can use {Charming Lobby} to call a referendum "as a vampire". [RTR 20020501]'
     - "If it uses its last life to pay for an action, the action still resolves fully. If that leads to an oust, the oust is resolved before resolving effects triggered by the fact that the Herald burns. [LSJ 20080512]"
 100916|Hidden Lurker:
-    - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
 100918|Hidden Strength:
@@ -935,7 +935,7 @@
 101020|Jar of Skin Eaters:
     - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
     - "Using the Jar action does not force the minion to strike with it if he is blocked. [LSJ 19971215]"
-    - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
+    - "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
 101021|Jar the Soul:
     - "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]"
     - "If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]"
@@ -944,7 +944,7 @@
 101031|Justicar Retribution:
     - "Counts the bleed amount that each vampire would have when attempting to bleed his prey. [RTR 19980623]"
 101033|Karavalanisha Vrana:
-    - "The provided action ends with no effect, neither successful nor failed, if the acting minion does not possess the equipment when the action resolves. [RTR 19960221]"
+    - "The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
 101039|Kerrie:
     - "The damage done from the ranged strike is damage from the weapon, so it can be modified by effects that modify melee weapon damage. [LSJ 20051220]"
 101040|Kevlar Vest:
@@ -1116,7 +1116,7 @@
 101209|Mighty Grapple:
     - "[POT] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101211|Mind Numb:
-    - "The action fizzles if the target is not unlocked anymore when it resolves. [ANK 20181121]"
+    - "The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]"
 101214|Mind of the Wilds:
     - "The blocking minion is prohibited to strike: combat ends for the duration of the action (during any round of any combat). [LSJ 20100308]"
 101215|Mind Rape:
@@ -1271,7 +1271,7 @@
     - "This does not count as performing the action to recruit this ally in respect to section 6.1 of the rules. The same vampire can recruit the same ally the normal way later this turn if he unlocks (and/or Piper it a second time). [LSJ 20080815]"
     - "When recruiting an ally or retainer whose effect depend on Discipline level, the chosen vampire decides in respect to his disciplines the normal way. [LSJ 20080803]"
 101405|Pocket Out of Time:
-    - "If used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "If used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 101406|Poison Pill:
     - '"burning pool" is "loosing pool". [ANK 20180813]'
@@ -1349,7 +1349,7 @@
 101504|Proxy Kissed:
     - "Can be played on a vampire who already has a Proxy Kissed (and was moved to uncontrolled and re-influenced). [LSJ 20050720-1]"
 101507|Psyche!:
-    - "[CEL] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "[CEL] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "[CEL] Cannot be played if there is already a combat queued. [RTR 20020501]"
     - "[CEL] Is played during combat, when combat is about to end. It must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519], [PIB 20111202]"
     - '[CEL] Replacements effects that are played when a combat "would end" cannot be play afterwards. [ANK 20191219]'
@@ -1424,7 +1424,7 @@
 101589|Reindoctrination:
     - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101595|Relentless Reaper:
-    - "[THN] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "[THN] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "[THN] Cannot be played after [CEL] {Psyche!}. When played before, combat continues and {Psyche!} can only be played at the end of it. [ANK 20191219]"
     - '[THN] Must be played after presses, can be played if the round ends prematurely and can be played before or after effects that are played "at then of the round" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]'
 101602|Renegade Garou:
@@ -1666,7 +1666,7 @@
     - "[OBE] The mandatory bleed action must be performed before any non-mandatory actions. [LSJ 20011216-2]"
     - "[OBE] If the bleed is canceled, the vampire still returns to its original controller. [RTR 20020501]"
     - '[OBE] "After resolution" effects are applied before the target vampire is returned to his or her previous controller. [LSJ 20030219]'
-    - "[OBE] The action fizzles if the target is not unlocked anymore when it resolves. [ANK 20181121]"
+    - "[OBE] The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]"
     - "[OBE] The minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]"
 101853|Spiritual Protector:
     - "Does not restrict the opposing minion if no block occurred. [TOM 19951208-2]"
@@ -1773,7 +1773,7 @@
 101949|Telepathic Misdirection:
     - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 101950|Telepathic Tracking:
-    - "[AUS] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "[AUS] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "[AUS] Cannot be played after [CEL] {Psyche!}. When played before, combat continues and {Psyche!} can only be played at the end of it. [ANK 20191219]"
     - '[AUS] Must be played after presses, can be played if the round ends prematurely and can be played before or after effects that are played "at then of the round" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]'
 101951|Telepathic Vote Counting:
@@ -1926,12 +1926,12 @@
     - "[ACTION MODIFIER] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
 102144|War Ghoul:
     - "If you have no other allies and no retainers in play when it is recruited, then you burn it. [RTR 19961113]"
-    - 'Can use its ability "lock and burn to burn a location" during an action that would steal it (eg. [PRE] {Entrancement}). The action ends, neither successful nor failed. [PIB 20121031]'
+    - 'Can use its ability "lock and burn to burn a location" during an action that would steal it (eg. [PRE] {Entrancement}). The action will have no effect but is still successful if unblocked and must then be paid. [PIB 20121031]'
 102146|Warding the Beast:
     - "[val] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 102149|Warsaw Station:
-    - "Can be burned after the annoucement of a diablerie action to bring the target Nosferatu out of torpor. The diablerie will then fizzle. [ANK 20181107]"
-    - "Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action would fizzles if an effect tries to continue it (eg. {Ambulance}). [LSJ 20090325-2]"
+    - "Can be burned after the annoucement of a diablerie action to bring the target Nosferatu out of torpor. The action will still be successful if unblocked, but will have no effect: no diablerie happen. [ANK 20181107]"
+    - "Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action would end with no effect if an effect tries to continue it (eg. {Ambulance}). [LSJ 20090325-2]"
     - "The unlock effect is applied after the action is resolved and the referendum (if any) concluded. If the acting vampire is not a Nosferatu anymore at that point, he does not unlock. [LSJ 20090216] [ANK 20180922]"
 102151|Wash:
     - "If used to cancel an out-of-turn master, that Methuselah still cannot play another out-of-turn master against the same master phase, even though the first was canceled and won't count against that master phase. [LSJ 20070309-2]"
@@ -1945,8 +1945,8 @@
 102164|Weather Control:
     - "Damage is environmental. [RTR 19970630]"
     - "The damage will occur even if combat is subsequently ended before range. [LSJ 19971110]"
-    - "The minion can play other pre-range effects before applying the damage and opening the damage prevention window, but he has to apply damage before passing the impulse. [ANK 20170930]"
-    - "Both minions can play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]"
+    - "The minion can play other pre-range effects before applying the damage and opening the damage prevention window, but he has to apply damage before passing the opportunity to play effects to the next player. [ANK 20170930]"
+    - "Both minions have the opportunity to play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]"
 102165|Web of Knives Recruit:
     - "It is not an action to put a vampire in play. [LSJ 20060616-2]"
 102166|Week of Nightmares:
@@ -2010,7 +2010,7 @@
     - "Additional draws are not subject to his ability (eg. {Infernal Pursuit}). [LSJ 20011202]"
     - "If Agaitas is burned while cards owned by your prey are still face-up in front of you, you can still play and discard them as normal, but you cannot draw in your prey's library until you control Agaitas anew. [LSJ 20100304]"
 200033|Akram:
-    - "If his ability is used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "If his ability is used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "His ability cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 200049|Alexandra:
     - "Can use her unlock ability at any point during the turn, including during a political action. [TOM 19960214]"
@@ -2153,7 +2153,7 @@
 200634|Ingrid Rossler:
     - "When she is influenced out, her bonus transfers do not apply for the ongoing influence phase. [RTR 20180303]"
 200666|Jalal Sayad:
-    - "If his ability is used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
+    - "If his ability is used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "His ability cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 200668|Jamal:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
@@ -2216,7 +2216,7 @@
 200928|Marie-Pierre:
     - 'Her ability must be used after combat has ended, cards that are played "when the combat would end" or "when combat is about to end" are played before that. [ANK 20180928-2]'
     - "When using her ability to enter combat she is not acting and cannot play action modifiers. {Obedience} cannot be played by the opponent. [ANK 20180929]"
-    - "When using her ability to enter combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will fizzle, except for unlock effects. [LSJ 19980109] [RTR 20020501] [ANK 20180928-2]"
+    - "When using her ability to enter combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501] [ANK 20180928-2]"
 "200929|Mariel, Lady Thunder":
     - "If she locks to end combat, the damage is applied just after the combat ends. [RTR 19970630]"
 200935|Maris Streck:
@@ -2267,7 +2267,7 @@
     - 'Cannot choose to be part of the "Inner Circle" and get the title. The Inner Circle title and a Blood Brothers circle are different things. [ANK 20190117-2]'
 "201087|Owain Evans, The Wanderer":
     - "His ability can only be used once each unlock, even if control of Owain changes during that unlock phase. [LSJ 20040127]"
-    - "His ability can only be used when his controller has the impulse. The acting player has to apply all mandatory effects (eg. lose pool to {Anarch Revolt}) before passing the impulse. [LSJ 20100723]"
+    - "His ability can only be used when his controller has the opportunity to play effects. The acting player has to apply all mandatory effects (eg. lose pool to {Anarch Revolt}) before passing the opportunity to play effects to another player. [LSJ 20100723]"
 "201098|Patrizia Giovanni, Collector of Secrets":
     - "When using her ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 201103|Paul "Sixofswords29" Moreton:
