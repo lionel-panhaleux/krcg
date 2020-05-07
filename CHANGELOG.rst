@@ -4,7 +4,8 @@ Changelog
 0.39 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Discord Bot: Fixed answers on card not found
+- Discord Bot: Fixed fuzzy match on spelling errors
 
 
 0.38 (2020-05-06)

@@ -49,19 +49,10 @@ async def on_message(message):
     if message.content.lower().startswith("krcg "):
         content = message.content[5:]
         logger.info(f"Received: {content}")
-        # when waiting for a user choice for card name completion,
-        # do nothing on wrong answers (maybe the user is trying another card text)
-        try:
-            content = client.COMPLETION_WAITING[message.author][int(content) - 1]
-        except (ValueError, TypeError, IndexError, KeyError):
-            pass
         # initial message handling. If multiple cards match, candidates are returned
         # and stored to the COMPLETION_WAITING map
         response = handle_message(content)
         candidates = response.pop("candidates", [])
-        if candidates:
-            logging.warning(f"53: {candidates}")
-            client.COMPLETION_WAITING[message.author] = candidates
         response = await message.channel.send(**response)
         # If they are candidates, add response reactions in the form of
         # square numbers emoji
@@ -82,7 +73,6 @@ async def on_message(message):
                 )
             except asyncio.TimeoutError:
                 candidates = []
-                del client.COMPLETION_WAITING[message.author]
                 # try to clear reactions if the "message management" permission is up
                 # (this is not the default setting for bots, it will likely fail)
                 try:
@@ -184,7 +174,7 @@ def handle_message(message, completion=True):
             message = candidates[0]
         elif len(candidates) > 10 and message not in vtes.VTES:
             return {"content": "Too many candidates, try a more complete card name."}
-        elif len(candidates) <= 10:
+        elif 0 < len(candidates) <= 10:
             embed = {
                 "type": "rich",
                 "title": "What card did you mean ?",
@@ -192,7 +182,7 @@ def handle_message(message, completion=True):
                 "description": "\n".join(
                     f"{i}: {card}" for i, card in enumerate(candidates, 1)
                 ),
-                "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+                "footer": {"text": "Click a number as reaction."},
             }
             logger.info(embed)
             return {

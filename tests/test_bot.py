@@ -78,7 +78,7 @@ def test_bot(monkeypatch):
     assert response["embed"].to_dict() == {
         "color": 16777215,
         "description": "1: Isabel Giovanni\n" "2: Isabel de Leon",
-        "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+        "footer": {"text": "Click a number as reaction."},
         "title": "What card did you mean ?",
         "type": "rich",
     }
@@ -92,7 +92,7 @@ def test_bot(monkeypatch):
     assert response["embed"].to_dict() == {
         "color": 16777215,
         "description": "1: Kemintiri\n" "2: Kemintiri (ADV)",
-        "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+        "footer": {"text": "Click a number as reaction."},
         "title": "What card did you mean ?",
         "type": "rich",
     }
@@ -102,7 +102,7 @@ def test_bot(monkeypatch):
     assert response["embed"].to_dict() == {
         "color": 16777215,
         "description": "1: Tariq, The Silent\n" "2: Tariq, The Silent (ADV)",
-        "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+        "footer": {"text": "Click a number as reaction."},
         "title": "What card did you mean ?",
         "type": "rich",
     }
@@ -116,7 +116,7 @@ def test_bot(monkeypatch):
         "3: Condemnation: Languid\n"
         "4: Condemnation: Mute\n"
         "5: Consanguineous Condemnation",
-        "footer": {"text": 'Click a number or answer with one (eg. "krcg 1")'},
+        "footer": {"text": "Click a number as reaction."},
         "title": "What card did you mean ?",
         "type": "rich",
     }
@@ -124,3 +124,11 @@ def test_bot(monkeypatch):
     response = discord_bot.handle_message("no")
     assert response["embed"]
     assert response["embed"].title == "Direct Intervention"
+    # fuzzy match
+    response = discord_bot.handle_message("enchant kidnred")
+    assert response["embed"]
+    assert response["embed"].title == "Enchant Kindred"
+    # no match
+    response = discord_bot.handle_message("foobar")
+    assert not response.get("embed")
+    assert response["content"] == "No card match"

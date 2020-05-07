@@ -158,6 +158,11 @@ def test_card_variants():
     ]
 
 
+def test_fuzzy_match():
+    assert "enchant kidnred" in vtes.VTES
+    assert vtes.VTES.get_name(vtes.VTES["enchant kidnred"]) == "Enchant Kindred"
+
+
 def test_deck_display():
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
