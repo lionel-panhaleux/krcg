@@ -4,7 +4,7 @@ Changelog
 0.40 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Additional rulings
 
 
 0.39 (2020-05-07)
