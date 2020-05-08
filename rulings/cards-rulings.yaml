@@ -1521,6 +1521,8 @@
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "Damage done to the striking minion is environmental. [LSJ 19970801]"
     - "The press can only be used during the current round. [TOM 19960521]"
+101429|Power of One:
+    - "[pre] Cannot be used to increase the stealth of a non-bleed action. [ANK 20171017-1]"
 101430|Power Structure:
     - "Cannot be used during a Blood Hunt referendum, since there is no political action. [ANK 20190707]"
 "101431|Powerbase: Barranquilla":
