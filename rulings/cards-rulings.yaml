@@ -34,6 +34,8 @@
 100023|The Admonitions:
     - 'Cannot be used when a card is played, to draw a card that would cancel it "as it is played". [RTR 20040501]'
     - "If you are the only Methuselah to control a Sabbat vampire, you keep control of The Admonitions each turn. [LSJ 20031121]"
+100024|Agate Talisman:
+    - "Can be equipped by a vampire with capacity less than 4, although he cannot lock it to get a vote. [LSJ 20030607]"
 100025|Agent of Power:
     - "Provides a discipline even when it is not played in the normal fashion (eg. diablerie, {Deviki Presanta}, {Bima}). [LSJ 20071001-1]"
     - 'If it is used as a placeholder to represent something else, then its text does not apply, including the "Unique" part. A {Shock Troops} vampire would simply be a 1-cap Sabbat with no clan and no discipline. [LSJ 20071001-1]'
@@ -163,6 +165,8 @@
     - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 100172|The Black Throne:
     - "The contract effect can be used even if the target is burned or if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]"
+100176|Blade of Enoch:
+    - "Can be equipped by a vampire with capacity less than 6, although he cannot use it to strike and does not gain immunity to frenzy cards. [LSJ 20030607]"
 100177|Blanket of Night:
     - "[OBT] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[OBT] Can be played by a locked vampire. [LSJ 19980210]"
@@ -214,6 +218,8 @@
     - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 100228|Body Arsenal:
     - "Must be played before strike resolution and damage prevention in order to affect the current strike. (can be played after both strikes have been chosen) [RTR 19960112]"
+100229|Body Bag:
+    - "Can be equipped by a non-Anarch and would still count as a haven, although the rest of his effect does not apply. [LSJ 20030607]"
 100231|Body of Sun:
     - "[pro] Damage done to the striking minion is environmental. [LSJ 19970801]"
 100232|Bollix:
@@ -411,6 +417,8 @@
     - "If moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]"
 100450|Crocodile's Tongue:
     - "The canceled block isn't successful or unsuccessful. It is simply canceled. [LSJ 20110419]"
+100474|The Crusader Sword:
+    - "Can be equipped by a minion who cannot use it. [LSJ 20030607]"
 100476|Crypt's Sons:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
     - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
@@ -1527,6 +1535,8 @@
     - "You cannot play another strike card to serve as the hand strike for Scorpion's Touch. [LSJ 20010627]"
 101702|Scrying of Secrets:
     - 'Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425] [ANK 20190113]'
+101703|Seal of Veddartha:
+    - "Can be equipped by a vampire with capacity less than 6: he cannot use it to bleed but the disciplines bonus applies. [LSJ 20030607] [ANK 20180801]"
 "101706|Second Tradition: Domain":
     - 'Can be used by a locked a vampire who is already attempting to block (eg. if he played a wake effect before)". [ANK 20181122-2]'
 101707|Secret Horde:
@@ -1690,6 +1700,8 @@
     - "For a Laibon moved into the ready region in the last influence phase, you must retrieve Aye and Orun in pairs: the same number of Aye as Orun. [LSJ 20051127]"
 101869|Steely Tenacity:
     - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+101872|Stolen Police Cruiser:
+    - "Can be equipped by a non-Anarch and would count as a vehicle, although the rest of his effect does not apply. [LSJ 20030607]"
 101879|Strained Vitae Supply:
     - "The effect only applies to the default hunt action provided by the rulebook. [PIB 20120204]"
 101881|The Stranger Among Us:
