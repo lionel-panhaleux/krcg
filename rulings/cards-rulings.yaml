@@ -1108,7 +1108,8 @@
 101020|Jar of Skin Eaters:
     - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
     - "Using the Jar action does not force the minion to strike with it if he is blocked. [LSJ 19971215]"
-    - "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
+    - "The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
+    - "{Ghoul Retainer} is not the bearer so he can use the Jar even if it has no counter on it. [ANK 20171003]"
 101021|Jar the Soul:
     - "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]"
     - "If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]"
