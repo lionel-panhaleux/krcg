@@ -380,7 +380,7 @@
 100392|Concealed Weapon:
     - "The weapon is announced when the card is played, it must be in hand but need not to be shown. You can put the card apart face down when announcing it. [LSJ 19991207] [ANK 20180925-2]"
     - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike against a generic opponent. [RTR 19980623]'
-    - "Strength or other bonus from the minion are not counted. [LSJ 20020821]"
+    - "Strength or other bonus from the minion or other cards in play are not counted for the damage limit. [LSJ 20020821] [LSJ 20020904]"
     - 'Cost reductions that are not limited to cards "played" apply before checking for card cost (eg. {Black Cat} can use Concealed Weapon to equip with a {Combat Shotgun}). [LSJ 20080125] [ANK 20181216]'
     - "Paying from another source (eg. {Alan Sovereign (ADV)}) does not reduce the cost as seen by Concealed Weapon. [LSJ 20080125]"
 100396|Condemn the Sins of the Father:
