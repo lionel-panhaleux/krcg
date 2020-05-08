@@ -130,6 +130,8 @@
     - "If the vampire is permanently controlled by a Methusalah other than his owner, it goes to that Methusalah uncontrolled region and is still controlled by him. It is removed from the game if that Methusalah is ousted and kept in game if his owner is ousted. [ANK 20200408-2]"
 100133|Banshee Ironwail:
     - "Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]"
+100134|Barrenness:
+    - "[mal] is unaffected by {Orun}. [MAL] is affected by {Orun}. [ANK 20180719]"
 100135|The Barrens:
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
 100137|Baseball Bat:
