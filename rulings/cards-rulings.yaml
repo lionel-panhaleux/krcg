@@ -664,6 +664,7 @@
 100725|Field Training:
     - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
     - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
+    - "The acting vampire must have a superior discipline to choose from. [ANK 20180731-2]"
 100728|Filchware's Pawn Shop:
     - "Cannot be used to replay a card that can be played only once in a game. [LSJ 20040518]"
 100730|Final Loosening:
@@ -1927,7 +1928,7 @@
 102126|Visit from the Capuchin:
     - "Cannot be played if you have another one, even if it has only one counter left. [PIB 20121031]"
 102128|Vivienne Géroux:
-    - "Cannot play cards requiring both [for] and [cel]. [ANK 20180731]"
+    - "Cannot play cards requiring both [for] and [cel]. [ANK 20180731-1]"
 102131|Voter Captivation:
     - "Is played after the referendum is resolved. If the effect of the referendum ousts the acting Methuselah, there is no time to play it to prevent the ousting. [RTR 19951110]"
     - 'Can be played before or after other cards that are played "after action resolution" or "if the action was successful". [LSJ 20070327]'
