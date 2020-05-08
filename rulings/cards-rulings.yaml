@@ -1680,6 +1680,7 @@
     - 'The mummies put into play are unique by card name. The name is "in play" for anything that cares. They will contest unique minions of the same name, vampire or allies. If one is {Nefertiti}, then {Aabbt Kindred} will be able to take directed actions. [LSJ 20070928-2] [LSJ 20071001-2]'
 101847|Spirit Claws:
     - "[pro] Must be played before strike resolution (and damage prevention) in order to affect the current strike [RTR 19960112]"
+    - "[SPI][PRO] The [pro] and [spi][pro] versions do not contest with it. [ANK 20180630]"
 101848|Spirit Marionette:
     - "[OBE] Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
     - "[OBE] The mandatory bleed action must be performed before any non-mandatory actions. [LSJ 20011216-2]"
