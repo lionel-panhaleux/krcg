@@ -28,6 +28,7 @@
     "2191ac2d8768": "The cost is cumulative if a vampire has multiple copies of the card on him. [LSJ 19980225]",
     "3f59d13b3523": "Cannot be used when a card is played, to draw a card that would cancel it \"as it is played\". [RTR 20040501]",
     "5ad980a44177": "If you are the only Methuselah to control a Sabbat vampire, you keep control of The Admonitions each turn. [LSJ 20031121]",
+    "b681688feebe": "Can be equipped by a vampire with capacity less than 4, although he cannot lock it to get a vote. [LSJ 20030607]",
     "112e2a014ec6": "Provides a discipline even when it is not played in the normal fashion (eg. diablerie, {Deviki Presanta}, {Bima}). [LSJ 20071001-1]",
     "57922e224c10": "If it is used as a placeholder to represent something else, then its text does not apply, including the \"Unique\" part. A {Shock Troops} vampire would simply be a 1-cap Sabbat with no clan and no discipline. [LSJ 20071001-1]",
     "f99a55e6c49a": "If you play Agent of Power on a vampire and that vampire plays a {Dual Form} at superior [PRO], the Dual Form gains the Discipline provided by the Agent of Power and keeps it once the Agent of Power burns. [LSJ 20071005-1]",
@@ -41,7 +42,8 @@
     "177793f702fe": "If the action continues \"as if unblocked\", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]",
     "6fa307e0cdcb": "An action cannot continue \"as if unblocked\" after a combat resulting from a successful action. [RTR 19970630]",
     "4537a42e7817": "\"continue as if unblocked\" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]",
-    "86fab5eb0727": "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]",
+    "c83fcfa349ec": "\"Once each turn\" means once during each player's turn. [ANK 20180719-4]",
+    "83c5b1f97989": "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]",
     "ba0a19fa8ceb": "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]",
     "6966c2993f15": "The cost is cumulative if they are multiple copies in play. [LSJ 19980225]",
     "0c5704d189fb": "Can lock a vampire that is already locked. [PIB 20121031]",
@@ -49,6 +51,7 @@
     "eb5f247fbf66": "Will not burn a vampire for entering a combat with zero blood: there must be an actual blood loss. [RTR 19980623]",
     "8100ed4d9452": "Multiple Anathemas don't multiply the pool gain. Once one Anathema resolves it burns the vampire and the others are burned before they get to resolve. [LSJ 20021117]",
     "5ca587354dde": "Damage done by combat effects after combat ends do not trigger Anathema. [LSJ 19980225]",
+    "d0e57aef1215": "Once in play, can be equipped from the minion it's on (rulebook action) by another minion that does not meet the requirements. [ANK 20180719-3]",
     "333b198dc2a8": "Applies a pool gain then a pool loss. {Poison Pill} register a 5 pool loss in all cases, a Methusalah cannot withdraw even if the total was positive. [ANK 20180813]",
     "6b5bb137abe5": "Does not end combat as a strike; it ends combat after strike resolution. It is still just a hand strike. [LSJ 20011210-1]",
     "09c0f0ba8cd8": "A dodge won't prevent combat from ending after strike resolution. [LSJ 20011210-2]",
@@ -89,6 +92,7 @@
     "0e5f0a6c6c2d": "\"breaking any temporary control effects\" means the vampire is placed in his last permanent controller's uncontrolled region. [RTR 20000501]",
     "a8c6a7bb0fd1": "If the vampire is permanently controlled by a Methusalah other than his owner, it goes to that Methusalah uncontrolled region and is still controlled by him. It is removed from the game if that Methusalah is ousted and kept in game if his owner is ousted. [ANK 20200408-2]",
     "14f192201b27": "Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]",
+    "38330a5b35ef": "[mal] is unaffected by {Orun}. [MAL] is affected by {Orun}. [ANK 20180719-1]",
     "e14f2b6ac7b7": "Cannot be used when a card is played to draw a card that would cancel it \"as it is played\". [RTR 20040501]",
     "4972495321af": "If put into play in a special way (eg. using {Concealed Weapon}), it is replaced immediately. [LSJ 20080702-2]",
     "d71381ec591d": "If it is burned by another mean than its effect, the weapon is not burned. [LSJ 20090113-1]",
@@ -110,9 +114,11 @@
     "ba822fa8e732": "Damage done to the bearer is environmental. [LSJ 19970801]",
     "2c75cf993271": "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]",
     "d35dbe1e5ed4": "The contract effect can be used even if the target is burned or if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]",
+    "8dc1da7e898a": "Can be equipped by a vampire with capacity less than 6, although he cannot use it to strike and does not gain immunity to frenzy cards. [LSJ 20030607]",
     "8ac513caa8f4": "[OBT] Can only be played by the controller of the acting minion. [LSJ 19990425]",
     "19cbe02bca1e": "[OBT] Can be played by a locked vampire. [LSJ 19980210]",
     "9e5879ecaab4": "Additional damage inherits all of the properties of the base damage. [TOM 19960225]",
+    "f265767a8c87": "A minion who maneuvers with a weapon (eg. {Blade of Bellona}) may still use Blessed Blade to strike with that weapon as his initial strike that round. [ANK 20180704] [LSJ 20050304]",
     "55c6882d0112": "The prohibition to play certain cards applies from the moment the vampire attempts to block until the end of the action, even if he fails to block. [LSJ 20080818]",
     "67b269d0d652": "Cannot be used if there is no equipment to steal. [RTR 19980928]",
     "77b1b0733f5c": "[dom][pre] [COMBAT] Can be used during a combat by a vampire in torpor. [LSJ 20020416]",
@@ -136,6 +142,7 @@
     "3006fb2e0259": "[VIC] Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]",
     "6372ee1c6454": "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]",
     "7692ab5be8a4": "Must be played before strike resolution and damage prevention in order to affect the current strike. (can be played after both strikes have been chosen) [RTR 19960112]",
+    "b20ae225fc95": "Can be equipped by a non-Anarch and would still count as a haven, although the rest of his effect does not apply. [LSJ 20030607]",
     "1028767e41b2": "[pro] Damage done to the striking minion is environmental. [LSJ 19970801]",
     "70b2bad19a9b": "[tha] Additional damage inherits all of the properties of the base damage. [TOM 19960225]",
     "13713cbb3e0a": "Using the provided action does not force the minion to strike with it if he is blocked. [LSJ 19971215]",
@@ -205,7 +212,7 @@
     "c222905dbf4c": "If used when blocked while leaving torpor, the action ends immediately and the blocker does not get an opportunity for diablerie. [LSJ 20050105-2]",
     "cd862eb6a7cf": "The superior Obfuscate is not optional. [RTR 19980707] [LSJ 19980722]",
     "32310bcc1969": "Applies to an action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2] [KOT 20081119]",
-    "d7e9490346b1": "No other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]",
+    "e682de979dd9": "No other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]",
     "03e8b11b9899": "During the referendum that passes automatically, no \"during a political action\" and \"during a referendum\" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]",
     "e5bcffa22391": "A bloodhunt vote does not qualify. [TOM 19950921]",
     "050fede02f3c": "The next referendum can be called by another Methuselah's vampire: if this is the case, then that referendum passes automatically. [PIB 20110719]",
@@ -232,7 +239,7 @@
     "f367a274eb17": "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]",
     "271bf23ae253": "The weapon is announced when the card is played, it must be in hand but need not to be shown. You can put the card apart face down when announcing it. [LSJ 19991207] [ANK 20180925-2]",
     "63ce5e480f7b": "A weapon's \"current damage\" is the amount of damage that it would inflict if used as a strike against a generic opponent. [RTR 19980623]",
-    "b1269bdd8310": "Strength or other bonus from the minion are not counted. [LSJ 20020821]",
+    "a575e89958de": "Strength or other bonus from the minion or other cards in play are not counted for the damage limit. [LSJ 20020821] [LSJ 20020904]",
     "e3173176301d": "Cost reductions that are not limited to cards \"played\" apply before checking for card cost (eg. {Black Cat} can use Concealed Weapon to equip with a {Combat Shotgun}). [LSJ 20080125] [ANK 20181216]",
     "8017acfd5a93": "Paying from another source (eg. {Alan Sovereign (ADV)}) does not reduce the cost as seen by Concealed Weapon. [LSJ 20080125]",
     "ec6b89b31f89": "Is directed at all Methusalah controlling one of the chosen targets. [KOT 20081119] [ANK 20180917]",
@@ -248,6 +255,7 @@
     "c11e1f56843c": "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]",
     "1a396b2de71d": "If moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]",
     "10b56ecddd2b": "The canceled block isn't successful or unsuccessful. It is simply canceled. [LSJ 20110419]",
+    "a5fbe85731d2": "Can be equipped by a minion who cannot use it. [LSJ 20030607]",
     "aae548b71ab0": "Only moves when a Methuselah gets the Edge who does not already have the Edge. [LSJ 19971006]",
     "36bb9455698a": "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]",
     "c85a40eb1454": "[QUI] Additional damage inherits all of the properties of the base damage. [TOM 19960225]",
@@ -301,6 +309,7 @@
     "e45f1f996bfd": "[ser] can target a minion with less than 2 blood or life. [RTR 20010711]",
     "02dce5e51b01": "[CHI] Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Draba at the time it was played. [RTR 20030519]",
     "21eb26f12a15": "[CHI] Can be played by a minion who is not attempting to block the action. [ANK 20190628]",
+    "1b074bcb3ca8": "[CHI] Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]",
     "5de5cc593ac0": "Can target a minion with less blood or life than the amount stolen. [RTR 20010711]",
     "d5b9d6ee2e29": "[COMBAT] If a minion is burned in combat, his opponent his always considered to have burned him. [LSJ 20090922]",
     "8ccfdf19c6d3": "[MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]",
@@ -369,9 +378,11 @@
     "a47ce6a62a0f": "[CHI] [REACTION] Cards and effects that can be played \"after resolution\" (and only them) can be played after it. [ANK 20190425]",
     "b0afaeec12e5": "Does not trigger if the ally is saved by {Left for Dead}. [PIB 20121028]",
     "95a4686b0741": "Does not trigger if the ally is considered the acting minion during the combat (eg. {Nar-Sheptha}). [ANK 20180913-2]",
+    "e7b7ccbb7739": "[ANI][OBF] The chosen Methusalah discards, then burn 4 cards, then replace the discarded card. [ANK 20180725]",
     "6e1b3c83ffbf": "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]",
     "d0e05af3a2ec": "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]",
     "622ea09cbfd6": "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]",
+    "1546a8e61a76": "The acting vampire must have a superior discipline to choose from. [ANK 20180731-2]",
     "c8d3a5c917a3": "Cannot be used to replay a card that can be played only once in a game. [LSJ 20040518]",
     "5a02b70fcefd": "[for] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]",
     "a2f8077146d2": "The target vampire is chosen when the action is announced. [RTR 19970425]",
@@ -421,7 +432,7 @@
     "fc5ce3356596": "Are not mortal, are a monster. [ANK 20200203-2]",
     "fb904cc6d27d": "She can use her ability to burn an equipment an opponent has commited to use as a strike (eg. by using the maneuver of a {.44 MAgnum}). In this case the opponent strike has no effect. [PIB 20141026]",
     "8c9490f3d28b": "[obe] [ACTION MODIFIER][REACTION] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]",
-    "0f23ca8bfbd5": "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]",
+    "6cd84d5f9648": "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]",
     "21022a2352e6": "Must wait until the second time a given gun is used in a given combat to play it. [RTR 19941109]",
     "d0e92fc1cb5a": "Is not the default action, no blood is paid to become Anarch. [ANK 20181017]",
     "91ad6dfb9749": "Can be used on your own crypt. [TOM 19960419]",
@@ -575,6 +586,7 @@
     "5047d43da235": "[FOR] The additional counter is added after the presses are handled. It is added if the round ends prematurely and conditions are met. [RTR 20030519]",
     "1e078c8c9f9e": "Multiple copies may be played by different Methusalahs after a single action, but all would be burned during the vampire's next unlock phase. [TOM 19950921]",
     "3320f9af23cf": "Does not affect merging (base with advanced vampire cards). [LSJ 20030527]",
+    "70eb2b93cdce": "Multiple copies stack their bonuses. [LSJ 20020904]",
     "ee0847218eb7": "Will stay in play (uselessly) when the target is burned. [LSJ 20021008]",
     "3787baf048fe": "Works on any minion, not just on vampires. [RTR 20020501]",
     "b7716db43074": "[vic] The unlock effect occurs when the strike resolves, before the combat ends. [RTR 19970630] [RTR 20020501]",
@@ -625,7 +637,7 @@
     "99bc22c1615f": "[AUS] Must be played before action resolution, ie. before any modifier or reaction played \"as the action/bleed would be successful\" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]",
     "9fa8e6c9117b": "[AUS] Can be played if there is only two players in the game. The target of the bleed is unchanged, there is no new block opportunity. [LSJ 20060525]",
     "9a3e625d63c9": "Each Methuselah must find as many copies of the vampire as possible when searching. [LSJ 20050611]",
-    "f7b22d6a73c7": "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]",
+    "fb2f70c3287c": "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]",
     "2bdc79c2ee13": "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630]",
     "c56d9d887caa": "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]",
     "6bdd1dcdd9fb": "Mortal allies are not affected, and vampires with capacity above the number of Gehenna cards in play are not affected. [LSJ 20040415]",
@@ -660,7 +672,7 @@
     "476103b78cdc": "This does not count as performing the action to recruit this ally in respect to section 6.1 of the rules. The same vampire can recruit the same ally the normal way later this turn if he unlocks (and/or Piper it a second time). [LSJ 20080815]",
     "08e666348f45": "When recruiting an ally or retainer whose effect depend on Discipline level, the chosen vampire decides in respect to his disciplines the normal way. [LSJ 20080803]",
     "5ee46404c715": "If used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]",
-    "53bd945f2e48": "\"burning pool\" is \"loosing pool\". [ANK 20180813]",
+    "4cb5b602f6ae": "Any decrease in pool (burning, paying, ...) is considered \"loosing pool\". [ANK 20180719-2]",
     "90c2b0c2b802": "If you yield the Political Seizure, the location it was contesting does not come into play under your control. [LSJ 19980223]",
     "2fb721595f68": "The acting vampire gains X votes if the vampire with this card is burned, no matter how that vampire is burned. [LSJ 19990119]",
     "25feef01a885": "If the victim is burned by diablerie, the votes gained from Political Struggle are gained before the blood hunt referendum. [LSJ 20050707]",
@@ -759,7 +771,9 @@
     "dab66440e0c1": "Each Scorn played may only cause the loss of one pool to a given Methuselah, regardless of how may 'no' votes that Methuselah casts. [RTR 19951110]",
     "1dcb949248c2": "If it is declared with first strike and if the opposing minion declared a strike based on strength, that minion\u2019s strength is decreased by Scorpion\u2019s Touch when it resolves. [PIB 20110830]",
     "420e5b9d36ea": "You cannot play another strike card to serve as the hand strike for Scorpion's Touch. [LSJ 20010627]",
+    "01acafbf9a32": "If the option to burn a vampire is used, the card goes to the predator immediately, even if there is still a mandatory effect to resolve. If not, the predator must take the card when he has the opportunity to play an effect and mandatory effects must be resolved by the acting Methusalah before that (eg. losing blood to {Dragonbound}). [ANK 20200508]",
     "0aea0feeda40": "Cards and effects that can be played \"after resolution\" (and only them) can be played after it. [ANK 20190425] [ANK 20190113]",
+    "7ab175c5dc5d": "Can be equipped by a vampire with capacity less than 6: he cannot use it to bleed but the disciplines bonus applies. [LSJ 20030607] [ANK 20180801]",
     "76c0745bb9e7": "Can be used by a locked a vampire who is already attempting to block (eg. if he played a wake effect before)\". [ANK 20181122-2]",
     "dbbf2a2982fe": "If put into play with no counters (X=0), it burns immediately. [LSJ 20070308]",
     "92f1cb4f4239": "All Methuselahs, including the target vampire's controller, must pay one extra pool when playing Master cards on the target minion. [TOM 19951208-1]",
@@ -767,7 +781,7 @@
     "2b1f95c3875c": "Choosing is targeting: cards that \"choose\" the vampire like {The Rack}, {Toreador Grand Ball}, {Piper} or {Tend the Flock} are considered to target it, their cost is increased. Actions that choose the vampire cannot be played against him (eg. {Propaganda}, {Spirit Marionette}, {Shattering Crescendo}) [LSJ 20031010] [LSJ 20090319] [ANK 20180907]",
     "99042dd75e02": "Only directed actions targeting the minion are restricted. Actions that target retainers, equipment, or other cards on the minion are allowed, as are actions that target cards not on the minion, even if such cards have \"named\" or \"chosen\" that minion. [TOM 19951208-1] [LSJ 19980302-1]",
     "f6e60e73e698": "If contested, it will not be burned when the target (vampire) goes to torpor, nor will it be burned if it enters play while the target vampire is in torpor. [RTR 19960124]",
-    "497c9cba6cb7": "[QUI] no other effect can be used to reset the range. [RTR 19970630]",
+    "8bad2988d9fc": "[QUI] no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]",
     "35cee7267ff7": "[QUI] The blood is not the cost of Selective Silence, it is the cost of using the mandatory range-setting effect. The cost is not reduced by cards reducing [qui] or combat cards cost, the card cannot be used by a vampire who has less than one blood. [LSJ 19970224]",
     "72cd61111d76": "[ANI] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]",
     "c152602fc7d5": "[val], [VAL] Is not the default action, no blood is paid for the rescue. [ANK 20181017]",
@@ -799,7 +813,7 @@
     "036127918a6f": "If he ends up in torpor (eg. by using {Reform Body}), he cannot leave or be rescued. Going into torpor instead of being burned does not give him life back: if he has no life, he burns again immediately. [LSJ 20000128]",
     "198cf48b6f4f": "Will not prohibit the opposing minion from choosing dodge as his strike, and, if chosen, the dodge will still resolve. The dodge simply has no effect on the Shadow Feinted strike. [LSJ 20030902-2]",
     "5bbcd484dcd7": "The +1 damage only applies to the additional strike. [LSJ 19970331]",
-    "edfa5c3b6f52": "[OBT] No other effect can be used to reset the range afterwards. [RTR 19970630]",
+    "d482286afb2f": "[OBT] No other effect can be used to reset the range afterwards, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]",
     "74d6a5d6d752": "[OBT] The two blood are not the cost of Shadow Step, they are the cost of using the mandatory range-setting effect. The cost is not reduced by cards reducing [obt] or combat cards cost, the card cannot be used by a vampire who has less than two blood. [LSJ 19970224]",
     "877dfb300e78": "The acting vampire's controller can choose not to remove a minion from his or her ash heap and thus burn the Shambling Hordes. [LSJ 20030701-2]",
     "0cfdb540993c": "The damage the strike does is determined when the strike resolution begins, before the Hordes loses life from any opposing \"burn life\" or \"steal life\" effect. Damage done before strike resolution, e.g. with First Strike, will reduce the damage done by the Hordes. [LSJ 20030307]",
@@ -833,6 +847,7 @@
     "4f8b028f8a1e": "Can be used on a vampire who is already attempting to block\". [ANK 20181122-2]",
     "280c2f4cce29": "The mummies put into play are unique by card name. The name is \"in play\" for anything that cares. They will contest unique minions of the same name, vampire or allies. If one is {Nefertiti}, then {Aabbt Kindred} will be able to take directed actions. [LSJ 20070928-2] [LSJ 20071001-2]",
     "ea0c143244fb": "[pro] Must be played before strike resolution (and damage prevention) in order to affect the current strike [RTR 19960112]",
+    "c4c65819ff19": "[SPI][PRO] The [pro] and [spi][pro] versions do not contest with it. [ANK 20180630]",
     "f9724eedfde9": "[OBE] Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]",
     "68c6a5524128": "[OBE] The mandatory bleed action must be performed before any non-mandatory actions. [LSJ 20011216-2]",
     "9984624b2c6e": "[OBE] If the bleed is canceled, the vampire still returns to its original controller. [RTR 20020501]",
@@ -851,6 +866,7 @@
     "e08b40fb48b4": "[cel] Cards and effects that can be played \"as the action is announced\" (and only them) can be played before it. [ANK 20190425]",
     "140889f61be7": "Using the Launcher to reduce stealth does not force the minion to strike with it if he blocks. [LSJ 19971215]",
     "6ad9a0d248c8": "For a Laibon moved into the ready region in the last influence phase, you must retrieve Aye and Orun in pairs: the same number of Aye as Orun. [LSJ 20051127]",
+    "e361a17e5d06": "Can be equipped by a non-Anarch and would count as a vehicle, although the rest of his effect does not apply. [LSJ 20030607]",
     "8c3d4dba5370": "The effect only applies to the default hunt action provided by the rulebook. [PIB 20120204]",
     "c18020884909": "Shuffle your crypt afterwards. [LSJ 20020304-1]",
     "131c475faad9": "[QUI] The additional damage is the same type as the strike's damage. [TOM 19960225] [RTR 19970630]",
@@ -937,6 +953,7 @@
     "5ac97bc2b601": "Offers the additional stealth on actions to equip it from another friendly minion as well, even with other equipment in the same action. [LSJ 20060222]",
     "802be506cb7d": "[abo] The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]",
     "64318031ff07": "Cannot be used by {Angelo} or {New Blood} on a uncontrolled vampire with no circle designation, even another {Angelo} or {New Blood}. [LSJ 20050927]",
+    "14282d8fcac6": "At the beginning of the unlock phase, an afflicted vampires unlocks and burns a blood before effects that are applied \"during\" the unlock phase. [ANK 20180702]",
     "5fb0378b3cf7": "The provided action is an \"equip action\" [TOM 19960130] [RTR 19960124]",
     "548ab83ceca8": "You only search your library if the action is successful. [TOM 19951107]",
     "9c917da7fb32": "Paying for the equipment found is not optional. If paying the cost will oust the controlling Methuselah, then she is ousted. [RTR 19941109] [RTR 20010710]",
@@ -956,6 +973,7 @@
     "6a904db4229a": "Pay the cost (if any) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]",
     "b4e3b13d23ca": "[MEL] Cards and effects that can be played \"as the action is announced\" (and only them) can be played before it. [ANK 20190425]",
     "267ff2f453ec": "Cannot be played if you have another one, even if it has only one counter left. [PIB 20121031]",
+    "5e38afe45b91": "Cannot play cards requiring both [for] and [cel]. [ANK 20180731-1]",
     "f74993d6384b": "Is played after the referendum is resolved. If the effect of the referendum ousts the acting Methuselah, there is no time to play it to prevent the ousting. [RTR 19951110]",
     "93b73d9f421e": "Can be played before or after other cards that are played \"after action resolution\" or \"if the action was successful\". [LSJ 20070327]",
     "c196e37083a9": "May still be \"canceled as it is played\" when used as an out-of-turn master. [LSJ 20031201]",
@@ -1034,7 +1052,7 @@
     "91bff5a3d14c": "The reduction applies for other effects that check the \"cost\" of equipment on her. [RTR 19941109]",
     "90bd3ca530b9": "If she is equipped with something and that equipment is transferred to another minion, then it regains its normal pool value. Conversely, if a piece of equipment moves onto her, its effective pool cost is lowered by 1. [RTR 19941109]",
     "b505a8509a03": "If he burns, he keeps all cards and counters on him. [ANK 20160404]",
-    "e823166b97d5": "If a diablerie is attempted on him, he goes to torpor and the diablerie is unsuccessful. [LSJ 20100228]",
+    "d9dd704b0e8a": "His ability will make a diablerie unsuccessful (blood and equipment stay on him). [LSJ 20100228]",
     "cf4b8d5c0150": "If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20160404] [ANK 20200417]",
     "4ac01fd569f6": "If his controller is not his original owner and he burns, he goes to his original owner ash heap, breaking all control effect, then to his owner's uncontrolled area. The Methusalah who was controlling him when he burned gets the additional transfers. [ANK 20200417]",
     "1efa93fc7631": "The card being retrieved is announced when the action is declared. [LSJ 19970922]",
@@ -1102,6 +1120,7 @@
     "a8e37c7e48b1": "A card cancelled as it is played is still considered played, she can retrieve it. [LSJ 19980212] [ANK 20190701]",
     "cb6b822d4e29": "Orun and Aye cards cannot be placed on her as long as she's not a Laibon. [LSJ 20110611]",
     "a152b162b3e6": "When playing a card requiring a sect and/or a clan, she is treated as a such for all effects generated by the play of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]",
+    "4fdebf414740": "If her capacity is above 10 when playing {Call the Great Beast}, she burns and it is put into play. If her capacity is less, the card is put on her with tokens equal to her capacity, but she will not be able to add counters to it later on. [ANK 20180723]",
     "002943aec367": "You can still use the burn options of cards with a requirement she could meet when you play them, but does not meet while in play. [LSJ 20050225]",
     "a03c6ca3aadf": "Her ability do not let her fulfill card requirements if they are not played normally, like when using {Concealed Weapon} for an equipment or {Piper} or {The Summoning} for an ally. [LSJ 20050119]",
     "49b0c1b60e8d": "Cannot use his ability to become a Prince if he has changed sect and is no longer Camarilla. [LSJ 20030202]",
@@ -1198,6 +1217,7 @@
     "[LSJ 19980225]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/62y-5miA8MQ/EhtcS-ia9b8J",
     "[RTR 20040501]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/7-mp3Ada86I/yenQ7FZ-VMIJ",
     "[LSJ 20031121]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/JQO1RBmvV_o/jrmvVW9GH8oJ",
+    "[LSJ 20030607]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/DG7s60pwv1U/FPqlZYJ3upcJ",
     "[LSJ 20071001-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/bb9ac-kN5WY/l8mfTxW6a6gJ",
     "[LSJ 20071005-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Ugcdb0ljZrU/J3Gqxj_615gJ",
     "[LSJ 20100422]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/tMEimr0yxLA/RWgvaOj6i9UJ",
@@ -1211,9 +1231,12 @@
     "[ANK 20190116]": "http://www.vekn.net/forum/rules-questions/77302-strike-combat-ends-continue-with-the-action#92916",
     "[RTR 19970630]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/KireUeOYY3c/t6ifm9lur1kJ",
     "[LSJ 20070808-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/jzMOxZ9oxOs/o0X7GUFmii0J",
+    "[ANK 20180719-4]": "http://www.vekn.net/forum/rules-questions/76833-once-each-turn#89014",
+    "[ANK 20180720]": "http://www.vekn.net/forum/rules-questions/76840-setting-range-and-pre-range#89125",
     "[LSJ 20050720-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/1vbIkgvKDJ0/3ErIIMXFgPIJ",
     "[RTR 19980623]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/tSpd9dtTElc/-CuHJF54_n0J",
     "[LSJ 20021117]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4TgUatcTtdk/HfuRL6wM8IcJ",
+    "[ANK 20180719-3]": "http://www.vekn.net/forum/rules-questions/76834-moving-equipment-with-requirements#89044",
     "[ANK 20180813]": "http://www.vekn.net/forum/rules-questions/76917-poison-pill-ancient-influence#89940",
     "[LSJ 20011210-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/mUwzyHLcAx8/BFFVIH0Ha2kJ",
     "[LSJ 20011210-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/mUwzyHLcAx8/GghxO9mnnTIJ",
@@ -1247,6 +1270,7 @@
     "[TOM 19960210]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/PiOmH08RyVw/CqzTRcOLDNIJ",
     "[ANK 20200408-2]": "http://www.vekn.net/forum/rules-questions/78562-banishment?start=6#99533",
     "[LSJ 19971215]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/mfBmRrUKZQ0/5Py-ENuzoGwJ",
+    "[ANK 20180719-1]": "http://www.vekn.net/forum/rules-questions/76836-orun-barrenness-rtr?start=6#89073",
     "[LSJ 20080702-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/sCHpPQkjeAE/8N5_G2gMHAIJ",
     "[LSJ 20090113-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/iZC_oiiXgTk/vKVo4bOt3MMJ",
     "[RTR 20080808]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/1jW6GXrIRSU/8QTYL98kB0gJ",
@@ -1268,6 +1292,8 @@
     "[LSJ 19990425]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Mmfn07ib6Yw/YfwpUlqEdrEJ",
     "[LSJ 19980210]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/v7PxbzgVG0c/Fr0CsYqf9QMJ",
     "[TOM 19960225]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/0LLTOfvyVbM/ih72_C-LriwJ",
+    "[ANK 20180704]": "http://www.vekn.net/forum/rules-questions/76784-blessed-blade-blade-of-bellona#88556",
+    "[LSJ 20050304]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/X5JZBbSIj3U/CBdkcQ-rAesJ",
     "[LSJ 20080818]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/O5HUPRkKY-k/IVBZIwrEtboJ",
     "[LSJ 20020416]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/XS0Z0P5qaew/5hv141ZGzTIJ",
     "[ANK 20181101]": "http://www.vekn.net/forum/rules-questions/77132-save-face#91633",
@@ -1346,6 +1372,7 @@
     "[LSJ 19991207]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/aQaOTYwC-fg/vdyo09QZoicJ",
     "[ANK 20180925-2]": "http://www.vekn.net/forum/rules-questions/77029-order-of-draw-and-replace-for-concealed-weapon-under-infernal-pursuit?start=6#90757",
     "[LSJ 20020821]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/o_nBNZraMvE/g0xPNLGquKIJ",
+    "[LSJ 20020904]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Qmi4hFk6QqE/VmoU2tfLMgEJ",
     "[LSJ 20080125]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/HcCobkGPcFI/GlBdNwMvAjwJ",
     "[ANK 20181216]": "http://www.vekn.net/forum/rules-questions/77213-discussion-card-costs-and-presentation?start=36#92386",
     "[ANK 20180917]": "http://www.vekn.net/forum/rules-questions/77011-condemn-the-sins-of-the-father#90639",
@@ -1387,6 +1414,7 @@
     "[LSJ 19971002]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/RY_nhdykKP0/fOdKJtOy4kgJ",
     "[ANK 20190412]": "http://www.vekn.net/forum/rules-questions/77543-strike-restriction-and-dog-pack?start=6#94497",
     "[ANK 20190628]": "http://www.vekn.net/forum/rules-questions/77756-reactions-played-by-another-player-who-is-not-a-target-of-d-action#95655",
+    "[LSJ 20021211]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/-J07wvmidOA/gPQ5ngEZ6HcJ",
     "[LSJ 20090922]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/UdvGbJqOeo4/qFeNdWilXzUJ",
     "[RTR 19960124]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/wF82VdVPlm0/cSshmBFQs-EJ",
     "[ANK 20181022]": "http://www.vekn.net/forum/rules-questions/77103-kamiri-wa-itherero-blocked-by-a-minion-use-of-taking-the-skin-minion?start=6#91389",
@@ -1429,6 +1457,8 @@
     "[ANK 20190619]": "http://www.vekn.net/forum/rules-questions/77723-writ-of-acceptance-and-anarch-and-hackerspace#95462",
     "[ANK 20200329]": "http://www.vekn.net/forum/rules-questions/78546-familial-bond#99451",
     "[ANK 20180913-2]": "http://www.vekn.net/forum/rules-questions/76998-narsheptha-fbi?start=6#90588",
+    "[ANK 20180725]": "http://www.vekn.net/forum/rules-questions/76858-feline-saboteur-timing#89295",
+    "[ANK 20180731-2]": "http://www.vekn.net/forum/rules-questions/75386-field-training-question#89472",
     "[LSJ 20031011]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/GZZJjzAeuxU/HtZKyNDKiOAJ",
     "[RTR 19941222]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/19Ys4rdQPQw/bijoNa8Z8FsJ",
     "[LSJ 20060808]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/ncZn3knH-Uo/sBjnMxAk1msJ",
@@ -1561,6 +1591,7 @@
     "[ANK 20170309]": "http://www.vekn.net/forum/rules-questions/75649-reduce-ally-cost-and-piper-combo#81049",
     "[LSJ 20080815]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/0_1JBbdwi74/c1GepnS4ylEJ",
     "[LSJ 20080803]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/VgARso4nY7w/cAl0o7WpblAJ",
+    "[ANK 20180719-2]": "http://www.vekn.net/forum/rules-questions/76835-burn-lose-pay-pool-and-poison-pill-kindred-segregation#89046",
     "[LSJ 19980223]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/PIJSzSy131o/52iOJpWvo8YJ",
     "[LSJ 19990119]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Iez0G178MRM/LywKDWeV3qAJ",
     "[LSJ 20050707]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/S5UbigI9faM/7RcuPKon0R0J",
@@ -1570,7 +1601,6 @@
     "[LSJ 20050105-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/vze_ZUJmzu8/cSZJ6ku_bSsJ",
     "[LSJ 19970414]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/GK6zEhZb9oI/imt6fsQxZ1wJ",
     "[LSJ 20010813]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/8MR4bq0Cxj4/f_rAOuj3CboJ",
-    "[LSJ 20050304]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/X5JZBbSIj3U/CBdkcQ-rAesJ",
     "[LSJ 20050224-3]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/tzl6213crbI/HlnYVX9L3fAJ",
     "[TOM 19960413]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Gm-NLCP6bF0/sVxss5F1bBYJ",
     "[LSJ 20030211]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/xhpVMShX6qc/6KDcgiFIxhMJ",
@@ -1615,6 +1645,8 @@
     "[LSJ 19970516]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/8Vzkc74MvCs/R95JjEen3-AJ",
     "[LSJ 20071116]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/ZPsShBUBWZI/MJ9zobOVjHkJ",
     "[PIB 20110830]": "http://www.vekn.net/forum/rules-questions/9340-first-strike--strength-reduction#9345",
+    "[ANK 20200508]": "http://www.vekn.net/forum/rules-questions/78622-scourge-of-the-enochians-timing?start=12#99786",
+    "[ANK 20180801]": "http://www.vekn.net/forum/rules-questions/76839-seal-of-veddartha#89529",
     "[LSJ 20070308]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/QlMNPzNtXh8/D-1FzDFnhhUJ",
     "[TOM 19951208-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/tEHebi9BYfc/Q2zsWUbTURUJ",
     "[LSJ 20070829-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/sVXZw1J43ik/OByFPgQsynwJ",
@@ -1655,6 +1687,7 @@
     "[LSJ 20030918]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Lae6k2AG-1c/GOqdTox6CRsJ",
     "[LSJ 20070928-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/duRrP46XygI/FrFYvbUYFf0J",
     "[LSJ 20071001-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/XoMeEYJw1ZA/zVM8X9aZlgQJ",
+    "[ANK 20180630]": "http://www.vekn.net/forum/rules-questions/76765-question-about-spirit-claws#88466",
     "[LSJ 20011216-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/eYJFjfISdPY/LplHHT2EZ68J",
     "[LSJ 20030219]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/ugfckv9DAbo/w5UP-Ch-u5MJ",
     "[TOM 19951208-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/UqLxnP1C_Wg/yZRM6DLarm4J",
@@ -1703,6 +1736,7 @@
     "[LSJ 20100301]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/TcUDpHnvW8M/YznjkbV3JLoJ",
     "[LSJ 20060222]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Gv-gf5sAJxM/4scio5aXDCkJ",
     "[LSJ 20050927]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/oLMw6SSSgmA/-iwdHzdBMF8J",
+    "[ANK 20180702]": "http://www.vekn.net/forum/rules-questions/76770-triggered-effects#88491",
     "[TOM 19950407]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/FWVnIu3zLAQ/ODGlyMGc_hgJ",
     "[PIB 20110623]": "http://www.vekn.net/forum/rules-questions/5429-veil-of-darkness-once-and-for-all#5433",
     "[LSJ 20050606]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/IkZS3ikg7y8/TrHmf3-jPvEJ",
@@ -1710,6 +1744,7 @@
     "[PIB 20141226]": "http://www.vekn.net/forum/6-rules-questions/66453-double-velvet-tongue-qcannot-cast-votes-or-ballotsq?limit=10&start=20#66964",
     "[ANK 20190524]": "http://www.vekn.net/forum/rules-questions/77659-venenation-change-of-target-and-psychomachia#95070",
     "[LSJ 20020126]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Fhm2Zi2RZRU/K4FiHLWuSbMJ",
+    "[ANK 20180731-1]": "http://www.vekn.net/forum/rules-questions/76877-vivienne-geroux-and-anarh-cards#89482",
     "[LSJ 20070327]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/YInnFoJPx2Q/NFvi36RWFrkJ",
     "[LSJ 20031201]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Mi_j7sUsZZw/ScJPKbfiCAgJ",
     "[ANK 20200421]": "http://www.vekn.net/forum/rules-questions/78574-vulture-s-buffet?start=6#99660",
@@ -1787,6 +1822,7 @@
     "[ANK 20180929]": "http://www.vekn.net/forum/rules-questions/77035-questions-about-marie-pierre?start=6#90835",
     "[LSJ 20041119]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/HMV_pN5mJhQ/tzkinpwUq-MJ",
     "[LSJ 20110611]": "https://boardgamegeek.com/thread/662413/article/6920306",
+    "[ANK 20180723]": "http://www.vekn.net/forum/rules-questions/76853-mata-hari-call-the-great-beast#89244",
     "[LSJ 20050119]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/NKWhBnp7uP4/6_56LlSV658J",
     "[LSJ 20030213]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/j6cuQ6pFJSA/F-A_hlBMpd0J",
     "[LSJ 20041207]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/6oC7FtG2Ac4/lI5hqeuSioIJ",
@@ -1875,6 +1911,9 @@
       "3f59d13b3523",
       "5ad980a44177"
     ],
+    "100024": [
+      "b681688feebe"
+    ],
     "100025": [
       "112e2a014ec6",
       "57922e224c10",
@@ -1903,9 +1942,13 @@
       "6fa307e0cdcb",
       "4537a42e7817"
     ],
+    "100048": [
+      "c83fcfa349ec"
+    ],
     "100051": [
-      "86fab5eb0727",
-      "4bb7767d5007"
+      "83c5b1f97989",
+      "4bb7767d5007",
+      "c83fcfa349ec"
     ],
     "100052": [
       "ba0a19fa8ceb"
@@ -1923,7 +1966,8 @@
       "5ca587354dde"
     ],
     "100063": [
-      "0d12c9473b76"
+      "0d12c9473b76",
+      "d0e57aef1215"
     ],
     "100064": [
       "333b198dc2a8"
@@ -1938,7 +1982,8 @@
     ],
     "100071": [
       "74b6b5c326ea",
-      "62c81f6dfa29"
+      "62c81f6dfa29",
+      "d0e57aef1215"
     ],
     "100076": [
       "f5f5e09404d2",
@@ -2019,6 +2064,9 @@
     "100133": [
       "14f192201b27"
     ],
+    "100134": [
+      "38330a5b35ef"
+    ],
     "100135": [
       "e14f2b6ac7b7"
     ],
@@ -2065,6 +2113,9 @@
     "100161": [
       "23043ad88118"
     ],
+    "100165": [
+      "c83fcfa349ec"
+    ],
     "100166": [
       "ba822fa8e732"
     ],
@@ -2074,12 +2125,19 @@
     "100172": [
       "d35dbe1e5ed4"
     ],
+    "100175": [
+      "d0e57aef1215"
+    ],
+    "100176": [
+      "8dc1da7e898a"
+    ],
     "100177": [
       "8ac513caa8f4",
       "19cbe02bca1e"
     ],
     "100180": [
-      "9e5879ecaab4"
+      "9e5879ecaab4",
+      "f265767a8c87"
     ],
     "100182": [
       "55c6882d0112"
@@ -2125,7 +2183,8 @@
       "645cd7e7aa15"
     ],
     "100209": [
-      "2e580abf703d"
+      "2e580abf703d",
+      "d0e57aef1215"
     ],
     "100212": [
       "63810df1ad6a"
@@ -2147,6 +2206,9 @@
     ],
     "100228": [
       "7692ab5be8a4"
+    ],
+    "100229": [
+      "b20ae225fc95"
     ],
     "100231": [
       "1028767e41b2"
@@ -2282,7 +2344,8 @@
       "9e5879ecaab4"
     ],
     "100310": [
-      "0f846fa61ceb"
+      "0f846fa61ceb",
+      "c83fcfa349ec"
     ],
     "100316": [
       "777bae030804"
@@ -2323,7 +2386,7 @@
       "9e5879ecaab4"
     ],
     "100330": [
-      "d7e9490346b1",
+      "e682de979dd9",
       "9e5879ecaab4"
     ],
     "100334": [
@@ -2378,7 +2441,7 @@
       "5bf68d71ceb2"
     ],
     "100376": [
-      "d7e9490346b1"
+      "e682de979dd9"
     ],
     "100378": [
       "ea0d589b031e"
@@ -2399,7 +2462,7 @@
     "100392": [
       "271bf23ae253",
       "63ce5e480f7b",
-      "b1269bdd8310",
+      "a575e89958de",
       "e3173176301d",
       "8017acfd5a93"
     ],
@@ -2453,6 +2516,9 @@
     "100450": [
       "10b56ecddd2b"
     ],
+    "100474": [
+      "a5fbe85731d2"
+    ],
     "100476": [
       "142fbd669de3",
       "177793f702fe",
@@ -2466,6 +2532,9 @@
     ],
     "100484": [
       "87344f45c907"
+    ],
+    "100485": [
+      "c83fcfa349ec"
     ],
     "100486": [
       "36bb9455698a",
@@ -2647,7 +2716,8 @@
     ],
     "100578": [
       "02dce5e51b01",
-      "21eb26f12a15"
+      "21eb26f12a15",
+      "1b074bcb3ca8"
     ],
     "100582": [
       "5de5cc593ac0"
@@ -2728,7 +2798,8 @@
       "ce6c5b423b12"
     ],
     "100641": [
-      "0d12c9473b76"
+      "0d12c9473b76",
+      "d0e57aef1215"
     ],
     "100645": [
       "378d8fd6c1de",
@@ -2748,6 +2819,9 @@
     "100656": [
       "e14f2b6ac7b7",
       "b103b3228a51"
+    ],
+    "100657": [
+      "d0e57aef1215"
     ],
     "100658": [
       "7bca40d07a31"
@@ -2831,13 +2905,23 @@
       "b0afaeec12e5",
       "95a4686b0741"
     ],
+    "100718": [
+      "e7b7ccbb7739"
+    ],
+    "100720": [
+      "d0e57aef1215"
+    ],
+    "100722": [
+      "c83fcfa349ec"
+    ],
     "100723": [
       "6e1b3c83ffbf",
       "ba0a19fa8ceb"
     ],
     "100725": [
       "d0e05af3a2ec",
-      "622ea09cbfd6"
+      "622ea09cbfd6",
+      "1546a8e61a76"
     ],
     "100728": [
       "c8d3a5c917a3"
@@ -3019,7 +3103,7 @@
       "8c9490f3d28b"
     ],
     "100832": [
-      "0f23ca8bfbd5"
+      "6cd84d5f9648"
     ],
     "100836": [
       "21022a2352e6",
@@ -3141,7 +3225,7 @@
       "cd067378832c"
     ],
     "100925": [
-      "0f23ca8bfbd5"
+      "6cd84d5f9648"
     ],
     "100929": [
       "4bb7767d5007"
@@ -3276,11 +3360,15 @@
     "101020": [
       "c11e1f56843c",
       "799a7ebb7236",
-      "03f35586b905"
+      "03f35586b905",
+      "d0e57aef1215"
     ],
     "101021": [
       "dca07fb086d1",
       "abaed2c7a7ef"
+    ],
+    "101026": [
+      "d0e57aef1215"
     ],
     "101028": [
       "cb1a8c1959d8"
@@ -3288,8 +3376,12 @@
     "101031": [
       "47ac564fb99e"
     ],
+    "101032": [
+      "d0e57aef1215"
+    ],
     "101033": [
-      "cbced49796c1"
+      "cbced49796c1",
+      "d0e57aef1215"
     ],
     "101039": [
       "04bbb81d2e43"
@@ -3384,7 +3476,11 @@
       "3246a5adbaa6"
     ],
     "101114": [
-      "62c81f6dfa29"
+      "62c81f6dfa29",
+      "d0e57aef1215"
+    ],
+    "101115": [
+      "d0e57aef1215"
     ],
     "101117": [
       "62c81f6dfa29"
@@ -3517,7 +3613,8 @@
       "3320f9af23cf"
     ],
     "101185": [
-      "9e5879ecaab4"
+      "9e5879ecaab4",
+      "70eb2b93cdce"
     ],
     "101192": [
       "ee0847218eb7"
@@ -3595,6 +3692,9 @@
     "101230": [
       "b84cd8d67449"
     ],
+    "101232": [
+      "d0e57aef1215"
+    ],
     "101233": [
       "2f3b3612d01e"
     ],
@@ -3613,6 +3713,9 @@
     "101241": [
       "6ceda1fd0665"
     ],
+    "101242": [
+      "c83fcfa349ec"
+    ],
     "101244": [
       "c72e3e250fac",
       "6438654676fa",
@@ -3630,7 +3733,8 @@
       "fed4a6f1ccd6"
     ],
     "101252": [
-      "1afeead35c56"
+      "1afeead35c56",
+      "d0e57aef1215"
     ],
     "101254": [
       "64d415eb9b01",
@@ -3656,7 +3760,7 @@
       "9e5879ecaab4"
     ],
     "101269": [
-      "f7b22d6a73c7"
+      "fb2f70c3287c"
     ],
     "101272": [
       "2bdc79c2ee13"
@@ -3727,7 +3831,7 @@
       "75f8b49f70cc"
     ],
     "101320": [
-      "0f23ca8bfbd5"
+      "6cd84d5f9648"
     ],
     "101322": [
       "2c75cf993271"
@@ -3800,7 +3904,8 @@
     "101388": [
       "bc2633df1b09",
       "819125aeccdb",
-      "f899f111fb67"
+      "f899f111fb67",
+      "c83fcfa349ec"
     ],
     "101395": [
       "70938c518075",
@@ -3820,7 +3925,7 @@
       "f472fa5c54da"
     ],
     "101406": [
-      "53bd945f2e48"
+      "4cb5b602f6ae"
     ],
     "101416": [
       "90c2b0c2b802"
@@ -4061,6 +4166,13 @@
       "ecc1ae1720e9",
       "fd16a8d026eb"
     ],
+    "101596": [
+      "d0e57aef1215"
+    ],
+    "101598": [
+      "d0e57aef1215",
+      "c83fcfa349ec"
+    ],
     "101602": [
       "ca6c1c4069f4"
     ],
@@ -4128,7 +4240,8 @@
       "51989f107115"
     ],
     "101643": [
-      "673124cafe43"
+      "673124cafe43",
+      "d0e57aef1215"
     ],
     "101647": [
       "3846c3355152"
@@ -4155,7 +4268,8 @@
       "3846c3355152"
     ],
     "101658": [
-      "62c81f6dfa29"
+      "62c81f6dfa29",
+      "d0e57aef1215"
     ],
     "101660": [
       "62c81f6dfa29"
@@ -4185,7 +4299,8 @@
       "62c81f6dfa29"
     ],
     "101677": [
-      "62c81f6dfa29"
+      "62c81f6dfa29",
+      "d0e57aef1215"
     ],
     "101681": [
       "71cd7c531e13"
@@ -4215,8 +4330,14 @@
       "1dcb949248c2",
       "420e5b9d36ea"
     ],
+    "101697": [
+      "01acafbf9a32"
+    ],
     "101702": [
       "0aea0feeda40"
+    ],
+    "101703": [
+      "7ab175c5dc5d"
     ],
     "101706": [
       "76c0745bb9e7"
@@ -4237,7 +4358,7 @@
       "dcf8541bd76c"
     ],
     "101714": [
-      "497c9cba6cb7",
+      "8bad2988d9fc",
       "35cee7267ff7"
     ],
     "101717": [
@@ -4272,13 +4393,17 @@
     "101731": [
       "5e388602d14a"
     ],
+    "101732": [
+      "d0e57aef1215"
+    ],
     "101733": [
       "759057b55475",
       "1f0580148015",
       "2e5d31c3e98f",
       "e7385b3d505a",
       "715947839af2",
-      "1afeead35c56"
+      "1afeead35c56",
+      "d0e57aef1215"
     ],
     "101735": [
       "888df81bf408",
@@ -4312,7 +4437,7 @@
       "5bbcd484dcd7"
     ],
     "101744": [
-      "edfa5c3b6f52",
+      "d482286afb2f",
       "74d6a5d6d752"
     ],
     "101751": [
@@ -4341,7 +4466,8 @@
       "a167c3a1ca76"
     ],
     "101767": [
-      "ba57d6a3b3ae"
+      "ba57d6a3b3ae",
+      "d0e57aef1215"
     ],
     "101773": [
       "b661c4a58dbb"
@@ -4408,7 +4534,7 @@
       "1afeead35c56"
     ],
     "101816": [
-      "f7b22d6a73c7",
+      "fb2f70c3287c",
       "c6b68309cf1b",
       "c2da927b97d7",
       "9051d22a8c92"
@@ -4451,7 +4577,8 @@
       "1afeead35c56"
     ],
     "101847": [
-      "ea0c143244fb"
+      "ea0c143244fb",
+      "c4c65819ff19"
     ],
     "101848": [
       "f9724eedfde9",
@@ -4496,6 +4623,9 @@
       "7e121a635a69",
       "dcf8541bd76c"
     ],
+    "101872": [
+      "e361a17e5d06"
+    ],
     "101879": [
       "8c3d4dba5370"
     ],
@@ -4528,7 +4658,8 @@
       "5002345a098b"
     ],
     "101892": [
-      "9856e74cbf7b"
+      "9856e74cbf7b",
+      "c83fcfa349ec"
     ],
     "101894": [
       "56efe32d8b08",
@@ -4561,8 +4692,17 @@
       "77c61f3014fe",
       "360ac24f4db7"
     ],
+    "101919": [
+      "d0e57aef1215"
+    ],
+    "101920": [
+      "d0e57aef1215"
+    ],
     "101921": [
       "9e5879ecaab4"
+    ],
+    "101922": [
+      "d0e57aef1215"
     ],
     "101925": [
       "9e5879ecaab4",
@@ -4593,7 +4733,8 @@
       "71c6507889b9"
     ],
     "101932": [
-      "4d6dfc8eeac1"
+      "4d6dfc8eeac1",
+      "d0e57aef1215"
     ],
     "101934": [
       "53fac3ca1c3e",
@@ -4606,7 +4747,7 @@
       "78e19ce8db19"
     ],
     "101939": [
-      "86fab5eb0727",
+      "83c5b1f97989",
       "c6622df71421",
       "78e19ce8db19"
     ],
@@ -4740,6 +4881,9 @@
       "4ad9512e15f3",
       "90480fecfc27"
     ],
+    "102015": [
+      "d0e57aef1215"
+    ],
     "102017": [
       "9862dd7860d8",
       "bd62aa686f3f",
@@ -4820,6 +4964,9 @@
       "64318031ff07",
       "5bf68d71ceb2"
     ],
+    "102088": [
+      "14282d8fcac6"
+    ],
     "102092": [
       "5fb0378b3cf7",
       "548ab83ceca8",
@@ -4870,6 +5017,7 @@
       "267ff2f453ec"
     ],
     "102128": [
+      "5e38afe45b91",
       "4bb7767d5007"
     ],
     "102131": [
@@ -4948,6 +5096,9 @@
     "102169": [
       "e74038d5277f"
     ],
+    "102170": [
+      "d0e57aef1215"
+    ],
     "102173": [
       "9e5879ecaab4"
     ],
@@ -5007,7 +5158,8 @@
       "758ec393093f"
     ],
     "102203": [
-      "62c81f6dfa29"
+      "62c81f6dfa29",
+      "d0e57aef1215"
     ],
     "102204": [
       "ce6c5b423b12"
@@ -5031,9 +5183,16 @@
       "77bc09101a3b",
       "20669e05d258"
     ],
+    "200029": [
+      "c83fcfa349ec"
+    ],
     "200033": [
       "807efbc6adb1",
-      "4e47f464bb3c"
+      "4e47f464bb3c",
+      "c83fcfa349ec"
+    ],
+    "200034": [
+      "c83fcfa349ec"
     ],
     "200038": [
       "5d8ae33078fb"
@@ -5065,6 +5224,9 @@
       "605ae872b5c1",
       "105698045420",
       "ab60bdb968d3"
+    ],
+    "200083": [
+      "c83fcfa349ec"
     ],
     "200091": [
       "3d81e8589a43"
@@ -5115,6 +5277,12 @@
     "200155": [
       "60958a04ce2c"
     ],
+    "200157": [
+      "c83fcfa349ec"
+    ],
+    "200164": [
+      "c83fcfa349ec"
+    ],
     "200165": [
       "5d8ae33078fb"
     ],
@@ -5130,14 +5298,18 @@
       "90bd3ca530b9"
     ],
     "200204": [
-      "5d8ae33078fb"
+      "5d8ae33078fb",
+      "c83fcfa349ec"
     ],
     "200229": [
       "b505a8509a03",
-      "e823166b97d5"
+      "d9dd704b0e8a"
     ],
     "200232": [
-      "f7b22d6a73c7"
+      "fb2f70c3287c"
+    ],
+    "200238": [
+      "c83fcfa349ec"
     ],
     "200242": [
       "cf4b8d5c0150",
@@ -5235,6 +5407,9 @@
       "77d28cfaac12",
       "c37cb7a9f6a8"
     ],
+    "200448": [
+      "c83fcfa349ec"
+    ],
     "200449": [
       "5d8ae33078fb"
     ],
@@ -5256,11 +5431,17 @@
     "200507": [
       "5d8ae33078fb"
     ],
+    "200527": [
+      "c83fcfa349ec"
+    ],
     "200528": [
       "c314ec1a99e6"
     ],
     "200534": [
       "5d487f6dd836"
+    ],
+    "200542": [
+      "c83fcfa349ec"
     ],
     "200560": [
       "9ca6d1402abd",
@@ -5314,7 +5495,8 @@
     ],
     "200666": [
       "807efbc6adb1",
-      "4e47f464bb3c"
+      "4e47f464bb3c",
+      "c83fcfa349ec"
     ],
     "200667": [
       "5d8ae33078fb"
@@ -5365,6 +5547,9 @@
     "200775": [
       "5d8ae33078fb"
     ],
+    "200793": [
+      "c83fcfa349ec"
+    ],
     "200798": [
       "964c7d047783",
       "53c068862b68",
@@ -5399,12 +5584,21 @@
       "77411799d4a3",
       "a18206953ffa"
     ],
+    "200860": [
+      "c83fcfa349ec"
+    ],
     "200865": [
       "c89483df14c6",
       "5d8ae33078fb"
     ],
+    "200868": [
+      "c83fcfa349ec"
+    ],
     "200870": [
       "74ddf974e913"
+    ],
+    "200877": [
+      "c83fcfa349ec"
     ],
     "200885": [
       "36053f3fde4a"
@@ -5445,6 +5639,7 @@
       "cb6b822d4e29",
       "36053f3fde4a",
       "a152b162b3e6",
+      "4fdebf414740",
       "002943aec367",
       "a03c6ca3aadf"
     ],
@@ -5452,16 +5647,18 @@
       "5d8ae33078fb"
     ],
     "200964": [
-      "36053f3fde4a"
+      "36053f3fde4a",
+      "c83fcfa349ec"
     ],
     "200966": [
-      "49b0c1b60e8d"
+      "49b0c1b60e8d",
+      "c83fcfa349ec"
     ],
     "200979": [
       "adfa6fabcea2"
     ],
     "200981": [
-      "f7b22d6a73c7"
+      "fb2f70c3287c"
     ],
     "200982": [
       "71157df39366"
@@ -5506,6 +5703,9 @@
     ],
     "201045": [
       "60958a04ce2c"
+    ],
+    "201048": [
+      "c83fcfa349ec"
     ],
     "201052": [
       "5b60fee28fde",
@@ -5614,11 +5814,17 @@
     "201263": [
       "5d8ae33078fb"
     ],
+    "201266": [
+      "c83fcfa349ec"
+    ],
     "201269": [
       "ac7b9331d160"
     ],
     "201271": [
       "5d8ae33078fb"
+    ],
+    "201274": [
+      "c83fcfa349ec"
     ],
     "201282": [
       "3946d84f03c1",
@@ -5639,7 +5845,8 @@
       "499672d285db"
     ],
     "201310": [
-      "08143c0f63fa"
+      "08143c0f63fa",
+      "c83fcfa349ec"
     ],
     "201326": [
       "49c181ab1fe7"
@@ -5716,6 +5923,9 @@
       "684b066cdbc8",
       "ead57fb7f18c"
     ],
+    "201460": [
+      "c83fcfa349ec"
+    ],
     "201461": [
       "5d8ae33078fb"
     ],
@@ -5751,7 +5961,8 @@
       "5d8ae33078fb"
     ],
     "201502": [
-      "60958a04ce2c"
+      "60958a04ce2c",
+      "c83fcfa349ec"
     ],
     "201510": [
       "5d8ae33078fb"
