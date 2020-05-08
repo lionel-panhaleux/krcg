@@ -1898,6 +1898,8 @@
     - "[abo] The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 102082|Unwholesome Bond:
     - "Cannot be used by {Angelo} or {New Blood} on a uncontrolled vampire with no circle designation, even another {Angelo} or {New Blood}. [LSJ 20050927]"
+102088|Vampiric Disease:
+    - 'At the beginning of the unlock phase, an afflicted vampires unlocks and burns a blood before effects that are applied "during" the unlock phase. [ANK 20180702]'
 102092|Vast Wealth:
     - 'The provided action is an "equip action" [TOM 19960130] [RTR 19960124]'
     - "You only search your library if the action is successful. [TOM 19951107]"
