@@ -530,6 +530,7 @@
 100578|Draba:
     - "[CHI] Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Draba at the time it was played. [RTR 20030519]"
     - "[CHI] Can be played by a minion who is not attempting to block the action. [ANK 20190628]"
+    - "[CHI] Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]"
 100582|Drain Essence:
     - "Can target a minion with less blood or life than the amount stolen. [RTR 20010711]"
 100584|Draught of the Soul:
