@@ -54,7 +54,7 @@
     - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100051|Ananasi Vampirephile:
-    - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]"
+    - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 100052|The Anarch Free Press:
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 100055|Anarch Revolt:
@@ -340,7 +340,7 @@
 100328|Channeling the Beast:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100330|Charge of the Buffalo:
-    - "No other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]"
+    - "No other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100334|Charming Lobby:
     - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
@@ -373,7 +373,7 @@
     - "[OBF] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[OBF] Can be played by a locked vampire. [RTR 19941109] [LSJ 19980210]"
 100376|Cold Aura:
-    - "No other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]"
+    - "No other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 100378|Coma:
     - '[DEM] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 100388|Compel the Spirit:
@@ -780,7 +780,7 @@
 100828|Gift of Sleep:
     - "[obe] [ACTION MODIFIER][REACTION] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 100832|Giulia Giovanni Abruzzina:
-    - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
+    - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 100836|Glaser Rounds:
     - "Must wait until the second time a given gun is used in a given combat to play it. [RTR 19941109]"
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -862,7 +862,7 @@
     - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
     - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
 100925|High Ground:
-    - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
+    - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 100935|Horrid Reality:
     - "If no weapon can be found, the cost is still paid. [TOM 19951212-1]"
     - "If the weapon retrieved has requirements that the vampire does not meet, then it is burned. [RTR 20010710]"
@@ -1202,7 +1202,7 @@
 101268|Necrosis:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101269|Neebi:
-    - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
+    - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 101272|Nephandus:
     - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630]"
 101275|Netwar:
@@ -1229,7 +1229,7 @@
 101315|Of Noble Blood:
     - "Is a Ⓓ action if a vampire controlled by another Methusalah is chosen. [ANK 20190606]"
 101320|Omael Kuman:
-    - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round. [RTR 19970630]"
+    - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 101322|Open Dossier:
     - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101325|Ophidian Gaze:
@@ -1551,7 +1551,7 @@
     - 'Only directed actions targeting the minion are restricted. Actions that target retainers, equipment, or other cards on the minion are allowed, as are actions that target cards not on the minion, even if such cards have "named" or "chosen" that minion. [TOM 19951208-1] [LSJ 19980302-1]'
     - "If contested, it will not be burned when the target (vampire) goes to torpor, nor will it be burned if it enters play while the target vampire is in torpor. [RTR 19960124]"
 101714|Selective Silence:
-    - "[QUI] no other effect can be used to reset the range. [RTR 19970630]"
+    - "[QUI] no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
     - "[QUI] The blood is not the cost of Selective Silence, it is the cost of using the mandatory range-setting effect. The cost is not reduced by cards reducing [qui] or combat cards cost, the card cannot be used by a vampire who has less than one blood. [LSJ 19970224]"
 101717|Sense the Savage Way:
     - "[ANI] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
@@ -1601,7 +1601,7 @@
 101741|Shadow of the Wolf:
     - "The +1 damage only applies to the additional strike. [LSJ 19970331]"
 101744|Shadow Step:
-    - "[OBT] No other effect can be used to reset the range afterwards. [RTR 19970630]"
+    - "[OBT] No other effect can be used to reset the range afterwards, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
     - "[OBT] The two blood are not the cost of Shadow Step, they are the cost of using the mandatory range-setting effect. The cost is not reduced by cards reducing [obt] or combat cards cost, the card cannot be used by a vampire who has less than two blood. [LSJ 19970224]"
 101751|Shambling Hordes:
     - "The acting vampire's controller can choose not to remove a minion from his or her ash heap and thus burn the Shambling Hordes. [LSJ 20030701-2]"
@@ -1647,7 +1647,7 @@
     - "Each other player must burn a pool or a vampire blood for each counter on Jack. Failing to burn a blood from an empty vampire will not lessen the obligation. [LSJ 19971212]"
     - "Other Methusalah can pay with any combination of pool and different vampires to meet the total number of counters. [ANK 20181006]"
 101816|Sniper Rifle:
-    - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
+    - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
     - "The bearer is not commited to use it if he or she uses another effect to set the range. [RTR 20020501]"
     - "If a new combat occurs due to an effect like {Psyche!}, the Rifle can not be used to set the range. [LSJ 20010814]"
     - "If a Slave locks to enter combat instead of a blocking minion, he cannot use the Rifle to set the range [ANK 20200115]"
@@ -1772,7 +1772,7 @@
 101938|Target Hand:
     - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101939|Target Head:
-    - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round. [RTR 19970630]"
+    - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
     - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
     - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101940|Target Leg:
@@ -2091,7 +2091,7 @@
     - "If he burns, he keeps all cards and counters on him. [ANK 20160404]"
     - "If a diablerie is attempted on him, he goes to torpor and the diablerie is unsuccessful. [LSJ 20100228]"
 200232|Cailean:
-    - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
+    - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 200242|The Capuchin:
     - "If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20160404] [ANK 20200417]"
     - "If his controller is not his original owner and he burns, he goes to his original owner ash heap, breaking all control effect, then to his owner's uncontrolled area. The Methusalah who was controlling him when he burned gets the additional transfers. [ANK 20200417]"
@@ -2260,7 +2260,7 @@
 200979|Merrill Molitor:
     - "The damage he treats as normal is handled before any aggravated damage that is being treated as aggravated damage. [LSJ 20030213]"
 200981|Michael diCarlo:
-    - "When setting the range for the round, no other effect can be used to reset the range. [RTR 19970630]"
+    - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 200982|Michael Luther:
     - "His ability is only usable once each referendum, even if he unlocks somehow during the referendum. [LSJ 20041207]"
 200984|Mictlantecuhtli:
