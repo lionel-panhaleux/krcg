@@ -1926,6 +1926,8 @@
     - '[MEL] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 102126|Visit from the Capuchin:
     - "Cannot be played if you have another one, even if it has only one counter left. [PIB 20121031]"
+102128|Vivienne Géroux:
+    - "Cannot play cards requiring both [for] and [cel]. [ANK 20180731]"
 102131|Voter Captivation:
     - "Is played after the referendum is resolved. If the effect of the referendum ousts the acting Methuselah, there is no time to play it to prevent the ousting. [RTR 19951110]"
     - 'Can be played before or after other cards that are played "after action resolution" or "if the action was successful". [LSJ 20070327]'
