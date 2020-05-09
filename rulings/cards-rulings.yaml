@@ -1495,6 +1495,7 @@
     - 'The "does not unlock as normal" effect stops if Rötschreck is burned or removed. [ANK 20191025]'
 101655|Rowan Ring:
     - "Adding damage to the Ring strike will not deal damage. [RTR 19960221]"
+    - 'Only usable at close range. Damage prevention cannot be used against it, but dodge and "strike: combat ends" will avoid the effect. [LSJ 19980219]'
     - 'If placed on a minion that cannot have equipment, the Ring is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]'
     - 'The "does not unlock as normal" effect continues to apply if the Ring is burned or moved. [LSJ 19980831]'
 101658|Ruins of Ceoris:
