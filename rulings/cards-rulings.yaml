@@ -1540,7 +1540,7 @@
     - "If it is declared with first strike and if the opposing minion declared a strike based on strength, that minion’s strength is decreased by Scorpion’s Touch when it resolves. [PIB 20110830]"
     - "You cannot play another strike card to serve as the hand strike for Scorpion's Touch. [LSJ 20010627]"
 101697|Scourge of the Enochians:
-    - "If the option to burn a vampire is used, the card goes to the predator immediately, even if there is still a mandatory effect to resolve. If not, the predator must take the card when he has the opportunity to play an effect and mandatory effects must be resolved by the acting Methusalah before that (eg. losing blood to {Dragonbound}). [ANK 20200508]"
+    - "If the option to burn a vampire is used, the card goes to the predator immediately, even if there is still a mandatory effect to resolve. If not, the predator must take the card when he has the opportunity to play an effect, after the acting Methusalah applied other mandatory effects (eg. losing blood to {Dragonbound}). [ANK 20200508]"
 101702|Scrying of Secrets:
     - 'Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425] [ANK 20190113]'
 101703|Seal of Veddartha:
