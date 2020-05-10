@@ -15,6 +15,10 @@ from . import vtes
 
 logger = logging.getLogger()
 
+# VTES configure must be done before parsing args
+if vtes.VTES:
+    vtes.VTES.configure()
+
 
 def init(args):
     if args.cards:
@@ -439,9 +443,7 @@ def main():
         if not vtes.VTES:
             logger.critical('VTES cards database is not initialized. Use "krcg init"')
             exit(1)
-        vtes.VTES.configure()
         if not twda.TWDA:
             logger.critical('TWDA database is not initialized. Use "krcg init"')
             exit(1)
-        twda.TWDA.configure()
     args.func(args)
