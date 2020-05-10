@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.41 (unreleased)
+0.41 (2020-05-10)
 -----------------
 
 - Fix CLI commands
