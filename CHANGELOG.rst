@@ -4,7 +4,7 @@ Changelog
 0.41 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix CLI commands
 
 
 0.40 (2020-05-08)
