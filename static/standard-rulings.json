@@ -758,6 +758,7 @@
     "3efb2846de7d": "If the combat continues or a new combat begins, the card is put on the vampire, he is not locked and does not go to torpor. He still does not unlock as normal. [RTR 20020501] [LSJ 20071009]",
     "d1534814623d": "The \"does not unlock as normal\" effect stops if R\u00f6tschreck is burned or removed. [ANK 20191025]",
     "22e526935732": "Adding damage to the Ring strike will not deal damage. [RTR 19960221]",
+    "5a9ab379877b": "Only usable at close range. Damage prevention cannot be used against it, but dodge and \"strike: combat ends\" will avoid the effect. [LSJ 19980219]",
     "eeca82139b51": "If placed on a minion that cannot have equipment, the Ring is burned. The \"does not unlock as normal\" effect still applies. [LSJ 19980831]",
     "eb88f9cf2d11": "The \"does not unlock as normal\" effect continues to apply if the Ring is burned or moved. [LSJ 19980831]",
     "6d901fdcc18b": "If the vampire is stolen before \"your next turn\", the Hand will not allow the vampire an extra unlock until a Methuselah begins a turn with the vampire with the Hand under her control. [LSJ 20031106]",
@@ -771,7 +772,7 @@
     "dab66440e0c1": "Each Scorn played may only cause the loss of one pool to a given Methuselah, regardless of how may 'no' votes that Methuselah casts. [RTR 19951110]",
     "1dcb949248c2": "If it is declared with first strike and if the opposing minion declared a strike based on strength, that minion\u2019s strength is decreased by Scorpion\u2019s Touch when it resolves. [PIB 20110830]",
     "420e5b9d36ea": "You cannot play another strike card to serve as the hand strike for Scorpion's Touch. [LSJ 20010627]",
-    "01acafbf9a32": "If the option to burn a vampire is used, the card goes to the predator immediately, even if there is still a mandatory effect to resolve. If not, the predator must take the card when he has the opportunity to play an effect and mandatory effects must be resolved by the acting Methusalah before that (eg. losing blood to {Dragonbound}). [ANK 20200508]",
+    "5e8d58fc4e06": "If the option to burn a vampire is used, the card goes to the predator immediately, even if there is still a mandatory effect to resolve. If not, the predator must take the card when he has the opportunity to play an effect, after the acting Methusalah applied other mandatory effects (eg. losing blood to {Dragonbound}). [ANK 20200508]",
     "0aea0feeda40": "Cards and effects that can be played \"after resolution\" (and only them) can be played after it. [ANK 20190425] [ANK 20190113]",
     "7ab175c5dc5d": "Can be equipped by a vampire with capacity less than 6: he cannot use it to bleed but the disciplines bonus applies. [LSJ 20030607] [ANK 20180801]",
     "76c0745bb9e7": "Can be used by a locked a vampire who is already attempting to block (eg. if he played a wake effect before)\". [ANK 20181122-2]",
@@ -1640,6 +1641,7 @@
     "[LSJ 20020402]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/eQCXHND3j5o/LMv8SYYE3OoJ",
     "[LSJ 20071009]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/vSI2MhyB710/QweM8isk3f0J",
     "[ANK 20191025]": "http://www.vekn.net/forum/rules-questions/78050-roetschreck-controler-is-ousted#97560",
+    "[LSJ 19980219]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/FoVObdCLJPM/Wb6cYwW6-jMJ",
     "[LSJ 20031106]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/bFZCLXzzOeM/n1C6p6xw1O0J",
     "[TOM 19951214-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/8Fr6gioYZDI/p1eW5eaUMO0J",
     "[LSJ 19970516]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/8Vzkc74MvCs/R95JjEen3-AJ",
@@ -4260,6 +4262,7 @@
     ],
     "101655": [
       "22e526935732",
+      "5a9ab379877b",
       "eeca82139b51",
       "eb88f9cf2d11",
       "1afeead35c56"
@@ -4331,7 +4334,7 @@
       "420e5b9d36ea"
     ],
     "101697": [
-      "01acafbf9a32"
+      "5e8d58fc4e06"
     ],
     "101702": [
       "0aea0feeda40"
