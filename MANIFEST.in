@@ -8,6 +8,7 @@ prune tests
 prune static
 exclude Makefile
 exclude bot-example.png
+exclude dark-pack.png
 exclude .coverage
 exclude .markdownlint.json
 
