@@ -460,7 +460,10 @@ class _VTES:
                 self.search["trait"]["camarilla"].add(card["Id"])
             if trait in {"bishop", "archbishop", "cardinal", "regent", "priscus"}:
                 self.search["trait"]["sabbat"].add(card["Id"])
-
+            if trait in {"baron"}:
+                self.search["trait"]["anarch"].add(card["Id"])
+            if trait in {"magaji", "kholo"}:
+                self.search["trait"]["laibon"].add(card["Id"])
         if "[FLIGHT]" in card["Card Text"]:
             self.search["discipline"]["flight"].add(card["Id"])
 
