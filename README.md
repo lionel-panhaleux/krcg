@@ -11,6 +11,12 @@ A command-line interface based on
 the VEKN [official card texts](http://www.vekn.net/card-lists)
 and the [Tournament Winning Deck Archive (TWDA)](http://www.vekn.fr/decks/twd.htm)
 
+Portions of the materials are the copyrights and trademarks of Paradox Interactive AB,
+and are used with permission. All rights reserved.
+For more information please visit [white-wolf.com](http://www.white-wolf.com).
+
+![Dark Pack](icons/dark-pack.png)
+
 ## Online API
 
 KRCG is available as an [online API](https://api.krcg.org/).
