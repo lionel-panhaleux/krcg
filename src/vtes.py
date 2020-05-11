@@ -412,12 +412,14 @@ class _VTES:
             self.search["trait"]["cardinal"].add(card["Id"])
             self.search["trait"]["regent"].add(card["Id"])
             self.search["trait"]["priscus"].add(card["Id"])
+            self.search["trait"]["sabbat"].add(card["Id"])
         if re.search(r"Requires a( ready)? titled (C|c)amarilla", card["Card Text"]):
             self.search["trait"]["primogen"].add(card["Id"])
             self.search["trait"]["prince"].add(card["Id"])
             self.search["trait"]["justicar"].add(card["Id"])
             self.search["trait"]["inner circle"].add(card["Id"])
             self.search["trait"]["imperator"].add(card["Id"])
+            self.search["trait"]["camarilla"].add(card["Id"])
         if re.search(r"Requires a( ready)? titled vampire", card["Card Text"]):
             self.search["trait"]["primogen"].add(card["Id"])
             self.search["trait"]["prince"].add(card["Id"])
@@ -433,6 +435,9 @@ class _VTES:
             self.search["trait"]["liaison"].add(card["Id"])
             self.search["trait"]["magaji"].add(card["Id"])
             self.search["trait"]["kholo"].add(card["Id"])
+        if re.search(r"Requires a( ready)? (M|m)agaji", card["Card Text"]):
+            self.search["trait"]["magaji"].add(card["Id"])
+            self.search["trait"]["laibon"].add(card["Id"])
         # consider sects as traits,
         # but do not match them just anywhere in the card text
         if re.search(r"Requires a( ready)? (S|s)abbat", card["Card Text"]):
@@ -451,6 +456,11 @@ class _VTES:
             f"({'|'.join(config.TRAITS)})", card["Card Text"].lower()
         ):
             self.search["trait"][trait].add(card["Id"])
+            if trait in {"primogen", "prince", "justicar", "inner circle", "imperator"}:
+                self.search["trait"]["camarilla"].add(card["Id"])
+            if trait in {"bishop", "archbishop", "cardinal", "regent", "priscus"}:
+                self.search["trait"]["sabbat"].add(card["Id"])
+
         if "[FLIGHT]" in card["Card Text"]:
             self.search["discipline"]["flight"].add(card["Id"])
 

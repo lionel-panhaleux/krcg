@@ -157,6 +157,8 @@ TRAITS = [
     "regent",
     "priscus",
     "baron",
+    "anarch",
+    "laibon",
     "liaison",
     "magaji",
     "kholo",

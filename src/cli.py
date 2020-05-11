@@ -94,23 +94,25 @@ def affinity(args):
 
 
 def top(args):
-    # build a condition matching options
-    def condition(card):
-        if args.clan and not any(vtes.VTES.is_clan(card, clan) for clan in args.clan):
-            return False
-        if args.type and not any(vtes.VTES.is_type(card, type_) for type_ in args.type):
-            return False
-        if args.disc and not any(vtes.VTES.is_disc(card, disc) for disc in args.disc):
-            return False
-        if args.no_disc and not vtes.VTES.no_disc(card):
-            return False
-        if any(vtes.VTES.is_type(card, exclude) for exclude in args.exclude_type or []):
-            return False
-        return True
+    result = set(card["Id"] for card in vtes.VTES.original_cards.values())
+    for type_ in args.type or []:
+        result &= vtes.VTES.search["type"].get(type_.lower(), set())
+    for clan in args.clan or []:
+        clan = config.CLANS_AKA.get(clan.lower()) or clan
+        result &= vtes.VTES.search["clan"].get(clan.lower(), set())
+    # for group in data.get("group") or []:
+    #     result &= vtes.VTES.search["group"].get(group.lower(), set())
+    for trait in args.trait or []:
+        result &= vtes.VTES.search["trait"].get(trait.lower(), set())
+    for discipline in args.disc or []:
+        discipline = config.DIS_MAP.get(discipline) or discipline
+        result &= vtes.VTES.search["discipline"].get(discipline, set())
+    for exclude in args.exclude_type or []:
+        result -= vtes.VTES.search["type"].get(exclude.lower(), set())
 
     twda.TWDA.configure(args.date_from, args.date_to, args.players)
     A = analyzer.Analyzer()
-    A.refresh(condition=condition)
+    A.refresh(condition=lambda c: vtes.VTES[c]["Id"] in result)
     for card_name, count in A.played.most_common()[: args.number]:
         card = vtes.VTES[card_name]
         print(
@@ -321,22 +323,29 @@ class NARGS_CHOICE_WITH_ALIASES(argparse.Action):
 
 
 class DisciplineChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.disciplines
+    CHOICES = vtes.VTES.search["discipline"].keys()
     ALIASES = dict(
-        [(k.lower(), k) for k in vtes.VTES.disciplines] + list(config.DISC_AKA.items())
+        [(k.lower(), k) for k in vtes.VTES.search["discipline"].keys()]
+        + list(config.DIS_MAP.items())
     )
 
 
 class ClanChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.clans
+    CHOICES = vtes.VTES.search["clan"].keys()
     ALIASES = dict(
-        [(k.lower(), k) for k in vtes.VTES.clans] + list(config.CLANS_AKA.items())
+        [(k.lower(), k) for k in vtes.VTES.search["clan"].keys()]
+        + list(config.CLANS_AKA.items())
     )
 
 
 class TypeChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.types
-    ALIASES = {k.lower(): k for k in vtes.VTES.types}
+    CHOICES = vtes.VTES.search["type"].keys()
+    ALIASES = {k.lower(): k for k in vtes.VTES.search["type"].keys()}
+
+
+class TraitChoice(NARGS_CHOICE_WITH_ALIASES):
+    CHOICES = vtes.VTES.search["trait"].keys()
+    ALIASES = {k.lower(): k for k in vtes.VTES.search["trait"].keys()}
 
 
 parser = subparsers.add_parser(
@@ -353,13 +362,9 @@ parser.add_argument(
     dest="disc",
     metavar="DISC",
     nargs="+",
-    help="Filter by discipline ({})".format(", ".join(vtes.VTES.disciplines)),
-)
-parser.add_argument(
-    "--no-discipline",
-    action="store_true",
-    dest="no_disc",
-    help="Only cards requiring no discipline",
+    help="Filter by discipline ({})".format(
+        ", ".join(vtes.VTES.search["discipline"].keys())
+    ),
 )
 parser.add_argument(
     "-c",
@@ -367,7 +372,7 @@ parser.add_argument(
     action=ClanChoice,
     metavar="CLAN",
     nargs="+",
-    help="Filter by clan ({})".format(", ".join(vtes.VTES.clans)),
+    help="Filter by clan ({})".format(", ".join(vtes.VTES.search["clan"].keys())),
 )
 parser.add_argument(
     "-t",
@@ -375,7 +380,7 @@ parser.add_argument(
     action=TypeChoice,
     metavar="TYPE",
     nargs="+",
-    help="Filter by type ({})".format(", ".join(vtes.VTES.types)),
+    help="Filter by type ({})".format(", ".join(vtes.VTES.search["type"].keys())),
 )
 parser.add_argument(
     "-e",
@@ -383,7 +388,15 @@ parser.add_argument(
     action=TypeChoice,
     metavar="TYPE",
     nargs="+",
-    help="Exclude given type ({})".format(", ".join(vtes.VTES.types)),
+    help="Exclude given type ({})".format(", ".join(vtes.VTES.search["type"].keys())),
+)
+parser.add_argument(
+    "-r",
+    "--trait",
+    action=TraitChoice,
+    metavar="Trait",
+    nargs="+",
+    help="Filter by trait ({})".format(", ".join(vtes.VTES.search["trait"].keys())),
 )
 parser.add_argument("-f", "--full", action="store_true", help="display card text")
 parser.set_defaults(func=top)

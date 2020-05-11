@@ -4,7 +4,7 @@ Changelog
 0.42 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- CLI: top command can now filter by sect
 
 
 0.41 (2020-05-10)
