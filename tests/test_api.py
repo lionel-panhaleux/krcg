@@ -533,7 +533,7 @@ def test_search(client):
         json={"discipline": ["none"], "bonus": ["intercept"], "trait": ["sabbat"]},
     )
     # no discipline, sect (or independent) required
-    assert response.json == ["Abbot"]
+    assert response.json == ["Abbot", "Harzomatuili", "Under Siege"]
     response = client.post(
         "/card", json={"type": ["political action"], "trait": ["independent"]},
     )
@@ -544,9 +544,14 @@ def test_search(client):
     assert response.json == [
         "Anarch Salon",
         "Eat the Rich",
+        "Exclusion Principle",
         "Firebrand",
         "Free States Rant",
+        "Patsy",
+        "Persona Non Grata",
         "Reckless Agitation",
+        "Revolutionary Council",
+        "Sweeper",
     ]
     # multi-disciplines
     response = client.post(
