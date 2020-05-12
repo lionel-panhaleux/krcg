@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.42 (unreleased)
+0.42 (2020-05-13)
 -----------------
 
 - CLI: top command can now filter by sect
