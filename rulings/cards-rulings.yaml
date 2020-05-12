@@ -201,6 +201,7 @@
 100203|Blood of Acid:
     - "Damage from Blood of Acid is environmental. [RTR 19970630] [LSJ 20020708]"
     - "Environmental damage is not counted by Blood of Acid. [RTR 19970630]"
+    - "First prevent strikes damage (acting player first), then the target can prevent Blood of Acid damage, if any. All the damage is applied (and the blood lost) at once, after all preventions. [ANK 20170427] [LSJ 20040805]"
 100205|Blood of the Cobra:
     - "[QUI] If the chosen strike says to make a hand strike or a melee weapon strike, then the strike is ranged, but the hand or melee weapon portion of the strike is still only effective at close range. [RTR 20010710]"
 100208|Blood Rage:
