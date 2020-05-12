@@ -245,7 +245,7 @@ def handle_message(message, completion=True):
         rulings = ""
         if card.get("Banned"):
             rulings += f"**BANNED in {card['Banned']}**\n"
-        links = {l["Reference"]: l["URL"] for l in card.get("Rulings Links", {})}
+        links = {r["Reference"]: r["URL"] for r in card.get("Rulings Links", {})}
         for ruling in card.get("Rulings", []):
             # replace reference with markdown link, eg.
             # [LSJ 20101010] -> [[LSJ 20101010]](https://googlegroupslink)
