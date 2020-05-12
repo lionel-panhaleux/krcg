@@ -1446,6 +1446,8 @@
     - '[THN] Must be played after presses, can be played if the round ends prematurely and can be played before or after effects that are played "at then of the round" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]'
 101602|Renegade Garou:
     - "The additional strike is mandatory. [PIB 20121028]"
+101603|Renewed Vigor:
+    - "[obe], [OBE]: Is undirected if you control the target, directed to the controller of the target otherwise. [PIB 20121210]"
 101605|Repo Man:
     - "Paying for the equipment found is not optional if a ready minion meet the requirements. If paying the cost will oust the controlling Methuselah, then she is ousted. [RTR 19941109] [RTR 20010710]"
 101606|Repulsion:
@@ -2149,6 +2151,8 @@
 200438|Ethan Locke:
     - "Ethan's Ⓓ action is directed at the controller of the skill card, not the controller of the vampire. [LSJ 19970224]"
     - "When he steals a master Discipline card, his controller becomes the controller of the Discipline card. [LSJ 19990709]"
+200443|Eurayle Gelasia Mylonas:
+    - "Her ability is undirect if you control the target, directed to the controller of the target otherwise. [PIB 20121210]"
 200450|Ezmerelda:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200485|Frondator:
