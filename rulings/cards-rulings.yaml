@@ -1776,6 +1776,7 @@
     - "[abo] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101935|Tangle Atropos' Hand:
     - 'The canceled action has not been "performed" in respect to section 6.1 of the rules. The same vampire can undertake the same action again. [LSJ 20070709]'
+    - 'If the action was blocked then continued (eg. {Form of Mist}) before being canceled, it has been "performed" in respect to section 6.1 of the rules. [LSJ 20090220]'
 101938|Target Hand:
     - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101939|Target Head:
