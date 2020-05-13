@@ -389,7 +389,7 @@
 100389|Compress:
     - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100392|Concealed Weapon:
-    - "The weapon is announced when the card is played, it must be in hand but need not to be shown. You can put the card apart face down when announcing it. [LSJ 19991207] [ANK 20180925-2]"
+    - "The weapon is announced when the card is played, it must be in hand but need not to be shown. You can put the card apart face down when announcing it. You cannot switch to a weapon you draw to replace the Concealed Weapon. [LSJ 19991207] [ANK 20180925-2] [LSJ 20100130]"
     - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike against a generic opponent. [RTR 19980623]'
     - "Strength or other bonus from the minion or other cards in play are not counted for the damage limit. [LSJ 20020821] [LSJ 20020904]"
     - 'Cost reductions that are not limited to cards "played" apply before checking for card cost (eg. {Black Cat} can use Concealed Weapon to equip with a {Combat Shotgun}). [LSJ 20080125] [ANK 20181216]'
