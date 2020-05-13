@@ -1892,6 +1892,8 @@
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 102065|Underbridge Stray:
     - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
+102067|Undue Influence:
+    - "Cannot be played with no vampire in the uncontrolled region. [LSJ 20060623]"
 102068|Undying Tenacity:
     - "[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]"
 102069|Undying Thirst:
