@@ -1251,6 +1251,7 @@
 101333|Ossian:
     - "The life is gained after the presses are handled. It is gained if the round ends prematurely. [RTR 20030519]"
     - "The Auspex special applies to whatever the current action is, not just to his special enter combat action. [LSJ 20050201]"
+    - "If Auspex [aus] was used to block him, the blocker can use an effect to set the range, but not a {Sniper Rifle} as it would require him to strike with it, which he cannot. [LSJ 20100827]"
 101334|Oubliette:
     - "[OBT] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
     - "[OBT] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202]"
@@ -2163,7 +2164,7 @@
     - "He cannot attempt an action to equip nor strike to steal an equipment. [LSJ 20050315] [LSJ 20010210]"
     - "He can equip with an equipment that is a location when in play. [LSJ 20050315]"
 200434|Erlik:
-    - 'His "as he enters play" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902]'
+    - 'His "as he enters play" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902] [ANK 20180626]'
 200438|Ethan Locke:
     - "Ethan's Ⓓ action is directed at the controller of the skill card, not the controller of the vampire. [LSJ 19970224]"
     - "When he steals a master Discipline card, his controller becomes the controller of the Discipline card. [LSJ 19990709]"
