@@ -1050,6 +1050,7 @@
     - "[val] [VAL] If the combat continues or a new combat begins, no damage is done. The vampire can still burn 1 blood to unlock. [RTR 20020501]"
     - "[val] [VAL] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [ANK 20130319]"
     - "[val] [VAL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20130319]"
+    - "[VAL] The blood to unlock can be paid until the end of combat, including after other effects that are played at the end of round. [ANK 20180618]"
 101130|Loyalist:
     - "If the Loyalist vampire's votes are changed to be in favor, the votes granted by Loyalist are silenced (not cast). [LSJ 20031115]"
 101131|Lucky Blow:
