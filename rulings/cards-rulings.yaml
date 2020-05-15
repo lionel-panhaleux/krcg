@@ -446,6 +446,8 @@
     - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
     - "Applies to environmental damage inflicted to the opposing minion. [ANK 20181128]"
     - "[QUI] The opponent must pay 1 blood to use a strike that provides a maneuver if he plays it when choosing range. [ANK 20181026]"
+100490|The Damned:
+    - 'The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
 100492|Daring the Dawn:
     - "If the action is blocked, damage is applied after combat [RTR 19980623]"
 100493|Dark Influences:
@@ -583,6 +585,8 @@
     - "[mel] [MEL] Can be played by a locked vampire. [LSJ 19980210]"
     - "[MEL] The referendum retained can only be called if the vampire meets the requirements given on the card. [LSJ 20011205]"
     - "[MEL] Cannot be used if no Political Action card was played for the action or if it is not in the ash heap. [LSJ 20020911]"
+100610|Ecstasy:
+    - '[SER] The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
 100615|Edged Illusion:
     - "[CHI] If some minions cannot be targeted because of another effect, the action will simply have no effect on the things it cannot target. [RTR 20080808]"
 100618|Elder Intervention:
@@ -1881,6 +1885,8 @@
     - "Not usable by vampires burned in combat, either. [RTR 19950622]"
 102011|Transfusion:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+102013|Travelers Obey the Tenets:
+    - 'The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
 102014|Treachery:
     - "[pre] The pool is burned after the referendum effects are applied, including any oust and pool gained from it. [LSJ 20090115-2]"
     - "[PRE] The pool is burned when the votes are tallied, before applying the referendum effects. [RTR 20010710]"
@@ -2378,6 +2384,7 @@
 201282|Shemti:
     - "The damage inflicted by his ability is environmental. [RTR 19970630]"
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+    - 'The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
 201299|Smallpox Griet:
     - "Damages from pox counters are environmental. [RTR 19970630]"
 201306|Sonja Blue:
