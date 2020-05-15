@@ -159,7 +159,6 @@ def deck_(args):
 
 
 def card(args):
-    vtes.VTES.configure()
     for i, name in enumerate(args.cards):
         if i > 0:
             print()
@@ -176,7 +175,7 @@ def card(args):
         if args.short:
             continue
         print(_card_text(card))
-        print(_card_rulings(args, card))
+        print(_card_rulings(args, vtes.VTES.get_name(card)))
 
 
 def _card_text(card):
@@ -204,14 +203,15 @@ def _card_text(card):
     return text
 
 
-def _card_rulings(args, card):
-    if args.text or "Rulings" not in card:
+def _card_rulings(args, card_name):
+    rulings = vtes.VTES.rulings.get(card_name)
+    if args.text or not rulings:
         return ""
     text = "\n-- Rulings\n"
-    for ruling in card["Rulings"]:
+    for ruling in rulings["Rulings"]:
         text += ruling + "\n"
     if args.links:
-        for link in card["Rulings Links"]:
+        for link in rulings["Rulings Links"]:
             text += f"[{link['Reference']}]: {link['URL']}\n"
     return text
 
