@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.44 (unreleased)
+0.44 (2020-05-15)
 -----------------
 
 - CLI: fix rulings disaply for card command
