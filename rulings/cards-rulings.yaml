@@ -1673,6 +1673,8 @@
     - "If a Slave locks to enter combat instead of a blocking minion, he cannot use the Rifle to set the range [ANK 20200115]"
 101817|Soak:
     - "Prevents up to 2 or 4 non-aggravated damage, it can prevent less. [RTR 20041202]"
+101820|Social Ladder:
+    - "Can be played with no older vampire in the uncontrolled region, though the ready vampire would be removed and his blood lost. [LSJ 20041015]"
 101828|Songs of the Distant Vitae:
     - "[QUI] A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 101829|Soul Burn:
