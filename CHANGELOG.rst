@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.43 (unreleased)
+0.43 (2020-05-15)
 -----------------
 
 - krcg-gen: now generates a normalized standard TWD HTML file
