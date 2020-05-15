@@ -32,6 +32,7 @@ class Deck(collections.Counter):
         self.tournament_format = None
         self.players_count = 0
         self.player = None
+        self.event_link = None
         self.score = None
         self.name = None
         self.cards_comments = {}
@@ -61,7 +62,9 @@ class Deck(collections.Counter):
 
     def maybe_comment_line(self, line_num, comment, card_name=None):
         if self.comment:
-            self.comment += "\n" + comment.strip(" ()[]-/*")
+            if self.separator:
+                comment = comment.strip(" ()[]-/*")
+            self.comment += "\n" + comment
         else:
             self.comment_begin(
                 line_num,
@@ -81,24 +84,25 @@ class Deck(collections.Counter):
         self.marker = False
 
     def _assign_comment(self):
+        self.comment = self.comment.strip("\n")
         if not self.comment:
             return
         log_version = self.comment.replace("\n", " ").strip()
-        multiline = len(self.comment.strip("\n").split("\n")) > 1
+        multiline = len(self.comment.split("\n")) > 1
         if not self.marker:
             if not multiline:
                 logger.warning(f"[{self.line_num}] failed to parse [{log_version}]")
                 return
-            logger.info(f"[{self.line_num}] unmarked comment [{log_version}]")
+            logger.debug(f"[{self.line_num}] unmarked comment [{log_version}]")
         if multiline and not self.multiline:
-            logger.info(
+            logger.debug(
                 f"[{self.line_num}] unexpected multiline comment [{log_version}]"
             )
-        comment = self.comment.strip("\n") + "\n"
+        comment = self.comment + "\n"
         if self.card_name:
             self.cards_comments[self.card_name] = comment
             return
-        if self.comments and comment:
+        if self.comments:
             self.comments += "\n"
         self.comments += comment
 
@@ -117,6 +121,7 @@ class Deck(collections.Counter):
             "score": self.score,
             "players_count": self.players_count,
             "player": self.player,
+            "event_link": self.event_link,
             "name": self.name,
             "cards_comments": self.cards_comments,
             "comments": self.comments,
@@ -136,6 +141,7 @@ class Deck(collections.Counter):
         self.score = state.get("score")
         self.players_count = int(state.get("players_count", 0))
         self.player = state.get("player")
+        self.event_link = state.get("event_link")
         self.name = state.get("name")
         self.comments = state.get("comments", "")
         self.cards_comments = state.get("cards_comments", {})

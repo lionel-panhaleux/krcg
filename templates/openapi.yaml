@@ -317,6 +317,31 @@ components:
                                       id: "100904",
                                   },
                               ]
+                        - type: Equipment
+                          count: 11
+                          cards:
+                              [
+                                  {
+                                      count: 6,
+                                      name: ".44 Magnum",
+                                      id: "100001",
+                                  },
+                                  {
+                                      count: 3,
+                                      name: Heart of Nizchetus,
+                                      id: "100903",
+                                  },
+                                  {
+                                      count: 1,
+                                      name: Bowl of Convergence,
+                                      id: "100243",
+                                  },
+                                  {
+                                      count: 1,
+                                      name: Codex of the Edenic Groundskeepers,
+                                      id: "100374",
+                                  },
+                              ]
                         - type: Political Action
                           count: 4
                           cards:
@@ -352,6 +377,21 @@ components:
                                       id: "101610",
                                   },
                               ]
+                        - type: Reaction
+                          count: 13
+                          cards:
+                              [
+                                  {
+                                      count: 8,
+                                      name: "Second Tradition: Domain",
+                                      id: "101706",
+                                  },
+                                  {
+                                      count: 5,
+                                      name: Telepathic Misdirection,
+                                      id: "101949",
+                                  },
+                              ]
                         - type: Combat
                           count: 21
                           cards:
@@ -374,46 +414,6 @@ components:
                                       id: "100333",
                                   },
                                   { count: 2, name: Side Strike, id: "101778" },
-                              ]
-                        - type: Reaction
-                          count: 13
-                          cards:
-                              [
-                                  {
-                                      count: 8,
-                                      name: "Second Tradition: Domain",
-                                      id: "101706",
-                                  },
-                                  {
-                                      count: 5,
-                                      name: Telepathic Misdirection,
-                                      id: "101949",
-                                  },
-                              ]
-                        - type: Equipment
-                          count: 11
-                          cards:
-                              [
-                                  {
-                                      count: 6,
-                                      name: ".44 Magnum",
-                                      id: "100001",
-                                  },
-                                  {
-                                      count: 3,
-                                      name: Heart of Nizchetus,
-                                      id: "100903",
-                                  },
-                                  {
-                                      count: 1,
-                                      name: Bowl of Convergence,
-                                      id: "100243",
-                                  },
-                                  {
-                                      count: 1,
-                                      name: Codex of the Edenic Groundskeepers,
-                                      id: "100374",
-                                  },
                               ]
                         - type: Event
                           count: 2

@@ -203,7 +203,7 @@
     "3bc23eeddc48": "[REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]",
     "69d073e80545": "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]",
     "0e8a36d18f93": "The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [LSJ 20070709]",
-    "777b55a07979": "Actions without card (provided by the rulebook) are not \"the same\" than actions provided by cards (played or in play). [LSJ 20060522]  [LSJ 20060824] [LSJ 20080725] [LSJ 20090617]",
+    "4e3ee87d3f8b": "Actions without card (provided by the rulebook) are not \"the same\" as actions provided by cards (played or in play). [LSJ 20060522]  [LSJ 20060824] [LSJ 20080725] [LSJ 20090617]",
     "b68839c5f430": "Actions without card (provided by the rulebook) can be repeated if they have different targets. Equipping from a minion targets the equipments: if one equipment is the same, the action is the same. [RTR 19950509] [LSJ 20080710] [ANK 20200502]",
     "77e1b7eeb47c": "Actions provided by cards in play are not the same if the card is not the same, even if the cards have the same name. [LSJ 20080725]",
     "8b45110b287f": "Is played after a minion successfully blocks but before the blocker is locked and combat begins. It cannot be used if the action is ended without being blocked. [LSJ 19980224] [RTR 19991206]",
@@ -951,6 +951,7 @@
     "9baf363e8f63": "[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]",
     "957b4012d48d": "If an effect causes a new combat to occur at the end of combat, then the \"go to torpor\" effect will be delayed until after that new combat. However, the vampire will no longer benefit from Undead Persistence in the new combat, so it will end immediately with the vampire not ready unless he plays a new Undead Persistence in the new combat. [LSJ 20030214] [ANK 20190624]",
     "3e2a91fd6f80": "[FOR] Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]",
+    "6bcba4cd7aac": "Cannot be played with no vampire in the uncontrolled region. [LSJ 20060623]",
     "dc70b975787e": "If the vampire is empty, he must either hunt or diablerize, this is a mandatory action. [LSJ 20081213-2]",
     "3b6b6e4eb528": "[PRE] The additional effect takes place after the end of combat. [RTR 19970630]",
     "6d00c82ca6dc": "If the block is successful, the aggravated damage is inflicted and the card burned even if the action is ended before block resolution. [LSJ 20100301]",
@@ -1742,6 +1743,7 @@
     "[LSJ 19970303]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/CiDrKyoNEBA/Tx55C65lJqgJ",
     "[LSJ 20030214]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/A3U-Dy1yx8Y/2LHXvLrmybwJ",
     "[ANK 20190624]": "http://www.vekn.net/forum/rules-questions/77737-undead-persistence-and-psyche#95596",
+    "[LSJ 20060623]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/mfgW0TeoLNM/e_QgbzZCqa8J",
     "[LSJ 20081213-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/0Yf2s-qrWpM/0u8svYOAZ3cJ",
     "[LSJ 20100301]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/TcUDpHnvW8M/YznjkbV3JLoJ",
     "[LSJ 20060222]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Gv-gf5sAJxM/4scio5aXDCkJ",
@@ -2378,7 +2380,7 @@
     ],
     "100323": [
       "0e8a36d18f93",
-      "777b55a07979",
+      "4e3ee87d3f8b",
       "b68839c5f430",
       "77e1b7eeb47c",
       "8b45110b287f",
@@ -3828,7 +3830,7 @@
     ],
     "101309": [
       "0e8a36d18f93",
-      "777b55a07979",
+      "4e3ee87d3f8b",
       "b68839c5f430",
       "77e1b7eeb47c",
       "aa398e266d74",
@@ -4139,7 +4141,7 @@
     ],
     "101573": [
       "0e8a36d18f93",
-      "777b55a07979",
+      "4e3ee87d3f8b",
       "b68839c5f430",
       "77e1b7eeb47c"
     ],
@@ -4956,6 +4958,9 @@
     ],
     "102065": [
       "360ac24f4db7"
+    ],
+    "102067": [
+      "6bcba4cd7aac"
     ],
     "102068": [
       "9baf363e8f63"

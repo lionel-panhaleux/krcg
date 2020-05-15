@@ -65,11 +65,12 @@ def test_2019grdojf():
     assert TWDA["2019grdojf"].__getstate__() == {
         "date": "June 29th 2019",
         "event": "Garou Rim: Dawn Operation",
+        "event_link": "http://www.vekn.net/event-calendar/event/9292",
         "place": "Joensuu, Finland",
         "players_count": 10,
         "player": "Esa-Matti Smolander",
         "tournament_format": "3R+F",
-        "score": "1GW3.5+4",
+        "score": "1gw3.5 + 4vp in the final",
         "name": "Parliament of Shadows precon with no changes.",
         "author": None,
         "cards": collections.OrderedDict(
@@ -131,6 +132,7 @@ def test_2016ggs():
     assert len(TWDA) == 1
     assert TWDA["2016ggs"].__getstate__() == {
         "event": "Gothcon",
+        "event_link": None,
         "place": "Goteborg, Sweden",
         "date": "March 26th 2016",
         "players_count": 16,
@@ -183,7 +185,9 @@ def test_2016ggs():
             ]
         ),
         "cards_comments": {},
-        "comments": "2GW9 and winner in Sweden qualifier 26th March 2016\n",
+        "comments": (
+            "Description : 2GW9 and winner in Sweden qualifier 26th March 2016\n"
+        ),
     }
 
 
@@ -196,6 +200,7 @@ def test_2k5alboraya():
     assert len(TWDA) == 1
     assert TWDA["2k5alboraya"].__getstate__() == {
         "event": "Spanish NCQ",
+        "event_link": None,
         "place": "Alboraya (Valencia), Spain",
         "date": "February 12th 2005",
         "players_count": 34,
@@ -260,6 +265,7 @@ def test_2k4dcqualifier():
     assert len(TWDA) == 1
     assert TWDA["2k4dcqualifier"].__getstate__() == {
         "event": "Atlantic Regional Qualifier",
+        "event_link": None,
         "place": "Washington, D.C.",
         "date": "June 12th 2004",
         "players_count": 33,
@@ -270,7 +276,7 @@ def test_2k4dcqualifier():
         "author": None,
         "comments": textwrap.dedent(
             """
-    POT/DOM is always good.  Let's add permanent rush, +strength,
+    Description: POT/DOM is always good.  Let's add permanent rush, +strength,
     Nosferatu Kingdom and a bad attitude!
 
     You can see from the crypt that an important part of playing this deck
@@ -359,12 +365,13 @@ def test_2010tcdbng():
     assert len(TWDA) == 1
     assert TWDA["2010tcdbng"].__getstate__() == {
         "event": "Trading Card Day",
+        "event_link": None,
         "place": "Bad Naumheim, Germany",
         "date": "May 8th 2010",
         "players_count": 10,
         "player": "Rudolf Scholz",
         "tournament_format": "2R+F",
-        "score": "4VP in final",
+        "score": "4vp in the final",
         "name": "The Storage Procurers",
         "author": None,
         "cards": collections.OrderedDict(
@@ -421,7 +428,7 @@ def test_2010tcdbng():
         },
         "comments": textwrap.dedent(
             """
-    Allies with Flash Grenades to keep troubles at bay.
+    Description: Allies with Flash Grenades to keep troubles at bay.
     Storage Annex for card efficiency and a structured hand. Weenies and
     Midcaps with Obfuscate and/or Dominate to oust via Conditionings and
     Deflections.
@@ -439,6 +446,7 @@ def test_2012pslp():
     assert len(TWDA) == 1
     assert TWDA["2012pslp"].__getstate__() == {
         "event": "Praxis Seizure: Leiria",
+        "event_link": None,
         "place": "Leiria, Portugal",
         "date": "October 13th 2012",
         "players_count": 12,
@@ -497,6 +505,7 @@ def test_2k7campeonatojuizforano():
     assert len(TWDA) == 1
     assert TWDA["2k7campeonatojuizforano"].__getstate__() == {
         "event": "Campeonato Juizforano 2007",
+        "event_link": None,
         "place": "Juiz de Fora, Brazil",
         "date": "December 16th 2007",
         "players_count": 23,
@@ -565,7 +574,7 @@ def test_2k7campeonatojuizforano():
         },
         "comments": textwrap.dedent(
             """
-            The deck's goal is to setup as fast as you can by
+            Description: The deck's goal is to setup as fast as you can by
             depleting your library and to use Unity/Anthelios to cycle back
             whatever master you need the most at the time.
 
@@ -592,6 +601,7 @@ def test_2010pwbla1():
     assert len(TWDA) == 1
     assert TWDA["2010pwbla1"].__getstate__() == {
         "event": "Powerbase: Los Angeles Event #1",
+        "event_link": None,
         "place": "Strategicon - GAMEX 2010, Los Angeles, California",
         "date": "May 29th 2010",
         "players_count": 12,
@@ -702,13 +712,14 @@ def test_2k5sharednun():
     assert len(TWDA) == 1
     assert TWDA["2k5sharednun"].__getstate__() == {
         "event": "Shared Nightmare",
+        "event_link": None,
         "place": "Utrecht, Netherlands",
         "date": "July 2nd 2005",
         "players_count": 16,
         "player": "Jeroen van Oort",
         "tournament_format": "3R+F",
         "score": None,
-        "name": "Name: Deeper Underground",
+        "name": "Deeper Underground",
         "author": None,
         "cards": collections.OrderedDict(
             [
@@ -753,7 +764,7 @@ def test_2k5sharednun():
             ]
         ),
         "cards_comments": {},
-        "comments": "\"Look in the sky, it's a raven. No, it's a bat.\n"
+        "comments": "Description:\n\"Look in the sky, it's a raven. No, it's a bat.\n"
         "No, it's a crow, No it's a swarm of them all!!!\"\n",
     }
 
@@ -768,12 +779,13 @@ def test_2019ecwon1pf():
     assert len(TWDA) == 1
     assert TWDA["2019ecwon1pf"].__getstate__() == {
         "event": "EC WoN - Monday",
+        "event_link": "http://www.vekn.net/event-calendar/event/9321",
         "place": "Paris, France",
         "date": "August 12th 2019",
         "players_count": 25,
         "player": "Randal Rudstam",
         "tournament_format": "2R+F",
-        "score": "1GW4.5+1.5",
+        "score": "1gw4.5 + 1.5vp in the final",
         "name": "Sascha Vykos Toolbox",
         "author": None,
         "cards": collections.OrderedDict(
@@ -842,5 +854,129 @@ def test_2019ecwon1pf():
             ]
         ),
         "cards_comments": {},
-        "comments": "Card selection is strong! Randyman\n",
+        "comments": "Description: Card selection is strong! Randyman\n",
+    }
+
+
+def test_2020pihc():
+    """Discipline name as header must not be mistaken for the Master card
+    Using long vampire name with comma and (ADV)
+    """
+    TWDA = twda._TWDA()
+    with open(os.path.join(os.path.dirname(__file__), "2020pihc.html")) as f:
+        TWDA.load_html(f, save=False)
+    assert len(TWDA) == 1
+    assert TWDA["2020pihc"].__getstate__() == {
+        "event": "Personal Involvement",
+        "event_link": "http://www.vekn.net/event-calendar/event/9566",
+        "place": "Hamilton, Canada",
+        "date": "February 22nd 2020",
+        "player": "Jay Kristoff",
+        "players_count": 10,
+        "tournament_format": "2R+F",
+        "score": "0gw2.5 + 1.5vp in the final",
+        "author": None,
+        "name": "Sauce or GTFO",
+        "cards": collections.OrderedDict(
+            [
+                ("Matasuntha", 6),
+                ("Calvin Cleaver", 1),
+                ("Fergus Alexander", 1),
+                ("Lillian", 1),
+                ("T.J.", 1),
+                ("Malcolm", 1),
+                ("Robert Price", 1),
+                ("Abombwe", 1),
+                ("Ecoterrorists", 1),
+                ("Fame", 1),
+                ("Giant's Blood", 1),
+                ("Perfectionist", 1),
+                ("Villein", 1),
+                ("Wider View", 1),
+                ("Bum's Rush", 2),
+                ("Deep Song", 2),
+                ("Go Anarch", 1),
+                ("Harass", 2),
+                ("Nose of the Hound", 2),
+                ("Rewilding", 1),
+                ("Shadow of the Beast", 1),
+                ("Thing", 2),
+                ("Mylan Horseed", 1),
+                ("Bowl of Convergence", 1),
+                ("Eye of Hazimel", 1),
+                ("Gran Madre di Dio, Italy", 1),
+                ("IR Goggles", 1),
+                ("Kevlar Vest", 1),
+                ("Ancient Influence", 1),
+                ("Dog Pack", 2),
+                ("Homunculus", 1),
+                ("Enkil Cog", 1),
+                ("Forced March", 3),
+                ("Freak Drive", 5),
+                ("Instantaneous Transformation", 3),
+                ("Eyes of Argus", 2),
+                ("Telepathic Misdirection", 1),
+                ("Blur", 4),
+                ("Flesh of Marble", 2),
+                ("Form of Mist", 1),
+                ("Pursuit", 2),
+                ("Skin of Night", 1),
+                ("Taste of Vitae", 3),
+                ("Dragonbound", 1),
+            ]
+        ),
+        "cards_comments": {},
+        "comments": """Final round recap written by Darby Keeney:
+
+Jay (3rd seed, Matasuntha multiaction) --> Karl (2nd seed, Palla Grande Undue Influence)
+  --> Marshall (5th seed, Valkyrie bleed)
+  --> Darby (1st seed, Blood Deprivation/Tempt)
+  --> Tim (4th seed, Prince politics with Rabbat kicker).
+
+The mind games start even before the first transfer. Jay's 3rd seed placement
+was conventional, but Karl wants nothing to do with Temptation. That part of
+his plan works, Darby won't sit near Jay and instead plans to exploit the
+Valkyrie's almost-slave status.
+
+The early game proceeds as expected with Karl dropping a couple of early bleed
+bombs. Subsequent rushes from Matasuntha and a Valkyrie pretty much doom him.
+
+The key interactions defining the game's development:
+  - Tim passes Jay's Ancient Influence, netting Jay 3 more beads than anyone
+    else and giving him a large safety margin.
+  - Matasuntha's early 1-pt bleed gets bounced with My Enemy's Enemy but Tim
+    throws it back at Karl, requiring a second MEE. The pool loss is
+    insignificant, but using the 2nd bounce gets Matasuntha an Enkil Cog one
+    turn earlier.
+
+On the other side of the table, Darby sprinkles Disease counters and
+Temptations liberally. Marshall starts to bleed with the Valks, facing bleed
+reduction and S:CE lockdown. With three players now leaning left, Jay simply
+moves faster at a minion-less Karl and gets the first oust.
+
+Things tilt in the 4-player as Jay makes it clear that Marshall will face no
+predation, immediately Rewilding Darby's Heidleburg Castle. The action is
+blocked but the shape of the endgame is clearly defined. Darby isn't happy
+about having a pair of predators, especially since Mataunta has both the Eye of
+Hazimel and Enkil Cog.
+
+Marshall shows down for a turn and Matasuntha gets flat-out burned with Society
+of Leopold. Jay has tons of pool and the Ecoterrorists, so Matasuntha V2 gets
+beads as Marshall and Darby do bleedy things, leading to Tim getting ousted.
+
+Marshall correctly Rewilds the Heidleburg (instead of Jay's Ecoterrorists) and
+Darby loses an Impundulu with 4 life in a Trapped combat. Neither is completely
+happy with that outcome, but Darby's resources are getting thin. Despite a
+hectic last turn, Darby can't quite defend his sole pool counter, but Marshall
+taps out getting it.
+
+Matasunta immediately rushes Brunhilde and some chump eats her, setting
+Marshall on Jay's earlier path of "it's time for V2." He has planned ahead and
+only loses one turn - but that's enough to cause the game to time out.
+
+Jay mentions that Marshall wins the game with 5 more minutes since Matasuntha
+V1 lost some important tools. Without that time available, Jay gleefully
+accepts the dubious honor of winning a tournament with exactly zero games wins
+for the day.
+""",
     }

@@ -515,7 +515,7 @@ class _VTES:
         )
         if result:
             match = result[0]
-            logger.info("misspelled [{}] matched [{}]".format(name, match))
+            logger.debug("misspelled [{}] matched [{}]".format(name, match))
             return match
 
     def trait_choices(self, trait):
@@ -584,6 +584,17 @@ class _VTES:
         name = card["Name"]
         if name[-5:] == ", The":
             name = "The " + name[:-5]
+        if name[-6:] != " (ADV)" and card.get("Adv"):
+            name = name + " (ADV)"
+        return name
+
+    @staticmethod
+    def vekn_name(card):
+        """Returns VEKN style name for a card (suffix The)
+        """
+        name = card["Name"]
+        if name[:4] == "The ":
+            name = name[4:] + ", The"
         if name[-6:] != " (ADV)" and card.get("Adv"):
             name = name + " (ADV)"
         return name
@@ -773,7 +784,7 @@ class _VTES:
         """
         return {clan.strip().lower()} & {t.strip().lower() for t in VTES[card]["Clan"]}
 
-    def deck_to_txt(self, deck):
+    def deck_to_txt(self, deck, wrap=True):
         """A consistent deck display matching our parsing rules of TWDA.html
 
         Cards are displayed in the order given by the config.TYPE_ORDER list.
@@ -786,7 +797,7 @@ class _VTES:
         """
 
         def _type(card):
-            return config.TYPE_ORDER.index("/".join(self[card[0]]["Type"]))
+            return config.TYPE_ORDER.index("/".join(sorted(self[card[0]]["Type"])))
 
         lines = []
         if deck.event:
@@ -801,6 +812,8 @@ class _VTES:
             lines.append(f"{deck.players_count} players")
         if deck.player:
             lines.append(deck.player)
+        if deck.event_link:
+            lines.append(deck.event_link)
         lines.append("")
         if deck.score:
             lines.append(f"-- {deck.score}")
@@ -810,42 +823,96 @@ class _VTES:
         if deck.author:
             lines.append(f"Created by: {deck.author}")
         if deck.comments:
-            if any(len(line) > 100 for line in deck.comments.splitlines()):
+            if deck.name or deck.author:
+                lines.append("")
+            if wrap and any(len(line) > 100 for line in deck.comments.splitlines()):
                 lines.extend(textwrap.wrap(deck.comments, 90))
             else:
                 lines.append(deck.comments)
-        lines.append("")
-        lines.append(f"-- Crypt: ({deck.cards_count(self.is_crypt)} cards)")
-        lines.append("---------------------------------------")
+        elif lines[-1] != "":
+            lines.append("")
+        cap = sorted(
+            itertools.chain.from_iterable(
+                [int(self[card]["Capacity"])] * count
+                for card, count in deck.cards(self.is_crypt)
+            )
+        )
+        cap_min = sum(cap[:4])
+        cap_max = sum(cap[-4:])
+        cap_avg = sum(cap) / len(cap)
+        lines.append(
+            f"Crypt ({deck.cards_count(self.is_crypt)} cards, "
+            f"min={cap_min}, max={cap_max}, avg={cap_avg:.3g})"
+        )
+        lines.append("-" * len(lines[-1]))
+        max_name = (
+            max(
+                len(self.vekn_name(self[card]))
+                for card, _count in deck.cards(self.is_crypt)
+            )
+            + 1
+        )
+        max_disc = (
+            max(
+                len(" ".join(self[card]["Disciplines"]))
+                for card, _count in deck.cards(self.is_crypt)
+            )
+            + 1
+        )
+        max_title = (
+            max(
+                len(self[card].get("Title", ""))
+                for card, _count in deck.cards(self.is_crypt)
+            )
+            + 1
+        )
         for card, count in deck.cards(self.is_crypt):
             lines.append(
-                "{:<2} {:<35} {:<2} {:<25} {}:{}".format(
+                f"{{}}x {{:<{max_name}}} {{:>2}} {{:<{max_disc}}} "
+                f"{{:<{max_title}}} {{}}:{{}}".format(
                     count,
-                    card + (" (ADV)" if self[card]["Adv"] else ""),
+                    self.vekn_name(self[card]),
                     self[card]["Capacity"],
                     " ".join(self[card]["Disciplines"]),
+                    self[card].get("Title", ""),
                     self[card]["Clan"][0],
                     self[card]["Group"],
                 )
             )
-        lines.append(f"-- Library ({deck.cards_count(self.is_library)})")
-        # sort by type, count (descending), name
+        lines.append(f"\nLibrary ({deck.cards_count(self.is_library)} cards)")
+        # sort by type, name
         # note ordering must match the `itertools.groupby` function afterwards.
         library_cards = sorted(
-            deck.cards(self.is_library), key=lambda a: (_type(a), -a[1], a[0])
+            deck.cards(self.is_library),
+            key=lambda a: (_type(a), self.vekn_name(self[a[0]])),
         )
         # form a section for each type with a header displaying the total
-        for kind, cards in itertools.groupby(library_cards, key=_type):
-            c1, c2 = itertools.tee(cards)
+        for i, (kind, cards) in enumerate(itertools.groupby(library_cards, key=_type)):
+            cards = list(cards)
+            trifle_count = ""
+            if kind == 0:
+                trifle_count = sum(
+                    count
+                    for card, count in cards
+                    if re.search(r"(t|T)rifle", self[card]["Card Text"])
+                )
+                if trifle_count:
+                    trifle_count = f"; {trifle_count} trifle"
+                else:
+                    trifle_count = ""
+            cr = "\n" if i > 0 else ""
             lines.append(
-                f"-- {config.TYPE_ORDER[kind]} ({sum(count for card, count in c1)})"
+                f"{cr}{config.TYPE_ORDER[kind]} "
+                f"({sum(count for card, count in cards)}{trifle_count})"
             )
-            for card, count in c2:
+            for card, count in cards:
                 if card in deck.cards_comments:
                     comment = deck.cards_comments[card].replace("\n", " ").strip()
-                    lines.append(f"{count:<2} {card:<23} -- {comment}")
+                    lines.append(
+                        f"{count}x {self.vekn_name(self[card]):<23} -- {comment}"
+                    )
                 else:
-                    lines.append(f"{count:<2} {card}")
+                    lines.append(f"{count}x {self.vekn_name(self[card])}")
         return "\n".join(lines)
 
     def deck_to_dict(self, deck, twda_id):
@@ -888,7 +955,7 @@ class _VTES:
         }
 
         def _type(card):
-            return config.TYPE_ORDER.index("/".join(self[card[0]]["Type"]))
+            return config.TYPE_ORDER.index("/".join(sorted(self[card[0]]["Type"])))
 
         # sort by type, count (descending), name
         # note ordering must match the `itertools.groupby` function afterwards.

@@ -118,7 +118,7 @@ def test_deck(client):
         "player": "Darby Keeney",
         "author": None,
         "players_count": 10,
-        "score": "0GW2+4",
+        "score": "0gw2 + 4vp in the final",
         "tournament_format": "2R+F",
         "comments": 'Named after the author of the hilarious book "Never Cry Wolf," '
         "this is a\n"
@@ -288,66 +288,6 @@ def test_deck(client):
                 {
                     "cards": [
                         {
-                            "comments": None,
-                            "count": 3,
-                            "id": "100279",
-                            "name": "Call of the Hungry Dead",
-                        }
-                    ],
-                    "count": 3,
-                    "type": "Action Modifier",
-                },
-                {
-                    "cards": [
-                        {
-                            "comments": None,
-                            "count": 5,
-                            "id": "101942",
-                            "name": "Target Vitals",
-                        }
-                    ],
-                    "count": 5,
-                    "type": "Combat",
-                },
-                {
-                    "cards": [
-                        {
-                            "comments": None,
-                            "count": 5,
-                            "id": "101321",
-                            "name": "On the Qui Vive",
-                        },
-                        {
-                            "comments": None,
-                            "count": 4,
-                            "id": "100518",
-                            "name": "Deflection",
-                        },
-                        {
-                            "comments": None,
-                            "count": 2,
-                            "id": "100519",
-                            "name": "Delaying Tactics",
-                        },
-                    ],
-                    "count": 11,
-                    "type": "Reaction",
-                },
-                {
-                    "cards": [
-                        {
-                            "comments": None,
-                            "count": 1,
-                            "id": "100903",
-                            "name": "Heart of Nizchetus",
-                        }
-                    ],
-                    "count": 1,
-                    "type": "Equipment",
-                },
-                {
-                    "cards": [
-                        {
                             "comments": "extra entries in the Diary.\n",
                             "count": 8,
                             "id": "100475",
@@ -387,6 +327,66 @@ def test_deck(client):
                     ],
                     "count": 13,
                     "type": "Ally",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": None,
+                            "count": 1,
+                            "id": "100903",
+                            "name": "Heart of Nizchetus",
+                        }
+                    ],
+                    "count": 1,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": None,
+                            "count": 3,
+                            "id": "100279",
+                            "name": "Call of the Hungry Dead",
+                        }
+                    ],
+                    "count": 3,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": None,
+                            "count": 5,
+                            "id": "101321",
+                            "name": "On the Qui Vive",
+                        },
+                        {
+                            "comments": None,
+                            "count": 4,
+                            "id": "100518",
+                            "name": "Deflection",
+                        },
+                        {
+                            "comments": None,
+                            "count": 2,
+                            "id": "100519",
+                            "name": "Delaying Tactics",
+                        },
+                    ],
+                    "count": 11,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": None,
+                            "count": 5,
+                            "id": "101942",
+                            "name": "Target Vitals",
+                        }
+                    ],
+                    "count": 5,
+                    "type": "Combat",
                 },
                 {
                     "cards": [

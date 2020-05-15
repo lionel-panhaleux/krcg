@@ -4,8 +4,8 @@ Changelog
 0.43 (unreleased)
 -----------------
 
-- Nothing changed yet.
-
+- krcg-gen: now generates a normalized standard TWD HTML file
+- CLI: fixed init
 
 0.42 (2020-05-13)
 -----------------

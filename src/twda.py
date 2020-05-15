@@ -164,19 +164,30 @@ class _TWDA(collections.OrderedDict):
         except AttributeError:
             pass
         try:
-            current.players_count = int(
-                re.match(r"^(\d+)\s*player", lines[start][1]).group(1)
-            )
+            players_count = re.match(r"^(\d+|\?+)\s*player", lines[start][1]).group(1)
             start += 1
-        except AttributeError:
+            current.players_count = int(players_count)
+        except (AttributeError, ValueError):
             pass
         # Player is always set, but after tournament format and count if any
         current.player = lines[start][1]
         start += 1
+        # Ignore Organizer line (rare inclusion)
+        try:
+            if re.match(r"^\s*(O|o)rgani(s|z)er", lines[start][1]):
+                start += 1
+        except AttributeError:
+            pass
+        # Newer lists provide an event link
+        try:
+            current.event_link = re.match(r"^(https?://.*)$", lines[start][1]).group(1)
+            start += 1
+        except AttributeError:
+            pass
         # After this stable header, comments and format tricks happen
-        for line_num, line in lines[start + 1 :]:
+        for line_num, original_line in lines[start + 1 :]:
             # remove misplaced spaces around punctuation for easy parsing
-            line = line.strip()
+            line = original_line.strip()
             line = line.replace(" :", ":")
             line = line.replace("( ", "(")
             line = line.replace(" )", ")")
@@ -188,76 +199,59 @@ class _TWDA(collections.OrderedDict):
             # separtor lines ("---" or "===") are used to detect the beginning of the
             # actual deck list: this is the most reliable method as the "Crypt" word
             # can appear in deck comments.
-            if line and set(line).issubset({"=", "-"}):
+            if line and len(line) > 2 and set(line).issubset({"=", "-"}):
                 current.comment_end()
                 current.separator = True
                 continue
             # if we did not hit any separator (e.g. "=============="),
             # try to find deck name, author and comments
             if not current.separator:
-                try:
-                    score = re.match(
-                        r"-?-?\s*((?P<round_wins>\d)\s*(G|g)(W|w)\s*"
-                        r"(?P<round_vps>\d\.?\d?)\s*((v|V)(p|P))?\s*\+?\s*)?"
-                        r"(?P<final>\d\.?\d?)\s*(v|V)(p|P)",
-                        line,
-                    )
-                    if score.group("round_wins"):
-                        current.score = "{}GW{}+{}".format(
-                            score.group("round_wins"),
-                            score.group("round_vps"),
-                            score.group("final"),
+                if not current.score:
+                    try:
+                        score = re.match(
+                            r"-?-?\s*((?P<round_wins>\d)\s*(G|g)(W|w)\s*"
+                            r"(?P<round_vps>\d(\.|,)?\d?)\s*((v|V)(p|P))?\s*\+?\s*)?"
+                            r"(?P<final>\d(\.|,)?\d?)\s*(v|V)(p|P)",
+                            line,
                         )
-                    else:
-                        current.score = "{}VP in final".format(score.group("final"))
-                    continue
-                except AttributeError:
-                    pass
-                try:
-                    name = re.match(
-                        r"^\s*(?:d|D)eck\s?(?:n|N)ame\s*:\s*(.*)$", line
-                    ).group(1)
-                    if current.name:
-                        current.maybe_comment_line(line_num, current.name)
-                    current.name = name
-                    continue
-                except AttributeError:
-                    pass
-                try:
-                    current.author = re.match(
-                        r"(?:(?:(?:c|C)reated)|(?:(?:d|D)eck))"
-                        r"\s*(?:b|B)y\s*:?\s*(.*)$",
-                        line,
-                    ).group(1)
-                    continue
-                except AttributeError:
-                    pass
-                try:
-                    line = re.match(
-                        r"^(?:(?:d|D)eck)?"
-                        r"\s*(?:(?:(?:d|D)escription)|(?:(?:n|N)otes?))\s*"
-                        r":?\s*(.*)$",
-                        line,
-                    ).group(1)
-                except AttributeError:
-                    pass
+                        if score.group("round_wins"):
+                            current.score = "{}gw{} + {}vp in the final".format(
+                                score.group("round_wins"),
+                                score.group("round_vps"),
+                                score.group("final"),
+                            )
+                        else:
+                            current.score = "{}vp in the final".format(
+                                score.group("final")
+                            )
+                        continue
+                    except AttributeError:
+                        pass
+                if not current.name:
+                    try:
+                        current.name = re.match(
+                            r"^\s*(?:(?:d|D)eck)?\s?(?:n|N)ame\s*:\s*(.*)$", line
+                        ).group(1)
+                        continue
+                    except AttributeError:
+                        pass
+                if not current.author:
+                    try:
+                        current.author = re.match(
+                            r"(?:(?:(?:(?:c|C)reated)|(?:(?:d|D)eck))"
+                            r"\s*(?:b|B)y|(?:a|A)uthors?|(?:c|C)reators?)\s*:?\s*(.*)$",
+                            line,
+                        ).group(1)
+                        continue
+                    except AttributeError:
+                        pass
                 if not line:
                     continue
-                # Do not consider the "Crypt" line as part of the comments or deck name
+                # Do not consider the "Crypt" line as part of the comments
                 if re.match(r"^(c|C)rypt", line):
                     continue
-                # more often than not, first comment line is the deck name
-                # they tend to be relatively short, though
-                if (
-                    not current.name
-                    and not current.comments
-                    and not current.comment
-                    and len(line) < 60
-                ):
-                    current.name = line
-                    continue
                 # Anything else is considered a comment until a separator is hit
-                current.maybe_comment_line(line_num, line)
+                current.maybe_comment_line(line_num, original_line)
                 continue
 
             # comments detection

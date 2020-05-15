@@ -323,29 +323,29 @@ class NARGS_CHOICE_WITH_ALIASES(argparse.Action):
 
 
 class DisciplineChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.search["discipline"].keys()
+    CHOICES = vtes.VTES.search.get("discipline", {}).keys()
     ALIASES = dict(
-        [(k.lower(), k) for k in vtes.VTES.search["discipline"].keys()]
+        [(k.lower(), k) for k in vtes.VTES.search.get("discipline", {}).keys()]
         + list(config.DIS_MAP.items())
     )
 
 
 class ClanChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.search["clan"].keys()
+    CHOICES = vtes.VTES.search.get("clan", {}).keys()
     ALIASES = dict(
-        [(k.lower(), k) for k in vtes.VTES.search["clan"].keys()]
+        [(k.lower(), k) for k in vtes.VTES.search.get("clan", {}).keys()]
         + list(config.CLANS_AKA.items())
     )
 
 
 class TypeChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.search["type"].keys()
-    ALIASES = {k.lower(): k for k in vtes.VTES.search["type"].keys()}
+    CHOICES = vtes.VTES.search.get("type", {}).keys()
+    ALIASES = {k.lower(): k for k in vtes.VTES.search.get("type", {}).keys()}
 
 
 class TraitChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.search["trait"].keys()
-    ALIASES = {k.lower(): k for k in vtes.VTES.search["trait"].keys()}
+    CHOICES = vtes.VTES.search.get("trait", {}).keys()
+    ALIASES = {k.lower(): k for k in vtes.VTES.search.get("trait", {}).keys()}
 
 
 parser = subparsers.add_parser(
@@ -363,7 +363,7 @@ parser.add_argument(
     metavar="DISC",
     nargs="+",
     help="Filter by discipline ({})".format(
-        ", ".join(vtes.VTES.search["discipline"].keys())
+        ", ".join(vtes.VTES.search.get("discipline", {}).keys())
     ),
 )
 parser.add_argument(
@@ -372,7 +372,9 @@ parser.add_argument(
     action=ClanChoice,
     metavar="CLAN",
     nargs="+",
-    help="Filter by clan ({})".format(", ".join(vtes.VTES.search["clan"].keys())),
+    help="Filter by clan ({})".format(
+        ", ".join(vtes.VTES.search.get("clan", {}).keys())
+    ),
 )
 parser.add_argument(
     "-t",
@@ -380,7 +382,9 @@ parser.add_argument(
     action=TypeChoice,
     metavar="TYPE",
     nargs="+",
-    help="Filter by type ({})".format(", ".join(vtes.VTES.search["type"].keys())),
+    help="Filter by type ({})".format(
+        ", ".join(vtes.VTES.search.get("type", {}).keys())
+    ),
 )
 parser.add_argument(
     "-e",
@@ -388,7 +392,9 @@ parser.add_argument(
     action=TypeChoice,
     metavar="TYPE",
     nargs="+",
-    help="Exclude given type ({})".format(", ".join(vtes.VTES.search["type"].keys())),
+    help="Exclude given type ({})".format(
+        ", ".join(vtes.VTES.search.get("type", {}).keys())
+    ),
 )
 parser.add_argument(
     "-r",
@@ -396,7 +402,9 @@ parser.add_argument(
     action=TraitChoice,
     metavar="Trait",
     nargs="+",
-    help="Filter by trait ({})".format(", ".join(vtes.VTES.search["trait"].keys())),
+    help="Filter by trait ({})".format(
+        ", ".join(vtes.VTES.search.get("trait", {}).keys())
+    ),
 )
 parser.add_argument("-f", "--full", action="store_true", help="display card text")
 parser.set_defaults(func=top)
