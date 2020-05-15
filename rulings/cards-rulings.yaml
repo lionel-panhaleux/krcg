@@ -46,7 +46,7 @@
 100043|Amaranth:
     - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - 'If both minions want to play a card "when a vampire should go into torpor", acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Amaranth} and vice-versa. [RTR 20010710]'
-100044|Ambrosius, The Ferryman:
+"100044|Ambrosius, The Ferryman":
     - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
 100045|Ambulance:
     - 'If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
@@ -76,7 +76,7 @@
     - "Does not end combat until after strike resolution, so the damage can be prevented or healed as normal. [LSJ 20011210-3]"
 100067|Angel of Berlin:
     - "May be played after a block is successful before combat begins. [LSJ 20060410]"
-100071|The Ankara Citadel, Turkey:
+"100071|The Ankara Citadel, Turkey":
     - "Multiplication and divisions are applied first, followed by addition and substraction. [RTR 20070707]"
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 100076|Apparition:
@@ -458,7 +458,7 @@
     - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]"
 100496|Darkling Trickery:
     - "[MYT] Damage is environmental. [RTR 19970630] [LSJ19971028]"
-100499|Dartmoor, England:
+"100499|Dartmoor, England":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 100501|Dawn Operation:
     - "Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [ANK 20130319]"
@@ -532,7 +532,6 @@
 100563|Diversion:
     - "[tha] can target a vampire with no blood. [RTR 20010711]"
 100568|Dog Pack:
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
     - 'If put on a minion after an opponent as declared a "strike: combat ends" (eg. using {Pack Alpha} or {Summon Spirit Beast}), the opponent''s strike has no effect. [ANK 20190412]'
 100570|Domain Challenge:
     - "Locked minions are counted after the referendum is completed. [RTR 19941109]"
@@ -570,7 +569,7 @@
     - "[PRO] If more than one go to torpor at the same time (eg. from {Edged Illusion}), the controller chooses which one he keeps. [LSJ 20050805]"
     - "[PRO] The reduction in capacity is permanent, even if the Dual Form is burned. It still applies in the uncontrolled region if the vampire gets back into it. [LSJ 20051103]"
 100593|Duma Rafiki:
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
+    - "Do not gain any additional strikes of its controller. [RTR 19941109]"
 100597|Dust Up:
     - "[ani] [pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100598|Eagle's Sight:
@@ -595,7 +594,6 @@
     - "If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]"
 100626|Elephant Guardian:
     - "If the minion with Elephant successfully played an inferior {Deep Song} action, the target minion would take Elephant Guardian’s damage in the resulting combat if range is close. [PIB 20110609]"
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 100628|Eluding the Arms of Morpheus:
     - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 100639|Empowering the Puppet King:
@@ -802,7 +800,7 @@
     - "Is not the default action, no blood is paid to become Anarch. [ANK 20181017]"
     - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
     - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
-100843|Goodnight, Sweet Prince:
+"100843|Goodnight, Sweet Prince":
     - "Can be used on your own crypt. [TOM 19960419]"
 100844|Goth Band:
     - "The counter moved to your master card by Goth Band is transformed into the type of counter normally used by the target master card. [RTR 19970306]"
@@ -853,7 +851,7 @@
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100901|Healing Touch:
     - "[OBE] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
-100908|Heidelberg Castle, Germany:
+"100908|Heidelberg Castle, Germany":
     - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
     - "Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]"
 100911|Hellhound:
@@ -902,8 +900,6 @@
     - "If the illusionary vampire is burned via blood hunt referendum (because it played {Amaranth}) in the combat, it goes to the ash heap and cannot be removed from the game. [PIB 20110810]"
     - "Even if he has the same name as a vampire in play, the illusonary vampire is considered another vampire for all purposes. [LSJ 20100213]"
     - "If the card drawn is an imbued, the imbued would briefly come into play, become incapacitated, and then be removed from the game. [LSJ 20060323]"
-100956|Ilomba:
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 100957|Immaculate Vitae:
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 100959|Immortal Grapple:
@@ -915,7 +911,7 @@
 100966|Impundulu:
     - "Can use his action on a vampire with no blood. [RTR 20010711]"
     - "If he uses his ability to steal blood or life from one of his controller's minions, the action is undirected. [ANK 20180917]"
-100968|Inbase Discotek, Frankfurt:
+"100968|Inbase Discotek, Frankfurt":
     - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 100971|Increased Strength:
@@ -946,7 +942,7 @@
 101000|Into the Fire:
     - "Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]"
     - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
-101002|Inveraray, Scotland:
+"101002|Inveraray, Scotland":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101005|Invoke Poison Glands:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -955,8 +951,6 @@
 101016|Jack of Both Sides:
     - 'Requirements must be met but this does not count as an action "requiring" anything. [LSJ 20100303] [ANK 20180817]'
     - "Does not prevent the acting vampire to play the equipment or retainer directly this turn if he unlocks (not the same action). [ANK 20180817]"
-101017|Jackal:
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 101019|Jake Washington:
     - "Is not an ally in the ash heap (eg. {Compel the Spirit} cannot be played on him). [LSJ 20020115] [LSJ 20030128]"
     - 'His "starting life amount" is 1 ({Vagabond Mystic} cannot give hime more life). [LSJ 20030520-2]'
@@ -1066,7 +1060,7 @@
     - "If the minion it is on has entered combat and unlocks, he is free to take any other action. [ANK 20200227]"
 101134|Lure of the Serpent:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
-101135|Lyndhurst Estate, New York:
+"101135|Lyndhurst Estate, New York":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101137|Machine Blitz:
     - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike by the bearer against a generic opponent at the appropriate range. [RTR 19980623]'
@@ -1207,9 +1201,7 @@
     - "The unlock effect takes place before the end of combat. The rest of the effect takes place after the end of combat. [RTR 19970630]"
     - "If combat continues or a new combat begins, the vampire unlocks but does not go to torpor. [RTR 20020501] [LSJ 20020505]"
 101254|Murder of Crows:
-    - 'A "strike: combat ends" will end combat before their damage is applied, as will sending their controller to torpor during first strike. [RTR 19941109]'
     - "Do not gain any additional strikes of its controller. [RTR 19941109]"
-    - "The number of lives is set when it is recruited and will not change if its controller's level of Animalism changes. [RTR 19941109]"
     - "Are neither mortal nor monster. [ANK 20200203-2] [LSJ 20060515]"
 101255|Muricia's Call:
     - "Requirements must be met to employ the retainer. [LSJ 20100303]"
@@ -1272,8 +1264,6 @@
 101338|Outside the Hourglass:
     - "No other effect can be used before the damage prevention window, it begins immediately. [ANK 20170930]"
     - "Both minions can play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]"
-101340|Owl Companion:
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 101345|Palatial Estate:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101349|Pandora's Whisper:
@@ -1290,7 +1280,7 @@
     - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 101383|Pentex(TM) Loves You!:
     - "The ability to increase bleed is treated as an action modifier: it can be used at any time during the action. [LSJ 19970718]"
-101385|Père Lachaise, France:
+"101385|Père Lachaise, France":
     - "The vampire retrieved need only be in your ash heap. It does not have to be a vampire that you had first controlled. [LSJ 20040812]"
     - "The crypt card on it is out of play and should be face down. [LSJ 20040812]"
 101388|Perfectionist:
@@ -1300,7 +1290,7 @@
 101395|Personal Scourge:
     - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
     - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
-101400|Pier 13, Port of Baltimore:
+"101400|Pier 13, Port of Baltimore":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101401|Piper:
     - "When used to recruit an ally, the ally cannot act this turn. [LSJ 20080630] [RTR 20180303]"
@@ -1415,12 +1405,9 @@
     - "Is not the default action, no blood is paid to leave torpor. [ANK 20181017]"
     - 'Is a "leave torpor" action. [LSJ 19980126]'
 101545|Raptor:
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
     - "If combat ends and a new combat start (eg. [CEL] {Psyche!}), the opponent redraws and discard again. [LSJ 20030530]"
 101546|Rastacourere:
     - "Does not affect the Prisci sub-referendum. [LSJ 20041202]"
-101550|Raven Spy:
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 101552|Ravnos Cache:
     - "The blood may be used in place of pool or blood, as appropriate to the cost of the equipment. [RTR 19960112]"
 101553|Ravnos Carnival:
@@ -1525,7 +1512,7 @@
     - 'The "does not unlock as normal" effect continues to apply if the Ring is burned or moved. [LSJ 19980831]'
 101658|Ruins of Ceoris:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
-101660|Ruins of Villers Abbey, Belgium:
+"101660|Ruins of Villers Abbey, Belgium":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101664|Rutor's Hand:
     - 'If the vampire is stolen before "your next turn", the Hand will not allow the vampire an extra unlock until a Methuselah begins a turn with the vampire with the Hand under her control. [LSJ 20031106]'
@@ -1535,13 +1522,13 @@
     - "The same vampire can be chosen multiple times if multiple copies are played. [LSJ 19970707]"
 101668|Sabbat Threat:
     - "You can gain pool from the Edge before burning it to remove the threat counters, and loose no pool to the threat counters. [TOM 19951214-1]"
-101670|Sacré-Cœur Cathedral, France:
+"101670|Sacré-Cœur Cathedral, France":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101672|Sacrificial Lamb:
     - "If the target has a {Soul Gem of Etrius}, the Gem effet applies and it cannot be transfered. [LSJ 19970516]"
 101675|Samuel Haight:
     - 'He cannot "steal equipment as a strike" if there is no equipment to steal. [RTR 19980928]'
-101676|San Lorenzo de El Escorial, Spain:
+"101676|San Lorenzo de El Escorial, Spain":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101677|San Nicolás de los Servitas:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
@@ -1606,6 +1593,8 @@
     - "Once placed on a minion, even as a result of diablerie or theft, the Shackles will harm the minion they are on. [LSJ 19990602]"
     - 'An ally does not suffer the "burn 2 blood" effect from being shackled. [RTR 19971201]'
     - "Are controlled by the Methuselah who controls the vampire who used it; changing the controller of the vampire changes who controls the Shackles. (errata) [RTR 19960708]"
+101734|Shade:
+    - "Do not gain any additional strikes of its controller. [RTR 19941109]"
 101735|Shadow Body:
     - '[OBT] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
     - '[OBT] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
@@ -1674,7 +1663,7 @@
     - 'This is an "equip action" [TOM 19960130]'
 101807|The Slow Withering:
     - "The additional cost is paid at the same time the normal cost is paid. [ANK 20190625]"
-101811|Smiling Jack, The Anarch:
+"101811|Smiling Jack, The Anarch":
     - "Each other player must burn a pool or a vampire blood for each counter on Jack. Failing to burn a blood from an empty vampire will not lessen the obligation. [LSJ 19971212]"
     - "Other Methusalah can pay with any combination of pool and different vampires to meet the total number of counters. [ANK 20181006]"
 101816|Sniper Rifle:
@@ -1768,7 +1757,7 @@
     - "[tem] If the card fetched requires a discipline, it is put in play with the default level of the discipline. [PIB 20110610]"
 101902|The Summoning:
     - "[PRE] Is not the same action as the recruitment of the ally. You could perform both actions in the same turn with the same vampire. [PIB 20110915-2]"
-101904|Sunset Strip, Hollywood:
+"101904|Sunset Strip, Hollywood":
     - 'The "lock to reduce the cost" effect can be used when the action is announced or when the cost is paid. [LSJ 20090705]'
 101906|Supernatural Resistance:
     - "If used to cancel the opposing minion's strike, that minion must still choose a strike and could play the same one again. [LSJ 20090818]"
@@ -1780,7 +1769,6 @@
 101914|Swarm:
     - 'If grabbed by a "this vampire employs" effect (not the normal employ action), the vampire receiving the Swarm does not get to move the Swarm on to a new target. [LSJ 20051121]'
     - "If the action to employ the Swarm is blocked, the Swarm goes on the acting minion immediately, before combat, if any. [LSJ 20090601]"
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 101921|Sword of the Righteous:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101925|Tainted Spring:
@@ -1791,7 +1779,7 @@
     - "[abo] [COMBAT] If a minion is burned in combat, his opponent his always considered to have burned him. [LSJ 20090922]"
     - "[abo] [MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
     - "[abo] [MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
-101930|Talaq, The Immortal:
+"101930|Talaq, The Immortal":
     - "While he can play cards that require [qui] or [tha], he does not actually have those Disciplines. He does not benefit from {Tremere Convocation}, for example. [LSJ 19980303]"
 101931|Talbot's Chainsaw:
     - "The press is mandatory. [LSJ 19980823]"
@@ -1916,8 +1904,6 @@
     - "[FOR] Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 102061|Undead Strength:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
-102065|Underbridge Stray:
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 102067|Undue Influence:
     - "Cannot be played with no vampire in the uncontrolled region. [LSJ 20060623]"
 102068|Undying Tenacity:
@@ -1999,7 +1985,7 @@
 102151|Wash:
     - "If used to cancel an out-of-turn master, that Methuselah still cannot play another out-of-turn master against the same master phase, even though the first was canceled and won't count against that master phase. [LSJ 20070309-2]"
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
-102152|Wasserschloss Anif, Austria:
+"102152|Wasserschloss Anif, Austria":
     - "Can only receive blood from one Tremere on any given turn. [RTR 19960221]"
 102160|Wave of Insanity:
     - "[DEM] Is directed at all Methusalah controlling an ally. [LSJ 20080809-1] [KOT 20081119]"
@@ -2033,11 +2019,6 @@
     - "Several Winged Second can be played by different minions for the same combat. [PIB 20110704]"
 102190|Wolf Claws:
     - "[pro] Must be played before strike resolution (and damage prevention) in order to affect the current strike [RTR 19960112]"
-102191|Wolf Companion:
-    - 'A "strike: combat ends" will end combat before his damage is applied, as will sending his controller to torpor during first strike. [RTR 19941109]'
-    - "Does not gain any additional strikes of its controller. [RTR 19941109]"
-    - "The number of lives is set when it is recruited and will not change if its controller's level of Animalism changes. [RTR 19941109]"
-    - "Is not mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
 102192|Wooden Stake:
     - 'If placed on a minion that cannot have equipment, the Stake is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]'
     - 'The "does not unlock as normal" effect continues to apply if the Stake is burned or moved. [LSJ 19980831]'
@@ -2065,11 +2046,10 @@
     - "Damage done to the bearer is environmental. [LSJ 19970801]"
     - "No damage is done to the bearer if he does not strike with the gun (eg. if it is destroyed with first strike). [LSJ 20100310]"
 102210|Zombie:
-    - 'A "strike: combat ends" will end combat before his damage is applied, as will sending his controller to torpor during first strike. [RTR 19941109] [TOM 19951216]'
     - "Does not gain any additional strikes of its controller. [RTR 19941109] [TOM 19951216]"
 200017|Aeron:
     - "The damage inflicted by his ability is environmental. [RTR 19970630] [LSJ 20070328]"
-200019|Agaitas, The Scholar of Antiquities:
+"200019|Agaitas, The Scholar of Antiquities":
     - "Additional draws are not subject to his ability (eg. {Infernal Pursuit}). [LSJ 20011202]"
     - "If Agaitas is burned while cards owned by your prey are still face-up in front of you, you can still play and discard them as normal, but you cannot draw in your prey's library until you control Agaitas anew. [LSJ 20100304]"
 200033|Akram:
@@ -2080,7 +2060,7 @@
     - "If she locks a Toreador who was attempting to block, then that block will fail. [TOM 19951007] [LSJ 19991025]"
 200068|Ambrogino Giovanni:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
-200072|Amelia, The Blood Red Tears:
+"200072|Amelia, The Blood Red Tears":
     - "Her ability triggers after combat if she's still in play, even in torpor. If she is burned during combat, it does not trigger. [ANK 20200420-1]"
     - "If multiple combats occur in the same action, the opposing minion burns 1 blood or life each time the combat ends. [ANK 20200420-1]"
     - "In the case of {Free Fight}, the last opposing minion burns the blood. [ANK 20200420-1]"
@@ -2118,11 +2098,11 @@
     - "If her votes are canceled, the other Tremere votes are unaffected by her ability. [RTR 19960530]"
 200149|Augustus Giovanni:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
-200155|Aziz, Dammar of Istanbul:
+"200155|Aziz, Dammar of Istanbul":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 200167|The Baron:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
-200179|Beast, The Leatherface of Detroit:
+"200179|Beast, The Leatherface of Detroit":
     - "He cannot attempt an action to equip or employ, nor strike to steal an equipment or retainer. [LSJ 20050315] [LSJ 20010210]"
     - "He can equip with an equipment that is a location when in play. [LSJ 20050315]"
 200201|Black Cat:
@@ -2160,7 +2140,7 @@
 200365|Donald Cargill:
     - "His ability is applied after the referendum effects are applied, including any oust and pool gained from it. [LSJ 20090115-2]"
     - "His ability is still applied if the predator is ousted by the referendum effects. [LSJ 20090115-2]"
-200381|Dr. Morrow, The Skindoctor:
+"200381|Dr. Morrow, The Skindoctor":
     - "Multiple graft counters may be placed on the same minion, but they have no additional effect. A minion with one or more graft counters gets -1 stealth, not -X stealth. [LSJ 20070306]"
 200383|Dr. Solomon Grey:
     - "You burn one pool before he enters contest if there is another one in play. [LSJ 20080526]"
@@ -2172,7 +2152,7 @@
     - "Edith may burn a blood to give {Enid Blount} stealth multiple times each action. [LSJ 20040617]"
 200403|Edward Vignes:
     - "His ability cannot be used if the action is blocked. [LSJ 20041022]"
-200424|Enkidu, The Noah:
+"200424|Enkidu, The Noah":
     - "He cannot attempt an action to equip nor strike to steal an equipment. [LSJ 20050315] [LSJ 20010210]"
     - "He can equip with an equipment that is a location when in play. [LSJ 20050315]"
 200427|Epikasta Rigatos:
@@ -2243,7 +2223,7 @@
     - "[MERGED] Keeps her title and votes if she changes sects. [LSJ 20010714]"
     - "[MERGED] When playing a card requiring Camarilla, Ventrue and/or justicar, she is treated as a such for all effects generated by the play of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]"
     - "[MERGED] Does not enable you to play master cards, it only enables her to play certain minion cards. [LSJ 20050721]"
-200773|Kephamos, High Priest of Marrakech:
+"200773|Kephamos, High Priest of Marrakech":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 200798|Kyoko Shinsegawa:
     - "The action provided is a hunt action and benefit from hunt bonuses. [LSJ 20030311] [LSJ 20090113-2]"
@@ -2277,7 +2257,7 @@
 200890|Lutz von Hohenzollern:
     - "His ability is applied after the referendum effects are applied, including any oust and pool gained from it. [LSJ 20090115-2]"
     - "His ability is still applied if his controller is ousted by the referendum effects. [LSJ 20090115-2]"
-200891|Lydia, Grand Praetor:
+"200891|Lydia, Grand Praetor":
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200912|Marcia Felicia Licinia:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
@@ -2285,7 +2265,7 @@
     - 'Her ability must be used after combat has ended, cards that are played "when the combat would end" or "when combat is about to end" are played before that. [ANK 20180928-2]'
     - "When using her ability to enter combat she is not acting and cannot play action modifiers. {Obedience} cannot be played by the opponent. [ANK 20180929]"
     - "When using her ability to enter combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501] [ANK 20180928-2]"
-200929|Mariel, Lady Thunder:
+"200929|Mariel, Lady Thunder":
     - "If she locks to end combat, the damage is applied just after the combat ends. [RTR 19970630]"
 200935|Maris Streck:
     - "Can use her ability multiple times each action. [LSJ 20020926]"
@@ -2299,7 +2279,7 @@
     - "If her capacity is above 10 when playing {Call the Great Beast}, she burns and it is put into play. If her capacity is less, the card is put on her with tokens equal to her capacity, but she will not be able to add counters to it later on. [ANK 20180723]"
     - "You can still use the burn options of cards with a requirement she could meet when you play them, but does not meet while in play. [LSJ 20050225]"
     - "Her ability do not let her fulfill card requirements if they are not played normally, like when using {Concealed Weapon} for an equipment or {Piper} or {The Summoning} for an ally. [LSJ 20050119]"
-200964|Maureen, Dark Priestess:
+"200964|Maureen, Dark Priestess":
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200966|Maxwell:
     - "Cannot use his ability to become a Prince if he has changed sect and is no longer Camarilla. [LSJ 20030202]"
@@ -2315,9 +2295,9 @@
     - "The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2]"
 201006|Montano:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
-201017|Muaziz, Archon of Ulugh Beg:
+"201017|Muaziz, Archon of Ulugh Beg":
     - "Her ability does not apply to the {Blood Hunt} card. [TOM 19960604]"
-201026|Mustafa, The Heir:
+"201026|Mustafa, The Heir":
     - "If two Methuselahs want to use abilities to alter Mustafa's votes at the same time, whoever uses the ability first has priority. Whoever uses it last has the final say on his votes. [LSJ 20090304-2]"
 201030|Nahir:
     - "The hand size is still +X if Nahir is in torpor. [ANK 20140523]"
@@ -2334,10 +2314,10 @@
 201052|New Blood:
     - "A vampire with no circle designation is in his own unique circle of one. New blood cannot choose to be part of such a circle. [LSJ 20020609]"
     - 'Cannot choose to be part of the "Inner Circle" and get the title. The Inner Circle title and a Blood Brothers circle are different things. [ANK 20190117-2]'
-201087|Owain Evans, The Wanderer:
+"201087|Owain Evans, The Wanderer":
     - "His ability can only be used once each unlock, even if control of Owain changes during that unlock phase. [LSJ 20040127]"
     - "His ability can only be used when his controller has the opportunity to play effects. The acting player has to apply all mandatory effects (eg. lose pool to {Anarch Revolt}) before passing the opportunity to play effects to another player. [LSJ 20100723]"
-201098|Patrizia Giovanni, Collector of Secrets:
+"201098|Patrizia Giovanni, Collector of Secrets":
     - "When using her ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 201103|Paul "Sixofswords29" Moreton:
     - "When he is influenced out, his ability can be used during the ongoing influence phase. [RTR 20180303]"
@@ -2356,7 +2336,7 @@
     - "When using his ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 201129|Porphyrion:
     - 'His "as he enters play" ability can be used before he enters contest if there is another one in play. [LSJ 20080526]'
-201147|Rabbat, The Sewer Goddess:
+"201147|Rabbat, The Sewer Goddess":
     - "Her hunt ability may be used even when she is at full capacity. One blood goes to your pool directly even if it would have exceeded her capacity. [LSJ 20050331]"
 201148|Rachel Brandywine:
     - "When using her ability, make all discards and redraws first, then shuffle the discards back into the library. [RTR 20030519]"
@@ -2367,7 +2347,7 @@
 201173|Reg Driscoll:
     - "His ability is activated after he equips with the equipment. He cannot use his ability to move the {Eye of Hazimel}. [LSJ 20060221]"
     - "You may move all or none the equipment he gets to just one minion, but you cannot split. [LSJ 20050217] [LSJ 20090622]"
-201175|Regina Giovanni, The Right Hand of Augustus:
+"201175|Regina Giovanni, The Right Hand of Augustus":
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 201189|Rico Loco:
     - "The damage he takes during the master phase from his ability is environmental. [RTR 19970630]"
@@ -2375,7 +2355,7 @@
     - "Can use his ability to cancel a master card multiple times each turn. [ANK 20200420-2]"
 201240|Sargon:
     - "His controller gets the Edge after the effects of the successful action are applied. If it is a referendum, he gets the Edge after the referendum is concluded. [LSJ 20011222]"
-201245|Sascha Vykos, The Angel of Caine (ADV):
+"201245|Sascha Vykos, The Angel of Caine (ADV)":
     - "When using his ability to draw, discard afterwards. [ANK 20190707]"
 201253|Scout Youngwood:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
@@ -2395,29 +2375,29 @@
     - "His special ability is treated as an action modifier as far as timing goes: it can be used after the block attempts are concluded. [SFC 19960819]"
 201326|Sundown (ADV):
     - "His ability to force a vampire to abstain can cancel the vote of the vampire. [LSJ 20100311]"
-201327|Sutekh, The Dark God:
+"201327|Sutekh, The Dark God":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 201331|Synesios:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
     - "His ability do not allow his owner to play more than one Master: Out of Turn between two master phases. [ANK 20191004]"
-201337|Talley, the Hound:
+"201337|Talley, the Hound":
     - "Gets his +1 intercept if an action has any one target that would be enough to enable his effect. [RTR 20080808] [KOT 20081119]"
-201344|Tariq, The Silent:
+"201344|Tariq, The Silent":
     - "His capacity is reduced immediately when he get controlled, before it can be merged with the advanced version. [ANK 20190522]"
-201345|Tariq, The Silent (ADV):
+"201345|Tariq, The Silent (ADV)":
     - "His capacity is reduced immediately when he get controlled, before it can be merged with the base version. [ANK 20190522]"
-201348|Tatiana Stepanova, Alastor:
+"201348|Tatiana Stepanova, Alastor":
     - "When playing a card requiring Brujah or Gangrel, she is treated as a such for all effects generated by the play of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]"
     - "Her ability do not let her fulfill card requirements if they are not played normally, like when using {Piper} or {The Summoning} to recruit an ally. [LSJ 20050119]"
-201352|Tegyrius, Vizier:
+"201352|Tegyrius, Vizier":
     - "Allegiance counters continue to function even if Tegyrius leaves play. [LSJ 20010616] [LSJ 20030522]"
     - "The allegiance counter is a continuous effect: an Assamite with it stays Camarilla even if he changes his underlying sect (eg. rulebook action to become anarch). [ANK 20180626-2]"
-201354|Teresita, The Godmother:
+"201354|Teresita, The Godmother":
     - "She gains or looses intercept if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]"
 201355|Tereza Rostas:
     - "She cannot steal the Edge if it is uncontrolled. [TOM 19951214-2]"
     - "If the target of the action burns the Edge during the action, her controller still gets the Edge if the action succeeds. [RTR 19980623]"
-201365|Thetmes, Caliph of Alamut:
+"201365|Thetmes, Caliph of Alamut":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 201370|Thucimia:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
@@ -2425,11 +2405,11 @@
     - "Must announce which conviction he burns as part of the terms of the action granted by his ability. [RTR 20111202]"
 201390|Tryphosa:
     - "The additional blood cost is not paid if the action does not succeed. [PIB 20121031]"
-201413|Ur-Shulgi, The Shepherd:
+"201413|Ur-Shulgi, The Shepherd":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 201415|Uriah Winter:
     - "Can still defect if in torpor, and will remain in torpor if he does so. [RTR 19941109]"
-201422|Valerius Maior, Hell's Fool (ADV):
+"201422|Valerius Maior, Hell's Fool (ADV)":
     - "The prohibition to play certain cards applies from the moment he attempts to block until the end of the action, even if he fails to block. [LSJ 20080818]"
 201436|Verbruch:
     - 'His "as he enters play" ability can be used before he enters contest if there is another one in play. [LSJ 20080526]'
@@ -2452,7 +2432,7 @@
     - "His ability do not let him fulfill card requirements if they are not played normally, like when using {Piper}. [LSJ 20050119]"
 201477|Xaviar:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
-201480|Xeper, Sultan of Lepers:
+"201480|Xeper, Sultan of Lepers":
     - "Is not titled. If he gets a title, his additional votes are added to the ones provided by the title. [LSJ 20100601]"
-201502|Zayyat, The Sandstorm:
+"201502|Zayyat, The Sandstorm":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"

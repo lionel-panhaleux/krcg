@@ -426,3 +426,51 @@
       - 101271|Neonate Breach
       - 101567|Reckless Agitation
       - 101591|Reins of Power
+- ruling: "The damage is neither environmental nor considered done by the minion it is on: it is damage done by the retainer. [ANK 20180612]"
+  cards:
+      - 100593|Duma Rafiki
+      - 100891|Hatch the Viper
+      - 101254|Murder of Crows
+      - 101556|Razor Bat
+      - 101734|Shade
+      - 101873|Stone Dog
+      - 102107|Vengeful Spirit
+      - 102191|Wolf Companion
+      - 102210|Zombie
+- ruling: 'A "strike: combat ends" will end combat before damage is applied, as will sending the employer to torpor during first strike. [RTR 19941109] [TOM 19951216]'
+  cards:
+      - 100593|Duma Rafiki
+      - 100891|Hatch the Viper
+      - 101254|Murder of Crows
+      - 101556|Razor Bat
+      - 101734|Shade
+      - 101873|Stone Dog
+      - 102107|Vengeful Spirit
+      - 102191|Wolf Companion
+      - 102210|Zombie
+- ruling: "The discipline level used to recruit it decides which version it is (inferior or superior). This does not change once it is in play. [RTR 19941109] [ANK 20180612]"
+  cards:
+      - 100427|Corpse Balloon
+      - 100891|Hatch the Viper
+      - 100932|Homunculus
+      - 101017|Jackal
+      - 101182|Masquer
+      - 101254|Murder of Crows
+      - 101340|Owl Companion
+      - 101545|Raptor
+      - 101550|Raven Spy
+      - 101734|Shade
+      - 102191|Wolf Companion
+- ruling: "It is neither a mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
+  cards:
+      - 100568|Dog Pack
+      - 100593|Duma Rafiki
+      - 100626|Elephant Guardian
+      - 100956|Ilomba
+      - 101017|Jackal
+      - 101340|Owl Companion
+      - 101545|Raptor
+      - 101550|Raven Spy
+      - 101914|Swarm
+      - 102065|Underbridge Stray
+      - 102191|Wolf Companion
