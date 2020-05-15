@@ -4,7 +4,8 @@ Changelog
 0.44 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- CLI: fix rulings disaply for card command
+- Additional rulings
 
 
 0.43 (2020-05-15)
