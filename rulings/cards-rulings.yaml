@@ -606,6 +606,7 @@
 100628|Eluding the Arms of Morpheus:
     - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 100634|Emerald Legionnaire:
+    - "His ability cannot be used from the ash heap, he needs to be ready. [ANK 20180511]"
     - "When using is ability to put another one into play, this does not require a ready Harbinger, the pool cost of the new one is not paid, the new one can act this turn and can use his ability to bring another one immediately. [ANK 20180509]"
 100639|Empowering the Puppet King:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
@@ -1506,6 +1507,8 @@
     - "[TEM] Other reaction cards (eg. wake effects) cannot be used as there is no action. [ANK 20120804]"
 101634|Riddle Phantastique:
     - "If put into play with no counters, it burns immediately. [LSJ 20070307]"
+101635|Righteous Aura:
+    - "The card is burned before the vampire leaves the ready region (eg. it is burned if {Banishment} is used on the vampire it is on) [ANK 20180511]"
 101637|Riposte:
     - "[cel] [CEL] The damage is dealt just after the combat ends. [RTR 19970630]"
     - "[cel] [CEL] The damage is only dealt if the strike was resolved at close range. [LSJ 19970915]"
