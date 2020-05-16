@@ -251,6 +251,8 @@
     - "Transfers may not be made to the vampire - neither to put blood on nor to move blood off. [RTR 19950413]"
 100250|Breath of the Dragon:
     - "Damage done to the striking minion is environmental. [LSJ 19970801]"
+100254|Brigitte Gebauer:
+    - "She can lock to use her ability the turn she is recruited. [ANK 20180517]"
 100260|Brujah Debate:
     - "If more than one Brujah shares the highest capacity amount, the controller chooses which of them to lock during her master phase. [LSJ 19980224]"
     - "Can lock a locked Brujah. [PIB 20110310]"
@@ -298,6 +300,8 @@
     - 'Cards and effects that can be played "after resolution" (and only them) can be played after the gain blood effect. [ANK 20190113]'
 100293|Car Bomb:
     - "If the action ends, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
+100298|Carlton Van Wyk:
+    - "He can use his ability to burn a vampire who has committed diablerie the turn she is recruited. [ANK 20180517]"
 100301|Carrion Crows:
     - 'Does "1R each round" to the opposing minion, not once each strike. The "during strike resolution" only indicates when the damage is applied. [LSJ 19971211-1]'
     - 'Damage is inflicted even if the opponent dodges. It is not inflicted if anyone uses a "strike: combat ends". [ANK 20200422]'
@@ -550,6 +554,8 @@
     - "[CHI] Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Draba at the time it was played. [RTR 20030519]"
     - "[CHI] Can be played by a minion who is not attempting to block the action. [ANK 20190628]"
     - "[CHI] Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]"
+100579|Draeven Softfoot:
+    - "He can lock to use his ability the turn he is recruited. [ANK 20180517]"
 100582|Drain Essence:
     - "Can target a minion with less blood or life than the amount stolen. [RTR 20010711]"
 100584|Draught of the Soul:
@@ -581,6 +587,7 @@
     - "[PRO] The vampire still unlocks if an effect continues the combat or begins a new combat. [RTR 20020501]"
 100607|Eccentric Billionaire:
     - 'The "lock to reduce the cost" effect can be used when the action is announced or when the cost is paid. [LSJ 20090705] [ANK 20170605]'
+    - "He can lock to use his ability the turn he is recruited. [ANK 20180517]"
 100608|Echo of Harmonies:
     - "[mel] [MEL] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[mel] [MEL] Can be played by a locked vampire. [LSJ 19980210]"
@@ -793,10 +800,12 @@
     - "Are not mortal, are a monster. [ANK 20200203-2]"
 100823|Gianna di Canneto:
     - "She can use her ability to burn an equipment an opponent has commited to use as a strike (eg. by using the maneuver of a {.44 MAgnum}). In this case the opponent strike has no effect. [PIB 20141026]"
+    - "She can lock to use her ability the turn she is recruited. [ANK 20180517]"
 100828|Gift of Sleep:
     - "[obe] [ACTION MODIFIER][REACTION] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 100832|Giulia Giovanni Abruzzina:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
+    - "She can lock to use her ability the turn she is recruited. [ANK 20180517]"
 100836|Glaser Rounds:
     - "Must wait until the second time a given gun is used in a given combat to play it. [RTR 19941109]"
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -1505,6 +1514,8 @@
     - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20130319]"
 101640|The Rising:
     - 'Anything that would increase the pool amount is considered "gaining pool". [ANK 20181105]'
+101650|Rom Gypsy:
+    - "He can lock to use his ability the turn he is recruited. [ANK 20180517]"
 101652|Root of Vitality:
     - "[vic] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 101654|Rötschreck:
@@ -1525,6 +1536,8 @@
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101664|Rutor's Hand:
     - 'If the vampire is stolen before "your next turn", the Hand will not allow the vampire an extra unlock until a Methuselah begins a turn with the vampire with the Hand under her control. [LSJ 20031106]'
+101665|Saatet-ta:
+    - "She can lock to use her ability the turn she is recruited. [ANK 20180517]"
 101667|Sabbat Priest:
     - "Burn blood effects are cumulative. [LSJ 19980225]"
     - "A vampire with no blood can still block, he burns what he can. [LSJ 19970707]"
@@ -1775,6 +1788,8 @@
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
 101908|Surge:
     - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
+101910|Survivalist:
+    - "He can lock to use his ability the turn he is recruited. [ANK 20180517]"
 101914|Swarm:
     - 'If grabbed by a "this vampire employs" effect (not the normal employ action), the vampire receiving the Swarm does not get to move the Swarm on to a new target. [LSJ 20051121]'
     - "If the action to employ the Swarm is blocked, the Swarm goes on the acting minion immediately, before combat, if any. [LSJ 20090601]"
@@ -1913,6 +1928,8 @@
     - "[FOR] Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 102061|Undead Strength:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+102065|Underbridge Stray:
+    - "He can burn 1 life to give a minion you control a press the turn he is recruited. [ANK 20180517]"
 102067|Undue Influence:
     - "Cannot be played with no vampire in the uncontrolled region. [LSJ 20060623]"
 102068|Undying Tenacity:
@@ -1929,6 +1946,8 @@
     - "[abo] The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 102082|Unwholesome Bond:
     - "Cannot be used by {Angelo} or {New Blood} on a uncontrolled vampire with no circle designation, even another {Angelo} or {New Blood}. [LSJ 20050927]"
+102087|Vagabond Mystic:
+    - "He can lock to use his ability the turn he is recruited. [ANK 20180517]"
 102088|Vampiric Disease:
     - 'At the beginning of the unlock phase, an afflicted vampires unlocks and burns a blood before effects that are applied "during" the unlock phase. [ANK 20180702]'
 102092|Vast Wealth:
@@ -1985,6 +2004,7 @@
 102144|War Ghoul:
     - "If you have no other allies and no retainers in play when it is recruited, then you burn it. [RTR 19961113]"
     - 'Can use its ability "lock and burn to burn a location" during an action that would steal it (eg. [PRE] {Entrancement}). The action will have no effect but is still successful if unblocked and must then be paid. [PIB 20121031]'
+    - "Can lock and burn War Ghoul to burn a location the turn it is recruited. [ANK 20180517]"
 102146|Warding the Beast:
     - "[val] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 102149|Warsaw Station:
