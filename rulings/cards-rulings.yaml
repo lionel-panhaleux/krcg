@@ -155,6 +155,8 @@
     - "Is cumulative. A player can be damaged by multiple Betrayers each turn. A Methuselah targeted by more than one Betrayer would have to pay 1 pool for each Betrayer in order to burn them, even if the same vampire is the betrayer in each case. [RTR 19941109]"
     - "If the vampire chosen for Betrayer is burned, so is Betrayer. If the vampire chosen for Betrayer becomes contested, Betrayer is nullified until the contest is resolved, at which time the Betrayer is reactivated. If a player takes control of the vampire that is the target of the betrayer, that player takes the pool loss. [RTR 19941109]"
     - "You select an uncontrolled vampire when you play the card. If you have a choice (more than one of your uncontrolled vampires is controlled by the other Methuselah), you still have to choose just one of them to be the Betrayer. [LSJ 19990419]"
+100159|Big Game:
+    - '"that minion" refers to the target and "this minion" to the acting minion. [ANK 20180518]'
 100160|Bima:
     - '"that Discipline" refers to the card on Bima. If the card is no longer there, then the effect cannot be used. [LSJ 20071006]'
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
