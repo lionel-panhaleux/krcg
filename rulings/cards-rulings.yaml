@@ -95,6 +95,7 @@
     - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 100087|Armor of Caine's Fury:
     - "[VAL] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
+    - "[VAL] Can prevent 2 damage per round, from any strike, can prevent 2 times 1 damage from two different strikes. [ANK 20180117]"
 100089|Armor of Vitality:
     - "Prevents up to 3 damage, it can be used to prevent less. [RTR 20041202]"
 100096|The Art of Love:
@@ -171,6 +172,7 @@
     - '[QUI] Does not ignore the normal prey, predator or target restrictions. Read: "This vampire unlocks and attempts to block". [ANK 20180623]'
 100172|The Black Throne:
     - "The contract effect can be used even if the target is burned or if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]"
+    - "The contract effect can be used if a minion with a contract leaves the ready region because his controller is ousted. [ANK 20180129-2]"
 100176|Blade of Enoch:
     - "Can be equipped by a vampire with capacity less than 6, although he cannot use it to strike and does not gain immunity to frenzy cards. [LSJ 20030607]"
 100177|Blanket of Night:
@@ -1474,6 +1476,7 @@
 101575|The Red Question:
     - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
     - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
+    - 'Does not make the action an action that "makes this vampire anarch" (eg. {CrimethInc.} cannot be played). [ANK 20180125]'
 101578|Redirection:
     - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 101581|Reform Body:
