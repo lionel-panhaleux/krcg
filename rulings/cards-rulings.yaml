@@ -1036,6 +1036,7 @@
     - "If a card played by a minion with Learjet has a delayed replacement, the additional card is drawn when the replacement is drawn. [PIB 20110718]"
 101083|Leech:
     - "Can target a vampire with no blood [RTR 20010711]"
+    - "Does not stack with similar effects to provide superior [POT] (eg. {Putrescent Servitude}). [ANK 20180111]"
 101084|Left for Dead:
     - "Effects to begin a new combat cannot be used on the Left for Dead ally as he is not ready. [LSJ 20020509]"
 101086|Legacy of Caine:
@@ -1436,6 +1437,7 @@
     - "[thn] [THN] It can still be burned if the vampire is already prevented from unlocking as normal by another effect. [RTR 20070707]"
 101526|Putrescent Servitude:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+    - "Does not stack with similar effects to provide superior [POT] (eg. {Leech}). [ANK 20180111]"
 101536|The Rack:
     - "May not select a new target just for falling out of contention. [RTR 19960112]"
     - "Will not target a new copy of the same vampire if the original is burned or yielded. [TOM 19960122]"
