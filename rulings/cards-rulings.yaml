@@ -1456,6 +1456,7 @@
 101553|Ravnos Carnival:
     - "A Ravnos can attempt an action that he cannot pay for himself if the cost can be paid with the Carnival's help. [LSJ 20050408]"
     - "How many counters are used from the Carnival must be annouced as part of the terms of the action. [RTR 20111202]"
+    - "Cannot be used to pay for the cost of a cardless action or of an action provided by a card in play. [ANK 20180109] [LSJ 20070224]"
 101557|React with Conviction:
     - "If used to cancel a {Corruption} action, then the action is canceled in its entirety and the corruption counters are not burned. [LSJ 20070222-1]"
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
@@ -1959,6 +1960,7 @@
     - "[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]"
     - 'If an effect causes a new combat to occur at the end of combat, then the "go to torpor" effect will be delayed until after that new combat. However, the vampire will no longer benefit from Undead Persistence in the new combat, so it will end immediately with the vampire not ready unless he plays a new Undead Persistence in the new combat. [LSJ 20030214] [ANK 20190624]'
     - "[FOR] Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
+    - "Only provides one press for the current round, not the ones after that. [ANK 20180110]"
 102061|Undead Strength:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 102065|Underbridge Stray:
