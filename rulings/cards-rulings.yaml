@@ -136,6 +136,7 @@
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
 100137|Baseball Bat:
     - "If put into play in a special way (eg. using {Concealed Weapon}), it is replaced immediately. [LSJ 20080702-2]"
+    - "If played normally, it is not replaced if {Gift of Bellona} is played after being blocked. [ANK 20200517-3]"
 100142|Bauble:
     - "If it is burned by another mean than its effect, the weapon is not burned. [LSJ 20090113-1]"
     - "It cannot be burned if the target equipment is not in play. [RTR 20080808]"
@@ -205,6 +206,7 @@
     - "Damage from Blood of Acid is environmental. [RTR 19970630] [LSJ 20020708]"
     - "Environmental damage is not counted by Blood of Acid. [RTR 19970630]"
     - "First prevent strikes damage (acting player first), then the target can prevent Blood of Acid damage, if any. All the damage is applied (and the blood lost) at once, after all preventions. [ANK 20170427] [LSJ 20040805]"
+    - "The damage is done after the strike damage is done: a single instantaneous prevention card (eg. {Soak}) can not prevent both, although lingering damage prevention (eg. {Apparition}) could. [ANK 20200517-2]"
 100205|Blood of the Cobra:
     - "[QUI] If the chosen strike says to make a hand strike or a melee weapon strike, then the strike is ranged, but the hand or melee weapon portion of the strike is still only effective at close range. [RTR 20010710]"
 100208|Blood Rage:
@@ -212,7 +214,7 @@
     - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
     - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
 100209|Blood Shield:
-    - "The blood is burned by the opponent when the owner prevents damage, immediately. Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528]"
+    - "The blood is burned by the opponent when the owner prevents damage, immediately, before loosing blood to heal strike damage. Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528]"
 100212|Blood Tears of Kephran:
     - "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 100213|Blood Tempering:
@@ -1751,6 +1753,7 @@
     - "For a Laibon moved into the ready region in the last influence phase, you must retrieve Aye and Orun in pairs: the same number of Aye as Orun. [LSJ 20051127]"
 101869|Steely Tenacity:
     - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+    - "[dom], [qui] [ACTION] Is not replaced if the action is blocked: it is replaced when the action ends, after all combats. [LSJ 20001120]"
 101872|Stolen Police Cruiser:
     - "Can be equipped by a non-Anarch and would count as a vehicle, although the rest of his effect does not apply. [LSJ 20030607]"
 101879|Strained Vitae Supply:
@@ -1920,6 +1923,7 @@
     - '[SER] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
 102047|Tunnel Runner:
     - "Damage done from stealing blood to the Runner is environmental. [RTR 19970630] [LSJ19971028]"
+    - "Damage done from stealing blood is done at the same time strike damage is done: a single instantaneous prevention card (eg. {Soak}) can prevent both. [ANK 20200517-2]"
 102053|Tye Cooper:
     - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
 102058|Uncontrollable Rage:
