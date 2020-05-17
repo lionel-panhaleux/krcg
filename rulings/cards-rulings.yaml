@@ -176,6 +176,7 @@
 100177|Blanket of Night:
     - "[OBT] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[OBT] Can be played by a locked vampire. [LSJ 19980210]"
+    - "[OBT] Multiple copies can be played by different minions on the same action. [ANK 20200515]"
 100180|Blessed Blade:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "A minion who maneuvers with a weapon (eg. {Blade of Bellona}) may still use Blessed Blade to strike with that weapon as his initial strike that round. [ANK 20180704] [LSJ 20050304]"
@@ -385,6 +386,7 @@
 100362|Cloak the Gathering:
     - "[OBF] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[OBF] Can be played by a locked vampire. [RTR 19941109] [LSJ 19980210]"
+    - "[OBF] Multiple copies can be played by different minions on the same action. [ANK 20200515]"
 100376|Cold Aura:
     - "No other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 100378|Coma:
@@ -593,6 +595,7 @@
 100608|Echo of Harmonies:
     - "[mel] [MEL] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[mel] [MEL] Can be played by a locked vampire. [LSJ 19980210]"
+    - "[mel] [MEL] Multiple copies can be played by different minions on the same action. [ANK 20200515]"
     - "[MEL] The referendum retained can only be called if the vampire meets the requirements given on the card. [LSJ 20011205]"
     - "[MEL] Cannot be used if no Political Action card was played for the action or if it is not in the ash heap. [LSJ 20020911]"
 100610|Ecstasy:
@@ -956,6 +959,7 @@
 100992|Inspire Greatness:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "Can be played by a locked vampire. [LSJ 19980210]"
+    - "Multiple copies can be played by different minions on the same action. [ANK 20200515]"
 100998|Internal Recursion:
     - "Is played before the combat begins. [LSJ 20020204]"
     - "[pre] The blocking vampire do not unlock if the vampire uses another effect to end combat as a strike. [RTR 20020501]"
@@ -1135,6 +1139,7 @@
     - "Cannot be used during the resolution of an action, like during a referendum or during combat. [LSJ 19980825]"
     - "A minion attempting to block before is still attempting to block after. [LSJ 19990106]"
     - "The masking minion can play a modifier already played by the masked minion. He cannot use a limited effect (ie. bleed enhancer) if a limited effect has already been used on the action. [ANK 20190117-1]"
+    - "Multiple copies can be played by different minions on the same action. [ANK 20200515]"
 101180|Masochism:
     - "[FOR] The additional counter is added after the presses are handled. It is added if the round ends prematurely and conditions are met. [RTR 20030519]"
 101183|Masquerade Endangered:
@@ -1218,6 +1223,7 @@
 101245|Mouthpiece:
     - "[DOM] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[DOM] Can be played by a locked vampire. [LSJ 19980210]"
+    - "[DOM] Multiple copies can be played by different minions on the same action. [ANK 20200515]"
 101251|Mummify:
     - "The unlock effect takes place before the end of combat. The rest of the effect takes place after the end of combat. [RTR 19970630]"
     - "If combat continues or a new combat begins, the vampire unlocks but does not go to torpor. [RTR 20020501] [LSJ 20020505]"
@@ -1677,10 +1683,10 @@
 101785|Sire's Index Finger:
     - "Losing the use of the Finger won't make the vampire vulnerable to a previously-played Frenzy card, and gaining it won't render him immune to a previously-played Frenzy card. [LSJ 20040210]"
 101786|Siren's Lure:
-    - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "Cannot be played to queue a second combat after a combat is already set up for later (e.g. by a previous Siren's Lure). [LSJ 20020125]"
-    - "Other effects that queue a combat cannot be used until the new combat begins. [LSJ 20021121]"
-    - "Combat does not occur if the action ends prematurely. [LSJ 20090826]"
+    - "[mel] [MEL] Can only be played by the controller of the acting minion. [LSJ 19990425]"
+    - "[mel] [MEL] Cannot be played to queue a second combat after a combat is already set up for later (e.g. by a previous Siren's Lure). [LSJ 20020125]"
+    - "[mel] [MEL] Other effects that queue a combat cannot be used until the new combat begins. [LSJ 20021121]"
+    - "[mel] [MEL] Combat does not occur if the action ends prematurely. [LSJ 20090826]"
 101794|Skin of the Chameleon:
     - '[tha] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101797|Slake the Thirst:
@@ -1793,6 +1799,7 @@
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 101907|Suppressing Fire:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
+    - "Multiple copies can be played by different minions on the same action. [ANK 20200515]"
 101908|Surge:
     - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
 101910|Survivalist:
@@ -2081,6 +2088,7 @@
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 102204|Zapaderin:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
+    - "Multiple copies can be played by different minions on the same action. [ANK 20200515]"
 102208|Zip Gun:
     - "Damage done to the bearer is environmental. [LSJ 19970801]"
     - "No damage is done to the bearer if he does not strike with the gun (eg. if it is destroyed with first strike). [LSJ 20100310]"
