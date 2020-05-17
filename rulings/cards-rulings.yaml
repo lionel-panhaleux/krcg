@@ -677,6 +677,8 @@
     - "Cards that change a vampire's sect to Sabbat can still be played, but he becomes Independant until the Fall is removed from play. [LSJ 20040519]"
     - "Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Sabbat, it sets it to Independant instead while the Fall is in play. If the Fall leaves play, the vampire retrieves his underlying sect. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]"
     - "Vampires with a Sabbat title lose the benefit from it until they becomre Sabbat again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]"
+100697|False Resonance:
+    - "[CHI] Cannot be used to get stealth then cancel the [aus] card that provided intercept to the blocking minion. [ANK 20180201]"
 100699|Familial Bond:
     - "Cannot be played if intercept is not required (as per the rules, section 6.2.2). [ANK 20200329]"
 100703|Far Mastery:
