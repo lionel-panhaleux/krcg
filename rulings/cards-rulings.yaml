@@ -379,7 +379,8 @@
     - "Changes the sect of the target to the default sect of the clan. [LSJ 20001011]"
     - "When removed, the vampire goes back ot its underlying clan, and the default sect of that clan (even if he was from another sect before). [ANK 20200415]"
     - "If the target changes clan or sect to a clan or sect inappropriate for his title, he loses its benefit until his clan or sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
-100354|Clan Loyalty: '-"The blocking minion is not locked [ANK 20180321]"'
+100354|Clan Loyalty:
+    - "The blocking minion is not locked [ANK 20180321]"
 100356|Claws of the Dead:
     - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike. (can be played after both strikes have been chosen) [RTR 19960112]"
 100358|Cleave:
@@ -2296,7 +2297,7 @@
 200742|Kahina the Sorceress:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200753|Karen Suadela:
-    - "She keeps her title if {Fall of the Camarilla} is played. She can be chosen for {Recalled to the Founder}, but does not burn. Allies still benefit trom {The Unmasking} intercept when trying to block her. [LSJ 20081120]"
+    - "She keeps her title if {Fall of the Camarilla} is played. She can be chosen for {Recalled to the Founder}, but does not burn. Allies still benefit trom {The Unmasking} intercept when trying to block her. [LSJ 20081120-2]"
 200758|Karsh (ADV):
     - "[MERGED] Imperator is a unique Camarilla title worth 3 votes, it is the same as the one granted by {Imperator}. [ANK 20190407]"
 200759|Kashan:
