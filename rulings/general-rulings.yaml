@@ -473,3 +473,11 @@
       - 101914|Swarm
       - 102065|Underbridge Stray
       - 102191|Wolf Companion
+- ruling: "Is not replaced if the action is blocked: it is replaced when the action ends, after all combats. [LSJ 20001120]"
+  cards:
+      - 100094|Arson
+      - 100137|Baseball Bat
+      - 100159|Big Game
+      - 100266|Bum's Rush
+      - 100846|Gramle
+      - 101280|New Management
