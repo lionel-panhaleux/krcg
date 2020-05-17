@@ -1236,6 +1236,7 @@
     - "Each Methuselah must find as many copies of the vampire as possible when searching. [LSJ 20050611]"
 101268|Necrosis:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+    - "[THN] If the strike is dodged, environmental damage is not applied. [ANK 20200517]"
 101269|Neebi:
     - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 101272|Nephandus:
@@ -1902,7 +1903,8 @@
 101996|Tortured Confession:
     - "Not usable by vampires burned in combat, either. [RTR 19950622]"
 102011|Transfusion:
-    - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+    - "[THN] Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+    - "[THN] Environmental damage do not qualify, only damage infflicted by the acting vampire. [ANK 20200517]"
 102013|Travelers Obey the Tenets:
     - 'The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
 102014|Treachery:
