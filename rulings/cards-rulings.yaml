@@ -4,7 +4,7 @@
     - "The effect is not optional. [RTR 19980707] [LSJ 19980722]"
 100004|Abactor:
     - '"Successful resolution" means the action must not be blocked and the vampire must have gained blood. If the vampire cannot gain blood (eg., {Vampiric Disease}, {Ex Nihilo}), the blood hunt is not called even if the action is not blocked. [LSJ 20090411]'
-    - "This is not a diablerie. Neither {Rebirth} nor {Carlton Van Wyk}'s ability can be used. [LSJ 20090724] [ANK 20180129]"
+    - "This is not a diablerie. Neither {Rebirth} nor {Carlton Van Wyk}'s ability can be used. [LSJ 20090724] [ANK 20180129-1]"
     - "The Blood Hunt referendum is still a Blood Hunt: {Lay Low} can be used, {Trophy: Diablerie} would prevent the referendum. [LSJ 20091026] [LSJ 20100112]"
     - 'The Blood Hunt referendum is part of the action resolution. Cards that are played "after a successful action" or "after resolution" must be played after the referendum. {Heidelberg Castle, Germany} can not be used before the referendum. [LSJ 20100112] [PIB 20121028]'
 100005|Abandoning the Flesh:
@@ -1397,6 +1397,8 @@
 101486|Principia Discordia:
     - "[qui] can target a vampire with no blood. [RTR 20010711]"
     - "[ser] can target a vampire with no blood.[RTR 20010711]"
+101487|Priority Contract:
+    - "Can be burned to get 3 pool when a minion leaves the ready region because his controller is ousted. [ANK 20180129-2]"
 101493|Projectile:
     - "A minion who maneuvers with a gun may still use Projectile to shoot with that gun as his initial strike that round. [LSJ 20050304]"
     - "Cannot be used to strike with a weapon whose strike isn't ranged. [LSJ 20050224-3]"
