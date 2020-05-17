@@ -2211,6 +2211,8 @@
     - "Edith may burn a blood to give {Enid Blount} stealth multiple times each action. [LSJ 20040617]"
 200403|Edward Vignes:
     - "His ability cannot be used if the action is blocked. [LSJ 20041022]"
+200417|Ellison Humboldt:
+    - "Can use his ability only once per referendum. [ANK 20180307-2] [RBK 20181001-11]"
 "200424|Enkidu, The Noah":
     - "He cannot attempt an action to equip nor strike to steal an equipment. [LSJ 20050315] [LSJ 20010210]"
     - "He can equip with an equipment that is a location when in play. [LSJ 20050315]"
@@ -2343,7 +2345,7 @@
 "200929|Mariel, Lady Thunder":
     - "If she locks to end combat, the damage is applied just after the combat ends. [RTR 19970630]"
 200935|Maris Streck:
-    - "Can use her ability multiple times each action. [LSJ 20020926]"
+    - "Can use her ability multiple times each action. [LSJ 20020926] [ANK 20180307-2]"
 200942|Marthe Dizier:
     - "Her ability can only move cards from the ash heap that were played in the normal manner. If the card was put in play in some other way, it cannot be retrieved by her special. [LSJ 20041119]"
     - "A card cancelled as it is played is still considered played, she can retrieve it. [LSJ 19980212] [ANK 20190701]"
@@ -2354,6 +2356,8 @@
     - "If her capacity is above 10 when playing {Call the Great Beast}, she burns and it is put into play. If her capacity is less, the card is put on her with tokens equal to her capacity, but she will not be able to add counters to it later on. [ANK 20180723]"
     - "You can still use the burn options of cards with a requirement she could meet when you play them, but does not meet while in play. [LSJ 20050225]"
     - "Her ability do not let her fulfill card requirements if they are not played normally, like when using {Concealed Weapon} for an equipment or {Piper} or {The Summoning} for an ally. [LSJ 20050119]"
+"200960|Matteus, Flesh Sculptor":
+    - "Can use his ability to get intercept multiple times during the same action. [ANK 20180307-2]"
 "200964|Maureen, Dark Priestess":
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200966|Maxwell:
