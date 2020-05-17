@@ -2018,6 +2018,7 @@
 102135|Vulture's Buffet:
     - "Is a hunt action. [ANK 20200421]"
     - "Cannot be played if there is no minion or retainer in any Methusalah's ash heap. [ANK 20200420-3]"
+    - "Is undirected. [ANK 20180202]"
 102137|Wake with Evening's Freshness:
     - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
 102141|Walks-With-Might:
@@ -2398,6 +2399,8 @@
 "201087|Owain Evans, The Wanderer":
     - "His ability can only be used once each unlock, even if control of Owain changes during that unlock phase. [LSJ 20040127]"
     - "His ability can only be used when his controller has the opportunity to play effects. The acting player has to apply all mandatory effects (eg. lose pool to {Anarch Revolt}) before passing the opportunity to play effects to another player. [LSJ 20100723]"
+201094|Pariah:
+    - "Can use card-provided undirected hunt actions (eg. {Vulture's Buffet}). [ANK 20180202]"
 "201098|Patrizia Giovanni, Collector of Secrets":
     - "When using her ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 201103|Paul "Sixofswords29" Moreton:
