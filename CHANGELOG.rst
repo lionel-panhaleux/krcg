@@ -4,13 +4,14 @@ Changelog
 0.45 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- All 2018 to 2020 rulings included
+- Additional rulings
 
 
 0.44 (2020-05-15)
 -----------------
 
-- CLI: fix rulings disaply for card command
+- CLI: fix rulings display for card command
 - Additional rulings
 
 
