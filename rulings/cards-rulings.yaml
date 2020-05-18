@@ -209,7 +209,7 @@
     - "Damage from Blood of Acid is environmental. [RTR 19970630] [LSJ 20020708]"
     - "Environmental damage is not counted by Blood of Acid. [RTR 19970630]"
     - "First prevent strikes damage (acting player first), then the target can prevent Blood of Acid damage, if any. All the damage is applied (and the blood lost) at once, after all preventions. [ANK 20170427] [LSJ 20040805]"
-    - "The damage is done after the strike damage is done: a single instantaneous prevention card (eg. {Soak}) can not prevent both, although lingering damage prevention (eg. {Apparition}) could. [ANK 20200517-2]"
+    - "The damage is done after the strike damage is done: a single instantaneous prevention card (eg. {Soak}) cannot prevent both, although lingering damage prevention (eg. {Apparition}) could. [ANK 20200517-2]"
 100205|Blood of the Cobra:
     - "[QUI] If the chosen strike says to make a hand strike or a melee weapon strike, then the strike is ranged, but the hand or melee weapon portion of the strike is still only effective at close range. [RTR 20010710]"
 100208|Blood Rage:
@@ -1932,7 +1932,7 @@
     - "Not usable by vampires burned in combat, either. [RTR 19950622]"
 102011|Transfusion:
     - "[THN] Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
-    - "[THN] Environmental damage do not qualify, only damage infflicted by the acting vampire. [ANK 20200517]"
+    - "[THN] Environmental damage do not qualify, only damage inflicted by the acting vampire. [ANK 20200517]"
 102013|Travelers Obey the Tenets:
     - 'The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
 102014|Treachery:
