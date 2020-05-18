@@ -317,7 +317,7 @@
     - "[PRE] The damage is assigned after the end of combat. [RTR 19970630]"
     - "[PRE] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
     - "[PRE] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [LSJ 20070124]"
-    - "[PRE] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [LSJ 20071011] [ANK 20150821]"
+    - "[PRE] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [LSJ 20071011]"
 100308|Cats' Guidance:
     - "[ani] Is played after combat [RTR 19980623]"
     - "[ani] Can not be played if the vampire is in torpor, for example if he went into torpor during the combat resulting from the block. [LSJ 20000103]"
@@ -478,7 +478,7 @@
 "100499|Dartmoor, England":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 100501|Dawn Operation:
-    - "Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [ANK 20130319]"
+    - "Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [PIB 20130319]"
 100503|Dead Hand:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100510|Death Seeker:
@@ -553,7 +553,7 @@
 100570|Domain Challenge:
     - "Locked minions are counted after the referendum is completed. [RTR 19941109]"
 100571|Domain of Evernight:
-    - "[tem] Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [ANK 20130319]"
+    - "[tem] Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [PIB 20130319]"
     - '[TEM] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
 100573|Dominate Kine:
     - "[DOM] If used to steal an equipment representing a location, it can be placed on any minion controlled by the new controller. [RTR 19960112]"
@@ -1083,8 +1083,8 @@
 101128|Loving Agony:
     - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "[val] [VAL] If the combat continues or a new combat begins, no damage is done. The vampire can still burn 1 blood to unlock. [RTR 20020501]"
-    - "[val] [VAL] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [ANK 20130319]"
-    - "[val] [VAL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20130319]"
+    - "[val] [VAL] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [PIB 20130319]"
+    - "[val] [VAL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [PIB 20130319]"
     - "[VAL] The blood to unlock can be paid until the end of combat, including after other effects that are played at the end of round. [ANK 20180618]"
 101130|Loyalist:
     - "If the Loyalist vampire's votes are changed to be in favor, the votes granted by Loyalist are silenced (not cast). [LSJ 20031115]"
@@ -1299,7 +1299,7 @@
 101334|Oubliette:
     - "[OBT] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
     - "[OBT] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202]"
-    - "[OBT] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20130319]"
+    - "[OBT] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [PIB 20130319]"
 101336|Out of the Frying Pan:
     - "Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]"
     - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
@@ -1534,7 +1534,7 @@
 101633|Rewind Time:
     - 'Cannot be used to cancel the action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]'
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
-    - "[TEM] Other reaction cards (eg. wake effects) cannot be used as there is no action. [ANK 20120804]"
+    - "[TEM] Other reaction cards (eg. wake effects) cannot be used as there is no action. [PIB 20120808]"
 101634|Riddle Phantastique:
     - "If put into play with no counters, it burns immediately. [LSJ 20070307]"
 101635|Righteous Aura:
@@ -1544,7 +1544,7 @@
     - "[cel] [CEL] The damage is only dealt if the strike was resolved at close range. [LSJ 19970915]"
     - "[cel] [CEL] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202]"
     - "[cel] [CEL] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
-    - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20130319]"
+    - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [PIB 20130319]"
 101640|The Rising:
     - 'Anything that would increase the pool amount is considered "gaining pool". [ANK 20181105]'
 101650|Rom Gypsy:
@@ -2399,7 +2399,7 @@
 "201026|Mustafa, The Heir":
     - "If two Methuselahs want to use abilities to alter Mustafa's votes at the same time, whoever uses the ability first has priority. Whoever uses it last has the final say on his votes. [LSJ 20090304-2]"
 201030|Nahir:
-    - "The hand size is still +X if Nahir is in torpor. [ANK 20140523]"
+    - "The hand size is still +X if Nahir is in torpor. [ANK 20191218]"
     - "Can use her ability multiple times during the same master phase if there are multiple master phase actions. [ANK 20191218]"
 201033|Nakhthorheb:
     - "He can unlock at any time during his controller's minion phase, including during an action. [PIB 20110415]"
