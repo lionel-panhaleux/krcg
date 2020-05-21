@@ -26,16 +26,13 @@ jobs:
       - name: Lint
         run: |
           flake8
-      - name: Test
-        run: |
-          pytest
-      - name: JSON schemas validation
-        run: |
-          make validate
-      - name: Coverage
+      - name: Tests and coverage
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
         run: |
           coverage run -m pytest
           coverage xml
           python-codacy-coverage -r coverage.xml
+      - name: JSON schemas validation
+        run: |
+          make validate
