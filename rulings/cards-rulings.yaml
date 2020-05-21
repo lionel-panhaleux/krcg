@@ -399,7 +399,7 @@
 100388|Compel the Spirit:
     - "Can only be played if the ally or retainer is in the ash heap, not if he was moved elsewhere. [RTR 19980928] [LSJ 19980929]"
     - "The ally or retainer retrieved is considered a new ally or retainer for all game purposes. In particular, he is not bound to not repeat an action his previous incarnation has already performed this turn. [LSJ 20010627]"
-    - "Requirements need not to be met. If the ally requires a discipline, the inferior version is used. If the cost is X (eg. {Reanimated Corpse}), X is zero. [LSJ 20071015] [LSJ 20100302]"
+    - "Requirements need not to be met. If the ally requires a discipline, the inferior version is used. If the cost is X (eg. {Reanimated Corpse}), X is zero. [LSJ 20071015] [LSJ 20100302-1]"
     - "Cannot be used if the ally in the ash heap was representing something else while in play (eg. {Khazar's Diary (Endless Night)}, {Absimiliard's Army}). [LSJ 20071014]"
 100389|Compress:
     - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -871,6 +871,8 @@
     - "The provided action is considered as an action that requires an Anarch or an Independant. (eg {CrimethInc.} can be used). [ANK 20180529]"
 100887|Hard Case:
     - "The block needs to be successful, so the blocking minion is locked. [ANK 20190708]"
+100892|Hatchling:
+    - "The created vampire is not unique. [LSJ 20100221]"
 100896|Haven Hunting:
     - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
@@ -1394,7 +1396,7 @@
     - '[abo] [ACTION MODIFIER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101481|Pressing Flesh:
     - "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
-    - "Requirements need not to be met. If the ally requires a discipline, the inferior version is used. If the cost is X (eg. {Reanimated Corpse}), X is zero. [LSJ 20071015] [LSJ 20100302]"
+    - "Requirements need not to be met. If the ally requires a discipline, the inferior version is used. If the cost is X (eg. {Reanimated Corpse}), X is zero. [LSJ 20071015] [LSJ 20100302-1]"
 101485|Primal Instincts:
     - "If the strike is canceled, the rest of the effect is also canceled. [RTR 20040501]"
 101486|Principia Discordia:
@@ -1457,6 +1459,9 @@
     - "A Ravnos can attempt an action that he cannot pay for himself if the cost can be paid with the Carnival's help. [LSJ 20050408]"
     - "How many counters are used from the Carnival must be annouced as part of the terms of the action. [RTR 20111202]"
     - "Cannot be used to pay for the cost of a cardless action or of an action provided by a card in play. [ANK 20180109] [LSJ 20070224]"
+101554|Raw Recruit:
+    - "The created vampire is not unique. [LSJ 20100221]"
+    - "Blood, equipments and other cards on the initial target are burned. [LSJ 20100302-2]"
 101557|React with Conviction:
     - "If used to cancel a {Corruption} action, then the action is canceled in its entirety and the corruption counters are not burned. [LSJ 20070222-1]"
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
