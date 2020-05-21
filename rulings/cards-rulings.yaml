@@ -260,7 +260,7 @@
     - "She can lock to use her ability the turn she is recruited. [ANK 20180517]"
 100260|Brujah Debate:
     - "If more than one Brujah shares the highest capacity amount, the controller chooses which of them to lock during her master phase. [LSJ 19980224]"
-    - "Can lock a locked Brujah. [PIB 20110310]"
+    - "Can lock a locked Brujah. [LSJ 20010508]"
 100261|Brujah Frenzy:
     - "Cannot be played if there is no suitable minion for the Brujah to enter combat with. [RTR 19980928]"
     - "There is no time to play further action modifiers or reactions before combat begins. [TOM 19950829]"
@@ -345,7 +345,7 @@
     - "Actions without card (provided by the rulebook) can be repeated if they have different targets. Equipping from a minion targets the equipments: if one equipment is the same, the action is the same. [RTR 19950509] [LSJ 20080710] [ANK 20200502]"
     - "Actions provided by cards in play are not the same if the card is not the same, even if the cards have the same name. [LSJ 20080725]"
     - "Is played after a minion successfully blocks but before the blocker is locked and combat begins. It cannot be used if the action is ended without being blocked. [LSJ 19980224] [RTR 19991206]"
-    - "Effects triggered when the action is blocked are still applied (eg. {Unleash Hell's Fury}). [PIB 20110417]"
+    - "Effects triggered when the action is blocked are still applied (eg. {Unleash Hell's Fury}, {Truth of Blood}, {Aching Beauty}). [RTR 19991206]"
     - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803-1] [RTR 20180719]"
     - "If the acting minion was performing a mandatory action, he unlocks and is stuck and cannot act: he should but cannot take the mandatory action. [LSJ 19980112]"
     - "If used when blocked while leaving torpor, the action ends immediately and the blocker does not get an opportunity for diablerie. [LSJ 20050105-2]"
@@ -512,7 +512,7 @@
 100528|Descent into Darkness:
     - "Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]"
 100532|Detect Authority:
-    - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [PIB 20110511] [RTR 20180719]"
+    - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [RTR 20180719]"
 100536|Deviki Prasanta:
     - "Cannot put a Discipline card on a vampire if it could normally not be put on him (eg. because he already has the superior level of that discipline). [ANK 20200320]"
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
@@ -577,7 +577,6 @@
     - "[ANI] The additional damage done during the press step is environmental. [RTR 19970630]"
 100588|Dreams of the Sphinx:
     - "Cannot move blood to Imbued in the uncontrolled region. [LSJ 20070516]"
-    - "If another player contest it, it cannot be locked before it enters contest. [PIB 20110328]"
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
 100591|Drum of Xipe Totec:
     - "The minion cannot use the discipline nor the maneuver provided if some effect prevents him to use the equipment (eg. {Drawing Out the Beast}). [RTR 20010710]"
@@ -613,8 +612,6 @@
     - "Can be used during any bleed attempt made against you, not just ones declared against you. [RTR 19960530]"
 100623|The Eldest Command Undeath:
     - "If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]"
-100626|Elephant Guardian:
-    - "If the minion with Elephant successfully played an inferior {Deep Song} action, the target minion would take Elephant Guardian’s damage in the resulting combat if range is close. [PIB 20110609]"
 100628|Eluding the Arms of Morpheus:
     - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 100634|Emerald Legionnaire:
@@ -1067,7 +1064,7 @@
     - "Can be locked when the action is announced or when the cost is paid. [ANK 20170605]"
     - "Can be used to reduce the cost in blood of a recruit ally (eg. {Shambling Hordes}) or employ retainer action. [ANK 20181007]"
 101112|Liquidation:
-    - "Is not playable if you have less than 7 cards in your library. [PIB 20110304]"
+    - "Is not playable if you have less than 7 cards in your library. [LSJ 20070901]"
 101114|Living Manse:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101117|Local 1111:
@@ -1432,7 +1429,7 @@
 101515|Pulled Fangs:
     - "Counts up damage successfully inflicted during the round by the minions, retainers do not count. [TOM 19950304]"
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
-    - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [PIB 20110420] [ANK 20191219] [ANK 20180910-1]'
+    - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]'
 101524|Pushing the Limit:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101525|Putrefaction:
@@ -1490,8 +1487,6 @@
     - "Cannot be played by vampires who aren't controlled. [LSJ 19970224]"
 101582|Reformation:
     - "[chi] Cannot be used if there is no equipment to destroy. [RTR 19980928]"
-101585|Regeneration:
-    - "Usable by an unlocked vampire with 0 blood in torpor. [PIB 20110613]"
 101587|Regent:
     - 'It is a title card, so it is out of play if the title is contested, and the "enter combat" action is not usable when the card is not in play. [LSJ 20070808-2]'
 101588|Rego Motum:
@@ -1528,7 +1523,6 @@
     - "Can target a locked minion. [ANK 20170303]"
 101626|Revelation of Wrath:
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
-    - "Does not count environmental damage. [PIB 20110509]"
 101627|Revelations:
     - "[aus] You do not get to see the card drawn as replacement. [PIB 20121031]"
 101633|Rewind Time:
@@ -1791,7 +1785,7 @@
     - "Shuffle your crypt afterwards. [LSJ 20020304-1]"
 101882|Street Cred:
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
-    - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [PIB 20110420] [ANK 20191219] [ANK 20180910-1]'
+    - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]'
 101885|Strike at the True Flesh:
     - "[QUI] The additional damage is the same type as the strike's damage. [TOM 19960225] [RTR 19970630]"
 101886|Strike with Conviction:
@@ -1810,8 +1804,6 @@
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 101896|Sudden Reversal:
     - "Can only burn master cards that are played from the hand in the normal fashion. [RTR 20001020]"
-101897|Summon History:
-    - "[tem] If the card fetched requires a discipline, it is put in play with the default level of the discipline. [PIB 20110610]"
 101902|The Summoning:
     - "[PRE] Is not the same action as the recruitment of the ally. You could perform both actions in the same turn with the same vampire. [PIB 20110915-2]"
 "101904|Sunset Strip, Hollywood":
@@ -1868,7 +1860,7 @@
     - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101945|Taste of Vitae:
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
-    - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [PIB 20110420] [ANK 20191219] [ANK 20180910-1]'
+    - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]'
 101947|Taunt the Caged Beast:
     - "[ANI] The prey goes first in the combat (for declaring maneuvers, strikes, presses). [LSJ 20070319]"
 101948|Telepathic Counter:
@@ -1945,7 +1937,7 @@
 102025|Triole's Revenge:
     - "The Ventrue is burned only if the hunt isn't blocked, he still burns if the benefit of the hunt is reduced to zero. [TOM 19951212-3]"
 102026|Trochomancy:
-    - "The cards are chosen as part of the terms. They are removed as part of the resolution when the card is played if it is not canceled as it is played. [PIB 20110228]"
+    - "The cards are removed immediately. [PIB 20120525]"
 "102027|Trophy: Chosen":
     - "If the recipient of the Trophy chooses to burn it, there is no other effect. He does not unlock and does not gain the four blood. [LSJ 20070309-1]"
 "102029|Trophy: Diablerie":
@@ -2001,7 +1993,7 @@
 102093|Vaticination:
     - "You do not get to see the card drawn as replacement. [PIB 20121031]"
 102095|Veil of Darkness:
-    - "The card that has no effect still counts as played. [PIB 20110623]"
+    - "The card that has no effect still counts as played, if it was an action, the vampire is not locked and can perform another (or the same) action. [LSJ 20090323]"
     - 'Does not affect allies who play cards requiring a Discipline "as a vampire". [LSJ 20050606]'
 102097|Veil the Legions:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
@@ -2087,8 +2079,6 @@
     - '[CHI] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 102184|Winchester Mansion:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
-102186|Winged Second:
-    - "Several Winged Second can be played by different minions for the same combat. [PIB 20110704]"
 102190|Wolf Claws:
     - "[pro] Must be played before strike resolution (and damage prevention) in order to affect the current strike [RTR 19960112]"
 102192|Wooden Stake:
@@ -2401,8 +2391,6 @@
 201030|Nahir:
     - "The hand size is still +X if Nahir is in torpor. [ANK 20191218]"
     - "Can use her ability multiple times during the same master phase if there are multiple master phase actions. [ANK 20191218]"
-201033|Nakhthorheb:
-    - "He can unlock at any time during his controller's minion phase, including during an action. [PIB 20110415]"
 201043|Neferu:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
     - "Cannot use her ability to force an abstaining vampire to vote. [ANK 20190731]"
