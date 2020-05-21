@@ -4,7 +4,8 @@ Changelog
 0.46 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Additional rulings
+- Remove unofficial rulings (from RD before official office)
 
 
 0.45 (2020-05-18)
