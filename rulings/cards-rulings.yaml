@@ -118,6 +118,8 @@
     - "Any frenzy card that targets/selects/chooses/affects the minion when played, is considered being played on the minion. [LSJ 20051113]"
 100124|Backstab:
     - "Can be played at any time before strike resolution, including after both minions have selected their strikes. [LSJ 20000215]"
+100127|Baleful Doll:
+    - "The bearer (if he unlocks normally) unlocks at the beginning of the unlock phase, before this effect can be used. [PIB 20151009] [RBK 20181001-4]"
 100128|Baltimore Purge:
     - "There is no time to use other effects between the choosing of the vampires and those vampires going to torpor. [LSJ 20050111]"
     - "The effect during the unlock phase is not an action, you can choose a vampire with a {Secure Haven} on him. [PIB 20121028]"
