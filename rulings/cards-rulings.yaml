@@ -392,6 +392,8 @@
     - "[OBF] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[OBF] Can be played by a locked vampire. [RTR 19941109] [LSJ 19980210]"
     - "[OBF] Multiple copies can be played by different minions on the same action. [ANK 20200515]"
+100374|Codex of the Edenic Groundskeepers:
+    - "Allies (including Imbued) cannot use the provided action as they have no blood to pay with. [PIB 20151101]"
 100376|Cold Aura:
     - "No other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 100378|Coma:
