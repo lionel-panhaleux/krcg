@@ -1061,7 +1061,8 @@
 101103|Life Boon:
     - "If a player is saved more than once by Life Boon, the various Boons reserve a series of victory points, rather than competing with each other for a single victory point. [RTR 19951017]"
     - "If a player has gone to negative pool, the Life Boon player must give her enough pool to compensate for that. [RTR 19970630]"
-    - "If a player who has received a Boon receives a half of a VP, then the Methuselah who played the Boon receives the 1/2 VP. The Boon is not burned until a total of one VP has been awarded. [RTR 19991206]"
+    - "If the target receives half of a victory point, then the Methuselah who played the Boon receives that half. The Boon is not burned until a total of one victory point has been awarded. [RTR 19991206]"
+    - "If the effect ousting the target simultaneously ousts the target's prey (eg. {Kine Resources Contested}), the victory point goes to the Mathusalah who played Life Boon and the target gets 6 pool. [LSJ 20021029]"
 101109|Lily Prelude:
     - "Can allocate more points than a Methusalah has pool. [LSJ 20020819]"
 101110|The Line:
