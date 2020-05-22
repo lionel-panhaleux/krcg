@@ -122,7 +122,7 @@
     - "There is no time to use other effects between the choosing of the vampires and those vampires going to torpor. [LSJ 20050111]"
     - "The effect during the unlock phase is not an action, you can choose a vampire with a {Secure Haven} on him. [PIB 20121028]"
 100129|Bamba:
-    - "You only fetch one discipline card in total, not one in each of hand, library and ash heap. [LSJ 20090528]"
+    - "You only fetch one discipline card in total, not one in each of hand, library and ash heap. [LSJ 20090528-1]"
 100131|Banishment:
     - "A banished vampire can return to play when it again has blood >= capacity on it at the end of its Methuselah's influence phase. [TOM 19951209]"
     - "A banished vampire will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501]"
@@ -217,7 +217,7 @@
     - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
     - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
 100209|Blood Shield:
-    - "The blood is burned by the opponent when the owner prevents damage, immediately, before loosing blood to heal strike damage. Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528]"
+    - "The blood is burned by the opponent when the owner prevents damage, immediately, before loosing blood to heal strike damage. Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528-1]"
 100212|Blood Tears of Kephran:
     - "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 100213|Blood Tempering:
@@ -797,7 +797,7 @@
 100813|Gear Up:
     - "[nec] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 100814|Gemini's Mirror:
-    - "Does not protect the minion's equipment, retainers, or any other cards on him. Just him and his blood. [LSJ 20031118]"
+    - "Does not protect the minion's equipment, retainers, or any other cards on him. Just him and his blood. [LSJ 20031118] [ANK 20161027]"
 100816|Ghost-Eater:
     - "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
 100817|Ghoul Escort:
@@ -2340,7 +2340,11 @@
 200865|Lubomira Hradok:
     - "Lubomira is the one not to unlock as normal. [PIB 20110915-1]"
 200870|Lucian:
-    - "Cannot attempt to steal a piece of equipment that he is prohibited from having. [LSJ 19980206]"
+    - "Cannot attempt to steal a piece of equipment that he is prohibited from having (eg. a second {Leather Jacket}). [LSJ 19980206]"
+    - "The stolen equipment cannot be used until the next round. [LSJ 19980206] [RBK 20181001-645]"
+"200871|Lucian, the Perfect":
+    - "Strikes that do not target him (dodge, combat ends) do not cost more. They do if they plan to damage him after combat (eg. [PRE] {Catatonic Fear}). They do not if they target a card on him (eg. {Target Retainer}, {Canine Horde}). [ANK 20161027] [LSJ 20090528-2] [LSJ 20031118]"
+    - "Strikes the opponent commits to during the determine range phase (by using an optional maneuver) cost more, but the card itself does not (eg. {Jann Berger} pays 1 blood for a {Thrown Gate} played for the maneuver, but zero if he plays it when choosing his strike). [LSJ 20090529]"
 200885|Luna Giovanni:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200890|Lutz von Hohenzollern:
