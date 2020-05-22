@@ -614,8 +614,6 @@
     - "If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]"
 100628|Eluding the Arms of Morpheus:
     - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
-"100631|Elysium: The Arboretum":
-    - "When used, combat ends immediately, no other effect can be played before range. [ANK 20161116]"
 100634|Emerald Legionnaire:
     - "His ability cannot be used from the ash heap, he needs to be ready. [ANK 20180511-1]"
     - "When using is ability to put another one into play, this does not require a ready Harbinger, the pool cost of the new one is not paid, the new one can act this turn and can use his ability to bring another one immediately. [ANK 20180509]"
@@ -797,7 +795,7 @@
 100813|Gear Up:
     - "[nec] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 100814|Gemini's Mirror:
-    - "Does not protect the minion's equipment, retainers, or any other cards on him. Just him and his blood. [LSJ 20031118] [ANK 20161027]"
+    - "Does not protect the minion's equipment, retainers, or any other cards on him. Just him and his blood. [LSJ 20031118]"
 100816|Ghost-Eater:
     - "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
 100817|Ghoul Escort:
@@ -2187,7 +2185,7 @@
 200232|Cailean:
     - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 200242|The Capuchin:
-    - "If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20160404] [ANK 20200417]"
+    - "If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20200417]"
     - "If his controller is not his original owner and he burns, he goes to his original owner ash heap, breaking all control effect, then to his owner's uncontrolled area. The Methusalah who was controlling him when he burned gets the additional transfers. [ANK 20200417]"
 200245|Carlotta Giovanni:
     - "The card being retrieved is announced when the action is declared. [LSJ 19970922]"
@@ -2343,7 +2341,7 @@
     - "Cannot attempt to steal a piece of equipment that he is prohibited from having (eg. a second {Leather Jacket}). [LSJ 19980206]"
     - "The stolen equipment cannot be used until the next round. [LSJ 19980206] [RBK 20181001-645]"
 "200871|Lucian, the Perfect":
-    - "Strikes that do not target him (dodge, combat ends) do not cost more. They do if they plan to damage him after combat (eg. [PRE] {Catatonic Fear}). They do not if they target a card on him (eg. {Target Retainer}, {Canine Horde}). [ANK 20161027] [LSJ 20090528-2] [LSJ 20031118]"
+    - "Strikes that do not target him (dodge, combat ends) do not cost more. They do if they plan to damage him after combat (eg. [PRE] {Catatonic Fear}). They do not if they target a card on him (eg. {Target Retainer}, {Canine Horde}). [LSJ 20090528-2] [LSJ 20031118]"
     - "Strikes the opponent commits to during the determine range phase (by using an optional maneuver) cost more, but the card itself does not (eg. {Jann Berger} pays 1 blood for a {Thrown Gate} played for the maneuver, but zero if he plays it when choosing his strike). [LSJ 20090529]"
 200885|Luna Giovanni:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
