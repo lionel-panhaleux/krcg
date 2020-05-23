@@ -1149,14 +1149,15 @@
     - "[AUS][FOR] Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
 101179|Mask of a Thousand Faces:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
-    - "Cannot be used to take over an action granted by an equipment the acting minion has, even if the new minion also has the same equipment. [LSJ 20020926]"
+    - "Cannot be used to take over an action granted by an equipment the masked minion has, even if the masking vampire also has the same equipment. [LSJ 20020926]"
     - "The action remains the same. All action modifiers remain in effect, but inherent modifiers (a minion's inherent +1 bleed for example) do not. Other effects applied to the action also carry over to the new masking vampire. [RTR 19951110] [LSJ 19971201] [RTR 20030519] [LSJ 20030521]"
-    - "Cannot be used to mask an action if the masking vampire is not capable of taking that action, nor if any action modifiers, reactions, or other effects, including inherent stealth, have been played on this action that could not have been played/used if the masking vampire were the acting minion. Not counting blood that has already been spent. [RTR 19980623] [RTR 20030519] [RTR 20041202]"
-    - "Cannot be used to take over an action requiring a locked vampire like {Force of Will}, since the former requires an unlocked vampire and the latter requires a locked one. [LSJ 20020927]"
+    - "Cannot be used to mask an action if the masking vampire is not capable of taking that action, nor if any action modifiers, reactions or other effects, including inherent stealth, have been played on this action that could not have been played/used if the masking minion were the acting minion. Not counting blood that has already been spent. [RTR 19980623] [RTR 20030519] [RTR 20041202]"
+    - "Can be used after blocks are declined if the masked minion was benefiting from an effect that made him unblockable, even if the masking minion does not benefit from the same effect (eg. {Toreador Grand Ball}, {Nakhthorheb}). [PIB 20150924] [PIB 20150930]"
+    - "Cannot be used to take over an action requiring a locked minion like {Force of Will}, since Mask requires an unlocked vampire. [LSJ 20020927]"
     - "Cannot be used during the resolution of an action, like during a referendum or during combat. [LSJ 19980825]"
     - "A minion attempting to block before is still attempting to block after. [LSJ 19990106]"
-    - "The masking minion can play a modifier already played by the masked minion. He cannot use a limited effect (ie. bleed enhancer) if a limited effect has already been used on the action. [ANK 20190117-1]"
-    - "Multiple copies can be played by different minions on the same action. [ANK 20200515]"
+    - "The masking vampire can play a modifier already played by the masked minion. He cannot use a limited effect (ie. bleed enhancer) if a limited effect has already been used on the action. [ANK 20190117-1]"
+    - "Multiple copies can be played by different vampires on the same action. [ANK 20200515]"
 101180|Masochism:
     - "[FOR] The additional counter is added after the presses are handled. It is added if the round ends prematurely and conditions are met. [RTR 20030519]"
 101183|Masquerade Endangered:
