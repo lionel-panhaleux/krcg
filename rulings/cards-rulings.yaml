@@ -77,7 +77,7 @@
 100067|Angel of Berlin:
     - "May be played after a block is successful before combat begins. [LSJ 20060410]"
 "100071|The Ankara Citadel, Turkey":
-    - "Multiplication and divisions are applied first, followed by addition and substraction. [RTR 20070707]"
+    - "Concerning the cost of the cards, multiplications and divisions are applied first, followed by additions and substractions. [RTR 20070707]"
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 100076|Apparition:
     - "[CHI] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
@@ -1906,6 +1906,8 @@
 101966|Theft of Vitae:
     - "Can target a minion with less blood or life than the amount stolen. [RTR 20010711]"
     - "If both opponents play Theft of Vitae, they resolve simultaneously: blood amounts are adjusted by the total of gain and loss and no blood wear off. [ANK 20200123]"
+101971|Thin-Blooded Seer:
+    - "When computing the cost of a card, multiplications and divisions are applied first, followed by additions and substractions. [PIB 20150917] [RTR 20070707]"
 "101973|Third Tradition: Progeny":
     - "If the Progeny is moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]"
     - "The Progeny gets the default Sect of the clan of its progenitor, even if the progenitor himself is not a member of that sect. [ANK 20200117]"
