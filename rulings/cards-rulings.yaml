@@ -135,6 +135,7 @@
     - "Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]"
 100134|Barrenness:
     - "[mal] is unaffected by {Orun}. [MAL] is affected by {Orun}. [ANK 20180719-1]"
+    - "The burn option can be used if all your vampires with [mal] are in torpor. [LSJ 20091203]"
 100135|The Barrens:
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
 100137|Baseball Bat:
@@ -433,6 +434,8 @@
 100429|Corrupt Construction:
     - "If recruited in the normal fashion, the card will have been replaced by the time the ally enters play. In other cases however, it won't have been and the Methuselah will have to work with only the cards in hand (or ash heap) to add life to it before replacing. [LSJ 20070707]"
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
+100433|Council of Seraphim:
+    - "The burn option cannot be used if all your Seraph are in torpor. [LSJ 20091204]"
 100435|The Coven:
     - "Can be locked during damage resolution, but not while healing damage or preventing destruction (you cannot take 2, lock The Coven, then take the rest). [PIB 20121031]"
     - "The predator must take control of it when he gets the the opportunity to play effects. If a players declares his turn ends, he does not get the opportunity to use it before it is moved to his predator, even retroactively if the mandatory effect was forgotten. [LSJ 20100723] [PIB 20111002]"
@@ -493,6 +496,8 @@
 100511|Decapitate:
     - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - '"when a vampire is going into torpor" and "when a vampire should go into torpor" are the same window. If both minions want to play a card, acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Decapitate} and vice-versa. [RTR 20010710]'
+100514|Deep Cover Agent:
+    - "The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]"
 100517|Defender of the Haven:
     - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 100518|Deflection:
@@ -621,6 +626,8 @@
 100634|Emerald Legionnaire:
     - "His ability cannot be used from the ash heap, he needs to be ready. [ANK 20180511-1]"
     - "When using is ability to put another one into play, this does not require a ready Harbinger, the pool cost of the new one is not paid, the new one can act this turn and can use his ability to bring another one immediately. [ANK 20180509]"
+100635|Emergency Powers:
+    - "The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]"
 100639|Empowering the Puppet King:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
 100641|Enchanted Marionette:
@@ -653,6 +660,8 @@
     - "If The Eternal Mask is burned by something else than its own effect (including when the vampire it is on is burned), the vampire that has been brought back is unaffected. [LSJ 20071206] [LSJ 20090725]"
 100667|The Eternals of Sirius:
     - "Pay the cost at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620] [LSJ 20080612]"
+100668|Evil Eye:
+    - "The burn option can be used if all your vampires with [mal] are in torpor. [LSJ 20091203]"
 100669|Ex Nihilo:
     - "The vampire with it cannot decide to burn due to Ex Nihilo's card text if he or she can burn the blood during the unlock phase. [PIB 20121013]"
     - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
@@ -1044,6 +1053,8 @@
     - "Does not stack with similar effects to provide superior [POT] (eg. {Putrescent Servitude}). [ANK 20180111]"
 101084|Left for Dead:
     - "Effects to begin a new combat cannot be used on the Left for Dead ally as he is not ready. [LSJ 20020509]"
+101085|Legacy:
+    - "The burn option can be used if all your unmerged advanced vampires are in torpor. [LSJ 20091203]"
 101086|Legacy of Caine:
     - "The vampire must take the action directed at a vampire, even if no vampire has any blood left. [LSJ 19970224]"
     - "When hunting on a target that has no blood to steal, the hunt action will simply have no effect, stealing zero blood. [LSJ 19970224]"
@@ -1205,6 +1216,8 @@
     - "The additional intercept is gained or lost if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]"
 101219|Minor Boon:
     - "A bleed from this vampire cannot be redirected to you either. [PIB 20130711]"
+101220|Minor Curse:
+    - "The burn option can be used if all your vampires with [mal] are in torpor. [LSJ 20091203]"
 101222|Mirror Image:
     - '[CHI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
     - '[CHI] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
@@ -1491,6 +1504,7 @@
     - "Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]"
     - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
     - 'Does not make the action an action that "makes this vampire anarch" (eg. {CrimethInc.} cannot be played). [ANK 20180125]'
+    - "The burn option cannot be used if you have a non-titled, non-Anarch vampire in torpor. [LSJ 20091204]"
 101578|Redirection:
     - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 101581|Reform Body:
@@ -1803,6 +1817,7 @@
     - "If the action to bleed is blocked or canceled, Strike with Conviction is not burned. [LSJ 20060421] [RTR 20111202]"
 101887|Strix:
     - '[STR] The bleed is considered successful and the Edge gained. The action is resolved before entering combat, effects happening "after action resolution" happen after combat. [ANK 20200221]'
+    - "The burn option can be used if all your vampires with [str] are in torpor. [LSJ 20091203]"
 101888|Stunt Cycle:
     - "[POT] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
 101889|Stutter-Step:
@@ -1872,6 +1887,8 @@
 101945|Taste of Vitae:
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
     - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]'
+101946|Tattoo Signal:
+    - "The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]"
 101947|Taunt the Caged Beast:
     - "[ANI] The prey goes first in the combat (for declaring maneuvers, strikes, presses). [LSJ 20070319]"
 101948|Telepathic Counter:
@@ -1986,6 +2003,7 @@
     - "If the block is successful, the aggravated damage is inflicted and the card burned even if the action is ended before block resolution. [LSJ 20100301]"
     - "If {The Kiss of Ra} or {Elder Impersonation} are used, the block does not happen. It is not locked if {Faceless Night} was played. [LSJ 20100210]"
     - "Can attempt to block even if locked. [LSJ 20100210]"
+    - "The burn option can be used if all your infernal vampires are in torpor. [LSJ 20091203]"
 102078|Unlicensed Taxicab:
     - "Offers the additional stealth on actions to equip it from another friendly minion as well, even with other equipment in the same action. [LSJ 20060222]"
 102081|Unseen Hibernation:
@@ -2015,6 +2033,8 @@
     - "[CHI] The strike is not ranged. [TOM 19951215-2]"
 102100|Velvet Tongue:
     - "If an effect causes a minion to be unable to cast votes or ballots during a referendum, that minion is forced to abstain, whether he or she had already cast votes or ballots or not. [PIB 20141226]"
+102103|Veneficti:
+    - "The burn option can be used if all your infernal vampires are in torpor. [LSJ 20091203]"
 102104|Venenation:
     - "Modifiers that are played before block resolution like {Change of Target} can be played after Venenation. [ANK 20190524] [LSJ 20020126]"
     - "If the combat is canceled by Venenation, the action is still blocked, {Mask of a Thousand Faces} cannot be used to continue it, but an effect can be used to continue the action as if unblocked (eg. {Crypt's Sons}, {Momentary Delay}). [ANK 20181003] [LSJ 20010803-2]"
@@ -2192,7 +2212,6 @@
 200224|Brunhilde (ADV):
     - "[MERGED] Is Anarch Baron. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
 200229|Byzar:
-    - "If he burns, he keeps all cards and counters on him. [ANK 20160404]"
     - "His ability will make a diablerie unsuccessful (blood and equipment stay on him). [LSJ 20100228]"
 200232|Cailean:
     - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
@@ -2426,7 +2445,7 @@
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 201045|Nehsi:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
-201049|Nergal:
+201049|Nergal (ADV):
     - "Card with multiple types (eg. Reaction/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]"
 201052|New Blood:
     - "A vampire with no circle designation is in his own unique circle of one. New blood cannot choose to be part of such a circle. [LSJ 20020609]"
