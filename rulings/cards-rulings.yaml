@@ -828,6 +828,8 @@
 100823|Gianna di Canneto:
     - "She can use her ability to burn an equipment an opponent has commited to use as a strike (eg. by using the maneuver of a {.44 MAgnum}). In this case the opponent strike has no effect. [PIB 20141026]"
     - "She can lock to use her ability the turn she is recruited. [ANK 20180517]"
+100824|Giant's Blood:
+    - "Cannot target an uncontrolled vampire. [LSJ 20061109]"
 100828|Gift of Sleep:
     - "[obe] [ACTION MODIFIER][REACTION] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 100832|Giulia Giovanni Abruzzina:
@@ -1507,6 +1509,8 @@
     - "The burn option cannot be used if you have a non-titled, non-Anarch vampire in torpor. [LSJ 20091204]"
 101578|Redirection:
     - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
+101579|Redistribution:
+    - "Cannot target an uncontrolled Blood Brother. [LSJ 20061109]"
 101581|Reform Body:
     - "If the vampire saves himself from diablerie, the diablerie is considered unsuccessful. The diablerist gets nothing from the victim, and no Blood Hunt is called. [LSJ 19970224]"
     - "Cannot be played by vampires who aren't controlled. [LSJ 19970224]"
