@@ -1,4 +1,4 @@
-include LICENSE README.md CHANGELOG.rst requirements.txt runtime.txt Procfile
+include LICENSE README.md CHANGELOG.rst requirements.txt
 
 graft src
 graft schemas
