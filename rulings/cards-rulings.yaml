@@ -647,6 +647,7 @@
 100656|The Erciyes Fragments:
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
     - "If used to play a political action and {Delaying Tactics} is played, the political action card goes to its owner's hand. [LSJ 20050322]"
+    - "All other players can see which card is selected from the ash heap. [ANK 20200523]"
 100658|Erosion:
     - "Erosion resets a minion's base strength. Any modifiers, including inherent modifiers, are applied to the new base. If another effect like {Torn Signpost} later resets the base damage again, then the new amount wins out. [LSJ 19971211-2]"
 100661|Escaped Mental Patient:
@@ -1116,6 +1117,8 @@
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 "101135|Lyndhurst Estate, New York":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
+101136|Maabara:
+    - "All other players can see which card is selected from the ash heap. [ANK 20200523]"
 101137|Machine Blitz:
     - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike by the bearer against a generic opponent at the appropriate range. [RTR 19980623]'
     - 'The "current damage" amount is set when Machine Blitz is announced. [LSJ 19970224]'
@@ -1464,7 +1467,7 @@
 101536|The Rack:
     - "May not select a new target just for falling out of contention. [RTR 19960112]"
     - "Will not target a new copy of the same vampire if the original is burned or yielded. [TOM 19960122]"
-    - "Does not give blood to a target that is not controlled (eg. after a {Banishment}). [LSJ 20010623]"
+    - "Can provide blood if the target is in torpor, not if it is not controlled (eg. after a {Banishment}). [LSJ 20010623]"
     - "Tracks the target if it leaves the game by contesting or {Banishment}: if the target gets back into play, The Rack gives it blood again. [LSJ 20010809-2]"
     - "If the target is stolen, the new controller chooses if the vampires gains blood during The Rack controllers unlock phase. [ANK 20200130-2]"
 101543|Rapid Healing:
