@@ -1916,6 +1916,7 @@
     - "The stolen minion returns to his previous controller even if he is in torpor (but stays in torpor). [LSJ 20010119]"
     - "If played on one of your own vampires, the action is undirected. Its effect can be used to unlock the vampire. [LSJ 20010828] [ANK 20180917]"
     - "Multiple Temptations on the same minion are handled separately: effects do not stask, stealing the minion only burns the counters on one of them. [LSJ 20010227]"
+    - "No effect can be used between the decision to burn the counters and the moment the vampire changes control: the effect is resolved at once. (eg. {Shalmath} cannot untap). [PIB 20121028]"
 101956|Tend the Flock:
     - "The blood comes from the blood bank. [ANK 20190511]"
 101957|Tenebrous Form:
