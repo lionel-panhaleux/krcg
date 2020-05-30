@@ -94,6 +94,12 @@ pip install krcg
 
 ### Web API
 
+You need to install the `web` version of krcg
+
+```bash
+pip install krcg[web]
+```
+
 No wsgi server is installed by default, you need to install one to serve the API.
 HTTP web servers can then easily be configured to serve WSGI applications,
 check the documentation of your web server.
@@ -123,7 +129,7 @@ The development version of KRCG installs uWSGI to serve the API,
 this is the preferred WSGI server for now.
 
 ```bash
-$ pip install -e ".[dev]"
+$ pip install -e ".[dev,web]"
 $ make serve
 ...
 uwsgi socket 0 bound to TCP address 127.0.0.1:8000
