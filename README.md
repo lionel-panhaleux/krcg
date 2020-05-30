@@ -84,45 +84,137 @@ In doing so, please follow the following guidelines:
 
 ## Installation
 
-You need [Python 3](https://www.python.org/downloads/)
-installed on your system to use this tool in command line.
+[Python 3](https://www.python.org/downloads/) is required.
 
 Use pip to install the `krcg` tool:
 
-```shell
+```bash
 pip install krcg
 ```
 
-Then initialize the tool using the `init` subcommand:
+### Web API
 
-```shell
+No wsgi server is installed by default, you need to install one to serve the API.
+HTTP web servers can then easily be configured to serve WSGI applications,
+check the documentation of your web server.
+
+The API can be served with [uWSGI](https://uwsgi-docs.readthedocs.io):
+
+```bash
+uwsgi --module src.wsgi:application
+```
+
+or [Gunicorn](https://gunicorn.org):
+
+```bash
+gunicorn src.wsgi:application
+```
+
+Two environment variables are expected: `GITHUB_USERNAME` and `GITHUB_TOKEN`,
+to allow the API to connect to Github as a user in order to post new rulings
+as issues on the repository (`/submit-ruling` endpoint).
+
+See the [Github help](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
+on how to generate a personal token for the account you want KRCG to use.
+
+#### Development 
+
+The development version of KRCG installs uWSGI to serve the API,
+this is the preferred WSGI server for now.
+
+```bash
+$ pip install -e ".[dev]"
+$ make serve
+...
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000
+```
+
+You can check the API is running by using your browser
+on the provided address [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+The environment variables `GITHUB_USERNAME` and `GITHUB_TOKEN` can be provided
+by a personal `.env` file at the root of the krcg folder (ignored by git):
+
+```bash
+export GITHUB_USERNAME="dedicated_github_username_for_the_api"
+export GITHUB_TOKEN="the_matching_github_token"
+```
+
+### Hosting the bot
+
+If you need to host a new version of the bot yourself,
+[Python 3](https://www.python.org/downloads/) is required, as well as an
+environment variable `DISCORD_TOKEN`, for the bot to run.
+The token can be found on your
+[Discord applications page](https://discord.com/developers/applications).
+
+The preferred way to run the bot is to use a python virtualenv:
+
+```bash
+/usr/bin/python3 -m venv venv
+source venv/bin/activate
+pip install krcg
+DISCORD_TOKEN=discord_token_of_your_bot
+krcg-bot
+```
+
+A [systemd](https://en.wikipedia.org/wiki/Systemd) unit can be used
+to configure the bot as a system service:
+
+```ini
+[Unit]
+Description=krcg-bot
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+WorkingDirectory=directory_where_krcg_is_installed
+Environment=DISCORD_TOKEN=discord_token_of_your_bot
+ExecStart=/bin/bash -c 'source venv/bin/activate && krcg-bot'
+
+[Install]
+WantedBy=multi-user.target
+```
+
+In development the environment variable `DISCORD_TOKEN` can be provided
+by a personal `.env` file at the root of the krcg folder (ignored by git):
+
+```bash
+export DISCORD_TOKEN="discord_token_of_your_bot"
+```
+
+### Command line
+
+An internet connection is required to initialize krcg with official VEKN data
+(cards list and TWDA).
+
+```bash
 krcg init
 ```
 
-## Usage
-
 Use the help command for a full documentation of the tool:
 
-```shell
+```bash
 krcg --help
 ```
 
 And also extensive help on each sub-command:
 
-```shell
+```bash
 krcg [COMMAND] --help
 ```
 
 Note most commands only take decks from 2008 on in consideration.
 You can use the `--from` and `--to` parameters to control the date range.
 
-## Examples
+#### Examples
 
 Get a card text (case is not relevant,
 some abbreviations and minor misspellings will be understood):
 
-```shell
-$> krcg card krcg
+```bash
+$ krcg card krcg
 KRCG News Radio
 [Master][2P] -- (Jyhad:U, VTES:U, CE:U, LoB:PA, LotN:PG, KoT:U/PB, SP:PwN1 - #101067)
 Unique location.
@@ -132,8 +224,8 @@ Lock and burn 1 pool to give a minion controlled by another Methuselah +1 interc
 
 This provides rulings, if any:
 
-```shell
-$> krcg card ".44 magnum"
+```bash
+$ krcg card ".44 magnum"
 .44 Magnum
 [Equipment][2P] -- (Jyhad:C, VTES:C, Sabbat:C, SW:PB, CE:PTo3, LoB:PO3, FB:PTr2 - #100001)
 Weapon: gun.
@@ -145,8 +237,8 @@ Provides only ony maneuver each combat, even if the bearer changes. [LSJ 1998030
 
 Use the `-l` option to get ruling links:
 
-```shell
-$> krcg card -l ".44 magnum"
+```bash
+$ krcg card -l ".44 magnum"
 .44 Magnum
 [Equipment][2P] -- (Jyhad:C, VTES:C, Sabbat:C, SW:PB, CE:PTo3, LoB:PO3, FB:PTr2 - #100001)
 Weapon: gun.
@@ -159,8 +251,8 @@ Provides only ony maneuver each combat, even if the bearer changes. [LSJ 1998030
 
 List TWDA decks containing a card:
 
-```shell
-$> krcg deck "Fame"
+```bash
+$ krcg deck "Fame"
 [2016gncbg] weenie animalism minimal: "Ich bin eine von wir"
 [2016amfb] Gangrel e Garou
 [2016ukncle] (No Name)
@@ -171,8 +263,8 @@ $> krcg deck "Fame"
 
 Display any TWDA deck:
 
-```shell
-$> krcg deck 2016gncbg
+```bash
+$ krcg deck 2016gncbg
 German NC 2016
 Bochum, Germany
 December 3rd 2016
@@ -234,8 +326,8 @@ played (untested) at the German Nationals 03.12.2016, Bochum
 
 Display all decks that won a tournament of 50 players or more in 2018:
 
-```shell
-$> krcg deck --players 50 --from 2018 --to 2019
+```bash
+$ krcg deck --players 50 --from 2018 --to 2019
 [2018igpadhs] (No Name)
 [2018eclcqwp] Dear diary, today I feel like a wraith.. Liquidation
 [2018ecday1wp] MMA.MPA (EC 2018)
@@ -245,8 +337,8 @@ $> krcg deck --players 50 --from 2018 --to 2019
 
 List cards most associated with a given card in TWD:
 
-```shell
-$> krcg affinity "Fame"
+```bash
+$ krcg affinity "Fame"
 Fame                           (in 100% of decks, typically 1-2 copies)
 Taste of Vitae                 (in 59% of decks, typically 3-6 copies)
 Dragonbound                    (in 38% of decks, typically 1 copy)
@@ -255,8 +347,8 @@ Powerbase: Montreal            (in 34% of decks, typically 1 copy)
 
 List most played cards of a given type, clan or discipline:
 
-```shell
-$> krcg top -d Animalism
+```bash
+$ krcg top -d Animalism
 Carrion Crows                  (played in 252 decks, typically 5-10 copies)
 Cats' Guidance                 (played in 222 decks, typically 2-5 copies)
 Canine Horde                   (played in 195 decks, typically 1-3 copies)
@@ -271,8 +363,8 @@ Terror Frenzy                  (played in 73 decks, typically 1-4 copies)
 
 Build a deck from any given cards based on TWDA:
 
-```shell
-$> krcg build "Fame" "Carrion Crows"
+```bash
+$ krcg build "Fame" "Carrion Crows"
 
 Created by: KRCG
 Inspired by:
@@ -321,12 +413,12 @@ Inspired by:
 4  Raven Spy
 ```
 
-## Static files generator
+### Static files generator
 
 In its development version, KRCG also offers a tool for generating static files
 for third parties, `krcg-gen`.
 
-```shell
+```bash
 krcg init
 krcg-gen standard amaranth
 ```
