@@ -962,6 +962,7 @@
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 100959|Immortal Grapple:
     - "If a minion is committed to using a strike other than a hand strike (e.g. used a maneuver from a gun), then he gets no strike. [TOM 19951217]"
+    - "Is still considered played if it is cancelled as it is played (eg. {Charismatic Aura}). A second one cannot be played in the same round as its card text forbids it. [ANK 20200525-2]"
 100964|Improvised Flamethrower:
     - "If any ranged damage is inflicted at long range, even if it is prevented or ignored, the Flamethrower will burn and inflict damage. [LSJ 20040802]"
 100965|Improvised Tactics:
@@ -1990,7 +1991,7 @@
     - "[THN] Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
     - "[THN] Environmental damage do not qualify, only damage inflicted by the acting vampire. [ANK 20200517]"
 102012|Trap:
-    - "The provided press must be handled first. Another press cannot be used to continue (eg. {Boxed In}) if there's already a press to continue. [ANK 20200525]"
+    - "The provided press must be handled first. Another press cannot be used to continue (eg. {Boxed In}) if there's already a press to continue. [ANK 20200525-1]"
 102013|Travelers Obey the Tenets:
     - 'The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
 102014|Treachery:
