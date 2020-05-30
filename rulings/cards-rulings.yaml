@@ -1857,6 +1857,7 @@
 101920|Sword of Nuln:
     - "If the target has only one blood left, he pays what he can, still fails to heal the damage and goes to torpor empty. [LSJ 20090901] [LSJ 20030522-2]"
     - "Aggravated damage are not healed by default, so they are not doubled. If the target can heal them (eg. {Repair the Undead Flesh}), he must pay double. [LSJ 20031219] [LSJ 20100527]"
+    - "If the wielder uses {Taste of Vitae}, he gains as much blood as the opponent has lost. [PIB 20130415]"
 101921|Sword of the Righteous:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101925|Tainted Spring:
