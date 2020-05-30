@@ -1989,6 +1989,8 @@
 102011|Transfusion:
     - "[THN] Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
     - "[THN] Environmental damage do not qualify, only damage inflicted by the acting vampire. [ANK 20200517]"
+102012|Trap:
+    - "The provided press must be handled first. Another press cannot be used to continue (eg. {Boxed In}) if there's already a press to continue. [ANK 20200525]"
 102013|Travelers Obey the Tenets:
     - 'The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
 102014|Treachery:
