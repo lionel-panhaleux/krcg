@@ -199,6 +199,7 @@
     - "[val] Damage is environmental. [RTR 19970630]"
     - "[VAL] In the new combat, the initial opponent goes first. [LSJ 20011214-3] [LSJ 20031212]"
     - "[VAL] Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
+    - "[VAL] Cannot be used to start a new combat with a vampire on his way to torpor. [LSJ 20100604-1]"
 100192|Blood Agony:
     - "Must be played before strike resolution and damage prevention in order to affect the current strike (can be played after both strikes have been chosen). [RTR 19960112]"
 100195|Blood Brother Ambush:
@@ -261,6 +262,8 @@
     - "Damage done to the striking minion is environmental. [LSJ 19970801]"
 100254|Brigitte Gebauer:
     - "She can lock to use her ability the turn she is recruited. [ANK 20180517]"
+100257|Brother's Blood:
+    - "Can be played even if there is no damage yet, can be used to heal and prevent destruction at the same time. [LSJ 20100527]"
 100260|Brujah Debate:
     - "If more than one Brujah shares the highest capacity amount, the controller chooses which of them to lock during her master phase. [LSJ 19980224]"
     - "Can lock a locked Brujah. [LSJ 20010508]"
@@ -508,7 +511,7 @@
     - "May be played before, during, or after votes and ballots have been cast. [LSJ 19980130]"
     - "The acting minion is still considered to have taken a political action, so cannot perform another in the same turn. [RTR 19970630]"
     - "If played on a referendum called by a {Charming Lobby}, the political action card (if any) is retrieved, not the {Charming Lobby} card. [LSJ 20030426]"
-    - "Will only retrieve a political action card played from the hand. It won't retrieve an in-play {Rumors of Gehenna} in the referendum to burn it, for example. [LSJ 20041130]"
+    - "Will only retrieve a political action card played from the hand (eg. it does not retrieve an in-play {Rumors of Gehenna} in the referendum to burn it or the card retrieved by {Bujo}). [LSJ 20041130] [LSJ 20100527]"
 100526|Depravity:
     - "The +1 strength is always in effect, not just during diablerie attempts. [RTR 19961113]"
 100527|Derange:
@@ -644,6 +647,7 @@
     - "[VIS][REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]"
 100650|Enticement:
     - "Is directed at your prey. [LSJ 20010807]"
+    - "If the edge is lost during the action (eg. {High Priest Angra Mainyu}), the prey takes no damage but you still cannot bleed anymore this turn. [LSJ 20100527]"
 100656|The Erciyes Fragments:
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
     - "If used to play a political action and {Delaying Tactics} is played, the political action card goes to its owner's hand. [LSJ 20050322]"
@@ -666,6 +670,7 @@
 100669|Ex Nihilo:
     - "The vampire with it cannot decide to burn due to Ex Nihilo's card text if he or she can burn the blood during the unlock phase. [PIB 20121013]"
     - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
+    - "If the owner treats aggravated damage as normal, he is immune to them too. [LSJ 20040120]"
 100675|Extortion:
     - "Is usable by a locked vampire [LSJ 20010725]"
 100676|Extremis Boon:
@@ -707,6 +712,7 @@
 100709|FBI Special Affairs Division:
     - "Does not trigger if the ally is saved by {Left for Dead}. [PIB 20121028]"
     - "Does not trigger if the ally is considered the acting minion during the combat (eg. {Nar-Sheptha}). [ANK 20180913-2]"
+    - "Does trigger if the ally burns by himself at the end of combat (eg. {Escaped Mental Patient}). [LSJ 20100527]"
 100718|Feline Saboteur:
     - "[ANI][OBF] The chosen Methusalah discards, then burn 4 cards, then replace the discarded card. [ANK 20180725]"
 100723|Festivo dello Estinto:
@@ -853,6 +859,7 @@
 100849|The Grandest Trick:
     - 'The vampire as an ally has no "starting life" trait so {Vagabond Mystic} cannot give him life. [LSJ 20011214-1]'
     - 'If the vampire has an ability to play Discipline-requiring cards "as if" he has that Discipline ({Ian Forestal}, for example), then the vampire may use that ability even while he is treated as an ally. In that case, he is treated just as an ally with that ability would be treated (spends life for blood costs, for example). Similarly for {Mata Hari}''s ability. [LSJ 20070301]'
+    - "{Left for Dead} can be used on the vampire. [LSJ 20100527]"
 100855|Gregory Winter:
     - "Can use his action on a vampire with no blood. [RTR 20010711]"
     - "Is not mortal, is a monster. [ANK 20200203-2]"
@@ -910,6 +917,7 @@
     - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
+    - "Cannot be used to enter combat with a vampire on his way to torpor. [LSJ 20100604-1]"
 100918|Hidden Strength:
     - "The 'X' in card text refers to the cost of the card. [LSJ 19970224]"
     - "Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
@@ -968,6 +976,8 @@
     - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
 100972|Incriminating Videotape:
     - "If it is stolen, then the chosen minion is unable to block the new possessor of the Videotape (and can now block whoever used to have it). If it is removed from play, its effect ends. [TOM 19960114]"
+100974|Inevitability of the Void:
+    - "The cards to remove must be chosen when announcing the action. [LSJ 20100527]"
 100977|Infection:
     - "[THA] Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
 100978|Infernal Familiar:
@@ -1159,6 +1169,8 @@
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 101165|Marijava Thuggee:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
+101169|Marked Path:
+    - "Can be burned during an action that targets only part of the Methusalah that were targeted by the first action. [LSJ 20100527]"
 101175|Martyr's Resilience:
     - "Can be used by a vampire in torpor. [LSJ 20020416]"
     - "Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
@@ -1261,6 +1273,7 @@
     - "[DOM] Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "[DOM] Can be played by a locked vampire. [LSJ 19980210]"
     - "[DOM] Multiple copies can be played by different minions on the same action. [ANK 20200515]"
+    - "[DOM] Cannot be used to let the target play a [dom] action card. [LSJ 20100527]"
 101251|Mummify:
     - "The unlock effect takes place before the end of combat. The rest of the effect takes place after the end of combat. [RTR 19970630]"
     - "If combat continues or a new combat begins, the vampire unlocks but does not go to torpor. [RTR 20020501] [LSJ 20020505]"
@@ -1286,6 +1299,8 @@
     - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630]"
 101275|Netwar:
     - "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
+101279|The New Inquisition:
+    - "When a vampire goes to torpor, the card is replaced before any other effect (eg. before losing pool to {Fame}). [LSJ 20100527]"
 101280|New Management:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 101285|Nightmares upon Nightmares:
@@ -1336,6 +1351,8 @@
     - "The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 101353|Parity Shift:
     - "Can not be played if there is no legal target (no other Methusalah with more pool than you). [ANK 20191228]"
+    - "The pool awarded can be used to play {Life Boon} to save the target from an oust. [LSJ 20100527]"
+    - "If the target has less than 3 pool when referendum passes, the Methusalah calling the referendum chooses how to distribute within the bounds of the terms. [LSJ 20010606]"
 101380|Peace Treaty:
     - "Only requires that the pool cost be paid in order to keep the weapon. Blood costs, if any, need not be repaid to keep a weapon. [RTR 20010710]"
     - "Can be called even if there are no weapons in play. [RTR 20010710]"
@@ -1675,6 +1692,7 @@
     - "Once placed on a minion, even as a result of diablerie or theft, the Shackles will harm the minion they are on. [LSJ 19990602]"
     - 'An ally does not suffer the "burn 2 blood" effect from being shackled. [RTR 19971201]'
     - "Are controlled by the Methuselah who controls the vampire who used it; changing the controller of the vampire changes who controls the Shackles. (errata) [RTR 19960708]"
+    - 'Are still considered as an equipment after they are "activated". [LSJ 20100527]'
 101734|Shade:
     - "Do not gain any additional strikes of its controller. [RTR 19941109]"
 101735|Shadow Body:
@@ -1767,6 +1785,7 @@
     - "Functions even if the bearer (now burned) was prohibited from using equipments (eg. because of {Drawing out the Beast}). [LSJ 20010729]"
     - "If the drawn vampire (B) is younger and would be put into play with Gem but is burned instead (self-contestinging, for example), then the Gem activates again, drawing a new vampire (C) and comparing his capacity to B's capacity. [RTR 20010710] [LSJ 20030918]"
     - "Can grab an imbued. In that case, the imbued is either placed in the uncontrolled region or placed empty into the incapacitated region with the Gem, as determined by his starting life. [LSJ 20060323]"
+    - "Still produces its full effect if the new younger vampire cannoot use equipment (eg. {Beast, The Leatherface of Detroit}). [LSJ 20100527]"
 101833|Soul of the Earth:
     - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101836|Soul Stealing:
@@ -1811,6 +1830,8 @@
     - "[dom], [qui] [ACTION] Is not replaced if the action is blocked: it is replaced when the action ends, after all combats. [LSJ 20001120]"
 101872|Stolen Police Cruiser:
     - "Can be equipped by a non-Anarch and would count as a vehicle, although the rest of his effect does not apply. [LSJ 20030607]"
+101877|Storage Annex:
+    - "Cannot be played if it is the only card in your hand. [LSJ 20100527]"
 101879|Strained Vitae Supply:
     - "The effect only applies to the default hunt action provided by the rulebook. [PIB 20120204]"
 101881|The Stranger Among Us:
@@ -1903,7 +1924,7 @@
 101947|Taunt the Caged Beast:
     - "[ANI] The prey goes first in the combat (for declaring maneuvers, strikes, presses). [LSJ 20070319]"
 101948|Telepathic Counter:
-    - "Is played before the bleed can be considered successful. [TOM 19960303]"
+    - "Must be played before the bleed can be considered successful (eg. before [OBF] {Spying Mission}), but can be played before or after block attempts. [TOM 19960303] [LSJ 20061212]"
 101949|Telepathic Misdirection:
     - '[AUS] Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 101950|Telepathic Tracking:
@@ -1980,6 +2001,7 @@
     - "The Ventrue is burned only if the hunt isn't blocked, he still burns if the benefit of the hunt is reduced to zero. [TOM 19951212-3]"
 102026|Trochomancy:
     - "The cards are removed immediately. [PIB 20120525]"
+    - "The cards to remove must be chosen when announcing the action. [LSJ 20100527]"
 "102027|Trophy: Chosen":
     - "If the recipient of the Trophy chooses to burn it, there is no other effect. He does not unlock and does not gain the four blood. [LSJ 20070309-1]"
 "102029|Trophy: Diablerie":
@@ -2375,6 +2397,7 @@
     - "When using his ability, you do not get to see the card drawn as replacement. [PIB 20121031]"
 200826|Leandro:
     - "Choice is mandatory, there is no default. If all players forget, forcing one choice or the other on the victim is not a suitable remedy. [LSJ 20021210-1]"
+    - "When a Methusalah decides to get no transfer, he can still use other effects that put blood on his uncontrolled vampires (eg. [DEM] {Govern the Unaligned}, {Powerbase: Montreal}). [LSJ 20100527]"
 200840|Lisandro Giovanni:
     - "When playing a card requiring a Ventrue antitribu or a Samedi, he is treated as a such for all effects generated by the play of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]"
     - "You can still use the burn options of cards with a requirement he could meet when you play them, but does not meet while in play. [LSJ 20050225]"
@@ -2401,6 +2424,9 @@
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200912|Marcia Felicia Licinia:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
+"200913|Marciana Giovanni, Investigator":
+    - "She can lock to grant herself the ability to burn blood for intercept. She would need a wake or unlock effect to attempt to block. [LSJ 20100527]"
+    - "The beneficiary of her ability can choose to burn a blood for intercept for the duration of the action. [LSJ 20100604-2] [LSJ 20100611]"
 200916|Marcus Vitel (ADV):
     - "[MERGED] Is Sabbat. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 200921|Marguerite Foccart (ADV):
@@ -2433,6 +2459,7 @@
     - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 200979|Merrill Molitor:
     - "The damage he treats as normal is handled before any aggravated damage that is being treated as aggravated damage. [LSJ 20030213]"
+    - "If an aggravated damage is inflicted with {Target Vitals}, the additional damages are still aggravated. [LSJ 20100527]"
 200981|Michael diCarlo:
     - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 200982|Michael Luther:
