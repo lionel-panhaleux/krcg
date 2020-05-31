@@ -123,7 +123,7 @@ as issues on the repository (`/submit-ruling` endpoint).
 See the [Github help](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
 on how to generate a personal token for the account you want KRCG to use.
 
-#### Development 
+#### Development
 
 The development version of KRCG installs uWSGI to serve the API,
 this is the preferred WSGI server for now.
