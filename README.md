@@ -31,6 +31,18 @@ Feel free to use it in your server.
 It lets you retrieve cards official text, image and rulings:
 ![Bot Example](https://raw.githubusercontent.com/lionel-panhaleux/krcg/master/bot-example.png)
 
+## Static Files
+
+KRCG provides normalized static files for third parties, they can be found in the
+[static](https://github.com/lionel-panhaleux/krcg/blob/master/static) folder:
+
+- `amaranth-twda.json`: The TWDA in JSON format for Amaranth (card IDs are Amaranth specific).
+- `standard-rulings.json`: The rulings in JSON format
+- `twd.htm`: A normalized version of the TWDA
+
+The schemas for the JSON files can be found in the
+[schemas](https://github.com/lionel-panhaleux/krcg/blob/master/schemas) folder.
+
 ## Contribute
 
 Feel free to submit pull requests, they will be merged as long as they pass the tests.
@@ -92,15 +104,15 @@ Use pip to install the `krcg` tool:
 pip install krcg
 ```
 
-### Web API
+### Hosting the web API
 
-You need to install the `web` version of krcg
+To host the web API, you need to install the `web` version of krcg:
 
 ```bash
 pip install krcg[web]
 ```
 
-No wsgi server is installed by default, you need to install one to serve the API.
+No wsgi server is installed by default, you need to install one.
 HTTP web servers can then easily be configured to serve WSGI applications,
 check the documentation of your web server.
 
@@ -429,4 +441,11 @@ krcg init
 krcg-gen standard amaranth
 ```
 
-will generate files in the static directory for `standard` and `amaranth` third parties.
+will generate files in the
+[static](https://github.com/lionel-panhaleux/krcg/blob/master/static) folder
+for `standard` and `amaranth` third parties.
+
+Some generated files are in JSON format, their schemas can be found in the
+[schemas](https://github.com/lionel-panhaleux/krcg/blob/master/schemas) folder.
+The standard TWDA file is a rewrite of the
+[original TWDA](https://github.com/GiottoVerducci/TWD) in the same HTML format.
