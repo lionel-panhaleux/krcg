@@ -962,6 +962,7 @@
 100959|Immortal Grapple:
     - "If a minion is committed to using a strike other than a hand strike (e.g. used a maneuver from a gun), then he gets no strike. [TOM 19951217]"
     - "Is still considered played if it is cancelled as it is played (eg. {Charismatic Aura}). A second one cannot be played in the same round as its card text forbids it. [ANK 20200525-2]"
+    - "The press can only be used during the round in which Immortal Grapple was played. [TOM 19960521]"
 100964|Improvised Flamethrower:
     - "If any ranged damage is inflicted at long range, even if it is prevented or ignored, the Flamethrower will burn and inflict damage. [LSJ 20040802]"
 100965|Improvised Tactics:
