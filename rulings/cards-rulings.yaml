@@ -450,6 +450,8 @@
 100429|Corrupt Construction:
     - "If recruited in the normal fashion, the card will have been replaced by the time the ally enters play. In other cases however, it won't have been and the Methuselah will have to work with only the cards in hand (or ash heap) to add life to it before replacing. [LSJ 20070707]"
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
+100432|Coterie Tactics:
+    - "Cannot be used if the vampires cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
 100433|Council of Seraphim:
     - "The burn option cannot be used if all your Seraph are in torpor. [LSJ 20091204]"
 100435|The Coven:
@@ -607,6 +609,7 @@
 100588|Dreams of the Sphinx:
     - "Cannot move blood to Imbued in the uncontrolled region. [LSJ 20070516]"
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
+    - "Cards that are not replaced count against the hand size. [ANK 20180318]"
 100591|Drum of Xipe Totec:
     - "The minion cannot use the discipline nor the maneuver provided if some effect prevents him to use the equipment (eg. {Drawing Out the Beast}). [RTR 20010710]"
 100592|Dual Form:
@@ -682,6 +685,8 @@
     - "You still cannot burn it if the vampire that was brought back was burned and later returned to play. [LSJ 20040726] [ANK 20191031]"
     - "[SER] is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
     - "If The Eternal Mask is burned by something else than its own effect (including when the vampire it is on is burned), the vampire that has been brought back is unaffected. [LSJ 20071206] [LSJ 20090725]"
+100666|Eternal Vigilance:
+    - "Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
 100667|The Eternals of Sirius:
     - "Pay the cost at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620] [LSJ 20080612]"
 100668|Evil Eye:
@@ -899,6 +904,8 @@
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 100862|Growing Fury:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+100864|Guard Duty:
+    - "Cannot be used to unlock if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
 100865|Guarded Rubrics:
     - "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
 100867|Guardian Ghoul:
@@ -1230,7 +1237,7 @@
     - "Multiple copies stack their bonuses. [LSJ 20020904]"
 101192|The Meddling of Semsith:
     - "Will stay in play (uselessly) when the target is burned. [LSJ 20021008]"
-    - "Cards that are not replaced count against the hand size (eg. successive combats against {Raptor} stack the non-replaced cards). [ANK 20190318]"
+    - "Cards that are not replaced count against the hand size (eg. successive combats against {Raptor} stack the non-replaced cards). [ANK 20180318]"
 101195|Melange:
     - "Can be put on an ally. [RTR 20020501]"
     - "Must be burned when attempting a bleed, before its resolution (eg. {Archon Investigation} can be played afterwards). [ANK 20180531]"
@@ -1697,6 +1704,7 @@
     - "Can be equipped by a vampire with capacity less than 6: he cannot use it to bleed but the disciplines bonus applies. [LSJ 20030607] [ANK 20180801]"
 "101706|Second Tradition: Domain":
     - 'Can be used by a locked a vampire who is already attempting to block (eg. if he played a wake effect before)". [ANK 20181122-2]'
+    - "Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
 101707|Secret Horde:
     - "If put into play with no counters (X=0), it burns immediately. [LSJ 20070308]"
 101711|Secure Haven:
@@ -2064,6 +2072,8 @@
     - "If the recipient of the Trophy chooses to burn it, there is no other effect. He does not unlock and does not gain the four blood. [LSJ 20070309-1]"
 "102029|Trophy: Diablerie":
     - "May be retrieved when diablerizing a Red List vampire prior to the blood hunt referendum: it protects the vampire in that referendum. All copies on the vampire are then burned at the end of that action. [LSJ 20050222]"
+"102031|Trophy: Domain":
+    - "Cannot be used to unlock if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
 102044|Truth of a Thousand Lies:
     - '[SER] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
 102047|Tunnel Runner:
@@ -2083,6 +2093,8 @@
     - "Only provides one press for the current round, not the ones after that. [ANK 20180110]"
 102061|Undead Strength:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+102063|Under Siege:
+    - "Cannot be used to unlock if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
 102065|Underbridge Stray:
     - "He can burn 1 life to give a minion you control a press the turn he is recruited. [ANK 20180517]"
 102067|Undue Influence:
