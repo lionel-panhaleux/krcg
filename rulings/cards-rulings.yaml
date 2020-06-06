@@ -41,6 +41,8 @@
     - 'If it is used as a placeholder to represent something else, then its text does not apply, including the "Unique" part. A {Shock Troops} vampire would simply be a 1-cap Sabbat with no clan and no discipline. [LSJ 20071001-1]'
     - "If you play Agent of Power on a vampire and that vampire plays a {Dual Form} at superior [PRO], the Dual Form gains the Discipline provided by the Agent of Power and keeps it once the Agent of Power burns. [LSJ 20071005-1]"
     - "When put on a {Bima} it is into play, the card text applies and it is Unique. [LSJ 20100422]"
+100029|Aid from Bats:
+    - "[ANI] The press can only be used during the current round. [TOM 19960521]"
 100038|Alastor:
     - "If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]"
 100043|Amaranth:
@@ -53,6 +55,8 @@
     - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
     - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
+100047|Amria:
+    - "The press can only be used during the current round. [TOM 19960521]"
 100051|Ananasi Vampirephile:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 100052|The Anarch Free Press:
@@ -116,8 +120,12 @@
     - "[DOM] Is a hand strike, and its resolution is simultaneous with the opponent's strike, unlike a normal combat ends strike. The opponent's strike do damage. [LSJ 20071112]"
 100120|Aye:
     - "Any frenzy card that targets/selects/chooses/affects the minion when played, is considered being played on the minion. [LSJ 20051113]"
+100123|Backflip:
+    - "The press can only be used during the current round. [TOM 19960521]"
 100124|Backstab:
     - "Can be played at any time before strike resolution, including after both minions have selected their strikes. [LSJ 20000215]"
+100125|Backstep:
+    - "The press can only be used during the current round. [TOM 19960521]"
 100127|Baleful Doll:
     - "The bearer (if he unlocks normally) unlocks at the beginning of the unlock phase, before this effect can be used. [PIB 20151009] [RBK 20181001-4]"
 100128|Baltimore Purge:
@@ -229,6 +237,7 @@
     - "The target does not get an extra vote if it already has or subsequently gains a title. If the target loses his title, then he again gets his extra vote. [LSJ 19970224]"
 100219|Bloodform:
     - "[VIC] Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
+    - "[VIC] The press can only be used during the current round. [TOM 19960521]"
 100224|Bloodstorm of Chorazin:
     - "The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 100228|Body Arsenal:
@@ -244,6 +253,7 @@
     - "Damage done to the bearer is environmental. [LSJ 19970801]"
     - "The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221] [LSJ 20020926]"
 100235|Bond with the Mountain:
+    - "[tha] The press can only be used during the current round. [TOM 19960521]"
     - "[vis] [VIS] The unlock effect takes place before the end of combat. [RTR 19970630]"
     - "[vis] [VIS] The vampires still unlock if an effect continues the combat or begins a new combat. [RTR 20020501] [LSJ 20030717]"
 100236|Bonding:
@@ -335,6 +345,7 @@
 100319|Chalice of Kinship:
     - "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
 100321|Chameleon's Colors:
+    - "[spi] The optional press can only be used during the current round. [TOM 19960521]"
     - '[SPI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
     - '[SPI] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
     - '[SPI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
@@ -401,6 +412,9 @@
     - "Allies (including Imbued) cannot use the provided action as they have no blood to pay with. [PIB 20151101]"
 100376|Cold Aura:
     - "No other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
+    - "[NEC] The press can only be used during the current round. [TOM 19960521]"
+100377|Collapse the Arches:
+    - "[tha] The press can only be used during the current round. [TOM 19960521]"
 100378|Coma:
     - '[DEM] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
 100388|Compel the Spirit:
@@ -527,6 +541,8 @@
 100536|Deviki Prasanta:
     - "Cannot put a Discipline card on a vampire if it could normally not be put on him (eg. because he already has the superior level of that discipline). [ANK 20200320]"
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
+"100538|Devil-Channel: Feet":
+    - "The press can only be used during the current round. [TOM 19960521]"
 100541|Día de los Muertos:
     - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
 100543|The Diamond Thunderbolt:
@@ -557,6 +573,8 @@
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
     - "If used to steal an equipment representing a location, it can be placed on any minion controlled by the new controller. [RTR 19960112]"
     - 'If used to "change" the control of a location or equipment representing a location to the same Methusalah, the location cannot be moved to another minion controlled by the same Methusalah. [LSJ 19971002]'
+100558|Dissolution:
+    - "[PRO] The press can only be used during the current round. [TOM 19960521]"
 100563|Diversion:
     - "[tha] can target a vampire with no blood. [RTR 20010711]"
 100568|Dog Pack:
@@ -599,6 +617,8 @@
     - "[PRO] The reduction in capacity is permanent, even if the Dual Form is burned. It still applies in the uncontrolled region if the vampire gets back into it. [LSJ 20051103]"
 100593|Duma Rafiki:
     - "Do not gain any additional strikes of its controller. [RTR 19941109]"
+100596|Dust to Dust:
+    - "The press and maneuver can only be used during the current round. [TOM 19960521]"
 100597|Dust Up:
     - "[ani] [pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100598|Eagle's Sight:
@@ -859,6 +879,8 @@
     - 'The vampire as an ally has no "starting life" trait so {Vagabond Mystic} cannot give him life. [LSJ 20011214-1]'
     - 'If the vampire has an ability to play Discipline-requiring cards "as if" he has that Discipline ({Ian Forestal}, for example), then the vampire may use that ability even while he is treated as an ally. In that case, he is treated just as an ally with that ability would be treated (spends life for blood costs, for example). Similarly for {Mata Hari}''s ability. [LSJ 20070301]'
     - "{Left for Dead} can be used on the vampire. [LSJ 20100527]"
+100850|Grasp of the Python:
+    - "The press can only be used during the current round. [TOM 19960521]"
 100855|Gregory Winter:
     - "Can use his action on a vampire with no blood. [RTR 20010711]"
     - "Is not mortal, is a monster. [ANK 20200203-2]"
@@ -920,6 +942,7 @@
 100918|Hidden Strength:
     - "The 'X' in card text refers to the cost of the card. [LSJ 19970224]"
     - "Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
+    - "[FOR] The press can only be used during the current round. [TOM 19960521]"
 100919|Hide:
     - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
     - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
@@ -962,7 +985,7 @@
 100959|Immortal Grapple:
     - "If a minion is committed to using a strike other than a hand strike (e.g. used a maneuver from a gun), then he gets no strike. [TOM 19951217]"
     - "Is still considered played if it is cancelled as it is played (eg. {Charismatic Aura}). A second one cannot be played in the same round as its card text forbids it. [ANK 20200525-2]"
-    - "The press can only be used during the round in which Immortal Grapple was played. [TOM 19960521]"
+    - "The press can only be used during the current round. [TOM 19960521]"
 100964|Improvised Flamethrower:
     - "If any ranged damage is inflicted at long range, even if it is prevented or ignored, the Flamethrower will burn and inflict damage. [LSJ 20040802]"
 100965|Improvised Tactics:
@@ -977,6 +1000,8 @@
     - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
 100972|Incriminating Videotape:
     - "If it is stolen, then the chosen minion is unable to block the new possessor of the Videotape (and can now block whoever used to have it). If it is removed from play, its effect ends. [TOM 19960114]"
+100973|Indomitability:
+    - "[FOR] The press can only be used during the current round. [TOM 19960521]"
 100974|Inevitability of the Void:
     - "The cards to remove must be chosen when announcing the action. [LSJ 20100527]"
 100977|Infection:
@@ -1023,6 +1048,8 @@
 101021|Jar the Soul:
     - "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]"
     - "If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]"
+101023|The Jones:
+    - "[ser] The press can only be used during the current round. [TOM 19960521]"
 "101028|Judgment: Camarilla Segregation":
     - "The effect must be applied during the unlock phase, but other effects can be applied before. If an effect applied before burns the last non-Camarilla vampire, no pool is lost. [ANK 20181016]"
 101031|Justicar Retribution:
@@ -1056,8 +1083,10 @@
     - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
 101066|Kraken's Kiss:
     - "[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]"
+    - "[VIC] The press can only be used during the current round. [TOM 19960521]"
 101071|Lam Into:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+    - "[vic] The press can only be used during the current round. [TOM 19960521]"
 101077|Lead Fist:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101080|Learjet:
@@ -1189,6 +1218,8 @@
     - "Multiple copies can be played by different vampires on the same action. [ANK 20200515]"
 101180|Masochism:
     - "[FOR] The additional counter is added after the presses are handled. It is added if the round ends prematurely and conditions are met. [RTR 20030519]"
+101181|Masque of Judas:
+    - "[aus][obf] The press can only be used during the current round. [TOM 19960521]"
 101183|Masquerade Endangered:
     - "Multiple copies may be played by different Methusalahs after a single action, but all would be burned during the vampire's next unlock phase. [TOM 19950921]"
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
@@ -1218,6 +1249,7 @@
     - "Cannot be used if there is no equipment to steal. [RTR 19980928]"
 101209|Mighty Grapple:
     - "[POT] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+    - "[POT] The optional press can only be used during the current round. [TOM 19960521]"
 101211|Mind Numb:
     - "The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]"
 101214|Mind of the Wilds:
@@ -1374,6 +1406,7 @@
 101395|Personal Scourge:
     - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
     - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
+    - "[DEM] The press can only be used during the current round. [TOM 19960521]"
 "101400|Pier 13, Port of Baltimore":
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101401|Piper:
@@ -1402,6 +1435,7 @@
 101426|Pounce:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "Damage done to the striking minion is environmental. [LSJ 19970801]"
+    - "The press can only be used during the current round. [TOM 19960521]"
 101430|Power Structure:
     - "Cannot be used during a Blood Hunt referendum, since there is no political action. [ANK 20190707]"
 "101431|Powerbase: Barranquilla":
@@ -1560,6 +1594,8 @@
     - "Prevents up to 3 non-aggravated damage, it can be used to prevent less. [RTR 20041202]"
 101609|Resilient Mind:
     - "Can be used when a {Form of Corruption} is put into play to protect that vampire from that {Form of Corruption}. [LSJ 20031223]"
+101610|Resist Earth's Grasp:
+    - "[cel] [COMBAT] If used to maneuver, the optional press can only be used during the current round. [TOM 19960521]"
 101614|Restricted Vitae:
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 101615|Restructure:
@@ -1583,6 +1619,8 @@
     - "If put into play with no counters, it burns immediately. [LSJ 20070307]"
 101635|Righteous Aura:
     - "The card is burned before the vampire leaves the ready region (eg. it is burned if {Banishment} is used on the vampire it is on) [ANK 20180511-1]"
+101636|Rigor Mortis:
+    - "[thn], [THN] The press can only be used during the current round. [TOM 19960521]"
 101637|Riposte:
     - "[cel] [CEL] The damage is dealt just after the combat ends. [RTR 19970630]"
     - "[cel] [CEL] The damage is only dealt if the strike was resolved at close range. [LSJ 19970915]"
@@ -1721,9 +1759,12 @@
     - "Will not prohibit the opposing minion from choosing dodge as his strike, and, if chosen, the dodge will still resolve. The dodge simply has no effect on the Shadow Feinted strike. [LSJ 20030902-2]"
 101741|Shadow of the Wolf:
     - "The +1 damage only applies to the additional strike. [LSJ 19970331]"
+    - "[PRO] The press can only be used during the current round. [TOM 19960521]"
 101744|Shadow Step:
     - "[OBT] No other effect can be used to reset the range afterwards, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
     - "[OBT] The two blood are not the cost of Shadow Step, they are the cost of using the mandatory range-setting effect. The cost is not reduced by cards reducing [obt] or combat cards cost, the card cannot be used by a vampire who has less than two blood. [LSJ 19970224]"
+101745|Shadow Strike:
+    - "[OBT] The press can only be used during the current round. [TOM 19960521]"
 101751|Shambling Hordes:
     - "The acting vampire's controller can choose not to remove a minion from his or her ash heap and thus burn the Shambling Hordes. [LSJ 20030701-2]"
     - 'The damage the strike does is determined when the strike resolution begins, before the Hordes loses life from any opposing "burn life" or "steal life" effect. Damage done before strike resolution, e.g. with First Strike, will reduce the damage done by the Hordes. [LSJ 20030307]'
@@ -1737,6 +1778,8 @@
     - "[ANI] Is directed at all Methusalah controlling a card that require Animalism [ani]. [LSJ 20080809-1] [KOT 20081119]"
 101767|Shilmulo Tarot:
     - "There is no limit to the number of cards it can store. [PIB 20110712-2]"
+101770|Shotgun Ritual:
+    - "[THA] The press can only be used during the current round. [TOM 19960521]"
 101773|Shroud Mastery:
     - '[NEC] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101781|The Signet of King Saul:
@@ -1824,10 +1867,13 @@
     - '[cel] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101860|Starshell Grenade Launcher:
     - "Using the Launcher to reduce stealth does not force the minion to strike with it if he blocks. [LSJ 19971215]"
+101861|Starvation of Marena:
+    - "The press can only be used during the current round. [TOM 19960521]"
 101862|Static Virtue:
     - "For a Laibon moved into the ready region in the last influence phase, you must retrieve Aye and Orun in pairs: the same number of Aye as Orun. [LSJ 20051127]"
 101869|Steely Tenacity:
-    - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+    - "[ani] [COMBAT] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+    - "[ani] [COMBAT] The press can only be used during the current round. [TOM 19960521]"
     - "[dom], [qui] [ACTION] Is not replaced if the action is blocked: it is replaced when the action ends, after all combats. [LSJ 20001120]"
 101872|Stolen Police Cruiser:
     - "Can be equipped by a non-Anarch and would count as a vehicle, although the rest of his effect does not apply. [LSJ 20030607]"
@@ -1971,6 +2017,10 @@
 101976|Thoughts Betrayed:
     - "[dom] Damage is environmental. [RTR 19970630] [ANK 20200422]"
     - '[dom] Damage is inflicted if the range is closed (only), even if the opponent dodges. It is not inflicted if anyone uses a "strike: combat ends". [ANK 20200422]'
+101979|Three's a Crowd:
+    - "The press can only be used during the current round. [TOM 19960521]"
+101983|Thrown Sewer Lid:
+    - "[POT] The press can only be used during the current round. [TOM 19960521]"
 101988|Tongue of the Serpent:
     - "Can target a minion with less blood than the amount stolen. [RTR 20010711]"
 101989|Toreador Grand Ball:
@@ -1990,6 +2040,8 @@
     - '[CEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101996|Tortured Confession:
     - "Not usable by vampires burned in combat, either. [RTR 19950622]"
+102008|Tranquility:
+    - "[DOM] The press can only be used during the current round. [TOM 19960521]"
 102011|Transfusion:
     - "[THN] Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
     - "[THN] Environmental damage do not qualify, only damage inflicted by the acting vampire. [ANK 20200517]"
@@ -2017,6 +2069,8 @@
 102047|Tunnel Runner:
     - "Damage done from stealing blood to the Runner is environmental. [RTR 19970630] [LSJ19971028]"
     - "Damage done from stealing blood is done at the same time strike damage is done: a single instantaneous prevention card (eg. {Soak}) can prevent both. [ANK 20200517-2]"
+102051|Twisting the Knife:
+    - "[POT] The press can only be used during the current round. [TOM 19960521]"
 102053|Tye Cooper:
     - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
 102058|Uncontrollable Rage:
@@ -2054,6 +2108,8 @@
     - "He can lock to use his ability the turn he is recruited. [ANK 20180517]"
 102088|Vampiric Disease:
     - 'At the beginning of the unlock phase, an afflicted vampires unlocks and burns a blood before effects that are applied "during" the unlock phase. [ANK 20180702]'
+102089|Vampiric Speed:
+    - "[CEL] The press can only be used during the current round. [TOM 19960521]"
 102092|Vast Wealth:
     - 'The provided action is an "equip action" [TOM 19960130] [RTR 19960124]'
     - "You only search your library if the action is successful. [TOM 19951107]"
@@ -2142,6 +2198,8 @@
     - "[AUS][SER] If the action targets multiple Methusalah, you choose one minion, which must be controlled by one of the target Methusalah. [ANK 20180515]"
 102169|Weighted Walking Stick:
     - "If the damage is reduced (eg. {Nephandus}), the corresponding token is not burned (contrary to prevented damage). [LSJ 20100519]"
+102171|Well-Aimed Car:
+    - "[POT] The press can only be used during the current round. [TOM 19960521]"
 102173|Wendell Delburton:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 102175|Whispers from the Dead:
