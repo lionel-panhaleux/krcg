@@ -97,6 +97,7 @@
 100085|Archon Investigation:
     - "It must be played after blocks are declined. Playing it implicitly declines block. [LSJ 20070203]"
     - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
+    - "Targets the bleeding vampire. (eg. costs one more against {Secure Haven}, cannot be played on {Mimir}). [LSJ 20010817] [PIB 20131013]"
 100087|Armor of Caine's Fury:
     - "[VAL] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
     - "[VAL] Can prevent 2 damage per round, from any strike, can prevent 2 times 1 damage from two different strikes. [ANK 20180117]"
