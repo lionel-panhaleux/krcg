@@ -820,6 +820,7 @@
 100788|Freak Drive:
     - "[FOR] Is played after all combats are handled. Can be played from torpor. [RTR 19980623] [LSJ 20030103] [ANK 20180906]"
     - "[for] Can be played if the action is unblocked even if it has no effect (due to lack of a suitable target, for example). [LSJ 20070411]"
+    - "[for] Is played after the action resolves. (eg. if played after equipping {Learjet}, you draw an additional card). [PIB 20150915]"
 100790|Free States Rant:
     - "If there are insuffient targets to which to allocate all of the points allowed, then the card cannot be played. [LSJ 20010810]"
 100791|Frenzy:
