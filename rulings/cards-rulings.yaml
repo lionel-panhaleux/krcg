@@ -1020,6 +1020,7 @@
     - "If it is stolen, then the chosen minion is unable to block the new possessor of the Videotape (and can now block whoever used to have it). If it is removed from play, its effect ends. [TOM 19960114]"
 100973|Indomitability:
     - "[FOR] The press can only be used during the current round. [TOM 19960521]"
+    - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 100974|Inevitability of the Void:
     - "The cards to remove must be chosen when announcing the action. [LSJ 20100527]"
 100977|Infection:
@@ -1223,7 +1224,9 @@
 101175|Martyr's Resilience:
     - "Can be used by a vampire in torpor. [LSJ 20020416]"
     - "Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
     - "[AUS][FOR] Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
+    - "[AUS][FOR] Unused prevention does not carry over. [LSJ 20001114]"
 101179|Mask of a Thousand Faces:
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "Cannot be used to take over an action granted by an equipment the masked minion has, even if the masking vampire also has the same equipment. [LSJ 20020926]"
@@ -1594,9 +1597,12 @@
     - 'It is a title card, so it is out of play if the title is contested, and the "enter combat" action is not usable when the card is not in play. [LSJ 20070808-2]'
 101588|Rego Motum:
     - "Prevents up to 2 or 4 damage, it can be used to prevent less. [RTR 20041202]"
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+    - "Unused prevention does not carry over. [LSJ 20001114]"
 101589|Reindoctrination:
     - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101595|Relentless Reaper:
+    - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
     - "[THN] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "[THN] Cannot be played after [CEL] {Psyche!}. When played before, combat continues and {Psyche!} can only be played at the end of it. [ANK 20191219]"
     - '[THN] Must be played after presses, can be played if the round ends prematurely and can be played before or after effects that are played "at then of the round" (eg. {Taste of Vitae}). [LSJ 20021113] [RTR 20030519] [ANK 20180910-1]'
@@ -1610,7 +1616,9 @@
     - "[OBE] Can be used even if the stealth is not currently needed. [LSJ 20011214-2]"
     - '[pre] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101608|Resilience:
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
     - "Prevents up to 3 non-aggravated damage, it can be used to prevent less. [RTR 20041202]"
+    - "Unused prevention does not carry over. [LSJ 20001114]"
 101609|Resilient Mind:
     - "Can be used when a {Form of Corruption} is put into play to protect that vampire from that {Form of Corruption}. [LSJ 20031223]"
 101610|Resist Earth's Grasp:
@@ -1837,7 +1845,9 @@
     - "If a new combat occurs due to an effect like {Psyche!}, the Rifle can not be used to set the range. [LSJ 20010814]"
     - "If a Slave locks to enter combat instead of a blocking minion, he cannot use the Rifle to set the range [ANK 20200115]"
 101817|Soak:
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
     - "Prevents up to 2 or 4 non-aggravated damage, it can prevent less. [RTR 20041202]"
+    - "Unused prevention does not carry over. [LSJ 20001114]"
 101820|Social Ladder:
     - "Can be played with no older vampire in the uncontrolled region, though the ready vampire would be removed and his blood lost. [LSJ 20041015]"
 101828|Songs of the Distant Vitae:
@@ -2103,9 +2113,11 @@
     - "All the damage is aggravated. [LSJ 20011204]"
 102060|Undead Persistence:
     - "[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]"
-    - 'If an effect causes a new combat to occur at the end of combat, then the "go to torpor" effect will be delayed until after that new combat. However, the vampire will no longer benefit from Undead Persistence in the new combat, so it will end immediately with the vampire not ready unless he plays a new Undead Persistence in the new combat. [LSJ 20030214] [ANK 20190624]'
+    - "[for] Only provides one press for the current round, not the ones after that. [ANK 20180110]"
+    - '[for] If an effect causes a new combat to occur at the end of combat, then the "go to torpor" effect will be delayed until after that new combat. However, the vampire will no longer benefit from Undead Persistence in the new combat, so it will end immediately with the vampire not ready unless he plays a new Undead Persistence in the new combat. [LSJ 20030214] [ANK 20190624]'
+    - "[FOR] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
     - "[FOR] Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
-    - "Only provides one press for the current round, not the ones after that. [ANK 20180110]"
+    - "[FOR] Unused prevention does not carry over. [LSJ 20001114]"
 102061|Undead Strength:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 102063|Under Siege:
@@ -2741,3 +2753,26 @@
     - "[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
 "201502|Zayyat, The Sandstorm":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+100089|Armor of Vitality":
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+    - "Unused prevention does not carry over. [LSJ 20001114]"
+100625|Elemental Stoicism:
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+100834|Glancing Blow:
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+100907|Heaven's Gate:
+    - "[nec] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+101649|Rolling with the Punches:
+    - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+101779|Sideslip:
+    - "[CEL] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+101790|Skin of Night:
+    - "[FOR] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+101791|Skin of Rock:
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+    - "Unused prevention does not carry over. [LSJ 20001114]"
+101876|Stonestrength:
+    - "Unused prevention does not carry over. [LSJ 20001114]"
+    - "[VIS] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+102071|Unflinching Persistence:
+    - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
