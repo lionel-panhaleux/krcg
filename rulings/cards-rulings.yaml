@@ -345,6 +345,7 @@
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100310|Cavalier:
     - 'Cards and effects that can be played "after resolution" (and only them) can be played after the unlock effect. [ANK 20190113]'
+    - "Takes the modified cost into account if it has been modified (eg. by {The Slow Withering} or {The Ankara Citadel, Turkey}). [PIB 20150725] [LSJ 20100429]"
 100316|Chain of Command:
     - "Cannot bring more than one copy of a unique vampire out, by the rule prohibiting self-contesting. [LSJ 20040722]"
 100319|Chalice of Kinship:
