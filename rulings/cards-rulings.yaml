@@ -421,7 +421,7 @@
 100377|Collapse the Arches:
     - "[tha] The press can only be used during the current round. [TOM 19960521]"
 100378|Coma:
-    - '[DEM] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
+    - '[DEM] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]'
 100388|Compel the Spirit:
     - "Can only be played if the ally or retainer is in the ash heap, not if he was moved elsewhere. [RTR 19980928] [LSJ 19980929]"
     - "The ally or retainer retrieved is considered a new ally or retainer for all game purposes. In particular, he is not bound to not repeat an action his previous incarnation has already performed this turn. [LSJ 20010627]"
@@ -717,7 +717,7 @@
     - "[OBF]: A minion attempting to block before it is played cannot back out. [LSJ 20081202]"
     - "[OBF]: A minion that as attempted to block but failed before it was played is not affected. [ANK 20190509]"
 100690|Faerie Wards:
-    - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
+    - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]'
     - "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
 100694|Falcon's Eye:
     - "[SPI] Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]"
@@ -1756,7 +1756,7 @@
     - "Can be used to unlock a vampire who has just successfully resolved an action to become Black Hand. [LSJ 20070702]"
 101727|Serpent's Numbing Kiss:
     - "[PRE][SER] The additional effect takes place after the end of combat. [RTR 19970630] [ANK 20180420-1]"
-    - '[PRE][SER] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controlled can still pay a pool to unlock them. [LSJ 20050114]'
+    - '[PRE][SER] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]'
     - "[PRE][SER] If the combat continues or a new combat begins, no blood is burned, the card cannot be put on the opposing minion and he is not locked. [RTR 20020501]"
     - "[PRE][SER] If the strike is dodged, the card is not put on the opposing minion and he is not locked. [RTR 20041202]"
     - "[PRE][SER] Burning 1 blood is mandatory, not a choice. [ANK 20180420-2]"
