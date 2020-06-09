@@ -2107,6 +2107,8 @@
     - '[CEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101996|Tortured Confession:
     - "Not usable by vampires burned in combat, either. [RTR 19950622]"
+101998|Touch of Clarity:
+    - "Can be used as an action modifier by a non-acting ready unlocked minion controlled by the controller of the acting minion. [LSJ 20090425] [LSJ 19990425]"
 102008|Tranquility:
     - "[DOM] The press can only be used during the current round. [TOM 19960521]"
 102011|Transfusion:
