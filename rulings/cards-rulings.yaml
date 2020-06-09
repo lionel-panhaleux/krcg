@@ -1861,6 +1861,8 @@
     - "If multiple effects make you gain blood, even due to a single card (eg. {Redistribution}), you choose on which effect to apply Slake the Thirst. [LJS 20100203]"
 101798|Slam:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+101805|The Sleeping Mind:
+    - "[DOM] Does not prevent wake effects to be played (eg. {Wake with Evening's Freshness}), but does prevent unlock after action resolution (eg. {Freak Drive} or [ani] {Cats' Guidance}). [PIB 20150703]"
 101806|Sleight of Hand:
     - 'This is an "equip action" [TOM 19960130]'
 101807|The Slow Withering:
