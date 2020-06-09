@@ -103,6 +103,9 @@
     - "[VAL] Can prevent 2 damage per round, from any strike, can prevent 2 times 1 damage from two different strikes. [ANK 20180117]"
 100089|Armor of Vitality:
     - "Prevents up to 3 damage, it can be used to prevent less. [RTR 20041202]"
+100089|Armor of Vitality":
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+    - "Unused prevention does not carry over. [LSJ 20001114]"
 100096|The Art of Love:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 100097|The Art of Memory:
@@ -651,6 +654,8 @@
     - "Can be used during any bleed attempt made against you, not just ones declared against you. [RTR 19960530]"
 100623|The Eldest Command Undeath:
     - "If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]"
+100625|Elemental Stoicism:
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 100628|Eluding the Arms of Morpheus:
     - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 100634|Emerald Legionnaire:
@@ -874,6 +879,8 @@
 100832|Giulia Giovanni Abruzzina:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
     - "She can lock to use her ability the turn she is recruited. [ANK 20180517]"
+100834|Glancing Blow:
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 100836|Glaser Rounds:
     - "Must wait until the second time a given gun is used in a given combat to play it. [RTR 19941109]"
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -941,6 +948,8 @@
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100901|Healing Touch:
     - "[OBE] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
+100907|Heaven's Gate:
+    - "[nec] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 "100908|Heidelberg Castle, Germany":
     - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
     - "Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]"
@@ -1656,6 +1665,8 @@
     - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [PIB 20130319]"
 101640|The Rising:
     - 'Anything that would increase the pool amount is considered "gaining pool". [ANK 20181105]'
+101649|Rolling with the Punches:
+    - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 101650|Rom Gypsy:
     - "He can lock to use his ability the turn he is recruited. [ANK 20180517]"
 101652|Root of Vitality:
@@ -1811,6 +1822,8 @@
     - "[THA] The press can only be used during the current round. [TOM 19960521]"
 101773|Shroud Mastery:
     - '[NEC] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+101779|Sideslip:
+    - "[CEL] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 101781|The Signet of King Saul:
     - "{Unleash Hell's Fury} cannot block the bearer. [ANK 20190501]"
 101783|Sins of the Cauchemar:
@@ -1826,6 +1839,11 @@
     - "[mel] [MEL] Cannot be played to queue a second combat after a combat is already set up for later (e.g. by a previous Siren's Lure). [LSJ 20020125]"
     - "[mel] [MEL] Other effects that queue a combat cannot be used until the new combat begins. [LSJ 20021121]"
     - "[mel] [MEL] Combat does not occur if the action ends prematurely. [LSJ 20090826]"
+101790|Skin of Night:
+    - "[FOR] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+101791|Skin of Rock:
+    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+    - "Unused prevention does not carry over. [LSJ 20001114]"
 101794|Skin of the Chameleon:
     - '[tha] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101797|Slake the Thirst:
@@ -1910,6 +1928,9 @@
     - "[dom], [qui] [ACTION] Is not replaced if the action is blocked: it is replaced when the action ends, after all combats. [LSJ 20001120]"
 101872|Stolen Police Cruiser:
     - "Can be equipped by a non-Anarch and would count as a vehicle, although the rest of his effect does not apply. [LSJ 20030607]"
+101876|Stonestrength:
+    - "Unused prevention does not carry over. [LSJ 20001114]"
+    - "[VIS] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 101877|Storage Annex:
     - "Cannot be played if it is the only card in your hand. [LSJ 20100527]"
 101879|Strained Vitae Supply:
@@ -2130,6 +2151,8 @@
     - "[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]"
 102069|Undying Thirst:
     - "If the vampire is empty, he must either hunt or diablerize, this is a mandatory action. [LSJ 20081213-2]"
+102071|Unflinching Persistence:
+    - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 102072|Unholy Penance:
     - "[PRE] The additional effect takes place after the end of combat. [RTR 19970630]"
 102076|Unleash Hell's Fury:
@@ -2753,26 +2776,3 @@
     - "[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
 "201502|Zayyat, The Sandstorm":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
-100089|Armor of Vitality":
-    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
-    - "Unused prevention does not carry over. [LSJ 20001114]"
-100625|Elemental Stoicism:
-    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
-100834|Glancing Blow:
-    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
-100907|Heaven's Gate:
-    - "[nec] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
-101649|Rolling with the Punches:
-    - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
-101779|Sideslip:
-    - "[CEL] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
-101790|Skin of Night:
-    - "[FOR] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
-101791|Skin of Rock:
-    - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
-    - "Unused prevention does not carry over. [LSJ 20001114]"
-101876|Stonestrength:
-    - "Unused prevention does not carry over. [LSJ 20001114]"
-    - "[VIS] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
-102071|Unflinching Persistence:
-    - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
