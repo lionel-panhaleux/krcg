@@ -349,6 +349,8 @@
     - "Cannot bring more than one copy of a unique vampire out, by the rule prohibiting self-contesting. [LSJ 20040722]"
 100319|Chalice of Kinship:
     - "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
+100320|Chameleon:
+    - "Cannot be used on a vampire who merged last turn: merging is not entering play. [PIB 20150728]"
 100321|Chameleon's Colors:
     - "[spi] The optional press can only be used during the current round. [TOM 19960521]"
     - '[SPI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
@@ -1140,6 +1142,8 @@
     - "If the combat continues or a new combat begins (eg. {Psyche!}), the vampires do not go into torpor. [RTR 20020501] [LSJ 20021126]"
 101090|Legend of the Leopard:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+101091|Legendary Vampire:
+    - "Cannot be used on a vampire who merged last turn: merging is not entering play. [LSJ 20030519-2]"
 101095|Lesser Boon:
     - "Effects that depend on the successful block do not see the block as successful. [RTR 20080808]"
 101100|Libertas:
