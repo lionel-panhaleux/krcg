@@ -569,6 +569,8 @@
     - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]"
 100547|Dirty Little Secrets:
     - "If the Methuselah you are bleeding does not burn any pool due to another effect, then she does not burn any cards from her library either. [LSJ 19970224]"
+100548|Dis Pater:
+    - 'Only effects played "when the action is/would be successful" can be played afterwards. (eg. {Deflection}, {Archon Investigation} or {Conditioning} can only be used before). [LSJ 20050422]'
 100549|Disarm:
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
     - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]'
@@ -1963,6 +1965,8 @@
 101894|Succulent Vitae:
     - "[QUI] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
+101895|Sudario Refraction:
+    - "The chosen cards must be named when the action is declared. This Sudario cannot be part of them. [LSJ 20050422]"
 101896|Sudden Reversal:
     - "Can only burn master cards that are played from the hand in the normal fashion. [RTR 20001020]"
 101897|Summon History:
