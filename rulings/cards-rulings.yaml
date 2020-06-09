@@ -1084,6 +1084,8 @@
     - "Counts the bleed amount that each vampire would have when attempting to bleed his prey. [RTR 19980623]"
 101033|Karavalanisha Vrana:
     - "The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
+101035|Kaymakli Fragment:
+    - "Does not make the vampire Sabbat nor infernal: it merely gives the option to such vampires. [PIB 20150809]"
 101039|Kerrie:
     - "The damage done from the ranged strike is damage from the weapon, so it can be modified by effects that modify melee weapon damage. [LSJ 20051220]"
 101040|Kevlar Vest:
