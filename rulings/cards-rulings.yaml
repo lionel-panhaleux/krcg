@@ -320,6 +320,7 @@
 100292|Capitalist:
     - 'Cards and effects that can be played "after resolution" (and only them) can be played after the gain blood effect. [ANK 20190113]'
 100293|Car Bomb:
+    - "Is to be used when the action is announced. [PIB 20150820]"
     - "If the action ends, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
 100298|Carlton Van Wyk:
     - "He can use his ability to burn a vampire who has committed diablerie the turn she is recruited. [ANK 20180517]"
@@ -599,6 +600,7 @@
     - "[CHI] Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Draba at the time it was played. [RTR 20030519]"
     - "[CHI] Can be played by a minion who is not attempting to block the action. [ANK 20190628]"
     - "[CHI] Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]"
+    - "If another Methusalah is the target, he must declare whether he attempts or declines to block before Draba can be used ([chi]) or played ([CHI]). [PIB 20150820] [ANK 20200607]"
 100579|Draeven Softfoot:
     - "He can lock to use his ability the turn he is recruited. [ANK 20180517]"
 100582|Drain Essence:
@@ -775,6 +777,8 @@
     - '[VIS] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
     - '[VIS] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
     - '[VIS] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
+100755|Folderol:
+    - "[MYT] If another Methusalah is the target, he must declare whether he attempts or declines to block before Folderol can be played. [PIB 20150820]"
 100756|Follow the Alpha:
     - "Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
@@ -961,6 +965,7 @@
 100920|Hide the Heart:
     - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
     - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
+    - "[val], [VAL] If another Methusalah is the target, he must declare whether he attempts or declines to block before Hide the Heart can be played. [PIB 20150820]"
 100925|High Ground:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 100935|Horrid Reality:
@@ -974,6 +979,8 @@
     - "The bidding is conducted in an open format, similar to a referendum. The player who played the card conducts the auction. [LSJ 19990104]"
 100944|Hunger Moon:
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
+100948|Ignis Fatuus:
+    - "If another Methusalah is the target, he must declare whether he attempts or declines to block before Ignis Fatuus can be played. [PIB 20150820] [ANK 20200607]"
 100949|Ignore the Searing Flames:
     - "[DAI] Immune means aggravated damage are not considered inflicted. [LSJ 20010627]"
 100951|Illegal Search and Seizure:
@@ -1693,6 +1700,7 @@
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101691|Scobax:
     - "[STR] If the action ends, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
+    - "If another Methusalah is the target, he must declare whether he attempts or declines to block before Scobax can be played. [PIB 20150820] [ANK 20200607]"
 101692|Scorn of Adonis:
     - "May be played at any time during the voting process, and will retroactively cause the loss of pool to Methuselahs voting 'no' before it is played, as well as to Methuselahs voting 'no' after it is played. [RTR 19951110]"
     - "Each Scorn played may only cause the loss of one pool to a given Methuselah, regardless of how may 'no' votes that Methuselah casts. [RTR 19951110]"
@@ -2426,6 +2434,8 @@
     - "He can accumulate as many cards as he likes with his special, at the rate of one each unlock. [LSJ 20070320-2]"
 200616|Ian Forestal:
     - "His ability can be used to meet one (not both) of the normal Discipline requirements of a multi-Discipline card. [LSJ 20011217]"
+200625|Igo the Hungry:
+    - "His ability only applies to the default rulebook hunt action (eg. he gets {Loki's Gift} +1 stealth). [PIB 20150820-2]"
 200630|Imanna:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200632|Inez "Nurse216" Villagrande:
