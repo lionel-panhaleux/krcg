@@ -1566,7 +1566,7 @@
 101536|The Rack:
     - "May not select a new target just for falling out of contention. [RTR 19960112]"
     - "Will not target a new copy of the same vampire if the original is burned or yielded. [TOM 19960122]"
-    - "Can provide blood if the target is in torpor, not if it is not controlled (eg. after a {Banishment}). [LSJ 20010623]"
+    - "Can provide blood if the target is in torpor, not if it is not controlled (eg. after a {Banishment}). [PIB 20150522] [LSJ 20010623]"
     - "Tracks the target if it leaves the game by contesting or {Banishment}: if the target gets back into play, The Rack gives it blood again. [LSJ 20010809-2]"
     - "If the target is stolen, the new controller chooses if the vampires gains blood during The Rack controllers unlock phase. [ANK 20200130-2]"
 101543|Rapid Healing:
