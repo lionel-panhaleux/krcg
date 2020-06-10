@@ -514,6 +514,7 @@
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 100501|Dawn Operation:
     - "Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [PIB 20130319]"
+    - "Applies to environmental and retainer damage too. [PIB 20150603-1]"
 100503|Dead Hand:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100510|Death Seeker:
@@ -1119,6 +1120,7 @@
 101066|Kraken's Kiss:
     - "[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]"
     - "[VIC] The press can only be used during the current round. [TOM 19960521]"
+    - "[VIC] The strike to steal blood is ranged (eg. {The Dracon} steals one more). [PIB 20150603-2]"
 101071|Lam Into:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "[vic] The press can only be used during the current round. [TOM 19960521]"
