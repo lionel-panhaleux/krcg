@@ -1548,7 +1548,7 @@
     - "[CEL] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
     - "[CEL] Cannot be played if there is already a combat queued. [RTR 20020501]"
     - "[CEL] Is played during combat, when combat is about to end. It must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519], [PIB 20111202]"
-    - '[CEL] Replacements effects that are played when a combat "would end" cannot be play afterwards. [ANK 20191219]'
+    - '[CEL] Replacements effects that are played when a combat "would end" (eg. Telepathic Tracking) cannot be play afterwards. [ANK 20191219]'
     - "Can be retrieved by {Marthe Dizier} (reversal of previous ruling). [PIB 20111208]"
 101511|Psychomachia:
     - "The blocker is not locked. [LSJ 20030902-1]"
@@ -2062,12 +2062,15 @@
 101952|Templar:
     - "Multiple Templar cards provide different actions: if the vampire manage to unlock during the minion phase, he can perform the two actions. [RTR 20030519]"
 101954|Temptation:
-    - "When stealing a vampire in combat after strikes are announced before strikes resolution, any damage yet to resolve will still resolve before the change of control. [LSJ 20020618]"
+    - "If used to steal a vampire in combat, combat ends. Any damage yet to resolve still resolves before the change of control. [LSJ 20020618]"
     - "The stolen minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]"
     - "The stolen minion returns to his previous controller even if he is in torpor (but stays in torpor). [LSJ 20010119]"
     - "If played on one of your own vampires, the action is undirected. Its effect can be used to unlock the vampire. [LSJ 20010828] [ANK 20180917]"
     - "Multiple Temptations on the same minion are handled separately: effects do not stask, stealing the minion only burns the counters on one of them. [LSJ 20010227]"
     - "No effect can be used between the decision to burn the counters and the moment the vampire changes control: the effect is resolved at once. (eg. {Shalmath} cannot untap). [PIB 20121028]"
+    - "If used to steal a minion attempting to block, the block attempt fails. [LSJ 20080326]"
+    - "If used to steal a minion targeted by an action, the action continues with the same target. Methusalahs who declined to block do not get another opportunity. If the target is not legal anymore (eg. [DOM] {Slaughtering the Herd}), the action ends with no effect. [LSJ 20020725]"
+    - "If used to steal a minion during an action, Methusalahs who declined to block are still declining to block. The new controller, if he is eligible and has not declined to block yet, can block with the stolen minion even if the previous controller has declined to block. [PIB 20150501]"
 101956|Tend the Flock:
     - "The blood comes from the blood bank. [ANK 20190511]"
 101957|Tenebrous Form:
