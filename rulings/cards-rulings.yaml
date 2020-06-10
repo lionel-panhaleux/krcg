@@ -1138,6 +1138,10 @@
 101071|Lam Into:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "[vic] The press can only be used during the current round. [TOM 19960521]"
+101074|Last Stand:
+    - "When an oust occurs, effects (eg. {Perfectionist}) and Action Modifiers (eg. {Freak Drive}) can be played after action resolution, before it ends and the new turn begins. [LSJ 20090731]"
+    - "When an oust occurs, the current minion phase ends (eg. {Tupdog} burns). [LSJ 20090731]"
+    - "When an oust occurs, there is no discard phase: the new turns begins immediately (eg. {The Unmasking} is not replaced). [LSJ 20090731]"
 101077|Lead Fist:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101080|Learjet:
