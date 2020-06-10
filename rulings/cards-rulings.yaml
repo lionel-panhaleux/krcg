@@ -1970,6 +1970,7 @@
     - "[VIS] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 101877|Storage Annex:
     - "Cannot be played if it is the only card in your hand. [LSJ 20100527]"
+    - "The old card goes to the controller's hand, regardless of where the new card comes from (eg. {Agaitas, The Scholar of Antiquities} face-up cards). [PIB 20150224]"
 101879|Strained Vitae Supply:
     - "The effect only applies to the default hunt action provided by the rulebook. [PIB 20120204]"
 101881|The Stranger Among Us:
@@ -2189,6 +2190,8 @@
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 102063|Under Siege:
     - "Cannot be used to unlock if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
+    - "Can be used for intercept even if the vampire is already unlocked. [PIB 20150216]"
+    - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 102065|Underbridge Stray:
     - "He can burn 1 life to give a minion you control a press the turn he is recruited. [ANK 20180517]"
 102067|Undue Influence:
