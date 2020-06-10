@@ -1039,6 +1039,9 @@
 "100968|Inbase Discotek, Frankfurt":
     - "The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]"
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
+100969|Inceptor:
+    - "The cards can be played using the inferior version of the discipline. [LSJ 20090508]"
+    - "Can be used to meet one (not both) of the Discipline requirements of a multi-Discipline card. [LSJ 20090508]"
 100971|Increased Strength:
     - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
 100972|Incriminating Videotape:
