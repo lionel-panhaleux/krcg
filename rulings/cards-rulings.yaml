@@ -216,6 +216,8 @@
 100195|Blood Brother Ambush:
     - "Can be used by a Brujah Antitribu taking an action while in torpor. If this happens, the blocker loses the opportunity to commit diablerie. [RTR 20010710]"
     - "No other modifier can be played afterwards, combat begins immediately. [LSJ 20010806-2]"
+100199|Blood Doll:
+    - "Can be used when the vampire is in torpor. [PIB 20150522]"
 100201|Blood Fury:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
@@ -2218,6 +2220,8 @@
     - "If the combat is canceled by Venenation, the action is still blocked, {Mask of a Thousand Faces} cannot be used to continue it, but an effect can be used to continue the action as if unblocked (eg. {Crypt's Sons}, {Momentary Delay}). [ANK 20181003] [LSJ 20010803-2]"
 102106|Vengeance of Samiel:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+102113|Vessel:
+    - "Can be used when the vampire is in torpor. [PIB 20150522]"
 102120|Vigilance:
     - "[REACTION] [1 CONVICTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
     - '[MODIFIER] Cards and effects that can be played "after resolution" (and only them) can be played after its use. [ANK 20190425]'
