@@ -2349,6 +2349,7 @@
     - 'It is used in the "would/about to be successful" window like {Spying Mission}. [LSJ 20081123]'
     - 'Only modifiers and reactions that can be played "when the action/bleed would be successful" can be played after it. [LSJ 20090205]'
     - "He can use his ability on his own bleed to get (-1 +2) = +1 bleed. [LSJ 20081124-2]"
+    - "His ability cannot be used after {Spying Mission}. If his ability reduces a bleed to zero, it is no longer successful and {Spying Mission} cannot be used afterwards. [PIB 20150612]"
 200091|Angela Preston:
     - "When she is influenced out, her ability to unlock a vampire can be used during the ongoing influence phase. [RTR 20180303]"
 200094|Angelo:
