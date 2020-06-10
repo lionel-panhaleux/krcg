@@ -200,6 +200,8 @@
     - "The prohibition to play certain cards applies from the moment the vampire attempts to block until the end of the action, even if he fails to block. [LSJ 20080818]"
 100183|Blessing of Durga Syn:
     - "Cannot be used if there is no equipment to steal. [RTR 19980928]"
+100184|Blessing of the Beast:
+    - "The number of cards to put on it is announced when the card is played, they must be in hand before drawing the replacement for this card. [PIB 20150428]"
 100185|Blessing of the Name:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100189|Bliss:
@@ -435,7 +437,7 @@
 100389|Compress:
     - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100392|Concealed Weapon:
-    - "The weapon is announced when the card is played, it must be in hand but need not to be shown. You can put the card apart face down when announcing it. You cannot switch to a weapon you draw to replace the Concealed Weapon. [LSJ 19991207] [ANK 20180925-2] [LSJ 20100130]"
+    - "The weapon is announced when the card is played, it must be in hand but need not to be shown. You can put the card apart face down when announcing it. You cannot switch to another weapon you draw to replace the Concealed Weapon. [LSJ 19991207] [ANK 20180925-2] [LSJ 20100130]"
     - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike against a generic opponent. [RTR 19980623]'
     - "Strength or other bonus from the minion or other cards in play are not counted for the damage limit. [LSJ 20020821] [LSJ 20020904]"
     - 'Cost reductions that are not limited to cards "played" apply before checking for card cost (eg. {Black Cat} can use Concealed Weapon to equip with a {Combat Shotgun}). [LSJ 20080125] [ANK 20181216]'
@@ -884,6 +886,9 @@
     - "She can lock to use her ability the turn she is recruited. [ANK 20180517]"
 100824|Giant's Blood:
     - "Cannot target an uncontrolled vampire. [LSJ 20061109]"
+100827|Gift of Proteus:
+    - "The number of cards to put on it is announced when the action is declared, they must be in hand before drawing the replacement for this card. [PIB 20150428]"
+    - "At action resolution, the number of cards declared must be put on the card. If there are less cards available (eg. {Form of Mist} was played to continue the action), then all of them are put on the Gift. [PIB 20150428]"
 100828|Gift of Sleep:
     - "[obe] [ACTION MODIFIER][REACTION] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 100832|Giulia Giovanni Abruzzina:
@@ -1726,7 +1731,8 @@
 101677|San Nicolás de los Servitas:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101681|The Sargon Fragment:
-    - "When using the provided action, the card to retrieve must be announced when declaring the action. [LSJ 20010627]"
+    - "When using the provided action, the card to retrieve must be named when declaring the action. [LSJ 20010627]"
+    - "Upon resolution, any copy of the named card in the ash heap can be fetched. [LSJ 20050228]"
 101684|Save Face:
     - "Can be used by a vampire in torpor. [LSJ 20020416]"
     - "Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
@@ -1978,7 +1984,9 @@
     - "[QUI] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 101895|Sudario Refraction:
-    - "The chosen cards must be named when the action is declared. This Sudario cannot be part of them. [LSJ 20050422]"
+    - "The chosen cards are named when the action is declared. The current Sudario cannot be part of them. [LSJ 20050422] [LSJ 20090722]"
+    - "Any copy of the named card can be fetched upon resolution. [LSJ 20090722]"
+    - "If no copy of a named card is in the ash heap upon resolution (eg. {The Erciyes Fragments} was used to take it), the effect still resolves for the other copies and the acting Methusalah discards 3 cards. [LSJ 20090722]"
 101896|Sudden Reversal:
     - "Can only burn master cards that are played from the hand in the normal fashion. [RTR 20001020]"
 101897|Summon History:
