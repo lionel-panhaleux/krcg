@@ -339,7 +339,7 @@
     - "[PRE] The damage is assigned after the end of combat. [RTR 19970630]"
     - "[PRE] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
     - "[PRE] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [LSJ 20070124]"
-    - "[PRE] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [LSJ 20071011]"
+    - "[PRE] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat.  [ANK 20170111] [LSJ 20071011]"
 100308|Cats' Guidance:
     - "[ani] Is played after combat [RTR 19980623]"
     - "[ani] Can not be played if the vampire is in torpor, for example if he went into torpor during the combat resulting from the block. [LSJ 20000103]"
@@ -494,11 +494,13 @@
 100486|Daemonic Possession:
     - "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
 100488|Dagon's Call:
+    - "Both the strike and the environmental damage would get boosted by {Dam the Heart's River}. [PIB 20150520]"
     - "[QUI] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100489|Dam the Heart's River:
     - "Adding damage to strikes which are not damage dealing strikes will not deal damage [RTR 19960221]"
     - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
     - "Applies to environmental damage inflicted to the opposing minion. [ANK 20181128]"
+    - "Applies to damage played in combat that are resolved after combat (eg. {Catatonic Fear}). [ANK 20170111] [LSJ 20071011]"
     - "[QUI] The opponent must pay 1 blood to use a strike that provides a maneuver if he plays it when choosing range. [ANK 20181026]"
 100490|The Damned:
     - 'The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
@@ -1375,7 +1377,7 @@
 101269|Neebi:
     - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 101272|Nephandus:
-    - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630]"
+    - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630] [ANK 20170111]"
 101275|Netwar:
     - "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101279|The New Inquisition:
@@ -1416,7 +1418,7 @@
 101334|Oubliette:
     - "[OBT] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
     - "[OBT] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202]"
-    - "[OBT] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [PIB 20130319]"
+    - "[OBT] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [ANK 20170111] [PIB 20130319]"
 101336|Out of the Frying Pan:
     - "Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]"
     - "If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]"
@@ -1678,7 +1680,7 @@
     - "[cel] [CEL] The damage is only dealt if the strike was resolved at close range. [LSJ 19970915]"
     - "[cel] [CEL] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202]"
     - "[cel] [CEL] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
-    - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [PIB 20130319]"
+    - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat.  [ANK 20170111] [PIB 20130319]"
 101640|The Rising:
     - 'Anything that would increase the pool amount is considered "gaining pool". [ANK 20181105]'
 101649|Rolling with the Punches:
