@@ -1797,6 +1797,8 @@
     - "[ANI] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101720|Sense Vitality:
     - "[val], [VAL] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
+101721|Sensory Deprivation:
+    - "Can target an unlocked minion, does not prevent a minion to wake or unlock in a non-normal way (eg. {Freak Drive}, {Sense the Savage Way}). [PIB 20150111]"
 101724|Seraph's Second:
     - "Can be used to unlock a vampire who has just successfully resolved an action to become Black Hand. [LSJ 20070702]"
 101727|Serpent's Numbing Kiss:
