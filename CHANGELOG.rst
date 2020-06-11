@@ -4,7 +4,7 @@ Changelog
 0.48 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- 2016 & 2015 rulings included
 
 
 0.47 (2020-05-30)
