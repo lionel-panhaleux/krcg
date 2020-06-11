@@ -103,9 +103,10 @@
     - "[VAL] Can prevent 2 damage per round, from any strike, can prevent 2 times 1 damage from two different strikes. [ANK 20180117]"
 100089|Armor of Vitality:
     - "Prevents up to 3 damage, it can be used to prevent less. [RTR 20041202]"
-100089|Armor of Vitality":
     - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
     - "Unused prevention does not carry over. [LSJ 20001114]"
+100092|Army of Apparitions:
+    - "[chi] Cannot be used during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
 100096|The Art of Love:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 100097|The Art of Memory:
@@ -493,6 +494,7 @@
     - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100478|Cryptic Rider:
     - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
+    - "Can be used after a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
 100483|Curse of Nitocris:
     - "Only moves when a Methuselah gets the Edge who does not already have the Edge. [LSJ 19971006]"
 100484|D'habi Revenant:
@@ -600,6 +602,8 @@
     - 'If used to "change" the control of a location or equipment representing a location to the same Methusalah, the location cannot be moved to another minion controlled by the same Methusalah. [LSJ 19971002]'
 100558|Dissolution:
     - "[PRO] The press can only be used during the current round. [TOM 19960521]"
+100559|Distant Friend:
+    - "Cannot be burned during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
 100563|Diversion:
     - "[tha] can target a vampire with no blood. [RTR 20010711]"
 100568|Dog Pack:
@@ -726,9 +730,9 @@
 100676|Extremis Boon:
     - "The pool of the highest bidder goes to the target Methusalah. The loosers do not lose pool. [LSJ 20031121-1]"
     - "The starting bid must be enough to keep the target into play. [ANK 20190827]"
-'100680|Eyes of Argus" [AUS':
-    - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
-    - "Can be played after action resolution to use a reaction card (eg. {Fast Reaction} after combat). [LSJ 20091123]"
+100680|Eyes of Argus:
+    - "[AUS] The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
+    - "[AUS] Can be played after action resolution to use a reaction card (eg. {Fast Reaction} after combat). [LSJ 20091123]"
 100683|Eyes of the Beast:
     - "[PRO] The maneuver is only available during the action in which Eyes of the Beast was played. [ANK 20191108]"
     - "[PRO] If the action is blocked but continues after combat (eg. with {Form of Mist}) and the reacting vampire blocks again, he gets the maneuver again. [ANK 20191108]"
@@ -1088,6 +1092,8 @@
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101005|Invoke Poison Glands:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+101008|Iron Glare:
+    - "[pot][pre] Cannot be used during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
 101013|Island of Yiaros:
     - "Provides no additional strength to a Priscus for his ballots. [RTR 19970630]"
 101016|Jack of Both Sides:
@@ -1591,6 +1597,8 @@
 101526|Putrescent Servitude:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
     - "Does not stack with similar effects to provide superior [POT] (eg. {Leech}). [ANK 20180111]"
+101533|Quicksilver Contemplation:
+    - "[aus][tem] [ACTION MODIFIER][REACTION] Cannot be burned during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
 101536|The Rack:
     - "May not select a new target just for falling out of contention. [RTR 19960112]"
     - "Will not target a new copy of the same vampire if the original is burned or yielded. [TOM 19960122]"
@@ -2276,6 +2284,7 @@
 102131|Voter Captivation:
     - "Is played after the referendum is resolved. If the effect of the referendum ousts the acting Methuselah, there is no time to play it to prevent the ousting. [RTR 19951110]"
     - 'Can be played before or after other cards that are played "after action resolution" or "if the action was successful". [LSJ 20070327]'
+    - "Can be used after a referendum that is automatically passing, but X is zero in this case. [PIB 20150105] [LSJ 19980107]"
 102133|Vox Senis:
     - 'May still be "canceled as it is played" when used as an out-of-turn master. [LSJ 20031201]'
 102135|Vulture's Buffet:
@@ -2290,6 +2299,7 @@
 102143|Wanderer's Counsel:
     - "[ACTION MODIFIER] A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
     - "[ACTION MODIFIER] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
+    - "[ACTION MODIFIER][REACTION] Cannot be used during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
 102144|War Ghoul:
     - "If you have no other allies and no retainers in play when it is recruited, then you burn it. [RTR 19961113]"
     - 'Can use its ability "lock and burn to burn a location" during an action that would steal it (eg. [PRE] {Entrancement}). The action will have no effect but is still successful if unblocked and must then be paid. [PIB 20121031]'
@@ -2371,7 +2381,6 @@
     - "Card with multiple types (eg. Combat/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]"
 200017|Aeron:
     - "The damage inflicted by his ability is environmental. [RTR 19970630] [LSJ 20070328]"
-200017|Aeron":
     - "His ability to get a press can only be used during the press step. [PIB 20150121]"
 "200019|Agaitas, The Scholar of Antiquities":
     - "Additional draws are not subject to his ability (eg. {Infernal Pursuit}). [LSJ 20011202]"
@@ -2466,7 +2475,7 @@
     - "Does not affect the cost to contest titles, since it is paid in vampire blood, not pool. [RTR 19950509]"
 200357|Dominique:
     - "If a location costs X blood, it would take X vandal counters to burn it. [LSJ 20001118]"
-200360|Don Caravelli":
+200360|Don Caravelli:
     - "His ability to give a press can only be used during the press step. [PIB 20150121]"
 200363|Don Michael Antonio Giovanni:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
@@ -2597,7 +2606,7 @@
     - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 200819|Lázár Dobrescu:
     - "Cannot use his special ability if his controller has no vampires in her uncontrolled region. [LSJ 19990215]"
-200821|Lazarus (ADV)":
+200821|Lazarus (ADV):
     - "[MERGED] His ability to get a press can only be used during the press step. [PIB 20150121]"
 200824|Le Dinh Tho:
     - "When using his ability, you do not get to see the card drawn as replacement. [PIB 20121031]"
@@ -2649,7 +2658,7 @@
 200942|Marthe Dizier:
     - "Her ability can only move cards from the ash heap that were played in the normal manner. If the card was put in play in some other way, it cannot be retrieved by her special. [LSJ 20041119]"
     - "A card cancelled as it is played is still considered played, she can retrieve it. [LSJ 19980212] [ANK 20190701]"
-200945|Marty Lechtansi":
+200945|Marty Lechtansi:
     - "His ability to get a press can only be used during the press step. [PIB 20150121]"
 200955|Mata Hari:
     - "Orun and Aye cards cannot be placed on her as long as she's not a Laibon. [LSJ 20110611]"
@@ -2713,9 +2722,8 @@
     - "When recruit a werewolf ally, she is treated as a meeting the requirements for all effects generated by the play of the card, and only them, including duration effects. She is not treated as meeting the requirements for effects the card has from being in play. [ANK 20190228]"
     - "You can still use the burn options of cards with a requirement she could meet when you play them, but does not meet while in play. [LSJ 20050225]"
     - "Her ability do not let her fulfill card requirements if they are not played normally, like when using {Piper}. [LSJ 20050119]"
-    - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
-201113|Petaniqua (ADV)":
     - "Her ability to get a press can only be used during the press step. [PIB 20150121]"
+    - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 201121|Philip van Vermeer IV:
     - "When playing a card requiring a Ventrue, he is treated as a such for all effects generated by the play of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]"
     - "His ability do not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]"
@@ -2728,7 +2736,7 @@
 201132|Prejudice:
     - "Can only use his ability when he is bleeding. [ANK 20180514]"
     - "He is the one to get the bleed bonus. [ANK 20180511-2]"
-201136|Pugfar":
+201136|Pugfar:
     - "His ability to give a press can only be used during the press step. [PIB 20150121]"
 "201147|Rabbat, The Sewer Goddess":
     - "Her hunt ability may be used even when she is at full capacity. One blood goes to your pool directly even if it would have exceeded her capacity. [LSJ 20050331]"
