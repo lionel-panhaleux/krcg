@@ -189,6 +189,8 @@
 100172|The Black Throne:
     - "The contract effect can be used even if the target is burned or if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]"
     - "The contract effect can be used if a minion with a contract leaves the ready region because his controller is ousted. [ANK 20180129-2]"
+100174|Blade Clot:
+    - "Multiple clot counters can be placed on the same vampires if he his hit multiple times. When rescued by an older vampire, all clot counters are burned. [PIB 20150122]"
 100176|Blade of Enoch:
     - "Can be equipped by a vampire with capacity less than 6, although he cannot use it to strike and does not gain immunity to frenzy cards. [LSJ 20030607]"
 100177|Blanket of Night:
