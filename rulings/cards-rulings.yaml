@@ -2435,6 +2435,8 @@
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 "200155|Aziz, Dammar of Istanbul":
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
+"200157|Baba Yaga, the Iron Hag":
+    - "Her ability applies when recruiting in a non-normal way (eg. {Pack Alpha}). [PIB 20150105-2]"
 200167|The Baron:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
     - "Cannot play cards requiring a Baron. [PIB 20151116]"
@@ -2793,6 +2795,8 @@
 201331|Synesios:
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
     - "His ability do not allow his owner to play more than one Master: Out of Turn between two master phases. [ANK 20191004]"
+201332|Synner-G:
+    - "His ability applies when equipping in a non-normal way (eg. {Pier 13, Port of Baltimore}). [PIB 20150105-2]"
 201334|T.J.:
     - "Must be unlocked with at least 2 blood to use his ability. [ANK 20200508-2] [RBK 20181001-11]"
 "201337|Talley, the Hound":
@@ -2821,6 +2825,8 @@
     - "Keeps his title and votes if he changes sects. [LSJ 20010714]"
 201370|Thucimia:
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
+201382|Topaz:
+    - "Her ability applies when equipping in a non-normal way (eg. {Concealed Weapon}). [PIB 20150105-2]"
 201386|Travis "Traveler72" Miller:
     - "Must announce which conviction he burns as part of the terms of the action granted by his ability. [RTR 20111202]"
 201387|Troglodytia:
@@ -2856,6 +2862,8 @@
     - "When meeting a requirement, the controller can choose how he meets it (eg. he can play {Anarch Secession} as a Prince of any city, even a made-up one). [PIB 20150306] [PIB 20150307]"
     - "He can use a card requiring a sect or titled to be played (eg. use {Abbot} intercept bonus as a Sabbat vampire, perform {Archon} action to burn it as a Prince or Justicar). [PIB 20150306]"
     - "He cannot use a card as a vampire of a sect or with a title if the card does not require the sect or title to be played. (eg. he cannot benefit from {Powerbase: Madrid} as a Sabbat vampire) [PIB 20150306]"
+201460|Vulture:
+    - "His ability applies when equipping in a non-normal way (eg. {Pier 13, Port of Baltimore}). [PIB 20150105-2]"
 201462|Walker Grimes:
     - "His special ability only affects the cost of masters played by his controller. [LSJ 20081124-1]"
 201463|Wamukota:
