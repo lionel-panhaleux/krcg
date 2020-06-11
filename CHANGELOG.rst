@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.48 (unreleased)
+0.48 (2020-06-11)
 -----------------
 
 - 2016 & 2015 rulings included
