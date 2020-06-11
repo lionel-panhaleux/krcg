@@ -726,6 +726,9 @@
 100676|Extremis Boon:
     - "The pool of the highest bidder goes to the target Methusalah. The loosers do not lose pool. [LSJ 20031121-1]"
     - "The starting bid must be enough to keep the target into play. [ANK 20190827]"
+'100680|Eyes of Argus" [AUS':
+    - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
+    - "Can be played after action resolution to use a reaction card (eg. {Fast Reaction} after combat). [LSJ 20091123]"
 100683|Eyes of the Beast:
     - "[PRO] The maneuver is only available during the action in which Eyes of the Beast was played. [ANK 20191108]"
     - "[PRO] If the action is blocked but continues after combat (eg. with {Form of Mist}) and the reacting vampire blocks again, he gets the maneuver again. [ANK 20191108]"
@@ -811,7 +814,9 @@
     - "If the action is canceled before the aggravated damage is done, then the damage is not done (it is lost). If the action is merely ended (by {Change of Target}), then the damage occurs as normal. [RTR 20020501] [LSJ 20020927]"
     - "{Mask of a Thousand Faces} cannot be used to take over a Force of Will action, since the former requires an unlocked vampire and the latter requires a locked one. [LSJ 20020927]"
 100760|Forced Awakening:
+    - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
     - "If he fails to block, the vampire only burns a blood when the action begins to resolve (successfully or not). He can pay for reactions after declining to block, before burning a blood. [LSJ 19990421]"
+    - "Can be played after action resolution to use a reaction card (eg. {Fast Reaction} after combat). [LSJ 20091123]"
 100761|Forced March:
     - '[cel][for] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
 100763|Forearm Block:
@@ -1423,6 +1428,9 @@
     - "Is a Ⓓ action if a vampire controlled by another Methusalah is chosen. [ANK 20190606]"
 101320|Omael Kuman:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
+101321|On the Qui Vive:
+    - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
+    - "Can be played after action resolution to use a reaction card (eg. {Fast Reaction} after combat). [LSJ 20091123]"
 101322|Open Dossier:
     - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101325|Ophidian Gaze:
@@ -2274,6 +2282,7 @@
     - "Is undirected. [ANK 20180202]"
 102137|Wake with Evening's Freshness:
     - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
+    - "Can be played after action resolution to use a reaction card (eg. {Fast Reaction} after combat). [LSJ 20091123]"
 102141|Walks-With-Might:
     - "Only affects the cost of masters played by his controller. [LSJ 20081124-1]"
 102143|Wanderer's Counsel:
