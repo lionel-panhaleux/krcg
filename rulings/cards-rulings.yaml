@@ -271,7 +271,8 @@
     - "[vis] [VIS] The unlock effect takes place before the end of combat. [RTR 19970630]"
     - "[vis] [VIS] The vampires still unlock if an effect continues the combat or begins a new combat. [RTR 20020501] [LSJ 20030717]"
 100236|Bonding:
-    - "[DOM] The superior version cannot be used if you do not need the stealth at the time you play it. [TOM 19951109]"
+    - "[DOM] Cannot be used if you do not need the stealth at the time you play it. [TOM 19951109]"
+    - "[DOM] Cannot be used to increase the stealth of a non-bleed action. [LSJ 19980824] [TOM 19941109]"
 100237|Bone Spur:
     - "Must be played before strike resolution and damage prevention in order to affect the current strike. (can be played after both strikes have been chosen) [RTR 19960112]"
 100239|The Book of Going Forth by Night:
@@ -1522,8 +1523,6 @@
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "Damage done to the striking minion is environmental. [LSJ 19970801]"
     - "The press can only be used during the current round. [TOM 19960521]"
-101429|Power of One:
-    - "[pre] Cannot be used to increase the stealth of a non-bleed action. [ANK 20171017-1]"
 101430|Power Structure:
     - "Cannot be used during a Blood Hunt referendum, since there is no political action. [ANK 20190707]"
 "101431|Powerbase: Barranquilla":
