@@ -70,9 +70,9 @@
     "87344f45c907": "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]",
     "ab0c6b8b324e": "If a vampire blocks an Archon, he or she burns 1 blood regardless of which action the Archon was taking. [RTR 19960221]",
     "550c205f9f4e": "Multiple Archon cards provide different actions: if the vampire manage to unlock during the minion phase, he can perform the two actions. [RTR 20030519]",
-    "a6bc4c1d7801": "It must be played after blocks are declined. Playing it implicitly declines block. [LSJ 20070203]",
-    "d83b6a9eeee2": "Must be played before action resolution, ie. before any modifier or reaction played \"as the action/bleed would be successful\" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]",
-    "ee6522eec92c": "Targets the bleeding vampire. (eg. costs one more against {Secure Haven}, cannot be played on {Mimir}). [LSJ 20010817] [PIB 20131013]",
+    "bf5f325a217b": "Must be played after blocks are declined, playing it implicitly declines block attempts. [LSJ 20070203]",
+    "9f79339b616a": "Must be played before action resolution, before any modifier or reaction played \"as the action would be successful\" are played (eg. cannot be played after a {Spying Mission} on the vampire triggers). [LSJ 19980105]",
+    "33960844e84c": "Targets the bleeding vampire (eg. costs one more against {Secure Haven}, cannot be played on {Mimir}). [LSJ 20010817] [PIB 20131013]",
     "716618a302f9": "[VAL] Prevents up to 2 damage, it can prevent less. [RTR 20041202]",
     "b6b4c86fd4f0": "[VAL] Can prevent 2 damage per round, from any strike, can prevent 2 times 1 damage from two different strikes. [ANK 20180117]",
     "61bdf345c69a": "Prevents up to 3 damage, it can be used to prevent less. [RTR 20041202]",
@@ -176,7 +176,8 @@
     "6349480d5091": "[tha] The press can only be used during the current round. [TOM 19960521]",
     "8a36270c973c": "[vis] [VIS] The unlock effect takes place before the end of combat. [RTR 19970630]",
     "11037d0ae7d6": "[vis] [VIS] The vampires still unlock if an effect continues the combat or begins a new combat. [RTR 20020501] [LSJ 20030717]",
-    "bc3a96f20b7c": "[DOM] The superior version cannot be used if you do not need the stealth at the time you play it. [TOM 19951109]",
+    "f8656d30201f": "[DOM] Cannot be used if you do not need the stealth at the time you play it. [TOM 19951109]",
+    "d91551a3120a": "[DOM] Cannot be used to increase the stealth of a non-bleed action. [LSJ 19980824] [RTR 19941109]",
     "559984f87ae5": "Can be played against any combat card, even those played at the end of the round. [LSJ 20070214]",
     "a41a84bcda48": "Transfers may not be made to the vampire - neither to put blood on nor to move blood off. [RTR 19950413]",
     "39adb07b754d": "Damage done to the striking minion is environmental. [LSJ 19970801]",
@@ -328,6 +329,7 @@
     "55d19644d49c": "The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]",
     "bc70952de45e": "Cannot be used to direct a bleed to a Methuselah who would be an invalid target for a bleed. [RTR 19950622]",
     "a98297ecca40": "Declaring that one is not blocking is implicit in playing Deflection. [LSJ 20000507]",
+    "d83b6a9eeee2": "Must be played before action resolution, ie. before any modifier or reaction played \"as the action/bleed would be successful\" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]",
     "0c38f23d534a": "May be played before, during, or after votes and ballots have been cast. [LSJ 19980130]",
     "3a3e1e7651b1": "The acting minion is still considered to have taken a political action, so cannot perform another in the same turn. [RTR 19970630]",
     "f8598d1bcd80": "If played on a referendum called by a {Charming Lobby}, the political action card (if any) is retrieved, not the {Charming Lobby} card. [LSJ 20030426]",
@@ -432,8 +434,9 @@
     "633d9d7f769f": "[AUS] Can be played after action resolution to use a reaction card (eg. {Fast Reaction} after combat). [LSJ 20091123]",
     "4e60d2dd4e30": "[PRO] The maneuver is only available during the action in which Eyes of the Beast was played. [ANK 20191108]",
     "8afc2311afdf": "[PRO] If the action is blocked but continues after combat (eg. with {Form of Mist}) and the reacting vampire blocks again, he gets the maneuver again. [ANK 20191108]",
-    "17a3e5804479": "[OBF]: A minion attempting to block before it is played cannot back out. [LSJ 20081202]",
-    "a42278b50320": "[OBF]: A minion that as attempted to block but failed before it was played is not affected. [ANK 20190509]",
+    "930c474b1e45": "[OBF] A minion attempting to block before it is played cannot back out. [LSJ 20081202]",
+    "b4c46ae56b48": "[OBF] A minion that has attempted to block but failed before it was played is not affected. [ANK 20190509]",
+    "29e09fe34742": "[OBF] The lock of the minion happens at action resolution. He still locks if he unlocked before that (eg. with {Guard Dogs}). Only cards that can be played \"after action resolution\" can be played after the lock. [ANK 20171017]",
     "a0dec411111c": "[MYT] The \"does not unlock as normal\" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]",
     "ff9515fcbe92": "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]",
     "18d3e855ada5": "[SPI] Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]",
@@ -547,6 +550,7 @@
     "832369ff79fa": "[nec] Cannot be used if there is no damage to prevent. [LSJ 20001114]",
     "b8a9032ec200": "May not be locked \"in response\" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]",
     "04c8ef4699b0": "Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]",
+    "6b3f2178d830": "Cannot be used before damage is inflicted after action resolution (eg. {Force of will}, {Daring the Dawn}): this is still during the action. [ANK 20171124]",
     "df4c66b4cee8": "Can use {Charming Lobby} to call a referendum \"as a vampire\". [RTR 20020501]",
     "be2efd66e3f1": "If it uses its last life to pay for an action, the action still resolves fully. If that leads to an oust, the oust is resolved before resolving effects triggered by the fact that the Herald burns. [LSJ 20080512]",
     "87a74e2d1c0b": "Cannot be used to enter combat with a vampire on his way to torpor. [LSJ 20100604-1]",
@@ -611,6 +615,7 @@
     "ed48bd74ab91": "Is not an ally in the ash heap (eg. {Compel the Spirit} cannot be played on him). [LSJ 20020115] [LSJ 20030128]",
     "91b0f2b1486d": "His \"starting life amount\" is 1 ({Vagabond Mystic} cannot give hime more life). [LSJ 20030520-2]",
     "799a7ebb7236": "Using the Jar action does not force the minion to strike with it if he is blocked. [LSJ 19971215]",
+    "50eb54c92e73": "{Ghoul Retainer} is not the bearer so he can use the Jar even if it has no counter on it. [ANK 20171003]",
     "dca07fb086d1": "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]",
     "abaed2c7a7ef": "If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]",
     "2761d4310d0f": "[ser] The press can only be used during the current round. [TOM 19960521]",
@@ -767,6 +772,7 @@
     "9a3e625d63c9": "Each Methuselah must find as many copies of the vampire as possible when searching. [LSJ 20050611]",
     "4f0267f04dac": "[THN] If the strike is dodged, environmental damage is not applied. [ANK 20200517]",
     "fb2f70c3287c": "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]",
+    "b1a3e367bb5e": "His life total can exceed his starting life capacity (it is the case for all allies). [ANK 20171109]",
     "e31e7898952b": "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630] [ANK 20170111]",
     "c56d9d887caa": "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]",
     "d9071a64593e": "When a vampire goes to torpor, the card is replaced before any other effect (eg. before losing pool to {Fame}). [LSJ 20100527]",
@@ -780,7 +786,7 @@
     "6c26df779981": "[SER][PRE] Can be used to cancel an action modifier player \"after the action/referendum is successful\" (eg. {Voter Captivatoin} or {Freak Drive}). [ANK 20180909]",
     "65429214a168": "A vampire with multiple Oruns will only burn one Orun if he successfully bleeds for 2 or more. [LSJ 20090603]",
     "e407054106a1": "The life is gained after the presses are handled. It is gained if the round ends prematurely. [RTR 20030519]",
-    "8768b20c3a05": "The Auspex special applies to whatever the current action is, not just to his special enter combat action. [LSJ 20050201]",
+    "7f0c7bbaf162": "The Auspex [aus] special applies to whatever the current action is, not just to his special enter combat action. [LSJ 20050201]",
     "994431f0407e": "If Auspex [aus] was used to block him, the blocker can use an effect to set the range, but not a {Sniper Rifle} as it would require him to strike with it, which he cannot. [LSJ 20100827]",
     "400b8755aab6": "[OBT] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]",
     "bde86a03d5e7": "[OBT] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202]",
@@ -974,6 +980,7 @@
     "a167c3a1ca76": "[ANI] Is directed at all Methusalah controlling a card that require Animalism [ani]. [LSJ 20080809-1] [KOT 20081119]",
     "ba57d6a3b3ae": "There is no limit to the number of cards it can store. [PIB 20110712-2]",
     "1beaee2313d4": "[THA] The press can only be used during the current round. [TOM 19960521]",
+    "7d2051501b91": "Is played and inflicts damage after the strikes have been resolved and inflicted damage, before any other pair of strikes and before the press step. [ANK 20171226]",
     "b661c4a58dbb": "[NEC] Cards and effects that can be played \"as the action is announced\" (and only them) can be played before it. [ANK 20190425]",
     "8b58d512d4e6": "[CEL] Cannot be used if there is no damage to prevent. [LSJ 20001114]",
     "d4e1b097a1db": "{Unleash Hell's Fury} cannot block the bearer. [ANK 20190501]",
@@ -1587,6 +1594,7 @@
     "[LSJ 20020926]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/C7vgb-0Mcbo/6UHJsQjBs9wJ",
     "[LSJ 20030717]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/IkMD8wfAcqw/2OdnRU3Q1AQJ",
     "[TOM 19951109]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/WhJj5K1Fa-0/m673ruvTozEJ",
+    "[LSJ 19980824]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/iRQcAXMl7aY/YMhwNvcDs5QJ",
     "[LSJ 20070214]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/o_BltcAJ_So/r_uEap9msOYJ",
     "[RTR 19950413]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/zB2vyPBnO6g/i1myM9tD54AJ",
     "[ANK 20180517]": "http://www.vekn.net/forum/rules-questions/76447-rules-team-rulings-rtr-03-03-2018?start=30#87041",
@@ -1757,6 +1765,7 @@
     "[ANK 20191108]": "http://www.vekn.net/forum/rules-questions/78081-eyes-of-the-beast#97710",
     "[LSJ 20081202]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/GMxeDWiDXP8/twr__FgYvmMJ",
     "[ANK 20190509]": "http://www.vekn.net/forum/rules-questions/77622-faceless-night-after-elder-impersonation#94847",
+    "[ANK 20171017]": "http://www.vekn.net/forum/rules-questions/76233-question-about-failing-to-block-faceless-night-and-playing-guard-dogs#83900",
     "[LSJ 20020112]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/9yhb-ToEzL8/Eq59W8cS65YJ",
     "[LSJ 20040519]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/fz-EAPmmqZY/bj4sR5CxnmQJ",
     "[LSJ 20080510]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/67g8kq3F_uw/MAAoEV0Jf_kJ",
@@ -1810,6 +1819,7 @@
     "[LSJ 20100221]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/TojSBPeGCFw/0FaCEfqRs3QJ",
     "[LSJ 20010110]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Vtm465mblX4/B6pCvotsfFsJ",
     "[LSJ 19980831]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Za8AS17xXPM/Ttki0DplaeYJ",
+    "[ANK 20171124]": "http://www.vekn.net/forum/rules-questions/76304-question-about-timing-of-force-of-will-damage-and-heidelberg?start=0#84354",
     "[LSJ 20050216]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/5_rUFgufFc4/7OVVD0KpnS4J",
     "[ANK 20190701]": "http://www.vekn.net/forum/rules-questions/77763-multiple-questions#95690",
     "[TOM 19951212-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/NJa6LfMSPks/0CQKgKoeWgUJ",
@@ -1840,6 +1850,7 @@
     "[LSJ 20100303]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/jmmm0WRUPvs/x9pv1OmWFS4J",
     "[ANK 20180817]": "http://www.vekn.net/forum/rules-questions/76933-cock-robin-jack-of-both-sides#90064",
     "[LSJ 20030128]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/d25nONe01WY/xqfEs_qwc7gJ",
+    "[ANK 20171003]": "http://www.vekn.net/forum/rules-questions/76205-ghoul-retainer-and-jar-of-skin-eaters#83712",
     "[TOM 19951212-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/fUZXpNtAX6M/WuCFPySyZJ8J",
     "[RTR 19971201]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/zpIp5xOzQT0/IkqqeD6dinYJ",
     "[ANK 20181016]": "http://www.vekn.net/forum/rules-questions/77075-sequencing-and-checking-for-triggers?start=6#91215",
@@ -1908,6 +1919,7 @@
     "[LSJ 20060525]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/0HqW_TzbJlM/WZecj55DSCkJ",
     "[LSJ 20050611]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/8GYIKyvuCZE/ivBTcweeiQQJ",
     "[ANK 20200517]": "http://www.vekn.net/forum/rules-questions/78638-transfusion-and-elemental-damage#99853",
+    "[ANK 20171109]": "http://www.vekn.net/forum/rules-questions/76282-ossian-and-nephandus#84174",
     "[LSJ 20040415]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/XTya9MiAiqc/4cejLmkUwEMJ",
     "[ANK 20190717-1]": "http://www.vekn.net/forum/rules-questions/77717-nod-how-is-the-rearraging-of-equipment-done#95422",
     "[LSJ 19991025]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/R94tyTGJ6VQ/KxvkGm1aon8J",
@@ -2016,6 +2028,7 @@
     "[LSJ 20030307]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/zhdj4jnSdrM/tAU_FosRtbwJ",
     "[LSJ 20080809-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/1jW6GXrIRSU/7ywPFR39rb4J",
     "[PIB 20110712-2]": "http://www.vekn.net/forum/rules-questions/6199-shilmulo-question#6200",
+    "[ANK 20171226]": "http://www.vekn.net/forum/rules-questions/76349-shoulder-drop?start=0#84655",
     "[ANK 20190501]": "http://www.vekn.net/forum/rules-questions/73949-re-unleash-vs-signet?start=6#94746",
     "[LSJ 19990611]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/HrtTrrUvvn0/kJQ35Y2vZiwJ",
     "[PIB 20110725]": "http://www.vekn.net/forum/rules-questions/6728-announcing-siphon#6740",
@@ -2424,9 +2437,9 @@
       "2191ac2d8768"
     ],
     "100085": [
-      "a6bc4c1d7801",
-      "d83b6a9eeee2",
-      "ee6522eec92c"
+      "bf5f325a217b",
+      "9f79339b616a",
+      "33960844e84c"
     ],
     "100087": [
       "716618a302f9",
@@ -2697,7 +2710,8 @@
       "11037d0ae7d6"
     ],
     "100236": [
-      "bc3a96f20b7c"
+      "f8656d30201f",
+      "d91551a3120a"
     ],
     "100237": [
       "7692ab5be8a4"
@@ -3465,8 +3479,9 @@
       "8afc2311afdf"
     ],
     "100687": [
-      "17a3e5804479",
-      "a42278b50320"
+      "930c474b1e45",
+      "b4c46ae56b48",
+      "29e09fe34742"
     ],
     "100690": [
       "a0dec411111c",
@@ -3876,7 +3891,8 @@
     ],
     "100908": [
       "b8a9032ec200",
-      "04c8ef4699b0"
+      "04c8ef4699b0",
+      "6b3f2178d830"
     ],
     "100911": [
       "87344f45c907"
@@ -4080,7 +4096,8 @@
     "101020": [
       "c11e1f56843c",
       "799a7ebb7236",
-      "03f35586b905",
+      "cbced49796c1",
+      "50eb54c92e73",
       "d0e57aef1215"
     ],
     "101021": [
@@ -4563,6 +4580,7 @@
       "24a1f2d32f2b"
     ],
     "101272": [
+      "b1a3e367bb5e",
       "e31e7898952b"
     ],
     "101273": [
@@ -4655,8 +4673,9 @@
       "4720a1202a1f"
     ],
     "101333": [
+      "b1a3e367bb5e",
       "e407054106a1",
-      "8768b20c3a05",
+      "7f0c7bbaf162",
       "994431f0407e"
     ],
     "101334": [
@@ -5371,6 +5390,9 @@
     ],
     "101770": [
       "1beaee2313d4"
+    ],
+    "101771": [
+      "7d2051501b91"
     ],
     "101773": [
       "b661c4a58dbb"
