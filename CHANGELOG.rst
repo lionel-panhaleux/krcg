@@ -4,7 +4,7 @@ Changelog
 0.49 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Added part of 2017 rulings (thx n11c0w)
 
 
 0.48 (2020-06-11)
