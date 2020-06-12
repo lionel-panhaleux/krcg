@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.49 (unreleased)
+0.49 (2020-06-12)
 -----------------
 
 - Added part of 2017 rulings (thx n11c0w)
