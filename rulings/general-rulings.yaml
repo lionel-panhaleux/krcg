@@ -533,3 +533,9 @@
     - 102064|Under the Skin
     - 102070|Unexpected Coalition
     - 102073|Unholy Radiance
+- ruling: "Can be used during an action, when the controller has the opportunity to play an effect as per section 1.6.1.5 of the rulebook (Sequencing). [ANK 20200616]"
+  cards:
+    - 100135|The Barrens
+    - 100785|Fragment of the Book of Nod
+    - 100656|The Erciyes Fragments
+    - 100588|Dreams of the Sphinx
