@@ -1,5 +1,6 @@
 import asyncio
 import collections
+import datetime
 import logging
 import os
 import re
@@ -270,6 +271,7 @@ def handle_message(message, completion=True):
     codex_url = "http://www.codex-of-the-damned.org/card-search/index.html?"
     codex_url += urllib.parse.urlencode({"card": card_name})
     image_url = f"http://www.codex-of-the-damned.org/card-images/{file_name}.jpg"
+    image_url += f"#{datetime.datetime.now():%Y%m%d%H}"  # timestamp cache busting
     color = COLOR_MAP.get(card_type, DEFAULT_COLOR)
     if card_type == "Vampire":
         color = COLOR_MAP.get(clan, DEFAULT_COLOR)

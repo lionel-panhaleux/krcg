@@ -4,7 +4,7 @@ Changelog
 0.51 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Discord bot: Cache busting for card images
 
 
 0.50 (2020-06-22)
