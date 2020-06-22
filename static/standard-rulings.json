@@ -107,6 +107,7 @@
     "38330a5b35ef": "[mal] is unaffected by {Orun}. [MAL] is affected by {Orun}. [ANK 20180719-1]",
     "317223104492": "The burn option can be used if all your vampires with [mal] are in torpor. [LSJ 20091203]",
     "e14f2b6ac7b7": "Cannot be used when a card is played to draw a card that would cancel it \"as it is played\". [RTR 20040501]",
+    "a8ae31ac29c4": "Can be used during an action, when the controller has the opportunity to play an effect as per section 1.6.1.5 of the rulebook (Sequencing). [ANK 20200616]",
     "4972495321af": "If put into play in a special way (eg. using {Concealed Weapon}), it is replaced immediately. [LSJ 20080702-2]",
     "4a58f034bc89": "If played normally, it is not replaced if {Gift of Bellona} is played after being blocked. [ANK 20200517-3]",
     "d71381ec591d": "If it is burned by another mean than its effect, the weapon is not burned. [LSJ 20090113-1]",
@@ -402,6 +403,7 @@
     "39be8713fb09": "[CHI] If some minions cannot be targeted because of another effect, the action will simply have no effect on the things it cannot target. [RTR 20080808]",
     "001235a62a15": "Can be used during any bleed attempt made against you, not just ones declared against you. [RTR 19960530]",
     "9ff7c226cae5": "If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]",
+    "26a2c453ce8b": "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]",
     "efe9c232bf7a": "His ability cannot be used from the ash heap, he needs to be ready. [ANK 20180511-1]",
     "71754601922d": "When using is ability to put another one into play, this does not require a ready Harbinger, the pool cost of the new one is not paid, the new one can act this turn and can use his ability to bring another one immediately. [ANK 20180509]",
     "ce6c5b423b12": "Can only be played by the controller of the acting minion. [LSJ 19990425]",
@@ -590,7 +592,6 @@
     "9d4e3b1ceea1": "The cards can be played using the inferior version of the discipline. [LSJ 20090508]",
     "1a394968178f": "Can be used to meet one (not both) of the Discipline requirements of a multi-Discipline card. [LSJ 20090508]",
     "32678bff54cc": "If it is stolen, then the chosen minion is unable to block the new possessor of the Videotape (and can now block whoever used to have it). If it is removed from play, its effect ends. [TOM 19960114]",
-    "26a2c453ce8b": "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]",
     "378c6f5c0b67": "The cards to remove must be chosen when announcing the action. [LSJ 20100527]",
     "bbc14ee4f945": "[THA] Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]",
     "d666110dd98b": "Can be used to meet one (not both) of the normal Discipline requirements of a multi-Discipline card. [LSJ 20011217]",
@@ -651,6 +652,7 @@
     "f522ad84e951": "The vampire cannot hunt if there are no vampires at all. [LSJ 19970224]",
     "c4eda45e0f11": "If the vampire with the card \"cannot gain blood\", then the stolen blood is moved to the blood bank when he hunts. [LSJ 20010809-1]",
     "9591e196a607": "Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606] [ANK 20190707]",
+    "b2862a92aec3": "Multiple copies in play give only 1 vote in total to non-titled Panders. [LSJ 20010819] [PIB 20130722]",
     "ed62d1dadb4f": "May be used if one of your vampires is in combat with an ally. In this case, your vampire goes into torpor and the ally is unaffected. [RTR 19960112]",
     "f0c89b55dff4": "Is played during combat. Combat cards can be played to continue combat or begin a new combat. [ANK 20200109]",
     "a37538ef9425": "If the combat continues or a new combat begins (eg. {Psyche!}), the vampires do not go into torpor. [RTR 20020501] [LSJ 20021126]",
@@ -1268,6 +1270,7 @@
     "4ac01fd569f6": "If his controller is not his original owner and he burns, he goes to his original owner ash heap, breaking all control effect, then to his owner's uncontrolled area. The Methusalah who was controlling him when he burned gets the additional transfers. [ANK 20200417]",
     "1efa93fc7631": "The card being retrieved is announced when the action is declared. [LSJ 19970922]",
     "cf32b823215a": "Immune means damage from allies and retainers are not considered inflicted. [LSJ 20010627]",
+    "353428614f82": "Can use her ability to prevent 4 damage on a single strike. [LSJ 20100708]",
     "f8b33008df70": "Card with multiple types (eg. Reaction/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]",
     "2ba0ad65dd9b": "His ability can be used more than once each turn. [RTR 20180511]",
     "a4e20140a50b": "[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]",
@@ -1386,6 +1389,7 @@
     "1ecb4d86dc79": "If he cannot commit diablerie, then his card text does not force him to: he is not \"stuck\", he is free to take any other legal action. [LSJ 20050514]",
     "7f714d691a9e": "Can only use his ability when he is bleeding. [ANK 20180514]",
     "294634cd1e39": "He is the one to get the bleed bonus. [ANK 20180511-2]",
+    "9f2f5f461865": "Her ability can be used only once per minion phase. [ANK 20190207] [RBK 20181001-11]",
     "1c4881d02033": "Her hunt ability may be used even when she is at full capacity. One blood goes to your pool directly even if it would have exceeded her capacity. [LSJ 20050331]",
     "323403423c34": "When using her ability, make all discards and redraws first, then shuffle the discards back into the library. [RTR 20030519]",
     "f12fc16699cc": "Unlocking is the first thing to do in the unlock phase: if he is odd, gaining one blood later in the unlock phase will not let him \"unlock as normal\" this turn. [LSJ 20060911]",
@@ -1545,6 +1549,7 @@
     "[LSJ 19971215]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/mfBmRrUKZQ0/5Py-ENuzoGwJ",
     "[ANK 20180719-1]": "http://www.vekn.net/forum/rules-questions/76836-orun-barrenness-rtr?start=6#89073",
     "[LSJ 20091203]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/JBdmMh1udN8/5f5UX4qfOMMJ",
+    "[ANK 20200616]": "http://www.vekn.net/forum/rules-questions/78687-the-erciyes-fragments-fragment-of-the-book-of-nod-barrens-impulse#100110",
     "[LSJ 20080702-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/sCHpPQkjeAE/8N5_G2gMHAIJ",
     "[ANK 20200517-3]": "http://www.vekn.net/forum/rules-questions/78606-disguised-baseball-bat#99854",
     "[LSJ 20090113-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/iZC_oiiXgTk/vKVo4bOt3MMJ",
@@ -1869,6 +1874,8 @@
     "[LSJ 20010809-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/LB6Zg4bEggc/g5eYOHiKrvUJ",
     "[LSJ 20090606]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/-hy9E1u2t_o/CPU8rltzhesJ",
     "[ANK 20190707]": "http://www.vekn.net/forum/rules-questions/77694-ok-a-new-round-of-doubts-for-a-noobie#95274",
+    "[LSJ 20010819]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/2dXfHhG98Rs/RMqiA8RXDncJ",
+    "[PIB 20130722]": "http://www.vekn.net/forum/rules-questions/52017-legacy-of-pander#52019",
     "[ANK 20200109]": "http://www.vekn.net/forum/rules-questions/78291-legacy-of-power-and-continue-combat-effects-like-psyche#98484",
     "[LSJ 20021126]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/9Ui7pesvu5g/P4p-nKZa6lQJ",
     "[LSJ 20030519-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/mi8M1lSCLqo/Rdg9SU5nA6QJ",
@@ -2175,6 +2182,7 @@
     "[LSJ 20100228]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/yDeGOj1RBuU/k2CfIfBk770J",
     "[ANK 20200417]": "http://www.vekn.net/forum/rules-questions/78568-the-capuchin-burns-temporary-control?start=12#99616",
     "[LSJ 19970922]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/k0Lih9MQf3U/VEkGLwInIq8J",
+    "[LSJ 20100708]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/7SxYC8-8654/VzSEX3LuKKEJ",
     "[LSJ 20051116-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/MfGC7sJ8vh8/9ylhc34zFesJ",
     "[LSJ 20001118]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/r59jQZbWMi0/kesQz7kYbD0J",
     "[TOM 19951215-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/mLnhwWDRglQ/0Ghd3eyRaFQJ",
@@ -2237,6 +2245,7 @@
     "[LSJ 20050514]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/9803Eu3PvDs/4xj8UAK_LZAJ",
     "[ANK 20180514]": "http://www.vekn.net/forum/rules-questions/76592-prejudice-special-ability?start=12#86875",
     "[ANK 20180511-2]": "http://www.vekn.net/forum/rules-questions/76592-prejudice-special-ability#86767",
+    "[ANK 20190207]": "http://www.vekn.net/forum/rules-questions/77344-black-chantry-rulebook-feedback?start=18#93328",
     "[LSJ 20050331]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/J0CgOqvbfEk/P1VelhBkcr8J",
     "[LSJ 20060911]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/oznDQgIFZ-I/dU2xMMkxPwsJ",
     "[LSJ 20060221]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/OC41YQYfJO4/g_y0RPVpXNkJ",
@@ -2528,7 +2537,8 @@
       "317223104492"
     ],
     "100135": [
-      "e14f2b6ac7b7"
+      "e14f2b6ac7b7",
+      "a8ae31ac29c4"
     ],
     "100137": [
       "4972495321af",
@@ -3307,7 +3317,8 @@
     "100588": [
       "848bd7655ff5",
       "e14f2b6ac7b7",
-      "4b01339db15b"
+      "4b01339db15b",
+      "a8ae31ac29c4"
     ],
     "100591": [
       "27884c7f2d0a"
@@ -3376,7 +3387,7 @@
       "9ff7c226cae5"
     ],
     "100625": [
-      "4322e32f1977"
+      "26a2c453ce8b"
     ],
     "100626": [
       "6538f88aedef"
@@ -3427,7 +3438,8 @@
     "100656": [
       "e14f2b6ac7b7",
       "b103b3228a51",
-      "0652858b71c4"
+      "0652858b71c4",
+      "a8ae31ac29c4"
     ],
     "100657": [
       "d0e57aef1215"
@@ -3664,7 +3676,8 @@
       "e3cae67d6908"
     ],
     "100785": [
-      "e14f2b6ac7b7"
+      "e14f2b6ac7b7",
+      "a8ae31ac29c4"
     ],
     "100788": [
       "bae43ea9f2d7",
@@ -4211,6 +4224,9 @@
       "f522ad84e951",
       "c4eda45e0f11",
       "9591e196a607"
+    ],
+    "101087": [
+      "b2862a92aec3"
     ],
     "101088": [
       "ed62d1dadb4f",
@@ -6403,6 +6419,9 @@
     "200249": [
       "cf32b823215a"
     ],
+    "200269": [
+      "353428614f82"
+    ],
     "200277": [
       "5d8ae33078fb"
     ],
@@ -6929,6 +6948,9 @@
     ],
     "201136": [
       "8c211da47112"
+    ],
+    "201138": [
+      "9f2f5f461865"
     ],
     "201147": [
       "1c4881d02033"
