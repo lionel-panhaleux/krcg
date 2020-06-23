@@ -1,3 +1,5 @@
+import datetime
+
 from src import discord_bot
 from src import vtes
 
@@ -29,7 +31,10 @@ def test_bot(monkeypatch):
             "text": "Click the title to submit new rulings or rulings corrections"
         },
         "image": {
-            "url": "http://www.codex-of-the-damned.org/card-images/krcgnewsradio.jpg"
+            "url": (
+                "http://www.codex-of-the-damned.org/card-images/krcgnewsradio.jpg"
+                f"#{datetime.datetime.now():%Y%m%d%H}"
+            )
         },
         "title": "KRCG News Radio",
         "type": "rich",
@@ -61,7 +66,7 @@ def test_bot(monkeypatch):
         "image": {
             "url": (
                 "http://www.codex-of-the-damned.org/card-images/"
-                "monasteryofshadows.jpg"
+                f"monasteryofshadows.jpg#{datetime.datetime.now():%Y%m%d%H}"
             )
         },
         "title": "Monastery of Shadows",
