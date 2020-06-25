@@ -1,6 +1,7 @@
 {
   "rulings": {
     "f44e791a2c5e": "Provides only ony maneuver each combat, even if the bearer changes. [LSJ 19980302-2]",
+    "118759f6efe4": "The optional maneuver cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]",
     "0d12c9473b76": "The effect is not optional. [RTR 19980707] [LSJ 19980722]",
     "673124cafe43": "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]",
     "06fa4c09887a": "\"Successful resolution\" means the action must not be blocked and the vampire must have gained blood. If the vampire cannot gain blood (eg., {Vampiric Disease}, {Ex Nihilo}), the blood hunt is not called even if the action is not blocked. [LSJ 20090411]",
@@ -328,6 +329,7 @@
     "b404934e5867": "When used to cancel a card play at the end of a round or when wombat would end, counts as having been played during that ending round. [ANK 20180910-2]",
     "874c0157f2cc": "\"when a vampire is going into torpor\" and \"when a vampire should go into torpor\" are the same window. If both minions want to play a card, acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Decapitate} and vice-versa. [RTR 20010710]",
     "55d19644d49c": "The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]",
+    "3b30037c3269": "The optional maneuvers cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]",
     "bc70952de45e": "Cannot be used to direct a bleed to a Methuselah who would be an invalid target for a bleed. [RTR 19950622]",
     "a98297ecca40": "Declaring that one is not blocking is implicit in playing Deflection. [LSJ 20000507]",
     "d83b6a9eeee2": "Must be played before action resolution, ie. before any modifier or reaction played \"as the action/bleed would be successful\" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]",
@@ -1004,6 +1006,7 @@
     "c6b68309cf1b": "The bearer is not commited to use it if he or she uses another effect to set the range. [RTR 20020501]",
     "c2da927b97d7": "If a new combat occurs due to an effect like {Psyche!}, the Rifle can not be used to set the range. [LSJ 20010814]",
     "9051d22a8c92": "If a Slave locks to enter combat instead of a blocking minion, he cannot use the Rifle to set the range [ANK 20200115]",
+    "b6b0e945d74e": "The ability to set the range can only be used if the weapon was equipped when blocking (eg. not when using {Disguised Weapon} after the block). [LSJ 20021028]",
     "ff59e95f14f4": "Prevents up to 2 or 4 non-aggravated damage, it can prevent less. [RTR 20041202]",
     "bde48ff7ef3c": "Can be played with no older vampire in the uncontrolled region, though the ready vampire would be removed and his blood lost. [LSJ 20041015]",
     "972618cd5b43": "[QUI] A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]",
@@ -1109,6 +1112,7 @@
     "6ac51954708b": "[dom] Damage is environmental. [RTR 19970630] [ANK 20200422]",
     "d16a8051cf24": "[dom] Damage is inflicted if the range is closed (only), even if the opponent dodges. It is not inflicted if anyone uses a \"strike: combat ends\". [ANK 20200422]",
     "44cd1eca6462": "[POT] The press can only be used during the current round. [TOM 19960521]",
+    "55be4daa399e": "[MYT] The optional maneuver cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]",
     "7ce1a93ec7c3": "Can target a minion with less blood than the amount stolen. [RTR 20010711]",
     "14e1770666e0": "The same vampire can serve as the \"second Toreador\" for multiple Toreador Grand Balls. [TOM 19960528]",
     "5aaa7c5744e2": "The first Toreador chosen for the Toreador Grand Ball is unblockable on all non-bleed actions. This remains true even after the vampire attempts a bleed. [LSJ 19970814]",
@@ -1261,7 +1265,7 @@
     "42d7086b79c4": "Her ability applies when recruiting in a non-normal way (eg. {Pack Alpha}). [PIB 20150105-2]",
     "9c1d5de81978": "Cannot play cards requiring a Baron. [PIB 20151116]",
     "2882c92fded1": "He cannot attempt an action to equip or employ, nor strike to steal an equipment or retainer. [LSJ 20050315] [LSJ 20010210]",
-    "7e7299664279": "He can equip with an equipment that is a location when in play. [LSJ 20050315]",
+    "f1c1c6bf5c36": "He can equip with an equipment that is a location when in play, but not by playing the card normally as it is an action card. (eg. Using {Vast Wealth} would work). [LSJ 20050315] [LSJ 20050413-1] [LSJ 20050413-2]",
     "91bff5a3d14c": "The reduction applies for other effects that check the \"cost\" of equipment on her. [RTR 19941109]",
     "90bd3ca530b9": "If she is equipped with something and that equipment is transferred to another minion, then it regains its normal pool value. Conversely, if a piece of equipment moves onto her, its effective pool cost is lowered by 1. [RTR 19941109]",
     "a2867d952b86": "[MERGED] Is Anarch Baron. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]",
@@ -1289,6 +1293,7 @@
     "ba51196c4c72": "His ability cannot be used if the action is blocked. [LSJ 20041022]",
     "f016477c108f": "Can use his ability only once per referendum. [ANK 20180307-2] [RBK 20181001-11]",
     "1249440c124c": "He cannot attempt an action to equip nor strike to steal an equipment. [LSJ 20050315] [LSJ 20010210]",
+    "7e7299664279": "He can equip with an equipment that is a location when in play. [LSJ 20050315]",
     "f5311efc36b8": "Can only retrieve a card played during that same action. [ANK 20180628]",
     "1e5df1a6601b": "Can only retrieve cards played the normal way, ie. not put into play as a result of another card (eg. {Concealed Weapon} or {Charming Lobby}). [LSJ 20090430] [ANK 20180628]",
     "9d63815c3f17": "His \"as he enters play\" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902] [ANK 20180626-1]",
@@ -1449,6 +1454,7 @@
   },
   "references": {
     "[LSJ 19980302-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/9YVFkeiL3Js/4UZXMyicluwJ",
+    "[LSJ 20021028]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/g0GGiVIxyis/m/35WA-O9XrroJ",
     "[RTR 19980707]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/t3BWHkOrdyE/1jH5udLMdiYJ",
     "[LSJ 19980722]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/0kbbA-SNchg/Urog66UtAzYJ",
     "[RTR 20030519]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/NOBWXWrd-vA/iEOpQp1uhvAJ",
@@ -2178,6 +2184,8 @@
     "[RTR 19941006]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/HUipqz0LFSw/pY6uEa3f8-gJ",
     "[PIB 20150105-2]": "http://www.vekn.net/forum/rules-questions/68482-topaz-successfully-equips-baby-yaga-successfully-employs#68483",
     "[PIB 20151116]": "http://www.vekn.net/forum/rules-questions/74317-the-not-anarch-barons#74327",
+    "[LSJ 20050413-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/1TXRhYopt70/OZMBb0AlfOUJ",
+    "[LSJ 20050413-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/1TXRhYopt70/YnL8Fiaim0IJ",
     "[ANK 20180524]": "http://www.vekn.net/forum/rules-questions/76595-rules-team-rulings-rtr-11-05-2018?start=60#87433",
     "[LSJ 20100228]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/yDeGOj1RBuU/k2CfIfBk770J",
     "[ANK 20200417]": "http://www.vekn.net/forum/rules-questions/78568-the-capuchin-burns-temporary-control?start=12#99616",
@@ -2279,7 +2287,8 @@
   },
   "cards": {
     "100001": [
-      "f44e791a2c5e"
+      "f44e791a2c5e",
+      "118759f6efe4"
     ],
     "100003": [
       "0d12c9473b76",
@@ -2347,6 +2356,9 @@
     ],
     "100029": [
       "33f824cc895a"
+    ],
+    "100032": [
+      "118759f6efe4"
     ],
     "100033": [
       "4bb7767d5007"
@@ -2426,8 +2438,7 @@
     ],
     "100071": [
       "7c69182c6555",
-      "62c81f6dfa29",
-      "d0e57aef1215"
+      "62c81f6dfa29"
     ],
     "100076": [
       "a83f01c54917",
@@ -2487,6 +2498,9 @@
       "fa99136a4db9",
       "5607c34f24d6",
       "a1587fd603ba"
+    ],
+    "100107": [
+      "118759f6efe4"
     ],
     "100112": [
       "3e5bf329e983",
@@ -2565,6 +2579,9 @@
     "100148": [
       "5817feed1464"
     ],
+    "100152": [
+      "118759f6efe4"
+    ],
     "100153": [
       "0048a67d6c20",
       "11e7fc279a70"
@@ -2608,7 +2625,8 @@
       "a68b3797c8d6"
     ],
     "100175": [
-      "d0e57aef1215"
+      "d0e57aef1215",
+      "118759f6efe4"
     ],
     "100176": [
       "8dc1da7e898a"
@@ -3156,6 +3174,9 @@
     "100514": [
       "55d19644d49c"
     ],
+    "100516": [
+      "3b30037c3269"
+    ],
     "100517": [
       "c11e1f56843c"
     ],
@@ -3614,6 +3635,9 @@
       "255c849d8107",
       "7ed5420a6f61",
       "ff1cf6c68046"
+    ],
+    "100754": [
+      "118759f6efe4"
     ],
     "100755": [
       "718d49e15fe1"
@@ -4188,6 +4212,9 @@
     "101064": [
       "4720a1202a1f"
     ],
+    "101065": [
+      "118759f6efe4"
+    ],
     "101066": [
       "b783c7b9f6b5",
       "62c46c379cb9",
@@ -4271,8 +4298,7 @@
       "c345ba1e8445"
     ],
     "101114": [
-      "62c81f6dfa29",
-      "d0e57aef1215"
+      "62c81f6dfa29"
     ],
     "101115": [
       "d0e57aef1215"
@@ -5181,8 +5207,7 @@
       "3846c3355152"
     ],
     "101658": [
-      "62c81f6dfa29",
-      "d0e57aef1215"
+      "62c81f6dfa29"
     ],
     "101660": [
       "62c81f6dfa29"
@@ -5215,12 +5240,14 @@
       "62c81f6dfa29"
     ],
     "101677": [
-      "62c81f6dfa29",
-      "d0e57aef1215"
+      "62c81f6dfa29"
     ],
     "101681": [
       "401112d6c1fe",
       "fac0e82da236"
+    ],
+    "101682": [
+      "118759f6efe4"
     ],
     "101684": [
       "cbd80b0ef717",
@@ -5489,7 +5516,8 @@
       "fb2f70c3287c",
       "c6b68309cf1b",
       "c2da927b97d7",
-      "9051d22a8c92"
+      "9051d22a8c92",
+      "b6b0e945d74e"
     ],
     "101817": [
       "4322e32f1977",
@@ -5635,6 +5663,9 @@
     "101889": [
       "5910a9d54693",
       "5002345a098b"
+    ],
+    "101891": [
+      "118759f6efe4"
     ],
     "101892": [
       "9856e74cbf7b",
@@ -5845,6 +5876,9 @@
     ],
     "101983": [
       "44cd1eca6462"
+    ],
+    "101985": [
+      "55be4daa399e"
     ],
     "101988": [
       "7ce1a93ec7c3"
@@ -6235,8 +6269,7 @@
       "758ec393093f"
     ],
     "102203": [
-      "62c81f6dfa29",
-      "d0e57aef1215"
+      "62c81f6dfa29"
     ],
     "102204": [
       "ce6c5b423b12",
@@ -6381,7 +6414,7 @@
     ],
     "200179": [
       "2882c92fded1",
-      "7e7299664279"
+      "f1c1c6bf5c36"
     ],
     "200201": [
       "91bff5a3d14c",
