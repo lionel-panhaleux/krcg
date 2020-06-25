@@ -541,6 +541,8 @@
     - '"when a vampire is going into torpor" and "when a vampire should go into torpor" are the same window. If both minions want to play a card, acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Decapitate} and vice-versa. [RTR 20010710]'
 100514|Deep Cover Agent:
     - "The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]"
+100516|Deer Rifle:
+    - "The optional maneuvers cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]"
 100517|Defender of the Haven:
     - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 100518|Deflection:
@@ -1930,6 +1932,7 @@
     - "The bearer is not commited to use it if he or she uses another effect to set the range. [RTR 20020501]"
     - "If a new combat occurs due to an effect like {Psyche!}, the Rifle can not be used to set the range. [LSJ 20010814]"
     - "If a Slave locks to enter combat instead of a blocking minion, he cannot use the Rifle to set the range [ANK 20200115]"
+    - "The ability to set the range can only be used if the weapon was equipped when blocking (eg. not when using {Disguised Weapon} after the block). [LSJ 20021028]"
 101817|Soak:
     - "Cannot be used if there is no damage to prevent. [LSJ 20001114]"
     - "Prevents up to 2 or 4 non-aggravated damage, it can prevent less. [RTR 20041202]"
@@ -2151,6 +2154,8 @@
     - "The press can only be used during the current round. [TOM 19960521]"
 101983|Thrown Sewer Lid:
     - "[POT] The press can only be used during the current round. [TOM 19960521]"
+101985|Tinglestripe:
+    - "[MYT] The optional maneuver cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]"
 101988|Tongue of the Serpent:
     - "Can target a minion with less blood than the amount stolen. [RTR 20010711]"
 101989|Toreador Grand Ball:
