@@ -2460,7 +2460,7 @@
     - "Cannot play cards requiring a Baron. [PIB 20151116]"
 "200179|Beast, The Leatherface of Detroit":
     - "He cannot attempt an action to equip or employ, nor strike to steal an equipment or retainer. [LSJ 20050315] [LSJ 20010210]"
-    - "He can equip with an equipment that is a location when in play. [LSJ 20050315]"
+    - "He can equip with an equipment that is a location when in play, but not by playing the card normally as it is an action card. (eg. Using {Vast Wealth} would work). [LSJ 20050315] [LSJ 20050413-1] [LSJ 20050413-2]"
 200201|Black Cat:
     - 'The reduction applies for other effects that check the "cost" of equipment on her. [RTR 19941109]'
     - "If she is equipped with something and that equipment is transferred to another minion, then it regains its normal pool value. Conversely, if a piece of equipment moves onto her, its effective pool cost is lowered by 1. [RTR 19941109]"
