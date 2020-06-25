@@ -348,7 +348,6 @@
 - ruling: "Once in play, can be equipped from the minion it's on (rulebook action) by another minion that does not meet the requirements. [ANK 20180719-3]"
   cards:
     - 100063|The Ancestor's Talisman
-    - 100071|The Ankara Citadel, Turkey
     - 100175|Blade of Bellona
     - 100209|Blood Shield
     - 100641|Enchanted Marionette
@@ -358,15 +357,12 @@
     - 101026|Journal of Hrorsh
     - 101032|Kali's Fang
     - 101033|Karavalanisha Vrana
-    - 101114|Living Manse
     - 101115|Living Wood Staff
     - 101232|Mokolé Blood
     - 101252|Mummy's Tongue
     - "101596|Reliquary: Akunanse Remains"
     - "101598|Reliquary: Shango Remains"
     - 101643|Ritual Scalpel
-    - 101658|Ruins of Ceoris
-    - 101677|San Nicolás de los Servitas
     - 101732|Shaal Fragment
     - 101733|Shackles of Enkidu
     - 101767|Shilmulo Tarot
@@ -376,7 +372,6 @@
     - 101932|Talith
     - 102015|Treasured Samadji
     - 102170|Weirding Stone
-    - 102203|Zaire River Ferry
 - ruling: '"Once each turn" means once during each player''s turn. [ANK 20180719-4]'
   cards:
     - 100048|Amulet of Temporal Perception
