@@ -59,6 +59,7 @@
     - "The press can only be used during the current round. [TOM 19960521]"
 100051|Ananasi Vampirephile:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
+    - "Can use {Pack Alpha} to put a retainer requiring [ani] in play. [LSJ 20060417]"
 100052|The Anarch Free Press:
     - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 100055|Anarch Revolt:
@@ -987,6 +988,7 @@
     - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
     - "Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]"
     - "Cannot be used before damage is inflicted after action resolution (eg. {Force of will}, {Daring the Dawn}): this is still during the action. [ANK 20171124]"
+    - "Cannot be used after a diablerie or an {Abactor} resolution and before the Blood Hunt: the Blood Hunt is part of the action although it is independant from it. [LSJ 20090722-2] [LSJ 20030618]"
 100911|Hellhound:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100912|Herald of Topheth:
@@ -1469,6 +1471,8 @@
     - "No other effect can be used before the damage prevention window, it begins immediately. [ANK 20170930]"
     - "Both minions can play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]"
     - "The damage is applied even if the combat ends prematurely (eg. {Illusions of the Kindred}) [ANK 20180104] [LSJ 19971110]"
+101342|Pack Alpha:
+    - "Requirements (clan, discipline) apply. [LSJ 20051207]"
 101345|Palatial Estate:
     - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 101349|Pandora's Whisper:
