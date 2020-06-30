@@ -545,3 +545,15 @@
     - 100152|Beretta 9mm
     - 100032|AK-47
     - 101682|Saturday-Night Special
+- ruling: "Is replaced before unlocking cards: other unlock effects cannot be ordered before. [ANK 20200129] [LSJ 20091208] [RTR 19951017]"
+  cards:
+    - 100668|Evil Eye
+    - 100681|Eyes of Blades
+    - 100834|Glancing Blow
+    - 101001|Into Thin Air
+    - 101093|Legwork
+    - 101265|Narrow Minds
+    - 101318|Old Friends
+    - 101349|Pandora's Whisper
+    - 102137|Wake with Evening's Freshness
+    - 102151|Wash

@@ -1269,7 +1269,7 @@
     - "Cannot be used by a vampire in torpor. [PIB 20150720] [RTR 19970306]"
 101150|Malkavian Dementia:
     - "Does not require control of a ready Malkavian. [RTR 19951124]"
-    - "The loss of control happens at the start of unlock phase, before unlocking. This can not be ordered among other unlock effects, the Malkavian is not unlocked. [RTR 19951017]"
+    - "The loss of control happens at the start of unlock phase, before unlocking. This can not be ordered among other unlock effects, the Malkavian is not unlocked. [ANK 20200129] [LSJ 20091208] [RTR 19951017]"
 "101151|Malkavian Derangement: Alternate Personality":
     - "Modifier and reactions that can be used at the end/after an action can still be used after the action fails. [LSJ 20041022]"
 101156|Malkavian Rider Clause:
@@ -1522,6 +1522,8 @@
     - "If the victim is burned by diablerie, the votes gained from Political Struggle are gained before the blood hunt referendum. [LSJ 20050707]"
 101419|Ponticulus:
     - "Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]"
+101420|Port Authority:
+    - "The cards are replaced before unlocking cards: other unlock effects cannot be ordered before. [ANK 20200129] [LSJ 20091208]"
 101422|The Portrait:
     - "If the revealed vampire is between 7 and 10 capacity and the acting vampire has bled this turn already, he simply unlocks and the remainder of the effect is lost. [LSJ 20021118]"
 101425|Potio Martyrium:
