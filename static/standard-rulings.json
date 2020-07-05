@@ -48,6 +48,7 @@
     "9ebd5507dacb": "The press can only be used during the current round. [TOM 19960521]",
     "c83fcfa349ec": "\"Once each turn\" means once during each player's turn. [ANK 20180719-4]",
     "83c5b1f97989": "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]",
+    "18e6bd8ac952": "Can use {Pack Alpha} to put a retainer requiring [ani] in play. [LSJ 20060417]",
     "ba0a19fa8ceb": "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]",
     "6966c2993f15": "The cost is cumulative if they are multiple copies in play. [LSJ 19980225]",
     "0c5704d189fb": "Can lock a vampire that is already locked. [PIB 20121031]",
@@ -165,6 +166,7 @@
     "d2b687fb7ffa": "[THA] Additional damage inherits all of the properties of the base damage. [TOM 19960225]",
     "fc7c53cb8e78": "The blood is burned by the opponent when the owner prevents damage, immediately, before loosing blood to heal strike damage. Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528-1]",
     "63810df1ad6a": "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]",
+    "df1d43b21132": "Must be played after range is chosen, can be played before or after strikes are chosen. [ANK 20200703] [LSJ 20031008]",
     "8d783d28dd05": "The target does not get an extra vote if it already has or subsequently gains a title. If the target loses his title, then he again gets his extra vote. [LSJ 19970224]",
     "3006fb2e0259": "[VIC] Immune means non-aggravated damage are not considered inflicted. [LSJ 20010627]",
     "62c46c379cb9": "[VIC] The press can only be used during the current round. [TOM 19960521]",
@@ -329,6 +331,7 @@
     "b404934e5867": "When used to cancel a card play at the end of a round or when wombat would end, counts as having been played during that ending round. [ANK 20180910-2]",
     "874c0157f2cc": "\"when a vampire is going into torpor\" and \"when a vampire should go into torpor\" are the same window. If both minions want to play a card, acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Decapitate} and vice-versa. [RTR 20010710]",
     "55d19644d49c": "The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]",
+    "990db7a42c26": "[ANI] The lock and enter combat effects are simultaneous. Both are lost if the action ends before that (eg. {Obedience}). [ANK 20200702]",
     "3b30037c3269": "The optional maneuvers cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]",
     "bc70952de45e": "Cannot be used to direct a bleed to a Methuselah who would be an invalid target for a bleed. [RTR 19950622]",
     "a98297ecca40": "Declaring that one is not blocking is implicit in playing Deflection. [LSJ 20000507]",
@@ -429,6 +432,7 @@
     "742be141fd32": "If The Eternal Mask is burned by something else than its own effect (including when the vampire it is on is burned), the vampire that has been brought back is unaffected. [LSJ 20071206] [LSJ 20090725]",
     "adcf2ebe4640": "Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]",
     "4b48a43b2fd7": "Pay the cost at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620] [LSJ 20080612]",
+    "0f2cf1883116": "Is replaced before unlocking cards: other unlock effects cannot be ordered before. [ANK 20200129] [LSJ 20091208] [RTR 19951017]",
     "50da7a15d5c0": "The vampire with it cannot decide to burn due to Ex Nihilo's card text if he or she can burn the blood during the unlock phase. [PIB 20121013]",
     "0a6ea4ed38ef": "If the owner treats aggravated damage as normal, he is immune to them too. [LSJ 20040120]",
     "86b1237e3d2a": "Is usable by a locked vampire [LSJ 20010725]",
@@ -555,6 +559,7 @@
     "b8a9032ec200": "May not be locked \"in response\" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]",
     "04c8ef4699b0": "Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]",
     "6b3f2178d830": "Cannot be used before damage is inflicted after action resolution (eg. {Force of will}, {Daring the Dawn}): this is still during the action. [ANK 20171124]",
+    "d13f31e28aaa": "Cannot be used after a diablerie or an {Abactor} resolution and before the Blood Hunt: the Blood Hunt is part of the action although it is independant from it. [LSJ 20090722-2] [LSJ 20030618]",
     "df4c66b4cee8": "Can use {Charming Lobby} to call a referendum \"as a vampire\". [RTR 20020501]",
     "be2efd66e3f1": "If it uses its last life to pay for an action, the action still resolves fully. If that leads to an oust, the oust is resolved before resolving effects triggered by the fact that the Herald burns. [LSJ 20080512]",
     "87a74e2d1c0b": "Cannot be used to enter combat with a vampire on his way to torpor. [LSJ 20100604-1]",
@@ -622,6 +627,7 @@
     "dca07fb086d1": "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]",
     "abaed2c7a7ef": "If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]",
     "2761d4310d0f": "[ser] The press can only be used during the current round. [TOM 19960521]",
+    "eda8e71ea42c": "If multiple copies of the card are in play, one must pay for each of them (they stack). [ANK 20200703-4]",
     "cb1a8c1959d8": "The effect must be applied during the unlock phase, but other effects can be applied before. If an effect applied before burns the last non-Camarilla vampire, no pool is lost. [ANK 20181016]",
     "47ac564fb99e": "Counts the bleed amount that each vampire would have when attempting to bleed his prey. [RTR 19980623]",
     "d52ecb8a363f": "Does not make the vampire Sabbat nor infernal: it merely gives the option to such vampires. [PIB 20150809]",
@@ -629,6 +635,7 @@
     "0d86530169be": "Prevents up to 2 damage from gun strikes, it can be used to prevent less. [RTR 20041202]",
     "e01cf8dd6010": "Can be used to prevent the damage from two separated gun strikes doing one damage each. [LSJ 20081210]",
     "ab9d90699dcb": "The action to put a minion from any ash heap into play is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]",
+    "0f6feb27bd9f": "Minions put into play by the Diary go back to their owner's ash heap when burned. [PIB 20130128-2]",
     "eef2c6ca3269": "Cannot 'change' the votes of vampires who haven't voted yet, but can cancel the votes of vampires who haven't voted yet and change the votes of vampires who have voted. [RTR 19991001]",
     "9e4601f70157": "Only requires that the pool cost be paid in order to keep the ally. Blood costs, if any, need not be repaid to keep an ally. [RTR 20010710]",
     "48e3af8753fa": "Can be called even if there are no allies in play. [RTR 20010710]",
@@ -698,7 +705,7 @@
     "0741322769e4": "Can be used by a locked vampire. [PIB 20150720] [RTR 19941109]",
     "ac53b33aba4e": "Cannot be used by a vampire in torpor. [PIB 20150720] [RTR 19970306]",
     "4a60097a0ede": "Does not require control of a ready Malkavian. [RTR 19951124]",
-    "8565678d2b38": "The loss of control happens at the start of unlock phase, before unlocking. This can not be ordered among other unlock effects, the Malkavian is not unlocked. [RTR 19951017]",
+    "ac6f57cafed7": "The loss of control happens at the start of unlock phase, before unlocking. This can not be ordered among other unlock effects, the Malkavian is not unlocked. [ANK 20200129] [LSJ 20091208] [RTR 19951017]",
     "fff0f3a7d316": "Modifier and reactions that can be used at the end/after an action can still be used after the action fails. [LSJ 20041022]",
     "4cac9a126d31": "Does not change the acting minion (for purposes of the \"No Repeat Actions\" rule, among other things) and may be played by a minion who is not capable of taking the action. [LSJ 20011023] [RTR 20020501]",
     "c42976ad016d": "Requires a ready, unlocked vampire. [RTR 20010710]",
@@ -798,6 +805,7 @@
     "e44d01f41ef0": "No other effect can be used before the damage prevention window, it begins immediately. [ANK 20170930]",
     "3d09e41ad239": "Both minions can play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]",
     "07b8b4b7d1c5": "The damage is applied even if the combat ends prematurely (eg. {Illusions of the Kindred}) [ANK 20180104] [LSJ 19971110]",
+    "f5be7fd1d6a6": "Requirements (clan, discipline) apply. [LSJ 20051207]",
     "21a78dee8a30": "The card to retrieve must be announced when declaring the action. [LSJ 20010627]",
     "b943d9a26f5e": "Can not be played if there is no legal target (no other Methusalah with more pool than you). [ANK 20191228]",
     "be10449484e4": "The pool awarded can be used to play {Life Boon} to save the target from an oust. [LSJ 20100527]",
@@ -821,6 +829,7 @@
     "90c2b0c2b802": "If you yield the Political Seizure, the location it was contesting does not come into play under your control. [LSJ 19980223]",
     "2fb721595f68": "The acting vampire gains X votes if the vampire with this card is burned, no matter how that vampire is burned. [LSJ 19990119]",
     "25feef01a885": "If the victim is burned by diablerie, the votes gained from Political Struggle are gained before the blood hunt referendum. [LSJ 20050707]",
+    "521211991387": "The cards are replaced before unlocking cards: other unlock effects cannot be ordered before. [ANK 20200129] [LSJ 20091208]",
     "285da73caccb": "If the revealed vampire is between 7 and 10 capacity and the acting vampire has bled this turn already, he simply unlocks and the remainder of the effect is lost. [LSJ 20021118]",
     "3bf780370b00": "The damage is done during combat, the opponent can use combat cards to prevent it. [LSJ 20100205]",
     "b9aec149592e": "The damage does not depend on range. [ANK 20181024]",
@@ -831,6 +840,7 @@
     "f46e5476f972": "The additional capacity is lost if the title is lost. [TOM 19960210]",
     "32b544970d83": "The damage prevention can only be used if the block is successful, and only in the resulting (block-induced) combat. [LSJ 20010813]",
     "2448df276073": "[abo] [ACTION MODIFIER] Cards and effects that can be played \"as the action is announced\" (and only them) can be played before it. [ANK 20190425]",
+    "96e60632d418": "[CEL] The blood is burned when playing the card. [ANK 20200703-2]",
     "a1074493b5a7": "If the strike is canceled, the rest of the effect is also canceled. [RTR 20040501]",
     "a3f9696b50ac": "[qui] can target a vampire with no blood. [RTR 20010711]",
     "3aa1419f248a": "[ser] can target a vampire with no blood.[RTR 20010711]",
@@ -947,9 +957,9 @@
     "c152602fc7d5": "[val], [VAL] Is not the default action, no blood is paid for the rescue. [ANK 20181017]",
     "7d561351875a": "Can target an unlocked minion, does not prevent a minion to wake or unlock in a non-normal way (eg. {Freak Drive}, {Sense the Savage Way}). [PIB 20150111]",
     "449db6f9471e": "Can be used to unlock a vampire who has just successfully resolved an action to become Black Hand. [LSJ 20070702]",
-    "a96ac527e466": "[PRE][SER] The additional effect takes place after the end of combat. [RTR 19970630] [ANK 20180420-1]",
+    "7931faa80532": "[PRE][SER] The additional effect takes place after the end of combat, including the blood burn. [RTR 19970630] [ANK 20180420-1] [ANK 20200705]",
     "b53685221c24": "[PRE][SER] The \"does not unlock as normal\" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]",
-    "f3b2c9b43670": "[PRE][SER] If the combat continues or a new combat begins, no blood is burned, the card cannot be put on the opposing minion and he is not locked. [RTR 20020501]",
+    "4cdf4c2a4c64": "[PRE][SER] If the combat continues or a new combat begins, no blood is burned, the card cannot be put on the opposing minion and he is not locked. [RTR 20020501] [ANK 20200705]",
     "800b0a28eeb1": "[PRE][SER] If the strike is dodged, the card is not put on the opposing minion and he is not locked. [RTR 20041202]",
     "faedbb6ad733": "[PRE][SER] Burning 1 blood is mandatory, not a choice. [ANK 20180420-2]",
     "0d15168d9228": "The acting vampire's controller is the one who makes the choices pertaining to the ally or retainer entry in play. [LSJ 20030701-2]",
@@ -1077,7 +1087,7 @@
     "7747f565bca7": "While he can play cards that require [qui] or [tha], he does not actually have those Disciplines. He does not benefit from {Tremere Convocation}, for example. [LSJ 19980303]",
     "9d495bbc1632": "The press is mandatory. [LSJ 19980823]",
     "e8533762c36b": "Using the Chainsaw action to enter combat or preventing damage with it does not force the minion to strike with it. [LSJ 19971215]",
-    "09649064b36a": "The damage inflicted during the unlock phase is weapon damage. Only combat damage can be environmental. {Mictlantecuhtli} can be chosen and would take no damage. [LSJ 20090304-1]",
+    "7ebc29ea095a": "The damage inflicted during the unlock phase is weapon damage, it is neither inflicted by the wearer nor environmental. {Mictlantecuhtli} can be chosen and would take no damage. [LSJ 20090304-1] [LSJ 20100514]",
     "4d6dfc8eeac1": "The \"strike: destroy weapon\" cannot be chosen if there is no weapon to destroy. [RTR 19980928]",
     "53fac3ca1c3e": "[abo] Additional damage inherits all of the properties of the base damage. [TOM 19960225]",
     "8b9c87024da8": "The canceled action has not been \"performed\" in respect to section 6.1 of the rules. The same vampire can undertake the same action again. [LSJ 20070709]",
@@ -1147,6 +1157,7 @@
     "b2c78f052593": "All the damage is aggravated. [LSJ 20011204]",
     "9baf363e8f63": "[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]",
     "c3e3a7bfab6d": "[for] Only provides one press for the current round, not the ones after that. [ANK 20180110]",
+    "1ec05fb9b597": "[for] Cannot be used twice by the same vampire during the same combat: because of the first, the vampire is not going into torpor and does not meet the requirement to play it anymore. [LSJ 20030214]",
     "29851f207f7a": "[for] If an effect causes a new combat to occur at the end of combat, then the \"go to torpor\" effect will be delayed until after that new combat. However, the vampire will no longer benefit from Undead Persistence in the new combat, so it will end immediately with the vampire not ready unless he plays a new Undead Persistence in the new combat. [LSJ 20030214] [ANK 20190624]",
     "3e2a91fd6f80": "[FOR] Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]",
     "55499d0e3fde": "[FOR] Unused prevention does not carry over. [LSJ 20001114]",
@@ -1255,6 +1266,7 @@
     "f513d60a072f": "He cannot attempt an action to employ a retainer, nor strike to steal a retainer. [LSJ 20050315] [LSJ 20010210]",
     "146815adfdfb": "Her ability applies to all Toreadors, not just the ones in play at the time the action resolved. [LSJ 20030811]",
     "50953fe79d82": "Her ability only affects the rule restricting who gets to block an action. She must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 20020501] [LSJ 20041203]",
+    "3e0015b8d769": "Arika's prey can use a location during her unlock phase before burning it. [ANK 20200629]",
     "176c842ead8c": "Arika's prey cannot end her unlock phase if she controls a location that she hasn't burned a pool for, even if she gained control of that location during that unlock phase. [LSJ 19990405]",
     "d8765b15d5d6": "Her ability applies to Priscus votes and ballots. [LSJ 19971001]",
     "b0bdbd552774": "Her ability to force a vampire to abstain can cancel the votes and ballots of the vampire. [LSJ 20100311]",
@@ -1302,7 +1314,7 @@
     "1cbdda3ef9a9": "Her ability is undirect if you control the target, directed to the controller of the target otherwise. [PIB 20121210]",
     "d064827f3a11": "She only gets her votes if your prey controls a ready Camarilla vampire. [PIB 20150713]",
     "86723a79317e": "The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2] [PIB 20110918]",
-    "b74dfbc6ad6e": "When playing a card requiring a Ventrue, she is treated as a such for all effects generated by the play of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]",
+    "6ba69e7b0c36": "When playing a card requiring a Ventrue, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]",
     "c314ec1a99e6": "Can steal 2 blood or life. [ANK 20190701]",
     "8024cb49d54e": "[MERGED] Is Camarilla. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]",
     "5d487f6dd836": "If {Fall of the Sabbat} is in play, Priscii do not benefit from their title and have no ballot. The Priscii subreferendum still happens and Gratiano benefits from his bonus ballot. [LSJ 20040519]",
@@ -1327,7 +1339,7 @@
     "e9cebf9cdd7e": "She keeps her title if {Fall of the Camarilla} is played. She can be chosen for {Recalled to the Founder}, but does not burn. Allies still benefit trom {The Unmasking} intercept when trying to block her. [LSJ 20081120-2]",
     "01624ca57b9b": "[MERGED] Imperator is a unique Camarilla title worth 3 votes, it is the same as the one granted by {Imperator}. [ANK 20190407]",
     "572f7e8d7ef7": "[MERGED] Keeps her title and votes if she changes sects. [LSJ 20010714]",
-    "db474d9b0704": "[MERGED] When playing a card requiring Camarilla, Ventrue and/or justicar, she is treated as a such for all effects generated by the play of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]",
+    "8435f233dd1d": "[MERGED] When playing a card requiring Camarilla, Ventrue and/or justicar, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228] [LSJ 20101013]",
     "796224f7ad35": "[MERGED] Does not enable you to play master cards, it only enables her to play certain minion cards. [LSJ 20050721]",
     "54b6bda905a4": "[MERGED] When considered a justicar, she is also implicitly considered Camarilla. [LSJ 20050128]",
     "2453ce012d6a": "Gets +1 stealth on \u24b9 actions against multiple Methuselahs if one or more of the targets control no ready Sabbat vampire. [PIB 20150526] [RTR 20080808]",
@@ -1340,7 +1352,7 @@
     "c5d2027919e2": "When using his ability, you do not get to see the card drawn as replacement. [PIB 20121031]",
     "5cff1cf6a74a": "Choice is mandatory, there is no default. If all players forget, forcing one choice or the other on the victim is not a suitable remedy. [LSJ 20021210-1]",
     "f3a32be0c183": "When a Methusalah decides to get no transfer, he can still use other effects that put blood on his uncontrolled vampires (eg. [DEM] {Govern the Unaligned}, {Powerbase: Montreal}). [LSJ 20100527]",
-    "3fbbe29acc93": "When playing a card requiring a Ventrue antitribu or a Samedi, he is treated as a such for all effects generated by the play of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play (eg. {Houngan} can be played on him, but he does not get blood and cannot lock to get blood). [ANK 20190228] [PIB 20141006]",
+    "9a4a8a6af0e6": "When playing a card requiring a Ventrue antitribu or a Samedi, he is treated as a such for all effects of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play (eg. {Houngan} can be played on him, but he does not get blood and cannot lock to get blood). [ANK 20190228] [PIB 20141006]",
     "4d0ba9b9ae98": "You can still use the burn options of cards with a requirement he could meet when you play them, but does not meet while in play. [LSJ 20050225]",
     "e51491f08390": "Cannot be treated as a Ventrue antitribu nor a Samedi while uncontrolled or in the crypt (eg. {Coroner's Contact} cannot fetch him). [PIB 20150530]",
     "abe8f8ff9097": "Her press and additional strike are mandatory. [LSJ 20051016] [LSJ 20051017]",
@@ -1362,7 +1374,7 @@
     "fd6542a10f20": "Her ability can only move cards from the ash heap that were played in the normal manner. If the card was put in play in some other way, it cannot be retrieved by her special. [LSJ 20041119]",
     "a8e37c7e48b1": "A card cancelled as it is played is still considered played, she can retrieve it. [LSJ 19980212] [ANK 20190701]",
     "cb6b822d4e29": "Orun and Aye cards cannot be placed on her as long as she's not a Laibon. [LSJ 20110611]",
-    "a152b162b3e6": "When playing a card requiring a sect and/or a clan, she is treated as a such for all effects generated by the play of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]",
+    "31b32b5e825e": "When playing a card requiring a sect and/or a clan, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]",
     "4fdebf414740": "If her capacity is above 10 when playing {Call the Great Beast}, she burns and it is put into play. If her capacity is less, the card is put on her with tokens equal to her capacity, but she will not be able to add counters to it later on. [ANK 20180723]",
     "002943aec367": "You can still use the burn options of cards with a requirement she could meet when you play them, but does not meet while in play. [LSJ 20050225]",
     "a03c6ca3aadf": "Her ability do not let her fulfill card requirements if they are not played normally, like when using {Concealed Weapon} for an equipment or {Piper} or {The Summoning} for an ally. [LSJ 20050119]",
@@ -1386,10 +1398,10 @@
     "7555300c2c4d": "When using her ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]",
     "532c37b9faf0": "When he is influenced out, his ability can be used during the ongoing influence phase. [RTR 20180303]",
     "819f0a94a75f": "Additional damage done before range by her ability is environmental. [RTR 19970630]",
-    "2937399a2c75": "When recruit a werewolf ally, she is treated as a meeting the requirements for all effects generated by the play of the card, and only them, including duration effects. She is not treated as meeting the requirements for effects the card has from being in play. [ANK 20190228]",
+    "a9706fa17b93": "When recruit a werewolf ally, she is treated as a meeting the requirements for all effects of the card, and only them, including duration effects. She is not treated as meeting the requirements for effects the card has from being in play. [ANK 20190228]",
     "d78abd8d60f9": "Her ability do not let her fulfill card requirements if they are not played normally, like when using {Piper}. [LSJ 20050119]",
     "5d34445eab46": "Her ability to get a press can only be used during the press step. [PIB 20150121]",
-    "fcc7fa081c48": "When playing a card requiring a Ventrue, he is treated as a such for all effects generated by the play of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]",
+    "0c756679fce4": "When playing a card requiring a Ventrue, he is treated as a such for all effects of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]",
     "ead57fb7f18c": "His ability do not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]",
     "1ecb4d86dc79": "If he cannot commit diablerie, then his card text does not force him to: he is not \"stuck\", he is free to take any other legal action. [LSJ 20050514]",
     "7f714d691a9e": "Can only use his ability when he is bleeding. [ANK 20180514]",
@@ -1420,7 +1432,7 @@
     "c194dbd5bcfd": "His capacity is reduced immediately when he get controlled, before it can be merged with the advanced version. [ANK 20190522]",
     "a0008ce613dd": "His capacity is reduced immediately when he get controlled, before it can be merged with the base version. [ANK 20190522]",
     "a1911aaec16d": "[MERGED] When he merges (in whatever way), he becomes independant and any Anarch token is burned. [ANK 20180523]",
-    "e10f3eeb4154": "When playing a card requiring Brujah or Gangrel, she is treated as a such for all effects generated by the play of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]",
+    "469e239fa887": "When playing a card requiring Brujah or Gangrel, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]",
     "c28589eb7f1c": "Her ability do not let her fulfill card requirements if they are not played normally, like when using {Piper} or {The Summoning} to recruit an ally. [LSJ 20050119]",
     "b3062e58c68f": "Allegiance counters continue to function even if Tegyrius leaves play. [LSJ 20010616] [LSJ 20030522-1]",
     "e6dda8ab1b42": "The allegiance counter is a continuous effect: an Assamite with it stays Camarilla even if he changes his underlying sect (eg. rulebook action to become anarch). [ANK 20180626-2]",
@@ -1434,20 +1446,21 @@
     "01b57d1ff471": "Card with disciplines choices (eg. [vis]/[tha]) are considered of the discipline they are played as. [PIB 20150924-2]",
     "6034d86625f8": "Can still defect if in torpor, and will remain in torpor if he does so. [RTR 19941109]",
     "4f657672f57b": "The prohibition to play certain cards applies from the moment he attempts to block until the end of the action, even if he fails to block. [LSJ 20080818]",
-    "a43470509c85": "When playing a card requiring a Camarilla vampire or a Prince, he is treated as a such for all effects generated by the play of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]",
+    "572e614f095a": "When playing a card requiring a Camarilla vampire or a Prince, he is treated as a such for all effects of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]",
     "16665af37f03": "His \"as he enters play\" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902]",
+    "495a085a409a": "When meeting a requirement to play a card, he is seens as meeting it so for all the effects of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [ANK 20200703-3] [ANK 20190228] [LSJ 20101013]",
     "566190528ea2": "He can meet any title as well as non-requirements (eg. non-Red List), but cannot meet requirements that are not vampire traits (eg. Mortal, unlocked, older, ..) [LSJ 20081120-1]",
+    "197f08326370": "When meeting a title requirement, he is considered as a vampire of the underlying sect. [LSJ 20050128]",
     "71c36f6e593e": "He can meet the requirements for his controller to play any card, including Master cards. [LSJ 20091015] [PIB 20130128]",
     "304905ae9d9f": "He cannot fulfill a non-vampire trait requirement (eg. Gehenna), but he can fulfill the \"Red List\" or \"Flight\" requirements. [LSJ 20091016]",
     "011d124b8042": "Striga and Maleficia are not vampire traits. [LSJ 20100226]",
-    "f5f240188737": "When playing a card requiring a title or a sect, he is treated as a such for all effects generated by the play of the card, including duration effects. [ANK 20190228]",
+    "585d3f14b8ab": "When playing a card requiring a title or a sect, he is treated as a such for all effects of the card, including duration effects. [ANK 20190228] [LSJ 20101013]",
     "a21adbbafdd4": "He can use a card in play as if he had a title or a sect, but cannot use it if it would provide unrequired stealth or intercept (eg. he cannot use {No Secrets From the Magaji} to attempt to block a vampire acting with no stealth). [ANK 20180403]",
-    "197f08326370": "When meeting a title requirement, he is considered as a vampire of the underlying sect. [LSJ 20050128]",
     "8c57a5eb0244": "When meeting a requirement, the controller can choose how he meets it (eg. he can play {Anarch Secession} as a Prince of any city, even a made-up one). [PIB 20150306] [PIB 20150307]",
     "fe8bc543fd80": "He can use a card requiring a sect or titled to be played (eg. use {Abbot} intercept bonus as a Sabbat vampire, perform {Archon} action to burn it as a Prince or Justicar). [PIB 20150306]",
     "a30a6409294d": "He cannot use a card as a vampire of a sect or with a title if the card does not require the sect or title to be played. (eg. he cannot benefit from {Powerbase: Madrid} as a Sabbat vampire) [PIB 20150306]",
     "d6b2a90750d3": "His special ability only affects the cost of masters played by his controller. [LSJ 20081124-1]",
-    "c6c6b9499e18": "When recruit a changeling ally, he is treated as a meeting the requirements for all effects generated by the play of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [ANK 20190228]",
+    "6c85a7976131": "When recruit a changeling ally, he is treated as a meeting the requirements for all effects of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [ANK 20190228]",
     "64ba9435d0dd": "His ability do not let him fulfill card requirements if they are not played normally, like when using {Piper}. [LSJ 20050119]",
     "3075ea4bebc4": "Is not titled. If he gets a title, his additional votes are added to the ones provided by the title. [LSJ 20100601]",
     "70801740f48e": "[MERGED] Is Anarch Black Hand Seraph. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524] [LSJ 20031121-3]"
@@ -1507,6 +1520,7 @@
     "[LSJ 20070808-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/jzMOxZ9oxOs/o0X7GUFmii0J",
     "[ANK 20180719-4]": "http://www.vekn.net/forum/rules-questions/76833-once-each-turn#89014",
     "[ANK 20180720]": "http://www.vekn.net/forum/rules-questions/76840-setting-range-and-pre-range#89125",
+    "[LSJ 20060417]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/bW_XZDS-9iw/u_WVQXNXK0kJ",
     "[LSJ 20050720-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/1vbIkgvKDJ0/3ErIIMXFgPIJ",
     "[LSJ 20000309]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/ykAzsCzPkvg/bVefVZeCoQwJ",
     "[RTR 19980623]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/tSpd9dtTElc/-CuHJF54_n0J",
@@ -1601,6 +1615,8 @@
     "[ANK 20170427]": "http://www.vekn.net/forum/rules-questions/75755-resolution-card-blood-of-acid?start=6#81627",
     "[LSJ 20040805]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/WuER8RUMzTE/OmQhmQFkFLkJ",
     "[ANK 20200517-2]": "http://www.vekn.net/forum/rules-questions/78629-damage-prevention-windows-what-can-you-soak?start=6#99855",
+    "[ANK 20200703]": "http://www.vekn.net/forum/rules-questions/78713-blood-of-water-timing-before-strike-resolution#100237",
+    "[LSJ 20031008]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/JUnIGIrb3pw/m/EOo-cGykdmYJ",
     "[ANK 20200207]": "http://www.vekn.net/forum/rules-questions/78423-mental-maze-and-obedience#98906",
     "[LSJ 20020926]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/C7vgb-0Mcbo/6UHJsQjBs9wJ",
     "[LSJ 20030717]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/IkMD8wfAcqw/2OdnRU3Q1AQJ",
@@ -1714,6 +1730,7 @@
     "[PIB 20130319]": "http://www.vekn.net/forum/rules-questions/46164-catatonic-fear-and-loving-agony#46168",
     "[PIB 20150603-1]": "http://www.vekn.net/forum/rules-questions/71468-dawn-operation-and-environmental-damage#71470",
     "[ANK 20180910-2]": "http://www.vekn.net/forum/rules-questions/76990-correct-order-impulse-for-combat-cards-after-combat?start=6#90521",
+    "[ANK 20200702]": "http://www.vekn.net/forum/rules-questions/78711-deep-song-vs-obedience#100233",
     "[RTR 19950622]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/86Y38Vps-7E/BPIFvB_eLzQJ",
     "[LSJ 20000507]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/6-sMg4Wo7KE/s0fQkYbR5_QJ",
     "[LSJ 19980130]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/mtjOAd7aaYI/XZq9o1cUd-8J",
@@ -1766,6 +1783,9 @@
     "[LSJ 20090725]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/isG743Sws-8/cjTJkGtfl_gJ",
     "[LSJ 20020620]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/WoXWzLYaFSY/ug3CHnpMCUQJ",
     "[LSJ 20080612]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/THFR8YTXxGI/ocQc4IRWP1AJ",
+    "[ANK 20200129]": "http://www.vekn.net/forum/rules-questions/78701-replace-during-unlock-and-other-unlock-effects#100210",
+    "[LSJ 20091208]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/ptHbJM9MlVI/m/O61W2JkI_rIJ",
+    "[RTR 19951017]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/ouhNUbHYg50/rco157ZHyqEJ",
     "[PIB 20121013]": "http://www.vekn.net/forum/rules-questions/39040-ex-nihilo-can-i-choose-to-burn-my-minion#39041",
     "[LSJ 20040120]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/5zBRtwg6lpU/MMisbKi7_Z0J",
     "[LSJ 20010725]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/2b0ITKe-WkE/ZI6UN0Lz-DoJ",
@@ -1831,6 +1851,8 @@
     "[LSJ 20010110]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Vtm465mblX4/B6pCvotsfFsJ",
     "[LSJ 19980831]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Za8AS17xXPM/Ttki0DplaeYJ",
     "[ANK 20171124]": "http://www.vekn.net/forum/rules-questions/76304-question-about-timing-of-force-of-will-damage-and-heidelberg?start=0#84354",
+    "[LSJ 20090722-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Ry0xU4IuJmQ/6WqoTXkzrVUJ",
+    "[LSJ 20030618]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/AdfUNNicx-Y/SDYFb37pS-wJ",
     "[LSJ 20050216]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/5_rUFgufFc4/7OVVD0KpnS4J",
     "[ANK 20190701]": "http://www.vekn.net/forum/rules-questions/77763-multiple-questions#95690",
     "[TOM 19951212-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/NJa6LfMSPks/0CQKgKoeWgUJ",
@@ -1864,13 +1886,14 @@
     "[ANK 20171003]": "http://www.vekn.net/forum/rules-questions/76205-ghoul-retainer-and-jar-of-skin-eaters#83712",
     "[TOM 19951212-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/fUZXpNtAX6M/WuCFPySyZJ8J",
     "[RTR 19971201]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/zpIp5xOzQT0/IkqqeD6dinYJ",
+    "[ANK 20200703-4]": "http://www.vekn.net/forum/rules-questions/78709-judgement#100235",
     "[ANK 20181016]": "http://www.vekn.net/forum/rules-questions/77075-sequencing-and-checking-for-triggers?start=6#91215",
     "[PIB 20150809]": "http://www.vekn.net/forum/rules-questions/72394-kaymakli-fragment#72405",
     "[LSJ 20051220]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/bIcX7F3wzf0/Oi91XAFSwKUJ",
     "[LSJ 20081210]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/pUUGH1nSKpc/aRxHUjHMxZsJ",
+    "[PIB 20130128-2]": "http://www.vekn.net/forum/rules-questions/44232-khazar-s-diary-question#44504",
     "[RTR 19991001]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/RAvWWmYoX3U/lb2bLOvJDhoJ",
     "[ANK 20190724]": "http://www.vekn.net/forum/rules-questions/77810-a-monthly-doubts-for-rookie#95945",
-    "[RTR 19951017]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/ouhNUbHYg50/rco157ZHyqEJ",
     "[LSJ 19970325]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/R-t138q8688/Zj1Y_jlq29AJ",
     "[PIB 20150603-2]": "http://www.vekn.net/forum/rules-questions/71416-the-dracon-and-kraken-s-kiss#71467",
     "[LSJ 20090731]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/y6f0s6tUtqs/H3dk4qr4nfkJ",
@@ -1944,6 +1967,7 @@
     "[LSJ 20100827]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/cnJrGIiDqpw/KfaS7kEfk_8J",
     "[ANK 20170930]": "http://www.vekn.net/forum/rules-questions/76197-still-confused-about-multiple-outside-the-hourglasses#83682",
     "[LSJ 19971110]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/IlQdghRurtM/STZjah9cGbAJ",
+    "[LSJ 20051207]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/H_Tuv0uJt1w/ccPPm2lSjyIJ",
     "[ANK 20191228]": "http://www.vekn.net/forum/rules-questions/78262-parity-shift-without-target#98358",
     "[LSJ 20010606]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/2Dj_N6wtifI/j_bddYqDbOYJ",
     "[LSJ 19970718]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/QujjxfQHYzw/S4tNTm4gpi8J",
@@ -1963,6 +1987,7 @@
     "[LSJ 20050105-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/vze_ZUJmzu8/cSZJ6ku_bSsJ",
     "[LSJ 19970414]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/GK6zEhZb9oI/imt6fsQxZ1wJ",
     "[LSJ 20010813]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/8MR4bq0Cxj4/f_rAOuj3CboJ",
+    "[ANK 20200703-2]": "http://www.vekn.net/forum/rules-questions/78713-blood-of-water-timing-before-strike-resolution#100242",
     "[LSJ 20050224-3]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/tzl6213crbI/HlnYVX9L3fAJ",
     "[TOM 19960413]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Gm-NLCP6bF0/sVxss5F1bBYJ",
     "[LSJ 20030211]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/xhpVMShX6qc/6KDcgiFIxhMJ",
@@ -2025,6 +2050,7 @@
     "[PIB 20150111]": "http://www.vekn.net/forum/rules-questions/68580-sensory-deprivation-ruling#68584",
     "[LSJ 20070702]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Y8fFI0VCwfw/e1xrXrq8T5gJ",
     "[ANK 20180420-1]": "http://www.vekn.net/forum/rules-questions/76522-majesty-against-serpent-s-numbing-kiss#86272",
+    "[ANK 20200705]": "http://www.vekn.net/forum/rules-questions/66086-serpent-s-numbing-kiss?start=6#100266",
     "[ANK 20180420-2]": "http://www.vekn.net/forum/rules-questions/76522-majesty-against-serpent-s-numbing-kiss#86278",
     "[LSJ 20030701-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/EFBCP5QI3D4/oU1yyA3yV04J",
     "[ANK 20190422]": "http://www.vekn.net/forum/rules-questions/77571-ilomba-and-set-s-curse#94614",
@@ -2092,6 +2118,7 @@
     "[LSJ 19980303]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Q_kKQiACZqk/Nu-cOlCq1cgJ",
     "[LSJ 19980823]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/eB1gNn8l3cU/FBBJ6DM8MEUJ",
     "[LSJ 20090304-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/B7EQiAVOr1Q/gg-GkqQBRp8J",
+    "[LSJ 20100514]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/Mz_fcIldfAY/m/Ys_W0MtwqLgJ",
     "[LSJ 20090220]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/JMgZa9jdrc4/kdM4QIf5LE0J",
     "[ANK 20200311]": "http://www.vekn.net/forum/rules-questions/78506-target-retainer-cancelled#99256",
     "[LSJ 20070319]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/9ArBwoYDquw/y-nmJqY3em0J",
@@ -2178,6 +2205,7 @@
     "[LSJ 20010210]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/NtMa5w_NVOE/jtpqcS6CwpIJ",
     "[LSJ 20030811]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Ivy3fm45bb4/7AYdBH7VI9QJ",
     "[LSJ 20041203]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/_iogrCkrCmc/hTkREMXGFR0J",
+    "[ANK 20200629]": "http://www.vekn.net/forum/rules-questions/78700-arika-special-order?start=6#100211",
     "[LSJ 19990405]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Bg0kbrSMAy0/Bs4nknFcJGkJ",
     "[LSJ 19971001]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/_Yu65rf2qE4/TqY70rjSogYJ",
     "[LSJ 20100311]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Ogc7-acbMFs/cJsbFPUiReIJ",
@@ -2215,6 +2243,7 @@
     "[LSJ 19990719]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/kKtW2qo6ACE/4hs5tbGDC1cJ",
     "[LSJ 20081120-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/e2PNDpg-l_c/wqEDxGHKJQgJ",
     "[ANK 20190407]": "http://www.vekn.net/forum/rules-questions/77533-title-imperator#94416",
+    "[LSJ 20101013]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/hpFRDAmtSbA/m/httYmI5wpB8J",
     "[LSJ 20050721]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/g39H3dwXqvc/R0kKrr7JDasJ",
     "[LSJ 20050128]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/HVy8iPUxNbI/ZHGTnprQjGUJ",
     "[PIB 20150526]": "http://www.vekn.net/forum/rules-questions/71325-kestrelle-hayes-and-multiple-targets?start=6#71337",
@@ -2274,6 +2303,7 @@
     "[ANK 20180626-2]": "http://www.vekn.net/forum/rules-questions/76752-tygerius-allegiance-counters-and-going-anarch#88401",
     "[TOM 19951214-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/lVTQ1rstpLY/Dz0yYCdMHg8J",
     "[ANK 20180512]": "http://www.vekn.net/forum/rules-questions/76599-troglodytia-special-vs-wash#86842",
+    "[ANK 20200703-3]": "http://www.vekn.net/forum/rules-questions/78716-cry-wolf-recruit-action-from-a-non-anarch-vampire-being-blocked#100264",
     "[LSJ 20081120-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/e2PNDpg-l_c/zsGPhfQgLL8J",
     "[LSJ 20091015]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/pqa7mYZ6NEM/HhxAS7Rh3JwJ",
     "[PIB 20130128]": "http://www.vekn.net/forum/rules-questions/43572-can-i-put-infernal-pact-on-vidal-jarbeaux?start=36#44503",
@@ -2393,6 +2423,7 @@
     ],
     "100051": [
       "83c5b1f97989",
+      "18e6bd8ac952",
       "4bb7767d5007",
       "c83fcfa349ec"
     ],
@@ -2701,6 +2732,9 @@
     ],
     "100213": [
       "9e5879ecaab4"
+    ],
+    "100214": [
+      "df1d43b21132"
     ],
     "100217": [
       "51989f107115"
@@ -3174,6 +3208,9 @@
     "100514": [
       "55d19644d49c"
     ],
+    "100515": [
+      "990db7a42c26"
+    ],
     "100516": [
       "3b30037c3269"
     ],
@@ -3486,7 +3523,8 @@
       "4b48a43b2fd7"
     ],
     "100668": [
-      "317223104492"
+      "317223104492",
+      "0f2cf1883116"
     ],
     "100669": [
       "50da7a15d5c0",
@@ -3506,6 +3544,9 @@
     "100680": [
       "76aee5338d75",
       "633d9d7f769f"
+    ],
+    "100681": [
+      "0f2cf1883116"
     ],
     "100683": [
       "4e60d2dd4e30",
@@ -3805,7 +3846,8 @@
       "a5bea2963993"
     ],
     "100834": [
-      "4322e32f1977"
+      "4322e32f1977",
+      "0f2cf1883116"
     ],
     "100836": [
       "21022a2352e6",
@@ -3929,7 +3971,8 @@
     "100908": [
       "b8a9032ec200",
       "04c8ef4699b0",
-      "6b3f2178d830"
+      "6b3f2178d830",
+      "d13f31e28aaa"
     ],
     "100911": [
       "87344f45c907"
@@ -4096,6 +4139,9 @@
       "b0aa35b67aa4",
       "622ea09cbfd6"
     ],
+    "101001": [
+      "0f2cf1883116"
+    ],
     "101002": [
       "62c81f6dfa29"
     ],
@@ -4148,6 +4194,7 @@
       "d0e57aef1215"
     ],
     "101028": [
+      "eda8e71ea42c",
       "cb1a8c1959d8"
     ],
     "101031": [
@@ -4174,7 +4221,8 @@
       "9e5879ecaab4"
     ],
     "101046": [
-      "ab9d90699dcb"
+      "ab9d90699dcb",
+      "0f6feb27bd9f"
     ],
     "101047": [
       "4bb7767d5007"
@@ -4265,6 +4313,9 @@
     ],
     "101091": [
       "8f48d681e402"
+    ],
+    "101093": [
+      "0f2cf1883116"
     ],
     "101095": [
       "62666fab6578"
@@ -4387,7 +4438,7 @@
     ],
     "101150": [
       "4a60097a0ede",
-      "8565678d2b38"
+      "ac6f57cafed7"
     ],
     "101151": [
       "fff0f3a7d316"
@@ -4611,6 +4662,9 @@
     "101263": [
       "9a3e625d63c9"
     ],
+    "101265": [
+      "0f2cf1883116"
+    ],
     "101268": [
       "9e5879ecaab4",
       "4f0267f04dac"
@@ -4692,6 +4746,9 @@
     "101315": [
       "75f8b49f70cc"
     ],
+    "101318": [
+      "0f2cf1883116"
+    ],
     "101320": [
       "6cd84d5f9648"
     ],
@@ -4738,11 +4795,15 @@
       "63c139a04b22",
       "6538f88aedef"
     ],
+    "101342": [
+      "f5be7fd1d6a6"
+    ],
     "101345": [
       "62c81f6dfa29"
     ],
     "101349": [
-      "21a78dee8a30"
+      "21a78dee8a30",
+      "0f2cf1883116"
     ],
     "101353": [
       "b943d9a26f5e",
@@ -4813,6 +4874,9 @@
     ],
     "101419": [
       "9a293fc01749"
+    ],
+    "101420": [
+      "521211991387"
     ],
     "101422": [
       "285da73caccb"
@@ -4888,6 +4952,9 @@
     "101481": [
       "36bb9455698a",
       "950aab52e520"
+    ],
+    "101482": [
+      "96e60632d418"
     ],
     "101485": [
       "a1074493b5a7"
@@ -5331,9 +5398,9 @@
       "dcf8541bd76c"
     ],
     "101727": [
-      "a96ac527e466",
+      "7931faa80532",
       "b53685221c24",
-      "f3b2c9b43670",
+      "4cdf4c2a4c64",
       "800b0a28eeb1",
       "faedbb6ad733"
     ],
@@ -5753,7 +5820,7 @@
     "101931": [
       "9d495bbc1632",
       "e8533762c36b",
-      "09649064b36a"
+      "7ebc29ea095a"
     ],
     "101932": [
       "4d6dfc8eeac1",
@@ -5995,6 +6062,7 @@
     "102060": [
       "9baf363e8f63",
       "c3e3a7bfab6d",
+      "1ec05fb9b597",
       "29851f207f7a",
       "0735eb1025e0",
       "3e2a91fd6f80",
@@ -6141,7 +6209,8 @@
     ],
     "102137": [
       "a503f5059e53",
-      "a2c1ab92cc70"
+      "a2c1ab92cc70",
+      "0f2cf1883116"
     ],
     "102138": [
       "5bf68d71ceb2",
@@ -6172,7 +6241,8 @@
     ],
     "102151": [
       "2ab388e101f8",
-      "bf2712e8a4be"
+      "bf2712e8a4be",
+      "0f2cf1883116"
     ],
     "102152": [
       "f51ab9441f44"
@@ -6371,6 +6441,7 @@
       "673124cafe43"
     ],
     "200135": [
+      "3e0015b8d769",
       "176c842ead8c"
     ],
     "200136": [
@@ -6576,7 +6647,7 @@
       "5d8ae33078fb"
     ],
     "200498": [
-      "b74dfbc6ad6e"
+      "6ba69e7b0c36"
     ],
     "200503": [
       "a4e20140a50b"
@@ -6711,7 +6782,7 @@
     ],
     "200770": [
       "572f7e8d7ef7",
-      "db474d9b0704",
+      "8435f233dd1d",
       "796224f7ad35",
       "54b6bda905a4"
     ],
@@ -6753,7 +6824,7 @@
       "f3a32be0c183"
     ],
     "200840": [
-      "3fbbe29acc93",
+      "9a4a8a6af0e6",
       "4d0ba9b9ae98",
       "e51491f08390"
     ],
@@ -6840,7 +6911,7 @@
     "200955": [
       "cb6b822d4e29",
       "36053f3fde4a",
-      "a152b162b3e6",
+      "31b32b5e825e",
       "4fdebf414740",
       "002943aec367",
       "a03c6ca3aadf"
@@ -6952,14 +7023,14 @@
       "819f0a94a75f"
     ],
     "201113": [
-      "2937399a2c75",
+      "a9706fa17b93",
       "002943aec367",
       "d78abd8d60f9",
       "5d34445eab46",
       "825a5725d1da"
     ],
     "201121": [
-      "fcc7fa081c48",
+      "0c756679fce4",
       "ead57fb7f18c"
     ],
     "201123": [
@@ -7119,7 +7190,7 @@
       "5d8ae33078fb"
     ],
     "201348": [
-      "e10f3eeb4154",
+      "469e239fa887",
       "c28589eb7f1c"
     ],
     "201352": [
@@ -7177,19 +7248,21 @@
       "ac7b9331d160"
     ],
     "201439": [
-      "a43470509c85"
+      "572e614f095a"
     ],
     "201440": [
       "16665af37f03"
     ],
     "201446": [
+      "495a085a409a",
       "566190528ea2",
+      "197f08326370",
       "71c36f6e593e",
       "304905ae9d9f",
       "011d124b8042"
     ],
     "201456": [
-      "f5f240188737",
+      "585d3f14b8ab",
       "a21adbbafdd4",
       "ead57fb7f18c",
       "197f08326370",
@@ -7216,7 +7289,7 @@
       "5d8ae33078fb"
     ],
     "201471": [
-      "c6c6b9499e18",
+      "6c85a7976131",
       "4d0ba9b9ae98",
       "64ba9435d0dd"
     ],
