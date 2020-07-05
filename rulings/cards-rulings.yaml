@@ -544,6 +544,8 @@
     - '"when a vampire is going into torpor" and "when a vampire should go into torpor" are the same window. If both minions want to play a card, acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Decapitate} and vice-versa. [RTR 20010710]'
 100514|Deep Cover Agent:
     - "The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]"
+100515|Deep Song:
+    - "[ANI] The lock and enter combat effects are simultaneous. Both are lost if the action ends before that (eg. {Obedience}). [ANK 20200702]"
 100516|Deer Rifle:
     - "The optional maneuvers cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]"
 100517|Defender of the Haven:
