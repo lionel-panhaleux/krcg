@@ -1832,9 +1832,9 @@
 101724|Seraph's Second:
     - "Can be used to unlock a vampire who has just successfully resolved an action to become Black Hand. [LSJ 20070702]"
 101727|Serpent's Numbing Kiss:
-    - "[PRE][SER] The additional effect takes place after the end of combat. [RTR 19970630] [ANK 20180420-1]"
+    - "[PRE][SER] The additional effect takes place after the end of combat, including the blood burn. [RTR 19970630] [ANK 20180420-1] [ANK 20200705]"
     - '[PRE][SER] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]'
-    - "[PRE][SER] If the combat continues or a new combat begins, no blood is burned, the card cannot be put on the opposing minion and he is not locked. [RTR 20020501]"
+    - "[PRE][SER] If the combat continues or a new combat begins, no blood is burned, the card cannot be put on the opposing minion and he is not locked. [RTR 20020501] [ANK 20200705]"
     - "[PRE][SER] If the strike is dodged, the card is not put on the opposing minion and he is not locked. [RTR 20041202]"
     - "[PRE][SER] Burning 1 blood is mandatory, not a choice. [ANK 20180420-2]"
 101730|Set's Call:
@@ -2085,7 +2085,7 @@
 101931|Talbot's Chainsaw:
     - "The press is mandatory. [LSJ 19980823]"
     - "Using the Chainsaw action to enter combat or preventing damage with it does not force the minion to strike with it. [LSJ 19971215]"
-    - "The damage inflicted during the unlock phase is weapon damage. Only combat damage can be environmental. {Mictlantecuhtli} can be chosen and would take no damage. [LSJ 20090304-1]"
+    - "The damage inflicted during the unlock phase is weapon damage, it is neither inflicted by the wearer nor environmental. {Mictlantecuhtli} can be chosen and would take no damage. [LSJ 20090304-1] [LSJ 20100514]"
 101932|Talith:
     - 'The "strike: destroy weapon" cannot be chosen if there is no weapon to destroy. [RTR 19980928]'
 101934|Taming the Beast:
@@ -2447,6 +2447,7 @@
 200106|Anneke:
     - "Her ability only affects the rule restricting who gets to block an action. She must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 20020501] [LSJ 20041203]"
 200135|Arika:
+    - "Arika's prey can use a location during her unlock phase before burning it. [ANK 20200629]"
     - "Arika's prey cannot end her unlock phase if she controls a location that she hasn't burned a pool for, even if she gained control of that location during that unlock phase. [LSJ 19990405]"
 200136|Arishat:
     - "Her ability applies to Priscus votes and ballots. [LSJ 19971001]"
