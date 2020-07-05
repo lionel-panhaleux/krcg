@@ -1123,6 +1123,7 @@
 101023|The Jones:
     - "[ser] The press can only be used during the current round. [TOM 19960521]"
 "101028|Judgment: Camarilla Segregation":
+    - "If multiple copies of the card are in play, one must pay for each of them (they stack). [ANK 20200703-4]"
     - "The effect must be applied during the unlock phase, but other effects can be applied before. If an effect applied before burns the last non-Camarilla vampire, no pool is lost. [ANK 20181016]"
 101031|Justicar Retribution:
     - "Counts the bleed amount that each vampire would have when attempting to bleed his prey. [RTR 19980623]"
@@ -2229,6 +2230,7 @@
 102060|Undead Persistence:
     - "[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]"
     - "[for] Only provides one press for the current round, not the ones after that. [ANK 20180110]"
+    - "[for] Cannot be used twice by the same vampire during the same combat: because of the first, the vampire is not going into torpor and does not meet the requirement to play it anymore. [LSJ 20030214]"
     - '[for] If an effect causes a new combat to occur at the end of combat, then the "go to torpor" effect will be delayed until after that new combat. However, the vampire will no longer benefit from Undead Persistence in the new combat, so it will end immediately with the vampire not ready unless he plays a new Undead Persistence in the new combat. [LSJ 20030214] [ANK 20190624]'
     - "[FOR] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
     - "[FOR] Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
