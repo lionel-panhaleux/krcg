@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.53 (unreleased)
+0.53 (2020-07-05)
 -----------------
 
 - Improved rulings.
