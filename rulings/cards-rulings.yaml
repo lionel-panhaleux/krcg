@@ -248,6 +248,8 @@
     - "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 100213|Blood Tempering:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+100214|Blood to Water:
+    - "Must be played after range is chosen, can be played before or after strikes are chosen. [ANK 20200703] [LSJ 20031008]"
 100218|Bloodbath:
     - "The target does not get an extra vote if it already has or subsequently gains a title. If the target loses his title, then he again gets his extra vote. [LSJ 19970224]"
 100219|Bloodform:
@@ -1571,6 +1573,8 @@
 101481|Pressing Flesh:
     - "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
     - "Requirements need not to be met. If the ally requires a discipline, the inferior version is used. If the cost is X (eg. {Reanimated Corpse}), X is zero. [LSJ 20071015] [LSJ 20100302-1]"
+101482|Preternatural Evasion:
+    - "[CEL] The blood is burned when playing the card. [ANK 20200703-2]"
 101485|Primal Instincts:
     - "If the strike is canceled, the rest of the effect is also canceled. [RTR 20040501]"
 101486|Principia Discordia:
