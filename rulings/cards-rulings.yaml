@@ -2097,17 +2097,22 @@
     - 'The canceled action has not been "performed" in respect to section 6.1 of the rules. The same vampire can undertake the same action again. [LSJ 20070709]'
     - 'If the action was blocked then continued (eg. {Form of Mist}) before being canceled, it has been "performed" in respect to section 6.1 of the rules. [LSJ 20090220]'
 101938|Target Hand:
+    - "Is played during the Strike phase (6.4.3) even if you commit to a strike in the Determine Range phase (6.4.2) (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]"
     - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101939|Target Head:
+    - "Is played during the Strike phase (6.4.3) even if you commit to a strike in the Determine Range phase (6.4.2) (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]"
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
     - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
     - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101940|Target Leg:
+    - "Is played during the Strike phase (6.4.3) even if you commit to a strike in the Determine Range phase (6.4.2) (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]"
     - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101941|Target Retainer:
+    - "Is played during the Strike phase (6.4.3) even if you commit to a strike in the Determine Range phase (6.4.2) (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]"
     - "If it is canceled, the strike resolves with the default target. [ANK 20200311]"
     - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101942|Target Vitals:
+    - "Is played during the Strike phase (6.4.3) even if you commit to a strike in the Determine Range phase (6.4.2) (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]"
     - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
     - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
 101945|Taste of Vitae:
