@@ -4,7 +4,7 @@ Changelog
 0.54 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Improved rulings.
 
 
 0.53 (2020-07-05)
