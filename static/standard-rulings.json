@@ -307,6 +307,7 @@
     "fa4c2fe48429": "Cannot be used if the action ousted you. [ANK 20180326]",
     "10b56ecddd2b": "The canceled block isn't successful or unsuccessful. It is simply canceled. [LSJ 20110419]",
     "a5fbe85731d2": "Can be equipped by a minion who cannot use it. [LSJ 20030607]",
+    "9c294e35ba67": "His ability continues to apply fully if he is not a werewolf (eg. {Pressing Flesh}). [LSJ 20100212]",
     "d48aedb1d8ec": "Can be used after a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]",
     "aae548b71ab0": "Only moves when a Methuselah gets the Edge who does not already have the Edge. [LSJ 19971006]",
     "36bb9455698a": "This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]",
@@ -1092,6 +1093,7 @@
     "53fac3ca1c3e": "[abo] Additional damage inherits all of the properties of the base damage. [TOM 19960225]",
     "8b9c87024da8": "The canceled action has not been \"performed\" in respect to section 6.1 of the rules. The same vampire can undertake the same action again. [LSJ 20070709]",
     "148d7015823f": "If the action was blocked then continued (eg. {Form of Mist}) before being canceled, it has been \"performed\" in respect to section 6.1 of the rules. [LSJ 20090220]",
+    "69c848337823": "Is played during the Strike phase (6.4.3) even if you commit to a strike in the Determine Range phase (6.4.2) (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]",
     "78e19ce8db19": "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]",
     "22bb19ebf97f": "If it is canceled, the strike resolves with the default target. [ANK 20200311]",
     "ccfa0c667a19": "[ANI] The prey goes first in the combat (for declaring maneuvers, strikes, presses). [LSJ 20070319]",
@@ -1255,7 +1257,7 @@
     "be793a1424a3": "In the case of {Free Fight}, the last opposing minion burns the blood. [ANK 20200420-1]",
     "36053f3fde4a": "Keeps her title and votes if she changes sects. [LSJ 20010714]",
     "ac7b9331d160": "His \"as he enters play\" ability can be used before he enters contest if there is another one in play. [LSJ 20080526]",
-    "65f76d08d2b5": "Can convert an anarch vampire if he is not titled. [PIB 20121031]",
+    "f151039e8740": "Can \"convert\" an already anarch vampire if he is not titled. [PIB 20121031]",
     "74859264a354": "His ability can be used only once per successful bleed, but can be used multiple times on different bleeds during the same turn. [LSJ 20081123]",
     "605ae872b5c1": "It is used in the \"would/about to be successful\" window like {Spying Mission}. [LSJ 20081123]",
     "105698045420": "Only modifiers and reactions that can be played \"when the action/bleed would be successful\" can be played after it. [LSJ 20090205]",
@@ -1333,6 +1335,7 @@
     "09712c1b302b": "Her \"as she enters play\" ability can be used before she enters contest if there is another one in play. [LSJ 20080526]",
     "c2bbe2b9e597": "When she is influenced out, her bonus transfers do not apply for the ongoing influence phase. [RTR 20180303]",
     "17f2d73940c6": "When using the action provided by his ability, if some minions cannot be targeted because of another effect, the action will simply have no effect on the things it cannot target. [RTR 20080808]",
+    "8157651dbd5a": "If a cost reduction applies (eg. {Salvador Garcia}), the controller can choose to apply it first so that her ability does not kick in. [ANK 20200709]",
     "1b9ea33aaabb": "If a second Jimmy Dunn is brought out during an action, and the first Jimmy (if he has Vicissitude) plays {Reform Body}, the first Jimmy will go to torpor (from Reform Body), but will then be burned anyhow, since he cannot be contested. [LSJ 19990719] [RTR 19991001]",
     "2cb006a9a780": "If a second Jimmy Dunn is brought out during an action, the acting vampire is not considered to be \"burning\" the first Jimmy. [LSJ 19990719] [RTR 19991001]",
     "f1dd0de371d8": "If a non-contesting second copy of Jimmy enters play (via {Illusions of the Kindred}, for example), the first Jimmy won't burn himself. [LSJ 19991110]",
@@ -1448,7 +1451,8 @@
     "4f657672f57b": "The prohibition to play certain cards applies from the moment he attempts to block until the end of the action, even if he fails to block. [LSJ 20080818]",
     "572e614f095a": "When playing a card requiring a Camarilla vampire or a Prince, he is treated as a such for all effects of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]",
     "16665af37f03": "His \"as he enters play\" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902]",
-    "495a085a409a": "When meeting a requirement to play a card, he is seens as meeting it so for all the effects of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [ANK 20200703-3] [ANK 20190228] [LSJ 20101013]",
+    "50e285c19f07": "When meeting a requirement to play a card, he is treated as such for all the effects of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [ANK 20200703-3] [ANK 20190228] [LSJ 20101013]",
+    "a2d41998b2b6": "If a card he plays is cancelled as it is played, he is still considered having used the requirement, if any. [ANK 20200710]",
     "566190528ea2": "He can meet any title as well as non-requirements (eg. non-Red List), but cannot meet requirements that are not vampire traits (eg. Mortal, unlocked, older, ..) [LSJ 20081120-1]",
     "197f08326370": "When meeting a title requirement, he is considered as a vampire of the underlying sect. [LSJ 20050128]",
     "71c36f6e593e": "He can meet the requirements for his controller to play any card, including Master cards. [LSJ 20091015] [PIB 20130128]",
@@ -1714,6 +1718,7 @@
     "[ANK 20190203]": "http://www.vekn.net/forum/rules-questions/77343-ennoia-s-theater-do-i-need-both-gangrel-and-gangrel#93265",
     "[ANK 20180326]": "http://www.vekn.net/forum/rules-questions/76477-crocodile-temple-vs-oust#86050",
     "[LSJ 20110419]": "https://www.boardgamegeek.com/thread/643948/article/6634732",
+    "[LSJ 20100212]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/NIIFHQg_x1c/e5cReQuEqxYJ",
     "[LSJ 19971006]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/2to9jkow98Q/loNTF9VNuc8J",
     "[ANK 20181129]": "http://www.vekn.net/forum/rules-questions/77198-pressing-flesh-from-other-player-s-ash-heap#92145",
     "[PIB 20150520]": "http://www.vekn.net/forum/rules-questions/68512-re-dam-the-heart-s-river-and-dagon-s-call?start=0#71259",
@@ -2120,6 +2125,7 @@
     "[LSJ 20090304-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/B7EQiAVOr1Q/gg-GkqQBRp8J",
     "[LSJ 20100514]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/Mz_fcIldfAY/m/Ys_W0MtwqLgJ",
     "[LSJ 20090220]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/JMgZa9jdrc4/kdM4QIf5LE0J",
+    "[LSJ 20080409]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/jrN1Pc_Quk0/XwWAWfq_KRIJ",
     "[ANK 20200311]": "http://www.vekn.net/forum/rules-questions/78506-target-retainer-cancelled#99256",
     "[LSJ 20070319]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/9ArBwoYDquw/y-nmJqY3em0J",
     "[LSJ 20061212]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/h3onVZ1NqpQ/JYIxdaT9wMEJ",
@@ -2240,6 +2246,7 @@
     "[LSJ 20030519]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/E6Jz8m3iKrA/BoCMzQoGzyQJ",
     "[LSJ 20070320-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/QPCnTltI2Rk/_DIkIPJSPTgJ",
     "[PIB 20150820-2]": "http://www.vekn.net/forum/rules-questions/72575-hunt-actions#72623",
+    "[ANK 20200709]": "http://www.vekn.net/forum/rules-questions/74710-jenna-cross-salvador-garcia-specials-question#100325",
     "[LSJ 19990719]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/kKtW2qo6ACE/4hs5tbGDC1cJ",
     "[LSJ 20081120-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/e2PNDpg-l_c/wqEDxGHKJQgJ",
     "[ANK 20190407]": "http://www.vekn.net/forum/rules-questions/77533-title-imperator#94416",
@@ -2304,6 +2311,7 @@
     "[TOM 19951214-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/lVTQ1rstpLY/Dz0yYCdMHg8J",
     "[ANK 20180512]": "http://www.vekn.net/forum/rules-questions/76599-troglodytia-special-vs-wash#86842",
     "[ANK 20200703-3]": "http://www.vekn.net/forum/rules-questions/78716-cry-wolf-recruit-action-from-a-non-anarch-vampire-being-blocked#100264",
+    "[ANK 20200710]": "http://www.vekn.net/forum/rules-questions/77985-vidal-jarbeaux-ability#100333",
     "[LSJ 20081120-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/e2PNDpg-l_c/zsGPhfQgLL8J",
     "[LSJ 20091015]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/pqa7mYZ6NEM/HhxAS7Rh3JwJ",
     "[PIB 20130128]": "http://www.vekn.net/forum/rules-questions/43572-can-i-put-infernal-pact-on-vidal-jarbeaux?start=36#44503",
@@ -3125,6 +3133,9 @@
     ],
     "100474": [
       "a5fbe85731d2"
+    ],
+    "100475": [
+      "9c294e35ba67"
     ],
     "100476": [
       "142fbd669de3",
@@ -5835,21 +5846,26 @@
       "148d7015823f"
     ],
     "101938": [
+      "69c848337823",
       "78e19ce8db19"
     ],
     "101939": [
+      "69c848337823",
       "83c5b1f97989",
       "c6622df71421",
       "78e19ce8db19"
     ],
     "101940": [
+      "69c848337823",
       "78e19ce8db19"
     ],
     "101941": [
+      "69c848337823",
       "22bb19ebf97f",
       "78e19ce8db19"
     ],
     "101942": [
+      "69c848337823",
       "c6622df71421",
       "78e19ce8db19"
     ],
@@ -6403,7 +6419,7 @@
     ],
     "200076": [
       "ac7b9331d160",
-      "65f76d08d2b5"
+      "f151039e8740"
     ],
     "200080": [
       "74859264a354",
@@ -6746,6 +6762,9 @@
     ],
     "200678": [
       "17f2d73940c6"
+    ],
+    "200688": [
+      "8157651dbd5a"
     ],
     "200705": [
       "1b9ea33aaabb",
@@ -7254,7 +7273,8 @@
       "16665af37f03"
     ],
     "201446": [
-      "495a085a409a",
+      "50e285c19f07",
+      "a2d41998b2b6",
       "566190528ea2",
       "197f08326370",
       "71c36f6e593e",
