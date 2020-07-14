@@ -537,10 +537,11 @@
 100503|Dead Hand:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100510|Death Seeker:
+    - "If used to cancel a strike, another strike is chosen. [LSJ 20100206]"
     - 'If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]'
-    - "If used to cancel a limited effect (additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]"
-    - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]"
-    - "When used to cancel a card play at the end of a round or when wombat would end, counts as having been played during that ending round. [ANK 20180910-2]"
+    - "If used to cancel a limited effect (additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20100206] [LSJ 20030224]"
+    - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon}). [RTR 20001020]"
+    - "When used to cancel a card play at the end of a round or when combat would end, counts as having been played during that ending round. [ANK 20180910-2]"
 100511|Decapitate:
     - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - '"when a vampire is going into torpor" and "when a vampire should go into torpor" are the same window. If both minions want to play a card, acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Decapitate} and vice-versa. [RTR 20010710]'
@@ -2466,6 +2467,11 @@
     - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200138|Armin Brenner:
     - "His ability is applied after the referendum effects are applied, including any oust and pool gained from it. [LSJ 20090115-2]"
+200145|Asguresh:
+    - "If his ability is used to cancel a strike, another strike is chosen. [LSJ 20100206]"
+    - 'If a canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]'
+    - "If his ability is used to cancel a limited effect (additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20100206] [LSJ 20030224]"
+    - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon}). [RTR 20001020]"
 200148|Astrid Thomas:
     - "Her ability triggers when votes are tallied. [RTR 20001020]"
     - "Tremere who have not yet voted can choose to abstain. [RTR 19941006]"
