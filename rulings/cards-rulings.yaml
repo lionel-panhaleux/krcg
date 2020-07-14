@@ -1453,6 +1453,8 @@
     - "Cannot be played if the opponent is not the acting vampire, for example if a slave took his place. [ANK 20171212]"
 101315|Of Noble Blood:
     - "Is a Ⓓ action if a vampire controlled by another Methusalah is chosen. [ANK 20190606]"
+101317|Ohoyo Hopoksia (Bastet):
+    - "If her ability is used when a minion blocks an action, the blocking minion still locks for the block. [ANK 20200714]"
 101320|Omael Kuman:
     - "When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 101321|On the Qui Vive:
