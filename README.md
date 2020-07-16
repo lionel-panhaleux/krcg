@@ -449,3 +449,18 @@ Some generated files are in JSON format, their schemas can be found in the
 [schemas](https://github.com/lionel-panhaleux/krcg/blob/master/schemas) folder.
 The standard TWDA file is a rewrite of the
 [original TWDA](https://github.com/GiottoVerducci/TWD) in the same HTML format.
+
+### Card images deployment
+
+The card images can be deployed on a distant server via a make command using `rsync`:
+
+```bash
+make sync-images
+```
+
+The environment variables `LACKEY_FOLDER` and `REMOTE_FOLDER` can be used to set the
+the LackeyCCG folder path and the remote folder path respectively:
+
+```bash
+LACKEY_FOLDER=/Applications/LackeyCCG REMOTE_FOLDER=myservery:/home/web/card_images make sync-images
+```

@@ -1,4 +1,7 @@
-.PHONY: validate quality test init static release update serve deploy clean
+.PHONY: validate quality test init static release update serve deploy clean sync-images
+
+LACKEY_FOLDER ?= /Applications/LackeyCCG
+REMOTE ?= krcg.org:projects/images.krcg.org/dist
 
 # used by CI
 validate: static/*.json
@@ -35,3 +38,6 @@ clean:
 	rm -f `python -c "import tempfile as t; print(t.gettempdir())"`/krcg-twda.pkl
 	rm -rf dist
 	rm -rf .pytest_cache
+
+sync-images:
+	rsync -rptov --delete-after -e ssh ${LACKEY_FOLDER}/plugins/vtes/sets/setimages/general/ ${REMOTE}

@@ -4,7 +4,7 @@ Changelog
 0.55 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Add sync-images make command
 
 
 0.54 (2020-07-12)
