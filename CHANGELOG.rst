@@ -4,7 +4,7 @@ Changelog
 0.56 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Use Pentex™ (real card name) instead of Pentex(TM) (vekn cards reference file)
 
 
 0.55 (2020-07-17)

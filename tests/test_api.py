@@ -26,8 +26,8 @@ def test_complete(client):
     response = client.get("/complete/pentex")
     assert response.status_code == 200
     assert response.json == [
-        "Pentex(TM) Loves You!",
-        "Pentex(TM) Subversion",
+        "Pentex™ Loves You!",
+        "Pentex™ Subversion",
         "Enzo Giovanni, Pentex Board of Directors",
         "Enzo Giovanni, Pentex Board of Directors (ADV)",
         "Harold Zettler, Pentex Director",
@@ -244,7 +244,7 @@ def test_deck(client):
                             "comments": None,
                             "count": 1,
                             "id": "101384",
-                            "name": "Pentex(TM) Subversion",
+                            "name": "Pentex™ Subversion",
                         },
                         {
                             "comments": None,

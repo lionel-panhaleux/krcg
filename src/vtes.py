@@ -602,17 +602,19 @@ class _VTES:
             name = "The " + name[:-5]
         if name[-6:] != " (ADV)" and card.get("Adv"):
             name = name + " (ADV)"
+        name = name.replace("(TM)", "™")
         return name
 
     @staticmethod
     def vekn_name(card):
-        """Returns VEKN style name for a card (suffix The)
+        """Returns VEKN name for a card (suffix The, (TM) instead of ™)
         """
         name = card["Name"]
         if name[:4] == "The ":
             name = name[4:] + ", The"
         if name[-6:] != " (ADV)" and card.get("Adv"):
             name = name + " (ADV)"
+        name = name.replace("™", "(TM)")
         return name
 
     def normalized(self, card):
@@ -655,6 +657,8 @@ class _VTES:
             if not name:
                 return
             yield name + advanced_suffix
+            if "(TM)" in name:
+                yield name.replace("(TM)", "™") + advanced_suffix
             ascii_variant = unidecode.unidecode(name)
             if ascii_variant != name:
                 yield ascii_variant + advanced_suffix
