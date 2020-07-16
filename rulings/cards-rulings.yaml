@@ -493,6 +493,8 @@
     - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 100441|Creation Rites:
     - "If moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]"
+100446|CrimethInc.:
+    - "Can be played if the action is unblocked even if it has no effect due to lack of a suitable target. [LSJ 20070411]"
 100449|The Crocodile Temple:
     - "Cannot be used if the action ousted you. [ANK 20180326]"
 100450|Crocodile's Tongue:
@@ -845,6 +847,7 @@
     - "Can be played after action resolution to use a reaction card (eg. {Fast Reaction} after combat). [LSJ 20091123]"
 100761|Forced March:
     - '[cel][for] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
+    - "Can be used to unlock if the action is unblocked, even if it has no effect due to lack of a suitable target. [LSJ 20070411]"
 100763|Forearm Block:
     - "Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]"
 100764|Foresee:
@@ -875,7 +878,7 @@
     - 'Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]'
 100788|Freak Drive:
     - "[FOR] Is played after all combats are handled. Can be played from torpor. [RTR 19980623] [LSJ 20030103] [ANK 20180906]"
-    - "[for] Can be played if the action is unblocked even if it has no effect (due to lack of a suitable target, for example). [LSJ 20070411]"
+    - "[for] Can be played if the action is unblocked even if it has no effect due to lack of a suitable target. [LSJ 20070411]"
     - "[for] Is played after the action resolves. (eg. if played after equipping {Learjet}, you draw an additional card). [PIB 20150915]"
 100790|Free States Rant:
     - "If there are insuffient targets to which to allocate all of the points allowed, then the card cannot be played. [LSJ 20010810]"
@@ -1109,6 +1112,8 @@
     - "Can only be played by the controller of the acting minion. [LSJ 19990425]"
     - "Can be played by a locked vampire. [LSJ 19980210]"
     - "Multiple copies can be played by different minions on the same action. [ANK 20200515]"
+100994|Instantaneous Transformation:
+    - "[FOR][CEL] Can be played if the action is unblocked even if it has no effect due to lack of a suitable target. [LSJ 20070411]"
 100998|Internal Recursion:
     - "Is played before the combat begins. [LSJ 20020204]"
     - "[pre] The blocking vampire do not unlock if the vampire uses another effect to end combat as a strike. [RTR 20020501]"
