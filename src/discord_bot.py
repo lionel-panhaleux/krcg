@@ -268,9 +268,9 @@ def handle_message(message, completion=True):
     file_name = unidecode.unidecode(card_name).lower()
     file_name = file_name[4:] + "the" if file_name[:4] == "the " else file_name
     file_name, _ = re.subn(r"""\s|,|\.|-|—|'|:|\(|\)|"|!""", "", file_name)
-    codex_url = "http://www.codex-of-the-damned.org/card-search/index.html?"
+    codex_url = "https://codex-of-the-damned.org/card-search/index.html?"
     codex_url += urllib.parse.urlencode({"card": card_name})
-    image_url = f"http://www.codex-of-the-damned.org/card-images/{file_name}.jpg"
+    image_url = f"https://images.krcg.org/{file_name}.jpg"
     image_url += f"#{datetime.datetime.now():%Y%m%d%H}"  # timestamp cache busting
     color = COLOR_MAP.get(card_type, DEFAULT_COLOR)
     if card_type == "Vampire":

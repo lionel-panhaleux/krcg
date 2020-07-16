@@ -5,7 +5,7 @@ Changelog
 -----------------
 
 - Add sync-images make command
-
+- Krcg bot: new hosts for card page/image (avoid unnecessary redirections)
 
 0.54 (2020-07-12)
 -----------------

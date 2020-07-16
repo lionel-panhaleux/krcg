@@ -32,14 +32,14 @@ def test_bot(monkeypatch):
         },
         "image": {
             "url": (
-                "http://www.codex-of-the-damned.org/card-images/krcgnewsradio.jpg"
+                "https://images.krcg.org/krcgnewsradio.jpg"
                 f"#{datetime.datetime.now():%Y%m%d%H}"
             )
         },
         "title": "KRCG News Radio",
         "type": "rich",
         "url": (
-            "http://www.codex-of-the-damned.org/card-search/index.html"
+            "https://codex-of-the-damned.org/card-search/index.html"
             "?card=KRCG+News+Radio"
         ),
     }
@@ -65,14 +65,14 @@ def test_bot(monkeypatch):
         },
         "image": {
             "url": (
-                "http://www.codex-of-the-damned.org/card-images/"
-                f"monasteryofshadows.jpg#{datetime.datetime.now():%Y%m%d%H}"
+                "https://images.krcg.org/monasteryofshadows.jpg"
+                f"#{datetime.datetime.now():%Y%m%d%H}"
             )
         },
         "title": "Monastery of Shadows",
         "type": "rich",
         "url": (
-            "http://www.codex-of-the-damned.org/card-search/index.html"
+            "https://codex-of-the-damned.org/card-search/index.html"
             "?card=Monastery+of+Shadows"
         ),
     }
