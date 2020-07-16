@@ -5,7 +5,10 @@ Changelog
 -----------------
 
 - Add sync-images make command
-- Krcg bot: new hosts for card page/image (avoid unnecessary redirections)
+- Bot: new hosts for card page/image (avoid unnecessary redirections)
+- API: add card image URL
+- API: fix card search documentation
+- API: added search command
 
 0.54 (2020-07-12)
 -----------------

@@ -37,6 +37,11 @@ components:
                     description: Card name
                     type: string
                     minLength: 1
+                Image:
+                    description: Card image URL
+                    type: string
+                    format: url
+                    minLength: 1
                 Aka:
                     description: Alternative card name
                     type: string
@@ -160,6 +165,7 @@ components:
             example:
                 Id: "100038"
                 Name: "Alastor"
+                Image: "https://images.krcg.org/alastor.jpg"
                 Aka: ""
                 Type: ["Political Action"]
                 Clan: []
@@ -232,10 +238,7 @@ components:
                                         type: array
                                         minLength: 1
                                         maxLength: 90
-                                        items:
-                                            {
-                                                $ref: "#/components/schemas/card_count",
-                                            }
+                                        items: { $ref: "#/components/schemas/card_count" }
             example:
                 twd_id: "2014incbi"
                 name: "AAA - Alert Attention Alarm"
@@ -258,11 +261,7 @@ components:
                             { count: 1, name: François Villon, id: "200478" },
                             { count: 1, name: Marcellus, id: "200910" },
                             { count: 1, name: Tatiana Romanov, id: "201347" },
-                            {
-                                count: 1,
-                                name: "Volker, The Puppet Prince",
-                                id: "201458",
-                            },
+                            { count: 1, name: "Volker, The Puppet Prince", id: "201458" },
                         ]
                 library:
                     count: 90
@@ -271,165 +270,55 @@ components:
                           count: 30
                           cards:
                               [
-                                  {
-                                      count: 9,
-                                      name: Ashur Tablets,
-                                      id: "100106",
-                                  },
+                                  { count: 9, name: Ashur Tablets, id: "100106" },
                                   { count: 7, name: Liquidation, id: "101112" },
                                   { count: 5, name: Villein, id: "102121" },
-                                  {
-                                      count: 3,
-                                      name: Haven Uncovered,
-                                      id: "100897",
-                                  },
+                                  { count: 3, name: Haven Uncovered, id: "100897" },
                                   { count: 1, name: Art Museum, id: "100095" },
-                                  {
-                                      count: 1,
-                                      name: "Golconda: Inner Peace",
-                                      id: "100842",
-                                  },
-                                  {
-                                      count: 1,
-                                      name: Information Highway,
-                                      id: "100984",
-                                  },
+                                  { count: 1, name: "Golconda: Inner Peace", id: "100842" },
+                                  { count: 1, name: Information Highway, id: "100984" },
                                   { count: 1, name: Papillon, id: "101350" },
-                                  {
-                                      count: 1,
-                                      name: "Pentex(TM) Subversion",
-                                      id: "101384",
-                                  },
+                                  { count: 1, name: "Pentex(TM) Subversion", id: "101384" },
                                   { count: 1, name: Wider View, id: "102180" },
                               ]
                         - type: Action
                           count: 3
-                          cards:
-                              [
-                                  {
-                                      count: 2,
-                                      name: Entrancement,
-                                      id: "100652",
-                                  },
-                                  {
-                                      count: 1,
-                                      name: Heart of the City,
-                                      id: "100904",
-                                  },
-                              ]
+                          cards: [{ count: 2, name: Entrancement, id: "100652" }, { count: 1, name: Heart of the City, id: "100904" }]
                         - type: Equipment
                           count: 11
                           cards:
                               [
-                                  {
-                                      count: 6,
-                                      name: ".44 Magnum",
-                                      id: "100001",
-                                  },
-                                  {
-                                      count: 3,
-                                      name: Heart of Nizchetus,
-                                      id: "100903",
-                                  },
-                                  {
-                                      count: 1,
-                                      name: Bowl of Convergence,
-                                      id: "100243",
-                                  },
-                                  {
-                                      count: 1,
-                                      name: Codex of the Edenic Groundskeepers,
-                                      id: "100374",
-                                  },
+                                  { count: 6, name: ".44 Magnum", id: "100001" },
+                                  { count: 3, name: Heart of Nizchetus, id: "100903" },
+                                  { count: 1, name: Bowl of Convergence, id: "100243" },
+                                  { count: 1, name: Codex of the Edenic Groundskeepers, id: "100374" },
                               ]
                         - type: Political Action
                           count: 4
-                          cards:
-                              [
-                                  {
-                                      count: 3,
-                                      name: Parity Shift,
-                                      id: "101353",
-                                  },
-                                  {
-                                      count: 1,
-                                      name: Political Stranglehold,
-                                      id: "101417",
-                                  },
-                              ]
+                          cards: [{ count: 3, name: Parity Shift, id: "101353" }, { count: 1, name: Political Stranglehold, id: "101417" }]
                         - type: Action Modifier
                           count: 2
-                          cards:
-                              [
-                                  {
-                                      count: 2,
-                                      name: Aire of Elation,
-                                      id: "100031",
-                                  },
-                              ]
+                          cards: [{ count: 2, name: Aire of Elation, id: "100031" }]
                         - type: Action Modifier/Combat
                           count: 4
-                          cards:
-                              [
-                                  {
-                                      count: 4,
-                                      name: "Resist Earth's Grasp",
-                                      id: "101610",
-                                  },
-                              ]
+                          cards: [{ count: 4, name: "Resist Earth's Grasp", id: "101610" }]
                         - type: Reaction
                           count: 13
-                          cards:
-                              [
-                                  {
-                                      count: 8,
-                                      name: "Second Tradition: Domain",
-                                      id: "101706",
-                                  },
-                                  {
-                                      count: 5,
-                                      name: Telepathic Misdirection,
-                                      id: "101949",
-                                  },
-                              ]
+                          cards: [{ count: 8, name: "Second Tradition: Domain", id: "101706" }, { count: 5, name: Telepathic Misdirection, id: "101949" }]
                         - type: Combat
                           count: 21
                           cards:
                               [
                                   { count: 4, name: Blur, id: "100227" },
-                                  {
-                                      count: 4,
-                                      name: Concealed Weapon,
-                                      id: "100392",
-                                  },
+                                  { count: 4, name: Concealed Weapon, id: "100392" },
                                   { count: 4, name: "Psyche!", id: "101507" },
-                                  {
-                                      count: 4,
-                                      name: Taste of Vitae,
-                                      id: "101945",
-                                  },
-                                  {
-                                      count: 3,
-                                      name: Charismatic Aura,
-                                      id: "100333",
-                                  },
+                                  { count: 4, name: Taste of Vitae, id: "101945" },
+                                  { count: 3, name: Charismatic Aura, id: "100333" },
                                   { count: 2, name: Side Strike, id: "101778" },
                               ]
                         - type: Event
                           count: 2
-                          cards:
-                              [
-                                  {
-                                      count: 1,
-                                      name: "Anthelios, The Red Star",
-                                      id: "100074",
-                                  },
-                                  {
-                                      count: 1,
-                                      name: Scourge of the Enochians,
-                                      id: "101697",
-                                  },
-                              ]
+                          cards: [{ count: 1, name: "Anthelios, The Red Star", id: "100074" }, { count: 1, name: Scourge of the Enochians, id: "101697" }]
 paths:
     /card:
         post:
@@ -461,250 +350,262 @@ paths:
                             properties:
                                 type:
                                     description: Type of the card
-                                    type: string
-                                    enum:
-                                        - action
-                                        - action modifier
-                                        - ally
-                                        - combat
-                                        - conviction
-                                        - crypt
-                                        - equipment
-                                        - event
-                                        - imbued
-                                        - library
-                                        - master
-                                        - political action
-                                        - power
-                                        - reaction
-                                        - retainer
-                                        - vampire
+                                    type: array
+                                    items:
+                                        type: string
+                                        enum:
+                                            - action
+                                            - action modifier
+                                            - ally
+                                            - combat
+                                            - conviction
+                                            - crypt
+                                            - equipment
+                                            - event
+                                            - imbued
+                                            - library
+                                            - master
+                                            - political action
+                                            - power
+                                            - reaction
+                                            - retainer
+                                            - vampire
                                 clan:
                                     description: Clan/Creed or required clan/creed (or none)
-                                    type: string
-                                    enum:
-                                        - abomination
-                                        - ahrimane
-                                        - akunanse
-                                        - assamite
-                                        - avenger
-                                        - baali
-                                        - blood brother
-                                        - brujah
-                                        - brujah antitribu
-                                        - caitiff
-                                        - daughter of cacophony
-                                        - defender
-                                        - follower of set
-                                        - gangrel
-                                        - gangrel antitribu
-                                        - gargoyle
-                                        - giovanni
-                                        - guruhi
-                                        - harbinger of skulls
-                                        - innocent
-                                        - ishtarri
-                                        - judge
-                                        - kiasyd
-                                        - lasombra
-                                        - malkavian
-                                        - malkavian antitribu
-                                        - martyr
-                                        - nagaraja
-                                        - none
-                                        - nosferatu
-                                        - nosferatu antitribu
-                                        - osebo
-                                        - pander
-                                        - ravnos
-                                        - redeemer
-                                        - salubri
-                                        - salubri antitribu
-                                        - samedi
-                                        - toreador
-                                        - toreador antitribu
-                                        - tremere
-                                        - tremere antitribu
-                                        - true brujah
-                                        - tzimisce
-                                        - ventrue
-                                        - ventrue antitribu
-                                        - visionary
+                                    type: array
+                                    items:
+                                        type: string
+                                        enum:
+                                            - abomination
+                                            - ahrimane
+                                            - akunanse
+                                            - assamite
+                                            - avenger
+                                            - baali
+                                            - blood brother
+                                            - brujah
+                                            - brujah antitribu
+                                            - caitiff
+                                            - daughter of cacophony
+                                            - defender
+                                            - follower of set
+                                            - gangrel
+                                            - gangrel antitribu
+                                            - gargoyle
+                                            - giovanni
+                                            - guruhi
+                                            - harbinger of skulls
+                                            - innocent
+                                            - ishtarri
+                                            - judge
+                                            - kiasyd
+                                            - lasombra
+                                            - malkavian
+                                            - malkavian antitribu
+                                            - martyr
+                                            - nagaraja
+                                            - none
+                                            - nosferatu
+                                            - nosferatu antitribu
+                                            - osebo
+                                            - pander
+                                            - ravnos
+                                            - redeemer
+                                            - salubri
+                                            - salubri antitribu
+                                            - samedi
+                                            - toreador
+                                            - toreador antitribu
+                                            - tremere
+                                            - tremere antitribu
+                                            - true brujah
+                                            - tzimisce
+                                            - ventrue
+                                            - ventrue antitribu
+                                            - visionary
                                 group:
                                     description: Group (crypt cards only)
-                                    type: string
-                                    enum:
-                                        - "1"
-                                        - "2"
-                                        - "3"
-                                        - "4"
-                                        - "5"
-                                        - "6"
-                                        - "any"
+                                    type: array
+                                    items:
+                                        type: string
+                                        enum:
+                                            - "1"
+                                            - "2"
+                                            - "3"
+                                            - "4"
+                                            - "5"
+                                            - "6"
+                                            - "any"
                                 trait:
                                     description: Trait, title, city or sect
-                                    type: string
-                                    enum:
-                                        - 1 vote
-                                        - 2 votes
-                                        - amsterdam
-                                        - anarch
-                                        - aragon
-                                        - archbishop
-                                        - athens
-                                        - atlanta
-                                        - barcelona
-                                        - baron
-                                        - berlin
-                                        - bishop
-                                        - black hand
-                                        - boston
-                                        - brussels
-                                        - budapest
-                                        - cairo
-                                        - camarilla
-                                        - canberra
-                                        - cardinal
-                                        - chicago
-                                        - chicago
-                                        - cleveland
-                                        - columbus
-                                        - cordoba
-                                        - corte
-                                        - dallas
-                                        - detroit
-                                        - dublin
-                                        - fortaleza
-                                        - frankfurt
-                                        - geneva
-                                        - glasgow
-                                        - guadalajara
-                                        - guatemala city
-                                        - houston
-                                        - imperator
-                                        - independent
-                                        - infernal
-                                        - inner circle
-                                        - istanbul
-                                        - justicar
-                                        - kholo
-                                        - laibon
-                                        - liaison
-                                        - lisbon
-                                        - london
-                                        - los angeles
-                                        - magaji
-                                        - manila
-                                        - mexico city
-                                        - miami
-                                        - milan
-                                        - milwaukee
-                                        - monaco
-                                        - montreal
-                                        - new york
-                                        - paris
-                                        - perth
-                                        - philadelphia
-                                        - pittsburgh
-                                        - port-au-prince
-                                        - prague
-                                        - primogen
-                                        - prince
-                                        - priscus
-                                        - red list
-                                        - regent
-                                        - rome
-                                        - sabbat
-                                        - san diego
-                                        - seattle
-                                        - seraph
-                                        - slave
-                                        - stockholm
-                                        - strasbourg
-                                        - sydney
-                                        - toronto
-                                        - venice
-                                        - versailles
-                                        - washington, d.c.
+                                    type: array
+                                    items:
+                                        type: string
+                                        enum:
+                                            - 1 vote
+                                            - 2 votes
+                                            - amsterdam
+                                            - anarch
+                                            - aragon
+                                            - archbishop
+                                            - athens
+                                            - atlanta
+                                            - barcelona
+                                            - baron
+                                            - berlin
+                                            - bishop
+                                            - black hand
+                                            - boston
+                                            - brussels
+                                            - budapest
+                                            - cairo
+                                            - camarilla
+                                            - canberra
+                                            - cardinal
+                                            - chicago
+                                            - chicago
+                                            - cleveland
+                                            - columbus
+                                            - cordoba
+                                            - corte
+                                            - dallas
+                                            - detroit
+                                            - dublin
+                                            - fortaleza
+                                            - frankfurt
+                                            - geneva
+                                            - glasgow
+                                            - guadalajara
+                                            - guatemala city
+                                            - houston
+                                            - imperator
+                                            - independent
+                                            - infernal
+                                            - inner circle
+                                            - istanbul
+                                            - justicar
+                                            - kholo
+                                            - laibon
+                                            - liaison
+                                            - lisbon
+                                            - london
+                                            - los angeles
+                                            - magaji
+                                            - manila
+                                            - mexico city
+                                            - miami
+                                            - milan
+                                            - milwaukee
+                                            - monaco
+                                            - montreal
+                                            - new york
+                                            - paris
+                                            - perth
+                                            - philadelphia
+                                            - pittsburgh
+                                            - port-au-prince
+                                            - prague
+                                            - primogen
+                                            - prince
+                                            - priscus
+                                            - red list
+                                            - regent
+                                            - rome
+                                            - sabbat
+                                            - san diego
+                                            - seattle
+                                            - seraph
+                                            - slave
+                                            - stockholm
+                                            - strasbourg
+                                            - sydney
+                                            - toronto
+                                            - venice
+                                            - versailles
+                                            - washington, d.c.
                                 discipline:
                                     description: Discipline
-                                    type: string
-                                    enum:
-                                        - "*"
-                                        - ANIMALISM
-                                        - AUSPEX
-                                        - CELERITY
-                                        - CHIMERSTRY
-                                        - DAIMOINON
-                                        - DEMENTATION
-                                        - DOMINATE
-                                        - FORTITUDE
-                                        - MELPOMINEE
-                                        - MYTHERCERIA
-                                        - NECROMANCY
-                                        - OBEAH
-                                        - OBFUSCATE
-                                        - OBTENEBRATION
-                                        - POTENCE
-                                        - PRESENCE
-                                        - PROTEAN
-                                        - QUIETUS
-                                        - SANGUINUS
-                                        - SERPENTIS
-                                        - SPIRITUS
-                                        - TEMPORIS
-                                        - THANATOSIS
-                                        - THAUMATURGY
-                                        - VALEREN
-                                        - VICISSITUDE
-                                        - VISCERATIKA
-                                        - abombwe
-                                        - animalism
-                                        - auspex
-                                        - celerity
-                                        - chimerstry
-                                        - daimoinon
-                                        - defense
-                                        - dementation
-                                        - dominate
-                                        - flight
-                                        - fortitude
-                                        - innocence
-                                        - judgment
-                                        - maleficia
-                                        - martyrdom
-                                        - melpominee
-                                        - mytherceria
-                                        - necromancy
-                                        - none
-                                        - obeah
-                                        - obfuscate
-                                        - obtenebration
-                                        - potence
-                                        - presence
-                                        - protean
-                                        - quietus
-                                        - redemption
-                                        - sanguinus
-                                        - serpentis
-                                        - spiritus
-                                        - striga
-                                        - temporis
-                                        - thanatosis
-                                        - thaumaturgy
-                                        - valeren
-                                        - vengeance
-                                        - vicissitude
-                                        - visceratika
-                                        - vision
+                                    type: array
+                                    items:
+                                        type: string
+                                        enum:
+                                            - "*"
+                                            - ANIMALISM
+                                            - AUSPEX
+                                            - CELERITY
+                                            - CHIMERSTRY
+                                            - DAIMOINON
+                                            - DEMENTATION
+                                            - DOMINATE
+                                            - FORTITUDE
+                                            - MELPOMINEE
+                                            - MYTHERCERIA
+                                            - NECROMANCY
+                                            - OBEAH
+                                            - OBFUSCATE
+                                            - OBTENEBRATION
+                                            - POTENCE
+                                            - PRESENCE
+                                            - PROTEAN
+                                            - QUIETUS
+                                            - SANGUINUS
+                                            - SERPENTIS
+                                            - SPIRITUS
+                                            - TEMPORIS
+                                            - THANATOSIS
+                                            - THAUMATURGY
+                                            - VALEREN
+                                            - VICISSITUDE
+                                            - VISCERATIKA
+                                            - abombwe
+                                            - animalism
+                                            - auspex
+                                            - celerity
+                                            - chimerstry
+                                            - daimoinon
+                                            - defense
+                                            - dementation
+                                            - dominate
+                                            - flight
+                                            - fortitude
+                                            - innocence
+                                            - judgment
+                                            - maleficia
+                                            - martyrdom
+                                            - melpominee
+                                            - mytherceria
+                                            - necromancy
+                                            - none
+                                            - obeah
+                                            - obfuscate
+                                            - obtenebration
+                                            - potence
+                                            - presence
+                                            - protean
+                                            - quietus
+                                            - redemption
+                                            - sanguinus
+                                            - serpentis
+                                            - spiritus
+                                            - striga
+                                            - temporis
+                                            - thanatosis
+                                            - thaumaturgy
+                                            - valeren
+                                            - vengeance
+                                            - vicissitude
+                                            - visceratika
+                                            - vision
                                 bonus:
                                     description: Special bonus provided
-                                    type: string
-                                    enum:
-                                        - votes
-                                        - intercept
-                                        - bleed
-                                        - stealth
+                                    type: array
+                                    items:
+                                        type: string
+                                        enum:
+                                            - votes
+                                            - intercept
+                                            - bleed
+                                            - stealth
                                 text:
                                     description: Card text to search for
                                     type: string

@@ -53,6 +53,7 @@ def test_card(client):
     assert response.json == {
         "Id": "100038",
         "Name": "Alastor",
+        "Image": "https://images.krcg.org/alastor.jpg",
         "Aka": "",
         "Type": ["Political Action"],
         "Clan": [],
@@ -445,7 +446,22 @@ def test_search(client):
     ]
     # stealth, votes
     response = client.post("/card", json={"bonus": ["stealth", "votes"]})
-    assert response.json == ["Loki's Gift", "Perfect Paragon", "Zayyat, The Sandstorm"]
+    assert response.json == [
+        "Antonio Veradas",
+        "Bulscu (ADV)",
+        "Dark Selina",
+        "Jessica (ADV)",
+        "Joseph Cambridge",
+        "Karen Suadela",
+        "Loki's Gift",
+        "Maxwell",
+        "Natasha Volfchek",
+        "Perfect Paragon",
+        "Sela (ADV)",
+        "Suhailah",
+        "Zayyat, The Sandstorm",
+    ]
+
     # votes provided by master cards
     response = client.post(
         "/card", json={"bonus": ["votes"], "clan": ["Assamite"], "type": ["Master"]},
@@ -455,7 +471,7 @@ def test_search(client):
     response = client.post(
         "/card", json={"bonus": ["votes"], "clan": ["Assamite"], "group": ["3"]},
     )
-    assert response.json == ["Rebekah"]
+    assert response.json == ["Enam", "Rebekah"]
     # title when MERGED
     response = client.post("/card", json={"clan": ["Assamite"], "trait": ["justicar"]})
     assert response.json == ["Tegyrius, Vizier (ADV)"]

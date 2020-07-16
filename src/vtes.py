@@ -310,11 +310,24 @@ class _VTES:
         for card in self.original_cards.values():
             self.add_card_to_search(card)
         # manual fixups
-        card = self["Gwen Brand"]
-        self.search["discipline"]["ANIMALISM"].add(card["Id"])
-        self.search["discipline"]["AUSPEX"].add(card["Id"])
-        self.search["discipline"]["CHIMERSTRY"].add(card["Id"])
-        self.search["discipline"]["FORTITUDE"].add(card["Id"])
+        for name, mods in config.SEARCH_EXCEPTIONS.items():
+            for mod in mods:
+                prefix = mod[0]
+                key_path = mod[1:].split(":")
+                try:
+                    s = self.search
+                    for key in key_path:
+                        s = s[key]
+                    if prefix == "+":
+                        s.add(self[name]["Id"])
+                    elif prefix == "-":
+                        s.remove(self[name]["Id"])
+                    else:
+                        warnings.warn(f"{name} has an invalid prefix {prefix}")
+                except KeyError:
+                    warnings.warn(
+                        f"{name} marked as exception for {key_path}, but is not listed."
+                    )
 
     def add_card_to_search(self, card):
         """Add a card to self.search
@@ -360,6 +373,8 @@ class _VTES:
             if len(card["Capacity"]) > 2:
                 capacity = "+1"
             self.search["capacity"][capacity].add(card["Id"])
+        if card.get("Title"):
+            self.search["votes"].add(card["Id"])
         if re.search(r"(\d|X)\s+(v|V)ote", card["Card Text"]):
             self.search["votes"].add(card["Id"])
         if re.search(r"\+(\d|X)\s+(b|B)leed", card["Card Text"]):
@@ -406,6 +421,7 @@ class _VTES:
             if city == "washington":
                 city = "washington, d.c."
             self.search["trait"][city].add(card["Id"])
+            self.search["votes"].add(card["Id"])
         if re.search(r"Requires a( ready)? titled (S|s)abbat", card["Card Text"]):
             self.search["trait"]["bishop"].add(card["Id"])
             self.search["trait"]["archbishop"].add(card["Id"])
@@ -605,6 +621,10 @@ class _VTES:
         data = copy.copy(card)
         name = self.get_name(card)
         data["Name"] = name
+        file_name = unidecode.unidecode(name).lower()
+        file_name = file_name[4:] + "the" if file_name[:4] == "the " else file_name
+        file_name, _ = re.subn(r"""\s|,|\.|-|—|'|:|\(|\)|"|!""", "", file_name)
+        data["Image"] = f"{config.IMAGES_ROOT}{file_name}.jpg"
         data.update(self.rulings.get(name, {}))
         return data
 

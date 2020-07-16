@@ -93,15 +93,17 @@ def affinity(args):
         )
 
 
-def top(args):
+def _search(args):
     result = set(card["Id"] for card in vtes.VTES.original_cards.values())
     for type_ in args.type or []:
         result &= vtes.VTES.search["type"].get(type_.lower(), set())
     for clan in args.clan or []:
         clan = config.CLANS_AKA.get(clan.lower()) or clan
         result &= vtes.VTES.search["clan"].get(clan.lower(), set())
-    # for group in data.get("group") or []:
-    #     result &= vtes.VTES.search["group"].get(group.lower(), set())
+    for group in args.group or []:
+        result &= vtes.VTES.search["group"].get(group.lower(), set())
+    for bonus in args.bonus or []:
+        result &= vtes.VTES.search.get(bonus.lower(), set())
     for trait in args.trait or []:
         result &= vtes.VTES.search["trait"].get(trait.lower(), set())
     for discipline in args.disc or []:
@@ -109,7 +111,24 @@ def top(args):
         result &= vtes.VTES.search["discipline"].get(discipline, set())
     for exclude in args.exclude_type or []:
         result -= vtes.VTES.search["type"].get(exclude.lower(), set())
+    return result
 
+
+def search(args):
+    result = _search(args)
+    for card_id in list(result)[: args.number]:
+        card = vtes.VTES[int(card_id)]
+        name = vtes.VTES.get_name(card)
+        print(name)
+        if args.full:
+            print(_card_text(card))
+            print()
+    if len(result) > args.number:
+        print(f"... ({len(result)} results available, use the -n option)")
+
+
+def top(args):
+    result = _search(args)
     twda.TWDA.configure(args.date_from, args.date_to, args.players)
     A = analyzer.Analyzer()
     A.refresh(condition=lambda c: vtes.VTES[c]["Id"] in result)
@@ -247,6 +266,149 @@ def add_deck_boundaries(parser):
     )
 
 
+class NARGS_CHOICE_WITH_ALIASES(argparse.Action):
+    # choices with nargs +/* : this is a known issue for argparse
+    # cf. https://bugs.python.org/issue9625
+    CHOICES = []
+    ALIASES = {}
+    CASE_SENSITIVE = False
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        if not self.CASE_SENSITIVE:
+            values = [v.lower() for v in values]
+        if values:
+            for value in values:
+                if value not in self.CHOICES and value not in self.ALIASES:
+                    raise argparse.ArgumentError(
+                        self, f"invalid choice: {value} (choose from {self.CHOICES})"
+                    )
+        setattr(
+            namespace,
+            self.dest,
+            [
+                value if value in self.CHOICES else self.ALIASES[value]
+                for value in values
+            ],
+        )
+
+
+class DisciplineChoice(NARGS_CHOICE_WITH_ALIASES):
+    CHOICES = vtes.VTES.search.get("discipline", {}).keys()
+    ALIASES = config.DIS_MAP
+    CASE_SENSITIVE = True
+
+
+class ClanChoice(NARGS_CHOICE_WITH_ALIASES):
+    CHOICES = vtes.VTES.search.get("clan", {}).keys()
+    ALIASES = config.CLANS_AKA
+
+
+class TypeChoice(NARGS_CHOICE_WITH_ALIASES):
+    CHOICES = vtes.VTES.search.get("type", {}).keys()
+
+
+class TraitChoice(NARGS_CHOICE_WITH_ALIASES):
+    CHOICES = vtes.VTES.search.get("trait", {}).keys()
+
+
+class GroupChoice(NARGS_CHOICE_WITH_ALIASES):
+    CHOICES = vtes.VTES.search.get("group", {}).keys()
+
+
+class BonusChoice(NARGS_CHOICE_WITH_ALIASES):
+    CHOICES = set(vtes.VTES.search.keys()) - {
+        "trait",
+        "type",
+        "capacity",
+        "group",
+        "discipline",
+        "clan",
+        "text",
+    }
+
+
+def add_search(parser):
+    """Common search arguments for top and search commands
+    """
+    parser.add_argument(
+        "-n",
+        "--number",
+        type=int,
+        default=10,
+        help="Number of cards to print (default 10)",
+    )
+    parser.add_argument(
+        "-d",
+        "--discipline",
+        action=DisciplineChoice,
+        dest="disc",
+        metavar="DISC",
+        nargs="+",
+        help="Filter by discipline ({})".format(
+            ", ".join(vtes.VTES.search.get("discipline", {}).keys())
+        ),
+    )
+    parser.add_argument(
+        "-c",
+        "--clan",
+        action=ClanChoice,
+        metavar="CLAN",
+        nargs="+",
+        help="Filter by clan ({})".format(
+            ", ".join(vtes.VTES.search.get("clan", {}).keys())
+        ),
+    )
+    parser.add_argument(
+        "-t",
+        "--type",
+        action=TypeChoice,
+        metavar="TYPE",
+        nargs="+",
+        help="Filter by type ({})".format(
+            ", ".join(vtes.VTES.search.get("type", {}).keys())
+        ),
+    )
+    parser.add_argument(
+        "-g",
+        "--group",
+        action=GroupChoice,
+        metavar="GROUP",
+        nargs="+",
+        help="Filter by group ({})".format(
+            ", ".join(vtes.VTES.search.get("group", {}).keys())
+        ),
+    )
+    parser.add_argument(
+        "-e",
+        "--exclude-type",
+        action=TypeChoice,
+        metavar="TYPE",
+        nargs="+",
+        help="Exclude given type ({})".format(
+            ", ".join(vtes.VTES.search.get("type", {}).keys())
+        ),
+    )
+    parser.add_argument(
+        "-r",
+        "--trait",
+        action=TraitChoice,
+        metavar="TRAIT",
+        nargs="+",
+        help="Filter by trait ({})".format(
+            ", ".join(vtes.VTES.search.get("trait", {}).keys())
+        ),
+    )
+    parser.add_argument(
+        "-b",
+        "--bonus",
+        action=BonusChoice,
+        metavar="BONUS",
+        nargs="+",
+        help="Filter by bonus ({})".format(", ".join(BonusChoice.CHOICES)),
+    )
+    parser.add_argument("-f", "--full", action="store_true", help="display card text")
+
+
 root_parser = argparse.ArgumentParser(prog="krcg", description="VTES tool")
 root_parser.add_argument(
     "-v",
@@ -303,110 +465,12 @@ parser.add_argument(
 )
 parser.set_defaults(func=affinity)
 
-
 # ################################################################################## top
-class NARGS_CHOICE_WITH_ALIASES(argparse.Action):
-    # choices with nargs +/* : this is a known issue for argparse
-    # cf. https://bugs.python.org/issue9625
-    CHOICES = []
-    ALIASES = {}
-
-    def __call__(self, parser, namespace, values, option_string=None):
-        values = [v.lower() for v in values]
-        if values:
-            for value in values:
-                if value not in self.ALIASES:
-                    raise argparse.ArgumentError(
-                        self, f"invalid choice: {value} (choose from {self.CHOICES})"
-                    )
-        setattr(namespace, self.dest, [self.ALIASES[value] for value in values])
-
-
-class DisciplineChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.search.get("discipline", {}).keys()
-    ALIASES = dict(
-        [(k.lower(), k) for k in vtes.VTES.search.get("discipline", {}).keys()]
-        + list(config.DIS_MAP.items())
-    )
-
-
-class ClanChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.search.get("clan", {}).keys()
-    ALIASES = dict(
-        [(k.lower(), k) for k in vtes.VTES.search.get("clan", {}).keys()]
-        + list(config.CLANS_AKA.items())
-    )
-
-
-class TypeChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.search.get("type", {}).keys()
-    ALIASES = {k.lower(): k for k in vtes.VTES.search.get("type", {}).keys()}
-
-
-class TraitChoice(NARGS_CHOICE_WITH_ALIASES):
-    CHOICES = vtes.VTES.search.get("trait", {}).keys()
-    ALIASES = {k.lower(): k for k in vtes.VTES.search.get("trait", {}).keys()}
-
-
 parser = subparsers.add_parser(
     "top", help="display top cards (played in most TW decks)"
 )
 add_deck_boundaries(parser)
-parser.add_argument(
-    "-n", "--number", type=int, default=10, help="Number of cards to print (default 10)"
-)
-parser.add_argument(
-    "-d",
-    "--discipline",
-    action=DisciplineChoice,
-    dest="disc",
-    metavar="DISC",
-    nargs="+",
-    help="Filter by discipline ({})".format(
-        ", ".join(vtes.VTES.search.get("discipline", {}).keys())
-    ),
-)
-parser.add_argument(
-    "-c",
-    "--clan",
-    action=ClanChoice,
-    metavar="CLAN",
-    nargs="+",
-    help="Filter by clan ({})".format(
-        ", ".join(vtes.VTES.search.get("clan", {}).keys())
-    ),
-)
-parser.add_argument(
-    "-t",
-    "--type",
-    action=TypeChoice,
-    metavar="TYPE",
-    nargs="+",
-    help="Filter by type ({})".format(
-        ", ".join(vtes.VTES.search.get("type", {}).keys())
-    ),
-)
-parser.add_argument(
-    "-e",
-    "--exclude-type",
-    action=TypeChoice,
-    metavar="TYPE",
-    nargs="+",
-    help="Exclude given type ({})".format(
-        ", ".join(vtes.VTES.search.get("type", {}).keys())
-    ),
-)
-parser.add_argument(
-    "-r",
-    "--trait",
-    action=TraitChoice,
-    metavar="Trait",
-    nargs="+",
-    help="Filter by trait ({})".format(
-        ", ".join(vtes.VTES.search.get("trait", {}).keys())
-    ),
-)
-parser.add_argument("-f", "--full", action="store_true", help="display card text")
+add_search(parser)
 parser.set_defaults(func=top)
 
 # ################################################################################ build
@@ -447,6 +511,11 @@ parser = subparsers.add_parser("complete", help="card name completion")
 parser.add_argument("-f", "--full", action="store_true", help="display cards text")
 parser.add_argument("name", metavar="NAME", help="partial name")
 parser.set_defaults(func=complete)
+
+# ############################################################################### search
+parser = subparsers.add_parser("search", help="card search")
+add_search(parser)
+parser.set_defaults(func=search)
 
 
 def main():

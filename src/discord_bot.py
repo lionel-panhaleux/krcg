@@ -7,7 +7,6 @@ import re
 import urllib.parse
 
 import discord
-import unidecode
 
 from . import vtes
 
@@ -265,12 +264,9 @@ def handle_message(message, completion=True):
         fields.append({"name": "Rulings", "value": rulings, "inline": False})
     # handle title, image, link, color
     card_name = vtes.VTES.get_name(card)
-    file_name = unidecode.unidecode(card_name).lower()
-    file_name = file_name[4:] + "the" if file_name[:4] == "the " else file_name
-    file_name, _ = re.subn(r"""\s|,|\.|-|—|'|:|\(|\)|"|!""", "", file_name)
     codex_url = "https://codex-of-the-damned.org/card-search/index.html?"
     codex_url += urllib.parse.urlencode({"card": card_name})
-    image_url = f"https://images.krcg.org/{file_name}.jpg"
+    image_url = card["Image"]
     image_url += f"#{datetime.datetime.now():%Y%m%d%H}"  # timestamp cache busting
     color = COLOR_MAP.get(card_type, DEFAULT_COLOR)
     if card_type == "Vampire":

@@ -2,6 +2,8 @@
 import os.path
 import tempfile
 
+#: images server
+IMAGES_ROOT = "https://images.krcg.org/"
 #: what to download
 VEKN_TWDA_URL = "http://www.vekn.fr/decks/twd.htm"
 VEKN_VTES_URL = "http://www.vekn.net/images/stories/downloads/vtescsv_utf8.zip"
@@ -149,7 +151,7 @@ TRAITS = [
     "primogen",
     "prince",
     "justicar",
-    "inner Circle",
+    "inner circle",
     "imperator",
     "bishop",
     "archbishop",
@@ -469,3 +471,13 @@ TYPE_ORDER = [
     "Combat/Reaction",
     "Event",
 ]
+#: "traits" are hard to parse: manual fixups
+SEARCH_EXCEPTIONS = {
+    "The Baron": ["-trait:anarch"],
+    "Gwen Brand": [
+        "+discipline:ANIMALISM",
+        "+discipline:AUSPEX",
+        "+discipline:CHIMERSTRY",
+        "+discipline:FORTITUDE",
+    ],
+}
