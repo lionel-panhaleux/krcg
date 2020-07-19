@@ -40,12 +40,13 @@ def create_app(test=False):
         twda.TWDA.load_from_vekn(save=False)
         twda.TWDA.configure()
     logger.info("launching app")
-    app = KRCG("krcg", template_folder="templates")
+    app = KRCG("krcg")
     app.register_blueprint(base)
     return app
 
 
 @base.route("/", methods=["GET"])
+@base.route("/index.html", methods=["GET"])
 def swagger():
     return flask.render_template("index.html")
 

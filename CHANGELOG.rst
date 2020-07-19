@@ -5,7 +5,7 @@ Changelog
 -----------------
 
 - Use Pentex™ (real card name) instead of Pentex(TM) (vekn cards reference file)
-
+- Fix index.html
 
 0.55 (2020-07-17)
 -----------------
