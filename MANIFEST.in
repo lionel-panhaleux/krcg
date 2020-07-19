@@ -2,7 +2,6 @@ include LICENSE README.md CHANGELOG.rst requirements.txt
 
 graft src
 graft schemas
-graft templates
 graft rulings
 prune tests
 prune static

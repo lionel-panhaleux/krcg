@@ -40,25 +40,25 @@ def create_app(test=False):
         twda.TWDA.load_from_vekn(save=False)
         twda.TWDA.configure()
     logger.info("launching app")
-    app = KRCG("krcg")
+    app = KRCG(__name__)
     app.register_blueprint(base)
     return app
 
 
-@base.route("/", methods=["GET"])
-@base.route("/index.html", methods=["GET"])
+@base.route("/")
+@base.route("/index.html")
 def swagger():
     return flask.render_template("index.html")
 
 
-@base.route("/openapi.yaml", methods=["GET"])
+@base.route("/openapi.yaml")
 def openapi():
     return flask.render_template(
         "openapi.yaml", version=pkg_resources.require("krcg")[0].version,
     )
 
 
-@base.route("/card/<text>", methods=["GET"])
+@base.route("/card/<text>")
 def card(text):
     try:
         text = int(text)
@@ -95,7 +95,7 @@ def deck_by_cards():
     return flask.jsonify([vtes.VTES.deck_to_dict(v, k) for k, v in decks.items()])
 
 
-@base.route("/deck/<twda_id>", methods=["GET"])
+@base.route("/deck/<twda_id>")
 def deck_by_id(twda_id):
     if not twda_id:
         return "Bad Request", 400
@@ -104,7 +104,7 @@ def deck_by_id(twda_id):
     return flask.jsonify(vtes.VTES.deck_to_dict(twda.TWDA[twda_id], twda_id))
 
 
-@base.route("/complete/<text>", methods=["GET"])
+@base.route("/complete/<text>")
 def complete(text):
     return flask.jsonify(vtes.VTES.complete(text))
 
