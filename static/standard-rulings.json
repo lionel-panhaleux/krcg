@@ -9,7 +9,7 @@
     "0fb6df5a54a7": "The Blood Hunt referendum is still a Blood Hunt: {Lay Low} can be used, {Trophy: Diablerie} would prevent the referendum. [LSJ 20091026] [LSJ 20100112]",
     "b237e9396668": "The Blood Hunt referendum is part of the action resolution. Cards that are played \"after a successful action\" or \"after resolution\" must be played after the referendum. {Heidelberg Castle, Germany} can not be used before the referendum. [LSJ 20100112] [PIB 20121028]",
     "8ca3ab4fc53a": "Will not trigger the {Soul Gem of Etrius} since the vampire is removed from the game instead of being burned. [LSJ 20021010]",
-    "8f9ce5d87858": "The +1 intercept bonus continues to apply once in play if the action was played by a minion acting \"as a Sabbat vampire\" when taking the action, even if he is not. [ANK 20200228-1]",
+    "ab7a416222d9": "The +1 intercept applies to \u24b9 actions against cards controlled by the controller. It does not apply to \u24b9 actions against another Methusalah. [LSJ 20061222]",
     "385fc268ec40": "Can be used by an incapacitated Imbued. [LSJ 20081016]",
     "cf65825f421b": "Cannot be used to prevent damage that cannot be prevented by cards that require Fortitude. [LSJ 19990216]",
     "dca729a381ae": "The requirements are ignored if the card is not played in the normal fashion (eg. diablerie or {Bima}). [LSJ 20051116-2]",
@@ -233,6 +233,7 @@
     "777bae030804": "Cannot bring more than one copy of a unique vampire out, by the rule prohibiting self-contesting. [LSJ 20040722]",
     "03f35586b905": "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]",
     "74f93cbcfe1f": "Cannot be used on a vampire who merged last turn: merging is not entering play. [PIB 20150728]",
+    "72b5f6e32a69": "Can be used on one of your own vampire to make it Anarch. [LSJ 20080803-2]",
     "fe25cb72254a": "[spi] The optional press can only be used during the current round. [TOM 19960521]",
     "4dce35e5e0dc": "[SPI] If the action continues \"as if unblocked\", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]",
     "36acfdacbc05": "[SPI] If the action continues \"as if unblocked\", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]",
@@ -418,7 +419,7 @@
     "9ff7c226cae5": "If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]",
     "26a2c453ce8b": "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]",
     "efe9c232bf7a": "His ability cannot be used from the ash heap, he needs to be ready. [ANK 20180511-1]",
-    "71754601922d": "When using is ability to put another one into play, this does not require a ready Harbinger, the pool cost of the new one is not paid, the new one can act this turn and can use his ability to bring another one immediately. [ANK 20180509]",
+    "ea1e7f6cdcb7": "When using his ability to put another one into play, it does not require a ready Harbinger, the pool cost of the new one is not paid, the new one can act this turn and can use his ability to bring another one immediately. [ANK 20180509]",
     "ce6c5b423b12": "Can only be played by the controller of the acting minion. [LSJ 19990425]",
     "378d8fd6c1de": "If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect be lost. [LSJ 20081213-1]",
     "d51aa557b23a": "Only requires one clan or the other (Gangrel or Gangrel antitribu) to be played. [ANK 20190203]",
@@ -800,6 +801,7 @@
     "e31e7898952b": "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630] [ANK 20170111]",
     "c56d9d887caa": "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]",
     "d9071a64593e": "When a vampire goes to torpor, the card is replaced before any other effect (eg. before losing pool to {Fame}). [LSJ 20100527]",
+    "02e2b710a0d4": "Can be used on one of your own location. [LSJ 20080803-2]",
     "6bdd1dcdd9fb": "Mortal allies are not affected, and vampires with capacity above the number of Gehenna cards in play are not affected. [LSJ 20040415]",
     "f5f7bcf1121a": "Can prevent up to 3 damage, it can prevent less. [RTR 20041202]",
     "abcb4953d675": "Choose for each equipment which minion will receive it, then transfer all the equipment accordingly. [ANK 20190717-1]",
@@ -1008,6 +1010,7 @@
     "877dfb300e78": "The acting vampire's controller can choose not to remove a minion from his or her ash heap and thus burn the Shambling Hordes. [LSJ 20030701-2]",
     "0cfdb540993c": "The damage the strike does is determined when the strike resolution begins, before the Hordes loses life from any opposing \"burn life\" or \"steal life\" effect. Damage done before strike resolution, e.g. with First Strike, will reduce the damage done by the Hordes. [LSJ 20030307]",
     "a167c3a1ca76": "[ANI] Is directed at all Methusalah controlling a card that require Animalism [ani]. [LSJ 20080809-1] [KOT 20081119]",
+    "c9e63cb10f17": "[ANI] Retainers and Equipments you control can also be rearranged. [LSJ 20080803-2] [LSJ 19981102]",
     "ba57d6a3b3ae": "There is no limit to the number of cards it can store. [PIB 20110712-2]",
     "1beaee2313d4": "[THA] The press can only be used during the current round. [TOM 19960521]",
     "7d2051501b91": "Is played and inflicts damage after the strikes have been resolved and inflicted damage, before any other pair of strikes and before the press step. [ANK 20171226]",
@@ -1503,7 +1506,7 @@
     "[LSJ 20100112]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/SJu0kgw_2tE/p5cshF90vkEJ",
     "[PIB 20121028]": "http://www.vekn.net/forum/rules-questions/39816-ec-2012-can-you-answer-these?start=6#39843",
     "[LSJ 20021010]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/IAamJNEJAug/iztHSQVIUcYJ",
-    "[ANK 20200228-1]": "http://www.vekn.net/forum/rules-questions/78476-vlad-tepes-and-what-exactly-using-cards-entails#99093",
+    "[LSJ 20061222]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/WUKedBpp_h0/m/LpJkrGZWvg0J",
     "[LSJ 20081016]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/GizIs4K_HiY/sCutpP29EgIJ",
     "[LSJ 19990216]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/klb6OQYtdzE/H1X21rprzNQJ",
     "[LSJ 20051116-2]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/5Bovsb8I6R0/_KIlJky3D5oJ",
@@ -1684,6 +1687,7 @@
     "[LSJ 20100429]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/OUcf-1EMXXA/DOGZdKnJ1zgJ",
     "[LSJ 20040722]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/z3Tfg9PZVNo/TAasVyubnpsJ",
     "[PIB 20150728]": "http://www.vekn.net/forum/rules-questions/72285-chameleon-v-merged-vampire#72285",
+    "[LSJ 20080803-2]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/OknxGrvlaNk/m/khteZ5WaNE4J",
     "[LSJ 20070403]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/TJ2ktt_1tjk/fdH_x9tDmN8J",
     "[LSJ 20070413]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/umdINigMKqs/lfUAxTnfttIJ",
     "[LSJ 20070217]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/HkKuwBe9LRk/3GccpU4eaK8J",
@@ -2095,6 +2099,7 @@
     "[LSJ 19970331]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/WXd9ALw9Xig/_REMI5bEeggJ",
     "[LSJ 20030307]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/zhdj4jnSdrM/tAU_FosRtbwJ",
     "[LSJ 20080809-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/1jW6GXrIRSU/7ywPFR39rb4J",
+    "[LSJ 19981102]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/Bz_7HWIe-6Y/m/fmPCchmOkCUJ",
     "[PIB 20110712-2]": "http://www.vekn.net/forum/rules-questions/6199-shilmulo-question#6200",
     "[ANK 20171226]": "http://www.vekn.net/forum/rules-questions/76349-shoulder-drop?start=0#84655",
     "[ANK 20190501]": "http://www.vekn.net/forum/rules-questions/73949-re-unleash-vs-signet?start=6#94746",
@@ -2367,7 +2372,7 @@
       "8ca3ab4fc53a"
     ],
     "100006": [
-      "8f9ce5d87858"
+      "ab7a416222d9"
     ],
     "100007": [
       "385fc268ec40"
@@ -2954,7 +2959,8 @@
       "03f35586b905"
     ],
     "100320": [
-      "74f93cbcfe1f"
+      "74f93cbcfe1f",
+      "72b5f6e32a69"
     ],
     "100321": [
       "fe25cb72254a",
@@ -3505,7 +3511,7 @@
     ],
     "100634": [
       "efe9c232bf7a",
-      "71754601922d"
+      "ea1e7f6cdcb7"
     ],
     "100635": [
       "55d19644d49c"
@@ -4754,6 +4760,7 @@
     ],
     "101280": [
       "91a593ec2fa1",
+      "02e2b710a0d4",
       "25b72fb66661"
     ],
     "101282": [
@@ -5559,7 +5566,8 @@
       "dcf8541bd76c"
     ],
     "101765": [
-      "a167c3a1ca76"
+      "a167c3a1ca76",
+      "c9e63cb10f17"
     ],
     "101767": [
       "ba57d6a3b3ae",
