@@ -370,6 +370,7 @@
     - "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
 100320|Chameleon:
     - "Cannot be used on a vampire who merged last turn: merging is not entering play. [PIB 20150728]"
+    - "Can be used on one of your own vampire to make it Anarch. [LSJ 20080803-2]"
 100321|Chameleon's Colors:
     - "[spi] The optional press can only be used during the current round. [TOM 19960521]"
     - '[SPI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
@@ -1453,6 +1454,7 @@
     - "When a vampire goes to torpor, the card is replaced before any other effect (eg. before losing pool to {Fame}). [LSJ 20100527]"
 101280|New Management:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
+    - "Can be used on one of your own location. [LSJ 20080803-2]"
 101285|Nightmares upon Nightmares:
     - "Mortal allies are not affected, and vampires with capacity above the number of Gehenna cards in play are not affected. [LSJ 20040415]"
 101287|Nightstick:
@@ -1924,6 +1926,7 @@
     - "Cannot be used if there is no equipment to destroy. [RTR 19980928]"
 101765|Shepherd's Innocence:
     - "[ANI] Is directed at all Methusalah controlling a card that require Animalism [ani]. [LSJ 20080809-1] [KOT 20081119]"
+    - "[ANI] Retainers and Equipments you control can also be rearranged. [LSJ 20080803-2] [LSJ 19981102]"
 101767|Shilmulo Tarot:
     - "There is no limit to the number of cards it can store. [PIB 20110712-2]"
 101770|Shotgun Ritual:
