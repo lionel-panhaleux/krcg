@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.57 (unreleased)
+0.57 (2020-07-28)
 -----------------
 
 - Discord bot: fix link to the codex
