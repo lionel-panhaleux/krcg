@@ -39,7 +39,7 @@ def test_bot(monkeypatch):
         "title": "KRCG News Radio",
         "type": "rich",
         "url": (
-            "https://codex-of-the-damned.org/card-search/index.html"
+            "https://codex-of-the-damned.org/en/card-search.html"
             "?card=KRCG+News+Radio"
         ),
     }
@@ -72,7 +72,7 @@ def test_bot(monkeypatch):
         "title": "Monastery of Shadows",
         "type": "rich",
         "url": (
-            "https://codex-of-the-damned.org/card-search/index.html"
+            "https://codex-of-the-damned.org/en/card-search.html"
             "?card=Monastery+of+Shadows"
         ),
     }
