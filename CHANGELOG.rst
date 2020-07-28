@@ -4,7 +4,7 @@ Changelog
 0.57 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Discord bot: fix link to the codex
 
 
 0.56 (2020-07-19)

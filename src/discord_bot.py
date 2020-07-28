@@ -264,7 +264,7 @@ def handle_message(message, completion=True):
         fields.append({"name": "Rulings", "value": rulings, "inline": False})
     # handle title, image, link, color
     card_name = vtes.VTES.get_name(card)
-    codex_url = "https://codex-of-the-damned.org/card-search/index.html?"
+    codex_url = "https://codex-of-the-damned.org/en/card-search.html?"
     codex_url += urllib.parse.urlencode({"card": card_name})
     image_url = card["Image"]
     image_url += f"#{datetime.datetime.now():%Y%m%d%H}"  # timestamp cache busting
