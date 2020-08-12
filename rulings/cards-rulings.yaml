@@ -2523,6 +2523,9 @@
 "200179|Beast, The Leatherface of Detroit":
     - "He cannot attempt an action to equip or employ, nor strike to steal an equipment or retainer. [LSJ 20050315] [LSJ 20010210]"
     - "He can equip with an equipment that is a location when in play, but not by playing the card normally as it is an action card. (eg. Using {Vast Wealth} would work). [LSJ 20050315] [LSJ 20050413-1] [LSJ 20050413-2]"
+"200199|Bindusara, Historian of the Kindred":
+    - "He cannot perform his special action twice in the same turn, even to fetch different cards. [ANK 20200810]"
+    - "When using his special ability, requirements do not apply (eg. {Arcane Library} is put into play even if you have no ready Tremere). [ANK 20200810]"
 200201|Black Cat:
     - 'The reduction applies for other effects that check the "cost" of equipment on her. [RTR 19941109]'
     - "If she is equipped with something and that equipment is transferred to another minion, then it regains its normal pool value. Conversely, if a piece of equipment moves onto her, its effective pool cost is lowered by 1. [RTR 19941109]"
