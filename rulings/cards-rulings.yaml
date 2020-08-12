@@ -1753,6 +1753,8 @@
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
 101627|Revelations:
     - "[aus] You do not get to see the card drawn as replacement. [PIB 20121031]"
+101631|Revolutionary Council:
+    - "Unlocked Anarchs are chosen when choosing terms. They still count if they get locked during the vote. [LSJ 20081203]"
 101633|Rewind Time:
     - 'Cannot be used to cancel the action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]'
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
