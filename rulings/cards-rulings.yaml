@@ -1756,8 +1756,9 @@
 101631|Revolutionary Council:
     - "Unlocked Anarchs are chosen when choosing terms. They still count if they get locked during the vote. [LSJ 20081203]"
 101633|Rewind Time:
-    - 'Cannot be used to cancel the action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]'
-    - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
+    - "[tem] Can be used to cancel all action cards, including employ retainer, recruit ally and political action. [ANK 20200813-2]"
+    - '[tem] Cannot be used to cancel the action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]'
+    - '[tem] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
     - "[TEM] Other reaction cards (eg. wake effects) cannot be used as there is no action. [PIB 20120808]"
 101634|Riddle Phantastique:
     - "If put into play with no counters, it burns immediately. [LSJ 20070307]"
@@ -1877,6 +1878,7 @@
     - "The acting vampire's controller is the one who makes the choices pertaining to the ally or retainer entry in play. [LSJ 20030701-2]"
 101731|Set's Curse:
     - "Can be used on a target that cannot be burned (eg. {Ilomba}), but then it is not put into play. [ANK 20190422]"
+    - "Can be used on a target that is shuffled in library after it is burned (eg. {Kherebutu}), both effects are applied normally. [ANK 20200813]"
 101733|Shackles of Enkidu:
     - "If placed on a minion that cannot have equipment or weapon, the Shackles are burned. [LSJ 19980831]"
     - '"The shackled minion" refers to the minion the card is placed upon (not the Gangrel the card is put on with the equip action). [TOM 19951212-2]'
