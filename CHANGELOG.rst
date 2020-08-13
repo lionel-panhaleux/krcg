@@ -1,11 +1,12 @@
 Changelog
 =========
 
-0.58 (unreleased)
+1.0 (unreleased)
 -----------------
 
 - Missing 2017 rulings have been included. All rulings from 2015 onward are now included.
 - Prepare for the new VEKN CSV files format
+- Stable production version
 
 0.57 (2020-07-28)
 -----------------

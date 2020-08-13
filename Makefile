@@ -40,4 +40,6 @@ clean:
 	rm -rf .pytest_cache
 
 sync-images:
+	# Official card name was changed, but it is not reprinted yet - let's keep both for now
+	cp ${LACKEY_FOLDER}/plugins/vtes/sets/setimages/general/regomotus.jpg ${LACKEY_FOLDER}/plugins/vtes/sets/setimages/general/regomotum.jpg
 	rsync -rptov --delete-after -e ssh ${LACKEY_FOLDER}/plugins/vtes/sets/setimages/general/ ${REMOTE}

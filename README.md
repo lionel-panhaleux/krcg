@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Code Style](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
 
-A command-line interface based on
+A web API and command-line interface based on
 the VEKN [official card texts](http://www.vekn.net/card-lists)
 and the [Tournament Winning Deck Archive (TWDA)](http://www.vekn.fr/decks/twd.htm)
 
@@ -20,7 +20,7 @@ For more information please visit [white-wolf.com](http://www.white-wolf.com).
 ## Online API
 
 KRCG is available as an [online API](https://api.krcg.org/).
-Feel free to use it. Beware that this is still a beta, so breaking change can happen without notice.
+Feel free to use it.
 
 ## Discord BOT
 
@@ -66,10 +66,10 @@ provide a link to an online post by one of the rules directors:
 Feel free to contribute rulings as Pull Requests directly, this is very appreciated.
 
 Add the ruling link to
-[rulings-links.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/src/rulings-links.yaml),
+[rulings-links.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/rulings-links.yaml),
 and the ruling itself to
-[cards-rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/src/cards-rulings.yaml) or
-[general-rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/src/general-rulings.yaml)
+[cards-rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/cards-rulings.yaml) or
+[general-rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/general-rulings.yaml)
 depending on the case.
 
 The format is mostly self-explanatory:
@@ -109,7 +109,7 @@ pip install krcg
 To host the web API, you need to install the `web` version of krcg:
 
 ```bash
-pip install krcg[web]
+pip install "krcg[web]"
 ```
 
 No wsgi server is installed by default, you need to install one.
@@ -162,7 +162,7 @@ export GITHUB_TOKEN="the_matching_github_token"
 
 If you need to host a new version of the bot yourself,
 [Python 3](https://www.python.org/downloads/) is required, as well as an
-environment variable `DISCORD_TOKEN`, for the bot to run.
+environment variable `DISCORD_TOKEN`.
 The token can be found on your
 [Discord applications page](https://discord.com/developers/applications).
 
@@ -195,7 +195,7 @@ ExecStart=/bin/bash -c 'source venv/bin/activate && krcg-bot'
 WantedBy=multi-user.target
 ```
 
-In development the environment variable `DISCORD_TOKEN` can be provided
+For development, the environment variable `DISCORD_TOKEN` can be provided
 by a personal `.env` file at the root of the krcg folder (ignored by git):
 
 ```bash
@@ -452,7 +452,8 @@ The standard TWDA file is a rewrite of the
 
 ### Card images deployment
 
-The card images can be deployed on a distant server via a make command using `rsync`:
+Provided you have an installed version of LackeyCCG,
+the card images can be deployed on a distant server via a make command using `rsync`:
 
 ```bash
 make sync-images
@@ -464,3 +465,6 @@ the LackeyCCG folder path and the remote folder path respectively:
 ```bash
 LACKEY_FOLDER=/Applications/LackeyCCG REMOTE_FOLDER=myservery:/home/web/card_images make sync-images
 ```
+
+You need to have downloaded all card images in you LackeyCCG VTES plugin in order
+to achieve a full sync, of course.
