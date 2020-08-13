@@ -5,7 +5,7 @@ Changelog
 -----------------
 
 - Missing 2017 rulings have been included. All rulings from 2015 onward are now included.
-
+- Prepare for the new VEKN CSV files format
 
 0.57 (2020-07-28)
 -----------------

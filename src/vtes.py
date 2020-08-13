@@ -695,12 +695,16 @@ class _VTES:
         The VTES card list is pickled for future use.
         """
         for card in csv.DictReader(stream):
-            card["Set"] = [s.strip() for s in card["Set"].split(",") if s.strip()]
-            card["Clan"] = [c.strip() for c in card["Clan"].split("/") if c.strip()]
-            card["Type"] = [t.strip() for t in card["Type"].split("/") if t.strip()]
-            card["Card Text"] = card["Card Text"].replace("{", "")
-            card["Card Text"] = card["Card Text"].replace("}", "")
-            card["Card Text"] = card["Card Text"].replace("(D)", "Ⓓ ")
+            if "Set" in card:
+                card["Set"] = [s.strip() for s in card["Set"].split(",") if s.strip()]
+            if "Clan" in card:
+                card["Clan"] = [c.strip() for c in card["Clan"].split("/") if c.strip()]
+            if "Type" in card:
+                card["Type"] = [t.strip() for t in card["Type"].split("/") if t.strip()]
+            if "Card Text" in card:
+                card["Card Text"] = card["Card Text"].replace("{", "")
+                card["Card Text"] = card["Card Text"].replace("}", "")
+                card["Card Text"] = card["Card Text"].replace("(D)", "Ⓓ ")
             if "Disciplines" in card:
                 card["Disciplines"] = [
                     d.strip() for d in card["Disciplines"].split(" ") if d.strip()
@@ -720,7 +724,10 @@ class _VTES:
                 card["Burn Option"] = bool(card["Burn Option"])
             if "Adv" in card:
                 card["Adv"] = bool(card["Adv"])
-            self.original_cards[int(card["Id"])] = card
+            card_id = int(card["Id"])
+            if card_id not in self.original_cards:
+                self.original_cards[card_id] = {}
+            self.original_cards[int(card["Id"])].update(card)
         # pickle this
         if save:
             pickle.dump(self, open(config.VTES_FILE, "wb"))
