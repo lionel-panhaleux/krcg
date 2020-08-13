@@ -4,7 +4,7 @@ Changelog
 0.58 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Missing 2017 rulings have been included. All rulings from 2015 onward are now included.
 
 
 0.57 (2020-07-28)

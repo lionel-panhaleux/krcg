@@ -123,6 +123,7 @@
     - "[thn], [THN] The end of combat is triggered by the vampire going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
     - "[thn], [THN] Cards that can be played at the end of combat (eg. {Amaranth}, {Decapitate}) can be played before combat ends. [LSJ 20011214-4]"
     - "[for] If played on a diablerie attempt (eg. {Amaranth}), the diablerie is unsuccessful. Another {Amaranth} can be played. [LSJ 19970224] [LSJ 20011214-4]"
+    - "[for] If played by an ally, the ally is burned instead of going to torpor. [ANK 20170412] [RBK 20181001-163]"
 100112|Aura of Invincibility:
     - "If the initial referendum does not pass, then the card is not put into play and the vampire playing it is not sent to torpor. [LSJ 20040730]"
 100117|Autonomic Mastery:
@@ -232,6 +233,8 @@
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
     - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
+    - "A weapon strike done with first strike is unaffected (unless Soul Burn is used with first strike too). [LSJ 20040928]"
+    - "Only nullify the weapon damage when it resolves, an opponent can successfully use {Rötschreck} after declaring a strike with {Ivory Bow}. [ANK 20170519]"
 100203|Blood of Acid:
     - "Damage from Blood of Acid is environmental. [RTR 19970630] [LSJ 20020708]"
     - "Environmental damage is not counted by Blood of Acid. [RTR 19970630]"
@@ -464,6 +467,8 @@
     - "Is directed at all Methusalah controlling one of the chosen targets. [KOT 20081119] [ANK 20180917]"
 "100400|Condemnation: Mute":
     - "Only affects votes, and not ballots. [PIB 20110802]"
+100405|Confusion:
+    - "[DEM] Can only be used during a bleed action. [ANK 20171023] [RTR 19941109]"
 100412|Conscripted Statue:
     - "[vis] Damage is environmental. [RTR 19970630]"
 100414|Conservative Agitation:
@@ -663,6 +668,7 @@
     - "The minion cannot use the discipline nor the maneuver provided if some effect prevents him to use the equipment (eg. {Drawing Out the Beast}). [RTR 20010710]"
 100592|Dual Form:
     - "[PRO] A vampire's capacity can never be reduced below one. [RTR 19990712]"
+    - "[PRO] The disciplines are copied when the action resolves, including any additional disciplines (eg. {Seal of Veddartha}). Disciplines gained after the action are not copied. [ANK 20170226]"
     - "[PRO] If one of the pair leaves the ready region, the other is burned. That burning of the other won't cause the first to burn. [LSJ 20050117]"
     - "[PRO] If they are more than two Dual Forms of the same vampires, all the other are burned when one leaves the ready region, whatever chain they form. [LSJ 20050117]"
     - "[PRO] If more than one go to torpor at the same time (eg. from {Edged Illusion}), the controller chooses which one he keeps. [LSJ 20050805]"
@@ -925,6 +931,8 @@
     - "She can lock to use her ability the turn she is recruited. [ANK 20180517]"
 100824|Giant's Blood:
     - "Cannot target an uncontrolled vampire. [LSJ 20061109]"
+100825|Gift of Bellona:
+    - "[val] Can be used when fetching a weapon from another minion, even if other equipments are also retrieved. [ANK 20170326]"
 100827|Gift of Proteus:
     - "The number of cards to put on it is announced when the action is declared, they must be in hand before drawing the replacement for this card. [PIB 20150428]"
     - "At action resolution, the number of cards declared must be put on the card. If there are less cards available (eg. {Form of Mist} was played to continue the action), then all of them are put on the Gift. [PIB 20150428]"
@@ -1012,6 +1020,7 @@
     - "Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]"
     - "Cannot be used before damage is inflicted after action resolution (eg. {Force of will}, {Daring the Dawn}): this is still during the action. [ANK 20171124]"
     - "Cannot be used after a diablerie or an {Abactor} resolution and before the Blood Hunt: the Blood Hunt is part of the action although it is independant from it. [LSJ 20090722-2] [LSJ 20030618]"
+    - "Can be used to move more blood than the target can hold: the excess goes to the blood bank. [ANK 20170804]"
 100911|Hellhound:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100912|Herald of Topheth:
@@ -1105,6 +1114,8 @@
     - "[CEL] Once successfully played, if a subsequent combat card played by this minion gets canceled as it is played, an additional card is drawn for replacement. [ANK 20191211]"
     - "[CEL] If multiple cards are replaced, replace and discard one by one. [ANK 20180925-1] [LSJ 20100506]"
     - "[CEL] Effects that make you discard (eg. {Nicomedes}) are subject to Infernal Pursuit. [ANK 20180925-1]"
+100981|Infernal Servitor:
+    - 'The "can act the turn it is recruited" text does not let him act during an opponent turn if it was recruited then (eg. using {Madness Network}). [ANK 20200813-3]'
 100989|Inscription:
     - "The vampire receiving the card must meet all of the requirements of the card other than the Thaumaturgy requirement. The vampire playing the Inscription need not meet any of the requirements (other than the Thaumaturgy needed to play Inscription in the first place). [LSJ 20031116]"
     - 'If the card put on it has any "Do not replace" effect, it is ignored both when Inscription is played and when it is burned to use the card. [ANK 20180627-1]'
@@ -1164,6 +1175,9 @@
 101046|Khazar's Diary (Endless Night):
     - "The action to put a minion from any ash heap into play is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
     - "Minions put into play by the Diary go back to their owner's ash heap when burned. [PIB 20130128-2]"
+"101048|Khobar Towers, Al-Khubar":
+    - "If used on an ally with a cost of X, X pool are gained. The value of X is the one set when the ally was recruited . [ANK 20170716] [RTR 20020501]"
+    - "The effect is ordered as the acting Methusalah wishes during his unlock phase (eg. can be used on {Nocturn} before it burns). [ANK 20170625]"
 101049|Kindred Coercion:
     - "Cannot 'change' the votes of vampires who haven't voted yet, but can cancel the votes of vampires who haven't voted yet and change the votes of vampires who have voted. [RTR 19991001]"
 101053|Kindred Segregation:
@@ -1459,6 +1473,8 @@
     - "Mortal allies are not affected, and vampires with capacity above the number of Gehenna cards in play are not affected. [LSJ 20040415]"
 101287|Nightstick:
     - "Can prevent up to 3 damage, it can prevent less. [RTR 20041202]"
+101293|Nocturn:
+    - 'The "can act the turn it is recruited" text does not let him act during an opponent turn if it was recruited then (eg. using {Madness Network}). [ANK 20200813-3]'
 101295|Nod:
     - "Choose for each equipment which minion will receive it, then transfer all the equipment accordingly. [ANK 20190717-1]"
 101296|Nose of the Hound:
@@ -1567,6 +1583,8 @@
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "Damage done to the striking minion is environmental. [LSJ 19970801]"
     - "The press can only be used during the current round. [TOM 19960521]"
+101429|Power of One:
+    - "[pre] Can only be used during a bleed action. [ANK 20171023] [RTR 19941109]"
 101430|Power Structure:
     - "Cannot be used during a Blood Hunt referendum, since there is no political action. [ANK 20190707]"
 "101431|Powerbase: Barranquilla":
@@ -1643,6 +1661,7 @@
     - "Counts up damage successfully inflicted during the round by the minions, retainers do not count. [TOM 19950304]"
     - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
     - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]'
+    - "A total of two actions must be performed (by whomever) to remove it. Vampires A and B can both take the action, then it is removed. [ANK 20170202-2] "
 101524|Pushing the Limit:
     - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101525|Putrefaction:
@@ -1956,6 +1975,7 @@
     - "[mel] [MEL] Cannot be played to queue a second combat after a combat is already set up for later (e.g. by a previous Siren's Lure). [LSJ 20020125]"
     - "[mel] [MEL] Other effects that queue a combat cannot be used until the new combat begins. [LSJ 20021121]"
     - "[mel] [MEL] Combat does not occur if the action ends prematurely. [LSJ 20090826]"
+    - "[mel] [MEL] The new combat is still part of the action (eg. {Heidelberg Castle, Germany} cannot be used between combats). [ANK 20170918-2]"
 101790|Skin of Night:
     - "[FOR] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 101791|Skin of Rock:
@@ -1992,7 +2012,9 @@
     - "[QUI] A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 101829|Soul Burn:
     - "If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]"
+    - "A weapon strike done with first strike is unaffected (unless Soul Burn is used with first strike too). [LSJ 20040928]"
     - "Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]"
+    - "Only nullify the weapon damage when it resolves, an opponent can successfully use {Rötschreck} after declaring a strike with {Ivory Bow}. [ANK 20170519]"
 101832|Soul Gem of Etrius:
     - "If the new vampire is the same as the one who burned, he is still considered a new vampire for all purposes. (eg. he can bleed even if the previous version has already bled this turn) [LSJ 20100213]"
     - "Functions even if the bearer (now burned) was prohibited from using equipments (eg. because of {Drawing out the Beast}). [LSJ 20010729]"
@@ -2048,6 +2070,7 @@
     - "[dom], [qui] [ACTION] Is not replaced if the action is blocked: it is replaced when the action ends, after all combats. [LSJ 20001120]"
 101872|Stolen Police Cruiser:
     - "Can be equipped by a non-Anarch and would count as a vehicle, although the rest of his effect does not apply. [LSJ 20030607]"
+    - "Equipping it does not count as an action requiring an Anarch (eg. for {CrimethInc.}). [ANK 20170918]"
 101876|Stonestrength:
     - "Unused prevention does not carry over. [LSJ 20001114]"
     - "[VIS] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
@@ -2083,10 +2106,13 @@
     - "Any copy of the named card can be fetched upon resolution. [LSJ 20090722]"
     - "If no copy of a named card is in the ash heap upon resolution (eg. {The Erciyes Fragments} was used to take it), the effect still resolves for the other copies and the acting Methusalah discards 3 cards. [LSJ 20090722]"
 101896|Sudden Reversal:
-    - "Can only burn master cards that are played from the hand in the normal fashion. [RTR 20001020]"
+    - "Can only cancel master cards that are played from the hand in the normal fashion. [RTR 20001020]"
+    - "If used to cancel a Trifle, the target does not get an extra Master Phase Action from the cancelled Trifle. [LSJ 20090126] [RBK 20181001-162]"
 101897|Summon History:
     - "Requirements do not apply. If the card is an ally, it can act this turn. [LSJ 20100204]"
     - "You must decide the value of X (blood cost) when playing the card. [LSJ 20100314]"
+101898|Summon Soul:
+    - "[NEC] Is removed from play as part of the resolution, it cannot be retrieved by {Shroudsight}. [ANK 20170331]"
 101902|The Summoning:
     - "[PRE] Is not the same action as the recruitment of the ally. You could perform both actions in the same turn with the same vampire. [PIB 20110915-2]"
 "101904|Sunset Strip, Hollywood":
@@ -2258,6 +2284,8 @@
 "102031|Trophy: Domain":
     - "Cannot be used to unlock if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
     - "If used to unlock, the block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]"
+"102032|Trophy: Hunting Ground":
+    - "Is a non-derivative hunting ground (ie. taken into account by {Poacher's Hunting Ground}), even if not active yet. [ANK 20170430] [LSJ 20080610]"
 102044|Truth of a Thousand Lies:
     - '[SER] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
 102047|Tunnel Runner:
@@ -2312,6 +2340,7 @@
     - "He can lock to use his ability the turn he is recruited. [ANK 20180517]"
 102088|Vampiric Disease:
     - 'At the beginning of the unlock phase, an afflicted vampires unlocks and burns a blood before effects that are applied "during" the unlock phase. [ANK 20180702]'
+    - "Unlocking an already unlocked vampire does not trigger the effect. [ANK 20170227] [LSJ 20020408]"
 102089|Vampiric Speed:
     - "[CEL] The press can only be used during the current round. [TOM 19960521]"
 102092|Vast Wealth:
@@ -2375,8 +2404,9 @@
     - "[ACTION MODIFIER][REACTION] Cannot be used during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
 102144|War Ghoul:
     - "If you have no other allies and no retainers in play when it is recruited, then you burn it. [RTR 19961113]"
-    - 'Can use its ability "lock and burn to burn a location" during an action that would steal it (eg. [PRE] {Entrancement}). The action will have no effect but is still successful if unblocked and must then be paid. [PIB 20121031]'
-    - "Can lock and burn War Ghoul to burn a location the turn it is recruited. [ANK 20180517]"
+    - "An ally or retainer must be burn when it comes into play, regardless of how it did come into play (eg. {Pressing Flesh}). [ANK 20170309-2]"
+    - 'Can use its ability to "lock and burn to burn a location" during an action that would steal it (eg. [PRE] {Entrancement}). The action will have no effect but is still successful if unblocked and must then be paid. [PIB 20121031]'
+    - 'Can use its ability to "lock and burn to burn a location" the turn it is recruited. [ANK 20180517]'
 102146|Warding the Beast:
     - "[val] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 102149|Warsaw Station:
@@ -2384,6 +2414,8 @@
     - "Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action would end with no effect if an effect tries to continue it (eg. {Ambulance}). [LSJ 20090325-2]"
     - "The unlock effect is applied after the action is resolved and the referendum (if any) concluded. If the acting vampire is not a Nosferatu anymore at that point, he does not unlock. [LSJ 20090216] [ANK 20180922]"
 102151|Wash:
+    - "If used to cancel a Trifle, the target does not get an extra Master Phase Action from the cancelled Trifle. [ANK 20170124] [LSJ 20090126] [RBK 20181001-162]"
+    - "The additional Master Phase Action it provides does not count as a Trifle bonus, the target can get yet an additional Master Phase Action if they play a Trifel afterwards. [ANK 20170124] [LSJ 20090126]"
     - "If used to cancel an out-of-turn master, that Methuselah still cannot play another out-of-turn master against the same master phase, even though the first was canceled and won't count against that master phase. [LSJ 20070309-2]"
     - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 "102152|Wasserschloss Anif, Austria":
@@ -2415,6 +2447,8 @@
     - "The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 102179|White Phosphorus Grenade:
     - "Damage done to the bearer is environmental. [LSJ 19970801]"
+102180|Wider View:
+    - "Cards removed from the game are public. [LSJ 20080314]"
 102183|Will-o'-the-Wisp:
     - '[CHI] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 102184|Winchester Mansion:
@@ -2831,6 +2865,8 @@
     - "His ability to give a press can only be used during the press step. [PIB 20150121]"
 201138|Qawiyya el-Ghaduba:
     - "Her ability can be used only once per minion phase. [ANK 20190207] [RBK 20181001-11]"
+"201144|Quincy, The Trapper":
+    - "His ability means he must perform the same action twice in two different turns. Tokens can be used to keep track of it if players agree. [ANK 20170202]"
 "201147|Rabbat, The Sewer Goddess":
     - "Her hunt ability may be used even when she is at full capacity. One blood goes to your pool directly even if it would have exceeded her capacity. [LSJ 20050331]"
 201148|Rachel Brandywine:
