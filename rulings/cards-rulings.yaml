@@ -786,6 +786,7 @@
     - "[CHI] Cannot be used to get stealth then cancel the [aus] card that provided intercept to the blocking minion. [ANK 20180201]"
 100699|Familial Bond:
     - "Cannot be played if intercept is not required (as per the rules, section 6.2.2). [ANK 20200329]"
+    - 'A locked vampire cannot use the "lock to fight" effect, even if he uses a wake effect. [PIB 20121107]'
 100703|Far Mastery:
     - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 100704|Fast Hands:
