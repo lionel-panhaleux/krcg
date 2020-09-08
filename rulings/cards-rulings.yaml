@@ -120,6 +120,7 @@
     - "The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]"
 100103|Asanbonsam Ghoul:
     - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
+    - "If another effect also sets the range, the first to resolve has priority (eg. {Squirrel's Balance} resolves before, {Neutral Guard} resolves after). [PIB 20120214]"
 100105|Ashes to Ashes:
     - "[thn], [THN] The end of combat is triggered by the vampire going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
     - "[thn], [THN] Cards that can be played at the end of combat (eg. {Amaranth}, {Decapitate}) can be played before combat ends. [LSJ 20011214-4]"
@@ -1466,6 +1467,8 @@
     - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630] [ANK 20170111]"
 101275|Netwar:
     - "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
+101276|Neutral Guard:
+    - "If another effect also sets the range, the first to resolve has priority (eg. {Squirrel's Balance} and {Asanbonsam Ghoul} resolve before). [PIB 20120214]"
 101279|The New Inquisition:
     - "When a vampire goes to torpor, the card is replaced before any other effect (eg. before losing pool to {Fame}). [LSJ 20100527]"
 101280|New Management:
@@ -2060,6 +2063,7 @@
     - "Is played when a bleed would be successful, before resolution. [LSJ 20110502]"
 101858|Squirrel Balance:
     - '[cel] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+    - "If another effect also sets the range, the first to resolve has priority (eg. {Asanbonsam Ghoul} and {Neutral Guard} resolve after). [PIB 20120214]"
 101860|Starshell Grenade Launcher:
     - "Using the Launcher to reduce stealth does not force the minion to strike with it if he blocks. [LSJ 19971215]"
 101861|Starvation of Marena:
@@ -2079,6 +2083,8 @@
 101877|Storage Annex:
     - "Cannot be played if it is the only card in your hand. [LSJ 20100527]"
     - "The old card goes to the controller's hand, regardless of where the new card comes from (eg. {Agaitas, The Scholar of Antiquities} face-up cards). [PIB 20150224]"
+101878|Storm Sewers:
+    - "If another effect also sets the range, the first to resolve has priority. [PIB 20120214]"
 101879|Strained Vitae Supply:
     - "The effect only applies to the default hunt action provided by the rulebook. [PIB 20120204]"
 101881|The Stranger Among Us:
