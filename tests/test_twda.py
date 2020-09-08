@@ -254,7 +254,7 @@ def test_2k5alboraya():
 
 
 def test_2k4dcqualifier():
-    """A lot of comments, in description, at the end, plus inline C-style card comment"""
+    """A lot of comments (description, end) plus inline C-style card comment"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k4dcqualifier.html")) as f:
         TWDA.load_html(f, save=False)
