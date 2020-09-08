@@ -81,14 +81,20 @@ def test_card(client):
         "Draft": "",
         "Rulings": [
             "If the given weapon costs blood, "
-            "the target Alastor pays the cost. [LSJ 20040518]"
+            "the target Alastor pays the cost. [LSJ 20040518]",
+            "Requirements do not apply. [ANK 20200901]",
         ],
         "Rulings Links": [
             {
                 "Reference": "LSJ 20040518",
                 "URL": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
                 "4emymfUPwAM/B2SCC7L6kuMJ",
-            }
+            },
+            {
+                "Reference": "ANK 20200901",
+                "URL": "http://www.vekn.net/forum/rules-questions/"
+                "78830-alastor-and-ankara-citadel#100653",
+            },
         ],
     }
     id_response = client.get("/card/100038")
@@ -105,7 +111,7 @@ def test_deck(client):
     assert len(response.json) == 100
     response = client.post("/deck", json={"cards": ["Stavros"]})
     assert response.status_code == 200
-    assert len(response.json) == 2
+    assert len(response.json) == 3
     response = client.post("/deck", json={"cards": ["Not a Card"]})
     assert response.status_code == 400
     response = client.post("/deck", json={"cards": ["Antithesis"]})
