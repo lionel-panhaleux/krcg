@@ -15,7 +15,9 @@ from . import vtes
 
 
 class KRCG(flask.Flask):
-    def make_default_options_response(self,):
+    def make_default_options_response(
+        self,
+    ):
         response = super().make_default_options_response()
         response.headers.add("Access-Control-Allow-Headers", "*")
         response.headers.add("Access-Control-Allow-Methods", "*")
@@ -54,7 +56,8 @@ def swagger():
 @base.route("/openapi.yaml")
 def openapi():
     return flask.render_template(
-        "openapi.yaml", version=pkg_resources.require("krcg")[0].version,
+        "openapi.yaml",
+        version=pkg_resources.require("krcg")[0].version,
     )
 
 

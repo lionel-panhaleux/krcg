@@ -56,8 +56,7 @@ def test_get_card():
 
 
 def test_2019grdojf():
-    """Recent classic layout, we must get everything seamlessly
-    """
+    """Recent classic layout, we must get everything seamlessly"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2019grdojf.html")) as f:
         TWDA.load_html(f, save=False)
@@ -124,8 +123,7 @@ def test_2019grdojf():
 
 
 def test_2016ggs():
-    """Pretty straightforward, we must get everything seamlessly
-    """
+    """Pretty straightforward, we must get everything seamlessly"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2016ggs.html")) as f:
         TWDA.load_html(f, save=False)
@@ -192,8 +190,7 @@ def test_2016ggs():
 
 
 def test_2k5alboraya():
-    """Card name abbreviation (fetish club) with tailing point.
-    """
+    """Card name abbreviation (fetish club) with tailing point."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k5alboraya.html")) as f:
         TWDA.load_html(f, save=False)
@@ -257,8 +254,7 @@ def test_2k5alboraya():
 
 
 def test_2k4dcqualifier():
-    """A lot of comments, in description, at the end, plus inline C-style card comment
-    """
+    """A lot of comments, in description, at the end, plus inline C-style card comment"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k4dcqualifier.html")) as f:
         TWDA.load_html(f, save=False)
@@ -357,8 +353,7 @@ def test_2k4dcqualifier():
 
 
 def test_2010tcdbng():
-    """Card-level parenthesised commends (common)
-    """
+    """Card-level parenthesised commends (common)"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
         TWDA.load_html(f, save=False)
@@ -438,8 +433,7 @@ def test_2010tcdbng():
 
 
 def test_2012pslp():
-    """Discipline included after card names (common)
-    """
+    """Discipline included after card names (common)"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2012pslp.html")) as f:
         TWDA.load_html(f, save=False)
@@ -495,8 +489,7 @@ def test_2012pslp():
 
 
 def test_2k7campeonatojuizforano():
-    """Very hard to parse comments (line braks, few markers)
-    """
+    """Very hard to parse comments (line braks, few markers)"""
     TWDA = twda._TWDA()
     with open(
         os.path.join(os.path.dirname(__file__), "2k7campeonatojuizforano.html")
@@ -593,8 +586,7 @@ def test_2k7campeonatojuizforano():
 
 
 def test_2010pwbla1():
-    """Very hard to parse comments (line braks, few markers)
-    """
+    """Very hard to parse comments (line braks, few markers)"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010pwbla1.html")) as f:
         TWDA.load_html(f, save=False)

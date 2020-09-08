@@ -216,15 +216,21 @@ def main():
     out_folder = os.path.join(os.path.dirname(__file__), "..", "static")
     if "standard" in args.formats:
         with open(
-            os.path.join(out_folder, "standard-rulings.json"), "w", encoding="utf-8",
+            os.path.join(out_folder, "standard-rulings.json"),
+            "w",
+            encoding="utf-8",
         ) as out_file:
             json.dump(standard_rulings(), out_file, indent=2)
         with open(
-            os.path.join(out_folder, "twd.htm"), "w", encoding="utf-8-sig",
+            os.path.join(out_folder, "twd.htm"),
+            "w",
+            encoding="utf-8-sig",
         ) as out_file:
             out_file.write(standard_twda())
     if "amaranth" in args.formats:
         with open(
-            os.path.join(out_folder, "amaranth-twda.json"), "w", encoding="utf-8",
+            os.path.join(out_folder, "amaranth-twda.json"),
+            "w",
+            encoding="utf-8",
         ) as out_file:
             json.dump(amaranth_twda(), out_file, indent=2)

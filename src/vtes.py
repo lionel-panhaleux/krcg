@@ -45,8 +45,7 @@ def _get_runling_links(links_dict, text):
 
 
 class _Trie(collections.defaultdict):
-    """A Trie structure for text search
-    """
+    """A Trie structure for text search"""
 
     def __init__(self):
         super().__init__(lambda: collections.defaultdict(int))
@@ -88,7 +87,13 @@ class _Trie(collections.defaultdict):
                 )
             else:
                 ret = collections.Counter(part_match)
-        return [x[0] for x in sorted(ret.items(), key=lambda x: (-x[1], x[0]),)]
+        return [
+            x[0]
+            for x in sorted(
+                ret.items(),
+                key=lambda x: (-x[1], x[0]),
+            )
+        ]
 
 
 class _VTES:
@@ -133,24 +138,20 @@ class _VTES:
         self.safe_variants = True
 
     def __getstate__(self):
-        """For pickle serialization.
-        """
+        """For pickle serialization."""
         return {"cards": self.original_cards, "rulings": self.rulings}
 
     def __setstate__(self, state):
-        """For pickle deserialization.
-        """
+        """For pickle deserialization."""
         self.original_cards = state.get("cards")
         self.rulings = state.get("rulings")
 
     def __reduce__(self):
-        """For pickle serialization.
-        """
+        """For pickle serialization."""
         return (_VTES, (), self.__getstate__())
 
     def __bool__(self):
-        """Test for emptyness
-        """
+        """Test for emptyness"""
         return bool(self.original_cards)
 
     def _yaml_get_card(self, text):
@@ -463,7 +464,8 @@ class _VTES:
         if re.search(r"Requires a( ready)? (L|l)aibon", card["Card Text"]):
             self.search["trait"]["laibon"].add(card["Id"])
         if re.search(
-            r"Requires a( ready|n)( (I|i)ndependent or)? (A|a)narch", card["Card Text"],
+            r"Requires a( ready|n)( (I|i)ndependent or)? (A|a)narch",
+            card["Card Text"],
         ):
             self.search["trait"]["anarch"].add(card["Id"])
         if re.search(r"Requires an (I|i)ndependent", card["Card Text"]):
@@ -577,26 +579,22 @@ class _VTES:
 
     @property
     def disciplines(self):
-        """Return a list of disciplines
-        """
+        """Return a list of disciplines"""
         return sorted(self.trait_choices("Discipline"))
 
     @property
     def types(self):
-        """Return a list of card types
-        """
+        """Return a list of card types"""
         return sorted(self.trait_choices("Type"))
 
     @property
     def clans(self):
-        """Return a list of clans
-        """
+        """Return a list of clans"""
         return sorted(self.trait_choices("Clan"))
 
     @staticmethod
     def get_name(card):
-        """Returns main name for a card
-        """
+        """Returns main name for a card"""
         name = card["Name"]
         if name[-5:] == ", The":
             name = "The " + name[:-5]
@@ -607,8 +605,7 @@ class _VTES:
 
     @staticmethod
     def vekn_name(card):
-        """Returns VEKN name for a card (suffix The, (TM) instead of ™)
-        """
+        """Returns VEKN name for a card (suffix The, (TM) instead of ™)"""
         name = card["Name"]
         if name[:4] == "The ":
             name = name[4:] + ", The"
@@ -618,8 +615,7 @@ class _VTES:
         return name
 
     def normalized(self, card):
-        """Fix the card name
-        """
+        """Fix the card name"""
         data = copy.copy(card)
         name = self.get_name(card)
         data["Name"] = name
