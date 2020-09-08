@@ -2230,6 +2230,8 @@
 101966|Theft of Vitae:
     - "Can target a minion with less blood or life than the amount stolen. [RTR 20010711]"
     - "If both opponents play Theft of Vitae, they resolve simultaneously: blood amounts are adjusted by the total of gain and loss and no blood wear off. [ANK 20200123]"
+101968|Therbold Realty:
+    - "The reduction applies to equipments that are locations (eg. {Palatial Estate}). [LSJ 20080107]"
 101971|Thin-Blooded Seer:
     - "When computing the cost of a card, multiplications and divisions are applied first, followed by additions and substractions. [PIB 20150917] [RTR 20070707]"
 "101973|Third Tradition: Progeny":
@@ -2788,6 +2790,8 @@
     - "[MERGED] Is Sabbat. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 200921|Marguerite Foccart (ADV):
     - "[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
+200927|Marie Faucigny:
+    - "The reduction applies to equipments that are locations (eg. {Palatial Estate}). [LSJ 20080109]"
 200928|Marie-Pierre:
     - 'Her ability must be used after combat has ended, cards that are played "when the combat would end" or "when combat is about to end" are played before that. [ANK 20180928-2]'
     - "When using her ability to enter combat she is not acting and cannot play action modifiers. {Obedience} cannot be played by the opponent. [ANK 20180929]"
