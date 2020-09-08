@@ -372,6 +372,7 @@
     - "Takes the modified cost into account if it has been modified (eg. by {The Slow Withering} or {The Ankara Citadel, Turkey}). [PIB 20150725] [LSJ 20100429]"
 100316|Chain of Command:
     - "Cannot bring more than one copy of a unique vampire out, by the rule prohibiting self-contesting. [LSJ 20040722]"
+    - "If a commanded vampire is burned (eg. {Daring the Dawn}), he is not brought back to the crypt. [LSJ 20040616]"
 100319|Chalice of Kinship:
     - "The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
 100320|Chameleon:
@@ -590,6 +591,7 @@
     - "Only requires one clan or the other (Malkavian or Malkavian antitribu) to be played. [ANK 20190203]"
 100528|Descent into Darkness:
     - "Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]"
+    - "Damage inflicted after the action resolution (eg. {Daring the Dawn}) are not applied. [LSJ 20040616]"
 100532|Detect Authority:
     - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [RTR 20180719]"
 100536|Deviki Prasanta:
