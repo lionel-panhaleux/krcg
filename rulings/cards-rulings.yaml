@@ -219,11 +219,12 @@
     - "[dom][pre] [COMBAT] Can be used during a combat by a vampire in torpor. [LSJ 20020416]"
     - "[dom][pre] [COMBAT][REACTION] Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
 100190|Blissful Agony:
-    - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
     - "[val] Damage is environmental. [RTR 19970630]"
-    - "[VAL] In the new combat, the initial opponent goes first. [LSJ 20011214-3] [LSJ 20031212]"
+    - "[VAL] If dodged, there is no new combat. [LSJ 20051020]"
+    - "[VAL] In the new combat, the opponent goes first. [LSJ 20011214-3] [LSJ 20031212]"
     - "[VAL] Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
     - "[VAL] Cannot be used to start a new combat with a vampire on his way to torpor. [LSJ 20100604-1]"
+    - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100192|Blood Agony:
     - "Must be played before strike resolution and damage prevention in order to affect the current strike (can be played after both strikes have been chosen). [RTR 19960112]"
 100195|Blood Brother Ambush:
