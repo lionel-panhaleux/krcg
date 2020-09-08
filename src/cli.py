@@ -242,8 +242,7 @@ def complete(args):
 
 # ############################################################################# argparse
 def add_deck_boundaries(parser):
-    """Common arguments: --from and --to to control year boundaries of TWDA analysis.
-    """
+    """Common arguments: --from and --to to control year boundaries of TWDA analysis."""
     parser.add_argument(
         "--from",
         type=lambda s: arrow.get(s, "YYYY"),
@@ -328,8 +327,7 @@ class BonusChoice(NARGS_CHOICE_WITH_ALIASES):
 
 
 def add_search(parser):
-    """Common search arguments for top and search commands
-    """
+    """Common search arguments for top and search commands"""
     parser.add_argument(
         "-n",
         "--number",
@@ -444,7 +442,12 @@ parser = subparsers.add_parser(
 )
 add_deck_boundaries(parser)
 parser.add_argument(
-    "-n", "--number", type=int, default=0, metavar="N", help="Number of cards to print",
+    "-n",
+    "--number",
+    type=int,
+    default=0,
+    metavar="N",
+    help="Number of cards to print",
 )
 parser.add_argument(
     "-m",

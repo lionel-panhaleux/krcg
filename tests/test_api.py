@@ -470,12 +470,14 @@ def test_search(client):
 
     # votes provided by master cards
     response = client.post(
-        "/card", json={"bonus": ["votes"], "clan": ["Assamite"], "type": ["Master"]},
+        "/card",
+        json={"bonus": ["votes"], "clan": ["Assamite"], "type": ["Master"]},
     )
     assert response.json == ["Alamut", "The Black Throne"]
     # votes provided by titles
     response = client.post(
-        "/card", json={"bonus": ["votes"], "clan": ["Assamite"], "group": ["3"]},
+        "/card",
+        json={"bonus": ["votes"], "clan": ["Assamite"], "group": ["3"]},
     )
     assert response.json == ["Enam", "Rebekah"]
     # title when MERGED
@@ -483,14 +485,16 @@ def test_search(client):
     assert response.json == ["Tegyrius, Vizier (ADV)"]
     # traits: black hand, red list ...
     response = client.post(
-        "/card", json={"clan": ["Nagaraja"], "trait": ["black hand"]},
+        "/card",
+        json={"clan": ["Nagaraja"], "trait": ["black hand"]},
     )
     assert response.json == ["Sennadurek"]
     response = client.post("/card", json={"clan": ["Assamite"], "trait": ["red list"]})
     assert response.json == ["Jamal", "Tariq, The Silent (ADV)"]
     # sect
     response = client.post(
-        "/card", json={"clan": ["assamite"], "trait": ["camarilla"], "group": ["2"]},
+        "/card",
+        json={"clan": ["assamite"], "trait": ["camarilla"], "group": ["2"]},
     )
     assert response.json == [
         "Al-Ashrad, Amr of Alamut (ADV)",
@@ -499,7 +503,8 @@ def test_search(client):
     ]
     # traits on library cards
     response = client.post(
-        "/card", json={"type": ["action modifier"], "trait": ["black hand"]},
+        "/card",
+        json={"type": ["action modifier"], "trait": ["black hand"]},
     )
     assert response.json == [
         "Circumspect Revelation",
@@ -511,7 +516,8 @@ def test_search(client):
     assert response.json == ["Legacy of Power", "Second Tradition: Domain"]
     # "Requires titled Sabbat/Camarilla" maps to all possible titles
     response = client.post(
-        "/card", json={"bonus": ["intercept"], "trait": ["archbishop"]},
+        "/card",
+        json={"bonus": ["intercept"], "trait": ["archbishop"]},
     )
     assert response.json == [
         "Matteus, Flesh Sculptor",
@@ -557,11 +563,13 @@ def test_search(client):
     # no discipline, sect (or independent) required
     assert response.json == ["Abbot", "Harzomatuili", "Under Siege"]
     response = client.post(
-        "/card", json={"type": ["political action"], "trait": ["independent"]},
+        "/card",
+        json={"type": ["political action"], "trait": ["independent"]},
     )
     assert response.json == ["Free States Rant", "Reckless Agitation"]
     response = client.post(
-        "/card", json={"type": ["political action"], "trait": ["anarch"]},
+        "/card",
+        json={"type": ["political action"], "trait": ["anarch"]},
     )
     assert response.json == [
         "Anarch Salon",
@@ -577,7 +585,8 @@ def test_search(client):
     ]
     # multi-disciplines
     response = client.post(
-        "/card", json={"discipline": ["*", "animalism"], "bonus": ["intercept"]},
+        "/card",
+        json={"discipline": ["*", "animalism"], "bonus": ["intercept"]},
     )
     assert response.json == [
         "Detect Authority",

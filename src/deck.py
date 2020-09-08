@@ -128,8 +128,7 @@ class Deck(collections.Counter):
         }
 
     def __setstate__(self, state):
-        """For pickle deserialization.
-        """
+        """For pickle deserialization."""
         self.author = state.get("author")
         self.event = state.get("event")
         self.place = state.get("place")

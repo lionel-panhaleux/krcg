@@ -41,7 +41,7 @@ HEADERS.update([h + ":" for h in HEADERS])
 
 
 class _TWDA(collections.OrderedDict):
-    """ An OrderedDict of the TWDA. Parsing TWDA.html is the hard part.
+    """An OrderedDict of the TWDA. Parsing TWDA.html is the hard part.
 
     Attributes:
         spoilers (dict): cards played in over 25% of decks
