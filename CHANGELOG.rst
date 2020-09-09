@@ -4,7 +4,7 @@ Changelog
 1.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Additional rulings.
 
 
 1.1 (2020-09-08)
