@@ -1,7 +1,7 @@
 import pytest
 import requests
 
-from src import flask  # noqa: E402
+from krcg import flask
 
 
 @pytest.fixture

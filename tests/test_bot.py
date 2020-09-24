@@ -1,7 +1,7 @@
 import datetime
 
-from src import discord_bot
-from src import vtes
+from krcg import discord_bot
+from krcg import vtes
 
 
 def test_bot(monkeypatch):

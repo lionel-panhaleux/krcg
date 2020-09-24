@@ -1,7 +1,7 @@
 import os.path
 
-from src import twda
-from src import vtes
+from krcg import twda
+from krcg import vtes
 
 
 def test_init():

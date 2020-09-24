@@ -1,6 +1,6 @@
 include LICENSE README.md CHANGELOG.rst
 
-graft src
+graft krcg
 graft schemas
 graft rulings
 prune tests

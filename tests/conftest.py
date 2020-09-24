@@ -1,8 +1,8 @@
 import requests
 import pytest
 
-from src import twda
-from src import vtes
+from krcg import twda
+from krcg import vtes
 
 
 def pytest_sessionstart(session):
