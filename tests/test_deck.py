@@ -1,4 +1,4 @@
-from src import deck
+from krcg import deck
 
 
 def test_cards():

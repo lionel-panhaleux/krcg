@@ -22,7 +22,7 @@ jobs:
           pip install -e .[dev,web]
       - name: Format
         run: |
-          black --check src tests
+          black --check krcg tests
       - name: Lint
         run: |
           flake8

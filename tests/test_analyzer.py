@@ -1,4 +1,4 @@
-from src import analyzer
+from krcg import analyzer
 
 
 def test_base():

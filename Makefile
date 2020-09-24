@@ -8,7 +8,7 @@ validate: static/*.json
 	$(foreach f, $^, jsonschema -i $f schemas/$(basename $(notdir $f)).schema.json ;)
 
 quality: validate
-	black --check src tests
+	black --check krcg tests
 	flake8
 
 test: quality
@@ -28,7 +28,7 @@ update:
 	pip install --upgrade -e .[dev,web]
 
 serve:
-	source .env && uwsgi --socket 127.0.0.1:8000 --protocol=http  --module src.wsgi:application
+	source .env && uwsgi --socket 127.0.0.1:8000 --protocol=http  --module krcg.wsgi:application
 
 serve-bot:
 	source .env && krcg-bot

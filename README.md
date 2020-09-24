@@ -119,13 +119,13 @@ check the documentation of your web server.
 The API can be served with [uWSGI](https://uwsgi-docs.readthedocs.io):
 
 ```bash
-uwsgi --module src.wsgi:application
+uwsgi --module krcg.wsgi:application
 ```
 
 or [Gunicorn](https://gunicorn.org):
 
 ```bash
-gunicorn src.wsgi:application
+gunicorn krcg.wsgi:application
 ```
 
 Two environment variables are expected: `GITHUB_USERNAME` and `GITHUB_TOKEN`,

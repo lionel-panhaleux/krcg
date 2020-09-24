@@ -2,7 +2,7 @@ import collections
 import os.path
 import textwrap
 
-from src import twda
+from krcg import twda
 
 
 def test_get_card():
