@@ -37,10 +37,9 @@
 100024|Agate Talisman:
   - "Can be equipped by a vampire with capacity less than 4, although he cannot lock it to get a vote. [LSJ 20030607]"
 100025|Agent of Power:
-  - "Provides a discipline even when it is not played in the normal fashion (eg. diablerie, {Deviki Presanta}, {Bima}). [LSJ 20071001-1]"
-  - 'If it is used as a placeholder to represent something else, then its text does not apply, including the "Unique" part. A {Shock Troops} vampire would simply be a 1-cap Sabbat with no clan and no discipline. [LSJ 20071001-1]'
+  - "Is unique and provides a discipline even when it was not played in the normal fashion (eg. diablerie, {Deviki Prasanta}, {Bima}). [LSJ 20071001-1] [LSJ 20100422]"
+  - 'If used as a placeholder to represent something else, its text does not apply (including the "Unique" part). A {Shock Troops} vampire would simply be a non-unique 1-cap Sabbat with no clan and no discipline. [LSJ 20071001-1]'
   - "If you play Agent of Power on a vampire and that vampire plays a {Dual Form} at superior [PRO], the Dual Form gains the Discipline provided by the Agent of Power and keeps it once the Agent of Power burns. [LSJ 20071005-1]"
-  - "When put on a {Bima} it is into play, the card text applies and it is Unique. [LSJ 20100422]"
 100029|Aid from Bats:
   - "[ANI] The press can only be used during the current round. [TOM 19960521]"
 100038|Alastor:
