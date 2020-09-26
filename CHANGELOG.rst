@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2 (unreleased)
+1.2 (2020-09-26)
 ----------------
 
 - Additional rulings.
