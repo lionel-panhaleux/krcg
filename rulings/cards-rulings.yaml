@@ -8,6 +8,7 @@
   - "The Blood Hunt referendum is still a Blood Hunt: {Lay Low} can be used, {Trophy: Diablerie} would prevent the referendum. [LSJ 20091026] [LSJ 20100112]"
   - 'The Blood Hunt referendum is part of the action resolution. Cards that are played "after a successful action" or "after resolution" must be played after the referendum. {Heidelberg Castle, Germany} can not be used before the referendum. [LSJ 20100112] [PIB 20121028]'
 100005|Abandoning the Flesh:
+  - "Cannot be played when burned as a result of a Blood Hunt referendum. [LSJ 20070417]"
   - "Will not trigger the {Soul Gem of Etrius} since the vampire is removed from the game instead of being burned. [LSJ 20021010]"
 100006|Abbot:
   - "The +1 intercept applies to Ⓓ actions against cards controlled by the controller. It does not apply to Ⓓ actions against another Methusalah. [LSJ 20061222]"
@@ -123,6 +124,7 @@
   - "[thn], [THN] Cards that can be played at the end of combat (eg. {Amaranth}, {Decapitate}) can be played before combat ends. [LSJ 20011214-4]"
   - "[for] If played on a diablerie attempt (eg. {Amaranth}), the diablerie is unsuccessful. Another {Amaranth} can be played. [LSJ 19970224] [LSJ 20011214-4]"
   - "[for] If played by an ally, the ally is burned instead of going to torpor. [ANK 20170412] [RBK 20181001-163]"
+  - "[for] Cannot be played when burned as a result of a Blood Hunt referendum. [LSJ 20070417]"
 100112|Aura of Invincibility:
   - "If the initial referendum does not pass, then the card is not put into play and the vampire playing it is not sent to torpor. [LSJ 20040730]"
 100117|Autonomic Mastery:
@@ -1735,6 +1737,7 @@
 101581|Reform Body:
   - "If the vampire saves himself from diablerie, the diablerie is considered unsuccessful. The diablerist gets nothing from the victim, and no Blood Hunt is called. [LSJ 19970224]"
   - "Cannot be played by vampires who aren't controlled. [LSJ 19970224]"
+  - "Cannot be played when burned as a result of a Blood Hunt referendum. [LSJ 20070417]"
 101582|Reformation:
   - "[chi] Cannot be used if there is no equipment to destroy. [RTR 19980928]"
 101587|Regent:
