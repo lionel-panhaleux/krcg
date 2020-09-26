@@ -1513,6 +1513,8 @@
   - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101325|Ophidian Gaze:
   - '[SER][PRE] Can be used to cancel an action modifier player "after the action/referendum is successful" (eg. {Voter Captivatoin} or {Freak Drive}). [ANK 20180909]'
+101330|Orgy of Blood:
+  - "Can be used by a vampire going to torpor or about to be burned. [LSJ 20100721]"
 101331|Orun:
   - "A vampire with multiple Oruns will only burn one Orun if he successfully bleeds for 2 or more. [LSJ 20090603]"
 101333|Ossian:
@@ -1778,6 +1780,9 @@
   - "Can target a locked minion. [ANK 20170303]"
 101626|Revelation of Wrath:
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
+  - "Does not count environmental damage. [ANK 20200925]"
+  - "Can be played by a vampire going to torpor. Cannot be played by the vampire if he has been burned. [ANK 20200926]"
+  - "Does not allow to take control of the opponent. [ANK 20200925]"
 101627|Revelations:
   - "[aus] You do not get to see the card drawn as replacement. [PIB 20121031]"
 101631|Revolutionary Council:
@@ -2192,6 +2197,7 @@
 101945|Taste of Vitae:
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
   - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]'
+  - "Can be played if the opponent was burned. [LSJ 20031201-2]"
 101946|Tattoo Signal:
   - "The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]"
 101947|Taunt the Caged Beast:
