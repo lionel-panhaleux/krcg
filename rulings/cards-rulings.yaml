@@ -1489,7 +1489,7 @@
 101287|Nightstick:
   - "Can prevent up to 3 damage, it can prevent less. [RTR 20041202]"
 101293|Nocturn:
-  - 'The "can act the turn it is recruited" text does not let him act during an opponent turn if it was recruited then (eg. using {Madness Network}). [ANK 20200813-3]'
+  - 'The "can act the turn it is recruited" text does not let him act during an opponent''s turn if it was recruited then (eg. using {Madness Network}). [ANK 20200813-3] [ANK 20200930]'
 101295|Nod:
   - "Choose for each equipment which minion will receive it, then transfer all the equipment accordingly. [ANK 20190717-1]"
 101296|Nose of the Hound:
