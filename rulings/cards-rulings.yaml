@@ -211,7 +211,7 @@
 100183|Blessing of Durga Syn:
   - "Cannot be used if there is no equipment to steal. [RTR 19980928]"
 100184|Blessing of the Beast:
-  - "The number of cards to put on it is announced when the card is played, they must be in hand before drawing the replacement for this card. [PIB 20150428]"
+  - "The number of cards to put on it is announced when the card is played, they must be in hand before drawing the replacement for this card. [PIB 20150428] [LSJ 20100206-2]"
 100185|Blessing of the Name:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100189|Bliss:
@@ -850,6 +850,7 @@
   - "Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 100757|Follow the Blood:
   - "If played on a vampire who successfully hunts with a {Perfectionist}, {Perfectionist} grants the blood before combat. [LSJ 20110308]"
+  - 'Is played after resolution, but still during the action. Cards and effects that played "after resolution" (eg. {Freak Drive}) can be played before it, but not after. [LSJ 19981028] [LSJ 20100206-2]'
 100758|Force of Personality:
   - '[PRE] [ACTION MODIFIER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 100759|Force of Will:
@@ -1435,6 +1436,7 @@
   - 'An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - "Can be used if a Slave locked to enter combat instead of the blocking minion, if the other conditions are met. [ANK 20200114]"
+  - 'Is played after resolution, but still during the action. Cards and effects that played "after resolution" (eg. {Freak Drive}) can be played before it, but not after. [LSJ 19981028] [LSJ 20100206-2]'
 101241|Monomancy:
   - "The card is not put on the target vampire if he or she uses another effect than Monomancy to end combat. [RTR 20020501]"
 101244|Morphean Blow:
@@ -1810,6 +1812,10 @@
   - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat.  [ANK 20170111] [PIB 20130319]"
 101640|The Rising:
   - 'Anything that would increase the pool amount is considered "gaining pool". [ANK 20181105]'
+  - "Methusalahs do not gain the pool granted by a bleed action (eg. {Kindred Spirit}) if they do not have the edge or a VP beforehand. [LSJ 20100206-2]"
+  - "Methusalahs gain the pool granted by an effect after a successful bleed action (eg. {The unnamed}), since they get the edge before the effect kicks in. [LSJ 20100210-2]"
+  - "When ousting their prey, Methusalahs decide if they gain the VP before or after gaining the pool. [LSJ 20100208]"
+  - "{Off Kilter}'s additional pool cannot be gained if you do not have a VP (edge is burned before pool is gained). [LSJ 20100207]"
 101649|Rolling with the Punches:
   - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 101650|Rom Gypsy:
@@ -2002,6 +2008,7 @@
   - '[tha] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101797|Slake the Thirst:
   - "If multiple effects make you gain blood, even due to a single card (eg. {Redistribution}), you choose on which effect to apply Slake the Thirst. [LJS 20100203]"
+  - "[san] Can be played multiple times on the same blood gain (eg. {Taste of Vitae}). [LSJ 20100206-2]"
 101798|Slam:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101805|The Sleeping Mind:
@@ -2244,6 +2251,8 @@
   - "If both opponents play Theft of Vitae, they resolve simultaneously: blood amounts are adjusted by the total of gain and loss and no blood wear off. [ANK 20200123]"
 101968|Therbold Realty:
   - "The reduction applies to equipments that are locations (eg. {Palatial Estate}). [LSJ 20080107]"
+101969|Thicker than Blood:
+  - "The vampire coming out of uncontrolled keeps the cards and blood he has, if any. [LSJ 20100206-2]"
 101971|Thin-Blooded Seer:
   - "When computing the cost of a card, multiplications and divisions are applied first, followed by additions and substractions. [PIB 20150917] [RTR 20070707]"
 "101973|Third Tradition: Progeny":
