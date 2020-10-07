@@ -1475,6 +1475,10 @@
 101272|Nephandus:
   - "His life total can exceed his starting life capacity (it is the case for all allies). [ANK 20171109]"
   - "Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630] [ANK 20170111]"
+  - "Damage reduction does not apply to environmental damage (eg. {Carrion Crows}). [PIB 20111017] [LSJ 20010626]"
+  - "Damage reduction applies to unpreventable damage. [LSJ 20100519]"
+  - "Additional damage provided by Aim cards are not reduced separately. [LSJ 20091123-2]"
+  - "Damage done by a weapon is reduced if it is wielded by the opposing minion. [LSJ 20091123-2]"
 101275|Netwar:
   - "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101276|Neutral Guard:
