@@ -11,8 +11,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.8
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Python
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
@@ -26,13 +27,16 @@ jobs:
       - name: Lint
         run: |
           flake8
-      - name: Tests and coverage
-        env:
-          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+      - name: Test
         run: |
           coverage run -m pytest
           coverage xml
+      - name: Upload coverage to Codacy
+        if: ${{ github.event_name == 'push' }}
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        run: |
           python-codacy-coverage -r coverage.xml
-      - name: JSON schemas validation
+      - name: Validate JSON schemas
         run: |
           make validate
