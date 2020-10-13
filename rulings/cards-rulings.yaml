@@ -2396,6 +2396,8 @@
 102098|Veiled Sight:
   - "[CHI] The strike can be used on a minion with no blood. [RTR 20010711]"
   - "[CHI] The strike is not ranged. [TOM 19951215-2]"
+102099|Veles' Hunt:
+  - "Modifiers and reactions can be played during and after the referendum (eg. {Voter Captivation}, {Delaying Tactics}). [LSJ 20081202-2]"
 102100|Velvet Tongue:
   - "If an effect causes a minion to be unable to cast votes or ballots during a referendum, that minion is forced to abstain, whether he or she had already cast votes or ballots or not. [PIB 20141226]"
 102103|Veneficti:
@@ -2598,6 +2600,8 @@
 "200179|Beast, The Leatherface of Detroit":
   - "He cannot attempt an action to equip or employ, nor strike to steal an equipment or retainer. [LSJ 20050315] [LSJ 20010210]"
   - "He can equip with an equipment that is a location when in play, but not by playing the card normally as it is an action card. (eg. Using {Vast Wealth} would work). [LSJ 20050315] [LSJ 20050413-1] [LSJ 20050413-2]"
+"200191|Bernard, the Scourge":
+  - "When using his ability, modifiers and reactions can be played during and after the referendum (eg. {Voter Captivation}, {Delaying Tactics}). [LSJ 20081202-2]"
 "200199|Bindusara, Historian of the Kindred":
   - "He cannot perform his special action twice in the same turn, even to fetch different cards. [ANK 20200810]"
   - "When using his special ability, requirements do not apply (eg. {Arcane Library} is put into play even if you have no ready Tremere). [ANK 20200810]"
