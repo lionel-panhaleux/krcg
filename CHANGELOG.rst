@@ -4,7 +4,8 @@ Changelog
 1.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Additional rulings.
+- Improved deck JSON serialisation
 
 
 1.2 (2020-09-26)
