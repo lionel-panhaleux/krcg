@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.3 (unreleased)
+1.3 (2020-10-13)
 ----------------
 
 - Additional rulings.
