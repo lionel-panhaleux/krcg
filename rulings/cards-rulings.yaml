@@ -1219,7 +1219,8 @@
 101077|Lead Fist:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101080|Learjet:
-  - "If a card played by a minion with Learjet has a delayed replacement, the additional card is drawn when the replacement is drawn. [PIB 20110718]"
+  - "If a card played by the minion with Learjet has a delayed replacement, the additional card is drawn when the replacement is drawn. [PIB 20110718]"
+  - "The additional replacement is optionnal, you get to see the normal replacement before you decide to draw the additional card. [LSJ 20050224-4]"
 101083|Leech:
   - "Can target a vampire with no blood [RTR 20010711]"
   - "Does not stack with similar effects to provide superior [POT] (eg. {Putrescent Servitude}). [ANK 20180111]"
@@ -2743,6 +2744,7 @@
   - 'If a second Jimmy Dunn is brought out during an action, the acting vampire is not considered to be "burning" the first Jimmy. [LSJ 19990719] [RTR 19991001]'
   - "If a non-contesting second copy of Jimmy enters play (via {Illusions of the Kindred}, for example), the first Jimmy won't burn himself. [LSJ 19991110]"
 200742|Kahina the Sorceress:
+  - "Her ability inflicts a total of one damage to a a minion with one or more corruption counters. [LSJ 20030820]"
   - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
 200753|Karen Suadela:
   - "She keeps her title if {Fall of the Camarilla} is played. She can be chosen for {Recalled to the Founder}, but does not burn. Allies still benefit trom {The Unmasking} intercept when trying to block her. [LSJ 20081120-2]"
