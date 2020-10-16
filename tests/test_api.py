@@ -123,7 +123,6 @@ def test_deck(client):
         "name": "Farley Mowat V2.01",
         "place": "Heath, Ohio",
         "player": "Darby Keeney",
-        "author": None,
         "players_count": 10,
         "score": "0gw2 + 4vp in the final",
         "tournament_format": "2R+F",
@@ -146,50 +145,42 @@ def test_deck(client):
         "crypt": {
             "cards": [
                 {
-                    "comments": None,
                     "count": 5,
                     "id": "200076",
                     "name": "Anarch Convert",
                 },
                 {
-                    "comments": None,
                     "count": 1,
                     "id": "200474",
                     "name": "Francesca Giovanni",
                 },
                 {
-                    "comments": None,
                     "count": 1,
                     "id": "200525",
                     "name": "Gloria Giovanni",
                 },
                 {
-                    "comments": None,
                     "count": 1,
                     "id": "200301",
                     "name": "Cristofero Giovanni",
                 },
-                {"comments": None, "count": 1, "id": "200834", "name": "Lia Milliner"},
+                {"count": 1, "id": "200834", "name": "Lia Milliner"},
                 {
-                    "comments": None,
                     "count": 1,
                     "id": "200932",
                     "name": "Mario Giovanni",
                 },
                 {
-                    "comments": None,
                     "count": 1,
                     "id": "201209",
                     "name": "Rudolfo Giovanni",
                 },
                 {
-                    "comments": None,
                     "count": 1,
                     "id": "200913",
                     "name": "Marciana Giovanni, Investigator",
                 },
                 {
-                    "comments": None,
                     "count": 1,
                     "id": "201101",
                     "name": "Paul DiCarlo, The Alpha",
@@ -204,26 +195,22 @@ def test_deck(client):
                 {
                     "cards": [
                         {
-                            "comments": None,
                             "count": 5,
                             "id": "101112",
                             "name": "Liquidation",
                         },
-                        {"comments": None, "count": 3, "id": "101401", "name": "Piper"},
+                        {"count": 3, "id": "101401", "name": "Piper"},
                         {
-                            "comments": None,
                             "count": 2,
                             "id": "100054",
                             "name": "Anarch Railroad",
                         },
                         {
-                            "comments": None,
                             "count": 2,
                             "id": "100444",
                             "name": "Creepshow Casino",
                         },
                         {
-                            "comments": None,
                             "count": 2,
                             "id": "101019",
                             "name": "Jake Washington",
@@ -235,7 +222,6 @@ def test_deck(client):
                             "name": "Anarch Troublemaker",
                         },
                         {
-                            "comments": None,
                             "count": 1,
                             "id": "100545",
                             "name": "Direct Intervention",
@@ -247,19 +233,16 @@ def test_deck(client):
                             "name": "Garibaldi-Meucci Museum",
                         },
                         {
-                            "comments": None,
                             "count": 1,
                             "id": "101384",
                             "name": "Pentex™ Subversion",
                         },
                         {
-                            "comments": None,
                             "count": 1,
                             "id": "101433",
                             "name": "Powerbase: Cape Verde",
                         },
                         {
-                            "comments": None,
                             "count": 1,
                             "id": "101435",
                             "name": "Powerbase: Los Angeles",
@@ -283,7 +266,6 @@ def test_deck(client):
                             "name": "Sudario Refraction",
                         },
                         {
-                            "comments": None,
                             "count": 4,
                             "id": "100633",
                             "name": "The Embrace",
@@ -301,7 +283,6 @@ def test_deck(client):
                             "name": "Cry Wolf",
                         },
                         {
-                            "comments": None,
                             "count": 1,
                             "id": "100298",
                             "name": "Carlton Van Wyk",
@@ -313,7 +294,6 @@ def test_deck(client):
                             "name": "Gianna di Canneto",
                         },
                         {
-                            "comments": None,
                             "count": 1,
                             "id": "101333",
                             "name": "Ossian",
@@ -326,7 +306,6 @@ def test_deck(client):
                             "name": "Tye Cooper",
                         },
                         {
-                            "comments": None,
                             "count": 1,
                             "id": "102128",
                             "name": "Vivienne Géroux",
@@ -338,7 +317,6 @@ def test_deck(client):
                 {
                     "cards": [
                         {
-                            "comments": None,
                             "count": 1,
                             "id": "100903",
                             "name": "Heart of Nizchetus",
@@ -350,7 +328,6 @@ def test_deck(client):
                 {
                     "cards": [
                         {
-                            "comments": None,
                             "count": 3,
                             "id": "100279",
                             "name": "Call of the Hungry Dead",
@@ -362,19 +339,16 @@ def test_deck(client):
                 {
                     "cards": [
                         {
-                            "comments": None,
                             "count": 5,
                             "id": "101321",
                             "name": "On the Qui Vive",
                         },
                         {
-                            "comments": None,
                             "count": 4,
                             "id": "100518",
                             "name": "Deflection",
                         },
                         {
-                            "comments": None,
                             "count": 2,
                             "id": "100519",
                             "name": "Delaying Tactics",
@@ -386,7 +360,6 @@ def test_deck(client):
                 {
                     "cards": [
                         {
-                            "comments": None,
                             "count": 5,
                             "id": "101942",
                             "name": "Target Vitals",
@@ -398,13 +371,11 @@ def test_deck(client):
                 {
                     "cards": [
                         {
-                            "comments": None,
                             "count": 2,
                             "id": "102079",
                             "name": "The Unmasking",
                         },
                         {
-                            "comments": None,
                             "count": 1,
                             "id": "100709",
                             "name": "FBI Special Affairs Division",

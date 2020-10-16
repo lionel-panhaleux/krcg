@@ -958,7 +958,7 @@ class _VTES:
             "twda_id": twda_id,
             "event": deck.event,
             "place": deck.place,
-            "date": deck.date.date().isoformat(),
+            "date": deck.date.date().isoformat() if deck.date else None,
             "tournament_format": deck.tournament_format,
             "players_count": deck.players_count,
             "player": deck.player,
@@ -1008,6 +1008,23 @@ class _VTES:
                         "comments": deck.cards_comments.get(card),
                     }
                 )
+
+        def remove_empty(obj):
+            if isinstance(obj, dict):
+                remove = []
+                for k, v in obj.items():
+                    if not v:
+                        remove.append(k)
+                    else:
+                        remove_empty(v)
+                for k in remove:
+                    del obj[k]
+            if isinstance(obj, list):
+                for v in obj:
+                    remove_empty(v)
+
+        remove_empty(ret)
+
         return ret
 
 
