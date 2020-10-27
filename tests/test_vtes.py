@@ -189,11 +189,11 @@ Deflections.
 Crypt (12 cards, min=7, max=24, avg=3.75)
 -----------------------------------------
 1x Gilbert Duane          7 AUS DOM OBF      prince  Malkavian:1
-1x Mariel, Lady Thunder   7 aus tha DOM OBF          Malkavian:1
-1x Badr al-Budur          5 cel dom qui OBF          Assamite:2
-1x Count Ormonde          5 dom pre ser OBF          Follower of Set:2
-1x Didi Meyers            5 aus cel obf DOM          Malkavian:1
-1x Zebulon                5 aus dom pro OBF          Malkavian:1
+1x Mariel, Lady Thunder   7 DOM OBF aus tha          Malkavian:1
+1x Badr al-Budur          5 OBF cel dom qui          Assamite:2
+1x Count Ormonde          5 OBF dom pre ser          Follower of Set:2
+1x Didi Meyers            5 DOM aus cel obf          Malkavian:1
+1x Zebulon                5 OBF aus dom pro          Malkavian:1
 1x Dimple                 2 obf                      Nosferatu:1
 1x Mustafa Rahman         2 dom                      Tremere:2
 1x Normal                 2 obf                      Malkavian:1

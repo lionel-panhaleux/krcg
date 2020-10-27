@@ -22,7 +22,10 @@ if vtes.VTES:
 
 def init(args):
     if args.cards:
+        if args.file:
         vtes.VTES.load_csv(args.file)
+        else:
+            vtes.VTES.load_from_vekn()
     elif args.twda:
         if not vtes.VTES:
             logger.critical(
@@ -30,7 +33,10 @@ def init(args):
             )
             exit(1)
         vtes.VTES.configure()
+        if args.file:
         twda.TWDA.load_html(args.file)
+    else:
+            twda.TWDA.load_from_vekn()
     else:
         try:
             vtes.VTES.load_from_vekn()

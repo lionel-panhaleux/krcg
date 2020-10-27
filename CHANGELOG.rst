@@ -4,7 +4,8 @@ Changelog
 1.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Improve TWDA parsing for postfix card counts notation
+- Improve TWDA HTML rendering: include crypt cards comments
 
 
 1.3 (2020-10-13)

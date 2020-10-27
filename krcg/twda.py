@@ -291,7 +291,7 @@ class _TWDA(collections.OrderedDict):
                     )
                 continue
             # lower all chars for easier parsing
-            name, count, explicit = _get_card(line.lower())
+            name, count, explicit, tail = _get_card(line.lower())
             if name and count:
                 if name in HEADERS:
                     # discard comment on header line (most likely card count)
@@ -299,27 +299,31 @@ class _TWDA(collections.OrderedDict):
                 if not explicit and name in set(
                     a.lower() for a in vtes.VTES.clans + vtes.VTES.disciplines
                 ):
-                    logger.warning(f"[{line_num}] improper discipline [{line}]")
+                    logger.warning(f"[{line_num:<6}] improper discipline [{line}]")
                     continue
                 card = None
                 try:
                     card = vtes.VTES[name]
+                    if tail:
+                        logger.warning(
+                            f"[{line_num:<6}] spurious tail [{tail}] - [{line}]"
+                        )
                 except KeyError:
                     match = re.match(self.tail_re, name)
-                    if match:
+                    if match and not tail:
                         name = match.group("card_name")
                         tail = match.group("comment")
                         if comment and tail:
                             comment += " "
                         if tail:
                             comment += tail.rstrip(" )]-/\\")
-                    try:
-                        card = vtes.VTES[name]
-                        logger.info(
-                            f"[{line_num:<6}] fuzzy [{card['Name']}] - [{line}]"
-                        )
-                    except KeyError:
-                        pass
+                        try:
+                            card = vtes.VTES[name]
+                            logger.info(
+                                f"[{line_num:<6}] fuzzy [{card['Name']}] - [{line}]"
+                            )
+                        except KeyError:
+                            pass
                 finally:
                     if card:
                         name = vtes.VTES.get_name(card)
@@ -400,7 +404,7 @@ def _get_card(line):
         # open parentheses for optional tail expression (separated for clarity)
         r"(("
         # mandatory punctuation (beware of "AK-47", "Kpist m/45", ...)
-        r"((\s|\(|\[|\s/|:)+|\s=+)(?P<post_count_symbol>-|x|\*|\s)*"
+        r"((\s|\(|\[|/|:)+|\s=+)(?P<post_count_symbol>-|x|\*|\s)*"
         # sometimes (old deck lists) count is after the card name
         # for vampires, this is the capacity of the vampire
         r"(?P<count_or_capacity>\d{1,2})"
@@ -409,20 +413,23 @@ def _get_card(line):
         # also special exception for "Pier 13, Port of Baltimore"
         r"(?!((st)|(nd)|(rd)|(th)|(.?\d)|b|p|(..?port)))"
         # closing parentheses for tail expression (separated for clarity)
-        r")|\s*$)",
+        r"(?P<post_count_tail>.*))|\s*$)",
         line,
     )
     if not card_match:
-        return None, None, False
+        return None, None, False, ""
     name = card_match.group("name").strip()
     # when count is not given on the line, default to 1 (common in old deck lists)
     count = int(card_match.group("count") or 0)
     explicit = True
+    tail = ""
     if not count:
         count = int(card_match.group("count_or_capacity") or 1)
         if not card_match.group("post_count_symbol"):
             explicit = False
-    return name, count, explicit
+        tail = card_match.group("post_count_tail") or ""
+        tail = tail.strip(" ()[]-/\\:=")
+    return name, count, explicit, tail
 
 
 try:

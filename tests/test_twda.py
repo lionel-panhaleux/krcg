@@ -1,4 +1,5 @@
 import collections
+import logging
 import os.path
 import textwrap
 
@@ -6,56 +7,75 @@ from krcg import twda
 
 
 def test_get_card():
-    assert twda._get_card("deny") == ("deny", 1, False)
-    assert twda._get_card("2 deny") == ("deny", 2, True)
-    assert twda._get_card("deny 2") == ("deny", 2, False)
-    assert twda._get_card("2x deny") == ("deny", 2, True)
-    assert twda._get_card("2 x deny") == ("deny", 2, True)
+    assert twda._get_card("deny") == ("deny", 1, False, "")
+    assert twda._get_card("2 deny") == ("deny", 2, True, "")
+    assert twda._get_card("deny 2") == ("deny", 2, False, "")
+    assert twda._get_card("2x deny") == ("deny", 2, True, "")
+    assert twda._get_card("2 x deny") == ("deny", 2, True, "")
     # 'x' is usually separated from card name, but '*' may not be
-    assert twda._get_card("2*deny") == ("deny", 2, True)
-    assert twda._get_card("deny *2") == ("deny", 2, True)
-    assert twda._get_card("deny x2") == ("deny", 2, True)
-    assert twda._get_card("deny x 2") == ("deny", 2, True)
-    assert twda._get_card("deny (2)") == ("deny", 2, False)
-    assert twda._get_card("deny [2]") == ("deny", 2, False)
+    assert twda._get_card("2*deny") == ("deny", 2, True, "")
+    assert twda._get_card("deny *2") == ("deny", 2, True, "")
+    assert twda._get_card("deny x2") == ("deny", 2, True, "")
+    assert twda._get_card("deny x 2") == ("deny", 2, True, "")
+    assert twda._get_card("deny (2)") == ("deny", 2, False, "")
+    assert twda._get_card("deny [2]") == ("deny", 2, False, "")
     # many forms are used, with or without parenthesis, 'x', '=', etc.
-    assert twda._get_card("deny (x2)") == ("deny", 2, True)
-    assert twda._get_card("deny =2") == ("deny", 2, False)
-    assert twda._get_card("deny /2") == ("deny", 2, False)
+    assert twda._get_card("deny (x2)") == ("deny", 2, True, "")
+    assert twda._get_card("deny =2") == ("deny", 2, False, "")
+    assert twda._get_card("deny /2") == ("deny", 2, False, "")
+    # spurious tail: multiple cards with post count on the same line
+    assert twda._get_card("deny x2, confusion x4") == (
+        "deny",
+        2,
+        True,
+        ", confusion x4",
+    )
     # crypt needs special handling as we got a number in front and back
     text = "2x anvil			6   cel pot dom pre tha	 primogen  brujah:1"
-    assert twda._get_card(text) == ("anvil", 2, True)
+    assert twda._get_card(text) == (
+        "anvil",
+        2,
+        True,
+        "",
+    )
     # names beginning with an 'x' and parenthesied '(adv)' must be correctly matched
     assert twda._get_card(
         "2x xaviar (adv)		10  abo ani for pro aus cel pot	 gangrel:3"
-    ) == ("xaviar (adv)", 2, True)
+    ) == ("xaviar (adv)", 2, True, "")
     # names with a comman and parenthesied '(adv)' must be correctly matched
     assert twda._get_card(
         "5x sascha vykos, the angel of caine (adv) 8   "
         "aus tha vic ani dom  archbishop	tzimisce:2"
-    ) == ("sascha vykos, the angel of caine (adv)", 5, True)
+    ) == (
+        "sascha vykos, the angel of caine (adv)",
+        5,
+        True,
+        "",
+    )
     # names beginning with a number are hard
-    assert twda._get_card("2nd tradition") == ("2nd tradition", 1, False)
+    assert twda._get_card("2nd tradition") == ("2nd tradition", 1, False, "")
     # name ending with a number even harder
-    assert twda._get_card("ak-47") == ("ak-47", 1, False)
+    assert twda._get_card("ak-47") == ("ak-47", 1, False, "")
     # channel 10 is unique: other cards will match 10 as the count
-    assert twda._get_card("channel 10") == ("channel 10", 1, False)
+    assert twda._get_card("channel 10") == ("channel 10", 1, False, "")
     # pier 13 is hard to match fully, note there is no ',' atter card counts
     assert twda._get_card("2 pier 13, port of baltimore") == (
         "pier 13, port of baltimore",
         2,
         True,
+        "",
     )
     # local 1111 is hard, card counts have less than 3 digits
-    assert twda._get_card("local 1111 2") == ("local 1111", 2, False)
+    assert twda._get_card("local 1111 2") == ("local 1111", 2, False, "")
     assert twda._get_card("1x alia, god=92s messenger") == (
         "alia, god=92s messenger",
         1,
         True,
+        "",
     )
 
 
-def test_2019grdojf():
+def test_2019grdojf(caplog):
     """Recent classic layout, we must get everything seamlessly"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2019grdojf.html")) as f:
@@ -120,9 +140,10 @@ def test_2019grdojf():
         "--> Simo Tiippana (Lydia + Al-Muntathir Trujah Toolbox) --> Aapo Järvelin "
         "(Theo + Beast anarch Rush) --> Petro Hirvonen (Hektor Toolbox)\n",
     }
+    assert caplog.record_tuples == []
 
 
-def test_2016ggs():
+def test_2016ggs(caplog):
     """Pretty straightforward, we must get everything seamlessly"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2016ggs.html")) as f:
@@ -187,9 +208,10 @@ def test_2016ggs():
             "Description : 2GW9 and winner in Sweden qualifier 26th March 2016\n"
         ),
     }
+    assert caplog.record_tuples == []
 
 
-def test_2k5alboraya():
+def test_2k5alboraya(caplog):
     """Card name abbreviation (fetish club) with tailing point."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k5alboraya.html")) as f:
@@ -251,9 +273,10 @@ def test_2k5alboraya():
         "cards_comments": {},
         "comments": "",
     }
+    assert caplog.record_tuples == []
 
 
-def test_2k4dcqualifier():
+def test_2k4dcqualifier(caplog):
     """A lot of comments (description, end) plus inline C-style card comment"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k4dcqualifier.html")) as f:
@@ -350,9 +373,10 @@ def test_2k4dcqualifier():
             ]
         ),
     }
+    assert caplog.record_tuples == []
 
 
-def test_2010tcdbng():
+def test_2010tcdbng(caplog):
     """Card-level parenthesised commends (common)"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
@@ -430,9 +454,10 @@ def test_2010tcdbng():
     """
         )[1:],
     }
+    assert caplog.record_tuples == []
 
 
-def test_2012pslp():
+def test_2012pslp(caplog):
     """Discipline included after card names (common)"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2012pslp.html")) as f:
@@ -486,9 +511,10 @@ def test_2012pslp():
         "cards_comments": {},
         "comments": "",
     }
+    assert caplog.record_tuples == []
 
 
-def test_2k7campeonatojuizforano():
+def test_2k7campeonatojuizforano(caplog):
     """Very hard to parse comments (line braks, few markers)"""
     TWDA = twda._TWDA()
     with open(
@@ -583,9 +609,10 @@ def test_2k7campeonatojuizforano():
             """
         )[1:],
     }
+    assert caplog.record_tuples == []
 
 
-def test_2010pwbla1():
+def test_2010pwbla1(caplog):
     """Very hard to parse comments (line braks, few markers)"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010pwbla1.html")) as f:
@@ -691,9 +718,10 @@ def test_2010pwbla1():
             """
         )[1:],
     }
+    assert caplog.record_tuples == []
 
 
-def test_2k5sharednun():
+def test_2k5sharednun(caplog):
     """Discipline name as header must not be mistaken for the Master card
     Note "2 Animalism" was changed to "Animalism x2" in decklist
     This serves as a test for post-name counts decklists like 2k9linkopingmay
@@ -759,9 +787,14 @@ def test_2k5sharednun():
         "comments": "Description:\n\"Look in the sky, it's a raven. No, it's a bat.\n"
         "No, it's a crow, No it's a swarm of them all!!!\"\n",
     }
+    assert caplog.record_tuples == [
+        ("root", logging.WARNING, "[40    ] improper discipline [Obfuscate 17]"),
+        ("root", logging.WARNING, "[47    ] improper discipline [Animalism: 37]"),
+        ("root", logging.WARNING, "[57    ] failed to parse [Non-skilled: 22]"),
+    ]
 
 
-def test_2019ecwon1pf():
+def test_2019ecwon1pf(caplog):
     """Discipline name as header must not be mistaken for the Master card
     Using long vampire name with comma and (ADV)
     """
@@ -848,9 +881,10 @@ def test_2019ecwon1pf():
         "cards_comments": {},
         "comments": "Description: Card selection is strong! Randyman\n",
     }
+    assert caplog.record_tuples == []
 
 
-def test_2020pihc():
+def test_2020pihc(caplog):
     """Discipline name as header must not be mistaken for the Master card
     Using long vampire name with comma and (ADV)
     """
@@ -972,3 +1006,95 @@ accepts the dubious honor of winning a tournament with exactly zero games wins
 for the day.
 """,
     }
+    assert caplog.record_tuples == [
+        (
+            "root",
+            logging.WARNING,
+            "[134   ] Deck #2020pihc is missing library cards [Sauce or GTFO]",
+        ),
+    ]
+
+
+def test_2k8sequeenslandcq(caplog):
+    """Discipline name as header must not be mistaken for the Master card
+    Using long vampire name with comma and (ADV)
+    """
+    TWDA = twda._TWDA()
+    with open(os.path.join(os.path.dirname(__file__), "2k8sequeenslandcq.html")) as f:
+        TWDA.load_html(f, save=False)
+    assert len(TWDA) == 1
+    assert TWDA["2k8sequeenslandcq"].__getstate__() == {
+        "event": "Gencon SE Queensland CCQ",
+        "event_link": None,
+        "place": "Gencon Australia, Brisbane, Australia",
+        "date": "July 5th 2008",
+        "player": "Steven McRoy",
+        "players_count": 13,
+        "tournament_format": None,
+        "score": None,
+        "author": None,
+        "name": "Arika Turbo",
+        "cards": collections.OrderedDict(
+            [
+                ("Arika", 15),
+                ("Daring the Dawn", 10),
+                ("Force of Will", 10),
+                ("Soul Gem of Etrius", 7),
+                ("Majesty", 3),
+                ("Freak Drive", 10),
+                ("Conditioning", 10),
+                ("Distraction", 10),
+                ("Awe", 10),
+                ("Praxis Seizure: Geneva", 4),
+                ("Forgotten Labyrinth", 5),
+                ("Elder Impersonation", 3),
+                ("Seduction", 2),
+            ]
+        ),
+        "cards_comments": {"Arika": "could have more, 15 was enough\n"},
+        "comments": """Comments: Well the run is you get Arika out, wait a turn
+hopefully no pentex, smash, or her getting torped), next
+you equip her with soul gem, Freak Drive to untap, then
+call Praxis S whatever to increase her capacity +1 and to
+make her prince of whatever, Awe it so you burn the blood
+off Arika down to 2, pass the vote with 22 votes for, now
+you are ready to bleed, force of will +2 bleed, daring the
+dawn to make it unblockable at inferior, conditioning for
+a bleed of 8, taking 3 agg damage burning Arika and a new
+ones comes into play. Play Praxis, Awe, Force of Will,
+Daring the Dawn, Conditioning bleed of 8, if you get stuck
+you can play distraction to not only get rid of the other
+soul gems and rubbish from your hand but to get back on
+track with the card combo. freak drive to then call PS
+""",
+    }
+    assert caplog.record_tuples == [
+        (
+            "root",
+            logging.WARNING,
+            "[24    ] spurious tail [, berlin x4, cairo x2] - "
+            "[Praxis Seizure: Geneva x4, Berlin x4, Cairo x2]",
+        ),
+        (
+            "root",
+            logging.WARNING,
+            "[25    ] spurious tail [would add one more] - "
+            "[Forgotten Labyrinth x5 (would add one more)]",
+        ),
+        (
+            "root",
+            logging.WARNING,
+            "[26    ] spurious tail [would exchange for faceless night x4] - "
+            "[Elder Impersonation x3 (would exchange for Faceless Night x4]",
+        ),
+        (
+            "root",
+            logging.WARNING,
+            "[27    ] spurious tail [would delete] - [Seduction x2 (would delete)]",
+        ),
+        (
+            "root",
+            logging.WARNING,
+            "[44    ] failed to parse [repeat until you have wiped everyone out]",
+        ),
+    ]

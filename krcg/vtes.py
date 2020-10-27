@@ -869,7 +869,7 @@ class _VTES:
         cap_avg = sum(cap) / len(cap)
         lines.append(
             f"Crypt ({deck.cards_count(self.is_crypt)} cards, "
-            f"min={cap_min}, max={cap_max}, avg={cap_avg:.3g})"
+            f"min={cap_min}, max={cap_max}, avg={round(cap_avg, 2):g})"
         )
         lines.append("-" * len(lines[-1]))
         max_name = (
@@ -900,18 +900,24 @@ class _VTES:
                     count,
                     self.vekn_name(self[card]),
                     self[card]["Capacity"],
-                    " ".join(self[card]["Disciplines"]),
+                    " ".join(sorted(self[card]["Disciplines"])),
                     self[card].get("Title", ""),
                     self[card]["Clan"][0],
                     self[card]["Group"],
                 )
             )
+            if card in deck.cards_comments:
+                comment = deck.cards_comments[card].replace("\n", " ").strip()
+                lines[-1] += f" -- {comment}"
         lines.append(f"\nLibrary ({deck.cards_count(self.is_library)} cards)")
         # sort by type, name
         # note ordering must match the `itertools.groupby` function afterwards.
         library_cards = sorted(
             deck.cards(self.is_library),
-            key=lambda a: (_type(a), self.vekn_name(self[a[0]])),
+            key=lambda a: (
+                _type(a),
+                unidecode.unidecode(self.vekn_name(self[a[0]])).lower(),
+            ),
         )
         # form a section for each type with a header displaying the total
         for i, (kind, cards) in enumerate(itertools.groupby(library_cards, key=_type)):

@@ -91,7 +91,7 @@ class Deck(collections.Counter):
         multiline = len(self.comment.split("\n")) > 1
         if not self.marker:
             if not multiline:
-                logger.warning(f"[{self.line_num}] failed to parse [{log_version}]")
+                logger.warning(f"[{self.line_num:<6}] failed to parse [{log_version}]")
                 return
             logger.debug(f"[{self.line_num}] unmarked comment [{log_version}]")
         if multiline and not self.multiline:
