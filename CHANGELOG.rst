@@ -6,7 +6,7 @@ Changelog
 
 - Improve TWDA parsing for postfix card counts notation
 - Improve TWDA HTML rendering: include crypt cards comments
-
+- CLI: Allow for precise dates to be used as --from and --to parameters, not just year
 
 1.3 (2020-10-13)
 ----------------

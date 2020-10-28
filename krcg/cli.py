@@ -251,14 +251,14 @@ def add_deck_boundaries(parser):
     """Common arguments: --from and --to to control year boundaries of TWDA analysis."""
     parser.add_argument(
         "--from",
-        type=lambda s: arrow.get(s, "YYYY"),
+        type=lambda s: arrow.get(s),
         default=arrow.get(2008, 1, 1),
         dest="date_from",
         help="do not consider decks that won before this year (default 2008-01-01)",
     )
     parser.add_argument(
         "--to",
-        type=lambda s: arrow.get(s, "YYYY"),
+        type=lambda s: arrow.get(s),
         default=arrow.get(),
         dest="date_to",
         help="do not consider decks that won after this year",
