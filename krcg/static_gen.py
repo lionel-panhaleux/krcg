@@ -7,17 +7,17 @@ import argparse
 import collections
 import hashlib
 import json
-import logging
 import os.path
 import re
 import sys
 
 import requests
 
+from . import logging
 from . import twda
 from . import vtes
 
-logger = logging.getLogger()
+logger = logging.logger
 
 parser = argparse.ArgumentParser(prog="krcg", description="VTES tool")
 
@@ -202,7 +202,6 @@ Many thanks to Jeff Thompson for maintaining them for all these years.
 
 def main():
     args = parser.parse_args(sys.argv[1:])
-    logger.addHandler(logging.StreamHandler(sys.stderr))
     try:
         if not vtes.VTES:
             vtes.VTES.load_from_vekn(save=False)

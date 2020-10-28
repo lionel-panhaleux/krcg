@@ -10,7 +10,6 @@ import functools
 import difflib
 import io
 import itertools
-import logging
 import os
 import pickle
 import pkg_resources
@@ -25,8 +24,9 @@ import unidecode
 import yaml
 
 from . import config
+from . import logging
 
-logger = logging.getLogger()
+logger = logging.logger
 
 
 def _get_runling_links(links_dict, text):
@@ -533,7 +533,7 @@ class _VTES:
         )
         if result:
             match = result[0]
-            logger.debug("misspelled [{}] matched [{}]".format(name, match))
+            logger.info(f"misspelled [{name}] matched [{match}]")
             return match
 
     def trait_choices(self, trait):

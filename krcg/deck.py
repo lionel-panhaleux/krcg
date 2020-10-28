@@ -1,11 +1,13 @@
 """Deck class: pickling and card access under conditions."""
 import collections
-import logging
 
 import arrow
 import arrow.parser
 
-logger = logging.getLogger()
+from . import logging
+
+
+logger = logging.logger
 
 
 class Deck(collections.Counter):
@@ -46,12 +48,9 @@ class Deck(collections.Counter):
         self.multiline = False
         self.marker = False
 
-    def comment_begin(
-        self, line_num, comment, card_name=None, multiline=False, marker=False
-    ):
+    def comment_begin(self, comment, card_name=None, multiline=False, marker=False):
         if self.comment:
             self._assign_comment()
-        self.line_num = line_num
         if not self.separator or marker:
             self.comment = comment.strip(" ")
         else:
@@ -60,14 +59,13 @@ class Deck(collections.Counter):
         self.multiline = multiline
         self.marker = marker
 
-    def maybe_comment_line(self, line_num, comment, card_name=None):
+    def maybe_comment_line(self, comment, card_name=None):
         if self.comment:
             if self.separator:
                 comment = comment.strip(" ()[]-/*")
             self.comment += "\n" + comment
         else:
             self.comment_begin(
-                line_num,
                 comment,
                 card_name or self.card_name,
                 not self.separator,
@@ -79,7 +77,6 @@ class Deck(collections.Counter):
             self._assign_comment()
         self.comment = None
         self.card_name = None
-        self.line_num = None
         self.multiline = False
         self.marker = False
 
@@ -88,16 +85,15 @@ class Deck(collections.Counter):
         if not self.comment:
             return
         log_version = self.comment.replace("\n", " ").strip()
+        if len(log_version) > 83:
+            log_version = log_version[:80] + "..."
         multiline = len(self.comment.split("\n")) > 1
         if not self.marker:
             if not multiline:
-                logger.warning(f"[{self.line_num:<6}] failed to parse [{log_version}]")
+                logger.warning(f"failed to parse [{log_version}]")
                 return
-            logger.debug(f"[{self.line_num}] unmarked comment [{log_version}]")
         if multiline and not self.multiline:
-            logger.debug(
-                f"[{self.line_num}] unexpected multiline comment [{log_version}]"
-            )
+            logger.debug(f"unexpected multiline comment [{log_version}]")
         comment = self.comment + "\n"
         if self.card_name:
             self.cards_comments[self.card_name] = comment

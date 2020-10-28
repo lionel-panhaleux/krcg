@@ -1,14 +1,14 @@
 """TWDA analyzer: compute cards affinity and build decks based on TWDA.
 """
 import collections
-import logging
 from random import randrange
 
 from . import deck
+from . import logging
 from . import vtes
 from . import twda
 
-logger = logging.getLogger()
+logger = logging.logger
 
 
 class AnalysisError(Exception):
@@ -65,14 +65,14 @@ class Analyzer(object):
                     if c not in twda.TWDA.spoilers
                 ][randrange(100)]
             ]
-            logger.info("Randomly selected {}".format(args[0]))
+            logger.info(f"Randomly selected {args[0]}")
         # build crypt first, then library
         self.build_deck_part(*args, condition=vtes.VTES.is_crypt)
         self.refresh(condition=vtes.VTES.is_library)
         self.build_deck_part(condition=vtes.VTES.is_library)
         # add example decks reference in description
         self.deck.comments = "Inspired by:\n" + "\n".join(
-            " - {:<20} {}".format(twda_id, example.name or "(No Name)")
+            f" - {twda_id:<20} {example.name or '(No Name)'}"
             for twda_id, example in self.examples.items()
         )
         return self.deck
@@ -130,7 +130,7 @@ class Analyzer(object):
         if not self.examples:
             logger.error("No example in TWDA")
             raise AnalysisError()
-        logger.info("Refresh examples ({})".format(len(self.examples)))
+        logger.info(f"Refresh examples ({len(self.examples)})")
         self.played = collections.Counter()
         for example in self.examples.values():
             self.played.update(card for card, _ in example.cards(condition))
@@ -236,7 +236,7 @@ class Analyzer(object):
                 logger.info("No more candidates")
                 return
             next_card, score = candidates[0]
-            logger.info("Selected {} ({:.2f})".format(next_card, score))
+            logger.info(f"Selected {next_card} ({score:.2f})")
             count = min(self.cards_left, round(self.average[next_card]))
             self.deck.update({next_card: count})
             self.cards_left -= count

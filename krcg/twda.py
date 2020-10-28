@@ -6,7 +6,6 @@ TWDA must be configured with `TWDA.configure()` before being used.
 import collections
 import io
 import itertools
-import logging
 import os
 import pickle
 import re
@@ -17,9 +16,10 @@ import requests
 
 from . import config
 from . import deck
+from . import logging
 from . import vtes
 
-logger = logging.getLogger()
+logger = logging.logger
 
 
 class AnalysisError(Exception):
@@ -30,9 +30,7 @@ class AnalysisError(Exception):
 HEADERS = set()
 HEADERS.update(config.HEADERS)
 HEADERS.update([h + "s" for h in config.HEADERS] + ["ally", "allies"])
-HEADERS.update(
-    ["{}/{}".format(h1, h2) for h1, h2 in itertools.permutations(HEADERS, 2)]
-)
+HEADERS.update([f"{h1}/{h2}" for h1, h2 in itertools.permutations(HEADERS, 2)])
 HEADERS.update(config.ADDITIONAL_HEADERS)
 HEADERS.update([h + " card" for h in HEADERS] + [h + " cards" for h in HEADERS])
 HEADERS.update(["card", "cards", "deck"])
@@ -119,7 +117,7 @@ class _TWDA(collections.OrderedDict):
                 ).items()
                 if count > len(self) / 4
             }
-            logger.debug("Spoilers: {}".format(self.spoilers))
+            logger.debug(f"Spoilers: {self.spoilers}")
         else:
             self.spoilers = {}
 
@@ -131,6 +129,7 @@ class _TWDA(collections.OrderedDict):
             source (file): HTML source file-like object implementing `readlines()`
         """
         lines = []
+        twda_id = ""
         for line_num, line in enumerate(source.readlines(), start=1):
             try:
                 twda_id = re.match(r"^<a id=([^\s]*)\s", line).group(1)
@@ -203,6 +202,8 @@ class _TWDA(collections.OrderedDict):
                 current.comment_end()
                 current.separator = True
                 continue
+            # log line number
+            logger.extra["line"] = line_num
             # if we did not hit any separator (e.g. "=============="),
             # try to find deck name, author and comments
             if not current.separator:
@@ -251,7 +252,7 @@ class _TWDA(collections.OrderedDict):
                 if re.match(r"^(c|C)rypt", line):
                     continue
                 # Anything else is considered a comment until a separator is hit
-                current.maybe_comment_line(line_num, original_line)
+                current.maybe_comment_line(original_line)
                 continue
 
             # comments detection
@@ -267,10 +268,10 @@ class _TWDA(collections.OrderedDict):
                 multiline = False
             if "*/" in line:
                 comment_tail, line = line.split("*/", 1)
-                current.maybe_comment_line(line_num, comment_tail)
+                current.maybe_comment_line(comment_tail)
                 current.comment_end()
             if line and line[0] in "([/" and line[-1] in "/])":
-                current.comment_begin(line_num, " " + line[1:-1].strip(), marker=True)
+                current.comment_begin(" " + line[1:-1].strip(), marker=True)
                 line = ""
             # inline comments "--" or "//"
             # special case for "Bang Nakh -- Tiger's Claws"
@@ -286,9 +287,7 @@ class _TWDA(collections.OrderedDict):
                 comment = match.group("comment")
             if not line:
                 if comment:
-                    current.comment_begin(
-                        line_num, comment, marker=True, multiline=multiline
-                    )
+                    current.comment_begin(comment, marker=True, multiline=multiline)
                 continue
             # lower all chars for easier parsing
             name, count, explicit, tail = _get_card(line.lower())
@@ -299,15 +298,13 @@ class _TWDA(collections.OrderedDict):
                 if not explicit and name in set(
                     a.lower() for a in vtes.VTES.clans + vtes.VTES.disciplines
                 ):
-                    logger.warning(f"[{line_num:<6}] improper discipline [{line}]")
+                    logger.warning(f"improper discipline [{line}]")
                     continue
                 card = None
                 try:
                     card = vtes.VTES[name]
                     if tail:
-                        logger.warning(
-                            f"[{line_num:<6}] spurious tail [{tail}] - [{line}]"
-                        )
+                        logger.warning(f"spurious tail [{tail}] - [{line}]")
                 except KeyError:
                     match = re.match(self.tail_re, name)
                     if match and not tail:
@@ -319,9 +316,7 @@ class _TWDA(collections.OrderedDict):
                             comment += tail.rstrip(" )]-/\\")
                         try:
                             card = vtes.VTES[name]
-                            logger.info(
-                                f"[{line_num:<6}] fuzzy [{card['Name']}] - [{line}]"
-                            )
+                            logger.info(f"fuzzy [{card['Name']}] - [{line}]")
                         except KeyError:
                             pass
                 finally:
@@ -330,7 +325,6 @@ class _TWDA(collections.OrderedDict):
                         current.update({name: count})
                         if comment:
                             current.comment_begin(
-                                line_num,
                                 comment,
                                 name,
                                 marker=True,
@@ -339,34 +333,30 @@ class _TWDA(collections.OrderedDict):
                         else:
                             # if no blank line, comments on following lines are
                             # attached to his card
-                            current.comment_begin(line_num, "", name)
+                            current.comment_begin("", name)
                     else:
-                        current.maybe_comment_line(line_num, line)
+                        current.maybe_comment_line(line)
             # should not happen: by default the whole line is captured by _get_card()
             else:
-                current.maybe_comment_line(line_num, line)
+                current.maybe_comment_line(line)
 
         current.comment_end()
         # check deck composition rules
         library_count = current.cards_count(vtes.VTES.is_library)
+        crypt_count = current.cards_count(vtes.VTES.is_crypt)
         if library_count < 60:
             logger.warning(
-                "[{:<6}] Deck #{} is missing library cards [{}]".format(
-                    line_num, twda_id, current
-                )
+                f"Deck #{twda_id} has too few cards ({library_count}) [{current}]"
             )
         if library_count > 90:
             logger.warning(
-                "[{:<6}] Deck #{} has too many cards [{}]".format(
-                    line_num, twda_id, current
-                )
+                f"Deck #{twda_id} has too many cards ({library_count}) [{current}]"
             )
-        if current.cards_count(vtes.VTES.is_crypt) < 12:
+        if crypt_count < 12:
             logger.warning(
-                "[{:<6}] Deck #{} is missing crypt cards [{}]".format(
-                    line_num, twda_id, current
-                )
+                f"Deck #{twda_id} is missing crypt cards ({crypt_count}) [{current}]"
             )
+        logger.extra["line"] = None
         return current
 
     def no_spoil(self, card):

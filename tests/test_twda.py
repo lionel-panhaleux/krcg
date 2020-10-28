@@ -726,6 +726,7 @@ def test_2k5sharednun(caplog):
     Note "2 Animalism" was changed to "Animalism x2" in decklist
     This serves as a test for post-name counts decklists like 2k9linkopingmay
     """
+    caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k5sharednun.html")) as f:
         TWDA.load_html(f, save=False)
@@ -788,9 +789,9 @@ def test_2k5sharednun(caplog):
         "No, it's a crow, No it's a swarm of them all!!!\"\n",
     }
     assert caplog.record_tuples == [
-        ("root", logging.WARNING, "[40    ] improper discipline [Obfuscate 17]"),
-        ("root", logging.WARNING, "[47    ] improper discipline [Animalism: 37]"),
-        ("root", logging.WARNING, "[57    ] failed to parse [Non-skilled: 22]"),
+        ("krcg", logging.WARNING, "[    40] improper discipline [Obfuscate 17]"),
+        ("krcg", logging.WARNING, "[    47] improper discipline [Animalism: 37]"),
+        ("krcg", logging.WARNING, "[    58] failed to parse [Non-skilled: 22]"),
     ]
 
 
@@ -888,6 +889,7 @@ def test_2020pihc(caplog):
     """Discipline name as header must not be mistaken for the Master card
     Using long vampire name with comma and (ADV)
     """
+    caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2020pihc.html")) as f:
         TWDA.load_html(f, save=False)
@@ -1008,9 +1010,9 @@ for the day.
     }
     assert caplog.record_tuples == [
         (
-            "root",
+            "krcg",
             logging.WARNING,
-            "[134   ] Deck #2020pihc is missing library cards [Sauce or GTFO]",
+            "[   134] Deck #2020pihc has too few cards (59) [Sauce or GTFO]",
         ),
     ]
 
@@ -1019,6 +1021,7 @@ def test_2k8sequeenslandcq(caplog):
     """Discipline name as header must not be mistaken for the Master card
     Using long vampire name with comma and (ADV)
     """
+    caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k8sequeenslandcq.html")) as f:
         TWDA.load_html(f, save=False)
@@ -1070,31 +1073,31 @@ track with the card combo. freak drive to then call PS
     }
     assert caplog.record_tuples == [
         (
-            "root",
+            "krcg",
             logging.WARNING,
-            "[24    ] spurious tail [, berlin x4, cairo x2] - "
+            "[    24] spurious tail [, berlin x4, cairo x2] - "
             "[Praxis Seizure: Geneva x4, Berlin x4, Cairo x2]",
         ),
         (
-            "root",
+            "krcg",
             logging.WARNING,
-            "[25    ] spurious tail [would add one more] - "
+            "[    25] spurious tail [would add one more] - "
             "[Forgotten Labyrinth x5 (would add one more)]",
         ),
         (
-            "root",
+            "krcg",
             logging.WARNING,
-            "[26    ] spurious tail [would exchange for faceless night x4] - "
+            "[    26] spurious tail [would exchange for faceless night x4] - "
             "[Elder Impersonation x3 (would exchange for Faceless Night x4]",
         ),
         (
-            "root",
+            "krcg",
             logging.WARNING,
-            "[27    ] spurious tail [would delete] - [Seduction x2 (would delete)]",
+            "[    27] spurious tail [would delete] - [Seduction x2 (would delete)]",
         ),
         (
-            "root",
+            "krcg",
             logging.WARNING,
-            "[44    ] failed to parse [repeat until you have wiped everyone out]",
+            "[    44] failed to parse [repeat until you have wiped everyone out]",
         ),
     ]

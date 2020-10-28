@@ -1,16 +1,16 @@
 import asyncio
 import collections
 import datetime
-import logging
 import os
 import re
 import urllib.parse
 
 import discord
 
+from . import logging
 from . import vtes
 
-logger = logging.getLogger()
+logger = logging.logger
 client = discord.Client()
 
 #: response emoji when multiple cards match
@@ -288,7 +288,6 @@ def handle_message(message, completion=True):
 
 
 def main():
-    logger.addHandler(logging.StreamHandler())
     logger.setLevel(logging.INFO)
     # use latest card texts
     # only fuzzy match on long names as we already use completion — both are tricky, eg:
@@ -299,3 +298,4 @@ def main():
     vtes.VTES.configure(fuzzy_threshold=12, safe_variants=False)
     client.COMPLETION_WAITING = {}
     client.run(os.getenv("DISCORD_TOKEN"))
+    logger.setLevel(logging.NOTSET)  # reset log level so as to not mess up tests

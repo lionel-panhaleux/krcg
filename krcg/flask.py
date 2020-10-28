@@ -1,5 +1,4 @@
 import json
-import logging
 import os
 import urllib.parse
 
@@ -10,6 +9,7 @@ import requests
 
 from . import analyzer
 from . import config
+from . import logging
 from . import twda
 from . import vtes
 
@@ -28,13 +28,11 @@ class KRCG(flask.Flask):
         return response
 
 
-logger = logging.getLogger()
+logger = logging.logger
 base = flask.Blueprint("base", "krcg")
 
 
 def create_app(test=False):
-    logger.addHandler(logging.StreamHandler())
-    logger.setLevel(logging.WARNING)
     if not test:
         vtes.VTES.load_from_vekn(save=False)
         vtes.VTES.configure()

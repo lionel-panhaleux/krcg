@@ -1,7 +1,6 @@
 """Command-line interface.
 """
 import argparse
-import logging
 import math
 import sys
 
@@ -10,10 +9,11 @@ import requests
 
 from . import analyzer
 from . import config
+from . import logging
 from . import twda
 from . import vtes
 
-logger = logging.getLogger()
+logger = logging.logger
 
 # VTES configure must be done before parsing args
 if vtes.VTES:
@@ -23,7 +23,7 @@ if vtes.VTES:
 def init(args):
     if args.cards:
         if args.file:
-        vtes.VTES.load_csv(args.file)
+            vtes.VTES.load_csv(args.file)
         else:
             vtes.VTES.load_from_vekn()
     elif args.twda:
@@ -34,8 +34,8 @@ def init(args):
             exit(1)
         vtes.VTES.configure()
         if args.file:
-        twda.TWDA.load_html(args.file)
-    else:
+            twda.TWDA.load_html(args.file)
+        else:
             twda.TWDA.load_from_vekn()
     else:
         try:
@@ -44,10 +44,8 @@ def init(args):
             twda.TWDA.load_from_vekn()
         except requests.exceptions.ConnectionError as e:
             logger.critical(
-                "failed to connect to {}"
-                " - check your Internet connection and firewall settings".format(
-                    e.request.url
-                )
+                f"failed to connect to {e.request.url}"
+                " - check your Internet connection and firewall settings"
             )
             exit(1)
 
@@ -81,9 +79,8 @@ def affinity(args):
         print("Too few example in TWDA.")
         if len(A.examples) > 0:
             print(
-                "To see them:\n\tkrcg deck {}".format(
-                    " ".join('"' + name + '"' for name in args.cards)
-                )
+                "To see them:\n\tkrcg deck "
+                + " ".join('"' + name + '"' for name in args.cards)
             )
         return
     for name, score in A.candidates(*args.cards, no_filter=True)[: args.number or None]:
@@ -180,7 +177,7 @@ def deck_(args):
             )
             print(vtes.VTES.deck_to_txt(example))
         else:
-            print("[{}] {}".format(twda_id, example))
+            print(f"[{twda_id}] {example}")
 
 
 def card(args):
@@ -194,7 +191,7 @@ def card(args):
         try:
             card = vtes.VTES[name]
         except KeyError:
-            logger.critical("Card not found: {}".format(name))
+            logger.critical(f"Card not found: {name}")
             exit(1)
         print(vtes.VTES.get_name(card))
         if args.short:
@@ -529,7 +526,6 @@ parser.set_defaults(func=search)
 
 def main():
     args = root_parser.parse_args(sys.argv[1:])
-    logger.addHandler(logging.StreamHandler(sys.stderr))
     logger.setLevel(
         {0: logging.ERROR, 1: logging.WARNING, 2: logging.INFO, 3: logging.DEBUG}[
             args.verbosity
@@ -546,3 +542,4 @@ def main():
             logger.critical('TWDA database is not initialized. Use "krcg init"')
             exit(1)
     args.func(args)
+    logger.setLevel(logging.NOTSET)  # reset log level so as to not mess up tests
