@@ -592,7 +592,7 @@
   - "The acting minion is still considered to have taken a political action, so cannot perform another in the same turn. [RTR 19970630]"
   - "If played on a referendum called by a {Charming Lobby}, the political action card (if any) is retrieved, not the {Charming Lobby} card. [LSJ 20030426]"
   - "Will only retrieve a political action card played from the hand (eg. it does not retrieve an in-play {Rumors of Gehenna} in the referendum to burn it or the card chosen by {Bujo}). [LSJ 20041130] [LSJ 20100527]"
-  - "It retrieves the political action card before it is burnt (eg. if it was played from {The Erciyes Fragments}, it is still returned into its owner's hand). [LSJ 20050324]"
+  - "It retrieves the political action card before it is burned (eg. if it was played from {The Erciyes Fragments}, it is still returned into its owner's hand). [LSJ 20050324]"
 100526|Depravity:
   - "The +1 strength is always in effect, not just during diablerie attempts. [RTR 19961113]"
 100527|Derange:
@@ -2124,7 +2124,6 @@
   - "[VIS] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 101877|Storage Annex:
   - "If it is stolen, the card on it goes with it and the new controller will be able to take it in hand. The card is returned to the owner's ash heap or library if it would be moved to an ash heap or library. [LSJ 20001031] [PIB 20121220]"
-  - "If it leaves play, the card on it is burned. [LSJ 20021128]"
   - "Cannot be played if it is the only card in your hand. [LSJ 20100527]"
   - "The card on it goes to the controller's hand, regardless of where the new card comes from (eg. {Agaitas, The Scholar of Antiquities} face-up cards). [PIB 20150224]"
 101878|Storm Sewers:
