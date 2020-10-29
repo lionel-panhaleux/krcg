@@ -414,9 +414,17 @@
   - "No other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100334|Charming Lobby:
-  - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
+  - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
   - "A bloodhunt vote does not qualify. [TOM 19950921]"
-  - "The next referendum can be called by another Methuselah's vampire: if this is the case, then that referendum passes automatically. [PIB 20110719]"
+  - "The next referendum (passing automatically) can be called by another Methuselah's vampire. [PIB 20110719]"
+  - 'Cannot be used on effects that allow to play a political action card "as if from hand" (eg. {Echo of Harmonies}) [ANK 20201029]'
+  - "If used on a political action card in hand, that card must be announced and in hand when Charming Lobby is played, before it is replaced, but need not to be shown: it can be kept apart face down. [ANK 20180925-2] [LSJ 20101210] [LSJ 20100130]"
+  - "If used on a political action card in hand, that card cannot be canceled as it is played (eg. by {Direct Intervention}). [LSJ 20090113-3]"
+  - "If {Delaying Tactics} is used, the chosen political action card (if any) goes back into its owner's hand. [LSJ 20030426]"
+  - "The requirements and cost of the political action card (if any) apply. If the cost is X, X is chosen at resolution. [LSJ 20100819]"
+  - "The cost of the political action card (if any) is not a cost of the action (eg. {Ravnos Carnival} cannot be used to pay it). [LSJ 20091021]"
+  - 'If played by an ally "as a vampire", they can call a referendum listed on a political action card in hand. [RTR 20020501]'
+  - 'Is a political action but not a "political action card" [POLITICAL ACTION] (eg. {Luna Giovanni}''s ability cannot target it, it cannot be discarded for a vote). [LSJ 20070927] [LSJ 20050407]'
 100335|Charnas the Imp:
   - "Does nothing to an empty vampire which unlocks in torpor. [RTR 19941109]"
   - "Cannot be damaged by host, but does not stop host from using effects which would normally damage it. [RTR 19941109]"
@@ -464,7 +472,7 @@
 100389|Compress:
   - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100392|Concealed Weapon:
-  - "The weapon is announced when the card is played, it must be in hand but need not to be shown. You can put the card apart face down when announcing it. You cannot switch to another weapon you draw to replace the Concealed Weapon. [LSJ 19991207] [ANK 20180925-2] [LSJ 20100130]"
+  - "The weapon must be announced and in hand when the card is played, before it is replaced, but need not to be shown: it can be kept apart face down. [LSJ 19991207] [ANK 20180925-2] [LSJ 20100130]"
   - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike against a generic opponent. [RTR 19980623]'
   - "Strength or other bonus from the minion or other cards in play are not counted for the damage limit. [LSJ 20020821] [LSJ 20020904]"
   - 'Cost reductions that are not limited to cards "played" apply before checking for card cost (eg. {Black Cat} can use Concealed Weapon to equip with a {Combat Shotgun}). [LSJ 20080125] [ANK 20181216]'
@@ -522,7 +530,7 @@
   - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100478|Cryptic Rider:
-  - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
+  - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
   - "Can be used after a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
 100483|Curse of Nitocris:
   - "Only moves when a Methuselah gets the Edge who does not already have the Edge. [LSJ 19971006]"
@@ -584,6 +592,7 @@
   - "The acting minion is still considered to have taken a political action, so cannot perform another in the same turn. [RTR 19970630]"
   - "If played on a referendum called by a {Charming Lobby}, the political action card (if any) is retrieved, not the {Charming Lobby} card. [LSJ 20030426]"
   - "Will only retrieve a political action card played from the hand (eg. it does not retrieve an in-play {Rumors of Gehenna} in the referendum to burn it or the card chosen by {Bujo}). [LSJ 20041130] [LSJ 20100527]"
+  - "It retrieves the political action card before it is burnt (eg. if it was played from {The Erciyes Fragments}, it is still returned into its owner's hand). [LSJ 20050324]"
 100526|Depravity:
   - "The +1 strength is always in effect, not just during diablerie attempts. [RTR 19961113]"
 100527|Derange:
@@ -604,7 +613,7 @@
 "100538|Devil-Channel: Feet":
   - "The press can only be used during the current round. [TOM 19960521]"
 100541|Día de los Muertos:
-  - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
+  - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
 100543|The Diamond Thunderbolt:
   - 'If used to cancel a card that has a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
   - "If used to cancel the change of control of a {Corruption} action, only the control change is prevented: the corruption counters are burned. [LSJ 20070222-2]"
@@ -700,10 +709,10 @@
   - "[mel] [MEL] Can only be played by the controller of the acting minion. [LSJ 19990425]"
   - "[mel] [MEL] Can be played by a locked vampire. [LSJ 19980210]"
   - "[mel] [MEL] Multiple copies can be played by different minions on the same action. [ANK 20200515]"
-  - "[MEL] Cannot be used if no Political Action card was played or if it is not in the ash heap (eg. cannot retrieve a {National Guard Support} when its text is used to burn it). [LSJ 20020911]"
-  - "[MEL] The effect is lost if the Political Action card is not in the ash heap when it resolves (eg. if {Delaying Tactics} is used}). [LSJ 20050804]"
-  - "[MEL] When the retained Political Action is played, requirements must be met, it provides 1 vote and can be canceled as it is played. [LSJ 20100426] [LSJ 20091128] [LSJ 20011205]"
-  - "[MEL] The retained Political Action can not be played with {Charming Lobby}. [ANK 20201029]"
+  - "[MEL] Cannot be used if no political action card was played or if it is not in the ash heap (eg. cannot retrieve a {National Guard Support} when its text is used to burn it). [LSJ 20020911]"
+  - "[MEL] The effect is lost if the political action card is not in the ash heap when it resolves (eg. if {Delaying Tactics} is used}). [LSJ 20050804]"
+  - "[MEL] When the retained political action is played, requirements must be met, it provides 1 vote and can be canceled as it is played. [LSJ 20100426] [LSJ 20091128] [LSJ 20011205]"
+  - "[MEL] The retained political action can not be played with {Charming Lobby}. [ANK 20201029]"
 100610|Ecstasy:
   - '[SER] The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
 100615|Edged Illusion:
@@ -1095,7 +1104,7 @@
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 100959|Immortal Grapple:
   - "If a minion is committed to using a strike other than a hand strike (e.g. used a maneuver from a gun), then he gets no strike. [TOM 19951217]"
-  - "Is still considered played if it is cancelled as it is played (eg. {Charismatic Aura}). A second one cannot be played in the same round as its card text forbids it. [ANK 20200525-2]"
+  - "Is still considered played if it is canceled as it is played (eg. {Charismatic Aura}). A second one cannot be played in the same round as its card text forbids it. [ANK 20200525-2]"
   - "The press can only be used during the current round. [TOM 19960521]"
 100964|Improvised Flamethrower:
   - "If any ranged damage is inflicted at long range, even if it is prevented or ignored, the Flamethrower will burn and inflict damage. [LSJ 20040802]"
@@ -1332,7 +1341,7 @@
 "101151|Malkavian Derangement: Alternate Personality":
   - "Modifier and reactions that can be used at the end/after an action can still be used after the action fails. [LSJ 20041022]"
 101156|Malkavian Rider Clause:
-  - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and any effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
+  - 'During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]'
 101158|Malkavian Time Auction:
   - "Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
 101159|Malleable Visage:
@@ -2150,7 +2159,7 @@
   - "If no copy of a named card is in the ash heap upon resolution (eg. {The Erciyes Fragments} was used to take it), the effect still resolves for the other copies and the acting Methusalah discards 3 cards. [LSJ 20090722]"
 101896|Sudden Reversal:
   - "Can only cancel master cards that are played from the hand in the normal fashion. [RTR 20001020]"
-  - "If used to cancel a Trifle, the target does not get an extra Master Phase Action from the cancelled Trifle. [LSJ 20090126] [RBK 20181001-162]"
+  - "If used to cancel a Trifle, the target does not get an extra Master Phase Action from the canceled Trifle. [LSJ 20090126] [RBK 20181001-162]"
 101897|Summon History:
   - "Requirements do not apply. If the card is an ally, it can act this turn. [LSJ 20100204]"
   - "You must decide the value of X (blood cost) when playing the card. [LSJ 20100314]"
@@ -2463,7 +2472,7 @@
   - "Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action would end with no effect if an effect tries to continue it (eg. {Ambulance}). [LSJ 20090325-2]"
   - "The unlock effect is applied after the action is resolved and the referendum (if any) concluded. If the acting vampire is not a Nosferatu anymore at that point, he does not unlock. [LSJ 20090216] [ANK 20180922]"
 102151|Wash:
-  - "If used to cancel a Trifle, the target does not get an extra Master Phase Action from the cancelled Trifle. [ANK 20170124] [LSJ 20090126] [RBK 20181001-162]"
+  - "If used to cancel a Trifle, the target does not get an extra Master Phase Action from the canceled Trifle. [ANK 20170124] [LSJ 20090126] [RBK 20181001-162]"
   - "The additional Master Phase Action it provides does not count as a Trifle bonus, the target can get yet an additional Master Phase Action if they play a Trifel afterwards. [ANK 20170124] [LSJ 20090126]"
   - "If used to cancel an out-of-turn master, that Methuselah still cannot play another out-of-turn master against the same master phase, even though the first was canceled and won't count against that master phase. [LSJ 20070309-2]"
   - 'If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
@@ -2817,6 +2826,7 @@
   - "Strikes the opponent commits to during the determine range phase (by using an optional maneuver) cost more, but the card itself does not (eg. {Jann Berger} pays 1 blood for a {Thrown Gate} played for the maneuver, but zero if he plays it when choosing his strike). [LSJ 20090529]"
 200885|Luna Giovanni:
   - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
+  - "Her ability does not apply to the political action card played for a current action (it is in limbo). [LSJ 20070927]"
 200890|Lutz von Hohenzollern:
   - "His ability is applied after the referendum effects are applied, including any oust and pool gained from it. [LSJ 20090115-2]"
   - "His ability is still applied if his controller is ousted by the referendum effects. [LSJ 20090115-2]"
@@ -2845,7 +2855,7 @@
   - "Can use her ability multiple times each action. [LSJ 20020926] [ANK 20180307-2]"
 200942|Marthe Dizier:
   - "Her ability can only move cards from the ash heap that were played in the normal manner. If the card was put in play in some other way, it cannot be retrieved by her special. [LSJ 20041119]"
-  - "A card cancelled as it is played is still considered played, she can retrieve it. [LSJ 19980212] [ANK 20190701]"
+  - "A card canceled as it is played is still considered played, she can retrieve it. [LSJ 19980212] [ANK 20190701]"
 200945|Marty Lechtansi:
   - "His ability to get a press can only be used during the press step. [PIB 20150121]"
 200955|Mata Hari:
@@ -3043,7 +3053,7 @@
   - 'His "as he enters play" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902]'
 201446|Vidal Jarbeaux:
   - "When meeting a requirement to play a card, he is treated as such for all the effects of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [ANK 20200703-3] [ANK 20190228] [LSJ 20101013]"
-  - "If a card he plays is cancelled as it is played, he is still considered having used the requirement, if any. [ANK 20200710]"
+  - "If a card he plays is canceled as it is played, he is still considered having used the requirement, if any. [ANK 20200710]"
   - "He can meet any title as well as non-requirements (eg. non-Red List), but cannot meet requirements that are not vampire traits (eg. Mortal, unlocked, older, ..) [LSJ 20081120-1]"
   - "When meeting a title requirement, he is considered as a vampire of the underlying sect. [LSJ 20050128]"
   - "He can meet the requirements for his controller to play any card, including Master cards. [LSJ 20091015] [PIB 20130128]"
