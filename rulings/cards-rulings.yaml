@@ -420,7 +420,7 @@
   - 'Cannot be used on effects that allow to play a political action card "as if from hand" (eg. {Echo of Harmonies}) [ANK 20201029]'
   - "If used on a political action card in hand, that card must be announced and in hand when Charming Lobby is played, before it is replaced, but need not to be shown: it can be kept apart face down. [ANK 20180925-2] [LSJ 20101210] [LSJ 20100130]"
   - "If used on a political action card in hand, that card cannot be canceled as it is played (eg. by {Direct Intervention}). [LSJ 20090113-3]"
-  - "If {Delaying Tactics} is used, the chosen political action card (if any) goes back into its owner's hand. [LSJ 20030426]"
+  - "If {Delaying Tactics} is used, the chosen political action card (if any) goes back into its owner's hand, and other minions are forbidden to perform Charming Lobby. [ANK 20201029-2] [LSJ 20030426]"
   - "The requirements and cost of the political action card (if any) apply. If the cost is X, X is chosen at resolution. [LSJ 20100819]"
   - "The cost of the political action card (if any) is not a cost of the action (eg. {Ravnos Carnival} cannot be used to pay it). [LSJ 20091021]"
   - 'If played by an ally "as a vampire", they can call a referendum listed on a political action card in hand. [RTR 20020501]'
@@ -590,7 +590,7 @@
 100519|Delaying Tactics:
   - "May be played before, during, or after votes and ballots have been cast. [LSJ 19980130]"
   - "The acting minion is still considered to have taken a political action, so cannot perform another in the same turn. [RTR 19970630]"
-  - "If played on a referendum called by a {Charming Lobby}, the political action card (if any) is retrieved, not the {Charming Lobby} card. [LSJ 20030426]"
+  - "If played on a referendum called by a {Charming Lobby}, the political action card (if any) is retrieved and other minions are forbidden to perform a {Charming Lobby}. [ANK 20201029-2] [LSJ 20030426]"
   - "Will only retrieve a political action card played from the hand (eg. it does not retrieve an in-play {Rumors of Gehenna} in the referendum to burn it or the card chosen by {Bujo}). [LSJ 20041130] [LSJ 20100527]"
   - "It retrieves the political action card before it is burned (eg. if it was played from {The Erciyes Fragments}, it is still returned into its owner's hand). [LSJ 20050324]"
 100526|Depravity:
