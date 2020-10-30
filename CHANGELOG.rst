@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.4 (unreleased)
+1.4 (2020-10-30)
 ----------------
 
 - Improve TWDA parsing for postfix card counts notation
