@@ -8,6 +8,7 @@ Changelog
 - Improve TWDA HTML rendering: include crypt cards comments
 - CLI: Allow for precise dates to be used as --from and --to parameters, not just year
 - Improve logging
+- Additional rulings
 
 1.3 (2020-10-13)
 ----------------
