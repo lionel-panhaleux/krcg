@@ -284,6 +284,7 @@
   - "Using the provided action does not force the minion to strike with it if he is blocked. [LSJ 19971215]"
   - "Damage done to the bearer is environmental. [LSJ 19970801]"
   - "The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221] [LSJ 20020926]"
+  - 'When used as a strike, it does not burn if combat ends before it resolves (eg. if the opponent uses a "strike: combat ends"). [LSJ 19981006] [LSJ 20001127-2] [LSJ 20010806-1]'
 100235|Bond with the Mountain:
   - "[tha] The press can only be used during the current round. [TOM 19960521]"
   - "[vis] [VIS] The unlock effect takes place before the end of combat. [RTR 19970630]"
@@ -675,6 +676,8 @@
   - "If another Methusalah is the target, he must declare whether he attempts or declines to block before Draba can be used ([chi]) or played ([CHI]). [PIB 20150820] [ANK 20200607]"
 100579|Draeven Softfoot:
   - "He can lock to use his ability the turn he is recruited. [ANK 20180517]"
+100580|Dragon's Breath Rounds:
+  - 'Does not burn the gun if combat ends before the strike resolves (eg. {Rötschreck} or if the opponent uses a "strike: combat ends"). [LSJ 19981006] [LSJ 20001127-2]'
 100582|Drain Essence:
   - "Can target a minion with less blood or life than the amount stolen. [RTR 20010711]"
 100584|Draught of the Soul:
@@ -728,6 +731,8 @@
   - "If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]"
 100625|Elemental Stoicism:
   - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+100627|Elixir of Distillation:
+  - "Does not burn if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]"
 100628|Eluding the Arms of Morpheus:
   - "Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 100634|Emerald Legionnaire:
@@ -760,8 +765,8 @@
   - "Erosion resets a minion's base strength. Any modifiers, including inherent modifiers, are applied to the new base. If another effect like {Torn Signpost} later resets the base damage again, then the new amount wins out. [LSJ 19971211-2]"
 100661|Escaped Mental Patient:
   - "Must choose when declaring strike between a normal hand strike or the aggravated hand strike his ability gives him. [ANK 20190717-2]"
-  - 'Do not burn at the end of combat if another effect let him make a hand strike at +1 damage. "If he does so" only applies if his own effect is used directly. [RTR 20020501]'
-  - "Do not burn at the end of combat if his strike do not resolve, for example because his opponent uses a strike: combat ends. [LSJ 20010627]"
+  - 'Does not burn at the end of combat if another effect let him make a hand strike at +1 damage. "If he does so" only applies if his own effect is used directly. [LSJ 20001127-2] [RTR 20020501]'
+  - "Does not burn at the end of combat if his strike does not resolve (eg. if his opponent uses a strike: combat ends). [LSJ 20001127-2] [LSJ 20010627]"
 100665|The Eternal Mask:
   - "You cannot use the effect to burn the card and the vampire if the vampire is no longer in play to be burned. [LSJ 20070928-1]"
   - "You still cannot burn it if the vampire that was brought back was burned and later returned to play. [LSJ 20040726] [ANK 20191031]"
@@ -847,8 +852,9 @@
 100743|Flaming Candle:
   - "Is not burned if another effect make the vampire burn 1 blood upon action declaration. [RTR 20020501]"
 100745|Flash Grenade:
-  - 'If the opponent dodges, the "is locked and does not unlock as normal" effect do not apply. [RTR 20041202] [LSJ 20060808]'
-  - 'If the combat continues or a new combat begins, the "is locked and does not unlock as normal" effect do not apply, but the grenade still burns. [RTR 20020501] [LSJ 20040601], '
+  - 'If the opponent dodges, the "is locked and does not unlock as normal" effect do not apply, but it still burns. [RTR 20041202] [LSJ 20060808]'
+  - 'If the combat continues or a new combat begins, the "is locked and does not unlock as normal" effect do not apply, but it still burns. [RTR 20020501] [LSJ 20040601], '
+  - 'Still burns when used if the opponent uses a "strike: combat ends" too. It does not if combat ends before strike resolution (eg. {Rötschreck}). [LSJ 20001127-2] [LSJ 20010806-1]'
 100747|Fleetness:
   - "[CEL] If the target unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]"
 100749|Flesh of Marble:
@@ -996,6 +1002,7 @@
   - "Is not mortal, is a monster. [ANK 20200203-2]"
 100857|Grenade:
   - "Damage done to the bearer is environmental. [LSJ 19970801]"
+  - "Does not burn nor inflict damage if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1][LSJ 19981006]"
 100858|Grey Thorne:
   - "Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]"
 100861|Groundfighting:
@@ -1181,6 +1188,7 @@
   - "Using the Jar action does not force the minion to strike with it if he is blocked. [LSJ 19971215]"
   - "The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]"
   - "{Ghoul Retainer} is not the bearer so he can use the Jar even if it has no counter on it. [ANK 20171003]"
+  - 'When used as a strike, it does not burn if combat ends before it resolves (eg. if the opponent uses a "strike: combat ends"). [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]'
 101021|Jar the Soul:
   - "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]"
   - "If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]"
@@ -1317,7 +1325,8 @@
 101137|Machine Blitz:
   - 'A weapon''s "current damage" is the amount of damage that it would inflict if used as a strike by the bearer against a generic opponent at the appropriate range. [RTR 19980623]'
   - 'The "current damage" amount is set when Machine Blitz is announced. [LSJ 19970224]'
-  - "Does not count as using the weapon: no restriction nor side-effect apply. [LSJ 20010806-1]"
+  - "Does not count as using the weapon: no restriction nor side-effect apply (eg. {Bomb} is not burned, {Sawed-Off Shotgun} can be used multiple times). [LSJ 20010806-1]"
+  - "Does not inflict aggravated damage if the target weapon does. [LSJ 20010806-1]"
 101139|Madness Network:
   - "Malkavians do not have to be ready to take an action via the Network. (i.e. a Torpored Malk could rescue himself from Torpor) [RTR 19950509]"
   - "A non-Malkavian cannot use {Mask of a Thousand Faces} to assume the action of a Malkavian on someone else's turn. [LSJ 19981007]"
@@ -2049,6 +2058,9 @@
 "101811|Smiling Jack, The Anarch":
   - "Each other player must burn a pool or a vampire blood for each counter on Jack. Failing to burn a blood from an empty vampire will not lessen the obligation. [LSJ 19971212]"
   - "Other Methusalah can pay with any combination of pool and different vampires to meet the total number of counters. [ANK 20181006]"
+101814|Smoke Grenade:
+  - 'Still burns when used if the opponent uses a "strike: combat ends" too. It does not burn if combat ends before strike resolution (eg. {Rötschreck}). [LSJ 20001127-2] [LSJ 20010806-1]'
+  - "Still burns if the combat continues or a new combat begins. [RTR 20020501] [LSJ 20040601]"
 101816|Sniper Rifle:
   - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
   - "The bearer is not commited to use it if he or she uses another effect to set the range. [RTR 20020501]"
@@ -2385,6 +2397,8 @@
   - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 102072|Unholy Penance:
   - "[PRE] The additional effect takes place after the end of combat. [RTR 19970630]"
+102074|Unity:
+  - "You can cut however you want (eg. count cards, cut only one or two). [LSJ 20060413]"
 102076|Unleash Hell's Fury:
   - "If the block is successful, the aggravated damage is inflicted and the card burned even if the action is ended before block resolution. [LSJ 20100301]"
   - "If {The Kiss of Ra} or {Elder Impersonation} are used, the block does not happen. It is not locked if {Faceless Night} was played. [LSJ 20100210]"
@@ -2487,6 +2501,8 @@
   - "[DEM] Is directed at all Methusalah controlling an ally. [LSJ 20080809-1] [KOT 20081119]"
 102161|Wave of Lethargy:
   - "Card text was changed in 2007, previous rulings do not apply. [ANK 20200408-1]"
+102162|Waxen Poetica:
+  - 'Does not burn if combat ends before it resolves (eg. if the opponent uses a "strike: combat ends"). [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]'
 102164|Weather Control:
   - "Damage is environmental. [RTR 19970630]"
   - "The damage will occur even if combat is subsequently ended before range (eg. by {Mariel, Lady Thunder}). [LSJ 19971110]"
@@ -2510,6 +2526,7 @@
   - "The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 102179|White Phosphorus Grenade:
   - "Damage done to the bearer is environmental. [LSJ 19970801]"
+  - 'Does not burn if combat ends before it resolves (eg. if the opponent uses a "strike: combat ends"). [LSJ 20001127-2] [LSJ 20010806-1][LSJ 19981006]'
 102180|Wider View:
   - "Cards removed from the game are public. [LSJ 20080314]"
 102183|Will-o'-the-Wisp:
