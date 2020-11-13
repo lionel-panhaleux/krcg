@@ -682,8 +682,8 @@
   - "Can target a minion with less blood or life than the amount stolen. [RTR 20010711]"
 100584|Draught of the Soul:
   - "[COMBAT] If a minion is burned in combat, his opponent his always considered to have burned him. [LSJ 20090922]"
-  - "[MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
-  - "[MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
+  - "[ACTION MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
+  - "[ACTION MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
 100585|Drawing Out the Beast:
   - "[ANI] The additional damage done during the press step is environmental. [RTR 19970630]"
 100588|Dreams of the Sphinx:
@@ -2090,8 +2090,8 @@
   - "Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]"
 101836|Soul Stealing:
   - "[COMBAT] If a minion is burned in combat, his opponent his always considered to have burned him. [LSJ 20090922]"
-  - "[MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
-  - "[MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
+  - "[ACTION MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
+  - "[ACTION MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
 101838|Sowing Dissension:
   - "Is a Ⓓ action against all other Methusalahs [PIB 20150821] [RTR 20080808]"
 101840|Speak with Spirits:
@@ -2211,8 +2211,8 @@
   - "A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]"
 "101928|Taking the Skin: Minion":
   - "[abo] [COMBAT] If a minion is burned in combat, his opponent his always considered to have burned him. [LSJ 20090922]"
-  - "[abo] [MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
-  - "[abo] [MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
+  - "[abo] [ACTION MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
+  - "[abo] [ACTION MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
 "101930|Talaq, The Immortal":
   - "While he can play cards that require [qui] or [tha], he does not actually have those Disciplines. He does not benefit from {Tremere Convocation}, for example. [LSJ 19980303]"
 101931|Talbot's Chainsaw:
@@ -2449,7 +2449,7 @@
   - "Can be used when the vampire is in torpor. [PIB 20150522]"
 102120|Vigilance:
   - "[REACTION] [1 CONVICTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
-  - '[MODIFIER] Cards and effects that can be played "after resolution" (and only them) can be played after its use. [ANK 20190425]'
+  - '[ACTION MODIFIER] Cards and effects that can be played "after resolution" (and only them) can be played after its use. [ANK 20190425]'
 102121|Villein:
   - "Pay the cost (if any) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]"
   - "If the target has less blood at resolution than the amount annouced, you take what you can. [LSJ 20100216] [ANK 20180512-2]"
