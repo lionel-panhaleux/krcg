@@ -499,19 +499,9 @@ The standard TWDA file is a rewrite of the
 
 ### Card images deployment
 
-Provided you have an installed version of LackeyCCG,
+Provided the LackeyCCG plugin is up-to-date,
 the card images can be deployed on a distant server via a make command using `rsync`:
 
 ```bash
 make sync-images
 ```
-
-The environment variables `LACKEY_FOLDER` and `REMOTE_FOLDER` can be used to set the
-the LackeyCCG folder path and the remote folder path respectively:
-
-```bash
-LACKEY_FOLDER=/Applications/LackeyCCG REMOTE_FOLDER=myservery:/home/web/card_images make sync-images
-```
-
-You need to have downloaded all card images in you LackeyCCG VTES plugin in order
-to achieve a full sync, of course.
