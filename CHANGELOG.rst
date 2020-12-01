@@ -7,6 +7,7 @@ Changelog
 - Heavy parser improvements. Now all decks since 1994 are properly parsed and included.
 - Modified the web API to return decks from 1994 by default (instead of 2008)
 - Modified the CLI to work with decks from 1994 by default (instead of 2008)
+- New CLI Command to parse decklists and output a standard JSON format
 
 1.4 (2020-10-30)
 ----------------
