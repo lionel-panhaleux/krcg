@@ -3,11 +3,10 @@
 If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
+from typing import Generator, List, Mapping, TextIO, Tuple, Union
 import collections
 import copy
 import csv
-import functools
-import difflib
 import io
 import itertools
 import os
@@ -16,7 +15,7 @@ import pkg_resources
 import re
 import requests
 import tempfile
-import textwrap
+import typing
 import warnings
 import zipfile
 
@@ -25,75 +24,30 @@ import yaml
 
 from . import config
 from . import logging
+from . import utils
+
+
+StringGenerator = Generator[str, None, None]
 
 logger = logging.logger
 
 
-def _get_runling_links(links_dict, text):
-    """Yield ruling references and links from a dict of links and a ruling text
-
-    Args:
-        links_dict (dict): {reference: url} of rulings
-        text (str): A ruling with one or more ruling references like [ZZZ 20000101]
-    """
-    references = re.findall(r"\[[a-zA-Z]+\s[0-9-]+\]", text)
-    if not references:
-        warnings.warn(f"no reference in ruling: {text}")
-    for reference in references:
-        reference = reference[1:-1]
-        yield reference, links_dict[reference]
-
-
-class _Trie(collections.defaultdict):
-    """A Trie structure for text search"""
-
-    def __init__(self):
-        super().__init__(lambda: collections.defaultdict(int))
-
-    def add(self, text, reference):
-        """Add text to the Trie
+class _RulingsLinks(dict):
+    def get_links(self, text: str) -> Generator[Tuple[str, str], None, None]:
+        """Yield ruling references and links from a dict of links and a ruling text.
 
         Args:
-            text (str): The text to add.
-            reference (any): The reference to return on a match
+            text: A ruling with one or more ruling references like [ZZZ 20000101].
+
+        Yields:
+            (reference, url) of the rulings contained in the text.
         """
-        for e, part in enumerate(text.lower().split()):
-            for i in range(1, len(part) + 1):
-                self[part[:i]][reference] += (
-                    # double score for matching name start
-                    i
-                    * (2 if e == 0 else 1)
-                )
-
-    def search(self, text):
-        """Search text into the Trie
-
-        The match is case-insensitive but otherwise exact.
-        Matches on start of words score higher.
-
-        Args:
-            text (str): The text to search
-        Returns:
-            list: References ordered by score
-        """
-        ret = None
-        for part in text.split():
-            part_match = {}
-            for match, score in self.get(part.lower(), dict()).items():
-                part_match[match] = max(part_match.get(match, 0), score)
-            if ret:
-                ret = collections.Counter(
-                    {k: v + part_match[k] for k, v in ret.items() if k in part_match}
-                )
-            else:
-                ret = collections.Counter(part_match)
-        return [
-            x[0]
-            for x in sorted(
-                ret.items(),
-                key=lambda x: (-x[1], x[0]),
-            )
-        ]
+        references = re.findall(r"\[[a-zA-Z]+\s[0-9-]+\]", text)
+        if not references:
+            warnings.warn(f"no reference in ruling: {text}")
+        for reference in references:
+            reference = reference[1:-1]
+            yield reference, self[reference]
 
 
 class _VTES:
@@ -117,13 +71,13 @@ class _VTES:
                 id: {
                     "Rulings": [ruling],
                     "Rulings Links": {
-                        "Reference": "XXX YYYMMDD"
+                        "Reference": "NNN YYYMMDD"
                         "URL": "http://www.example.com"
                     }
                 }
             }
             cards (dict): dict of {card_name: card}
-            completion (_Trie): used for card name completion in web API and discord bot
+            completion (utils.Trie): used for card name completion
             search (dict): used for structured card search (cf. web API)
             fuzzy_threshold (int): do not try to fuzzy match text shorter than this
             safe_variants (bool): do not use card name variants shorter than the
@@ -131,34 +85,58 @@ class _VTES:
         """
         self.original_cards = {}
         self.rulings = {}
-        self.cards = {}
-        self.completion = _Trie()
+        self.cards = utils.FuzzyDict(aliases=config.REMAP)
+        self.completion = utils.Trie()
         self.search = {}
         self.fuzzy_threshold = 6
         self.safe_variants = True
 
-    def __getstate__(self):
+    def __getstate__(self) -> dict:
         """For pickle serialization."""
         return {"cards": self.original_cards, "rulings": self.rulings}
 
-    def __setstate__(self, state):
+    def __setstate__(self, state: typing.Mapping) -> None:
         """For pickle deserialization."""
         self.original_cards = state.get("cards")
         self.rulings = state.get("rulings")
 
-    def __reduce__(self):
+    def __reduce__(self) -> tuple:
         """For pickle serialization."""
         return (_VTES, (), self.__getstate__())
 
-    def __bool__(self):
+    def __bool__(self) -> bool:
         """Test for emptyness"""
         return bool(self.original_cards)
 
-    def _yaml_get_card(self, text):
+    def __getitem__(self, key):
+        return self.cards[key]
+
+    def __contains__(self, key):
+        return key in self.cards
+
+    def __setitem__(self, key, value):
+        self.cards[key] = value
+
+    def __delitem__(self, key):
+        del self.cards[key]
+
+    def items(self):
+        return self.cards.items()
+
+    def keys(self):
+        return self.cards.keys()
+
+    def values(self):
+        return self.cards.values()
+
+    def _yaml_get_card(self, text: str) -> dict:
         """Get a card from a YAML card reference (id|Name)
 
         This is used before self.configure() is called: self.cards is empty,
         self.original_cards is used.
+
+        Args:
+            text: a YAML card refreence of the form "id|Name"
         """
         card_id, card_name = text.split("|")
         card_id = int(card_id)
@@ -170,13 +148,11 @@ class _VTES:
             )
         return card
 
-    def load_from_vekn(self, save=True, safe_variants=True):
+    def load_from_vekn(self, save: bool = True) -> None:
         """Load the card database from vekn.net, with rulings
 
         Args:
-            save (bool): If True, card list is pickled to be retrieved faster later on.
-            safe_variants (bool): If True, use more card name variants
-                                  (unsafe for TWDA parsing)
+            save: If True, card list is pickled to be retrieved faster later on.
         """
         self.original_cards.clear()
         self.rulings.clear()
@@ -191,8 +167,10 @@ class _VTES:
             with z.open(config.VEKN_VTES_CRYPT_FILENAME) as c:
                 self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
         # load rulings from local yaml files
-        links = yaml.safe_load(
-            pkg_resources.resource_string("rulings", "rulings-links.yaml")
+        links = _RulingsLinks(
+            yaml.safe_load(
+                pkg_resources.resource_string("rulings", "rulings-links.yaml")
+            )
         )
         cards_rulings = yaml.safe_load(
             pkg_resources.resource_string("rulings", "cards-rulings.yaml")
@@ -207,7 +185,7 @@ class _VTES:
             self.rulings[card_name]["Rulings Links"].extend(
                 {"Reference": reference, "URL": link}
                 for ruling in rulings
-                for reference, link in _get_runling_links(links, ruling)
+                for reference, link in links.get_links(ruling)
             )
         for ruling in general_rulings:
             for card in ruling["cards"]:
@@ -216,73 +194,26 @@ class _VTES:
                 self.rulings[card_name]["Rulings"].append(ruling["ruling"])
                 self.rulings[card_name]["Rulings Links"].extend(
                     {"Reference": reference, "URL": link}
-                    for reference, link in _get_runling_links(links, ruling["ruling"])
+                    for reference, link in links.get_links(ruling["ruling"])
                 )
         pickle.dump(self, open(config.VTES_FILE, "wb"))
 
-    def __getitem__(self, key):
-        """Get a card, try to find a good matching.
-
-        It uses lowercase only, plus config.REMAP for common errors and abbreviations.
-        It also uses difflib to fuzzy match incomplete or misspelled names
-
-        Args:
-            key (str): the card to search for
-        """
-        if isinstance(key, str):
-            key = key.lower()
-        try:
-            return self.cards.__getitem__(key)
-        except KeyError:
-            # REMAP must match exactly
-            if key in config.REMAP:
-                return self.cards[config.REMAP[key].lower()]
-            match = self._fuzzy_match(key)
-            if match:
-                return self.cards[match]
-            raise
-
-    def __contains__(self, key):
-        # Must have the same logic than self.__getitem__(): self.cards, REMAP, _fuzzy
-        if isinstance(key, str):
-            key = key.lower()
-        return (
-            self.cards.__contains__(key)
-            or key in config.REMAP
-            or self._fuzzy_match(key)
-        )
-
-    def __setitem__(self, key, value):
-        return self.cards.__setitem__(
-            key.lower() if isinstance(key, str) else key, value
-        )
-
-    def __delitem__(self, key):
-        return self.cards.__delitem__(key.lower() if isinstance(key, str) else key)
-
-    def items(self):
-        return self.cards.items()
-
-    def keys(self):
-        return self.cards.keys()
-
-    def values(self):
-        return self.cards.values()
-
-    def configure(self, fuzzy_threshold=6, safe_variants=True):
+    def configure(self, fuzzy_threshold: int = 6, safe_variants: bool = True) -> None:
         """Add alternative names for cards, set up completion
 
         Args:
-            fuzzy_match (int): min text length to try fuzzy matching on.
+            fuzzy_threshold: min text length to try fuzzy matching on.
+            safe_variants: if False, more card name variants are used
+                           (unsafe for TWDA parsing)
         """
         self.cards.clear()
         self.completion.clear()
-        self.fuzzy_threshold = fuzzy_threshold
+        self.cards.threshold = fuzzy_threshold
         self.safe_variants = safe_variants
         # fill self.cards dict with all card names variants (including card ID)
         for card_id, card in self.original_cards.items():
             self[card_id] = card
-            for name in self.get_name_variants(card, safe_variants):
+            for name in self._get_name_variants(card, safe_variants):
                 self[name] = card
         # we difflib match on AKA but not on REMAP
         # some items on REMAP are too short and match too many things.
@@ -296,7 +227,7 @@ class _VTES:
         # build the cards map for structured search
         # text is a completion trie, other dicts just contain a set of the cards IDs
         self.search = {
-            "text": _Trie(),
+            "text": utils.Trie(),
             "type": collections.defaultdict(set),
             "clan": collections.defaultdict(set),
             "trait": collections.defaultdict(set),
@@ -309,7 +240,7 @@ class _VTES:
             "stealth": set(),
         }
         for card in self.original_cards.values():
-            self.add_card_to_search(card)
+            self._add_card_to_search(card)
         # manual fixups
         for name, mods in config.SEARCH_EXCEPTIONS.items():
             for mod in mods:
@@ -330,19 +261,27 @@ class _VTES:
                         f"{name} marked as exception for {key_path}, but is not listed."
                     )
 
-    def add_card_to_search(self, card):
+    def _add_card_to_search(self, card: typing.Mapping) -> None:
         """Add a card to self.search
 
         The card["Id"] is added to all matching sets.
-
+        What matches or not has a lot do to with players usage and are design decisions:
+            - requiring a title is listed as matching the sect
+            - removing stealth is considered as intercept
+            - stealthed actions are not considered as stealth cards
+            - making a block fail is considered stealth
+            - MERGED text of an advanced is taken into account for sect and title
+            - combo and anarch tri-discipline cards are all listed under "*"
+            - Vision uses the "vin" trigtam to distinguish from "vis"ceratika
         Args:
-            card (dict): A card dict
+            card: A card dict
         """
         self.search["text"].add(card["Card Text"], card["Id"])
         for type_ in card["Type"]:
             self.search["type"][type_.lower()].add(card["Id"])
         if set(card["Type"]) & {"Vampire", "Imbued"}:
             self.search["type"]["crypt"].add(card["Id"])
+            # sect, including for MERGED versions
             if re.search(r"^(\[MERGED\] )?Sabbat", card["Card Text"]):
                 self.search["trait"]["sabbat"].add(card["Id"])
             if re.search(r"^(\[MERGED\] )?Camarilla", card["Card Text"]):
@@ -360,6 +299,7 @@ class _VTES:
                 self.search["clan"][clan.lower()].add(card["Id"])
         else:
             self.search["clan"]["none"].add(card["Id"])
+        # CSV-listed traits
         if card.get("Sect"):
             self.search["trait"][card["Sect"].lower()].add(card["Id"])
         if card.get("Title"):
@@ -378,14 +318,18 @@ class _VTES:
             self.search["votes"].add(card["Id"])
         if re.search(r"(\d|X)\s+(v|V)ote", card["Card Text"]):
             self.search["votes"].add(card["Id"])
+        # bleed/stealth/intercept bonuses
         if re.search(r"\+(\d|X)\s+(b|B)leed", card["Card Text"]):
             self.search["bleed"].add(card["Id"])
         if re.search(r"\+(\d|X)\s+(i|I)ntercept", card["Card Text"]):
             self.search["intercept"].add(card["Id"])
+        # do not include stealthed actions as stealth cards
         if re.search(
             r"\+(\d|X)\s+(s|S)tealth (?!Ⓓ|action|political)", card["Card Text"]
         ):
             self.search["stealth"].add(card["Id"])
+        # stealth/intercept maluses count has bonus of the other (for library cards)
+        # also list block denials as stealth
         if not set(card["Type"]) & {"Master", "Vampire", "Imbued"}:
             if re.search(r"-(\d|X)\s+(s|S)tealth", card["Card Text"]):
                 self.search["intercept"].add(card["Id"])
@@ -399,7 +343,7 @@ class _VTES:
             self.search["discipline"][discipline.lower()].add(card["Id"])
         # add vampires with superior disciplines to both inf and sup sets
         for discipline in card.get("Disciplines", []):
-            # Visceratika and Vision have the same trigram
+            # Visceratika and Vision have the same trigram, discriminate
             if discipline.lower() == "vis" and "Imbued" in card["Type"]:
                 discipline = "vin"
             self.search["discipline"][config.DIS_MAP[discipline.lower()]].add(
@@ -409,8 +353,13 @@ class _VTES:
                 self.search["discipline"][config.DIS_MAP[discipline]].add(card["Id"])
         if not card.get("Disciplines") and not card.get("Discipline"):
             self.search["discipline"]["none"].add(card["Id"])
+        # "Discipline" singular is a library-only key
         if len(card.get("Discipline", [])) > 1:
             self.search["discipline"]["*"].add(card["Id"])
+        # FLIGHT is not listed as a discipline, treat it as such anyway
+        if "[FLIGHT]" in card["Card Text"]:
+            self.search["discipline"]["flight"].add(card["Id"])
+        # city trait
         city = re.search(
             r"(?:Prince|Baron|Archbishop) of ((?:[A-Z][A-Za-z\s-]{3,})+)",
             card["Card Text"],
@@ -423,6 +372,7 @@ class _VTES:
                 city = "washington, d.c."
             self.search["trait"][city].add(card["Id"])
             self.search["votes"].add(card["Id"])
+        # add generic title requirements to all titles of the sect
         if re.search(r"Requires a( ready)? titled (S|s)abbat", card["Card Text"]):
             self.search["trait"]["bishop"].add(card["Id"])
             self.search["trait"]["archbishop"].add(card["Id"])
@@ -437,6 +387,7 @@ class _VTES:
             self.search["trait"]["inner circle"].add(card["Id"])
             self.search["trait"]["imperator"].add(card["Id"])
             self.search["trait"]["camarilla"].add(card["Id"])
+        # this should match unnamed independant titles too, but we have no trait for it
         if re.search(r"Requires a( ready)? titled vampire", card["Card Text"]):
             self.search["trait"]["primogen"].add(card["Id"])
             self.search["trait"]["prince"].add(card["Id"])
@@ -470,6 +421,8 @@ class _VTES:
             self.search["trait"]["anarch"].add(card["Id"])
         if re.search(r"Requires an (I|i)ndependent", card["Card Text"]):
             self.search["trait"]["independent"].add(card["Id"])
+        # match other traits anywhere in the text
+        # add specific title requirements to the matching sect
         for trait in re.findall(
             f"({'|'.join(config.TRAITS)})", card["Card Text"].lower()
         ):
@@ -482,61 +435,23 @@ class _VTES:
                 self.search["trait"]["anarch"].add(card["Id"])
             if trait in {"magaji", "kholo"}:
                 self.search["trait"]["laibon"].add(card["Id"])
-        if "[FLIGHT]" in card["Card Text"]:
-            self.search["discipline"]["flight"].add(card["Id"])
 
-    def complete(self, partial_name):
+    def complete(self, partial_name: str) -> List:
         """Card name completion.
 
-        It uses a very basic Trie to match trigrams.
+        It uses a Trie to match trigrams.
         Matches on the start of the name are returned first,
         other matches are returned alphabetically.
 
         Args:
-            partial_name (str): Parts of the name (can contain spaces)
+            partial_name: Parts of the name (can contain spaces)
 
         Returns:
-            (list): A sorted list of results, from most likely to less likely
+            A sorted list of results, from most likely to less likely
         """
         return self.completion.search(partial_name)
 
-    @functools.lru_cache()
-    def all_card_names_variants(self):
-        """Return all cards names.
-
-        Used by self._fuzzy_match(), it uses a cache to accelerate matching.
-
-        Returns:
-            (list): All cards name and variants in no specific order
-        """
-        return [k for k in self.keys() if isinstance(k, str)]
-
-    @functools.lru_cache()
-    def _fuzzy_match(self, name):
-        """Use difflib to match incomplete or misspelled names
-
-        It uses a cache to accelerate matching of common misspellings.
-
-        Args:
-            name (str): the card name
-
-        Returns:
-            The matched card name, or None
-        """
-        if not isinstance(name, str):
-            return
-        if len(name) < self.fuzzy_threshold:
-            return
-        # 0.8 is an empirical value, seems to work nicely
-        result = difflib.get_close_matches(
-            name, self.all_card_names_variants(), n=1, cutoff=0.8
-        )
-        if result:
-            match = result[0]
-            logger.info(f"misspelled [{name}] matched [{match}]")
-            return match
-
-    def trait_choices(self, trait):
+    def trait_choices(self, trait: str) -> set:
         """Get all registered values for a given card trait.
 
         Available traits:
@@ -566,9 +481,9 @@ class _VTES:
         Empty values are removed.
 
         Args:
-            trait (str): The trait to get choices for.
+            trait: The trait to get choices for.
 
-        Yields:
+        Returns:
             All possible values
         """
         return set(
@@ -578,23 +493,24 @@ class _VTES:
         )
 
     @property
-    def disciplines(self):
-        """Return a list of disciplines"""
+    def disciplines(self) -> list:
+        """List of disciplines"""
         return sorted(self.trait_choices("Discipline"))
 
     @property
-    def types(self):
-        """Return a list of card types"""
+    def types(self) -> list:
+        """List of card types"""
         return sorted(self.trait_choices("Type"))
 
     @property
-    def clans(self):
-        """Return a list of clans"""
+    def clans(self) -> list:
+        """List of clans"""
         return sorted(self.trait_choices("Clan"))
 
-    @staticmethod
-    def get_name(card):
-        """Returns main name for a card"""
+    def get_name(self, card: Union[str, Mapping]) -> str:
+        """Returns official name for a card or card name."""
+        if not isinstance(card, collections.abc.Mapping):
+            card = self[card]
         name = card["Name"]
         if name[-5:] == ", The":
             name = "The " + name[:-5]
@@ -603,9 +519,10 @@ class _VTES:
         name = name.replace("(TM)", "™")
         return name
 
-    @staticmethod
-    def vekn_name(card):
-        """Returns VEKN name for a card (suffix The, (TM) instead of ™)"""
+    def vekn_name(self, card: Union[str, Mapping]) -> str:
+        """Returns the VEKN name for a card (suffix The, (TM) instead of ™)."""
+        if not isinstance(card, collections.abc.Mapping):
+            card = self[card]
         name = card["Name"]
         if name[:4] == "The ":
             name = name[4:] + ", The"
@@ -614,12 +531,18 @@ class _VTES:
         name = name.replace("™", "(TM)")
         return name
 
-    def normalized(self, card):
-        """Fix the card name"""
+    def normalized(self, card: Union[str, Mapping]) -> Mapping:
+        """Returns a JSON-serializable version of the card.
+
+        It makes sure the name is the "standard" one (with (ADV) for advanced vampires)
+        and adds a field with the card image URL and rulings.
+        """
+        if not isinstance(card, collections.abc.Mapping):
+            card = self[card]
         data = copy.copy(card)
         name = self.get_name(card)
         data["Name"] = name
-        file_name = unidecode.unidecode(name).lower()
+        file_name = utils.normalize(name)
         file_name = file_name[4:] + "the" if file_name[:4] == "the " else file_name
         file_name, _ = re.subn(r"""\s|,|\.|-|—|'|:|\(|\)|"|!""", "", file_name)
         data["Image"] = f"{config.IMAGES_ROOT}{file_name}.jpg"
@@ -627,7 +550,7 @@ class _VTES:
         return data
 
     @staticmethod
-    def get_name_variants(card, safe=True):
+    def _get_name_variants(card: Mapping, safe: bool = True) -> StringGenerator:
         """Yields all name variants for a card
 
         Add the " (ADV)" suffix for advanced vampires
@@ -641,11 +564,11 @@ class _VTES:
         Important examples are in test.
 
         Args:
-            card (dict): the card
-            safe (bool): if True, yield more variants (unsafe for TWDA parsing)
+            card: the card
+            safe: if False, yield more variants (unsafe for TWDA parsing)
 
         Yields:
-            str: all name variants
+            All name variants
         """
         advanced_suffix = " (ADV)" if card.get("Adv") else ""
 
@@ -685,7 +608,7 @@ class _VTES:
         for alias in card.get("Aka", "").split(";"):
             yield from name_variants(alias.strip())
 
-    def load_csv(self, stream, save=True, safe_variants=True):
+    def load_csv(self, stream: TextIO, save: bool = True) -> None:
         """Load a crypt or library CSV (VEKN format)
 
         The VTES card list is pickled for future use.
@@ -728,310 +651,47 @@ class _VTES:
         if save:
             pickle.dump(self, open(config.VTES_FILE, "wb"))
 
-    # usual traits selectors
-    @staticmethod
-    def is_crypt(card):
-        """A function to check if a card is a crypt card
+    def is_crypt(self, card_name: str) -> bool:
+        """A function to check if a card is a crypt card"""
+        return set(self[card_name]["Type"]).issubset({"Vampire", "Imbued"})
 
-        Args:
-            card (str): card name
+    def is_library(self, card_name: str) -> bool:
+        """A function to check if a card is a library card"""
+        return not self.is_crypt(card_name)
 
-        Returns:
-            bool: true if the card is a crypt card
-        """
-        return set(VTES[card]["Type"]) & {"Vampire", "Imbued"}
-
-    def is_library(self, card):
-        """A function to check if a card is a library card
-
-        Args:
-            card (str): card name
-
-        Returns:
-            bool: true if the card is a library card
-        """
-        return not self.is_crypt(card)
-
-    @staticmethod
-    def is_disc(card, discipline):
+    def is_disc(self, card_name: str, discipline: str) -> bool:
         """A function to check if a card is of given discipline
 
         Handles multi-valued cards too (combo or outferior option).
-
-        Args:
-            card (str): card name
-            discipline (str): a discipline name
-
-        Returns:
-            bool: true if the card is of the given discipline
         """
-        return {discipline.strip().lower()} & {
-            d.strip().lower() for d in VTES[card].get("Discipline", [])
+        return utils.normalize(discipline) in {
+            utils.normalize(d) for d in self[card_name].get("Discipline", [])
         }
 
-    @staticmethod
-    def no_disc(card):
-        """A function to check if a card requires no discipline
+    def no_disc(self, card_name: str) -> bool:
+        """A function to check if a card requires no discipline"""
+        return not self[card_name].get("Discipline", [])
 
-        Args:
-            card (str): card name
-
-        Returns:
-            bool: true if the card requires no discipline
-        """
-        return not VTES[card].get("Discipline", [])
-
-    @staticmethod
-    def is_type(card, type_):
+    def is_type(self, card_name: str, type_: str) -> bool:
         """A function to check if a card is of the given type
 
         Handles multiple types too (e.g. Modifier/Reaction)
-
-        Args:
-            card (str): card name
-            type_ (str): a card type
-
-        Returns:
-            bool: true if the card has the given type
         """
-        return {type_.strip().lower()} & {t.strip().lower() for t in VTES[card]["Type"]}
+        return utils.normalize(type_) in {
+            utils.normalize(t) for t in self[card_name]["Type"]
+        }
 
-    @staticmethod
-    def is_clan(card, clan):
+    def is_clan(self, card_name: str, clan: str) -> bool:
         """A function to check if a card is of the given clan (or requires said clan)
 
         Handles multiple clans too (e.g. Gangrel/Gangrel Antitribu)
-
-        Args:
-            card (str): card name
-            clan (str): a clan
-
-        Returns:
-            bool: true if the card is of the given clan.
         """
-        return {clan.strip().lower()} & {t.strip().lower() for t in VTES[card]["Clan"]}
-
-    def deck_to_txt(self, deck, wrap=True):
-        """A consistent deck display matching our parsing rules of TWDA.html
-
-        Cards are displayed in the order given by the config.TYPE_ORDER list.
-
-        Args:
-            deck (deck.Deck): A deck
-
-        Returns:
-            str: The normalized text version of the deck
-        """
-
-        def _type(card):
-            return config.TYPE_ORDER.index("/".join(sorted(self[card[0]]["Type"])))
-
-        lines = []
-        if deck.event:
-            lines.append(deck.event)
-        if deck.place:
-            lines.append(deck.place)
-        if deck.date:
-            lines.append(deck.date.format("MMMM Do YYYY"))
-        if deck.tournament_format:
-            lines.append(deck.tournament_format)
-        if deck.players_count:
-            lines.append(f"{deck.players_count} players")
-        if deck.player:
-            lines.append(deck.player)
-        if deck.event_link:
-            lines.append(deck.event_link)
-        lines.append("")
-        if deck.score:
-            lines.append(f"-- {deck.score}")
-            lines.append("")
-        if deck.name:
-            lines.append(f"Deck Name: {deck.name}")
-        if deck.author:
-            lines.append(f"Created by: {deck.author}")
-        if deck.comments:
-            if deck.name or deck.author:
-                lines.append("")
-            if wrap and any(len(line) > 100 for line in deck.comments.splitlines()):
-                lines.extend(textwrap.wrap(deck.comments, 90))
-            else:
-                lines.append(deck.comments)
-        elif lines[-1] != "":
-            lines.append("")
-        cap = sorted(
-            itertools.chain.from_iterable(
-                [int(self[card]["Capacity"])] * count
-                for card, count in deck.cards(self.is_crypt)
-            )
-        )
-        cap_min = sum(cap[:4])
-        cap_max = sum(cap[-4:])
-        cap_avg = sum(cap) / len(cap)
-        lines.append(
-            f"Crypt ({deck.cards_count(self.is_crypt)} cards, "
-            f"min={cap_min}, max={cap_max}, avg={round(cap_avg, 2):g})"
-        )
-        lines.append("-" * len(lines[-1]))
-        max_name = (
-            max(
-                len(self.vekn_name(self[card]))
-                for card, _count in deck.cards(self.is_crypt)
-            )
-            + 1
-        )
-        max_disc = (
-            max(
-                len(" ".join(self[card]["Disciplines"]))
-                for card, _count in deck.cards(self.is_crypt)
-            )
-            + 1
-        )
-        max_title = (
-            max(
-                len(self[card].get("Title", ""))
-                for card, _count in deck.cards(self.is_crypt)
-            )
-            + 1
-        )
-        for card, count in deck.cards(self.is_crypt):
-            lines.append(
-                f"{{}}x {{:<{max_name}}} {{:>2}} {{:<{max_disc}}} "
-                f"{{:<{max_title}}} {{}}:{{}}".format(
-                    count,
-                    self.vekn_name(self[card]),
-                    self[card]["Capacity"],
-                    " ".join(sorted(self[card]["Disciplines"])),
-                    self[card].get("Title", ""),
-                    self[card]["Clan"][0],
-                    self[card]["Group"],
-                )
-            )
-            if card in deck.cards_comments:
-                comment = deck.cards_comments[card].replace("\n", " ").strip()
-                lines[-1] += f" -- {comment}"
-        lines.append(f"\nLibrary ({deck.cards_count(self.is_library)} cards)")
-        # sort by type, name
-        # note ordering must match the `itertools.groupby` function afterwards.
-        library_cards = sorted(
-            deck.cards(self.is_library),
-            key=lambda a: (
-                _type(a),
-                unidecode.unidecode(self.vekn_name(self[a[0]])).lower(),
-            ),
-        )
-        # form a section for each type with a header displaying the total
-        for i, (kind, cards) in enumerate(itertools.groupby(library_cards, key=_type)):
-            cards = list(cards)
-            trifle_count = ""
-            if kind == 0:
-                trifle_count = sum(
-                    count
-                    for card, count in cards
-                    if re.search(r"(t|T)rifle", self[card]["Card Text"])
-                )
-                if trifle_count:
-                    trifle_count = f"; {trifle_count} trifle"
-                else:
-                    trifle_count = ""
-            cr = "\n" if i > 0 else ""
-            lines.append(
-                f"{cr}{config.TYPE_ORDER[kind]} "
-                f"({sum(count for card, count in cards)}{trifle_count})"
-            )
-            for card, count in cards:
-                if card in deck.cards_comments:
-                    comment = deck.cards_comments[card].replace("\n", " ").strip()
-                    lines.append(
-                        f"{count}x {self.vekn_name(self[card]):<23} -- {comment}"
-                    )
-                else:
-                    lines.append(f"{count}x {self.vekn_name(self[card])}")
-        return "\n".join(lines)
-
-    def deck_to_dict(self, deck, twda_id):
-        """A consistent deck serialization for the API
-
-        Cards are listed in the order given by the config.TYPE_ORDER list.
-
-        Args:
-            deck (deck.Deck): A deck
-            twda_id (str): The deck TWDA ID
-
-        Returns:
-            dict: The serialized deck
-        """
-        ret = {
-            "twda_id": twda_id,
-            "event": deck.event,
-            "place": deck.place,
-            "date": deck.date.date().isoformat() if deck.date else None,
-            "tournament_format": deck.tournament_format,
-            "players_count": deck.players_count,
-            "player": deck.player,
-            "score": deck.score,
-            "name": deck.name,
-            "author": deck.author,
-            "comments": deck.comments,
-            "crypt": {
-                "count": deck.cards_count(self.is_crypt),
-                "cards": [
-                    {
-                        "id": self[card]["Id"],
-                        "count": count,
-                        "name": card,
-                        "comments": deck.cards_comments.get(card),
-                    }
-                    for card, count in deck.cards(self.is_crypt)
-                ],
-            },
-            "library": {"count": deck.cards_count(self.is_library), "cards": []},
+        return utils.normalize(clan) in {
+            utils.normalize(c) for c in self[card_name]["Clan"]
         }
 
-        def _type(card):
-            return config.TYPE_ORDER.index("/".join(sorted(self[card[0]]["Type"])))
-
-        # sort by type, count (descending), name
-        # note ordering must match the `itertools.groupby` function afterwards.
-        library_cards = sorted(
-            deck.cards(self.is_library), key=lambda a: (_type(a), -a[1], a[0])
-        )
-        # form a section for each type with a header displaying the total
-        for kind, cards in itertools.groupby(library_cards, key=_type):
-            c1, c2 = itertools.tee(cards)
-            ret["library"]["cards"].append(
-                {
-                    "type": config.TYPE_ORDER[kind],
-                    "count": sum(count for card, count in c1),
-                    "cards": [],
-                }
-            )
-            for card, count in c2:
-                ret["library"]["cards"][-1]["cards"].append(
-                    {
-                        "id": self[card]["Id"],
-                        "count": count,
-                        "name": card,
-                        "comments": deck.cards_comments.get(card),
-                    }
-                )
-
-        def remove_empty(obj):
-            if isinstance(obj, dict):
-                remove = []
-                for k, v in obj.items():
-                    if not v:
-                        remove.append(k)
-                    else:
-                        remove_empty(v)
-                for k in remove:
-                    del obj[k]
-            if isinstance(obj, list):
-                for v in obj:
-                    remove_empty(v)
-
-        remove_empty(ret)
-
-        return ret
+    def str_to_card_and_count(self, string: str) -> dict:
+        string = string.lower()
 
 
 try:

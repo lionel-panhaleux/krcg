@@ -105,287 +105,154 @@ def test_card(client):
     assert response.status_code == 200
 
 
-def test_deck(client):
+def test_deck(client, twda):
+    # the test example TWDA contains only 20 decks
     response = client.post("/deck")
     assert response.status_code == 200
-    assert len(response.json) == 100
-    response = client.post("/deck", json={"cards": ["Stavros"]})
+    assert len(response.json) == 20
+    # the test TWDA has a single deck with Lodin
+    response = client.post("/deck", json={"cards": ["Lodin (Olaf Holte)"]})
     assert response.status_code == 200
-    assert len(response.json) == 3
+    assert len(response.json) == 1
     response = client.post("/deck", json={"cards": ["Not a Card"]})
     assert response.status_code == 400
     response = client.post("/deck", json={"cards": ["Antithesis"]})
     assert response.status_code == 404
     response = client.post("/deck", json={"cards": [""]})
-    response = client.get("/deck/2019rhho")
+    # test deck parsing and serialization - it has both general and cards comments
+    response = client.get("/deck/2020bf3hf")
     assert response.json == {
-        "twda_id": "2019rhho",
-        "name": "Farley Mowat V2.01",
-        "place": "Heath, Ohio",
-        "player": "Darby Keeney",
-        "players_count": 10,
-        "score": "0gw2 + 4vp in the final",
+        "twda_id": "2020bf3hf",
+        "event": "Black Forest Base 3",
+        "place": "Hyvinkää, Finland",
+        "date": "2020-09-05",
+        "name": "My stick is better than bacon",
         "tournament_format": "2R+F",
-        "comments": 'Named after the author of the hilarious book "Never Cry Wolf," '
-        "this is a\n"
-        "twice-modified version of previously winning deck. This iteration seems more\n"
-        "stable than previous versions. And I absolutely should have "
-        "played this for the\n"
-        "previous day's Cup event, when I was 100% certain there would be "
-        "at least one\n"
-        "Legionnaire deck floating around.\n"
-        "\n"
-        "The kinda-recent sect inheritance change helps with Cry Wolf and "
-        "the Railroad, so Seattle Committee and Twilight Camp could be "
-        "removed from the library.\n"
-        "\n"
-        "This isn't THAT many allies to transform, but there are usually "
-        "possibilities from other players' ash heaps before harvesting my "
-        "own.\n",
+        "players_count": 14,
+        "player": "Niko Vanhatalo",
+        "score": "1gw5 + 3vp in the final",
+        "comments": """Here is a quick report by the Winner of the event Niko Vanhatalo.
+
+Just your average Ventrue grinder/stickmen with my own personal preferences
+
+Finals were pretty brutal because every deck was a bleeder in some way or the
+other and there was no clear winner even when it was down to 2 players.
+Players from 1 to 5 were Petri with Anarch stealth bleeder, Jyrkkä with
+Lasombra/Kiasyd stealth bleeder, Pauli with Ventrue grinder, me with my own
+Ventrue grinder and Lasse with Legion and Legionnaire bleeder.  My biggest
+concern was my predator who played pretty much the same deck with like 90% of
+the crypt being the same cards, but we were able to avoid unnecesary contesting
+thanks to table talk. He still contested my Lodin later in the game but was
+ousted pretty fast after that before any real damage to me was done.
+""",
         "crypt": {
             "cards": [
-                {
-                    "count": 5,
-                    "id": "200076",
-                    "name": "Anarch Convert",
-                },
-                {
-                    "count": 1,
-                    "id": "200474",
-                    "name": "Francesca Giovanni",
-                },
-                {
-                    "count": 1,
-                    "id": "200525",
-                    "name": "Gloria Giovanni",
-                },
-                {
-                    "count": 1,
-                    "id": "200301",
-                    "name": "Cristofero Giovanni",
-                },
-                {"count": 1, "id": "200834", "name": "Lia Milliner"},
-                {
-                    "count": 1,
-                    "id": "200932",
-                    "name": "Mario Giovanni",
-                },
-                {
-                    "count": 1,
-                    "id": "201209",
-                    "name": "Rudolfo Giovanni",
-                },
-                {
-                    "count": 1,
-                    "id": "200913",
-                    "name": "Marciana Giovanni, Investigator",
-                },
-                {
-                    "count": 1,
-                    "id": "201101",
-                    "name": "Paul DiCarlo, The Alpha",
-                },
+                {"count": 3, "id": "200848", "name": "Lodin (Olaf Holte)"},
+                {"count": 2, "id": "200533", "name": "Graham Gottesman"},
+                {"count": 2, "id": "201438", "name": "Victor Donaldson"},
+                {"count": 1, "id": "201026", "name": "Mustafa, The Heir"},
+                {"count": 1, "id": "200280", "name": "Claus Wegener"},
+                {"count": 1, "id": "200421", "name": "Emily Carson"},
+                {"count": 1, "id": "200691", "name": "Jephta Hester"},
+                {"count": 1, "id": "201403", "name": "Ulrike Rothbart"},
             ],
-            "count": 13,
+            "count": 12,
         },
-        "date": "2019-12-15",
-        "event": "Rapid Healing",
         "library": {
             "cards": [
                 {
                     "cards": [
+                        {"count": 1, "id": "100058", "name": "Anarch Troublemaker"},
+                        {"count": 1, "id": "100545", "name": "Direct Intervention"},
+                        {"count": 1, "id": "100588", "name": "Dreams of the Sphinx"},
+                        {"count": 1, "id": "100824", "name": "Giant's Blood"},
                         {
-                            "count": 5,
-                            "id": "101112",
-                            "name": "Liquidation",
-                        },
-                        {"count": 3, "id": "101401", "name": "Piper"},
-                        {
-                            "count": 2,
-                            "id": "100054",
-                            "name": "Anarch Railroad",
-                        },
-                        {
-                            "count": 2,
-                            "id": "100444",
-                            "name": "Creepshow Casino",
-                        },
-                        {
-                            "count": 2,
-                            "id": "101019",
-                            "name": "Jake Washington",
-                        },
-                        {
-                            "comments": "this can probably be omitted " "now.\n",
+                            "comments": "Neat card, but never played. "
+                            "Should propably switch for another Dreams or Wash",
                             "count": 1,
-                            "id": "100058",
-                            "name": "Anarch Troublemaker",
+                            "id": "100842",
+                            "name": "Golconda: Inner Peace",
                         },
-                        {
-                            "count": 1,
-                            "id": "100545",
-                            "name": "Direct Intervention",
-                        },
-                        {
-                            "comments": "unused this tournament\n",
-                            "count": 1,
-                            "id": "100809",
-                            "name": "Garibaldi-Meucci Museum",
-                        },
-                        {
-                            "count": 1,
-                            "id": "101384",
-                            "name": "Pentex™ Subversion",
-                        },
-                        {
-                            "count": 1,
-                            "id": "101433",
-                            "name": "Powerbase: Cape Verde",
-                        },
-                        {
-                            "count": 1,
-                            "id": "101435",
-                            "name": "Powerbase: Los Angeles",
-                        },
+                        {"count": 1, "id": "101225", "name": "Misdirection"},
+                        {"count": 1, "id": "101350", "name": "Papillon"},
+                        {"count": 2, "id": "101384", "name": "Pentex™ Subversion"},
+                        {"count": 2, "id": "101388", "name": "Perfectionist"},
+                        {"count": 2, "id": "102113", "name": "Vessel"},
+                        {"count": 2, "id": "102121", "name": "Villein"},
+                        {"count": 1, "id": "102151", "name": "Wash"},
                     ],
-                    "count": 20,
+                    "count": 16,
                     "type": "Master",
                 },
                 {
                     "cards": [
-                        {
-                            "comments": 'The "Moose Juice" of this deck.\n',
-                            "count": 9,
-                            "id": "101046",
-                            "name": "Khazar's Diary (Endless Night)",
-                        },
-                        {
-                            "comments": "Recursion is dumb, dumb, dumb.\n",
-                            "count": 5,
-                            "id": "101895",
-                            "name": "Sudario Refraction",
-                        },
-                        {
-                            "count": 4,
-                            "id": "100633",
-                            "name": "The Embrace",
-                        },
+                        {"count": 1, "id": "100573", "name": "Dominate Kine"},
+                        {"count": 2, "id": "100652", "name": "Entrancement"},
+                        {"count": 11, "id": "100845", "name": "Govern the Unaligned"},
                     ],
-                    "count": 18,
+                    "count": 14,
                     "type": "Action",
                 },
                 {
                     "cards": [
-                        {
-                            "comments": "extra entries in the Diary.\n",
-                            "count": 8,
-                            "id": "100475",
-                            "name": "Cry Wolf",
-                        },
-                        {
-                            "count": 1,
-                            "id": "100298",
-                            "name": "Carlton Van Wyk",
-                        },
-                        {
-                            "comments": "Burn guns, get an entry in the Diary.\n",
-                            "count": 1,
-                            "id": "100823",
-                            "name": "Gianna di Canneto",
-                        },
-                        {
-                            "count": 1,
-                            "id": "101333",
-                            "name": "Ossian",
-                        },
-                        {
-                            "comments": "synergy with Wolves, see also "
-                            "dumb, dumb, dumb.\n",
-                            "count": 1,
-                            "id": "102053",
-                            "name": "Tye Cooper",
-                        },
-                        {
-                            "count": 1,
-                            "id": "102128",
-                            "name": "Vivienne Géroux",
-                        },
+                        {"count": 2, "id": "100903", "name": "Heart of Nizchetus"}
                     ],
-                    "count": 13,
-                    "type": "Ally",
-                },
-                {
-                    "cards": [
-                        {
-                            "count": 1,
-                            "id": "100903",
-                            "name": "Heart of Nizchetus",
-                        }
-                    ],
-                    "count": 1,
+                    "count": 2,
                     "type": "Equipment",
                 },
                 {
+                    "cards": [{"count": 4, "id": "101353", "name": "Parity Shift"}],
+                    "count": 4,
+                    "type": "Political Action",
+                },
+                {
                     "cards": [
-                        {
-                            "count": 3,
-                            "id": "100279",
-                            "name": "Call of the Hungry Dead",
-                        }
+                        {"count": 2, "id": "100236", "name": "Bonding"},
+                        {"count": 3, "id": "100401", "name": "Conditioning"},
+                        {"count": 3, "id": "100492", "name": "Daring the Dawn"},
+                        {"count": 4, "id": "100788", "name": "Freak Drive"},
+                        {"count": 5, "id": "101712", "name": "Seduction"},
+                        {"count": 2, "id": "101978", "name": "Threats"},
                     ],
-                    "count": 3,
+                    "count": 19,
                     "type": "Action Modifier",
                 },
                 {
                     "cards": [
-                        {
-                            "count": 5,
-                            "id": "101321",
-                            "name": "On the Qui Vive",
-                        },
+                        {"count": 8, "id": "100518", "name": "Deflection"},
+                        {"count": 3, "id": "101321", "name": "On the Qui Vive"},
                         {
                             "count": 4,
-                            "id": "100518",
-                            "name": "Deflection",
+                            "id": "101706",
+                            "name": "Second Tradition: Domain",
                         },
                         {
-                            "count": 2,
-                            "id": "100519",
-                            "name": "Delaying Tactics",
+                            "comments": "This should be another On the Qui Vive "
+                            "but I was too lazy to find 1 from my collection",
+                            "count": 1,
+                            "id": "102137",
+                            "name": "Wake with Evening's Freshness",
                         },
                     ],
-                    "count": 11,
+                    "count": 16,
                     "type": "Reaction",
                 },
                 {
                     "cards": [
-                        {
-                            "count": 5,
-                            "id": "101942",
-                            "name": "Target Vitals",
-                        }
-                    ],
-                    "count": 5,
-                    "type": "Combat",
-                },
-                {
-                    "cards": [
+                        {"count": 5, "id": "100918", "name": "Hidden Strength"},
+                        {"count": 6, "id": "100973", "name": "Indomitability"},
                         {
                             "count": 2,
-                            "id": "102079",
-                            "name": "The Unmasking",
+                            "id": "101649",
+                            "name": "Rolling with the Punches",
                         },
-                        {
-                            "count": 1,
-                            "id": "100709",
-                            "name": "FBI Special Affairs Division",
-                        },
+                        {"count": 4, "id": "102169", "name": "Weighted Walking Stick"},
                     ],
-                    "count": 3,
-                    "type": "Event",
+                    "count": 17,
+                    "type": "Combat",
                 },
             ],
-            "count": 74,
+            "count": 88,
         },
     }
 
@@ -393,11 +260,11 @@ def test_deck(client):
 def test_search(client):
     response = client.post("/card")
     assert response.status_code == 200
-    assert len(response.json) == 3738
+    assert len(response.json) == 3788
     # non-existing filters have no impact
     response = client.post("/card", json={"foo": ["bar"]})
     assert response.status_code == 200
-    assert len(response.json) == 3738
+    assert len(response.json) == 3788
     # non-existing values do not crash
     response = client.post("/card", json={"bonus": ["foo"]})
     assert response.status_code == 200

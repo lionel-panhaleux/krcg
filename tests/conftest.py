@@ -1,7 +1,8 @@
+import os
 import requests
 import pytest
 
-from krcg import twda
+
 from krcg import vtes
 
 
@@ -20,5 +21,16 @@ def pytest_sessionstart(session):
         pytest.fail("VEKN website not available")
     vtes.VTES.load_from_vekn(save=False)
     vtes.VTES.configure()
-    twda.TWDA.load_from_vekn(limit=100, save=False)
-    twda.TWDA.configure()
+
+
+@pytest.fixture
+def twda():
+    """Use to initialize the twda to the 20 decks test snapshot."""
+    from krcg import twda
+
+    TWDA = twda._TWDA()
+    with open(os.path.join(os.path.dirname(__file__), "TWDA.html")) as f:
+        TWDA.load_html(f, save=False)
+    TWDA.configure()
+    twda.TWDA = TWDA
+    return TWDA

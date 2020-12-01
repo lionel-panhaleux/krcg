@@ -1,6 +1,6 @@
-"""Static files generator for third parties
+"""Static files generator for third parties.
 
-Produces static files for use in third parties softwares
+Produces static files for use in third parties softwares.
 """
 
 import argparse
@@ -15,6 +15,7 @@ import requests
 
 from . import logging
 from . import twda
+from . import utils
 from . import vtes
 
 logger = logging.logger
@@ -22,20 +23,8 @@ logger = logging.logger
 parser = argparse.ArgumentParser(prog="krcg", description="VTES tool")
 
 
-class FormatChoice(argparse.Action):
-    # choices with nargs +/* : this is a known issue for argparse
-    # cf. https://bugs.python.org/issue9625
+class FormatChoice(utils.NargsChoiceWithAliases):
     CHOICES = ["standard", "amaranth"]
-
-    def __call__(self, parser, namespace, values, option_string=None):
-        values = [v.lower() for v in values]
-        if values:
-            for value in values:
-                if value not in self.CHOICES:
-                    raise argparse.ArgumentError(
-                        self, f"invalid choice: {value} (choose from {self.CHOICES})"
-                    )
-        setattr(namespace, self.dest, values)
 
 
 parser.add_argument(
@@ -47,7 +36,8 @@ parser.add_argument(
 )
 
 
-def standard_rulings():
+def standard_rulings() -> dict:
+    """Rulings in JSON format."""
     result = {
         "rulings": {},
         "references": {},
@@ -68,17 +58,18 @@ def standard_rulings():
     return result
 
 
-def amaranth_twda():
+def amaranth_twda() -> list:
+    """TWDA for Amaranth."""
     try:
         amaranth_ids = {
-            vtes.VTES.get_name(vtes.VTES[card["name"]]): card["id"]
+            vtes.VTES.get_name(card["name"]): card["id"]
             for card in (
                 requests.get("http://amaranth.vtes.co.nz/api/cards").json()["result"]
             )
             if card["name"] in vtes.VTES
         }
     except requests.exceptions.ConnectionError as e:
-        logger.exception("failed to connect to %s", e.request.url)
+        logger.exception("failed to connect to {}", e.request.url)
         exit(1)
     ret = []
     for twda_id, deck in twda.TWDA.items():
@@ -95,13 +86,16 @@ def amaranth_twda():
             )
         except KeyError as e:
             logger.error(
-                f"TWDA: {e.args[0]} not referenced in Amaranth, skipping {twda_id}"
+                "TWDA: {card} not referenced in Amaranth, skipping {twda_id}",
+                card=e.args[0],
+                twda_id=twda_id,
             )
             continue
     return ret
 
 
-def standard_twda():
+def standard_twda() -> str:
+    """A normalized HTML version of the TWDA"""
     content = """<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>TWDA</title></head>
@@ -164,7 +158,7 @@ Many thanks to Jeff Thompson for maintaining them for all these years.
 <tr><td>NCQ</td><td>National Championship Qualifier</td><td>SAC</td><td>South American (Continental) Championship</td></tr>
 <tr><td>ECQ</td><td>European Championship Qualifier</td><td>EC</td><td>European (Continental) Championship</td></tr>
 <tr><td>CCQ</td><td>Continental Championship Qualifier</td><td>ACC</td><td>Asian Continental Championship</td></tr>
-</table>"""  # noqa: E501
+</table>"""  # noqa
     decks = sorted(twda.TWDA.items(), key=lambda a: a[1].date, reverse=True)
     current_year = None
     for twda_id, deck in decks:
@@ -195,12 +189,13 @@ Many thanks to Jeff Thompson for maintaining them for all these years.
     content += "</center>\n"
     for twda_id, deck in decks:
         content += f"<a id={twda_id} href=#>Top</a>\n<hr><pre>\n"
-        content += vtes.VTES.deck_to_txt(deck, wrap=False)
+        content += deck.to_txt(wrap=False)
         content += "\n</pre>\n"
     return content
 
 
 def main():
+    """Entrypoint for the krcg-gen tool."""
     args = parser.parse_args(sys.argv[1:])
     try:
         if not vtes.VTES:
@@ -210,7 +205,7 @@ def main():
             twda.TWDA.load_from_vekn(save=False)
         twda.TWDA.configure(spoilers=False)
     except requests.exceptions.ConnectionError as e:
-        logger.exception("failed to connect to %s", e.request.url)
+        logger.exception("failed to connect to {}", e.request.url)
         exit(1)
     out_folder = os.path.join(os.path.dirname(__file__), "..", "static")
     if "standard" in args.formats:

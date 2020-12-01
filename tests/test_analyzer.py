@@ -1,14 +1,14 @@
 from krcg import analyzer
 
 
-def test_base():
-    A = analyzer.Analyzer()
+def test_base(twda):
+    A = analyzer.Analyzer(twda)
     A.refresh()
-    assert A.played["Stavros"] == 3
-    A.refresh("Stavros")
-    assert sorted(A.affinity["Stavros"].most_common())[0] == (
-        "Alicia Barrows",
-        1 / 3,
+    assert A.played["Nana Buruku"] == 2
+    A.refresh("Nana Buruku")
+    assert sorted(A.affinity["Nana Buruku"].most_common())[0] == (
+        "Aksinya Daclau",
+        1 / 2,
     )
-    A.refresh("Stavros", "Alicia Barrows", similarity=1)
+    A.refresh("Nana Buruku", "Aksinya Daclau", similarity=1)
     assert len(A.examples) == 1

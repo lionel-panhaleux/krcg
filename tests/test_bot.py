@@ -4,11 +4,9 @@ from krcg import discord_bot
 from krcg import vtes
 
 
-def test_bot(monkeypatch):
-    VTES = vtes._VTES()
-    VTES.load_from_vekn(save=False)
-    VTES.configure(fuzzy_threshold=12, safe_variants=False)
-    monkeypatch.setattr(vtes, "VTES", VTES, raising=True)
+def test_bot():
+    # use the bot configuration for VTES cards database
+    vtes.VTES.configure(fuzzy_threshold=12, safe_variants=False)
     # match REMAP values (it may contain easter eggs)
     response = discord_bot.handle_message("krcg")
     assert not response.get("content")
@@ -125,10 +123,6 @@ def test_bot(monkeypatch):
         "title": "What card did you mean ?",
         "type": "rich",
     }
-    # short easter egg
-    response = discord_bot.handle_message("no")
-    assert response["embed"]
-    assert response["embed"].title == "Direct Intervention"
     # fuzzy match
     response = discord_bot.handle_message("enchant kidnred")
     assert response["embed"]
@@ -137,3 +131,5 @@ def test_bot(monkeypatch):
     response = discord_bot.handle_message("foobar")
     assert not response.get("embed")
     assert response["content"] == "No card match"
+    # reset default VTES configuration to avoid failing other tests
+    vtes.VTES.configure(fuzzy_threshold=6, safe_variants=True)

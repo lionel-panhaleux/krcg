@@ -1,3 +1,7 @@
+"""REST API.
+
+Check the OpenAPI documentation at krcg/templates/openapi.yaml
+"""
 import json
 import os
 import urllib.parse
@@ -15,15 +19,15 @@ from . import vtes
 
 
 class KRCG(flask.Flask):
-    def make_default_options_response(
-        self,
-    ):
+    """Base API class for Access-Control headers handling."""
+
+    def make_default_options_response(self) -> flask.Response:
         response = super().make_default_options_response()
         response.headers.add("Access-Control-Allow-Headers", "*")
         response.headers.add("Access-Control-Allow-Methods", "*")
         return response
 
-    def process_response(self, response):
+    def process_response(self, response: flask.Response) -> flask.Response:
         response.headers.add("Access-Control-Allow-Origin", "*")
         return response
 
@@ -32,7 +36,7 @@ logger = logging.logger
 base = flask.Blueprint("base", "krcg")
 
 
-def create_app(test=False):
+def create_app(test: bool = False):
     if not test:
         vtes.VTES.load_from_vekn(save=False)
         vtes.VTES.configure()
@@ -48,11 +52,13 @@ def create_app(test=False):
 @base.route("/")
 @base.route("/index.html")
 def swagger():
+    """Swagger doc display."""
     return flask.render_template("index.html")
 
 
 @base.route("/openapi.yaml")
 def openapi():
+    """OpenAPI schema."""
     return flask.render_template(
         "openapi.yaml",
         version=pkg_resources.require("krcg")[0].version,
@@ -60,7 +66,8 @@ def openapi():
 
 
 @base.route("/card/<text>")
-def card(text):
+def card(text: str):
+    """Get a card."""
     try:
         text = int(text)
     except ValueError:
@@ -73,19 +80,20 @@ def card(text):
 
 @base.route("/deck", methods=["POST"])
 def deck_by_cards():
+    """Get decks containing cards."""
     data = flask.request.get_json() or {}
     twda.TWDA.configure(
-        arrow.get(data.get("date_from") or "2008-01-01"),
+        arrow.get(data.get("date_from") or "1994-01-01"),
         arrow.get(data.get("date_to") or None),
         data.get("players") or 0,
         spoilers=False,
     )
     decks = twda.TWDA
     if data and data.get("cards"):
-        A = analyzer.Analyzer()
+        A = analyzer.Analyzer(decks)
         try:
             A.refresh(
-                *[vtes.VTES.get_name(vtes.VTES[card]) for card in data["cards"]],
+                *[vtes.VTES.get_name(card) for card in data["cards"]],
                 similarity=1,
             )
             decks = A.examples
@@ -93,25 +101,28 @@ def deck_by_cards():
             return "No result in TWDA", 404
         except KeyError:
             return "Invalid card name", 400
-    return flask.jsonify([vtes.VTES.deck_to_dict(v, k) for k, v in decks.items()])
+    return flask.jsonify([v.to_dict() for v in decks.values()])
 
 
 @base.route("/deck/<twda_id>")
 def deck_by_id(twda_id):
+    """Get a deck given its ID."""
     if not twda_id:
         return "Bad Request", 400
     if twda_id not in twda.TWDA:
         return "Not Found", 404
-    return flask.jsonify(vtes.VTES.deck_to_dict(twda.TWDA[twda_id], twda_id))
+    return flask.jsonify(twda.TWDA[twda_id].to_dict())
 
 
 @base.route("/complete/<text>")
 def complete(text):
+    """Card name completion."""
     return flask.jsonify(vtes.VTES.complete(text))
 
 
 @base.route("/card", methods=["POST"])
 def card_search():
+    """Card search."""
     data = flask.request.get_json() or {}
     result = set(card["Id"] for card in vtes.VTES.original_cards.values())
     for type_ in data.get("type") or []:
@@ -132,17 +143,21 @@ def card_search():
         result &= vtes.VTES.search.get(bonus.lower(), set())
     if data.get("text"):
         result &= set(vtes.VTES.search["text"].search(data["text"].lower()))
-    return flask.jsonify(sorted(vtes.VTES.get_name(vtes.VTES[int(i)]) for i in result))
+    return flask.jsonify(sorted(vtes.VTES.get_name(int(i)) for i in result))
 
 
 @base.route("/submit-ruling/<card>", methods=["POST"])
 def submit_ruling(card):
+    """Submit a new ruling proposal.
+
+    This posts an issue on the project Github repository.
+    """
     try:
         card = int(card)
     except ValueError:
         pass
     try:
-        card = vtes.VTES.get_name(vtes.VTES[card])
+        card = vtes.VTES.get_name(card)
     except KeyError:
         return "Card not found", 404
     data = flask.request.get_json() or {}

@@ -104,6 +104,51 @@ Use pip to install the `krcg` tool:
 pip install krcg
 ```
 
+### Using the library
+
+KRCG is a Python library for VTES.
+The code is well-documented and can be explored using Python's built-in `help` function.
+
+Here are a few quickstart examples to showcase how the library can be used:
+
+```python
+>>> from krcg.vtes import VTES
+>>> VTES.load_from_vekn()
+>>> VTES.configure()
+>>> VTES["Alastor"]
+{'Id': '100038',
+ 'Name': 'Alastor',
+ 'Aka': '',
+ 'Type': ['Political Action'],
+ 'Clan': [],
+ 'Discipline': [],
+ 'Pool Cost': '',
+ 'Blood Cost': '',
+ 'Conviction Cost': '',
+ 'Burn Option': False,
+ 'Card Text': 'Requires a justicar or Inner Circle member.\nChoose a ready Camarilla vampire. If this referendum is successful, search your library for an equipment card and place this card and the equipment on the chosen vampire. Pay half the cost (round down) of the equipment. This vampire may enter combat with any vampire controlled by another Methuselah as a +1 stealth Ⓓ  action. This vampire cannot commit diablerie. A vampire may have only one Alastor.',
+ 'Flavor Text': '',
+ 'Set': ['Gehenna:R', 'KMW:PAl', 'KoT:R'],
+ 'Requirement': ['justicar', 'inner circle'],
+ 'Banned': '',
+ 'Artist': 'Monte Moore',
+ 'Capacity': '',
+ 'Draft': ''}
+>>> VTES.rulings["Alastor"]
+{'Rulings': ['If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]',
+  'Requirements do not apply. [ANK 20200901]'],
+ 'Rulings Links': [{'Reference': 'LSJ 20040518',
+   'URL': 'https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ'},
+  {'Reference': 'ANK 20200901',
+   'URL': 'http://www.vekn.net/forum/rules-questions/78830-alastor-and-ankara-citadel#100653'}]}
+>>> VTES.complete("pentex")
+['Pentex™ Loves You!',
+ 'Pentex™ Subversion',
+ 'Enzo Giovanni, Pentex Board of Directors',
+ 'Enzo Giovanni, Pentex Board of Directors (ADV)',
+ 'Harold Zettler, Pentex Director']
+```
+
 ### Hosting the web API
 
 To host the web API, you need to install the `web` version of krcg:
@@ -251,6 +296,7 @@ Strike: 2R damage, with 1 optional maneuver each combat.
 
 -- Rulings
 Provides only ony maneuver each combat, even if the bearer changes. [LSJ 19980302-2]
+The optional maneuver cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]
 ```
 
 Use the `-l` option to get ruling links:
@@ -265,6 +311,7 @@ Strike: 2R damage, with 1 optional maneuver each combat.
 -- Rulings
 Provides only ony maneuver each combat, even if the bearer changes. [LSJ 19980302-2]
 [LSJ 19980302-2]: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/9YVFkeiL3Js/4UZXMyicluwJ
+[LSJ 20021028]: https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/9YVFkeiL3Js/4UZXMyicluwJ
 ```
 
 List TWDA decks containing a card:
@@ -366,7 +413,7 @@ Powerbase: Montreal            (in 34% of decks, typically 1 copy)
 List most played cards of a given type, clan or discipline:
 
 ```bash
-$ krcg top -d Animalism
+$ krcg top -d animalism
 Carrion Crows                  (played in 252 decks, typically 5-10 copies)
 Cats' Guidance                 (played in 222 decks, typically 2-5 copies)
 Canine Horde                   (played in 195 decks, typically 1-3 copies)

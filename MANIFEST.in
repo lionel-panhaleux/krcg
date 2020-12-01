@@ -3,6 +3,7 @@ include LICENSE README.md CHANGELOG.rst
 graft krcg
 graft schemas
 graft rulings
+graft twda_fix
 prune tests
 prune static
 exclude Makefile

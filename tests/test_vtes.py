@@ -1,6 +1,3 @@
-import os.path
-
-from krcg import twda
 from krcg import vtes
 
 
@@ -76,7 +73,7 @@ def test_card_variants():
     louvre = {"Name": "Louvre, Paris, The"}
 
     def sorted_variant(card, safe=True):
-        return sorted(n.lower() for n in vtes.VTES.get_name_variants(card, safe))
+        return sorted(n.lower() for n in vtes.VTES._get_name_variants(card, safe))
 
     # "," suffixes in vampire names are common, and often omitted in deck lists
     assert sorted_variant(sacha_vykos) == [
@@ -161,90 +158,7 @@ def test_card_variants():
 def test_fuzzy_match():
     assert "enchant kidnred" in vtes.VTES
     assert vtes.VTES.get_name(vtes.VTES["enchant kidnred"]) == "Enchant Kindred"
-
-
-def test_deck_display():
-    TWDA = twda._TWDA()
-    with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
-        TWDA.load_html(f, save=False)
-    assert len(TWDA) == 1
-    assert (
-        vtes.VTES.deck_to_txt(TWDA["2010tcdbng"])
-        == """Trading Card Day
-Bad Naumheim, Germany
-May 8th 2010
-2R+F
-10 players
-Rudolf Scholz
-
--- 4vp in the final
-
-Deck Name: The Storage Procurers
-
-Description: Allies with Flash Grenades to keep troubles at bay.
-Storage Annex for card efficiency and a structured hand. Weenies and
-Midcaps with Obfuscate and/or Dominate to oust via Conditionings and
-Deflections.
-
-Crypt (12 cards, min=7, max=24, avg=3.75)
------------------------------------------
-1x Gilbert Duane          7 AUS DOM OBF      prince  Malkavian:1
-1x Mariel, Lady Thunder   7 DOM OBF aus tha          Malkavian:1
-1x Badr al-Budur          5 OBF cel dom qui          Assamite:2
-1x Count Ormonde          5 OBF dom pre ser          Follower of Set:2
-1x Didi Meyers            5 DOM aus cel obf          Malkavian:1
-1x Zebulon                5 OBF aus dom pro          Malkavian:1
-1x Dimple                 2 obf                      Nosferatu:1
-1x Mustafa Rahman         2 dom                      Tremere:2
-1x Normal                 2 obf                      Malkavian:1
-1x Ohanna                 2 dom                      Malkavian:2
-1x Samson                 2 dom                      Ventrue antitribu:2
-1x Basil                  1 obf                      Pander:2
-
-Library (87 cards)
-Master (19; 3 trifle)
-1x Channel 10
-2x Charisma
-1x Creepshow Casino
-1x KRCG News Radio
-2x Perfectionist
-6x Storage Annex           -- great card! usually underestimated
-3x Sudden Reversal
-3x Vessel
-
-Ally (12)
-1x Carlton Van Wyk
-1x Gregory Winter
-1x Impundulu
-1x Muddled Vampire Hunter
-1x Ossian
-6x Procurer
-1x Young Bloods
-
-Equipment (9)
-1x Deer Rifle
-8x Flash Grenade           -- brings fear to the methuselahs rather than to minions
-
-Action Modifier (19)
-6x Cloak the Gathering
-7x Conditioning            -- should be more!
-2x Lost in Crowds
-4x Veil the Legions
-
-Reaction (16)
-7x Deflection
-2x Delaying Tactics
-7x On the Qui Vive
-
-Combat (8)
-8x Concealed Weapon
-
-Event (4)
-1x FBI Special Affairs Division
-1x Hunger Moon
-1x Restricted Vitae
-1x Unmasking, The"""
-    )
+    assert vtes.VTES.get_name("enchant kidnred") == "Enchant Kindred"
 
 
 def test_search():
@@ -270,6 +184,7 @@ def test_search():
     assert sorted(vtes.VTES.search["trait"]) == [
         "1 vote",
         "2 votes",
+        "addis ababa",
         "amsterdam",
         "anarch",
         "aragon",
@@ -279,19 +194,23 @@ def test_search():
         "barcelona",
         "baron",
         "berlin",
+        "birmingham",
         "bishop",
         "black hand",
         "boston",
         "brussels",
         "budapest",
+        "buenos aires",
         "cairo",
         "camarilla",
         "canberra",
+        "cape town",
         "cardinal",
         "chicago",
         "chicago ",
         "cleveland",
         "columbus",
+        "copenhagen",
         "cordoba",
         "corte",
         "dallas",
@@ -318,12 +237,15 @@ def test_search():
         "los angeles",
         "magaji",
         "manila",
+        "mannheim",
+        "melbourne",
         "mexico city",
         "miami",
         "milan",
         "milwaukee",
         "monaco",
         "montreal",
+        "nairobi",
         "new york",
         "paris",
         "perth",
@@ -336,7 +258,9 @@ def test_search():
         "priscus",
         "red list",
         "regent",
+        "rio de janeiro",
         "rome",
+        "rotterdam",
         "sabbat",
         "san diego",
         "scarce",
@@ -347,6 +271,7 @@ def test_search():
         "stockholm",
         "strasbourg",
         "sydney",
+        "taipei",
         "toronto",
         "venice",
         "versailles",
@@ -501,4 +426,4 @@ def test_search():
     # providing a stealth action does not register as "stealth" bonus
     assert vtes.VTES["Tracker's Mark"]["Id"] in vtes.VTES.search["intercept"]
     assert vtes.VTES["Tracker's Mark"]["Id"] not in vtes.VTES.search["stealth"]
-    assert vtes.VTES["Brain Wash"]["Id"] not in vtes.VTES.search["stealth"]
+    assert vtes.VTES["Brainwash"]["Id"] not in vtes.VTES.search["stealth"]

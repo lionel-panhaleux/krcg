@@ -1,16 +1,21 @@
-"""Command-line interface.
+"""Command-line interface (CLI).
 """
+from typing import Mapping, Set
 import argparse
+import json
 import math
 import sys
 
 import arrow
 import requests
+import unidecode
 
 from . import analyzer
 from . import config
+from . import deck
 from . import logging
 from . import twda
+from . import utils
 from . import vtes
 
 logger = logging.logger
@@ -20,7 +25,8 @@ if vtes.VTES:
     vtes.VTES.configure()
 
 
-def init(args):
+def init(args: argparse.Namespace) -> int:
+    """Initialize the CLI, loads VTES cards list, rulings and TWDA."""
     if args.cards:
         if args.file:
             vtes.VTES.load_csv(args.file)
@@ -31,7 +37,7 @@ def init(args):
             logger.critical(
                 "VTES cards database must be initialized before TWDA database."
             )
-            exit(1)
+            return 1
         vtes.VTES.configure()
         if args.file:
             twda.TWDA.load_html(args.file)
@@ -44,13 +50,20 @@ def init(args):
             twda.TWDA.load_from_vekn()
         except requests.exceptions.ConnectionError as e:
             logger.critical(
-                f"failed to connect to {e.request.url}"
-                " - check your Internet connection and firewall settings"
+                "failed to connect to {} - check your Internet connection",
+                e.request.url,
             )
-            exit(1)
+            return 1
+    return 0
 
 
-def typical_copies(A, card_name):
+def typical_copies(A: analyzer.Analyzer, card_name: str) -> str:
+    """Given a card, returns a string telling the usual number of copies included.
+
+    Example:
+        >>> typical_copies(a, "Fame")
+        1-2 copies
+    """
     deviation = math.sqrt(A.variance[card_name])
     min_copies = max(1, round(A.average[card_name] - deviation))
     max_copies = round(A.average[card_name] + deviation)
@@ -65,7 +78,8 @@ def typical_copies(A, card_name):
     return ret
 
 
-def affinity(args):
+def affinity(args: argparse.Namespace) -> int:
+    """Compute cards affinity"""
     # build a condition matching options
     def condition(card):
         return (not args.crypt or vtes.VTES.is_crypt(card)) and (
@@ -73,7 +87,7 @@ def affinity(args):
         )
 
     twda.TWDA.configure(args.date_from, args.date_to, args.players)
-    A = analyzer.Analyzer()
+    A = analyzer.Analyzer(twda.TWDA)
     A.refresh(*args.cards, condition=condition, similarity=1)
     if len(A.examples) < 4:
         print("Too few example in TWDA.")
@@ -94,9 +108,10 @@ def affinity(args):
             f"{name:<30} (in {score:.0f}% of decks, typically "
             f"{typical_copies(A, name)})"
         )
+    return 0
 
 
-def _search(args):
+def _search(args: argparse.Namespace) -> Set[int]:
     result = set(card["Id"] for card in vtes.VTES.original_cards.values())
     for type_ in args.type or []:
         result &= vtes.VTES.search["type"].get(type_.lower(), set())
@@ -117,9 +132,10 @@ def _search(args):
     return result
 
 
-def search(args):
+def search(args: argparse.Namespace) -> int:
+    """Search for cards matching filters"""
     result = _search(args)
-    for card_id in list(result)[: args.number]:
+    for card_id in sorted(list(result))[: args.number]:
         card = vtes.VTES[int(card_id)]
         name = vtes.VTES.get_name(card)
         print(name)
@@ -128,12 +144,14 @@ def search(args):
             print()
     if len(result) > args.number:
         print(f"... ({len(result)} results available, use the -n option)")
+    return 0
 
 
-def top(args):
+def top(args: argparse.Namespace) -> int:
+    """Most played cards matching filters"""
     result = _search(args)
     twda.TWDA.configure(args.date_from, args.date_to, args.players)
-    A = analyzer.Analyzer()
+    A = analyzer.Analyzer(twda.TWDA)
     A.refresh(condition=lambda c: vtes.VTES[c]["Id"] in result)
     for card_name, count in A.played.most_common()[: args.number]:
         card = vtes.VTES[card_name]
@@ -144,26 +162,37 @@ def top(args):
         if args.full:
             print(_card_text(card))
             print()
+    return 0
 
 
-def build(args):
+def build(args: argparse.Namespace) -> int:
+    """Build a deck based on TWDA examples"""
     twda.TWDA.configure(args.date_from, args.date_to, args.players)
     print(vtes.VTES.deck_to_txt(analyzer.Analyzer().build_deck(*args.cards)))
+    return 0
 
 
-def deck_(args):
+def deck_(args: argparse.Namespace) -> int:
+    """Display TWDA decks"""
     twda.TWDA.configure(args.date_from, args.date_to, args.players, spoilers=False)
     decks = {i: twda.TWDA[i] for i in args.cards_or_id if i in twda.TWDA}
-    cards = [
-        vtes.VTES.get_name(vtes.VTES[c]) for c in args.cards_or_id if c not in twda.TWDA
+    by_author = [
+        set(twda.TWDA.by_author[unidecode.unidecode(name).lower()])
+        for name in args.cards_or_id
+        if unidecode.unidecode(name).lower() in twda.TWDA.by_author
     ]
-    if not decks:
-        A = analyzer.Analyzer()
+    if by_author:
+        decks.update({i: twda.TWDA[i] for i in set.union(*by_author)})
+    cards = [vtes.VTES.get_name(c) for c in args.cards_or_id if c in vtes.VTES]
+    if cards:
+        A = analyzer.Analyzer(twda.TWDA)
         try:
             A.refresh(*cards, similarity=1)
         except analyzer.AnalysisError:
             exit(1)
         decks.update(A.examples)
+    elif not args.cards_or_id:
+        decks = twda.TWDA
     if len(decks) == 1:
         args.full = True
     if not args.full:
@@ -175,14 +204,16 @@ def deck_(args):
                     twda_id
                 )
             )
-            print(vtes.VTES.deck_to_txt(example))
+            print(example.to_txt())
         else:
             print(f"[{twda_id}] {example}")
+    return 0
 
 
-def card(args):
+def card(args: argparse.Namespace) -> int:
+    """Display cards, their text and rulings"""
     for i, name in enumerate(args.cards):
-        if i > 0:
+        if not args.short and i > 0:
             print()
         try:
             name = int(name)
@@ -191,16 +222,18 @@ def card(args):
         try:
             card = vtes.VTES[name]
         except KeyError:
-            logger.critical(f"Card not found: {name}")
+            logger.critical("Card not found: {}", name)
             exit(1)
         print(vtes.VTES.get_name(card))
         if args.short:
             continue
         print(_card_text(card))
         print(_card_rulings(args, vtes.VTES.get_name(card)))
+    return 0
 
 
-def _card_text(card):
+def _card_text(card: Mapping) -> str:
+    """Full text of a card (id, title, traits, costs, ...) for display purposes"""
     text = "[{}]".format("/".join(card["Type"]))
     if card.get("Clan"):
         text += "[{}]".format("/".join(card["Clan"]))
@@ -225,7 +258,8 @@ def _card_text(card):
     return text
 
 
-def _card_rulings(args, card_name):
+def _card_rulings(args: argparse.Namespace, card_name: str):
+    """Text of a card's rulings"""
     rulings = vtes.VTES.rulings.get(card_name)
     if args.text or not rulings:
         return ""
@@ -238,20 +272,31 @@ def _card_rulings(args, card_name):
     return text
 
 
-def complete(args):
+def complete(args: argparse.Namespace) -> int:
+    """Card names completion"""
     for name in vtes.VTES.complete(args.name.lower()):
         print(name)
+    return 0
+
+
+def deck_to_json(args: argparse.Namespace) -> int:
+    d = deck.Deck.from_txt(args.file)
+    json.dump(d.to_dict(), sys.stdout, indent=2)
+    return 0
 
 
 # ############################################################################# argparse
-def add_deck_boundaries(parser):
+def add_deck_boundaries(parser, default_date_from="1994-01-01"):
     """Common arguments: --from and --to to control year boundaries of TWDA analysis."""
     parser.add_argument(
         "--from",
         type=lambda s: arrow.get(s),
-        default=arrow.get(2008, 1, 1),
+        default=arrow.get(default_date_from),
         dest="date_from",
-        help="do not consider decks that won before this year (default 2008-01-01)",
+        help=(
+            "do not consider decks that won before this year "
+            f"(default {default_date_from})"
+        ),
     )
     parser.add_argument(
         "--to",
@@ -268,56 +313,30 @@ def add_deck_boundaries(parser):
     )
 
 
-class NARGS_CHOICE_WITH_ALIASES(argparse.Action):
-    # choices with nargs +/* : this is a known issue for argparse
-    # cf. https://bugs.python.org/issue9625
-    CHOICES = []
-    ALIASES = {}
-    CASE_SENSITIVE = False
-
-    def __call__(self, parser, namespace, values, option_string=None):
-        if not self.CASE_SENSITIVE:
-            values = [v.lower() for v in values]
-        if values:
-            for value in values:
-                if value not in self.CHOICES and value not in self.ALIASES:
-                    raise argparse.ArgumentError(
-                        self, f"invalid choice: {value} (choose from {self.CHOICES})"
-                    )
-        setattr(
-            namespace,
-            self.dest,
-            [
-                value if value in self.CHOICES else self.ALIASES[value]
-                for value in values
-            ],
-        )
-
-
-class DisciplineChoice(NARGS_CHOICE_WITH_ALIASES):
+class DisciplineChoice(utils.NargsChoiceWithAliases):
     CHOICES = vtes.VTES.search.get("discipline", {}).keys()
     ALIASES = config.DIS_MAP
     CASE_SENSITIVE = True
 
 
-class ClanChoice(NARGS_CHOICE_WITH_ALIASES):
+class ClanChoice(utils.NargsChoiceWithAliases):
     CHOICES = vtes.VTES.search.get("clan", {}).keys()
     ALIASES = config.CLANS_AKA
 
 
-class TypeChoice(NARGS_CHOICE_WITH_ALIASES):
+class TypeChoice(utils.NargsChoiceWithAliases):
     CHOICES = vtes.VTES.search.get("type", {}).keys()
 
 
-class TraitChoice(NARGS_CHOICE_WITH_ALIASES):
+class TraitChoice(utils.NargsChoiceWithAliases):
     CHOICES = vtes.VTES.search.get("trait", {}).keys()
 
 
-class GroupChoice(NARGS_CHOICE_WITH_ALIASES):
+class GroupChoice(utils.NargsChoiceWithAliases):
     CHOICES = vtes.VTES.search.get("group", {}).keys()
 
 
-class BonusChoice(NARGS_CHOICE_WITH_ALIASES):
+class BonusChoice(utils.NargsChoiceWithAliases):
     CHOICES = set(vtes.VTES.search.keys()) - {
         "trait",
         "type",
@@ -443,7 +462,9 @@ parser.set_defaults(func=init)
 parser = subparsers.add_parser(
     "affinity", help="display cards with the most affinity to given cards"
 )
-add_deck_boundaries(parser)
+add_deck_boundaries(
+    parser, default_date_from=arrow.get().shift(years=-5).date().isoformat()
+)
 parser.add_argument(
     "-n",
     "--number",
@@ -466,7 +487,7 @@ parser.add_argument(
     "cards",
     metavar="CARD",
     nargs="+",
-    type=lambda a: vtes.VTES.get_name(vtes.VTES[a]),
+    type=lambda a: vtes.VTES.get_name(a),
     help="reference cards",
 )
 parser.set_defaults(func=affinity)
@@ -475,7 +496,7 @@ parser.set_defaults(func=affinity)
 parser = subparsers.add_parser(
     "top", help="display top cards (played in most TW decks)"
 )
-add_deck_boundaries(parser)
+add_deck_boundaries(parser, arrow.get().shift(years=-5).date().isoformat())
 add_search(parser)
 parser.set_defaults(func=top)
 
@@ -486,7 +507,7 @@ parser.add_argument(
     "cards",
     metavar="CARD",
     nargs="*",
-    type=lambda a: vtes.VTES.get_name(vtes.VTES[a]),
+    type=lambda a: vtes.VTES.get_name(a),
     help="reference cards",
 )
 parser.set_defaults(func=build)
@@ -498,7 +519,10 @@ parser.add_argument(
     "-f", "--full", action="store_true", help="display each deck content"
 )
 parser.add_argument(
-    "cards_or_id", metavar="TXT", nargs="*", help="list TWDA decks from ID or cards"
+    "cards_or_id",
+    metavar="TXT",
+    nargs="*",
+    help="list TWDA decks from ID, author name or cards",
 )
 parser.set_defaults(func=deck_)
 
@@ -522,10 +546,19 @@ parser.set_defaults(func=complete)
 parser = subparsers.add_parser("search", help="card search")
 add_search(parser)
 parser.set_defaults(func=search)
+# ############################################################################### json
+parser = subparsers.add_parser("json", help="Format a decklist to JSON")
+parser.add_argument(
+    "file",
+    type=argparse.FileType("r", encoding="utf-8"),
+    nargs="?",
+    help="File containing the decklist",
+)
+parser.set_defaults(func=deck_to_json)
 
 
-def main():
-    args = root_parser.parse_args(sys.argv[1:])
+def execute(args):
+    args = root_parser.parse_args(args)
     logger.setLevel(
         {0: logging.ERROR, 1: logging.WARNING, 2: logging.INFO, 3: logging.DEBUG}[
             args.verbosity
@@ -533,13 +566,18 @@ def main():
     )
     if not args.subcommand:
         root_parser.print_help()
-        return
+        return 0
     if args.subcommand != "init":
         if not vtes.VTES:
             logger.critical('VTES cards database is not initialized. Use "krcg init"')
-            exit(1)
+            return 1
         if not twda.TWDA:
             logger.critical('TWDA database is not initialized. Use "krcg init"')
-            exit(1)
-    args.func(args)
+            return 1
+    res = args.func(args)
     logger.setLevel(logging.NOTSET)  # reset log level so as to not mess up tests
+    return res
+
+
+def main():
+    exit(execute(sys.argv[1:]))

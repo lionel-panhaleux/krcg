@@ -1,3 +1,4 @@
+"""Discord Bot."""
 import asyncio
 import collections
 import datetime
@@ -33,22 +34,18 @@ SELECTION_EMOJIS = collections.OrderedDict(
 @client.event
 async def on_ready():
     """Login success informative log."""
-    logger.info(f"Logged in as {client.user}")
+    logger.info("Logged in as {}", client.user)
 
 
 @client.event
-async def on_message(message):
-    """Main message loop.
-
-    Args:
-        message (object): a discord.Message
-    """
+async def on_message(message: discord.Message):
+    """Main message loop."""
     if message.author == client.user:
         return
 
     if message.content.lower().startswith("krcg "):
         content = message.content[5:]
-        logger.info(f"Received: {content}")
+        logger.info("Received: {}", content)
         # initial message handling. If multiple cards match, candidates are returned
         # and stored to the COMPLETION_WAITING map
         response = handle_message(content)
@@ -148,15 +145,15 @@ COLOR_MAP = {
 }
 
 
-def handle_message(message, completion=True):
+def handle_message(message: str, completion: bool = True) -> dict:
     """Message handling
 
     Args:
-        message (str): The message received (without prefix)
+        message: The message received , without prefix
 
     Returns:
-        kwargs (dict): Keyword args for discord channel.send() function.
-                       It includes a "candidates" key if multiple cards match
+        Keyword args for the discord channel.send() function.
+        It includes a "candidates" key if multiple cards match.
     """
     message = message.lower()
     # Check for card ID
@@ -184,7 +181,7 @@ def handle_message(message, completion=True):
                 ),
                 "footer": {"text": "Click a number as reaction."},
             }
-            logger.info(embed)
+            logger.info(str(embed))
             return {
                 "content": "",
                 "embed": discord.Embed.from_dict(embed),
@@ -280,7 +277,7 @@ def handle_message(message, completion=True):
         "image": {"url": image_url},
         "footer": {"text": footer},
     }
-    logger.info(embed)
+    logger.info(str(embed))
     return {
         "content": "",
         "embed": discord.Embed.from_dict(embed),
@@ -288,6 +285,7 @@ def handle_message(message, completion=True):
 
 
 def main():
+    """Entrypoint for the Discord Bot."""
     logger.setLevel(logging.INFO)
     # use latest card texts
     # only fuzzy match on long names as we already use completion — both are tricky, eg:
@@ -298,4 +296,5 @@ def main():
     vtes.VTES.configure(fuzzy_threshold=12, safe_variants=False)
     client.COMPLETION_WAITING = {}
     client.run(os.getenv("DISCORD_TOKEN"))
-    logger.setLevel(logging.NOTSET)  # reset log level so as to not mess up tests
+    # reset log level so as to not mess up tests
+    logger.setLevel(logging.NOTSET)

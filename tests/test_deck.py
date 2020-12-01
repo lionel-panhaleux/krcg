@@ -1,4 +1,7 @@
 from krcg import deck
+from krcg import twda
+
+import os
 
 
 def test_cards():
@@ -11,3 +14,87 @@ def test_cards_count():
     d = deck.Deck()
     d.update({"Fame": 3, "Bum's Rush": 10, "Crusher": 4})
     assert d.cards_count() == 17
+
+
+def test_deck_display():
+    TWDA = twda._TWDA()
+    with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
+        TWDA.load_html(f, save=False)
+    assert len(TWDA) == 1
+    assert (
+        TWDA["2010tcdbng"].to_txt()
+        == """Trading Card Day
+Bad Naumheim, Germany
+May 8th 2010
+2R+F
+10 players
+Rudolf Scholz
+
+-- 4vp in the final
+
+Deck Name: The Storage Procurers
+
+Description: Allies with Flash Grenades to keep troubles at bay.
+Storage Annex for card efficiency and a structured hand. Weenies and
+Midcaps with Obfuscate and/or Dominate to oust via Conditionings and
+Deflections.
+
+Crypt (12 cards, min=7, max=24, avg=3.75)
+-----------------------------------------
+1x Gilbert Duane          7 AUS DOM OBF      prince  Malkavian:1
+1x Mariel, Lady Thunder   7 DOM OBF aus tha          Malkavian:1
+1x Badr al-Budur          5 OBF cel dom qui          Assamite:2
+1x Count Ormonde          5 OBF dom pre ser          Follower of Set:2
+1x Didi Meyers            5 DOM aus cel obf          Malkavian:1
+1x Zebulon                5 OBF aus dom pro          Malkavian:1
+1x Dimple                 2 obf                      Nosferatu:1
+1x Mustafa Rahman         2 dom                      Tremere:2
+1x Normal                 2 obf                      Malkavian:1
+1x Ohanna                 2 dom                      Malkavian:2
+1x Samson                 2 dom                      Ventrue antitribu:2
+1x Basil                  1 obf                      Pander:2
+
+Library (87 cards)
+Master (19; 3 trifle)
+1x Channel 10
+2x Charisma
+1x Creepshow Casino
+1x KRCG News Radio
+2x Perfectionist
+6x Storage Annex           -- great card! usually underestimated
+3x Sudden Reversal
+3x Vessel
+
+Ally (12)
+1x Carlton Van Wyk
+1x Gregory Winter
+1x Impundulu
+1x Muddled Vampire Hunter
+1x Ossian
+6x Procurer
+1x Young Bloods
+
+Equipment (9)
+1x Deer Rifle
+8x Flash Grenade           -- brings fear to the methuselahs rather than to minions
+
+Action Modifier (19)
+6x Cloak the Gathering
+7x Conditioning            -- should be more!
+2x Lost in Crowds
+4x Veil the Legions
+
+Reaction (16)
+7x Deflection
+2x Delaying Tactics
+7x On the Qui Vive
+
+Combat (8)
+8x Concealed Weapon
+
+Event (4)
+1x FBI Special Affairs Division
+1x Hunger Moon
+1x Restricted Vitae
+1x Unmasking, The"""
+    )

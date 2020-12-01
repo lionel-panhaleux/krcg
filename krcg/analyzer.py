@@ -1,12 +1,16 @@
 """TWDA analyzer: compute cards affinity and build decks based on TWDA.
 """
+from typing import List, Mapping, Tuple
 import collections
-from random import randrange
+import itertools
+import random
 
 from . import deck
 from . import logging
 from . import vtes
-from . import twda
+
+Condition = deck.Condition
+Candidates = List[Tuple[str, float]]
 
 logger = logging.logger
 
@@ -30,7 +34,19 @@ class Analyzer(object):
         deck (deck.Deck): Deck being built
     """
 
-    def __init__(self):
+    def __init__(self, decks: Mapping, spoilers: bool = True):
+        self.decks = decks
+        if spoilers and len(self.decks) > 50:
+            self.spoilers = {
+                name: count / len(self)
+                for name, count in collections.Counter(
+                    itertools.chain.from_iterable(d.keys() for d in self.values())
+                ).items()
+                if count > len(self) / 4
+            }
+            logger.debug("Spoilers: {}", self.spoilers)
+        else:
+            self.spoilers = {}
         self.examples = None
         self.played = None
         self.average = None
@@ -39,7 +55,7 @@ class Analyzer(object):
         self.refresh_cursor = 0
         self.deck = None
 
-    def build_deck(self, *args):
+    def build_deck(self, *args: str) -> deck.Deck:
         """Build a deck, using optional card names as reference.
 
         The analyzer samples the TWDA and builds a deck similar to TWDs.
@@ -48,10 +64,10 @@ class Analyzer(object):
         If no card name is given, a random first-tier card is chosen for seed.
 
         Args:
-            *args (str): (opt.) card names as reference for deck building
+            *args: card names as reference for deck building
 
         Returns:
-            deck.Deck: The deck built
+            The deck built
         """
         self.deck = deck.Deck(author="KRCG")
         self.refresh(*args, condition=vtes.VTES.is_crypt)
@@ -59,13 +75,11 @@ class Analyzer(object):
         # but do not pick a spoiler (card played in more than 25% decks).
         if not args:
             args = [
-                [
-                    c
-                    for c, _ in self.played.most_common()
-                    if c not in twda.TWDA.spoilers
-                ][randrange(100)]
+                [c for c, _ in self.played.most_common() if c not in self.spoilers][
+                    random.randrange(100)
+                ]
             ]
-            logger.info(f"Randomly selected {args[0]}")
+            logger.info("Randomly selected {}", args[0])
         # build crypt first, then library
         self.build_deck_part(*args, condition=vtes.VTES.is_crypt)
         self.refresh(condition=vtes.VTES.is_library)
@@ -77,7 +91,9 @@ class Analyzer(object):
         )
         return self.deck
 
-    def refresh(self, *args, similarity=0.6, condition=None):
+    def refresh(
+        self, *args: str, similarity: float = 0.6, condition: Condition = None
+    ) -> None:
         """Sample TWDA. This is the core method of the Analyzer.
 
         Fetch `self.examples` decks from TWDA.
@@ -98,27 +114,27 @@ class Analyzer(object):
         in O(log) of cards count.
 
         Args:
-            args: (opt.) card names, choose decks containing them
-            similarity: (opt.) matching cards proportion for selection
-            condition: (opt.) filter on card types, clans, etc.
+            args: card names, choose decks containing them
+            similarity: matching cards proportion for selection
+            condition: filter on card types, clans, etc.
         """
         reference = []
         if args:
             reference += [a for a in args]
         if self.deck:
-            reference += list(self.deck.card_names(twda.TWDA.no_spoil))
+            reference += list(self.deck.card_names(lambda c: c not in self.spoilers))
         self.refresh_cursor = len(reference) * len(reference)
         # examples are similar (jaccard index > similarity) decks chosen from TWDA
         # spoilers (cards played in more than 25% decks) are not considered
         if reference:
             self.examples = {
                 twda_id: example
-                for twda_id, example in twda.TWDA.items()
+                for twda_id, example in self.decks.items()
                 if len(
                     set(reference)
                     & set(
                         example.card_names(
-                            lambda c: c in reference or twda.TWDA.no_spoil(c)
+                            lambda c: c in reference or c not in self.spoilers
                         )
                     )
                 )
@@ -126,11 +142,11 @@ class Analyzer(object):
                 >= similarity
             }
         else:
-            self.examples = twda.TWDA
+            self.examples = self.decks
         if not self.examples:
             logger.error("No example in TWDA")
             raise AnalysisError()
-        logger.info(f"Refresh examples ({len(self.examples)})")
+        logger.info("Refresh examples ({})", len(self.examples))
         self.played = collections.Counter()
         for example in self.examples.values():
             self.played.update(card for card, _ in example.cards(condition))
@@ -174,12 +190,12 @@ class Analyzer(object):
                 self.cards_left = max(self.cards_left, 12)
             self.cards_left -= self.deck.cards_count(condition)
 
-    def refresh_affinity(self, card, condition=None):
+    def refresh_affinity(self, card: str, condition: Condition = None) -> None:
         """Add a card to `self.affinity` using current examples.
 
         Args:
-            card (str): The card for which to refresh affinity
-            condition (func): The conditional function candidates have to validate
+            card: The card for which to refresh affinity
+            condition: The conditional function candidates have to validate
         """
         for example in self.examples.values():
             if card not in example:
@@ -191,15 +207,15 @@ class Analyzer(object):
                 }
             )
 
-    def candidates(self, *args, no_filter=False):
+    def candidates(self, *args: str, no_filter: bool = False) -> Candidates:
         """Select candidates using `self.affinity`. Filter banned cards out.
 
         Args:
-            *args (str): Reference cards
+            *args: Reference cards
             limit: Maximum number of candidates to return
 
         Returns:
-            list: List of (card, affinity_score) candidates by decreasing affinity
+            List of (card, affinity_score) candidates by decreasing affinity
         """
         # score candidates by affinity
         candidates = collections.Counter()
@@ -214,7 +230,7 @@ class Analyzer(object):
             )
         return candidates.most_common()
 
-    def build_deck_part(self, *args, condition=None):
+    def build_deck_part(self, *args: str, condition: Condition = None) -> None:
         """Build a deck part using given condition
 
         Condition is usually `VTES.is_crypt` or `VTES.is_library` but any
@@ -236,7 +252,7 @@ class Analyzer(object):
                 logger.info("No more candidates")
                 return
             next_card, score = candidates[0]
-            logger.info(f"Selected {next_card} ({score:.2f})")
+            logger.info("Selected {} ({:.2f})", next_card, score)
             count = min(self.cards_left, round(self.average[next_card]))
             self.deck.update({next_card: count})
             self.cards_left -= count
