@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.5 (unreleased)
+1.5 (2020-12-01)
 ----------------
 
 - Heavy parser improvements. Now all decks since 1994 are properly parsed and included.
