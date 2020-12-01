@@ -6,6 +6,7 @@ graft rulings
 graft twda_fix
 prune tests
 prune static
+prune utils
 exclude Makefile
 exclude bot-example.png
 exclude dark-pack.png

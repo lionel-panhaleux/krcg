@@ -1,6 +1,5 @@
 .PHONY: validate quality test init static release update serve deploy clean sync-images
 
-LACKEY_FOLDER ?= /Applications/LackeyCCG
 REMOTE ?= krcg.org:projects/images.krcg.org/dist
 
 # used by CI
@@ -40,6 +39,6 @@ clean:
 	rm -rf .pytest_cache
 
 sync-images:
-	# Official card name was changed, but it is not reprinted yet - let's keep both for now
-	cp ${LACKEY_FOLDER}/plugins/vtes/sets/setimages/general/regomotus.jpg ${LACKEY_FOLDER}/plugins/vtes/sets/setimages/general/regomotum.jpg
-	rsync -rptov --delete-after -e ssh ${LACKEY_FOLDER}/plugins/vtes/sets/setimages/general/ ${REMOTE}
+	python utils/lackey-images.py
+	rsync -rptov --delete-after -e ssh images/ ${REMOTE}
+	rm -rf images

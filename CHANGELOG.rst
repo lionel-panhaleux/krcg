@@ -8,6 +8,7 @@ Changelog
 - Modified the web API to return decks from 1994 by default (instead of 2008)
 - Modified the CLI to work with decks from 1994 by default (instead of 2008)
 - New CLI Command to parse decklists and output a standard JSON format
+- New script to synchronise cards images
 
 1.4 (2020-10-30)
 ----------------
