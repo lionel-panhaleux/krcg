@@ -77,7 +77,7 @@ def amaranth_twda() -> list:
             ret.append(
                 {
                     "author": deck.player,
-                    "date": deck.date.format("YYYY-MM-DD"),
+                    "date": deck.date.isoformat(),
                     "title": deck.name or "",
                     "twda_key": twda_id,
                     "description": deck.event + ", " + deck.place,
