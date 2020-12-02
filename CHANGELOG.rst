@@ -4,7 +4,7 @@ Changelog
 1.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- API: Fix the /deck POST endpoint (again)
 
 
 1.6 (2020-12-02)

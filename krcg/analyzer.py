@@ -38,11 +38,11 @@ class Analyzer(object):
         self.decks = decks
         if spoilers and len(self.decks) > 50:
             self.spoilers = {
-                name: count / len(self)
+                name: count / len(self.decks)
                 for name, count in collections.Counter(
                     itertools.chain.from_iterable(d.keys() for d in self.decks.values())
                 ).items()
-                if count > len(self) / 4
+                if count > len(self.decks) / 4
             }
             logger.debug("Spoilers: {}", self.spoilers)
         else:
