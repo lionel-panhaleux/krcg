@@ -40,7 +40,7 @@ class Analyzer(object):
             self.spoilers = {
                 name: count / len(self)
                 for name, count in collections.Counter(
-                    itertools.chain.from_iterable(d.keys() for d in self.values())
+                    itertools.chain.from_iterable(d.keys() for d in self.decks.values())
                 ).items()
                 if count > len(self) / 4
             }
