@@ -403,12 +403,10 @@ class Parser:
                 players_count = re.match(r"^\s*(\d+|\?+)\s*player", line).group(1)
                 self.deck.players_count = int(players_count)
                 return True
-            except (AttributeError, ValueError):
+            except AttributeError:
                 pass
-        # Player is always indicated, but after tournament format and count if any
-        if not self.deck.player:
-            self.deck.player = line
-            return True
+            except ValueError:
+                return True
         # Ignore Organizer line (rare inclusion)
         try:
             if re.match(r"^\s*(O|o)rgani(s|z)er", line):
@@ -422,6 +420,14 @@ class Parser:
                 return True
             except AttributeError:
                 pass
+        # Player is always indicated, last entry before score
+        # remove comments on player's name
+        if not self.deck.player:
+            player = re.sub(r"\s*\([^\)]*\)", "", line.strip())
+            player = re.sub(r"\s*--\s+.*", "", player)
+            if player:
+                self.deck.player = player
+            return True
         if not self.deck.score:
             try:
                 score = re.match(
@@ -452,8 +458,8 @@ class Parser:
         if not self.deck.author:
             try:
                 self.deck.author = re.match(
-                    r"(((c|C)reated)|((d|D)eck)\s*(b|B)y)|"
-                    r"((a|A)uthors?)|((c|C)reators?)\s*:?\s*(?P<author>.*)$",
+                    r"(((c|C)reated|(d|D)eck)\s*(b|B)y|"
+                    r"(a|A)uthors?|(c|C)reators?)\s*:?\s*(?P<author>.*)$",
                     line,
                 ).group("author")
                 return True

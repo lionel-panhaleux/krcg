@@ -166,8 +166,7 @@ Many thanks to Jeff Thompson for maintaining them for all these years.
             current_year = deck.date.year
             content += f'\n<h3><a id="Year{current_year}">{current_year}</a></h3>\n\n'
         player = deck.player
-        player = re.sub(r"\s*\([^\)]*\)", "", player)
-        player = re.sub(r"\s*--\s+.*", "", player)
+        assert player, f"no player indicated for deck #{twda_id}"
         if player[-1] != "s":
             player += "'s"
         else:
