@@ -237,10 +237,10 @@
     "4a2818bb3658": "Damage is inflicted even if the opponent dodges. It is not inflicted if anyone uses a \"strike: combat ends\". [ANK 20200422]",
     "268dffb45899": "The effect to burn a hostage counter can be done only once per turn. [ANK 20200729] [RBK 20181001-11]",
     "63073fa42fa9": "[PRE] Damage is done by the vampire (not environmental). [RTR 19970630] [LSJ 19990723]",
-    "2e40f0f1e2d1": "[PRE] The damage is assigned after the end of combat. [RTR 19970630]",
+    "e7a38db55b5b": "[PRE] The damage is inflicted after the end of combat. [RTR 19970630]",
     "af77db3b7171": "[PRE] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]",
     "ee095f6384a8": "[PRE] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [LSJ 20070124]",
-    "e078b3829fc3": "[PRE] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat.  [ANK 20170111] [LSJ 20071011]",
+    "0e6c9c02fb0f": "[PRE] Is a damage dealing strike and can be modified by effects like {Target Vitals} or {Dam the Heart's River}.  [ANK 20170111] [LSJ 20071011]",
     "d1b3c603043c": "[ani] Is played after combat [RTR 19980623]",
     "b515dcc81e93": "[ani] Can not be played if the vampire is in torpor, for example if he went into torpor during the combat resulting from the block. [LSJ 20000103]",
     "0f846fa61ceb": "Cards and effects that can be played \"after resolution\" (and only them) can be played after the unlock effect. [ANK 20190113]",
@@ -519,6 +519,7 @@
     "7826b1ce8989": "The burn pool effect is cumulative with other copies (if there are two of them, you burn 4 pool to play your turn), the controller skipping a turn counts towards all his copies. [RTR 19941222]",
     "99cf708d9dd3": "If two Anarchs are in combat and both go to torpor, both controllers can benefit from the effect. [ANK 20180627-2]",
     "462159bce350": "Is not burned if another effect make the vampire burn 1 blood upon action declaration. [RTR 20020501]",
+    "bc8b958e928d": "If it has been equipped or played already, an effect can still \"put it into play\" provided it is not an \"equip\" action (eg. {Kiss of Lachesis}, {Grasp the Ghostly}). [LSJ 20060209]",
     "989223045962": "If the opponent dodges, the \"is locked and does not unlock as normal\" effect do not apply, but it still burns. [RTR 20041202] [LSJ 20060808]",
     "52084f5691c5": "If the combat continues or a new combat begins, the \"is locked and does not unlock as normal\" effect do not apply, but it still burns. [RTR 20020501] [LSJ 20040601], ",
     "1ade5609822d": "Still burns when used if the opponent uses a \"strike: combat ends\" too. It does not if combat ends before strike resolution (eg. {R\u00f6tschreck}). [LSJ 20001127-2] [LSJ 20010806-1]",
@@ -585,6 +586,7 @@
     "40766451c889": "The vampire as an ally has no \"starting life\" trait so {Vagabond Mystic} cannot give him life. [LSJ 20011214-1]",
     "678f071b336b": "If the vampire has an ability to play Discipline-requiring cards \"as if\" he has that Discipline ({Ian Forestal}, for example), then the vampire may use that ability even while he is treated as an ally. In that case, he is treated just as an ally with that ability would be treated (spends life for blood costs, for example). Similarly for {Mata Hari}'s ability. [LSJ 20070301]",
     "ae6d7afa51c0": "{Left for Dead} can be used on the vampire. [LSJ 20100527]",
+    "10450e208fba": "If the equipment is burned before it runs out of pathos counters, it goes to its owner's ash heap and is not removed from the game. [LSJ 20060209]",
     "8659b8baa97f": "Can use his action on a vampire with no blood. [RTR 20010711]",
     "0700cfe816b6": "Does not burn nor inflict damage if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1][LSJ 19981006]",
     "0069257106ea": "Can cancel cards preventing the use of equipment if the target has a weapon. [LSJ 20050221]",
@@ -740,9 +742,10 @@
     "c8169714744e": "Once in play, applies to an action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2] [KOT 20081119]",
     "a218de4749aa": "Only considers the minions controlled during the influence phase. It does not care if minions you no longer control acted this turn. [LSJ 20060616-1]",
     "8ff1e52e74e1": "[for] Is not the default action, no blood is paid for the rescue. [ANK 20181017]",
+    "6d63b4345105": "[val] [VAL] Damage is done by the vampire (not environmental). [RTR 19970630] [LSJ 19990723]",
     "f1843a30e18e": "[val] [VAL] If the combat continues or a new combat begins, no damage is done. The vampire can still burn 1 blood to unlock. [RTR 20020501]",
     "b4fa2366e8dd": "[val] [VAL] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [PIB 20130319]",
-    "ae9c5defb4e4": "[val] [VAL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [PIB 20130319]",
+    "eeccc2841ffd": "[val] [VAL] Is a damage dealing strike and can be modified by effects like {Target Vitals} or {Dam the Heart's River}. [PIB 20130319]",
     "45dc833a746c": "[VAL] The blood to unlock can be paid until the end of combat, including after other effects that are played at the end of round. [ANK 20180618]",
     "3834d303edaf": "If the Loyalist vampire's votes are changed to be in favor, the votes granted by Loyalist are silenced (not cast). [LSJ 20031115]",
     "e2e7248f8a79": "You cannot use another strike card as the hand strike for Lucky Blow. [LSJ 20010627]",
@@ -984,7 +987,7 @@
     "9e82e0d984c8": "Can only resurrect allies or retainers burned from play. Discards and blocked actions do not qualify. [LSJ 20011216-1]",
     "e5434ce2b1ab": "Can target a locked minion. [ANK 20170303]",
     "ae4d30e7cc8e": "Does not count environmental damage. [ANK 20200925]",
-    "a6c96fd54c16": "Can be played by a vampire going to torpor. Cannot be played by the vampire if he has been burned. [ANK 20200926]",
+    "2dc419b5a827": "Can be played by a vampire going to torpor. Can be played by a vampire who is about to burn. [ANK 20201122] [ANK 20200926]",
     "11235b064045": "Does not allow to take control of the opponent. [ANK 20200925]",
     "3a1c84a75bce": "[aus] You do not get to see the card drawn as replacement. [PIB 20121031]",
     "34aa6bb25cc6": "Unlocked Anarchs are chosen when choosing terms. They still count if they get locked during the vote. [LSJ 20081203]",
@@ -1195,6 +1198,7 @@
     "69c848337823": "Is played during the Strike phase (6.4.3) even if you commit to a strike in the Determine Range phase (6.4.2) (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]",
     "78e19ce8db19": "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]",
     "22bb19ebf97f": "If it is canceled, the strike resolves with the default target. [ANK 20200311]",
+    "1a5061e9129e": "Can be played on a dodge or a combat ends, but does not add damage in that case. [PIB 20130319]",
     "abf6718e84bc": "Can be played if the opponent was burned. [LSJ 20031201-2]",
     "ccfa0c667a19": "[ANI] The prey goes first in the combat (for declaring maneuvers, strikes, presses). [LSJ 20070319]",
     "5a2d02e96f5d": "Must be played before the bleed can be considered successful (eg. before [OBF] {Spying Mission}), but can be played before or after block attempts. [TOM 19960303] [LSJ 20061212]",
@@ -1995,6 +1999,7 @@
     "[LSJ 20031011]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/GZZJjzAeuxU/HtZKyNDKiOAJ",
     "[RTR 19941222]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/19Ys4rdQPQw/bijoNa8Z8FsJ",
     "[ANK 20180627-2]": "http://www.vekn.net/forum/rules-questions/76756-flames-of-insurrection#88416",
+    "[LSJ 20060209]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/ZuOfZorIhhU/m/X5G1JfqDPhcJ",
     "[LSJ 20060808]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/ncZn3knH-Uo/sBjnMxAk1msJ",
     "[LSJ 20040601]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/bEvYg3Za-fc/p0CSDyi5MWkJ",
     "[LSJ 20021001]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/FW-bmZpIM68/gLoYcvpUB7UJ",
@@ -2223,6 +2228,7 @@
     "[LSJ 20011216-1]": "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/xwirj771uGM/0w1qJBEabFEJ",
     "[ANK 20170303]": "http://www.vekn.net/forum/rules-questions/75626-revelation-of-ecstasy-when-prey-is-tapped-out?start=6#80974",
     "[ANK 20200925]": "http://www.vekn.net/forum/rules-questions/78861-revelation-of-wrath#100820",
+    "[ANK 20201122]": "http://www.vekn.net/forum/rules-questions/78861-revelation-of-wrath?start=6#101144",
     "[ANK 20200926]": "http://www.vekn.net/forum/rules-questions/78861-revelation-of-wrath#100824",
     "[LSJ 20081203]": "https://groups.google.com/g/rec.games.trading-cards.jyhad/c/gaskAJqA-mE/m/GpuegB2W0IgJ",
     "[ANK 20200813-2]": "http://www.vekn.net/forum/rules-questions/78799-rewind-time-inf-and-action-cards#100526",
@@ -3166,10 +3172,10 @@
     ],
     "100307": [
       "63073fa42fa9",
-      "2e40f0f1e2d1",
+      "e7a38db55b5b",
       "af77db3b7171",
       "ee095f6384a8",
-      "e078b3829fc3"
+      "0e6c9c02fb0f"
     ],
     "100308": [
       "d1b3c603043c",
@@ -3977,7 +3983,8 @@
       "99cf708d9dd3"
     ],
     "100743": [
-      "462159bce350"
+      "462159bce350",
+      "bc8b958e928d"
     ],
     "100745": [
       "989223045962",
@@ -4212,6 +4219,9 @@
     ],
     "100850": [
       "9ebd5507dacb"
+    ],
+    "100851": [
+      "10450e208fba"
     ],
     "100855": [
       "8659b8baa97f",
@@ -4730,9 +4740,10 @@
     ],
     "101128": [
       "1fdb489bf624",
+      "6d63b4345105",
       "f1843a30e18e",
       "b4fa2366e8dd",
-      "ae9c5defb4e4",
+      "eeccc2841ffd",
       "45dc833a746c"
     ],
     "101130": [
@@ -5613,7 +5624,7 @@
     "101626": [
       "5b944ed81b1f",
       "ae4d30e7cc8e",
-      "a6c96fd54c16",
+      "2dc419b5a827",
       "11235b064045"
     ],
     "101627": [
@@ -6304,7 +6315,8 @@
     "101942": [
       "69c848337823",
       "c6622df71421",
-      "78e19ce8db19"
+      "78e19ce8db19",
+      "1a5061e9129e"
     ],
     "101945": [
       "5b944ed81b1f",
