@@ -41,6 +41,37 @@ Lock to give a minion you control +1 intercept. Lock and burn 1 pool to give a m
     )
 
 
+def test_card_international(capsys, twda):
+    cli.execute(["card", "-i", "aid from bats"])
+    assert (
+        capsys.readouterr().out
+        == """Aid from Bats
+  fr -- Aide des chauves-souris
+  es -- Ayuda de murciélagos
+[Combat] -- (Jyhad:C, VTES:C, CE:C/PN3, Anarchs:PG2, Third:C, KoT:C, FB:PN6 - #100029)
+[ani] Strike: 1R damage, with 1 optional maneuver.
+[ANI] As above, with 1 optional press.
+
+-- fr
+[ani] Frapper à toute portée : 1 point de dégâts, avec 1 manœuvre optionnelle.
+[ANI] Comme ci-dessus, avec 1 poursuite optionnelle.
+
+-- es
+[ani] Ataque: 1 de daño a distancia, con 1 maniobra opcional.
+[ANI] Como antes, con 1 acoso opcional.
+
+-- Rulings
+[ANI] The press can only be used during the current round. [TOM 19960521]
+
+"""  # noqa
+    )
+
+
+def test_card_short_no_quote(capsys, twda):
+    cli.execute(["card", "-s", "aid", "from", "bats"])
+    assert capsys.readouterr().out == "Aid from Bats\n"
+
+
 def test_card_rulings(capsys, twda):
     cli.execute(["card", ".44 magnum"])
     assert (

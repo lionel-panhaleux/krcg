@@ -212,24 +212,44 @@ def deck_(args: argparse.Namespace) -> int:
 
 def card(args: argparse.Namespace) -> int:
     """Display cards, their text and rulings"""
-    for i, name in enumerate(args.cards):
-        if not args.short and i > 0:
-            print()
-        try:
-            name = int(name)
-        except ValueError:
-            pass
-        try:
-            card = vtes.VTES[name]
-        except KeyError:
-            logger.critical("Card not found: {}", name)
-            exit(1)
-        print(vtes.VTES.get_name(card))
-        if args.short:
-            continue
-        print(_card_text(card))
-        print(_card_rulings(args, vtes.VTES.get_name(card)))
-    return 0
+    index = 0
+    try:
+        for name in args.cards:
+            _display_card(args, name, index)
+            index += 1
+        return 0
+    except KeyError:
+        if index == 0:
+            try:
+                _display_card(args, " ".join(args.cards))
+                return 0
+            except KeyError:
+                pass
+    logger.critical("Card not found")
+    return 1
+
+
+def _display_card(args: argparse.Namespace, name: str, index: int = 0) -> None:
+    if not args.short and index > 0:
+        print()
+    try:
+        name = int(name)
+    except ValueError:
+        pass
+    card = vtes.VTES[name]
+    print(vtes.VTES.get_name(card))
+    if args.international:
+        for lang, translation in vtes.VTES.translations.items():
+            if int(card["Id"]) in translation:
+                print(f"  {lang[:2]} -- {translation[int(card['Id'])]['Name']}")
+    if args.short:
+        return
+    print(_card_text(card))
+    if args.international:
+        for lang, translation in vtes.VTES.translations.items():
+            if int(card["Id"]) in translation:
+                print(f"\n-- {lang[:2]}\n{translation[int(card['Id'])]['Card Text']}")
+    print(_card_rulings(args, vtes.VTES.get_name(card)))
 
 
 def _card_text(card: Mapping) -> str:
@@ -528,6 +548,9 @@ parser.set_defaults(func=deck_)
 
 # ################################################################################# card
 parser = subparsers.add_parser("card", help="show VTES cards")
+parser.add_argument(
+    "-i", "--international", action="store_true", help="display translations"
+)
 parser.add_argument("-s", "--short", action="store_true", help="display only card name")
 parser.add_argument(
     "-t", "--text", action="store_true", help="display card text only (no rulings)"
