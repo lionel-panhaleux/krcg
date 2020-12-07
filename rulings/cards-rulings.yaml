@@ -368,10 +368,10 @@
   - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 100307|Catatonic Fear:
   - "[PRE] Damage is done by the vampire (not environmental). [RTR 19970630] [LSJ 19990723]"
-  - "[PRE] The damage is assigned after the end of combat. [RTR 19970630]"
+  - "[PRE] The damage is inflicted after the end of combat. [RTR 19970630]"
   - "[PRE] If the combat continues or a new combat begins, no damage is done. [RTR 20020501]"
   - "[PRE] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [LSJ 20070124]"
-  - "[PRE] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat.  [ANK 20170111] [LSJ 20071011]"
+  - "[PRE] Is a damage dealing strike and can be modified by effects like {Target Vitals} or {Dam the Heart's River}.  [ANK 20170111] [LSJ 20071011]"
 100308|Cats' Guidance:
   - "[ani] Is played after combat [RTR 19980623]"
   - "[ani] Can not be played if the vampire is in torpor, for example if he went into torpor during the combat resulting from the block. [LSJ 20000103]"
@@ -1306,9 +1306,10 @@
   - 'Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]'
 101128|Loving Agony:
   - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+  - "[val] [VAL] Damage is done by the vampire (not environmental). [RTR 19970630] [LSJ 19990723]"
   - "[val] [VAL] If the combat continues or a new combat begins, no damage is done. The vampire can still burn 1 blood to unlock. [RTR 20020501]"
   - "[val] [VAL] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [PIB 20130319]"
-  - "[val] [VAL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat. [PIB 20130319]"
+  - "[val] [VAL] Is a damage dealing strike and can be modified by effects like {Target Vitals} or {Dam the Heart's River}. [PIB 20130319]"
   - "[VAL] The blood to unlock can be paid until the end of combat, including after other effects that are played at the end of round. [ANK 20180618]"
 101130|Loyalist:
   - "If the Loyalist vampire's votes are changed to be in favor, the votes granted by Loyalist are silenced (not cast). [LSJ 20031115]"
@@ -2248,6 +2249,7 @@
   - "Is played during the Strike phase (6.4.3) even if you commit to a strike in the Determine Range phase (6.4.2) (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]"
   - "The additional damage is the same type as the strike's damage. [RTR 19970630]"
   - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
+  - "Can be played on a dodge or a combat ends, but does not add damage in that case. [PIB 20130319]"
 101945|Taste of Vitae:
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
   - 'Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]'
