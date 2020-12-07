@@ -45,32 +45,41 @@ def test_init():
 
 
 def test_card_variants():
-    sacha_vykos = {"Name": "Sascha Vykos, The Angel of Caine"}
-    sacha_vykos_adv = {"Name": "Sascha Vykos, The Angel of Caine", "Adv": "Advanced"}
-    praxis_athens = {"Name": "Praxis Seizure: Athens"}
-    the_unnamed = {"Name": "unnamed, The"}
-    the_line = {"Name": "Line, The"}
+    sacha_vykos = {"Id": "201244", "Name": "Sascha Vykos, The Angel of Caine"}
+    sacha_vykos_adv = {
+        "Id": "201244",
+        "Name": "Sascha Vykos, The Angel of Caine",
+        "Adv": "Advanced",
+    }
+    praxis_athens = {"Id": "101448", "Name": "Praxis Seizure: Athens"}
+    the_unnamed = {"Id": "201411", "Name": "unnamed, The"}
+    the_line = {"Id": "101110", "Name": "Line, The"}
     sebastien_goulet = {
+        "Id": "201257",
         "Name": "Sébastien Goulet",
         "Aka": "Sébastian Goulet",
         "Adv": "",
     }
     sebastien_goulet_adv = {
+        "Id": "201258",
         "Name": "Sébastien Goulet",
         "Aka": "Sébastian Goulet",
         "Adv": "Advanced",
     }
-    rumor_mill = {"Name": "Rumor Mill, Tabloid Newspaper, The"}
+    rumor_mill = {"Id": "101662", "Name": "Rumor Mill, Tabloid Newspaper, The"}
     sacre_coeur = {
+        "Id": "101670",
         "Name": "Sacré-Cœur Cathedral, France",
         "Aka": "Sacre-Cour Cathedral, France",
     }
 
     fourth_tradition = {
+        "Id": "100782",
         "Name": "Fourth Tradition: The Accounting",
         "Aka": "Fourth Tradition: The Accounting, The",
     }
-    louvre = {"Name": "Louvre, Paris, The"}
+    louvre = {"Id": "101127", "Name": "Louvre, Paris, The"}
+    ankara_citadel = {"Id": "100071", "Name": "Ankara Citadel, Turkey, The"}
 
     def sorted_variant(card, safe=True):
         return sorted(n.lower() for n in vtes.VTES._get_name_variants(card, safe))
@@ -152,6 +161,14 @@ def test_card_variants():
         "fourth tradition: the accounting",
         "fourth tradition: the accounting, the",
         "the fourth tradition: the accounting",
+    ]
+    # translations do not show up on variants
+    assert sorted_variant(ankara_citadel) == [
+        "ankara citadel",
+        "ankara citadel, turkey",
+        "ankara citadel, turkey, the",
+        "the ankara citadel",
+        "the ankara citadel, turkey",
     ]
 
 
@@ -424,6 +441,6 @@ def test_search():
     ]
     # some tricky cards test (add cards for NR tests)
     # providing a stealth action does not register as "stealth" bonus
-    assert vtes.VTES["Tracker's Mark"]["Id"] in vtes.VTES.search["intercept"]
-    assert vtes.VTES["Tracker's Mark"]["Id"] not in vtes.VTES.search["stealth"]
-    assert vtes.VTES["Brainwash"]["Id"] not in vtes.VTES.search["stealth"]
+    assert int(vtes.VTES["Tracker's Mark"]["Id"]) in vtes.VTES.search["intercept"]
+    assert int(vtes.VTES["Tracker's Mark"]["Id"]) not in vtes.VTES.search["stealth"]
+    assert int(vtes.VTES["Brainwash"]["Id"]) not in vtes.VTES.search["stealth"]

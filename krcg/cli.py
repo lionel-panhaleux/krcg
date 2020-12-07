@@ -112,7 +112,7 @@ def affinity(args: argparse.Namespace) -> int:
 
 
 def _search(args: argparse.Namespace) -> Set[int]:
-    result = set(card["Id"] for card in vtes.VTES.original_cards.values())
+    result = set(int(card["Id"]) for card in vtes.VTES.original_cards.values())
     for type_ in args.type or []:
         result &= vtes.VTES.search["type"].get(type_.lower(), set())
     for clan in args.clan or []:
@@ -136,7 +136,7 @@ def search(args: argparse.Namespace) -> int:
     """Search for cards matching filters"""
     result = _search(args)
     for card_id in sorted(list(result))[: args.number]:
-        card = vtes.VTES[int(card_id)]
+        card = vtes.VTES[card_id]
         name = vtes.VTES.get_name(card)
         print(name)
         if args.full:
@@ -152,7 +152,7 @@ def top(args: argparse.Namespace) -> int:
     result = _search(args)
     twda.TWDA.configure(args.date_from, args.date_to, args.players)
     A = analyzer.Analyzer(twda.TWDA)
-    A.refresh(condition=lambda c: vtes.VTES[c]["Id"] in result)
+    A.refresh(condition=lambda c: int(vtes.VTES[c]["Id"]) in result)
     for card_name, count in A.played.most_common()[: args.number]:
         card = vtes.VTES[card_name]
         print(

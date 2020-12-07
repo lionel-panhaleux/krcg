@@ -18,6 +18,10 @@ def test_complete(client):
     response = client.get("/complete/NotACard")
     assert response.status_code == 200
     assert response.json == []
+    # must match every word, if one word matches nothing, no match
+    response = client.get("/complete/NotACard%20Pentex")
+    assert response.status_code == 200
+    assert response.json == []
     # same match level, order alphabetically
     response = client.get("/complete/unn")
     assert response.status_code == 200
@@ -26,9 +30,9 @@ def test_complete(client):
     response = client.get("/complete/pentex")
     assert response.status_code == 200
     assert response.json == [
-        "Pentex™ Loves You!",
+        "Pentex™ Loves You!",  # Pentex is first word
         "Pentex™ Subversion",
-        "Enzo Giovanni, Pentex Board of Directors",
+        "Enzo Giovanni, Pentex Board of Directors",  # then alphabetically
         "Enzo Giovanni, Pentex Board of Directors (ADV)",
         "Harold Zettler, Pentex Director",
     ]
@@ -43,6 +47,35 @@ def test_complete(client):
     response = client.get("/complete/rot")
     assert response.status_code == 200
     assert response.json == ["Rötschreck", "Ulrike Rothbart"]
+    # match translations, even without accept-language header
+    # (probably shouldn't, but let's live with it for now)
+    response = client.get("/complete/Aide%20des")
+    assert response.status_code == 200
+    assert response.json == []
+    # if accept-language matches a translation, provide translation
+    response = client.get("/complete/Aide%20des", headers=[("accept-language", "fr")])
+    assert response.status_code == 200
+    assert response.json == []
+
+
+def test_complete_i18n(client):
+    response = client.get(
+        "/complete_i18n/Aide%20des", headers=[("accept-language", "fr")]
+    )
+    assert response.status_code == 200
+    assert response.json == [
+        {"en": "Aid from Bats", "fr-FR": "Aide des chauves-souris"}
+    ]
+    response = client.get("/complete_i18n/Ankara", headers=[("accept-language", "fr")])
+    assert response.status_code == 200
+    assert response.json == [
+        {"en": "The Ankara Citadel, Turkey", "fr-FR": "La citadelle d'Ankara, Turquie"}
+    ]
+    response = client.get("/complete_i18n/Ankara", headers=[("accept-language", "es")])
+    assert response.status_code == 200
+    assert response.json == [
+        {"en": "The Ankara Citadel, Turkey", "es-ES": "La Ciudadela de Ankara, Turquía"}
+    ]
 
 
 def test_card(client):
@@ -103,6 +136,86 @@ def test_card(client):
     # slash in names cannot be used
     response = client.get("/card/Kpist%20m45")
     assert response.status_code == 200
+    # translated card
+    response = client.get("/card/Aid%20from%20Bats")
+    assert response.status_code == 200
+    assert response.json == {  # noqa: E501
+        "Aka": "",
+        "Artist": "Melissa Benson; Eric Lofgren",
+        "Banned": "",
+        "Blood Cost": "",
+        "Burn Option": False,
+        "Capacity": "",
+        "Card Text": (
+            "[ani] Strike: 1R damage, with 1 optional maneuver.\n"
+            "[ANI] As above, with 1 optional press."
+        ),
+        "Clan": [],
+        "Conviction Cost": "",
+        "Discipline": ["Animalism"],
+        "Draft": "",
+        "Flavor Text": (
+            "Hanging upside down like rows of disgusting old rags\n"
+            "And grinning in their sleep. Bats!\n"
+            'D.H. Lawrence, "Bat"'
+        ),
+        "Id": "100029",
+        "Image": "https://images.krcg.org/aidfrombats.jpg",
+        "Name": "Aid from Bats",
+        "Pool Cost": "",
+        "Requirement": [],
+        "Rulings": [
+            "[ANI] The press can only be used during the current round. [TOM "
+            "19960521]"
+        ],
+        "Rulings Links": [
+            {
+                "Reference": "TOM 19960521",
+                "URL": (
+                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
+                    "poYD3n0TKGo/xvU5HW7lBxMJ"
+                ),
+            }
+        ],
+        "Set": [
+            "Jyhad:C",
+            "VTES:C",
+            "CE:C/PN3",
+            "Anarchs:PG2",
+            "Third:C",
+            "KoT:C",
+            "FB:PN6",
+        ],
+        "Translations": {
+            "es-ES": {
+                "Card Text": (
+                    "[ani] Ataque: 1 de daño a distancia, con 1 maniobra opcional.\n"
+                    "[ANI] Como antes, con 1 acoso opcional."
+                ),
+                "Flavor Text": (
+                    "Colgando boca abajo como hileras de trapos viejos y repugnantes\n"
+                    "Y sonriendo mientras duermen. ¡Murciélagos!\n"
+                    'D.H. Lawrence, "Murciélago"'
+                ),
+                "Name": "Ayuda de murciélagos",
+            },
+            "fr-FR": {
+                "Card Text": (
+                    "[ani] Frapper à toute portée : 1 point de dégâts, "
+                    "avec 1 manœuvre optionnelle.\n"
+                    "[ANI] Comme ci-dessus, avec 1 poursuite optionnelle."
+                ),
+                "Flavor Text": (
+                    "Pendues tête en bas comme des rangées de guenilles repoussantes\n"
+                    "Et souriant de toutes leurs dents dans leur sommeil. "
+                    "Des chauves-souris !\n"
+                    'D.H. Lawrence, "La Chauve-souris"'
+                ),
+                "Name": "Aide des chauves-souris",
+            },
+        },
+        "Type": ["Combat"],
+    }
 
 
 def test_deck(client, twda):
@@ -272,6 +385,28 @@ def test_search(client):
     response = client.post("/card", json={"trait": ["foo"]})
     assert response.status_code == 200
     assert len(response.json) == 0
+    # card text
+    response = client.post(
+        "/card", json={"text": "this equipment card represents a location"}
+    )
+    assert response.json == [
+        "Catacombs",
+        "Dartmoor, England",
+        "Inveraray, Scotland",
+        "Living Manse",
+        "Local 1111",
+        "Lyndhurst Estate, New York",
+        "Palatial Estate",
+        "Pier 13, Port of Baltimore",
+        "Ruins of Ceoris",
+        "Ruins of Villers Abbey, Belgium",
+        "Sacré-Cœur Cathedral, France",
+        "San Lorenzo de El Escorial, Spain",
+        "San Nicolás de los Servitas",
+        "The Ankara Citadel, Turkey",
+        "Winchester Mansion",
+        "Zaire River Ferry",
+    ]
     # discipline, title
     response = client.post(
         "/card", json={"trait": ["primogen"], "discipline": ["serpentis"]}
@@ -327,6 +462,55 @@ def test_search(client):
         json={"clan": ["Nagaraja"], "trait": ["black hand"]},
     )
     assert response.json == ["Sennadurek"]
+    # return full card info
+    response = client.post(
+        "/card",
+        json={"clan": ["Nagaraja"], "trait": ["black hand"], "mode": "full"},
+    )
+    assert response.json == [
+        {
+            "Adv": False,
+            "Aka": "",
+            "Artist": "Andrew Trabbold",
+            "Banned": "",
+            "Capacity": "6",
+            "Card Text": (
+                "Sabbat. Black Hand: Whenever a Methuselah loses the Edge when "
+                "it is not your turn, Sennadurek unlocks, and you may look at "
+                "that Methuselah's hand. Scarce."
+            ),
+            "Clan": ["Nagaraja"],
+            "Disciplines": ["dom", "AUS", "NEC"],
+            "Group": "4",
+            "Id": "201263",
+            "Image": "https://images.krcg.org/sennadurek.jpg",
+            "Name": "Sennadurek",
+            "Rulings": [
+                "Black Hand is not a title, it is a trait unrelated to any sect. "
+                "The trait is not lost if the vampire changes sect. [LSJ "
+                "20070322] [ANK 20180807]"
+            ],
+            "Rulings Links": [
+                {
+                    "Reference": "LSJ 20070322",
+                    "URL": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
+                        "Ww-4rYJxi4w/P3QchWVq2o4J"
+                    ),
+                },
+                {
+                    "Reference": "ANK 20180807",
+                    "URL": (
+                        "http://www.vekn.net/forum/rules-questions/"
+                        "76905-going-anarch-as-black-hand#89735"
+                    ),
+                },
+            ],
+            "Set": ["LoB:U"],
+            "Title": "",
+            "Type": ["Vampire"],
+        }
+    ]
     response = client.post("/card", json={"clan": ["Assamite"], "trait": ["red list"]})
     assert response.json == ["Jamal", "Tariq, The Silent (ADV)"]
     # sect
@@ -449,6 +633,62 @@ def test_search(client):
         },
     )
     assert response.json == ["Gwen Brand"]
+    # i18n - still always perform text search in english
+    response = client.post(
+        "/card",
+        json={"text": "this equipment card represents a location", "lang": "fr"},
+    )
+    assert response.json == [
+        "Catacombs",
+        "Dartmoor, England",
+        "Inveraray, Scotland",
+        "Living Manse",
+        "Local 1111",
+        "Lyndhurst Estate, New York",
+        "Palatial Estate",
+        "Pier 13, Port of Baltimore",
+        "Ruins of Ceoris",
+        "Ruins of Villers Abbey, Belgium",
+        "Sacré-Cœur Cathedral, France",
+        "San Lorenzo de El Escorial, Spain",
+        "San Nicolás de los Servitas",
+        "The Ankara Citadel, Turkey",
+        "Winchester Mansion",
+        "Zaire River Ferry",
+    ]
+    # text also matches card name
+    response = client.post(
+        "/card",
+        json={"text": "Ankara"},
+    )
+    assert response.json == ["The Ankara Citadel, Turkey"]
+    # i18n - but match the given language in addition to it
+    response = client.post(
+        "/card",
+        json={"text": "cette carte d'équipement représente un lieu", "lang": "fr"},
+    )
+    assert response.json == ["Living Manse", "The Ankara Citadel, Turkey"]
+    # i18n - should work with regions too, whatever their case
+    response = client.post(
+        "/card",
+        json={"text": "cette carte d'équipement représente un lieu", "lang": "fr-fr"},
+    )
+    assert response.json == ["Living Manse", "The Ankara Citadel, Turkey"]
+    # i18n - should work with regions too, whatever their case
+    response = client.post(
+        "/card",
+        json={"text": "cette carte d'équipement représente un lieu", "lang": "fr_FR"},
+    )
+    assert response.json == ["Living Manse", "The Ankara Citadel, Turkey"]
+    # i18n - do not match unrelated translations
+    response = client.post(
+        "/card", json={"text": "esta carta de equipo representa un lugar", "lang": "fr"}
+    )
+    assert response.json == []
+    response = client.post(
+        "/card", json={"text": "esta carta de equipo representa un lugar", "lang": "es"}
+    )
+    assert response.json == ["Living Manse", "The Ankara Citadel, Turkey"]
 
 
 def test_submit_ruling(client, monkeypatch):

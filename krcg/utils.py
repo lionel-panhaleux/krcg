@@ -1,12 +1,12 @@
 """Generic utilities used by the library.
 """
-from typing import Any, Hashable, List, Sequence
+from typing import Any, Dict, Hashable, List, Sequence
 import argparse
 import arrow
 import collections
 import datetime
 import difflib
-import typing
+import re
 
 import unidecode
 
@@ -169,6 +169,10 @@ class Trie(collections.defaultdict):
     def __init__(self):
         super().__init__(lambda: collections.defaultdict(int))
 
+    @staticmethod
+    def _split(text):
+        return re.sub(r"[/:,\(\)'\"]", " ", normalize(text)).split()
+
     def add(self, text: str, reference: Any) -> None:
         """Add text to the Trie
 
@@ -176,7 +180,7 @@ class Trie(collections.defaultdict):
             text: The text to add.
             reference: The reference to return on a match
         """
-        for e, part in enumerate(normalize(text).split()):
+        for e, part in enumerate(Trie._split(text)):
             for i in range(1, len(part) + 1):
                 self[part[:i]][reference] += (
                     # double score for matching name start
@@ -184,7 +188,7 @@ class Trie(collections.defaultdict):
                     * (2 if e == 0 else 1)
                 )
 
-    def search(self, text: str) -> List:
+    def search(self, text: str) -> Dict[str, int]:
         """Search text into the Trie
 
         The match is case-insensitive and use unidecode, but is otherwise exact.
@@ -197,29 +201,23 @@ class Trie(collections.defaultdict):
             References ordered by score
         """
         ret = None
-        for part in normalize(text).split():
+        for part in Trie._split(text):
             # a word can match multiple parts of a key to one reference
             # take the highest score
             matches = {}
             for reference, score in self.get(part, {}).items():
                 matches[reference] = max(matches.get(reference, 0), score)
             # match all words of given text
-            if ret:
+            if ret is not None:
                 ret = collections.Counter(
                     {k: v + matches[k] for k, v in ret.items() if k in matches}
                 )
             else:
                 ret = collections.Counter(matches)
-        return [
-            x[0]
-            for x in sorted(
-                ret.items(),
-                key=lambda x: (-x[1], x[0]),
-            )
-        ]
+        return ret
 
 
-def json_clean(obj: typing.Any) -> typing.Any:
+def json_clean(obj: Any) -> Any:
     """Remove empty values in depth, returns a JSON-serializable dict/list structure."""
     # Basic types
     if obj is None or isinstance(obj, (bool, int, float)):

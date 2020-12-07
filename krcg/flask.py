@@ -4,9 +4,11 @@ Check the OpenAPI documentation at krcg/templates/openapi.yaml
 """
 import json
 import os
+from typing import Iterable
 import urllib.parse
 
 import arrow
+import babel
 import flask
 import pkg_resources  # part of setuptools
 import requests
@@ -120,11 +122,18 @@ def complete(text):
     return flask.jsonify(vtes.VTES.complete(text))
 
 
+@base.route("/complete_i18n/<text>")
+def complete_i18n(text):
+    """Card name completion, with translation"""
+    lang = _negotiate_locale(flask.request.accept_languages.values())
+    return flask.jsonify(vtes.VTES.complete_i18n(text, lang))
+
+
 @base.route("/card", methods=["POST"])
 def card_search():
     """Card search."""
     data = flask.request.get_json() or {}
-    result = set(card["Id"] for card in vtes.VTES.original_cards.values())
+    result = set(int(card["Id"]) for card in vtes.VTES.original_cards.values())
     for type_ in data.get("type") or []:
         result &= vtes.VTES.search["type"].get(type_.lower(), set())
     for clan in data.get("clan") or []:
@@ -142,8 +151,19 @@ def card_search():
     for bonus in data.get("bonus") or []:
         result &= vtes.VTES.search.get(bonus.lower(), set())
     if data.get("text"):
-        result &= set(vtes.VTES.search["text"].search(data["text"].lower()))
-    return flask.jsonify(sorted(vtes.VTES.get_name(int(i)) for i in result))
+        text_search = vtes.VTES.search["text"].search(data["text"])
+        text_search |= vtes.VTES.completion.search(data["text"])
+        if data.get("lang"):
+            lang = _negotiate_locale([data["lang"]])
+            if lang in vtes.VTES.search_i18n:
+                text_search |= vtes.VTES.search_i18n[lang].search(data["text"])
+            if lang in vtes.VTES.completion_i18n:
+                text_search |= vtes.VTES.completion_i18n[lang].search(data["text"])
+        result &= set(text_search.keys())
+    result = sorted(vtes.VTES.get_name(i) for i in result)
+    if data.get("mode") == "full":
+        result = [vtes.VTES.normalized(card) for card in result]
+    return flask.jsonify(result)
 
 
 @base.route("/submit-ruling/<card>", methods=["POST"])
@@ -188,3 +208,15 @@ def submit_ruling(card):
         return flask.jsonify(response.json()), response.status_code
     else:
         return response.text, response.status_code
+
+
+def _negotiate_locale(preferred: Iterable[str]):
+    res = babel.negotiate_locale(
+        [x.replace("_", "-") for x in preferred],
+        ["en"] + list(config.SUPPORTED_LANGUAGES),
+        sep="-",
+    )
+    # negotiation is case-insensitive but the result uses the case of the first argument
+    if res:
+        res = res[:-2] + res[-2:].upper()
+    return res

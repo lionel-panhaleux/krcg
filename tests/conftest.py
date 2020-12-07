@@ -12,11 +12,11 @@ def pytest_sessionstart(session):
     This is not very graceful
     """
     try:
-        requests.get("http://www.google.com")
+        requests.get("http://www.google.com", timeout=1)
     except requests.exceptions.RequestException:
         pytest.fail("No internet connection")
     try:
-        requests.get("http://www.vekn.net")
+        requests.get("http://www.vekn.net", timeout=1)
     except requests.exceptions.RequestException:
         pytest.fail("VEKN website not available")
     vtes.VTES.load_from_vekn(save=False)

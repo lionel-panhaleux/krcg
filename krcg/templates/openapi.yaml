@@ -162,39 +162,74 @@ components:
                 type: string
                 format: url
                 minLength: 1
+        Translations:
+          description: Card translations
+          type: object
+          additionalProperties:
+            type: object
+            required: ["Name", "Card Text"]
+            properties:
+              Name:
+                description: Card name
+                type: string
+                minLength: 1
+              Card Text:
+                description: Card text
+                type: string
+                minLength: 1
+              Flavor Text:
+                description: Flavor text (library cards only)
+                type: string
+                minLength: 0
       example:
-        Id: "100038"
-        Name: "Alastor"
-        Image: "https://images.krcg.org/alastor.jpg"
+        Id: "100029"
+        Name: "Aid from Bats"
+        Image: "https://images.krcg.org/aidfrombats.jpg"
         Aka: ""
-        Type: ["Political Action"]
+        Type: ["Combat"]
         Clan: []
-        Discipline: []
+        Discipline: ["Animalism"]
         Pool Cost": ""
         Blood Cost": ""
         Conviction Cost: ""
         Burn Option: False
         Card Text: |
-          Requires a justicar or Inner Circle member.
-          Choose a ready Camarilla vampire. If this referendum is successful,
-          search your library for an equipment card and place this card
-          and the equipment on the chosen vampire.
-          Pay half the cost (round down) of the equipment.
-          This vampire may enter combat with any vampire
-          controlled by another Methuselah as a +1 stealth Ⓓ  action.
-          This vampire cannot commit diablerie. A vampire may have only one Alastor.
-        Flavor Text: ""
-        Set: ["Gehenna:R", "KMW:PAl", "KoT:R"]
+          [ani] Strike: 1R damage, with 1 optional maneuver.
+          [ANI] As above, with 1 optional press.
+        Flavor Text: |
+          Hanging upside down like rows of disgusting old rags
+          And grinning in their sleep. Bats!
+          D.H. Lawrence, "Bat"
+        Set: ["Jyhad:C", "VTES:C", "CE:C/PN3", "Anarchs:PG2", "Third:C", "KoT:C", "FB:PN6"]
         Requirement: ["justicar", "inner circle"]
         Banned: ""
-        Artist: "Monte Moore"
+        Artist: "Melissa Benson; Eric Lofgren"
         Capacity: ""
         Draft: ""
         Rulings:
-          - "If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]"
+          - "[ANI] The press can only be used during the current round. [TOM 19960521]"
         Rulings Links:
-          - Reference: "LSJ 20040518"
+          - Reference: "TOM 19960521"
             URL: "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ"
+        Translations:
+          fr-FR:
+            Name: "Aide des chauves-souris"
+            Card Text: |
+              [ani] Frapper à toute portée : 1 point de dégâts, avec 1 manœuvre optionnelle.
+              [ANI] Comme ci-dessus, avec 1 poursuite optionnelle.
+            Flavor Text: |
+              Pendues tête en bas comme des rangées de guenilles repoussantes
+              Et souriant de toutes leurs dents dans leur sommeil. Des chauves-souris !
+              D.H. Lawrence, "La Chauve-souris"
+          es-ES:
+            Name: "Ayuda de murciélagos"
+            Card Text: |
+              [ani] Ataque: 1 de daño a distancia, con 1 maniobra opcional.
+              [ANI] Como antes, con 1 acoso opcional.
+            Flavor Text: |
+              Colgando boca abajo como hileras de trapos viejos y repugnantes
+              Y sonriendo mientras duermen. ¡Murciélagos!
+              D.H. Lawrence, "Murciélago"
     deck:
       type: object
       required: ["twda_id", "date", "player", "crypt", "library"]
@@ -348,6 +383,12 @@ paths:
             schema:
               type: object
               properties:
+                mode:
+                  description: response format control (return name or full card)
+                  type: string
+                  enum:
+                    - name
+                    - full
                 type:
                   description: Type of the card
                   type: array
@@ -607,8 +648,12 @@ paths:
                       - bleed
                       - stealth
                 text:
-                  description: Card text to search for
+                  description: Card text to search for - also matches card names
                   type: string
+                lang:
+                  description: Additional language to search in (for text search only)
+                  type: string
+                  format: language tag
               example:
                 type: ["political action"]
                 trait: ["anarch"]
@@ -618,17 +663,26 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                minLength: 1
-                items:
-                  description: Card name
-                  type: string
+                oneOf:
+                  - type: array
+                    minLength: 1
+                    items:
+                      description: Card name
+                      type: string
+                  - type: array
+                    minLength: 1
+                    items: { $ref: "#/components/schemas/card" }
                 example:
                   - Anarch Salon
                   - Eat the Rich
+                  - Exclusion Principle
                   - Firebrand
                   - Free States Rant
+                  - Patsy
+                  - Persona Non Grata
                   - Reckless Agitation
+                  - Revolutionary Council
+                  - Sweepe
         "404":
           description: Not found
   /card/{name_or_id}:
@@ -674,6 +728,41 @@ paths:
                   type: string
                   description: Card name
               example: ["The unnamed", "Unnatural Disaster"]
+        "404":
+          description: Not found
+  /complete_i18n/{partial_name}:
+    get:
+      tags: [Card]
+      summary: Complete a card name with translations
+      description: |
+        Return all candidates matching the partial name, with translations.
+        Uses the language provided in Accept-Language (best match) and
+        matches on the original english names as well as translated names.
+      parameters:
+        - name: partial_name
+          in: path
+          required: true
+          schema:
+            type: string
+            description: "Partial card name"
+        - name: Accept-Language
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success, returns a JSON array of card names translations (dict)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  description: Card name and translation
+                  additionalProperties:
+                    type: string
+              example: [{ "en": "Aid from Bats", "fr-FR": "Aide des chauves-souris" }]
         "404":
           description: Not found
   /submit-ruling/{card_name_or_id}:

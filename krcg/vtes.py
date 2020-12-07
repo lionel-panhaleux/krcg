@@ -84,21 +84,32 @@ class _VTES:
                                   fuzzy threshold (avoids errors when parsing the TWDA)
         """
         self.original_cards = {}
+        self.translations = {}
         self.rulings = {}
         self.cards = utils.FuzzyDict(aliases=config.REMAP)
         self.completion = utils.Trie()
+        self.completion_i18n = collections.defaultdict(utils.Trie)
         self.search = {}
+        self.search_i18n = collections.defaultdict(utils.Trie)  # only card text
         self.fuzzy_threshold = 6
         self.safe_variants = True
 
     def __getstate__(self) -> dict:
         """For pickle serialization."""
-        return {"cards": self.original_cards, "rulings": self.rulings}
+        return {
+            "cards": self.original_cards,
+            "translations": self.translations,
+            "rulings": self.rulings,
+        }
 
     def __setstate__(self, state: typing.Mapping) -> None:
         """For pickle deserialization."""
-        self.original_cards = state.get("cards")
-        self.rulings = state.get("rulings")
+        self.original_cards = state.get("cards") or {}
+        self.translations = state.get("translations") or {}
+        self.rulings = state.get("rulings") or {}
+
+    def save(self):
+        pickle.dump(self, open(config.VTES_FILE, "wb"))
 
     def __reduce__(self) -> tuple:
         """For pickle serialization."""
@@ -155,6 +166,7 @@ class _VTES:
             save: If True, card list is pickled to be retrieved faster later on.
         """
         self.original_cards.clear()
+        self.translations.clear()
         self.rulings.clear()
         r = requests.request("GET", config.VEKN_VTES_URL)
         r.raise_for_status()
@@ -163,9 +175,26 @@ class _VTES:
             f.flush()
             z = zipfile.ZipFile(f.name)
             with z.open(config.VEKN_VTES_LIBRARY_FILENAME) as c:
-                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
+                self.load_csv(io.TextIOWrapper(c, encoding=config.VEKN_VTES_ENCODING))
             with z.open(config.VEKN_VTES_CRYPT_FILENAME) as c:
-                self.load_csv(io.TextIOWrapper(c, encoding="utf_8_sig"), save)
+                self.load_csv(io.TextIOWrapper(c, encoding=config.VEKN_VTES_ENCODING))
+        # load translations:
+        for lang, url in config.VEKN_VTES_I18N_URLS.items():
+            self.translations[lang] = {}
+            r = requests.request("GET", url)
+            r.raise_for_status()
+            with tempfile.NamedTemporaryFile("wb", suffix=".zip") as f:
+                f.write(r.content)
+                f.flush()
+                z = zipfile.ZipFile(f.name)
+                with z.open(config.VEKN_VTES_I18N_LIBRARY_FILENAME % lang) as c:
+                    self.load_i18n_csv(
+                        lang, io.TextIOWrapper(c, encoding=config.VEKN_VTES_ENCODING)
+                    )
+                with z.open(config.VEKN_VTES_I18N_CRYPT_FILENAME % lang) as c:
+                    self.load_i18n_csv(
+                        lang, io.TextIOWrapper(c, encoding=config.VEKN_VTES_ENCODING)
+                    )
         # load rulings from local yaml files
         links = _RulingsLinks(
             yaml.safe_load(
@@ -196,7 +225,8 @@ class _VTES:
                     {"Reference": reference, "URL": link}
                     for reference, link in links.get_links(ruling["ruling"])
                 )
-        pickle.dump(self, open(config.VTES_FILE, "wb"))
+        if save:
+            self.save()
 
     def configure(self, fuzzy_threshold: int = 6, safe_variants: bool = True) -> None:
         """Add alternative names for cards, set up completion
@@ -205,6 +235,7 @@ class _VTES:
             fuzzy_threshold: min text length to try fuzzy matching on.
             safe_variants: if False, more card name variants are used
                            (unsafe for TWDA parsing)
+            translations: if True, add translations in search and completion
         """
         self.cards.clear()
         self.completion.clear()
@@ -219,11 +250,18 @@ class _VTES:
         # some items on REMAP are too short and match too many things.
         for alternative, card in config.AKA.items():
             self[alternative] = self[card]
-        # build the completion trie for card names
+        # build the completion tries for card names
         for name, card in self.cards.items():
             if isinstance(name, int):
-                continue
-            self.completion.add(name, self.get_name(card))
+                for lang in config.SUPPORTED_LANGUAGES:
+                    if name in self.translations[lang]:
+                        translation = self.translations[lang][name]["Name"]
+                        self.completion_i18n[lang].add(translation, name)
+                        while "," in translation:
+                            translation = translation.rsplit(",", 1)[0]
+                            self.completion_i18n[lang].add(translation, name)
+            else:
+                self.completion.add(name, int(card["Id"]))
         # build the cards map for structured search
         # text is a completion trie, other dicts just contain a set of the cards IDs
         self.search = {
@@ -251,9 +289,9 @@ class _VTES:
                     for key in key_path:
                         s = s[key]
                     if prefix == "+":
-                        s.add(self[name]["Id"])
+                        s.add(int(self[name]["Id"]))
                     elif prefix == "-":
-                        s.remove(self[name]["Id"])
+                        s.remove(int(self[name]["Id"]))
                     else:
                         warnings.warn(f"{name} has an invalid prefix {prefix}")
                 except KeyError:
@@ -261,7 +299,9 @@ class _VTES:
                         f"{name} marked as exception for {key_path}, but is not listed."
                     )
 
-    def _add_card_to_search(self, card: typing.Mapping) -> None:
+    def _add_card_to_search(
+        self, card: typing.Mapping, translations: bool = False
+    ) -> None:
         """Add a card to self.search
 
         The card["Id"] is added to all matching sets.
@@ -276,89 +316,91 @@ class _VTES:
         Args:
             card: A card dict
         """
-        self.search["text"].add(card["Card Text"], card["Id"])
+        card_id = int(card["Id"])
+        self.search["text"].add(card["Card Text"], card_id)
+        for lang, translation in self.translations.items():
+            if card_id in translation:
+                self.search_i18n[lang].add(translation[card_id]["Card Text"], card_id)
         for type_ in card["Type"]:
-            self.search["type"][type_.lower()].add(card["Id"])
+            self.search["type"][type_.lower()].add(card_id)
         if set(card["Type"]) & {"Vampire", "Imbued"}:
-            self.search["type"]["crypt"].add(card["Id"])
+            self.search["type"]["crypt"].add(card_id)
             # sect, including for MERGED versions
             if re.search(r"^(\[MERGED\] )?Sabbat", card["Card Text"]):
-                self.search["trait"]["sabbat"].add(card["Id"])
+                self.search["trait"]["sabbat"].add(card_id)
             if re.search(r"^(\[MERGED\] )?Camarilla", card["Card Text"]):
-                self.search["trait"]["camarilla"].add(card["Id"])
+                self.search["trait"]["camarilla"].add(card_id)
             if re.search(r"^(\[MERGED\] )?Laibon", card["Card Text"]):
-                self.search["trait"]["laibon"].add(card["Id"])
+                self.search["trait"]["laibon"].add(card_id)
             if re.search(r"^(\[MERGED\] )?Anarch", card["Card Text"]):
-                self.search["trait"]["anarch"].add(card["Id"])
+                self.search["trait"]["anarch"].add(card_id)
             if re.search(r"^(\[MERGED\] )?Independent", card["Card Text"]):
-                self.search["trait"]["independent"].add(card["Id"])
+                self.search["trait"]["independent"].add(card_id)
         else:
-            self.search["type"]["library"].add(card["Id"])
+            self.search["type"]["library"].add(card_id)
         if card.get("Clan"):
             for clan in card.get("Clan", []):
-                self.search["clan"][clan.lower()].add(card["Id"])
+                self.search["clan"][clan.lower()].add(card_id)
         else:
-            self.search["clan"]["none"].add(card["Id"])
+            self.search["clan"]["none"].add(card_id)
         # CSV-listed traits
         if card.get("Sect"):
-            self.search["trait"][card["Sect"].lower()].add(card["Id"])
+            self.search["trait"][card["Sect"].lower()].add(card_id)
         if card.get("Title"):
-            self.search["trait"][card["Title"].lower()].add(card["Id"])
+            self.search["trait"][card["Title"].lower()].add(card_id)
         if card.get("Group"):
-            self.search["group"][card["Group"].lower()].add(card["Id"])
+            self.search["group"][card["Group"].lower()].add(card_id)
             if card["Group"].lower() == "any":
                 for i in range(1, 7):
-                    self.search["group"][str(i)].add(card["Id"])
+                    self.search["group"][str(i)].add(card_id)
         if card.get("Capacity"):
             capacity = card["Capacity"].lower()
             if len(card["Capacity"]) > 2:
                 capacity = "+1"
-            self.search["capacity"][capacity].add(card["Id"])
+            self.search["capacity"][capacity].add(card_id)
         if card.get("Title"):
-            self.search["votes"].add(card["Id"])
+            self.search["votes"].add(card_id)
         if re.search(r"(\d|X)\s+(v|V)ote", card["Card Text"]):
-            self.search["votes"].add(card["Id"])
+            self.search["votes"].add(card_id)
         # bleed/stealth/intercept bonuses
         if re.search(r"\+(\d|X)\s+(b|B)leed", card["Card Text"]):
-            self.search["bleed"].add(card["Id"])
+            self.search["bleed"].add(card_id)
         if re.search(r"\+(\d|X)\s+(i|I)ntercept", card["Card Text"]):
-            self.search["intercept"].add(card["Id"])
+            self.search["intercept"].add(card_id)
         # do not include stealthed actions as stealth cards
         if re.search(
             r"\+(\d|X)\s+(s|S)tealth (?!Ⓓ|action|political)", card["Card Text"]
         ):
-            self.search["stealth"].add(card["Id"])
+            self.search["stealth"].add(card_id)
         # stealth/intercept maluses count has bonus of the other (for library cards)
         # also list block denials as stealth
         if not set(card["Type"]) & {"Master", "Vampire", "Imbued"}:
             if re.search(r"-(\d|X)\s+(s|S)tealth", card["Card Text"]):
-                self.search["intercept"].add(card["Id"])
+                self.search["intercept"].add(card_id)
             if re.search(r"-(\d|X)\s+(i|I)ntercept", card["Card Text"]):
-                self.search["stealth"].add(card["Id"])
+                self.search["stealth"].add(card_id)
         if re.search(r"stealth .* to 0", card["Card Text"]):
-            self.search["intercept"].add(card["Id"])
+            self.search["intercept"].add(card_id)
         if re.search(r"attempt fails", card["Card Text"]):
-            self.search["stealth"].add(card["Id"])
+            self.search["stealth"].add(card_id)
         for discipline in card.get("Discipline", []):
-            self.search["discipline"][discipline.lower()].add(card["Id"])
+            self.search["discipline"][discipline.lower()].add(card_id)
         # add vampires with superior disciplines to both inf and sup sets
         for discipline in card.get("Disciplines", []):
             # Visceratika and Vision have the same trigram, discriminate
             if discipline.lower() == "vis" and "Imbued" in card["Type"]:
                 discipline = "vin"
-            self.search["discipline"][config.DIS_MAP[discipline.lower()]].add(
-                card["Id"]
-            )
+            self.search["discipline"][config.DIS_MAP[discipline.lower()]].add(card_id)
             if discipline in config.DIS_MAP:
-                self.search["discipline"][config.DIS_MAP[discipline]].add(card["Id"])
+                self.search["discipline"][config.DIS_MAP[discipline]].add(card_id)
         if not card.get("Disciplines") and not card.get("Discipline"):
-            self.search["discipline"]["none"].add(card["Id"])
+            self.search["discipline"]["none"].add(card_id)
         # "Discipline" singular is a library-only key
         if len(card.get("Discipline", [])) > 1:
-            self.search["discipline"]["*"].add(card["Id"])
+            self.search["discipline"]["*"].add(card_id)
         # FLIGHT is not listed as a discipline, treat it as such anyway
         if "[FLIGHT]" in card["Card Text"]:
-            self.search["discipline"]["flight"].add(card["Id"])
+            self.search["discipline"]["flight"].add(card_id)
         # city trait
         city = re.search(
             r"(?:Prince|Baron|Archbishop) of ((?:[A-Z][A-Za-z\s-]{3,})+)",
@@ -370,71 +412,71 @@ class _VTES:
                 city = city[:-5]
             if city == "washington":
                 city = "washington, d.c."
-            self.search["trait"][city].add(card["Id"])
-            self.search["votes"].add(card["Id"])
+            self.search["trait"][city].add(card_id)
+            self.search["votes"].add(card_id)
         # add generic title requirements to all titles of the sect
         if re.search(r"Requires a( ready)? titled (S|s)abbat", card["Card Text"]):
-            self.search["trait"]["bishop"].add(card["Id"])
-            self.search["trait"]["archbishop"].add(card["Id"])
-            self.search["trait"]["cardinal"].add(card["Id"])
-            self.search["trait"]["regent"].add(card["Id"])
-            self.search["trait"]["priscus"].add(card["Id"])
-            self.search["trait"]["sabbat"].add(card["Id"])
+            self.search["trait"]["bishop"].add(card_id)
+            self.search["trait"]["archbishop"].add(card_id)
+            self.search["trait"]["cardinal"].add(card_id)
+            self.search["trait"]["regent"].add(card_id)
+            self.search["trait"]["priscus"].add(card_id)
+            self.search["trait"]["sabbat"].add(card_id)
         if re.search(r"Requires a( ready)? titled (C|c)amarilla", card["Card Text"]):
-            self.search["trait"]["primogen"].add(card["Id"])
-            self.search["trait"]["prince"].add(card["Id"])
-            self.search["trait"]["justicar"].add(card["Id"])
-            self.search["trait"]["inner circle"].add(card["Id"])
-            self.search["trait"]["imperator"].add(card["Id"])
-            self.search["trait"]["camarilla"].add(card["Id"])
+            self.search["trait"]["primogen"].add(card_id)
+            self.search["trait"]["prince"].add(card_id)
+            self.search["trait"]["justicar"].add(card_id)
+            self.search["trait"]["inner circle"].add(card_id)
+            self.search["trait"]["imperator"].add(card_id)
+            self.search["trait"]["camarilla"].add(card_id)
         # this should match unnamed independant titles too, but we have no trait for it
         if re.search(r"Requires a( ready)? titled vampire", card["Card Text"]):
-            self.search["trait"]["primogen"].add(card["Id"])
-            self.search["trait"]["prince"].add(card["Id"])
-            self.search["trait"]["justicar"].add(card["Id"])
-            self.search["trait"]["inner circle"].add(card["Id"])
-            self.search["trait"]["imperator"].add(card["Id"])
-            self.search["trait"]["bishop"].add(card["Id"])
-            self.search["trait"]["archbishop"].add(card["Id"])
-            self.search["trait"]["cardinal"].add(card["Id"])
-            self.search["trait"]["regent"].add(card["Id"])
-            self.search["trait"]["priscus"].add(card["Id"])
-            self.search["trait"]["baron"].add(card["Id"])
-            self.search["trait"]["liaison"].add(card["Id"])
-            self.search["trait"]["magaji"].add(card["Id"])
-            self.search["trait"]["kholo"].add(card["Id"])
+            self.search["trait"]["primogen"].add(card_id)
+            self.search["trait"]["prince"].add(card_id)
+            self.search["trait"]["justicar"].add(card_id)
+            self.search["trait"]["inner circle"].add(card_id)
+            self.search["trait"]["imperator"].add(card_id)
+            self.search["trait"]["bishop"].add(card_id)
+            self.search["trait"]["archbishop"].add(card_id)
+            self.search["trait"]["cardinal"].add(card_id)
+            self.search["trait"]["regent"].add(card_id)
+            self.search["trait"]["priscus"].add(card_id)
+            self.search["trait"]["baron"].add(card_id)
+            self.search["trait"]["liaison"].add(card_id)
+            self.search["trait"]["magaji"].add(card_id)
+            self.search["trait"]["kholo"].add(card_id)
         if re.search(r"Requires a( ready)? (M|m)agaji", card["Card Text"]):
-            self.search["trait"]["magaji"].add(card["Id"])
-            self.search["trait"]["laibon"].add(card["Id"])
+            self.search["trait"]["magaji"].add(card_id)
+            self.search["trait"]["laibon"].add(card_id)
         # consider sects as traits,
         # but do not match them just anywhere in the card text
         if re.search(r"Requires a( ready)? (S|s)abbat", card["Card Text"]):
-            self.search["trait"]["sabbat"].add(card["Id"])
+            self.search["trait"]["sabbat"].add(card_id)
         if re.search(r"Requires a( ready)? (C|c)amarilla", card["Card Text"]):
-            self.search["trait"]["camarilla"].add(card["Id"])
+            self.search["trait"]["camarilla"].add(card_id)
         if re.search(r"Requires a( ready)? (L|l)aibon", card["Card Text"]):
-            self.search["trait"]["laibon"].add(card["Id"])
+            self.search["trait"]["laibon"].add(card_id)
         if re.search(
             r"Requires a( ready|n)( (I|i)ndependent or)? (A|a)narch",
             card["Card Text"],
         ):
-            self.search["trait"]["anarch"].add(card["Id"])
+            self.search["trait"]["anarch"].add(card_id)
         if re.search(r"Requires an (I|i)ndependent", card["Card Text"]):
-            self.search["trait"]["independent"].add(card["Id"])
+            self.search["trait"]["independent"].add(card_id)
         # match other traits anywhere in the text
         # add specific title requirements to the matching sect
         for trait in re.findall(
             f"({'|'.join(config.TRAITS)})", card["Card Text"].lower()
         ):
-            self.search["trait"][trait].add(card["Id"])
+            self.search["trait"][trait].add(card_id)
             if trait in {"primogen", "prince", "justicar", "inner circle", "imperator"}:
-                self.search["trait"]["camarilla"].add(card["Id"])
+                self.search["trait"]["camarilla"].add(card_id)
             if trait in {"bishop", "archbishop", "cardinal", "regent", "priscus"}:
-                self.search["trait"]["sabbat"].add(card["Id"])
+                self.search["trait"]["sabbat"].add(card_id)
             if trait in {"baron"}:
-                self.search["trait"]["anarch"].add(card["Id"])
+                self.search["trait"]["anarch"].add(card_id)
             if trait in {"magaji", "kholo"}:
-                self.search["trait"]["laibon"].add(card["Id"])
+                self.search["trait"]["laibon"].add(card_id)
 
     def complete(self, partial_name: str) -> List:
         """Card name completion.
@@ -449,7 +491,37 @@ class _VTES:
         Returns:
             A sorted list of results, from most likely to less likely
         """
-        return self.completion.search(partial_name)
+        ret = [
+            [self.get_name(card_id), score]
+            for card_id, score in self.completion.search(partial_name).items()
+        ]
+        return [x[0] for x in sorted(ret, key=lambda x: (-x[1], x[0]))]
+
+    def complete_i18n(self, partial_name: str, lang: str) -> List:
+        """Card name completion, with translations.
+
+        Searches for both english and given language completions.
+        The maximum score is used for ordering (then, alphabetically).
+
+        Args:
+            partial_name: Parts of the name (can contain spaces)
+
+        Returns:
+            A list of dicts where the keys are language codes
+            and the values are the card names in those languages.
+        """
+        search = self.completion.search(partial_name)
+        if lang in self.completion_i18n:
+            search |= self.completion_i18n[lang].search(partial_name)
+        ret = []
+        for card_id, score in search.items():
+            ret.append([score, {"en": self.get_name(card_id)}])
+            if card_id in self.translations.get(lang, {}):
+                ret[-1][1].update({lang: self.translations[lang][card_id]["Name"]})
+        return [
+            x[1]
+            for x in sorted(ret, key=lambda x: (-x[0], x[1].get(lang) or x[1]["en"]))
+        ]
 
     def trait_choices(self, trait: str) -> set:
         """Get all registered values for a given card trait.
@@ -507,16 +579,16 @@ class _VTES:
         """List of clans"""
         return sorted(self.trait_choices("Clan"))
 
-    def get_name(self, card: Union[str, Mapping]) -> str:
+    def get_name(self, card: Union[str, int, Mapping]) -> str:
         """Returns official name for a card or card name."""
         if not isinstance(card, collections.abc.Mapping):
             card = self[card]
         name = card["Name"]
         if name[-5:] == ", The":
             name = "The " + name[:-5]
-        if name[-6:] != " (ADV)" and card.get("Adv"):
-            name = name + " (ADV)"
         name = name.replace("(TM)", "™")
+        if name[-6:] != " (ADV)" and card.get("Adv"):
+            name += " (ADV)"
         return name
 
     def vekn_name(self, card: Union[str, Mapping]) -> str:
@@ -547,10 +619,13 @@ class _VTES:
         file_name, _ = re.subn(r"""\s|,|\.|-|—|'|:|\(|\)|"|!""", "", file_name)
         data["Image"] = f"{config.IMAGES_ROOT}{file_name}.jpg"
         data.update(self.rulings.get(name, {}))
+        for lang, translations in self.translations.items():
+            if int(card["Id"]) in translations:
+                data.setdefault("Translations", {})
+                data["Translations"][lang] = translations[int(card["Id"])]
         return data
 
-    @staticmethod
-    def _get_name_variants(card: Mapping, safe: bool = True) -> StringGenerator:
+    def _get_name_variants(self, card: Mapping, safe: bool = True) -> StringGenerator:
         """Yields all name variants for a card
 
         Add the " (ADV)" suffix for advanced vampires
@@ -573,6 +648,7 @@ class _VTES:
         advanced_suffix = " (ADV)" if card.get("Adv") else ""
 
         def name_variants(name):
+            name = name.strip()
             if not name:
                 return
             yield name + advanced_suffix
@@ -606,13 +682,19 @@ class _VTES:
         yield from name_variants(card["Name"])
         # multiple aliases are separated by semicolumn
         for alias in card.get("Aka", "").split(";"):
-            yield from name_variants(alias.strip())
+            yield from name_variants(alias)
 
-    def load_csv(self, stream: TextIO, save: bool = True) -> None:
-        """Load a crypt or library CSV (VEKN format)
+    def load_i18n_csv(self, lang, stream: TextIO) -> None:
+        """Load a crypt or library Translation CSV (VEKN format)"""
+        for card in csv.DictReader(stream):
+            self.translations[lang][int(card["Id"])] = {
+                "Name": card["Name " + lang],
+                "Card Text": card["Card Text"],
+                "Flavor Text": card.get("Flavor Text") or "",
+            }
 
-        The VTES card list is pickled for future use.
-        """
+    def load_csv(self, stream: TextIO) -> None:
+        """Load a crypt or library CSV (VEKN format)"""
         for card in csv.DictReader(stream):
             if "Set" in card:
                 card["Set"] = [s.strip() for s in card["Set"].split(",") if s.strip()]
@@ -643,13 +725,14 @@ class _VTES:
                 card["Burn Option"] = bool(card["Burn Option"])
             if "Adv" in card:
                 card["Adv"] = bool(card["Adv"])
+            # remove deprecated discipline columns for crypt cards
+            for disc in config.DISC_AKA.values():
+                if disc in card:
+                    del card[disc]
             card_id = int(card["Id"])
             if card_id not in self.original_cards:
                 self.original_cards[card_id] = {}
             self.original_cards[int(card["Id"])].update(card)
-        # pickle this
-        if save:
-            pickle.dump(self, open(config.VTES_FILE, "wb"))
 
     def is_crypt(self, card_name: str) -> bool:
         """A function to check if a card is a crypt card"""

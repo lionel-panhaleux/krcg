@@ -9,7 +9,18 @@ VEKN_TWDA_URL = "http://www.vekn.fr/decks/twd.htm"
 VEKN_VTES_URL = "http://www.vekn.net/images/stories/downloads/vtescsv_utf8.zip"
 VEKN_VTES_LIBRARY_FILENAME = "vteslib.csv"
 VEKN_VTES_CRYPT_FILENAME = "vtescrypt.csv"
-VEKN_VTES_ENCODING = "utf-8"
+VEKN_VTES_ENCODING = "utf_8_sig"
+VEKN_VTES_I18N_URLS = {
+    "fr-FR": (
+        "http://www.vekn.net/images/stories/downloads/french/vtescsv_utf8.fr-FR.zip"
+    ),
+    "es-ES": (
+        "http://www.vekn.net/images/stories/downloads/spanish/vtescsv_utf8.es-ES.zip"
+    ),
+}
+VEKN_VTES_I18N_LIBRARY_FILENAME = "vteslib.%s.csv"
+VEKN_VTES_I18N_CRYPT_FILENAME = "vtescrypt.%s.csv"
+SUPPORTED_LANGUAGES = list(VEKN_VTES_I18N_URLS.keys())
 #: where to store our data
 TEMP_DIR = tempfile.gettempdir()
 TWDA_FILE = os.path.join(TEMP_DIR, "krcg-twda.pkl")
