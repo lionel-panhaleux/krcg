@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.8 (unreleased)
+1.8 (2020-12-07)
 ----------------
 
 - Minor fixes to TWD parsing
