@@ -4,7 +4,7 @@ Changelog
 1.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix setup
 
 
 1.8 (2020-12-07)
