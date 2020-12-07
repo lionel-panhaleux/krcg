@@ -301,3 +301,54 @@ Enzo Giovanni, Pentex Board of Directors (ADV)
 Harold Zettler, Pentex Director
 """
     )
+
+
+def test_build(capsys, twda):
+    cli.execute(["build", "krcg"])
+    assert (
+        capsys.readouterr().out
+        == """
+Created by: KRCG
+
+Inspired by:
+ - 2020itbfb            War ghoul anarch
+Crypt (12 cards, min=4, max=32, avg=4.08)
+-----------------------------------------
+5x Anarch Convert      1 -none-             Caitiff:ANY
+4x Nana Buruku         8 ANI POT PRE        Guruhi:4
+1x Ana Rita Montaña    5 VIC aus dom obf    Tzimisce:3
+1x Jane Sims           4 VIC ani aus pro    Tzimisce:4
+1x Droescher One-Eye   3 ani vic            Tzimisce:4
+
+Library (71 cards)
+Master (40; 2 trifle)
+4x Anarch Revolt
+9x Ashur Tablets
+2x Direct Intervention
+5x Jake Washington
+1x KRCG News Radio
+5x Parthenon, The
+9x Piper
+2x Twilight Camp
+2x Vessel
+1x WMRH Talk Radio
+
+Ally (18)
+6x Asanbonsam Ghoul
+2x Underbridge Stray
+2x Vagabond Mystic
+8x War Ghoul
+
+Retainer (2)
+1x J. S. Simmons, Esq.
+1x Mr. Winthrop
+
+Combat (8)
+4x Target Vitals
+4x Trap
+
+Event (3)
+1x FBI Special Affairs Division
+2x Unmasking, The
+"""
+    )

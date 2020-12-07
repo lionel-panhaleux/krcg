@@ -168,7 +168,7 @@ def top(args: argparse.Namespace) -> int:
 def build(args: argparse.Namespace) -> int:
     """Build a deck based on TWDA examples"""
     twda.TWDA.configure(args.date_from, args.date_to, args.players)
-    print(vtes.VTES.deck_to_txt(analyzer.Analyzer().build_deck(*args.cards)))
+    print(analyzer.Analyzer(twda.TWDA).build_deck(*args.cards).to_txt())
     return 0
 
 

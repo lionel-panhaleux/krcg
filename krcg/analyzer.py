@@ -243,6 +243,13 @@ class Analyzer(object):
         while self.cards_left > 0:
             if len(self.deck) >= self.refresh_cursor:
                 self.refresh(*args, condition=condition)
+                # adjust count of previously selected cards
+                for card, count in list(self.deck.items()):
+                    if count != round(self.average[card]):
+                        # can be negative
+                        adjust = min(self.cards_left, round(self.average[card]) - count)
+                        self.deck[card] += adjust
+                        self.cards_left -= adjust
                 # refresh can change the number of cards left
                 if self.cards_left <= 0:
                     break
