@@ -5,7 +5,10 @@ Changelog
 ----------------
 
 - Minor fixes to TWD parsing
-
+- Cards translations (es, fr) are now included
+- API endpoints to complete and search over translated name and text
+- CLI option to display a card translations
+- Additional rulings.
 
 1.7 (2020-12-02)
 ----------------
