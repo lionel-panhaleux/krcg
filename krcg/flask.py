@@ -119,14 +119,8 @@ def deck_by_id(twda_id):
 @base.route("/complete/<text>")
 def complete(text):
     """Card name completion."""
-    return flask.jsonify(vtes.VTES.complete(text))
-
-
-@base.route("/complete_i18n/<text>")
-def complete_i18n(text):
-    """Card name completion, with translation"""
     lang = _negotiate_locale(flask.request.accept_languages.values())
-    return flask.jsonify(vtes.VTES.complete_i18n(text, lang))
+    return flask.jsonify(vtes.VTES.complete(text, lang))
 
 
 @base.route("/card", methods=["POST"])

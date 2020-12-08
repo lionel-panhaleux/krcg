@@ -163,7 +163,7 @@ components:
                 format: url
                 minLength: 1
         Translations:
-          description: Card translations
+          description: Card translations, keys are ISO 639-1 language codes
           type: object
           additionalProperties:
             type: object
@@ -212,7 +212,7 @@ components:
           - Reference: "TOM 19960521"
             URL: "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ"
         Translations:
-          fr-FR:
+          fr:
             Name: "Aide des chauves-souris"
             Card Text: |
               [ani] Frapper à toute portée : 1 point de dégâts, avec 1 manœuvre optionnelle.
@@ -221,7 +221,7 @@ components:
               Pendues tête en bas comme des rangées de guenilles repoussantes
               Et souriant de toutes leurs dents dans leur sommeil. Des chauves-souris !
               D.H. Lawrence, "La Chauve-souris"
-          es-ES:
+          es:
             Name: "Ayuda de murciélagos"
             Card Text: |
               [ani] Ataque: 1 de daño a distancia, con 1 maniobra opcional.
@@ -689,7 +689,9 @@ paths:
     get:
       tags: [Card]
       summary: Get card text and rulings
-      description: Return the matching card information
+      description: |
+        Return the matching card information.
+        Works with translated card names.
       parameters:
         - name: name_or_id
           in: path
@@ -709,7 +711,10 @@ paths:
     get:
       tags: [Card]
       summary: Complete a card name
-      description: Return all candidates matching the partial name
+      description: |
+        Return all candidates matching the partial name.
+        If Accept-Language is set, will also return available names in that language,
+        in addition to the english completions.
       parameters:
         - name: partial_name
           in: path
@@ -717,6 +722,11 @@ paths:
           schema:
             type: string
             description: "Partial card name"
+        - name: Accept-Language
+          in: header
+          required: false
+          schema:
+            type: string
       responses:
         "200":
           description: Success, returns a JSON array of card names
@@ -728,41 +738,6 @@ paths:
                   type: string
                   description: Card name
               example: ["The unnamed", "Unnatural Disaster"]
-        "404":
-          description: Not found
-  /complete_i18n/{partial_name}:
-    get:
-      tags: [Card]
-      summary: Complete a card name with translations
-      description: |
-        Return all candidates matching the partial name, with translations.
-        Uses the language provided in Accept-Language (best match) and
-        matches on the original english names as well as translated names.
-      parameters:
-        - name: partial_name
-          in: path
-          required: true
-          schema:
-            type: string
-            description: "Partial card name"
-        - name: Accept-Language
-          in: header
-          required: true
-          schema:
-            type: string
-      responses:
-        "200":
-          description: Success, returns a JSON array of card names translations (dict)
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  description: Card name and translation
-                  additionalProperties:
-                    type: string
-              example: [{ "en": "Aid from Bats", "fr-FR": "Aide des chauves-souris" }]
         "404":
           description: Not found
   /submit-ruling/{card_name_or_id}:

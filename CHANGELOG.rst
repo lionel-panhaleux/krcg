@@ -4,7 +4,7 @@ Changelog
 1.10 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fixes and adaptations for translations
 
 
 1.9 (2020-12-08)

@@ -47,35 +47,22 @@ def test_complete(client):
     response = client.get("/complete/rot")
     assert response.status_code == 200
     assert response.json == ["Rötschreck", "Ulrike Rothbart"]
-    # match translations, even without accept-language header
-    # (probably shouldn't, but let's live with it for now)
+    # do not complete translations without accept-language header
     response = client.get("/complete/Aide%20des")
-    assert response.status_code == 200
-    assert response.json == []
-    # if accept-language matches a translation, provide translation
-    response = client.get("/complete/Aide%20des", headers=[("accept-language", "fr")])
     assert response.status_code == 200
     assert response.json == []
 
 
 def test_complete_i18n(client):
-    response = client.get(
-        "/complete_i18n/Aide%20des", headers=[("accept-language", "fr")]
-    )
+    response = client.get("/complete/Aide%20des", headers=[("accept-language", "fr")])
     assert response.status_code == 200
-    assert response.json == [
-        {"en": "Aid from Bats", "fr-FR": "Aide des chauves-souris"}
-    ]
-    response = client.get("/complete_i18n/Ankara", headers=[("accept-language", "fr")])
+    assert response.json == ["Aide des chauves-souris"]
+    response = client.get("/complete/Ankara", headers=[("accept-language", "fr")])
     assert response.status_code == 200
-    assert response.json == [
-        {"en": "The Ankara Citadel, Turkey", "fr-FR": "La citadelle d'Ankara, Turquie"}
-    ]
-    response = client.get("/complete_i18n/Ankara", headers=[("accept-language", "es")])
+    assert response.json == ["La citadelle d'Ankara, Turquie"]
+    response = client.get("/complete/Ankara", headers=[("accept-language", "es")])
     assert response.status_code == 200
-    assert response.json == [
-        {"en": "The Ankara Citadel, Turkey", "es-ES": "La Ciudadela de Ankara, Turquía"}
-    ]
+    assert response.json == ["La Ciudadela de Ankara, Turquía"]
 
 
 def test_card(client):
@@ -187,7 +174,7 @@ def test_card(client):
             "FB:PN6",
         ],
         "Translations": {
-            "es-ES": {
+            "es": {
                 "Card Text": (
                     "[ani] Ataque: 1 de daño a distancia, con 1 maniobra opcional.\n"
                     "[ANI] Como antes, con 1 acoso opcional."
@@ -199,7 +186,7 @@ def test_card(client):
                 ),
                 "Name": "Ayuda de murciélagos",
             },
-            "fr-FR": {
+            "fr": {
                 "Card Text": (
                     "[ani] Frapper à toute portée : 1 point de dégâts, "
                     "avec 1 manœuvre optionnelle.\n"
@@ -216,6 +203,9 @@ def test_card(client):
         },
         "Type": ["Combat"],
     }
+    # fetching by translated name works
+    response = client.get("/card/Aide%20des%20chauves-souris")
+    assert response.status_code == 200
 
 
 def test_deck(client, twda):

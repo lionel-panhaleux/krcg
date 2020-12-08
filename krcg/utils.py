@@ -111,6 +111,12 @@ class FuzzyDict(dict):
             ]
         return self.keys_cache
 
+    def add_alias(self, alias: Hashable, value: Hashable) -> None:
+        alias = normalize(alias)
+        if alias in self.aliases:
+            self._clear_cache()
+        self.aliases[alias] = value
+
     def __getitem__(self, key: Hashable):
         """Get a key, try to find a good matching.
 
@@ -140,6 +146,9 @@ class FuzzyDict(dict):
             return False
 
     def __setitem__(self, key, value):
+        # testing for cache validity to avoid clearing it is premature optimization
+        # doing a fuzzy match at each insertion is costly
+        # the FuzzyDict is more likely to be filled once then used
         self._clear_cache()
         return super().__setitem__(normalize(key), value)
 

@@ -255,7 +255,14 @@ class _VTES:
             if isinstance(name, int):
                 for lang in config.SUPPORTED_LANGUAGES:
                     if name in self.translations[lang]:
-                        translation = self.translations[lang][name]["Name"]
+                        # make sure to get the (ADV) prefix
+                        translation = self.get_name(card, lang)
+                        # only match translations exactly
+                        # adding them to fuzzy matching will yield unexpected matches
+                        # when parsing decklists with errors or random comments
+                        # eg. "Distraction" is french for "Misdirection"
+                        # and wrongly matches on some legacy TWDA lines
+                        self.cards.add_alias(translation, name)
                         self.completion_i18n[lang].add(translation, name)
                         while "," in translation:
                             translation = translation.rsplit(",", 1)[0]
@@ -478,7 +485,7 @@ class _VTES:
             if trait in {"magaji", "kholo"}:
                 self.search["trait"]["laibon"].add(card_id)
 
-    def complete(self, partial_name: str) -> List:
+    def complete(self, partial_name: str, lang: str = "en") -> List:
         """Card name completion.
 
         It uses a Trie to match trigrams.
@@ -491,37 +498,20 @@ class _VTES:
         Returns:
             A sorted list of results, from most likely to less likely
         """
+        base_search = self.completion.search(partial_name)
+        lang_search = collections.Counter()
+        if lang in self.completion_i18n:
+            lang_search = self.completion_i18n[lang].search(partial_name)
+        for k in base_search & lang_search:
+            del base_search[k]
         ret = [
-            [self.get_name(card_id), score]
-            for card_id, score in self.completion.search(partial_name).items()
+            [self.get_name(card_id), score] for card_id, score in base_search.items()
+        ]
+        ret += [
+            [self.get_name(card_id, lang), score]
+            for card_id, score in lang_search.items()
         ]
         return [x[0] for x in sorted(ret, key=lambda x: (-x[1], x[0]))]
-
-    def complete_i18n(self, partial_name: str, lang: str) -> List:
-        """Card name completion, with translations.
-
-        Searches for both english and given language completions.
-        The maximum score is used for ordering (then, alphabetically).
-
-        Args:
-            partial_name: Parts of the name (can contain spaces)
-
-        Returns:
-            A list of dicts where the keys are language codes
-            and the values are the card names in those languages.
-        """
-        search = self.completion.search(partial_name)
-        if lang in self.completion_i18n:
-            search |= self.completion_i18n[lang].search(partial_name)
-        ret = []
-        for card_id, score in search.items():
-            ret.append([score, {"en": self.get_name(card_id)}])
-            if card_id in self.translations.get(lang, {}):
-                ret[-1][1].update({lang: self.translations[lang][card_id]["Name"]})
-        return [
-            x[1]
-            for x in sorted(ret, key=lambda x: (-x[0], x[1].get(lang) or x[1]["en"]))
-        ]
 
     def trait_choices(self, trait: str) -> set:
         """Get all registered values for a given card trait.
@@ -579,11 +569,12 @@ class _VTES:
         """List of clans"""
         return sorted(self.trait_choices("Clan"))
 
-    def get_name(self, card: Union[str, int, Mapping]) -> str:
-        """Returns official name for a card or card name."""
+    def get_name(self, card: Union[str, int, Mapping], lang: str = "en") -> str:
+        """Returns official name for a card (provide name, id or card object)."""
         if not isinstance(card, collections.abc.Mapping):
             card = self[card]
-        name = card["Name"]
+        name = self.translations.get(lang, {}).get(int(card["Id"]), {}).get("Name")
+        name = name or card["Name"]
         if name[-5:] == ", The":
             name = "The " + name[:-5]
         name = name.replace("(TM)", "™")
@@ -622,7 +613,7 @@ class _VTES:
         for lang, translations in self.translations.items():
             if int(card["Id"]) in translations:
                 data.setdefault("Translations", {})
-                data["Translations"][lang] = translations[int(card["Id"])]
+                data["Translations"][lang[:2]] = translations[int(card["Id"])]
         return data
 
     def _get_name_variants(self, card: Mapping, safe: bool = True) -> StringGenerator:
