@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.10 (unreleased)
+1.10 (2020-12-09)
 -----------------
 
 - Fixes and adaptations for translations
