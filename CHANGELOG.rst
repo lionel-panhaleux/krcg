@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.11 (unreleased)
+1.11 (2020-12-09)
 -----------------
 
 - Fix (D) symbol in translations
