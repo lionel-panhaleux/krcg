@@ -680,7 +680,7 @@ class _VTES:
         for card in csv.DictReader(stream):
             self.translations[lang][int(card["Id"])] = {
                 "Name": card["Name " + lang],
-                "Card Text": card["Card Text"],
+                "Card Text": card["Card Text"].replace("(D)", "Ⓓ "),
                 "Flavor Text": card.get("Flavor Text") or "",
             }
 
@@ -694,6 +694,7 @@ class _VTES:
             if "Type" in card:
                 card["Type"] = [t.strip() for t in card["Type"].split("/") if t.strip()]
             if "Card Text" in card:
+                # historically, last card text chages were in braces - remove any
                 card["Card Text"] = card["Card Text"].replace("{", "")
                 card["Card Text"] = card["Card Text"].replace("}", "")
                 card["Card Text"] = card["Card Text"].replace("(D)", "Ⓓ ")
