@@ -5,7 +5,6 @@ dist/
 images/
 venv/
 *.egg-info/
-*.pkl
 
 # test
 .pytest_cache/

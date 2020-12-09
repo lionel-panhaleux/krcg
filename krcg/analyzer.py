@@ -5,6 +5,7 @@ import collections
 import itertools
 import random
 
+from . import cards
 from . import deck
 from . import logging
 from . import vtes
@@ -70,7 +71,7 @@ class Analyzer(object):
             The deck built
         """
         self.deck = deck.Deck(author="KRCG")
-        self.refresh(*args, condition=vtes.VTES.is_crypt)
+        self.refresh(*args, condition=cards.Card.is_crypt)
         # if no seed is given, choose one of the 100 most played cards,
         # but do not pick a spoiler (card played in more than 25% decks).
         if not args:
@@ -81,9 +82,9 @@ class Analyzer(object):
             ]
             logger.info("Randomly selected {}", args[0])
         # build crypt first, then library
-        self.build_deck_part(*args, condition=vtes.VTES.is_crypt)
-        self.refresh(condition=vtes.VTES.is_library)
-        self.build_deck_part(condition=vtes.VTES.is_library)
+        self.build_deck_part(*args, condition=cards.Card.is_crypt)
+        self.refresh(condition=cards.Card.is_library)
+        self.build_deck_part(condition=cards.Card.is_library)
         # add example decks reference in description
         self.deck.comments = "Inspired by:\n" + "\n".join(
             f" - {twda_id:<20} {example.name or '(No Name)'}"

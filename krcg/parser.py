@@ -3,6 +3,7 @@
 It handles the legacy TWDA as much as possible.
 They are many tricky formats used throughout this historic document.
 """
+from krcg.cards import Card
 from typing import TextIO, Tuple, Union
 import enum
 import math
@@ -10,6 +11,7 @@ import re
 
 import arrow
 
+from . import cards
 from . import config
 from . import logging
 from . import vtes
@@ -18,22 +20,93 @@ from . import utils
 
 logger = logging.logger
 
-# # Headers used in TWDA, e.g. "Action modifiers/Combat cards total: (4)"
-# HEADERS = set()
-# HEADERS.update(config.HEADERS)
-# HEADERS.update([h + "s" for h in config.HEADERS] + ["ally", "allies"])
-# HEADERS.update([f"{h1}/{h2}" for h1, h2 in itertools.permutations(HEADERS, 2)])
-# HEADERS.update(config.ADDITIONAL_HEADERS)
-# HEADERS.update([h + " card" for h in HEADERS] + [h + " cards" for h in HEADERS])
-# HEADERS.update(["card", "cards", "deck"])
-# # HEADERS.update([h + " total" for h in HEADERS])
-# HEADERS.update([h + ":" for h in HEADERS])
-
-HEADERS = (
-    "(" + "|".join(re.escape(utils.normalize(h)) + "s?" for h in config.HEADERS) + ")"
+#: classic headers in deck lists
+_HEADERS = [
+    "actin",
+    "action",
+    "acton",
+    "allies",
+    "ally",
+    "average",
+    "burn option",
+    "capacity",
+    "card",
+    "combat",
+    "comment",
+    "conviction",
+    "convinction",
+    "crypt",
+    "deck",
+    "description",
+    "disciplineless",
+    "combo",
+    "double",
+    "equip",
+    "equipament",
+    "equipment",
+    "equiptment",
+    "equpment",
+    "event",
+    "librairie",
+    "library",
+    "master",
+    "minion",
+    "misc",
+    "miscellaneous",
+    "mixed",
+    "mod",
+    "modifier",
+    "multitype",
+    "non-skilled",
+    "other",
+    "politcal",
+    "politic",
+    "political",
+    "power",
+    "reaction",
+    "rection",
+    "retainer",
+    "skill-less",
+    "total",
+    "trifle",
+    "vote",
+    "and",
+]
+_DISCIPLINES = {
+    "abombwe",
+    "animalism",
+    "auspex",
+    "celerity",
+    "chimerstry",
+    "daimoinon",
+    "dementation",
+    "dominate",
+    "fortitude",
+    "melpominee",
+    "mytherceria",
+    "necromancy",
+    "obeah",
+    "obfuscate",
+    "obtenebration",
+    "potence",
+    "presence",
+    "protean",
+    "quietus",
+    "sanguinus",
+    "serpentis",
+    "spiritus",
+    "temporis",
+    "thaumaturgy",
+    "thanatosis",
+    "valeren",
+    "vicissitude",
+    "visceratika",
+}
+_HEADERS_RE = (
+    "(" + "|".join(re.escape(utils.normalize(h)) + "s?" for h in _HEADERS) + ")"
 )
-HEADERS_RE = (
-    r"^(\s|/|-|\d|_)*{0}((\s|/|-)*{0})*".format(HEADERS)
+_HEADERS_RE = (
+    r"^(\s|/|-|\d|_)*{0}((\s|/|-)*{0})*".format(_HEADERS_RE)
     + r"(\s|\d|:|;|\.|\(|\)|\[|\]|/|-|=|,|"
     + r"cards?|carta|cars|total|min|max|avg|masters?|minions?|trifles?)*$"
 )
@@ -42,22 +115,61 @@ HEADERS_RE = (
 # Card count line regular expression (tricky one)
 
 # optional punctuation
-PUNCTUATION = r"\s*-?((x|X)+\s)?(\*|_)*\s*"
+_PUNCTUATION = r"\s*-?((x|X)+\s)?(\*|_)*\s*"
 # 2 digits maximum to avoid miscounting "419 Operation" and such
 # negative lookahead to avoid matching part of a card name (eg. 2nd)
-ANTE_COUNT = r"(x|X|\*)*(?P<ante_count>\d{1,2})(?!(\d|st|nd|rd|th))"
+_ANTE_COUNT = r"(x|X|\*)*(?P<ante_count>\d{1,2})(?!(\d|st|nd|rd|th))"
 # PUNCTUATION = r"\s*((x|X|-)\s)?\*?\s*"
 # non-greedy qualifier for card name,
 # matches what the tail expression does not
 # special case for "channel 10" to avoid parsing 10x "channel".
 # "local 1111" and such are OK: we only consider max 2 digits as valid.
-NAME = r"(?P<name>channel 10|.+?)(,\s*$)?"
+_NAME = r"(?P<name>channel 10|.+?)(,\s*$)?"
 # only match a crypt tail if a card count was present in the head
-DISCIPLINE_TRIGRAM = "|".join(set(utils.normalize(d) for d in config.DIS_MAP))
-CRYPT_TRAIT = "|".join(
-    set(utils.normalize(t) for t in config.TRAITS + ["vote", "votes"])
+_DISCIPLINE_TRIGRAM = "|".join(
+    [
+        "-none-",
+        "abo",
+        "ani",
+        "aus",
+        "cel",
+        "chi",
+        "dai",
+        "def",
+        "dem",
+        "dom",
+        "for",
+        "inn",
+        "jud",
+        "mar",
+        "mel",
+        "myt",
+        "nec",
+        "obe",
+        "obf",
+        "obt",
+        "pot",
+        "pre",
+        "pro",
+        "qui",
+        "red",
+        "san",
+        "ser",
+        "spi",
+        "tem",
+        "tha",
+        "thn",
+        "val",
+        "ven",
+        "vic",
+        "vin",
+        "vis",
+    ]
 )
-CLAN = "|".join(
+_CRYPT_TRAIT = "|".join(
+    set(utils.normalize(t) for t in cards.CardSearch._ALL_TITLES + ["vote", "votes"])
+)
+_CLAN = "|".join(
     [
         "none",
         "osebo",
@@ -108,11 +220,13 @@ CLAN = "|".join(
         "redeemer",
     ]
 )
-CRYPT_TAIL = (
+_CRYPT_TAIL = (
     r"(?P<crypt_tail>(?(ante_count)\s+\d{1,2}\s+"
-    + r"({}|{}|{}|\s|:|\d{{1,2}}|any)*))?".format(DISCIPLINE_TRIGRAM, CRYPT_TRAIT, CLAN)
+    + r"({}|{}|{}|\s|:|\d{{1,2}}|any)*))?".format(
+        _DISCIPLINE_TRIGRAM, _CRYPT_TRAIT, _CLAN
+    )
 )
-PUNCTUATED_TRAIT = "|".join(
+_PUNCTUATED_TRAIT = "|".join(
     [
         "defense",
         "fligh",
@@ -138,7 +252,7 @@ PUNCTUATED_TRAIT = "|".join(
         "endless night",
     ]
 )
-NAKED_TRAIT = "|".join(
+_NAKED_TRAIT = "|".join(
     [
         "trifle",
         "abomination",
@@ -209,10 +323,12 @@ NAKED_TRAIT = "|".join(
         "visceratika",
     ]
 )
-TRAIT = r"\s+((\s|-|\(|\[|/|\*)+({0})|(\s|-|\(|\[|/|\*)*({1}))(\s|\)|\]|/|\*)*$".format(
-    PUNCTUATED_TRAIT, NAKED_TRAIT
+_TRAIT = (
+    r"\s+((\s|-|\(|\[|/|\*)+({0})|(\s|-|\(|\[|/|\*)*({1}))(\s|\)|\]|/|\*)*$".format(
+        _PUNCTUATED_TRAIT, _NAKED_TRAIT
+    )
 )
-POST_COUNT = (
+_POST_COUNT = (
     # mandatory punctuation (beware of "AK-47", "Kpist m/45", ...)
     r"(\s|\(|\[|:|cards?|total|,)+"
     r"(?P<count_mark>-*\s|x*|\**|=*|/*)\s*(?P<post_count>\d{1,2})"
@@ -222,18 +338,18 @@ POST_COUNT = (
     r"(?!(st|nd|rd|th|.?\d|b|p|(..?port)))"
     r"(\s|\(|\)|\[|\]|:|cards?|total|\d|trifles?|,)*"
 )
-BRACED_COMMENT = (
+_BRACED_COMMENT = (
     r"\s+(\((?P<parenthesis_comment>[^\)]+)\)|\[(?P<bracket_comment>[^\]]+?)\s*\])"
 )
-LINE_COMMENT = (
+_LINE_COMMENT = (
     r"\s+(?P<comment_mark>--*|//*\**|\*\**)\s*" r"(?P<line_comment>.+?)(-|/|\*|\s)*"
 )
-COMMENT = f"({BRACED_COMMENT}|{LINE_COMMENT})"
+_COMMENT = f"({_BRACED_COMMENT}|{_LINE_COMMENT})"
 # full card count line regular expression
 # RE = f"^{HEAD}{ANTE_COUNT}?{PUNCTUATION}{NAME}({CLASS}|{POST_COUNT}|{COMMENT})\\s*$"
-RE = (
-    f"^{PUNCTUATION}({ANTE_COUNT})?{PUNCTUATION}{NAME}{CRYPT_TAIL}"
-    f"({POST_COUNT})?({TRAIT})?{COMMENT}?\\s*$"
+_RE = (
+    f"^{_PUNCTUATION}({_ANTE_COUNT})?{_PUNCTUATION}{_NAME}{_CRYPT_TAIL}"
+    f"({_POST_COUNT})?({_TRAIT})?{_COMMENT}?\\s*$"
 )
 
 
@@ -250,10 +366,10 @@ class Comment:
     def __init__(
         self,
         comment: str = "",
-        card_name: str = "",
+        card: Card = None,
         mark: Union[None, Mark] = None,
     ):
-        self.card_name = card_name
+        self.card = card
         self.mark = mark
         self.string = comment
 
@@ -292,7 +408,7 @@ class Comment:
         # if may be a parsing error
         if not self.mark:
             match = re.match(
-                f"{PUNCTUATION}{ANTE_COUNT}(x|X|\\*|-|_|\\s)+(\\w|\\d|\\s|:|'|,)+\\(",
+                f"{_PUNCTUATION}{_ANTE_COUNT}(x|X|\\*|-|_|\\s)+(\\w|\\d|\\s|:|'|,)+\\(",
                 self.string.split("\n", 1)[0],
             )
             if match:
@@ -378,9 +494,9 @@ class Parser:
         # if index > 34:
         #     ipdb.set_trace()
 
-        name, count = self.get_card(line, twda)
-        if name and count:
-            self.deck.update({name: count})
+        card, count = self.get_card(line, twda)
+        if card and count:
+            self.deck.update({card: count})
 
     def parse_twda_headers(self, index: int, line: str):
         """Parse a line of text for TWDA headers."""
@@ -468,10 +584,10 @@ class Parser:
 
     def get_card(self, line: str, twda: bool = False) -> Tuple[str, int]:
         """Try to find a card and count, register possible comment."""
-        if re.match(HEADERS_RE, utils.normalize(line)):
+        if re.match(_HEADERS_RE, utils.normalize(line)):
             return None, 0
-        name, count, comment, mark = None, 0, "", None
-        match = re.match(RE, utils.normalize(line))
+        card, name, count, comment, mark = None, None, 0, "", None
+        match = re.match(_RE, utils.normalize(line))
         # count before a card name is most common and easier to parse
         if match:
             name = match.group("name")
@@ -490,38 +606,35 @@ class Parser:
                         # Be wary of disciplines: they are sometimes headers, but
                         # distinguishing them from actual Master discipline cards
                         # is not decidable so we log and ignore the line
-                        if name.strip(" :()[]-_*=") in set(
-                            a.lower() for a in vtes.VTES.disciplines
-                        ):
+                        if name.strip(" :()[]-_*=") in _DISCIPLINES:
                             logger.warning('improper discipline "{}"', line)
                             return None, 0
             try:
-                official_name = vtes.VTES.get_name(name)
-                if name == "raven" and official_name == "Camille Devereux, The Raven":
+                card = vtes.VTES[name]
+                if name == "raven" and card.name == "Camille Devereux, The Raven":
                     self.deck.raven = count
-                name = official_name
             except KeyError:
-                name, count = None, 0
+                count = 0
         # do not match a card inside a marked multiline comment
         if (
-            name
+            card
             and self.current_comment
             and self.current_comment.mark == Mark.MULTILINE
         ):
             logger.warning('discarded match "{}" inside comment "{}"', name, line)
-            name, count = None, 0
+            card, count = None, 0
         # do not match crypt tail expression on a library card
-        if name and match.group("crypt_tail") and not vtes.VTES.is_crypt(name):
-            name, count = None, 0
+        if card and match.group("crypt_tail") and not card.crypt:
+            card, count = None, 0
         # do not match post count on a crypt card
-        if name and match.group("post_count") and vtes.VTES.is_crypt(name):
-            name, count = None, 0
+        if card and match.group("post_count") and card.crypt:
+            card, count = None, 0
         # Too many preface comments parse like cards in the TWDA
         if twda and name and not self.separator:
-            name, count = None, 0
+            card, count = None, 0
         # if no card was found, the whole line is a comment
         # if a card was found, a comment might still be present as a suffix
-        if name:
+        if card:
             comment = max(
                 match.span("parenthesis_comment"),
                 match.span("bracket_comment"),
@@ -560,11 +673,11 @@ class Parser:
                     mark = Mark.MULTILINE
                 if line.rstrip()[-2:] == "*/":
                     mark = Mark.END
-        self.comment(comment, card_name=name or None, mark=mark)
-        self.preface = self.preface and not bool(name)
-        return name, count
+        self.comment(comment, card=card or None, mark=mark)
+        self.preface = self.preface and not card
+        return card, count
 
-    def comment(self, comment: str, card_name: str = None, mark: Mark = None) -> None:
+    def comment(self, comment: str, card: Card = None, mark: Mark = None) -> None:
         """Handle a comment.
 
         Log if we suspect the potential comment to be a parsing error
@@ -576,7 +689,7 @@ class Parser:
         # warn on unmarked single line comments in the middle of the cards list:
         # they are candidates for parsing errors
         if (
-            (card_name or not comment)
+            (card or not comment)
             and not self.preface
             and self.current_comment
             and not self.current_comment.multiline
@@ -591,7 +704,7 @@ class Parser:
         # log unmarked multiline comments in the middle of the list
         # they happen a lot in the TWDA, but checking them may be needed
         if (
-            (card_name or mark)
+            (card or mark)
             and self.current_comment
             and self.current_comment.multiline
             and self.current_comment.mark != Mark.MULTILINE
@@ -606,17 +719,17 @@ class Parser:
         if self.current_comment and (
             mark == Mark.END
             or (
-                (card_name or not self.preface)
+                (card or not self.preface)
                 # if the comment is multiline and we did not parse a new card, continue
-                and (card_name or not self.current_comment.mark == Mark.MULTILINE)
+                and (card or not self.current_comment.mark == Mark.MULTILINE)
                 # distinguish between a follow-up after a card comment and a new block
                 and (
                     # a new card means a new comment
                     # an unparsed line (no card name) after non-multiline-marked comment
                     # on a card is also viewed as new comment (may be a parsing error)
-                    (self.current_comment.card_name != card_name)
+                    (self.current_comment.card != card)
                     # a blank line after a card comment means a new comment
-                    or (not comment and self.current_comment.card_name)
+                    or (not comment and self.current_comment.card)
                 )
             )
         ):
@@ -625,7 +738,7 @@ class Parser:
                 comment = None
             self.current_comment.finalize()
             if self.current_comment:
-                current_card = self.current_comment.card_name
+                current_card = self.current_comment.card
                 if current_card:
                     self.deck.cards_comments[current_card] = str(self.current_comment)
                 else:
@@ -636,7 +749,7 @@ class Parser:
             self.current_comment = None
         # start a new comment if we have a non-blank line
         if comment and not self.current_comment:
-            self.current_comment = Comment(card_name=card_name, mark=mark)
+            self.current_comment = Comment(card=card, mark=mark)
         # append the parsed comment, even if it is a blank line
         if comment or self.current_comment:
             self.current_comment += comment

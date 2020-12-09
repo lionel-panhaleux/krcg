@@ -1,13 +1,11 @@
 """Deck class: pickling and card access under conditions"""
 from typing import Callable, Dict, Generator, List, Optional, TextIO, Tuple
-import collections
-import datetime
-import itertools
-import re
-import textwrap
-
 import arrow
-import arrow.parser
+import collections
+import requests
+import itertools
+import unidecode
+
 
 from . import config
 from . import logging
@@ -74,6 +72,17 @@ class Deck(collections.Counter):
         p.parse(input, offset, twda)
         return p.deck
 
+    @classmethod
+    def from_amaranth(cls, uid: str):
+        r = requests.post("https://amaranth.vtes.co.nz/api/deck", data={"id": uid})
+        r.raise_for_status()
+        r = r.json()["result"]
+        ret = cls(id=uid, author=r.get("author", None))
+        ret.date = arrow.get(r["modified"]).date()
+        for cid, count in r["cards"].items():
+            ret[vtes.VTES.amaranth[int(cid)]] = count
+        return ret
+
     def check(self) -> bool:
         """Check a deck conforms to the rules IRT cards count
 
@@ -83,8 +92,8 @@ class Deck(collections.Counter):
             True if the deck checks out
         """
         res = True
-        library_count = self.cards_count(vtes.VTES.is_library)
-        crypt_count = self.cards_count(vtes.VTES.is_crypt)
+        library_count = self.cards_count(lambda c: c.library)
+        crypt_count = self.cards_count(lambda c: c.crypt)
         if library_count < 60:
             logger.warning(
                 "deck has too few cards ({count}) [{repr}]",
@@ -111,49 +120,80 @@ class Deck(collections.Counter):
             res = False
         return res
 
-    def __getstate__(self):
-        """For pickle serialization.
+    def __getstate__(self) -> dict:
+        """A consistent deck serialization for the API
 
-        Deck inherits `dict` and its special handling of pickle.
+        Cards are listed in the order given by the config.TYPE_ORDER list.
+
+        Returns:
+            The serialized deck
         """
-        return {
+        ret = {
             "id": self.id,
-            "cards": collections.OrderedDict(self.cards()),
-            "author": self.author,
             "event": self.event,
+            "event_link": self.event_link,
             "place": self.place,
-            "date": self.date.isoformat() if self.date else None,
+            "date": self.date,
             "tournament_format": self.tournament_format,
-            "score": self.score,
             "players_count": self.players_count,
             "player": self.player,
-            "event_link": self.event_link,
+            "score": self.score,
             "name": self.name,
-            "cards_comments": self.cards_comments,
+            "author": self.author,
             "comments": self.comments,
-            "raven": self.raven,
+            "crypt": {
+                "count": self.cards_count(lambda c: c.crypt),
+                "cards": [
+                    {
+                        "id": int(card),
+                        "count": count,
+                        "name": str(card),
+                        "comments": self.cards_comments.get(card),
+                    }
+                    for card, count in self.cards(lambda c: c.crypt)
+                ],
+            },
+            "library": {"count": self.cards_count(lambda c: c.library), "cards": []},
         }
 
-    def __setstate__(self, state):
-        """For pickle deserialization."""
+        # form a section for each type with a header displaying the total
+        for kind, cards in self._sorted_library():
+            ret["library"]["cards"].append(
+                {
+                    "type": config.TYPE_ORDER[kind],
+                    "count": sum(count for _card, count in cards),
+                    "cards": [],
+                }
+            )
+            for card, count in cards:
+                ret["library"]["cards"][-1]["cards"].append(
+                    {
+                        "id": int(card),
+                        "count": count,
+                        "name": str(card),
+                        "comments": self.cards_comments.get(card),
+                    }
+                )
+        return utils.json_pack(ret)
+
+    def __setstate__(self, state) -> None:
+        state = utils.json_unpack(state)
         self.id = state.get("id")
-        self.author = state.get("author")
         self.event = state.get("event")
         self.place = state.get("place")
-        try:
-            self.date = datetime.date.fromisoformat(state.get("date") or "")
-        except ValueError:
-            pass
+        self.date = state.get("date")
         self.tournament_format = state.get("tournament_format")
-        self.score = state.get("score")
-        self.players_count = int(state.get("players_count", 0))
+        self.players_count = state.get("players_count")
         self.player = state.get("player")
-        self.event_link = state.get("event_link")
+        self.score = state.get("score")
         self.name = state.get("name")
-        self.comments = state.get("comments", "")
-        self.cards_comments = state.get("cards_comments", {})
-        self.raven = state.get("raven", {})
-        self.update(state.get("cards", {}))
+        self.author = state.get("author")
+        self.comments = state.get("comments")
+        for card in state.get("crypt", {}).get("cards", []):
+            self[vtes.VTES[card["id"]]] = card["count"]
+        for section in state.get("library", {}).get("cards", []):
+            for card in section["cards"]:
+                self[vtes.VTES[card["id"]]] = card["count"]
 
     def __reduce__(self):
         """For pickle serialization."""
@@ -207,22 +247,28 @@ class Deck(collections.Counter):
         """
 
         def _type_index(card_count):
-            return config.TYPE_ORDER.index(
-                "/".join(sorted(vtes.VTES[card_count[0]]["Type"]))
-            )
+            return config.TYPE_ORDER.index("/".join(sorted(card_count[0].types)))
 
         library_cards = sorted(
-            self.cards(vtes.VTES.is_library),
+            self.cards(lambda c: c.library),
             key=lambda a: (
                 _type_index(a),
-                utils.normalize(vtes.VTES.vekn_name(vtes.VTES[a[0]])),
+                utils.normalize(a[0].vekn_name),
             ),
         )
         for kind, cards in itertools.groupby(library_cards, key=_type_index):
             # return a list so it can be iterated over multiple times
             yield kind, list(cards)
 
-    def to_txt(self, wrap: int = 90) -> str:
+    def to_txt(self, format: str = "twd") -> str:
+        """Format to text. Default is TWD format."""
+        return {
+            "twd": self._to_txt_twd,
+            "jol": self._to_txt_jol,
+            "lackey": self._to_txt_lackey,
+        }.get(format, self._to_txt_twd)()
+
+    def _to_txt_twd(self):
         """A consistent deck display matching our parsing rules of TWDA.html
 
         Cards are displayed in the order given by the config.TYPE_ORDER list.
@@ -260,60 +306,50 @@ class Deck(collections.Counter):
         if self.comments:
             if self.name or self.author:
                 lines.append("")
-            if wrap and any(len(line) > wrap for line in self.comments.splitlines()):
-                lines.extend(textwrap.wrap(self.comments, wrap))
-            else:
-                lines.append(self.comments)
+            lines.append(self.comments)
         elif lines[-1] != "":
             lines.append("")
         cap = sorted(
             itertools.chain.from_iterable(
-                [int(vtes.VTES[card]["Capacity"])] * count
-                for card, count in self.cards(vtes.VTES.is_crypt)
+                [card.capacity] * count for card, count in self.cards(lambda c: c.crypt)
             )
         )
         cap_min = sum(cap[:4])
         cap_max = sum(cap[-4:])
         cap_avg = sum(cap) / len(cap)
         lines.append(
-            f"Crypt ({self.cards_count(vtes.VTES.is_crypt)} cards, "
+            f"Crypt ({self.cards_count(lambda c: c.crypt)} cards, "
             f"min={cap_min}, max={cap_max}, avg={round(cap_avg, 2):g})"
         )
         lines.append("-" * len(lines[-1]))
         max_name = (
-            max(
-                len(vtes.VTES.vekn_name(vtes.VTES[card]))
-                for card, _count in self.cards(vtes.VTES.is_crypt)
-            )
+            max(len(card.vekn_name) for card, _count in self.cards(lambda c: c.crypt))
             + 1
         )
         max_disc = (
             max(
-                len(" ".join(vtes.VTES[card]["Disciplines"]))
-                for card, _count in self.cards(vtes.VTES.is_crypt)
+                len(" ".join(card.disciplines))
+                for card, _count in self.cards(lambda c: c.crypt)
             )
             + 1
         )
         max_title = (
-            max(
-                len(vtes.VTES[card].get("Title", ""))
-                for card, _count in self.cards(vtes.VTES.is_crypt)
-            )
+            max(len(card.title or "") for card, _count in self.cards(lambda c: c.crypt))
             + 1
         )
-        for card, count in self.cards(vtes.VTES.is_crypt):
-            official_name = vtes.VTES.vekn_name(vtes.VTES[card])
+        for card, count in self.cards(lambda c: c.crypt):
+            official_name = card.vekn_name
             if official_name == "Camille Devereux, The Raven" and self.raven:
                 lines.append(
                     f"{{}}x {{:<{max_name}}} {{:>2}} {{:<{max_disc}}} "
                     f"{{:<{max_title}}} {{}}:{{}}".format(
                         count - self.raven,
                         "Camille Devereux",
-                        vtes.VTES[card]["Capacity"],
-                        " ".join(sorted(vtes.VTES[card]["Disciplines"])),
-                        vtes.VTES[card].get("Title", ""),
-                        vtes.VTES[card]["Clan"][0],
-                        vtes.VTES[card]["Group"],
+                        card.capacity,
+                        " ".join(sorted(card.disciplines)),
+                        card.title or "",
+                        card.clans[0],
+                        card.group.upper(),
                     )
                 )
                 official_name = "Raven"
@@ -323,17 +359,23 @@ class Deck(collections.Counter):
                 f"{{:<{max_title}}} {{}}:{{}}".format(
                     count,
                     official_name,
-                    vtes.VTES[card]["Capacity"],
-                    " ".join(sorted(vtes.VTES[card]["Disciplines"])),
-                    vtes.VTES[card].get("Title", ""),
-                    vtes.VTES[card]["Clan"][0],
-                    vtes.VTES[card]["Group"],
+                    card.capacity,
+                    # use legacy vis trigram for vision
+                    (
+                        " ".join(
+                            sorted({"vin": "vis"}.get(d, d) for d in card.disciplines)
+                        )
+                        or "-none-"
+                    ),
+                    card.title or "",
+                    card.clans[0],
+                    card.group.upper(),
                 )
             )
             if card in self.cards_comments:
                 comment = self.cards_comments[card].replace("\n", " ").strip()
                 lines[-1] += f" -- {comment}"
-        lines.append(f"\nLibrary ({self.cards_count(vtes.VTES.is_library)} cards)")
+        lines.append(f"\nLibrary ({self.cards_count(lambda c: c.library)} cards)")
         # form a section for each type with a header displaying the total
         for i, (kind, cards) in enumerate(self._sorted_library()):
             trifle_count = ""
@@ -341,7 +383,7 @@ class Deck(collections.Counter):
                 trifle_count = sum(
                     count
                     for card, count in cards
-                    if re.search(r"(t|T)rifle", vtes.VTES[card]["Card Text"])
+                    if card in vtes.VTES.search(bonus=["trifle"])
                 )
                 if trifle_count:
                     trifle_count = f"; {trifle_count} trifle"
@@ -350,70 +392,32 @@ class Deck(collections.Counter):
             cr = "\n" if i > 0 else ""
             lines.append(
                 f"{cr}{config.TYPE_ORDER[kind]} "
-                f"({sum(count for card, count in cards)}{trifle_count})"
+                f"({sum(count for card_, count in cards)}{trifle_count})"
             )
             for card, count in cards:
                 if card in self.cards_comments:
                     comment = self.cards_comments[card].replace("\n", " ").strip()
-                    lines.append(
-                        f"{count}x {vtes.VTES.vekn_name(vtes.VTES[card]):<23}"
-                        f" -- {comment}"
-                    )
+                    lines.append(f"{count}x {card.vekn_name:<23}" f" -- {comment}")
                 else:
-                    lines.append(f"{count}x {vtes.VTES.vekn_name(vtes.VTES[card])}")
+                    lines.append(f"{count}x {card.vekn_name}")
         return "\n".join(lines)
 
-    def to_dict(self) -> dict:
-        """A consistent deck serialization for the API
-
-        Cards are listed in the order given by the config.TYPE_ORDER list.
-
-        Returns:
-            The serialized deck
-        """
-        ret = {
-            "twda_id": self.id,
-            "event": self.event,
-            "place": self.place,
-            "date": self.date,
-            "tournament_format": self.tournament_format,
-            "players_count": self.players_count,
-            "player": self.player,
-            "score": self.score,
-            "name": self.name,
-            "author": self.author,
-            "comments": self.comments,
-            "crypt": {
-                "count": self.cards_count(vtes.VTES.is_crypt),
-                "cards": [
-                    {
-                        "id": vtes.VTES[card]["Id"],
-                        "count": count,
-                        "name": card,
-                        "comments": self.cards_comments.get(card),
-                    }
-                    for card, count in self.cards(vtes.VTES.is_crypt)
-                ],
-            },
-            "library": {"count": self.cards_count(vtes.VTES.is_library), "cards": []},
-        }
-
-        # form a section for each type with a header displaying the total
-        for kind, cards in self._sorted_library():
-            ret["library"]["cards"].append(
-                {
-                    "type": config.TYPE_ORDER[kind],
-                    "count": sum(count for card, count in cards),
-                    "cards": [],
-                }
-            )
+    def _to_txt_jol(self):
+        lines = []
+        for card, count in self.cards(lambda c: c.crypt):
+            lines.append(f"{count}x {card.vekn_name}")
+        lines.append("")
+        for _kind, cards in self._sorted_library():
             for card, count in cards:
-                ret["library"]["cards"][-1]["cards"].append(
-                    {
-                        "id": vtes.VTES[card]["Id"],
-                        "count": count,
-                        "name": card,
-                        "comments": self.cards_comments.get(card),
-                    }
-                )
-        return utils.json_clean(ret)
+                lines.append(f"{count}x {card.vekn_name}")
+        return "\n".join(lines)
+
+    def _to_txt_lackey(self):
+        lines = []
+        for _kind, cards in self._sorted_library():
+            for card, count in cards:
+                lines.append(f"{count}\t{unidecode.unidecode(card.vekn_name)}")
+        lines.append("Crypt:")
+        for card, count in self.cards(lambda c: c.crypt):
+            lines.append(f"{count}\t{unidecode.unidecode(card.vekn_name)}")
+        return "\n".join(lines)

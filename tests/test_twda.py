@@ -1,6 +1,5 @@
 """Test the parsing of hand-picked examples from the TWDA.
 """
-import collections
 import logging
 import os.path
 import textwrap
@@ -8,11 +7,17 @@ import textwrap
 from krcg import twda
 
 
+def test_load():
+    test_twda = twda._TWDA()
+    test_twda.load()
+    assert len(test_twda) >= 3125
+
+
 def test_2019grdojf(caplog):
     """Recent classic layout, we must get everything seamlessly"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2019grdojf.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2019grdojf"].__getstate__() == {
         "id": "2019grdojf",
@@ -25,55 +30,104 @@ def test_2019grdojf(caplog):
         "tournament_format": "3R+F",
         "score": "1gw3.5 + 4vp in the final",
         "name": "Parliament of Shadows precon with no changes.",
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Luca Italicus", 2),
-                ("Antón de Concepción", 2),
-                ("Carolina Vález", 2),
-                ("Charles Delmare", 2),
-                ("Lord Leopold Valdemar", 2),
-                ("Percival", 2),
-                ("Information Highway", 1),
-                ("Jake Washington", 1),
-                ("Monastery of Shadows", 1),
-                ("Papillon", 1),
-                ("Political Hunting Ground", 1),
-                ("Power Structure", 1),
-                ("Powerbase: Madrid", 1),
-                ("Villein", 4),
-                ("Zillah's Valley", 2),
-                ("Govern the Unaligned", 6),
-                ("Under Siege", 2),
-                ("Mylan Horseed", 1),
-                ("Anarchist Uprising", 1),
-                ("Ancient Influence", 1),
-                ("Banishment", 2),
-                ("Kine Resources Contested", 8),
-                ("Neonate Breach", 1),
-                ("Political Stranglehold", 1),
-                ("Reins of Power", 1),
-                ("Blanket of Night", 2),
-                ("Conditioning", 4),
-                ("Seduction", 4),
-                ("Shadow Play", 4),
-                ("Shroud of Absence", 4),
-                ("Shroud of Night", 4),
-                ("Tenebrous Form", 2),
-                ("Deflection", 4),
-                ("Obedience", 2),
-                ("On the Qui Vive", 2),
-                ("Wake with Evening's Freshness", 2),
-                ("Oubliette", 3),
-                ("Shadow Body", 3),
-            ]
+        "crypt": {
+            "cards": [
+                {"count": 2, "id": 200867, "name": "Luca Italicus"},
+                {"count": 2, "id": 200114, "name": "Antón de Concepción"},
+                {"count": 2, "id": 200249, "name": "Carolina Vález"},
+                {"count": 2, "id": 201513, "name": "Charles Delmare"},
+                {"count": 2, "id": 201517, "name": "Lord Leopold Valdemar"},
+                {"count": 2, "id": 201518, "name": "Percival"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100984, "name": "Information Highway"},
+                        {"count": 1, "id": 101019, "name": "Jake Washington"},
+                        {"count": 1, "id": 101238, "name": "Monastery of Shadows"},
+                        {"count": 1, "id": 101350, "name": "Papillon"},
+                        {"count": 1, "id": 101415, "name": "Political Hunting Ground"},
+                        {"count": 1, "id": 101430, "name": "Power Structure"},
+                        {"count": 1, "id": 101437, "name": "Powerbase: Madrid"},
+                        {"count": 4, "id": 102121, "name": "Villein"},
+                        {"count": 2, "id": 102207, "name": "Zillah's Valley"},
+                    ],
+                    "count": 13,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 6, "id": 100845, "name": "Govern the Unaligned"},
+                        {"count": 2, "id": 102063, "name": "Under Siege"},
+                    ],
+                    "count": 8,
+                    "type": "Action",
+                },
+                {
+                    "cards": [{"count": 1, "id": 101261, "name": "Mylan Horseed"}],
+                    "count": 1,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100059, "name": "Anarchist Uprising"},
+                        {"count": 1, "id": 100064, "name": "Ancient Influence"},
+                        {"count": 2, "id": 100131, "name": "Banishment"},
+                        {"count": 8, "id": 101056, "name": "Kine Resources Contested"},
+                        {"count": 1, "id": 101271, "name": "Neonate Breach"},
+                        {"count": 1, "id": 101417, "name": "Political Stranglehold"},
+                        {"count": 1, "id": 101591, "name": "Reins of Power"},
+                    ],
+                    "count": 15,
+                    "type": "Political Action",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 100177, "name": "Blanket of Night"},
+                        {"count": 4, "id": 100401, "name": "Conditioning"},
+                        {"count": 4, "id": 101712, "name": "Seduction"},
+                        {"count": 4, "id": 101743, "name": "Shadow Play"},
+                        {"count": 4, "id": 101774, "name": "Shroud of Absence"},
+                        {"count": 4, "id": 101775, "name": "Shroud of Night"},
+                        {"count": 2, "id": 101957, "name": "Tenebrous Form"},
+                    ],
+                    "count": 24,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 4, "id": 100518, "name": "Deflection"},
+                        {"count": 2, "id": 101309, "name": "Obedience"},
+                        {"count": 2, "id": 101321, "name": "On the Qui Vive"},
+                        {
+                            "count": 2,
+                            "id": 102137,
+                            "name": "Wake with Evening's Freshness",
+                        },
+                    ],
+                    "count": 10,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 3, "id": 101334, "name": "Oubliette"},
+                        {"count": 3, "id": 101735, "name": "Shadow Body"},
+                    ],
+                    "count": 6,
+                    "type": "Combat",
+                },
+            ],
+            "count": 77,
+        },
+        "comments": (
+            "Finals Seating\n\n"
+            "Esa-Matti Smolander (Lasombra Starter) --> Petrus Makkonen (Epikasta TGB) "
+            "--> Simo Tiippana (Lydia + Al-Muntathir Trujah Toolbox) --> Aapo Järvelin "
+            "(Theo + Beast anarch Rush) --> Petro Hirvonen (Hektor Toolbox)\n"
         ),
-        "cards_comments": {},
-        "comments": "Finals Seating\n\n"
-        "Esa-Matti Smolander (Lasombra Starter) --> Petrus Makkonen (Epikasta TGB) "
-        "--> Simo Tiippana (Lydia + Al-Muntathir Trujah Toolbox) --> Aapo Järvelin "
-        "(Theo + Beast anarch Rush) --> Petro Hirvonen (Hektor Toolbox)\n",
     }
     assert caplog.record_tuples == []
 
@@ -82,65 +136,108 @@ def test_2016ggs(caplog):
     """Pretty straightforward, we must get everything seamlessly"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2016ggs.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2016ggs"].__getstate__() == {
         "id": "2016ggs",
         "event": "Gothcon",
-        "event_link": None,
         "place": "Goteborg, Sweden",
         "date": "2016-03-26",
         "players_count": 16,
         "player": "Hugh Angseesing",
         "tournament_format": "3R+F",
-        "score": None,
         "name": "DoC Swedish Sirens",
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Jost Werner", 2),
-                ("Sheila Mezarin", 2),
-                ("Angela Preston", 2),
-                ("Gaël Pilet", 1),
-                ("Yseult", 1),
-                ("Delilah Monroe", 1),
-                ("Maldavis", 1),
-                ("Remilliard, Devout Crusader", 1),
-                ("Céleste, The Voice of a Secret", 1),
-                ("Anarch Troublemaker", 3),
-                ("Archon Investigation", 1),
-                ("Blood Doll", 2),
-                ("The Coven", 1),
-                ("Direct Intervention", 1),
-                ("Dreams of the Sphinx", 1),
-                ("Fetish Club Hunting Ground", 1),
-                ("Giant's Blood", 1),
-                ("Palla Grande", 1),
-                ("Paris Opera House", 1),
-                ("Pentex™ Subversion", 1),
-                ("Presence", 2),
-                ("Vessel", 3),
-                ("Entrancement", 4),
-                ("Legal Manipulations", 4),
-                ("Mind Numb", 2),
-                ("Social Charm", 3),
-                ("Aire of Elation", 6),
-                ("Daring the Dawn", 2),
-                ("The Missing Voice", 4),
-                ("Phantom Speaker", 2),
-                ("Siren's Lure", 7),
-                ("Delaying Tactics", 3),
-                ("My Enemy's Enemy", 2),
-                ("On the Qui Vive", 2),
-                ("Telepathic Misdirection", 8),
-                ("Wake with Evening's Freshness", 5),
-                ("Majesty", 8),
-                ("Soak", 6),
-                ("The Uncoiling", 1),
-            ]
-        ),
-        "cards_comments": {},
+        "crypt": {
+            "cards": [
+                {"count": 2, "id": 200727, "name": "Jost Werner"},
+                {"count": 2, "id": 201280, "name": "Sheila Mezarin"},
+                {"count": 2, "id": 200091, "name": "Angela Preston"},
+                {"count": 1, "id": 200491, "name": "Gaël Pilet"},
+                {"count": 1, "id": 201492, "name": "Yseult"},
+                {"count": 1, "id": 200331, "name": "Delilah Monroe"},
+                {"count": 1, "id": 200903, "name": "Maldavis"},
+                {"count": 1, "id": 201178, "name": "Remilliard, Devout Crusader"},
+                {"count": 1, "id": 200258, "name": "Céleste, The Voice of a Secret"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 3, "id": 100058, "name": "Anarch Troublemaker"},
+                        {"count": 1, "id": 100085, "name": "Archon Investigation"},
+                        {"count": 2, "id": 100199, "name": "Blood Doll"},
+                        {"count": 1, "id": 100435, "name": "The Coven"},
+                        {"count": 1, "id": 100545, "name": "Direct Intervention"},
+                        {"count": 1, "id": 100588, "name": "Dreams of the Sphinx"},
+                        {
+                            "count": 1,
+                            "id": 100724,
+                            "name": "Fetish Club Hunting Ground",
+                        },
+                        {"count": 1, "id": 100824, "name": "Giant's Blood"},
+                        {"count": 1, "id": 101346, "name": "Palla Grande"},
+                        {"count": 1, "id": 101352, "name": "Paris Opera House"},
+                        {"count": 1, "id": 101384, "name": "Pentex™ Subversion"},
+                        {"count": 2, "id": 101480, "name": "Presence"},
+                        {"count": 3, "id": 102113, "name": "Vessel"},
+                    ],
+                    "count": 19,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 4, "id": 100652, "name": "Entrancement"},
+                        {"count": 4, "id": 101089, "name": "Legal Manipulations"},
+                        {"count": 2, "id": 101211, "name": "Mind Numb"},
+                        {"count": 3, "id": 101819, "name": "Social Charm"},
+                    ],
+                    "count": 13,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {"count": 6, "id": 100031, "name": "Aire of Elation"},
+                        {"count": 2, "id": 100492, "name": "Daring the Dawn"},
+                        {"count": 4, "id": 101226, "name": "The Missing Voice"},
+                        {"count": 2, "id": 101397, "name": "Phantom Speaker"},
+                        {"count": 7, "id": 101786, "name": "Siren's Lure"},
+                    ],
+                    "count": 21,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 3, "id": 100519, "name": "Delaying Tactics"},
+                        {"count": 2, "id": 101259, "name": "My Enemy's Enemy"},
+                        {"count": 2, "id": 101321, "name": "On the Qui Vive"},
+                        {"count": 8, "id": 101949, "name": "Telepathic Misdirection"},
+                        {
+                            "count": 5,
+                            "id": 102137,
+                            "name": "Wake with Evening's Freshness",
+                        },
+                    ],
+                    "count": 20,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 8, "id": 101144, "name": "Majesty"},
+                        {"count": 6, "id": 101817, "name": "Soak"},
+                    ],
+                    "count": 14,
+                    "type": "Combat",
+                },
+                {
+                    "cards": [{"count": 1, "id": 102057, "name": "The Uncoiling"}],
+                    "count": 1,
+                    "type": "Event",
+                },
+            ],
+            "count": 88,
+        },
         "comments": (
             "Description: 2GW9 and winner in Sweden qualifier 26th March 2016\n"
         ),
@@ -152,65 +249,106 @@ def test_2k5alboraya(caplog):
     """Card name abbreviation (fetish club) with tailing point."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k5alboraya.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k5alboraya"].__getstate__() == {
         "id": "2k5alboraya",
         "event": "Spanish NCQ",
-        "event_link": None,
         "place": "Alboraya (Valencia), Spain",
         "date": "2005-02-12",
         "players_count": 34,
         "player": "Jose Vicente Coll",
         "tournament_format": "3R+F",
-        "score": None,
-        "name": None,
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Jost Werner", 3),
-                ("Le Dinh Tho", 2),
-                ("Greta Kircher", 1),
-                ("Ian Wallingford", 1),
-                ("Sheila Mezarin", 1),
-                ("Creamy Jade", 1),
-                ("Mercy, Knight Inquisitor", 1),
-                ("Remilliard, Devout Crusader", 1),
-                ("Lolita", 1),
-                ("Nicholas Chang", 1),
-                ("Palla Grande", 4),
-                ("Direct Intervention", 3),
-                ("Blood Doll", 3),
-                ("Pentex™ Subversion", 2),
-                ("Anarch Troublemaker", 2),
-                ("The Hungry Coyote", 1),
-                ("Fetish Club Hunting Ground", 1),  # should be found
-                ("Sudden Reversal", 1),
-                ("Creepshow Casino", 1),
-                ("The Coven", 1),
-                ("Art Scam", 8),
-                ("The Embrace", 8),
-                ("Mind Numb", 4),
-                ("Enchant Kindred", 4),
-                ("Entrancement", 2),
-                ("Marijava Ghoul", 2),
-                ("Revelations", 2),
-                ("Owl Companion", 1),
-                ("Change of Target", 8),
-                ("Wake with Evening's Freshness", 5),
-                ("Delaying Tactics", 1),
-                ("Telepathic Misdirection", 7),
-                ("Telepathic Counter", 2),
-                ("My Enemy's Enemy", 3),
-                ("Eagle's Sight", 2),
-                ("Enhanced Senses", 2),
-                ("Majesty", 7),
-                ("Staredown", 3),
-            ]
-        ),
-        "cards_comments": {},
-        "comments": "",
+        "crypt": {
+            "cards": [
+                {"count": 3, "id": 200727, "name": "Jost Werner"},
+                {"count": 2, "id": 200824, "name": "Le Dinh Tho"},
+                {"count": 1, "id": 200540, "name": "Greta Kircher"},
+                {"count": 1, "id": 200617, "name": "Ian Wallingford"},
+                {"count": 1, "id": 201280, "name": "Sheila Mezarin"},
+                {"count": 1, "id": 200299, "name": "Creamy Jade"},
+                {"count": 1, "id": 200978, "name": "Mercy, Knight Inquisitor"},
+                {"count": 1, "id": 201178, "name": "Remilliard, Devout Crusader"},
+                {"count": 1, "id": 200849, "name": "Lolita"},
+                {"count": 1, "id": 201055, "name": "Nicholas Chang"},
+            ],
+            "count": 13,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 2, "id": 100058, "name": "Anarch Troublemaker"},
+                        {"count": 3, "id": 100199, "name": "Blood Doll"},
+                        {"count": 1, "id": 100435, "name": "The Coven"},
+                        {"count": 1, "id": 100444, "name": "Creepshow Casino"},
+                        {"count": 3, "id": 100545, "name": "Direct Intervention"},
+                        {
+                            "count": 1,
+                            "id": 100724,
+                            "name": "Fetish Club Hunting Ground",
+                        },
+                        {"count": 1, "id": 100945, "name": "The Hungry Coyote"},
+                        {"count": 4, "id": 101346, "name": "Palla Grande"},
+                        {"count": 2, "id": 101384, "name": "Pentex™ Subversion"},
+                        {"count": 1, "id": 101896, "name": "Sudden Reversal"},
+                    ],
+                    "count": 19,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 8, "id": 100099, "name": "Art Scam"},
+                        {"count": 8, "id": 100633, "name": "The Embrace"},
+                        {"count": 4, "id": 100640, "name": "Enchant Kindred"},
+                        {"count": 2, "id": 100652, "name": "Entrancement"},
+                        {"count": 4, "id": 101211, "name": "Mind Numb"},
+                        {"count": 2, "id": 101627, "name": "Revelations"},
+                    ],
+                    "count": 28,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 101164, "name": "Marijava Ghoul"},
+                        {"count": 1, "id": 101340, "name": "Owl Companion"},
+                    ],
+                    "count": 3,
+                    "type": "Retainer",
+                },
+                {
+                    "cards": [{"count": 8, "id": 100323, "name": "Change of Target"}],
+                    "count": 8,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100519, "name": "Delaying Tactics"},
+                        {"count": 2, "id": 100598, "name": "Eagle's Sight"},
+                        {"count": 2, "id": 100644, "name": "Enhanced Senses"},
+                        {"count": 3, "id": 101259, "name": "My Enemy's Enemy"},
+                        {"count": 2, "id": 101948, "name": "Telepathic Counter"},
+                        {"count": 7, "id": 101949, "name": "Telepathic Misdirection"},
+                        {
+                            "count": 5,
+                            "id": 102137,
+                            "name": "Wake with Evening's Freshness",
+                        },
+                    ],
+                    "count": 22,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 7, "id": 101144, "name": "Majesty"},
+                        {"count": 3, "id": 101859, "name": "Staredown"},
+                    ],
+                    "count": 10,
+                    "type": "Combat",
+                },
+            ],
+            "count": 90,
+        },
     }
     assert caplog.record_tuples == []
 
@@ -219,21 +357,16 @@ def test_2k4dcqualifier(caplog):
     """A lot of comments (description, end) plus inline C-style card comment"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k4dcqualifier.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k4dcqualifier"].__getstate__() == {
         "id": "2k4dcqualifier",
         "event": "Atlantic Regional Qualifier",
-        "event_link": None,
         "place": "Washington, D.C.",
         "date": "2004-06-12",
         "players_count": 33,
         "player": "Matt Morgan",
-        "tournament_format": None,
-        "score": None,
         "name": "Call me Julio",
-        "author": None,
-        "raven": 0,
         "comments": textwrap.dedent(
             """
     Description: POT/DOM is always good.  Let's add permanent rush, +strength,
@@ -262,56 +395,135 @@ def test_2k4dcqualifier(caplog):
     won a tournament with this deck, I might put them back in just for fun.
     """
         )[1:],
-        "cards_comments": {
-            "Dominate": textwrap.dedent(
-                """
-    Didn't really use them, but they were supposed to justify the crypt
-    spread.  If there's no Julio, a Tarbaby or Cailean and a Dominate master
-    is nearly as good, right?"""
-            )[1:],
-            "Blood Doll": "Not enough unless you're lucky (like I was).",
-            "Govern the Unaligned": "Almost always played superior.",
-            "Conditioning": ("Because Colin said it was a good idea (he's right)."),
-            "Information Network": "Played it, but never tapped it.",
-            "Nosferatu Kingdom": (
-                "Absolutely essential.  Always got one after the other, though."
-            ),
-            "Wake with Evening's Freshness": (
-                "Replace one with Mylan Horseed as soon as Gehenna is legal."
-            ),
+        "crypt": {
+            "cards": [
+                {"count": 3, "id": 200736, "name": "Julio Martinez"},
+                {"count": 2, "id": 201343, "name": "Tarbaby Jack"},
+                {"count": 1, "id": 200232, "name": "Cailean"},
+                {"count": 1, "id": 200958, "name": "Mateusz Gryzbowsky"},
+                {"count": 1, "id": 200179, "name": "Beast, The Leatherface of Detroit"},
+                {"count": 1, "id": 201088, "name": "Ox, Viceroy of the Hollows"},
+                {"count": 1, "id": 201058, "name": "Nigel the Shunned"},
+                {"count": 1, "id": 201077, "name": "Olivia"},
+                {"count": 1, "id": 200020, "name": "Agatha"},
+            ],
+            "count": 12,
         },
-        "cards": collections.OrderedDict(
-            [
-                ("Julio Martinez", 3),
-                ("Tarbaby Jack", 2),
-                ("Cailean", 1),
-                ("Mateusz Gryzbowsky", 1),
-                ("Beast, The Leatherface of Detroit", 1),
-                ("Ox, Viceroy of the Hollows", 1),
-                ("Nigel the Shunned", 1),
-                ("Olivia", 1),
-                ("Agatha", 1),
-                ("Blood Doll", 4),
-                ("Dominate", 2),
-                ("Dreams of the Sphinx", 1),
-                ("Fame", 2),
-                ("Information Network", 1),
-                ("Nosferatu Kingdom", 2),
-                ("Shanty Town Hunting Ground", 1),
-                ("Bum's Rush", 6),
-                ("Govern the Unaligned", 6),
-                ("Conditioning", 4),
-                ("Deflection", 8),
-                ("Wake with Evening's Freshness", 7),
-                ("Behind You!", 3),
-                ("Carrion Crows", 4),
-                ("Immortal Grapple", 10),
-                ("Taste of Vitae", 6),
-                ("Torn Signpost", 10),
-                ("Undead Strength", 9),
-                ("Swallowed by the Night", 4),
-            ]
-        ),
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {
+                            "comments": (
+                                "Not enough unless you're lucky (like I was)."
+                            ),
+                            "count": 4,
+                            "id": 100199,
+                            "name": "Blood Doll",
+                        },
+                        {
+                            "comments": (
+                                "Didn't really use them, but they were supposed to "
+                                "justify the crypt\n"
+                                "spread.  If there's no Julio, a Tarbaby or Cailean "
+                                "and a Dominate master\n"
+                                "is nearly as good, right?"
+                            ),
+                            "count": 2,
+                            "id": 100572,
+                            "name": "Dominate",
+                        },
+                        {"count": 1, "id": 100588, "name": "Dreams of the Sphinx"},
+                        {"count": 2, "id": 100698, "name": "Fame"},
+                        {
+                            "comments": "Played it, but never tapped it.",
+                            "count": 1,
+                            "id": 100985,
+                            "name": "Information Network",
+                        },
+                        {
+                            "comments": (
+                                "Absolutely essential.  Always got one after the "
+                                "other, though."
+                            ),
+                            "count": 2,
+                            "id": 101300,
+                            "name": "Nosferatu Kingdom",
+                        },
+                        {
+                            "count": 1,
+                            "id": 101753,
+                            "name": "Shanty Town Hunting Ground",
+                        },
+                    ],
+                    "count": 13,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 6, "id": 100266, "name": "Bum's Rush"},
+                        {
+                            "comments": "Almost always played superior.",
+                            "count": 6,
+                            "id": 100845,
+                            "name": "Govern the Unaligned",
+                        },
+                    ],
+                    "count": 12,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": (
+                                "Because Colin said it was a good idea (he's right)."
+                            ),
+                            "count": 4,
+                            "id": 100401,
+                            "name": "Conditioning",
+                        }
+                    ],
+                    "count": 4,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 4, "id": 101913, "name": "Swallowed by the Night"}
+                    ],
+                    "count": 4,
+                    "type": "Action Modifier/Combat",
+                },
+                {
+                    "cards": [
+                        {"count": 8, "id": 100518, "name": "Deflection"},
+                        {
+                            "comments": (
+                                "Replace one with Mylan Horseed as soon as Gehenna is "
+                                "legal."
+                            ),
+                            "count": 7,
+                            "id": 102137,
+                            "name": "Wake with Evening's Freshness",
+                        },
+                    ],
+                    "count": 15,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 3, "id": 100149, "name": "Behind You!"},
+                        {"count": 4, "id": 100301, "name": "Carrion Crows"},
+                        {"count": 10, "id": 100959, "name": "Immortal Grapple"},
+                        {"count": 6, "id": 101945, "name": "Taste of Vitae"},
+                        {"count": 10, "id": 101993, "name": "Torn Signpost"},
+                        {"count": 9, "id": 102061, "name": "Undead Strength"},
+                    ],
+                    "count": 42,
+                    "type": "Combat",
+                },
+            ],
+            "count": 90,
+        },
     }
     assert caplog.record_tuples == []
 
@@ -320,12 +532,11 @@ def test_2010tcdbng(caplog):
     """Card-level parenthesised commends (common)"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2010tcdbng"].__getstate__() == {
         "id": "2010tcdbng",
         "event": "Trading Card Day",
-        "event_link": None,
         "place": "Bad Naumheim, Germany",
         "date": "2010-05-08",
         "players_count": 10,
@@ -333,57 +544,117 @@ def test_2010tcdbng(caplog):
         "tournament_format": "2R+F",
         "score": "4vp in the final",
         "name": "The Storage Procurers",
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Gilbert Duane", 1),
-                ("Mariel, Lady Thunder", 1),
-                ("Badr al-Budur", 1),
-                ("Count Ormonde", 1),
-                ("Didi Meyers", 1),
-                ("Zebulon", 1),
-                ("Dimple", 1),
-                ("Mustafa Rahman", 1),
-                ("Normal", 1),
-                ("Ohanna", 1),
-                ("Samson", 1),
-                ("Basil", 1),
-                ("Cloak the Gathering", 6),
-                ("Conditioning", 7),
-                ("Lost in Crowds", 2),
-                ("Veil the Legions", 4),
-                ("Carlton Van Wyk", 1),
-                ("Gregory Winter", 1),
-                ("Impundulu", 1),
-                ("Muddled Vampire Hunter", 1),
-                ("Ossian", 1),
-                ("Procurer", 6),
-                ("Young Bloods", 1),
-                ("Concealed Weapon", 8),
-                ("Deer Rifle", 1),
-                ("Flash Grenade", 8),
-                ("FBI Special Affairs Division", 1),
-                ("Hunger Moon", 1),
-                ("Restricted Vitae", 1),
-                ("The Unmasking", 1),
-                ("Channel 10", 1),
-                ("Charisma", 2),
-                ("Creepshow Casino", 1),
-                ("KRCG News Radio", 1),
-                ("Perfectionist", 2),
-                ("Storage Annex", 6),
-                ("Sudden Reversal", 3),
-                ("Vessel", 3),
-                ("Deflection", 7),
-                ("Delaying Tactics", 2),
-                ("On the Qui Vive", 7),
-            ]
-        ),
-        "cards_comments": {
-            "Conditioning": "should be more!",
-            "Flash Grenade": ("brings fear to the methuselahs rather than to minions"),
-            "Storage Annex": "great card! usually underestimated",
+        "crypt": {
+            "cards": [
+                {"count": 1, "id": 200517, "name": "Gilbert Duane"},
+                {"count": 1, "id": 200929, "name": "Mariel, Lady Thunder"},
+                {"count": 1, "id": 200161, "name": "Badr al-Budur"},
+                {"count": 1, "id": 200295, "name": "Count Ormonde"},
+                {"count": 1, "id": 200343, "name": "Didi Meyers"},
+                {"count": 1, "id": 201503, "name": "Zebulon"},
+                {"count": 1, "id": 200346, "name": "Dimple"},
+                {"count": 1, "id": 201027, "name": "Mustafa Rahman"},
+                {"count": 1, "id": 201065, "name": "Normal"},
+                {"count": 1, "id": 201073, "name": "Ohanna"},
+                {"count": 1, "id": 201231, "name": "Samson"},
+                {"count": 1, "id": 200173, "name": "Basil"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100327, "name": "Channel 10"},
+                        {"count": 2, "id": 100332, "name": "Charisma"},
+                        {"count": 1, "id": 100444, "name": "Creepshow Casino"},
+                        {"count": 1, "id": 101067, "name": "KRCG News Radio"},
+                        {"count": 2, "id": 101388, "name": "Perfectionist"},
+                        {
+                            "comments": "great card! usually " "underestimated",
+                            "count": 6,
+                            "id": 101877,
+                            "name": "Storage Annex",
+                        },
+                        {"count": 3, "id": 101896, "name": "Sudden Reversal"},
+                        {"count": 3, "id": 102113, "name": "Vessel"},
+                    ],
+                    "count": 19,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100298, "name": "Carlton Van Wyk"},
+                        {"count": 1, "id": 100855, "name": "Gregory Winter"},
+                        {"count": 1, "id": 100966, "name": "Impundulu"},
+                        {"count": 1, "id": 101250, "name": "Muddled Vampire Hunter"},
+                        {"count": 1, "id": 101333, "name": "Ossian"},
+                        {"count": 6, "id": 101491, "name": "Procurer"},
+                        {"count": 1, "id": 102202, "name": "Young Bloods"},
+                    ],
+                    "count": 12,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100516, "name": "Deer Rifle"},
+                        {
+                            "comments": (
+                                "brings fear to the methuselahs rather than to minions"
+                            ),
+                            "count": 8,
+                            "id": 100745,
+                            "name": "Flash Grenade",
+                        },
+                    ],
+                    "count": 9,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {"count": 6, "id": 100362, "name": "Cloak the Gathering"},
+                        {
+                            "comments": "should be more!",
+                            "count": 7,
+                            "id": 100401,
+                            "name": "Conditioning",
+                        },
+                        {"count": 2, "id": 101125, "name": "Lost in Crowds"},
+                        {"count": 4, "id": 102097, "name": "Veil the Legions"},
+                    ],
+                    "count": 19,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 7, "id": 100518, "name": "Deflection"},
+                        {"count": 2, "id": 100519, "name": "Delaying Tactics"},
+                        {"count": 7, "id": 101321, "name": "On the Qui Vive"},
+                    ],
+                    "count": 16,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [{"count": 8, "id": 100392, "name": "Concealed Weapon"}],
+                    "count": 8,
+                    "type": "Combat",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 1,
+                            "id": 100709,
+                            "name": "FBI Special Affairs Division",
+                        },
+                        {"count": 1, "id": 100944, "name": "Hunger Moon"},
+                        {"count": 1, "id": 101614, "name": "Restricted Vitae"},
+                        {"count": 1, "id": 102079, "name": "The Unmasking"},
+                    ],
+                    "count": 4,
+                    "type": "Event",
+                },
+            ],
+            "count": 87,
         },
         "comments": textwrap.dedent(
             """
@@ -401,57 +672,91 @@ def test_2012pslp(caplog):
     """Discipline included after card names (common)"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2012pslp.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2012pslp"].__getstate__() == {
         "id": "2012pslp",
         "event": "Praxis Seizure: Leiria",
-        "event_link": None,
         "place": "Leiria, Portugal",
         "date": "2012-10-13",
         "players_count": 12,
         "player": "Patrick Gordo",
         "tournament_format": "2R+F",
-        "score": None,
         "name": "Shadowfang",
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Morel", 3),
-                ("Gem Ghastly", 2),
-                ("Hagar Stone", 2),
-                ("Arthur Denholm", 2),
-                ("Drusilla Euphemia", 1),
-                ("Apache Jones", 1),
-                ("Bela", 1),
-                ("The Barrens", 1),
-                ("Blood Doll", 1),
-                ("Dreams of the Sphinx", 2),
-                ("Giant's Blood", 1),
-                ("Pentex™ Subversion", 1),
-                ("Sudden Reversal", 3),
-                ("Vessel", 2),
-                ("Kindred Spirits", 16),
-                ("Restructure", 1),
-                ("Cloak the Gathering", 3),
-                ("Confusion", 8),
-                ("Elder Impersonation", 3),
-                ("Eyes of Chaos", 7),
-                ("Faceless Night", 2),
-                ("Lost in Crowds", 3),
-                ("Spying Mission", 5),
-                ("Deny", 3),
-                ("Swallowed by the Night", 4),
-                ("Delaying Tactics", 2),
-                ("My Enemy's Enemy", 3),
-                ("On the Qui Vive", 3),
-                ("Telepathic Misdirection", 5),
-                ("Wake with Evening's Freshness", 2),
-            ]
-        ),
-        "cards_comments": {},
-        "comments": "",
+        "crypt": {
+            "cards": [
+                {"count": 3, "id": 201010, "name": "Morel"},
+                {"count": 2, "id": 200498, "name": "Gem Ghastly"},
+                {"count": 2, "id": 200560, "name": "Hagar Stone"},
+                {"count": 2, "id": 200144, "name": "Arthur Denholm"},
+                {"count": 1, "id": 200390, "name": "Drusilla Euphemia"},
+                {"count": 1, "id": 200122, "name": "Apache Jones"},
+                {"count": 1, "id": 200186, "name": "Bela"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100135, "name": "The Barrens"},
+                        {"count": 1, "id": 100199, "name": "Blood Doll"},
+                        {"count": 2, "id": 100588, "name": "Dreams of the Sphinx"},
+                        {"count": 1, "id": 100824, "name": "Giant's Blood"},
+                        {"count": 1, "id": 101384, "name": "Pentex™ Subversion"},
+                        {"count": 3, "id": 101896, "name": "Sudden Reversal"},
+                        {"count": 2, "id": 102113, "name": "Vessel"},
+                    ],
+                    "count": 11,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 16, "id": 101055, "name": "Kindred Spirits"},
+                        {"count": 1, "id": 101615, "name": "Restructure"},
+                    ],
+                    "count": 17,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {"count": 3, "id": 100362, "name": "Cloak the Gathering"},
+                        {"count": 8, "id": 100405, "name": "Confusion"},
+                        {"count": 3, "id": 100617, "name": "Elder Impersonation"},
+                        {"count": 7, "id": 100682, "name": "Eyes of Chaos"},
+                        {"count": 2, "id": 100687, "name": "Faceless Night"},
+                        {"count": 3, "id": 101125, "name": "Lost in Crowds"},
+                        {"count": 5, "id": 101857, "name": "Spying Mission"},
+                    ],
+                    "count": 31,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 3, "id": 100524, "name": "Deny"},
+                        {"count": 4, "id": 101913, "name": "Swallowed by the Night"},
+                    ],
+                    "count": 7,
+                    "type": "Action Modifier/Combat",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 100519, "name": "Delaying Tactics"},
+                        {"count": 3, "id": 101259, "name": "My Enemy's Enemy"},
+                        {"count": 3, "id": 101321, "name": "On the Qui Vive"},
+                        {"count": 5, "id": 101949, "name": "Telepathic Misdirection"},
+                        {
+                            "count": 2,
+                            "id": 102137,
+                            "name": "Wake with Evening's Freshness",
+                        },
+                    ],
+                    "count": 15,
+                    "type": "Reaction",
+                },
+            ],
+            "count": 81,
+        },
     }
     assert caplog.record_tuples == []
 
@@ -462,78 +767,16 @@ def test_2k7campeonatojuizforano(caplog):
     with open(
         os.path.join(os.path.dirname(__file__), "2k7campeonatojuizforano.html")
     ) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k7campeonatojuizforano"].__getstate__() == {
         "id": "2k7campeonatojuizforano",
         "event": "Campeonato Juizforano 2007",
-        "event_link": None,
         "place": "Juiz de Fora, Brazil",
         "date": "2007-12-16",
         "players_count": 23,
         "player": "Pedro Paulo de Sousa Mendes",
-        "tournament_format": None,
-        "score": None,
         "name": "Imbued at Last",
-        "author": None,
-        "raven": 0,
-        "cards": dict(
-            [
-                ('Travis "Traveler72" Miller', 4),
-                ('Jennie "Cassie247" Orne', 3),
-                ('Paul "Sixofswords29" Moreton', 2),
-                ('François "Warden" Loehr', 2),
-                ('Jack "Hannibal137" Harmon', 1),
-                ("Aranthebes, The Immortal", 1),
-                ("Carlton Van Wyk", 1),
-                ("Ossian", 1),
-                ("Wendell Delburton", 1),
-                ("React with Conviction", 4),
-                ("Second Sight", 5),
-                ("Strike with Conviction", 5),
-                ("The Crusader Sword", 1),
-                ("Heart of Nizchetus", 1),
-                ("Ivory Bow", 1),
-                ("Anthelios, The Red Star", 1),
-                ("Edge Explosion", 1),
-                ("The Unmasking", 1),
-                ("Angel of Berlin", 2),
-                ("The Barrens", 1),
-                ("The Church of Vindicated Faith", 1),
-                ("Direct Intervention", 1),
-                ("Fortschritt Library", 1),
-                ("Memories of Mortality", 6),
-                ("Millicent Smith, Puritan Vampire Hunter", 1),
-                ("The Parthenon", 3),
-                ("Rötschreck", 1),
-                ("The Slaughterhouse", 4),
-                ("Smiling Jack, The Anarch", 1),
-                ("Tension in the Ranks", 1),
-                ("Unity", 1),
-                ("Wash", 1),
-                ("Champion", 2),
-                ("Discern", 2),
-                ("Rejuvenate", 1),
-                ("Vigilance", 3),
-                ("Determine", 3),
-            ]
-        ),
-        "cards_comments": {
-            "Direct Intervention": (
-                "saved me a lot of times, unfortunately I couldn't pack more than one."
-            ),
-            "Millicent Smith, Puritan Vampire Hunter": "no comments needed.",
-            "The Slaughterhouse": (
-                "useful either to speed deck depletion or to trade for something "
-                "useful under Anthelios."
-            ),
-            "Smiling Jack, The Anarch": "crucial contest in the final table.",
-            "Vigilance": "I started to win a game when I had those three in play.",
-            "Wash": (
-                "not as effective as I expected, but also not a hassle because it's "
-                "trifle."
-            ),
-        },
         "comments": textwrap.dedent(
             """
             Description: The deck's goal is to setup as fast as you can by
@@ -551,6 +794,141 @@ def test_2k7campeonatojuizforano(caplog):
             every game. The decks runs wonderfully with those 3 on the table.
             """
         )[1:],
+        "crypt": {
+            "cards": [
+                {"count": 4, "id": 201386, "name": 'Travis "Traveler72" Miller'},
+                {"count": 3, "id": 200689, "name": 'Jennie "Cassie247" Orne'},
+                {"count": 2, "id": 201103, "name": 'Paul "Sixofswords29" Moreton'},
+                {"count": 2, "id": 200479, "name": 'François "Warden" Loehr'},
+                {"count": 1, "id": 200656, "name": 'Jack "Hannibal137" Harmon'},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 2, "id": 100067, "name": "Angel of Berlin"},
+                        {"count": 1, "id": 100135, "name": "The Barrens"},
+                        {
+                            "count": 1,
+                            "id": 100348,
+                            "name": "The Church of Vindicated Faith",
+                        },
+                        {
+                            "comments": "saved me a lot of times, "
+                            "unfortunately I couldn't pack "
+                            "more than one.",
+                            "count": 1,
+                            "id": 100545,
+                            "name": "Direct Intervention",
+                        },
+                        {"count": 1, "id": 100775, "name": "Fortschritt Library"},
+                        {"count": 6, "id": 101198, "name": "Memories of Mortality"},
+                        {
+                            "comments": "no comments needed.",
+                            "count": 1,
+                            "id": 101210,
+                            "name": "Millicent Smith, Puritan Vampire " "Hunter",
+                        },
+                        {"count": 3, "id": 101355, "name": "The Parthenon"},
+                        {"count": 1, "id": 101654, "name": "Rötschreck"},
+                        {
+                            "comments": "useful either to speed deck "
+                            "depletion or to trade for "
+                            "something useful under "
+                            "Anthelios.",
+                            "count": 4,
+                            "id": 101800,
+                            "name": "The Slaughterhouse",
+                        },
+                        {
+                            "comments": "crucial contest in the final " "table.",
+                            "count": 1,
+                            "id": 101811,
+                            "name": "Smiling Jack, The Anarch",
+                        },
+                        {"count": 1, "id": 101958, "name": "Tension in the Ranks"},
+                        {"count": 1, "id": 102074, "name": "Unity"},
+                        {
+                            "comments": "not as effective as I "
+                            "expected, but also not a "
+                            "hassle because it's trifle.",
+                            "count": 1,
+                            "id": 102151,
+                            "name": "Wash",
+                        },
+                    ],
+                    "count": 25,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 4, "id": 101557, "name": "React with Conviction"},
+                        {"count": 5, "id": 101705, "name": "Second Sight"},
+                        {"count": 5, "id": 101886, "name": "Strike with Conviction"},
+                    ],
+                    "count": 14,
+                    "type": "Conviction",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100079, "name": "Aranthebes, The Immortal"}
+                    ],
+                    "count": 1,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100298, "name": "Carlton Van Wyk"},
+                        {"count": 1, "id": 101333, "name": "Ossian"},
+                        {"count": 1, "id": 102173, "name": "Wendell Delburton"},
+                    ],
+                    "count": 3,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100474, "name": "The Crusader Sword"},
+                        {"count": 1, "id": 100903, "name": "Heart of Nizchetus"},
+                        {"count": 1, "id": 101014, "name": "Ivory Bow"},
+                    ],
+                    "count": 3,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 100322, "name": "Champion"},
+                        {"count": 2, "id": 100551, "name": "Discern"},
+                        {"count": 1, "id": 101592, "name": "Rejuvenate"},
+                        {
+                            "comments": "I started to win a game when I "
+                            "had those three in play.",
+                            "count": 3,
+                            "id": 102120,
+                            "name": "Vigilance",
+                        },
+                    ],
+                    "count": 8,
+                    "type": "Power",
+                },
+                {
+                    "cards": [{"count": 3, "id": 100534, "name": "Determine"}],
+                    "count": 3,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100074, "name": "Anthelios, The Red Star"},
+                        {"count": 1, "id": 100612, "name": "Edge Explosion"},
+                        {"count": 1, "id": 102079, "name": "The Unmasking"},
+                    ],
+                    "count": 3,
+                    "type": "Event",
+                },
+            ],
+            "count": 60,
+        },
     }
     assert caplog.record_tuples == [
         # original file errors - the fixed version has none
@@ -578,79 +956,17 @@ def test_2010pwbla1(caplog):
     """Very hard to parse comments (line braks, few markers)"""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010pwbla1.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2010pwbla1"].__getstate__() == {
         "id": "2010pwbla1",
         "event": "Powerbase: Los Angeles Event #1",
-        "event_link": None,
         "place": "Strategicon - GAMEX 2010, Los Angeles, California",
         "date": "2010-05-29",
         "players_count": 12,
         "player": "Darby Keeney",
         "tournament_format": "2R+F",
-        "score": None,
         "name": "[2010 TW] The World's Biggest Small Multirushers",
-        "author": None,
-        "raven": 0,
-        "cards": dict(
-            [
-                ("Tupdog", 13),
-                ("Esoara", 1),
-                ("Janine", 1),
-                ("Ember Wright", 1),
-                ("Keith Moody", 1),
-                ("Saiz", 1),
-                ("Dive Bomb", 5),
-                ("Goblinism", 1),
-                ("Graverobbing", 2),
-                ("Raw Recruit", 3),
-                ("Thin-Blooded Seer", 2),
-                ("As the Crow", 8),
-                ("Nephandus", 1),
-                ("Brick by Brick", 8),
-                ("Immortal Grapple", 8),
-                ("Lead Fist", 4),
-                ("Raking Talons", 9),
-                ("Stonestrength", 10),
-                ("Hand of Conrad", 1),
-                ("The Sargon Fragment", 1),
-                ("Dragonbound", 1),
-                ("Ashur Tablets", 5),
-                ("Carver's Meat Packing and Storage", 1),
-                ("Dreams of the Sphinx", 1),
-                ("Fame", 1),
-                ("Heidelberg Castle, Germany", 1),
-                ("Powerbase: Montreal", 1),
-                ("Secure Haven", 1),
-                ("Vessel", 2),
-                ("Ancient Influence", 1),
-                ("Reins of Power", 1),
-            ]
-        ),
-        "cards_comments": {
-            "Ancient Influence": (
-                'eradicate your prey and call as a "spare" Tupdog action'
-            ),
-            "As the Crow": "makes my Tuppers freaky.",
-            "Ashur Tablets": "tune late-game combat as needed.",
-            "Carver's Meat Packing and Storage": "anti-weenie.",
-            "Dive Bomb": 'stealth multi-rush as a "spare" Tupdog action',
-            "Dreams of the Sphinx": "combat support or free Tupdogs.",
-            "Goblinism": 'destroy location as a "spare" Tupdog action.',
-            "Hand of Conrad": "recycle Tupdogs, should probably be duplicated.",
-            "Lead Fist": 'critical to circumvent "prevent 1" decks',
-            "Nephandus": "safe removal of torporized minions.",
-            "Powerbase: Montreal": "free Tupdogs",
-            "Raking Talons": "probably should be 10.",
-            "Raw Recruit": 'additional slaves from a "spare" Tupdog action.',
-            "Reins of Power": (
-                'eradicate your predator and call as a "spare" Tupdog action'
-            ),
-            "The Sargon Fragment": "recycle everything else",
-            "Secure Haven": "to contest and to save a slave master.",
-            "Thin-Blooded Seer": 'Tupdog "spare" actions.',
-        },
         "comments": textwrap.dedent(
             """
             Comments:  Many thanks to Fred Scott for lending me 2 Tupdogs for this
@@ -681,6 +997,195 @@ def test_2010pwbla1(caplog):
             untap"
             """
         )[1:],
+        "crypt": {
+            "cards": [
+                {"count": 13, "id": 201393, "name": "Tupdog"},
+                {"count": 1, "id": 200437, "name": "Esoara"},
+                {"count": 1, "id": 200674, "name": "Janine"},
+                {"count": 1, "id": 200418, "name": "Ember Wright"},
+                {"count": 1, "id": 200767, "name": "Keith Moody"},
+                {"count": 1, "id": 201222, "name": "Saiz"},
+            ],
+            "count": 18,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {
+                            "comments": "tune late-game combat as " "needed.",
+                            "count": 5,
+                            "id": 100106,
+                            "name": "Ashur Tablets",
+                        },
+                        {
+                            "comments": "anti-weenie.",
+                            "count": 1,
+                            "id": 100303,
+                            "name": "Carver's Meat Packing and Storage",
+                        },
+                        {
+                            "comments": "combat support or free " "Tupdogs.",
+                            "count": 1,
+                            "id": 100588,
+                            "name": "Dreams of the Sphinx",
+                        },
+                        {"count": 1, "id": 100698, "name": "Fame"},
+                        {
+                            "count": 1,
+                            "id": 100908,
+                            "name": "Heidelberg Castle, Germany",
+                        },
+                        {
+                            "comments": "free Tupdogs",
+                            "count": 1,
+                            "id": 101439,
+                            "name": "Powerbase: Montreal",
+                        },
+                        {
+                            "comments": "to contest and to save a slave " "master.",
+                            "count": 1,
+                            "id": 101711,
+                            "name": "Secure Haven",
+                        },
+                        {"count": 2, "id": 102113, "name": "Vessel"},
+                    ],
+                    "count": 13,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": (
+                                'stealth multi-rush as a "spare" Tupdog action'
+                            ),
+                            "count": 5,
+                            "id": 100561,
+                            "name": "Dive Bomb",
+                        },
+                        {
+                            "comments": 'destroy location as a "spare" '
+                            "Tupdog action.",
+                            "count": 1,
+                            "id": 100841,
+                            "name": "Goblinism",
+                        },
+                        {"count": 2, "id": 100852, "name": "Graverobbing"},
+                        {
+                            "comments": (
+                                'additional slaves from a "spare" Tupdog action.'
+                            ),
+                            "count": 3,
+                            "id": 101554,
+                            "name": "Raw Recruit",
+                        },
+                        {
+                            "comments": 'Tupdog "spare" actions.',
+                            "count": 2,
+                            "id": 101971,
+                            "name": "Thin-Blooded Seer",
+                        },
+                    ],
+                    "count": 13,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": "safe removal of torporized " "minions.",
+                            "count": 1,
+                            "id": 101272,
+                            "name": "Nephandus",
+                        }
+                    ],
+                    "count": 1,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": (
+                                "recycle Tupdogs, should probably be duplicated."
+                            ),
+                            "count": 1,
+                            "id": 100882,
+                            "name": "Hand of Conrad",
+                        },
+                        {
+                            "comments": "recycle everything else",
+                            "count": 1,
+                            "id": 101681,
+                            "name": "The Sargon Fragment",
+                        },
+                    ],
+                    "count": 2,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": (
+                                'eradicate your prey and call as a "spare" Tupdog '
+                                "action"
+                            ),
+                            "count": 1,
+                            "id": 100064,
+                            "name": "Ancient Influence",
+                        },
+                        {
+                            "comments": (
+                                'eradicate your predator and call as a "spare" Tupdog '
+                                "action"
+                            ),
+                            "count": 1,
+                            "id": 101591,
+                            "name": "Reins of Power",
+                        },
+                    ],
+                    "count": 2,
+                    "type": "Political Action",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": "makes my Tuppers freaky.",
+                            "count": 8,
+                            "id": 100102,
+                            "name": "As the Crow",
+                        }
+                    ],
+                    "count": 8,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 8, "id": 100252, "name": "Brick by Brick"},
+                        {"count": 8, "id": 100959, "name": "Immortal Grapple"},
+                        {
+                            "comments": "critical to circumvent " '"prevent 1" decks',
+                            "count": 4,
+                            "id": 101077,
+                            "name": "Lead Fist",
+                        },
+                        {
+                            "comments": "probably should be 10.",
+                            "count": 9,
+                            "id": 101538,
+                            "name": "Raking Talons",
+                        },
+                        {"count": 10, "id": 101876, "name": "Stonestrength"},
+                    ],
+                    "count": 39,
+                    "type": "Combat",
+                },
+                {
+                    "cards": [{"count": 1, "id": 100581, "name": "Dragonbound"}],
+                    "count": 1,
+                    "type": "Event",
+                },
+            ],
+            "count": 79,
+        },
     }
     # these comments raise errors: they could as weel be cards we fail to parse
     assert caplog.record_tuples == [
@@ -706,66 +1211,115 @@ def test_2k5sharednun(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k5sharednun.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k5sharednun"].__getstate__() == {
         "id": "2k5sharednun",
         "event": "Shared Nightmare",
-        "event_link": None,
         "place": "Utrecht, Netherlands",
         "date": "2005-07-02",
         "players_count": 16,
         "player": "Jeroen van Oort",
         "tournament_format": "3R+F",
-        "score": None,
         "name": "Deeper Underground",
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Christanius Lionel, The Mad Chronicler", 1),
-                ("Calebros, The Martyr", 1),
-                ("Gemini", 1),
-                ("Nigel the Shunned", 1),
-                ("Bobby Lemon", 1),
-                ("Roger Farnsworth", 1),
-                ("Clarissa Steinburgen", 1),
-                ("Panagos Levidis", 1),
-                ("Shannon Price, the Whisperer", 1),
-                ("Watenda", 1),
-                ("Mouse", 1),
-                ("Zip", 1),
-                ("Blood Doll", 6),
-                ("Direct Intervention", 2),
-                ("Heidelberg Castle, Germany", 2),
-                ("Animalism", 2),
-                ("Slum Hunting Ground", 1),
-                ("Dreams of the Sphinx", 1),
-                ("Faceless Night", 3),
-                ("Cloak the Gathering", 6),
-                ("Lost in Crowds", 2),
-                ("Clotho's Gift", 2),
-                ("Behind You!", 4),
-                ("Cats' Guidance", 5),
-                ("Guard Dogs", 3),
-                ("Raven Spy", 7),
-                ("Aid from Bats", 7),
-                ("Carrion Crows", 8),
-                ("Pack Alpha", 3),
-                ("Canine Horde", 3),
-                ("Army of Rats", 1),
-                ("Forced Awakening", 7),
-                ("Computer Hacking", 5),
-                ("Delaying Tactics", 2),
-                ("J. S. Simmons, Esq.", 1),
-                ("Tasha Morgan", 1),
-                ("Dodge", 3),
-                ("Laptop Computer", 3),
-            ]
-        ),
-        "cards_comments": {},
         "comments": "\"Look in the sky, it's a raven. No, it's a bat.\n"
         "No, it's a crow, No it's a swarm of them all!!!\"\n",
+        "crypt": {
+            "cards": [
+                {
+                    "count": 1,
+                    "id": 200272,
+                    "name": "Christanius Lionel, The Mad Chronicler",
+                },
+                {"count": 1, "id": 200235, "name": "Calebros, The Martyr"},
+                {"count": 1, "id": 200499, "name": "Gemini"},
+                {"count": 1, "id": 201058, "name": "Nigel the Shunned"},
+                {"count": 1, "id": 200211, "name": "Bobby Lemon"},
+                {"count": 1, "id": 201198, "name": "Roger Farnsworth"},
+                {"count": 1, "id": 200276, "name": "Clarissa Steinburgen"},
+                {"count": 1, "id": 201090, "name": "Panagos Levidis"},
+                {"count": 1, "id": 201276, "name": "Shannon Price, the Whisperer"},
+                {"count": 1, "id": 201464, "name": "Watenda"},
+                {"count": 1, "id": 201014, "name": "Mouse"},
+                {"count": 1, "id": 201507, "name": "Zip"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 2, "id": 100070, "name": "Animalism"},
+                        {"count": 6, "id": 100199, "name": "Blood Doll"},
+                        {"count": 2, "id": 100545, "name": "Direct Intervention"},
+                        {"count": 1, "id": 100588, "name": "Dreams of the Sphinx"},
+                        {
+                            "count": 2,
+                            "id": 100908,
+                            "name": "Heidelberg Castle, Germany",
+                        },
+                        {"count": 1, "id": 101808, "name": "Slum Hunting Ground"},
+                    ],
+                    "count": 14,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100093, "name": "Army of Rats"},
+                        {"count": 2, "id": 100365, "name": "Clotho's Gift"},
+                        {"count": 5, "id": 100390, "name": "Computer Hacking"},
+                    ],
+                    "count": 8,
+                    "type": "Action",
+                },
+                {
+                    "cards": [{"count": 3, "id": 101073, "name": "Laptop Computer"}],
+                    "count": 3,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 101015, "name": "J. S. Simmons, Esq."},
+                        {"count": 7, "id": 101550, "name": "Raven Spy"},
+                        {"count": 1, "id": 101943, "name": "Tasha Morgan"},
+                    ],
+                    "count": 9,
+                    "type": "Retainer",
+                },
+                {
+                    "cards": [
+                        {"count": 6, "id": 100362, "name": "Cloak the Gathering"},
+                        {"count": 3, "id": 100687, "name": "Faceless Night"},
+                        {"count": 2, "id": 101125, "name": "Lost in Crowds"},
+                    ],
+                    "count": 11,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 5, "id": 100308, "name": "Cats' Guidance"},
+                        {"count": 2, "id": 100519, "name": "Delaying Tactics"},
+                        {"count": 7, "id": 100760, "name": "Forced Awakening"},
+                        {"count": 3, "id": 100863, "name": "Guard Dogs"},
+                    ],
+                    "count": 17,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 7, "id": 100029, "name": "Aid from Bats"},
+                        {"count": 4, "id": 100149, "name": "Behind You!"},
+                        {"count": 3, "id": 100290, "name": "Canine Horde"},
+                        {"count": 8, "id": 100301, "name": "Carrion Crows"},
+                        {"count": 3, "id": 100567, "name": "Dodge"},
+                        {"count": 3, "id": 101342, "name": "Pack Alpha"},
+                    ],
+                    "count": 28,
+                    "type": "Combat",
+                },
+            ],
+            "count": 90,
+        },
     }
     assert caplog.record_tuples == [
         (
@@ -781,98 +1335,6 @@ def test_2k5sharednun(caplog):
     ]
 
 
-def test_2019ecwon1pf(caplog):
-    """Discipline name as header must not be mistaken for the Master card
-    Using long vampire name with comma and (ADV)
-    """
-    TWDA = twda._TWDA()
-    with open(os.path.join(os.path.dirname(__file__), "2019ecwon1pf.html")) as f:
-        TWDA.load_html(f, save=False)
-    assert len(TWDA) == 1
-    assert TWDA["2019ecwon1pf"].__getstate__() == {
-        "id": "2019ecwon1pf",
-        "event": "EC WoN - Monday",
-        "event_link": "http://www.vekn.net/event-calendar/event/9321",
-        "place": "Paris, France",
-        "date": "2019-08-12",
-        "players_count": 25,
-        "player": "Randal Rudstam",
-        "tournament_format": "2R+F",
-        "score": "1gw4.5 + 1.5vp in the final",
-        "name": "Sascha Vykos Toolbox",
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Sascha Vykos, The Angel of Caine (ADV)", 5),
-                ("Meshenka", 3),
-                ("Lambach", 1),
-                ("John Paleologus", 1),
-                ("Stravinsky", 1),
-                ("Velya, The Flayer", 1),
-                ("Ashur Tablets", 6),
-                ("Black Forest Base", 1),
-                ("Dreams of the Sphinx", 1),
-                ("Fear of Mekhet", 1),
-                ("Information Highway", 1),
-                ("Legendary Vampire", 1),
-                ("Library Hunting Ground", 1),
-                ("Papillon", 3),
-                ("Pentex™ Subversion", 1),
-                ("Powerbase: Madrid", 1),
-                ("Vessel", 2),
-                ("Villein", 5),
-                ("Wider View", 1),
-                ("Abbot", 1),
-                ("Army of Rats", 1),
-                ("Deep Song", 1),
-                ("Under Siege", 1),
-                ("Asanbonsam Ghoul", 2),
-                ("Carlton Van Wyk", 1),
-                ("Bowl of Convergence", 1),
-                ("Anarchist Uprising", 1),
-                ("Ancient Influence", 1),
-                ("Ancilla Empowerment", 1),
-                ("Banishment", 2),
-                ("Kine Resources Contested", 2),
-                ("Neonate Breach", 1),
-                ("Political Stranglehold", 1),
-                ("Reins of Power", 1),
-                ("Changeling", 2),
-                ("Mind of the Wilds", 1),
-                ("Private Audience", 1),
-                ("Plasmic Form", 1),
-                ("Cats' Guidance", 1),
-                ("Delaying Tactics", 1),
-                ("Eagle's Sight", 1),
-                ("Enhanced Senses", 1),
-                ("Eyes of Argus", 3),
-                ("Guard Dogs", 1),
-                ("My Enemy's Enemy", 1),
-                ("On the Qui Vive", 2),
-                ("Precognition", 1),
-                ("Rat's Warning", 1),
-                ("Read the Winds", 1),
-                ("Sense the Savage Way", 1),
-                ("Spirit's Touch", 1),
-                ("Telepathic Misdirection", 5),
-                ("Aid from Bats", 1),
-                ("Breath of the Dragon", 1),
-                ("Canine Horde", 1),
-                ("Carrion Crows", 2),
-                ("Chiropteran Marauder", 3),
-                ("Drawing Out the Beast", 1),
-                ("Inner Essence", 1),
-                ("Meld with the Land", 1),
-                ("Starvation of Marena", 1),
-            ]
-        ),
-        "cards_comments": {},
-        "comments": "Description: Card selection is strong! Randyman\n",
-    }
-    assert caplog.record_tuples == []
-
-
 def test_2020pihc(caplog):
     """Discipline name as header must not be mistaken for the Master card
     Long preface with formatted comment (keep spaces and carriage returns)
@@ -881,7 +1343,7 @@ def test_2020pihc(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2020pihc.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2020pihc"].__getstate__() == {
         "id": "2020pihc",
@@ -893,58 +1355,119 @@ def test_2020pihc(caplog):
         "players_count": 10,
         "tournament_format": "2R+F",
         "score": "0gw2.5 + 1.5vp in the final",
-        "author": None,
         "name": "Sauce or GTFO",
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Matasuntha", 6),
-                ("Calvin Cleaver", 1),
-                ("Fergus Alexander", 1),
-                ("Lillian", 1),
-                ("T.J.", 1),
-                ("Malcolm", 1),
-                ("Robert Price", 1),
-                ("Abombwe", 1),
-                ("Ecoterrorists", 1),
-                ("Fame", 1),
-                ("Giant's Blood", 1),
-                ("Perfectionist", 1),
-                ("Villein", 1),
-                ("Wider View", 1),
-                ("Bum's Rush", 2),
-                ("Deep Song", 2),
-                ("Go Anarch", 1),
-                ("Harass", 2),
-                ("Nose of the Hound", 2),
-                ("Rewilding", 1),
-                ("Shadow of the Beast", 1),
-                ("Thing", 2),
-                ("Mylan Horseed", 1),
-                ("Bowl of Convergence", 1),
-                ("Eye of Hazimel", 1),
-                ("Gran Madre di Dio, Italy", 1),
-                ("IR Goggles", 1),
-                ("Kevlar Vest", 1),
-                ("Ancient Influence", 1),
-                ("Dog Pack", 2),
-                ("Homunculus", 1),
-                ("Enkil Cog", 1),
-                ("Forced March", 3),
-                ("Freak Drive", 5),
-                ("Instantaneous Transformation", 3),
-                ("Eyes of Argus", 2),
-                ("Telepathic Misdirection", 1),
-                ("Blur", 4),
-                ("Flesh of Marble", 2),
-                ("Form of Mist", 1),
-                ("Pursuit", 2),
-                ("Skin of Night", 1),
-                ("Taste of Vitae", 3),
-                ("Dragonbound", 1),
-            ]
-        ),
-        "cards_comments": {},
+        "crypt": {
+            "cards": [
+                {"count": 6, "id": 200956, "name": "Matasuntha"},
+                {"count": 1, "id": 200238, "name": "Calvin Cleaver"},
+                {"count": 1, "id": 200463, "name": "Fergus Alexander"},
+                {"count": 1, "id": 200836, "name": "Lillian"},
+                {"count": 1, "id": 201334, "name": "T.J."},
+                {"count": 1, "id": 200902, "name": "Malcolm"},
+                {"count": 1, "id": 201192, "name": "Robert Price"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100009, "name": "Abombwe"},
+                        {"count": 1, "id": 100609, "name": "Ecoterrorists"},
+                        {"count": 1, "id": 100698, "name": "Fame"},
+                        {"count": 1, "id": 100824, "name": "Giant's Blood"},
+                        {"count": 1, "id": 101388, "name": "Perfectionist"},
+                        {"count": 1, "id": 102121, "name": "Villein"},
+                        {"count": 1, "id": 102180, "name": "Wider View"},
+                    ],
+                    "count": 7,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 100266, "name": "Bum's Rush"},
+                        {"count": 2, "id": 100515, "name": "Deep Song"},
+                        {"count": 1, "id": 100840, "name": "Go Anarch"},
+                        {"count": 2, "id": 100886, "name": "Harass"},
+                        {"count": 2, "id": 101296, "name": "Nose of the Hound"},
+                        {"count": 1, "id": 101632, "name": "Rewilding"},
+                        {"count": 1, "id": 101740, "name": "Shadow of the Beast"},
+                        {"count": 2, "id": 101972, "name": "Thing"},
+                    ],
+                    "count": 13,
+                    "type": "Action",
+                },
+                {
+                    "cards": [{"count": 1, "id": 101261, "name": "Mylan Horseed"}],
+                    "count": 1,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100243, "name": "Bowl of Convergence"},
+                        {"count": 1, "id": 100678, "name": "Eye of Hazimel"},
+                        {"count": 1, "id": 100847, "name": "Gran Madre di Dio, Italy"},
+                        {"count": 1, "id": 101007, "name": "IR Goggles"},
+                        {"count": 1, "id": 101040, "name": "Kevlar Vest"},
+                    ],
+                    "count": 5,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [{"count": 1, "id": 100064, "name": "Ancient Influence"}],
+                    "count": 1,
+                    "type": "Political Action",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 100568, "name": "Dog Pack"},
+                        {"count": 1, "id": 100932, "name": "Homunculus"},
+                    ],
+                    "count": 3,
+                    "type": "Retainer",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100645, "name": "Enkil Cog"},
+                        {"count": 3, "id": 100761, "name": "Forced March"},
+                        {"count": 5, "id": 100788, "name": "Freak Drive"},
+                        {
+                            "count": 3,
+                            "id": 100994,
+                            "name": "Instantaneous Transformation",
+                        },
+                    ],
+                    "count": 12,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 100680, "name": "Eyes of Argus"},
+                        {"count": 1, "id": 101949, "name": "Telepathic Misdirection"},
+                    ],
+                    "count": 3,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 4, "id": 100227, "name": "Blur"},
+                        {"count": 2, "id": 100749, "name": "Flesh of Marble"},
+                        {"count": 1, "id": 100771, "name": "Form of Mist"},
+                        {"count": 2, "id": 101523, "name": "Pursuit"},
+                        {"count": 1, "id": 101790, "name": "Skin of Night"},
+                        {"count": 3, "id": 101945, "name": "Taste of Vitae"},
+                    ],
+                    "count": 13,
+                    "type": "Combat",
+                },
+                {
+                    "cards": [{"count": 1, "id": 100581, "name": "Dragonbound"}],
+                    "count": 1,
+                    "type": "Event",
+                },
+            ],
+            "count": 59,
+        },
         "comments": """Final round recap written by Darby Keeney:
 
 Jay (3rd seed, Matasuntha multiaction) --> Karl (2nd seed, Palla Grande Undue Influence)
@@ -1015,51 +1538,91 @@ def test_2k8sequeenslandcq(caplog):
 
     The unclosed parenthesis on the Elder Impersonation is vicious: this single list
     makes it impossible to considered parenthesised comments as valid multiline,
-    since the following Seduction next line shoudl be included
+    since the following Seduction next line should be included
     """
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k8sequeenslandcq.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k8sequeenslandcq"].__getstate__() == {
         "id": "2k8sequeenslandcq",
         "event": "Gencon SE Queensland CCQ",
-        "event_link": None,
         "place": "Gencon Australia, Brisbane, Australia",
         "date": "2008-07-05",
         "player": "Steven McRoy",
         "players_count": 13,
-        "tournament_format": None,
-        "score": None,
-        "author": None,
         "name": "Arika Turbo",
-        "raven": 0,
-        "cards": dict(
-            [
-                ("Arika", 15),
-                ("Daring the Dawn", 10),
-                ("Force of Will", 10),
-                ("Soul Gem of Etrius", 7),
-                ("Majesty", 3),
-                ("Freak Drive", 10),
-                ("Conditioning", 10),
-                ("Distraction", 10),
-                ("Awe", 10),
-                ("Forgotten Labyrinth", 5),
-                ("Seduction", 2),
-                # fix-up
-                ("Praxis Seizure: Geneva", 4),
-                ("Praxis Seizure: Berlin", 4),
-                ("Praxis Seizure: Cairo", 2),
-                ("Elder Impersonation", 3),
-            ]
-        ),
-        "cards_comments": {
-            "Arika": "could have more, 15 was enough",
-            "Elder Impersonation": "would exchange for Faceless Night x4",
-            "Forgotten Labyrinth": "would add one more",
-            "Seduction": "would delete",
+        "crypt": {
+            "cards": [
+                {
+                    "comments": "could have more, 15 was enough",
+                    "count": 15,
+                    "id": 200135,
+                    "name": "Arika",
+                }
+            ],
+            "count": 15,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 10, "id": 100560, "name": "Distraction"},
+                        {"count": 10, "id": 100759, "name": "Force of Will"},
+                    ],
+                    "count": 20,
+                    "type": "Action",
+                },
+                {
+                    "cards": [{"count": 7, "id": 101832, "name": "Soul Gem of Etrius"}],
+                    "count": 7,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {"count": 4, "id": 101451, "name": "Praxis Seizure: Berlin"},
+                        {"count": 2, "id": 101454, "name": "Praxis Seizure: Cairo"},
+                        {"count": 4, "id": 101460, "name": "Praxis Seizure: Geneva"},
+                    ],
+                    "count": 10,
+                    "type": "Political Action",
+                },
+                {
+                    "cards": [
+                        {"count": 10, "id": 100119, "name": "Awe"},
+                        {"count": 10, "id": 100401, "name": "Conditioning"},
+                        {"count": 10, "id": 100492, "name": "Daring the Dawn"},
+                        {
+                            "comments": "would exchange for Faceless Night x4",
+                            "count": 3,
+                            "id": 100617,
+                            "name": "Elder Impersonation",
+                        },
+                        {
+                            "comments": "would add one more",
+                            "count": 5,
+                            "id": 100769,
+                            "name": "Forgotten Labyrinth",
+                        },
+                        {"count": 10, "id": 100788, "name": "Freak Drive"},
+                        {
+                            "comments": "would delete",
+                            "count": 2,
+                            "id": 101712,
+                            "name": "Seduction",
+                        },
+                    ],
+                    "count": 50,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [{"count": 3, "id": 101144, "name": "Majesty"}],
+                    "count": 3,
+                    "type": "Combat",
+                },
+            ],
+            "count": 90,
         },
         "comments": """Comments: Well the run is you get Arika out, wait a turn
 (hopefully no pentex, smash, or her getting torped), next
@@ -1101,64 +1664,117 @@ def test_2011ptwolss(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2011ptwolss.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2011ptwolss"].__getstate__() == {
         "id": "2011ptwolss",
         "date": "2011-10-29",
         "event": "Poison the Well of Life",
-        "event_link": None,
         "name": "Yet another Imbued deck winning a tournament",
         "place": "Stockholm, Sweden",
         "player": "Marcus Berg",
         "players_count": 19,
-        "score": None,
         "tournament_format": "2R+F",
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Mary Anne Blaire", 2),
-                ("Epikasta Rigatos", 2),
-                ("Lodin (Olaf Holte)", 2),
-                ("Victor Donaldson", 2),
-                ("Emily Carson", 2),
-                ("Maman Boumba", 1),
-                ("Keith Moody", 1),
-                ("Enchant Kindred", 4),
-                ("Govern the Unaligned", 15),
-                ("Mind Numb", 2),
-                ("Conditioning", 3),
-                ("Daring the Dawn", 1),
-                ("Freak Drive", 7),
-                ("The Kiss of Ra", 2),
-                ("Murmur of the False Will", 6),
-                ("Carlton Van Wyk", 1),
-                ("React with Conviction", 1),
-                ("Heart of Nizchetus", 1),
-                ("Anarch Troublemaker", 1),
-                ("Dreams of the Sphinx", 4),
-                ("Giant's Blood", 1),
-                ("Information Highway", 1),
-                ("Lilith's Blessing", 1),
-                ("Misdirection", 1),
-                ("Pentex™ Subversion", 2),
-                ("Villein", 6),
-                ("Wider View", 2),
-                ("Banishment", 1),
-                ("Parity Shift", 1),
-                ("Deflection", 7),
-                ("Eyes of Argus", 3),
-                ("Obedience", 8),
-                ("Second Tradition: Domain", 8),
-            ]
+        "comments": (
+            "Description: Too many cards, should be slimmed about 15 cards.\n"
+            "All Enchant Kindred should be Entrancement. One or both Kiss of\n"
+            "Ra should be Mind Numb. Villein and Lilith's Blessing should be\n"
+            "2 Blood Doll and 2 Vessel. Should maybe add 2-4 Majesty. Crypt\n"
+            "should be 4 Mary Anne Blaire, 2 Lodin and the rest singles.\n"
         ),
-        "cards_comments": {},
-        "comments": "Description: Too many cards, should be slimmed about 15 cards.\n"
-        "All Enchant Kindred should be Entrancement. One or both Kiss of\n"
-        "Ra should be Mind Numb. Villein and Lilith's Blessing should be\n"
-        "2 Blood Doll and 2 Vessel. Should maybe add 2-4 Majesty. Crypt\n"
-        "should be 4 Mary Anne Blaire, 2 Lodin and the rest singles.\n",
+        "crypt": {
+            "cards": [
+                {"count": 2, "id": 200946, "name": "Mary Anne Blaire"},
+                {"count": 2, "id": 200427, "name": "Epikasta Rigatos"},
+                {"count": 2, "id": 200848, "name": "Lodin (Olaf Holte)"},
+                {"count": 2, "id": 201438, "name": "Victor Donaldson"},
+                {"count": 2, "id": 200421, "name": "Emily Carson"},
+                {"count": 1, "id": 200907, "name": "Maman Boumba"},
+                {"count": 1, "id": 200767, "name": "Keith Moody"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100058, "name": "Anarch Troublemaker"},
+                        {"count": 4, "id": 100588, "name": "Dreams of the Sphinx"},
+                        {"count": 1, "id": 100824, "name": "Giant's Blood"},
+                        {"count": 1, "id": 100984, "name": "Information Highway"},
+                        {"count": 1, "id": 101108, "name": "Lilith's Blessing"},
+                        {"count": 1, "id": 101225, "name": "Misdirection"},
+                        {"count": 2, "id": 101384, "name": "Pentex™ Subversion"},
+                        {"count": 6, "id": 102121, "name": "Villein"},
+                        {"count": 2, "id": 102180, "name": "Wider View"},
+                    ],
+                    "count": 19,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 101557, "name": "React with Conviction"}
+                    ],
+                    "count": 1,
+                    "type": "Conviction",
+                },
+                {
+                    "cards": [
+                        {"count": 4, "id": 100640, "name": "Enchant Kindred"},
+                        {"count": 15, "id": 100845, "name": "Govern the Unaligned"},
+                        {"count": 2, "id": 101211, "name": "Mind Numb"},
+                    ],
+                    "count": 21,
+                    "type": "Action",
+                },
+                {
+                    "cards": [{"count": 1, "id": 100298, "name": "Carlton Van Wyk"}],
+                    "count": 1,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [{"count": 1, "id": 100903, "name": "Heart of Nizchetus"}],
+                    "count": 1,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100131, "name": "Banishment"},
+                        {"count": 1, "id": 101353, "name": "Parity Shift"},
+                    ],
+                    "count": 2,
+                    "type": "Political Action",
+                },
+                {
+                    "cards": [
+                        {"count": 3, "id": 100401, "name": "Conditioning"},
+                        {"count": 1, "id": 100492, "name": "Daring the Dawn"},
+                        {"count": 7, "id": 100788, "name": "Freak Drive"},
+                        {"count": 2, "id": 101062, "name": "The Kiss of Ra"},
+                    ],
+                    "count": 13,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 6, "id": 101256, "name": "Murmur of the False Will"}
+                    ],
+                    "count": 6,
+                    "type": "Action Modifier/Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 7, "id": 100518, "name": "Deflection"},
+                        {"count": 3, "id": 100680, "name": "Eyes of Argus"},
+                        {"count": 8, "id": 101309, "name": "Obedience"},
+                        {"count": 8, "id": 101706, "name": "Second Tradition: Domain"},
+                    ],
+                    "count": 26,
+                    "type": "Reaction",
+                },
+            ],
+            "count": 90,
+        },
     }
     assert caplog.record_tuples == []
 
@@ -1168,96 +1784,146 @@ def test_2k8tfnwesterville(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k8tfnwesterville.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k8tfnwesterville"].__getstate__() == {
         "id": "2k8tfnwesterville",
         "date": "2008-01-27",
         "event": "The Final Nights",
-        "event_link": None,
         "name": "Tembo!!",
         "place": "Westerville, Ohio",
         "player": "Matt Piatek",
         "players_count": 16,
-        "score": None,
         "tournament_format": "2R+F",
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Demdemeh", 3),
-                ("Matata", 3),
-                ("Babalawo Alafin", 3),
-                ("Wamukota", 2),
-                ("Solomon Batanea", 2),
-                ("Minion Tap", 3),
-                ("Blood Doll", 2),
-                ("The Parthenon", 2),
-                ("Maabara", 2),
-                ("Lazarene Inquisitor", 1),
-                ("Mbare Market, Harare", 1),
-                ("Heidelberg Castle, Germany", 1),
-                ("Crematorium", 1),
-                ("Animalism", 1),
-                ("Rapid Healing", 2),
-                ("Restoration", 2),
-                ("Force of Will", 1),
-                ("Tier of Souls", 1),
-                ("Freak Drive", 5),
-                ("Day Operation", 2),
-                ("Wake with Evening's Freshness", 4),
-                ("Rat's Warning", 2),
-                ("Guard Dogs", 1),
-                ("Cats' Guidance", 1),
-                ("Eagle's Sight", 1),
-                ("Spirit's Touch", 2),
-                ("Precognition", 1),
-                ("Enhanced Senses", 1),
-                ("Telepathic Misdirection", 2),
-                ("My Enemy's Enemy", 1),
-                ("Read the Winds", 1),
-                ("Anthelios, The Red Star", 2),
-                ("Taste of Vitae", 6),
-                ("Indomitability", 4),
-                ("Rolling with the Punches", 4),
-                ("Resilience", 3),
-                ("Skin of Rock", 2),
-                ("Unflinching Persistence", 2),
-                ("Hidden Strength", 2),
-                ("Drawing Out the Beast", 2),
-                ("Pack Alpha", 1),
-                ("Canine Horde", 1),
-                ("Elephant Guardian", 7),
-                ("Raven Spy", 3),
-                ("Swarm", 2),
-                ("J. S. Simmons, Esq.", 1),
-                ("Tasha Morgan", 1),
-                ("Erebus Mask", 1),
-                ("Kerrie", 1),
-                ("Unlicensed Taxicab", 1),
-            ]
+        "comments": (
+            "Description: Demdemeh makes a herd of elephant allies with 2 hand\n"
+            "damage and one bleed. Babalawo Alafin combines with Maabara to allow\n"
+            "you to craft the hand you need.\n\n"
+            "It didn't work the way it was intended to in the finals. In retrospect\n"
+            "I should have brought out Demdemeh instead of Wamukota as my second\n"
+            "vampire, but I thought his ability would be important for my retain\n"
+            "actions(it was never used). I never could get enough pool to bring\n"
+            "out Demdemeh afterwards. A herd of elephants would have greatly\n"
+            "increased my ousting ability.\n\n"
+            'It is nice to know that the deck can survive without all of the "A"\n'
+            "team in play.\n"
         ),
-        "cards_comments": {},
-        "comments": "Description: Demdemeh makes a herd of elephant allies with 2 "
-        "hand\n"
-        "damage and one bleed. Babalawo Alafin combines with Maabara to "
-        "allow\n"
-        "you to craft the hand you need.\n"
-        "\n"
-        "It didn't work the way it was intended to in the finals. In "
-        "retrospect\n"
-        "I should have brought out Demdemeh instead of Wamukota as my "
-        "second\n"
-        "vampire, but I thought his ability would be important for my "
-        "retain\n"
-        "actions(it was never used). I never could get enough pool to "
-        "bring\n"
-        "out Demdemeh afterwards. A herd of elephants would have greatly\n"
-        "increased my ousting ability.\n"
-        "\n"
-        "It is nice to know that the deck can survive without all of the "
-        '"A"\n'
-        "team in play.\n",
+        "crypt": {
+            "cards": [
+                {"count": 3, "id": 200333, "name": "Demdemeh"},
+                {"count": 3, "id": 200957, "name": "Matata"},
+                {"count": 3, "id": 200158, "name": "Babalawo Alafin"},
+                {"count": 2, "id": 201463, "name": "Wamukota"},
+                {"count": 2, "id": 201305, "name": "Solomon Batanea"},
+            ],
+            "count": 13,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100070, "name": "Animalism"},
+                        {"count": 2, "id": 100199, "name": "Blood Doll"},
+                        {"count": 1, "id": 100445, "name": "Crematorium"},
+                        {
+                            "count": 1,
+                            "id": 100908,
+                            "name": "Heidelberg Castle, Germany",
+                        },
+                        {"count": 1, "id": 101076, "name": "Lazarene Inquisitor"},
+                        {"count": 2, "id": 101136, "name": "Maabara"},
+                        {"count": 1, "id": 101189, "name": "Mbare Market, Harare"},
+                        {"count": 3, "id": 101217, "name": "Minion Tap"},
+                        {"count": 2, "id": 101355, "name": "The Parthenon"},
+                    ],
+                    "count": 14,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100759, "name": "Force of Will"},
+                        {"count": 2, "id": 101543, "name": "Rapid Healing"},
+                        {"count": 2, "id": 101613, "name": "Restoration"},
+                        {"count": 1, "id": 101984, "name": "Tier of Souls"},
+                    ],
+                    "count": 6,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100657, "name": "Erebus Mask"},
+                        {"count": 1, "id": 101039, "name": "Kerrie"},
+                        {"count": 1, "id": 102078, "name": "Unlicensed Taxicab"},
+                    ],
+                    "count": 3,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {"count": 7, "id": 100626, "name": "Elephant Guardian"},
+                        {"count": 1, "id": 101015, "name": "J. S. Simmons, Esq."},
+                        {"count": 3, "id": 101550, "name": "Raven Spy"},
+                        {"count": 2, "id": 101914, "name": "Swarm"},
+                        {"count": 1, "id": 101943, "name": "Tasha Morgan"},
+                    ],
+                    "count": 14,
+                    "type": "Retainer",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 100502, "name": "Day Operation"},
+                        {"count": 5, "id": 100788, "name": "Freak Drive"},
+                    ],
+                    "count": 7,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100308, "name": "Cats' Guidance"},
+                        {"count": 1, "id": 100598, "name": "Eagle's Sight"},
+                        {"count": 1, "id": 100644, "name": "Enhanced Senses"},
+                        {"count": 1, "id": 100863, "name": "Guard Dogs"},
+                        {"count": 1, "id": 101259, "name": "My Enemy's Enemy"},
+                        {"count": 1, "id": 101475, "name": "Precognition"},
+                        {"count": 2, "id": 101547, "name": "Rat's Warning"},
+                        {"count": 1, "id": 101559, "name": "Read the Winds"},
+                        {"count": 2, "id": 101850, "name": "Spirit's Touch"},
+                        {"count": 2, "id": 101949, "name": "Telepathic Misdirection"},
+                        {
+                            "count": 4,
+                            "id": 102137,
+                            "name": "Wake with Evening's Freshness",
+                        },
+                    ],
+                    "count": 17,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100290, "name": "Canine Horde"},
+                        {"count": 2, "id": 100585, "name": "Drawing Out the Beast"},
+                        {"count": 2, "id": 100918, "name": "Hidden Strength"},
+                        {"count": 4, "id": 100973, "name": "Indomitability"},
+                        {"count": 1, "id": 101342, "name": "Pack Alpha"},
+                        {"count": 3, "id": 101608, "name": "Resilience"},
+                        {"count": 4, "id": 101649, "name": "Rolling with the Punches"},
+                        {"count": 2, "id": 101791, "name": "Skin of Rock"},
+                        {"count": 6, "id": 101945, "name": "Taste of Vitae"},
+                        {"count": 2, "id": 102071, "name": "Unflinching Persistence"},
+                    ],
+                    "count": 27,
+                    "type": "Combat",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 100074, "name": "Anthelios, The Red Star"}
+                    ],
+                    "count": 2,
+                    "type": "Event",
+                },
+            ],
+            "count": 90,
+        },
     }
     assert caplog.record_tuples == [
         (
@@ -1274,53 +1940,17 @@ def test_2k7fsmc(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k7fsmc.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k7fsmc"].__getstate__() == {
         "id": "2k7fsmc",
         "date": "2007-12-08",
         "event": "Fee Stake: Mexico City",
-        "event_link": None,
         "name": "Nephandi",
         "place": "Mexico City, Mexico",
         "player": "Omael Rangel",
         "players_count": 10,
-        "score": None,
         "tournament_format": "2R+F",
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Antonio d'Erlette", 4),
-                ("Tupdog", 4),
-                ("Keith Moody", 2),
-                ("Ember Wright", 1),
-                ("Saiz", 1),
-                ("Computer Hacking", 6),
-                ("Empowering the Puppet King", 8),
-                ("Nephandus", 8),
-                ("Ossian", 1),
-                ("Vagabond Mystic", 1),
-                ("Concealed Weapon", 8),
-                ("Glancing Blow", 3),
-                ("Molotov Cocktail", 3),
-                (".44 Magnum", 1),
-                ("Flash Grenade", 7),
-                ("The Unmasking", 2),
-                ("Archon Investigation", 1),
-                ("Blood Doll", 4),
-                ("Direct Intervention", 3),
-                ("Haven Uncovered", 2),
-                ("Information Highway", 1),
-                ("Life in the City", 6),
-                ("Memories of Mortality", 4),
-                ("Mob Connections", 1),
-                ("Deflection", 8),
-                ("On the Qui Vive", 5),
-                ("Wake with Evening's Freshness", 3),
-            ]
-        ),
-        "cards_comments": {},
         "comments": (
             "4 memories of mortality -- when they are gone i should add a fort. "
             "library, a pentex subversion and maybe anarchist troublemaker\n"
@@ -1329,6 +1959,91 @@ def test_2k7fsmc(caplog):
             "1 .44 magnum -- this should be another grenade but i only had 7 at the "
             "time\n"
         ),
+        "crypt": {
+            "cards": [
+                {"count": 4, "id": 200116, "name": "Antonio d'Erlette"},
+                {"count": 4, "id": 201393, "name": "Tupdog"},
+                {"count": 2, "id": 200767, "name": "Keith Moody"},
+                {"count": 1, "id": 200418, "name": "Ember Wright"},
+                {"count": 1, "id": 201222, "name": "Saiz"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100085, "name": "Archon Investigation"},
+                        {"count": 4, "id": 100199, "name": "Blood Doll"},
+                        {"count": 3, "id": 100545, "name": "Direct Intervention"},
+                        {"count": 2, "id": 100897, "name": "Haven Uncovered"},
+                        {"count": 1, "id": 100984, "name": "Information Highway"},
+                        {"count": 6, "id": 101104, "name": "Life in the City"},
+                        {"count": 4, "id": 101198, "name": "Memories of Mortality"},
+                        {"count": 1, "id": 101229, "name": "Mob Connections"},
+                    ],
+                    "count": 22,
+                    "type": "Master",
+                },
+                {
+                    "cards": [{"count": 6, "id": 100390, "name": "Computer Hacking"}],
+                    "count": 6,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {"count": 8, "id": 101272, "name": "Nephandus"},
+                        {"count": 1, "id": 101333, "name": "Ossian"},
+                        {"count": 1, "id": 102087, "name": "Vagabond Mystic"},
+                    ],
+                    "count": 10,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100001, "name": ".44 Magnum"},
+                        {"count": 7, "id": 100745, "name": "Flash Grenade"},
+                    ],
+                    "count": 8,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {"count": 8, "id": 100639, "name": "Empowering the Puppet King"}
+                    ],
+                    "count": 8,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 8, "id": 100518, "name": "Deflection"},
+                        {"count": 5, "id": 101321, "name": "On the Qui Vive"},
+                        {
+                            "count": 3,
+                            "id": 102137,
+                            "name": "Wake with Evening's Freshness",
+                        },
+                    ],
+                    "count": 16,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 8, "id": 100392, "name": "Concealed Weapon"},
+                        {"count": 3, "id": 100834, "name": "Glancing Blow"},
+                        {"count": 3, "id": 101235, "name": "Molotov Cocktail"},
+                    ],
+                    "count": 14,
+                    "type": "Combat",
+                },
+                {
+                    "cards": [{"count": 2, "id": 102079, "name": "The Unmasking"}],
+                    "count": 2,
+                    "type": "Event",
+                },
+            ],
+            "count": 86,
+        },
     }
     assert caplog.record_tuples == []
 
@@ -1338,81 +2053,131 @@ def test_2k6nerq_templecon(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k6nerq-templecon.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k6nerq-templecon"].__getstate__() == {
         "id": "2k6nerq-templecon",
         "date": "2006-01-28",
         "event": "Saqqaf, Keeper of the Grand TempleCon of Set - Northeast Regional "
         "Qualifier 2006",
-        "event_link": None,
-        "name": None,
         "place": "Providence, Rhode Island",
         "player": "Jonathan Scherer",
         "players_count": 39,
-        "score": None,
         "tournament_format": "3R+F",
-        "author": None,
-        "raven": 0,
-        "cards": dict(
-            [
-                ("Ingrid Rossler", 3),
-                ("Caitlin", 2),
-                ("Chandler Hungerford", 2),
-                ("Faruq", 1),
-                ("Iliana", 1),
-                ("Camille Devereux, The Raven", 1),
-                ("Ramona", 1),
-                ("Ricki Van Demsi", 1),
-                ("Earth Control", 5),
-                ("Form of Mist", 5),
-                ("Earth Meld", 13),
-                ("Claws of the Dead", 5),
-                ("Restoration", 2),
-                ("Day Operation", 1),
-                ("Freak Drive", 4),
-                ("Govern the Unaligned", 4),
-                ("Conditioning", 3),
-                ("Foreshadowing Destruction", 1),
-                ("Deflection", 4),
-                ("Raven Spy", 3),
-                ("Cats' Guidance", 5),
-                ("Instinctive Reaction", 1),
-                ("Computer Hacking", 2),
-                ("Aranthebes, The Immortal", 1),
-                ("Mr. Winthrop", 1),
-                ("Palatial Estate", 1),
-                ("Procurer", 1),
-                ("Wake with Evening's Freshness", 8),
-                ("Second Tradition: Domain", 2),
-                ("Renegade Garou", 3),
-                ("Club Zombie", 1),
-                ("Zoo Hunting Ground", 1),
-                ("Ecoterrorists", 2),
-                ("KRCG News Radio", 1),
-                ("WMRH Talk Radio", 1),
-                ("Smiling Jack, The Anarch", 1),
-                ("Dreams of the Sphinx", 1),
-                ("The Barrens", 1),
-                ("Blood Doll", 3),
-                # fix-up
-                ("Dominate", 3),
-            ]
+        "comments": (
+            "Slippery When Wet\n\n"
+            "This deck is an old friend of mine. It has been\n"
+            "heavily modified over the years, with the most recent\n"
+            "modification being the addition of dominate to the\n"
+            "deck. The Gangrel were the first clan that I really\n"
+            "got to work in casual play, many years ago. I tried it\n"
+            "a few times in tournaments but it lacked the speed\n"
+            "necessary to win a table. After the addition of\n"
+            "dominate for some added pressure it has been much more\n"
+            "effective, with several strong showings. While a good\n"
+            "position and some luck was key in winning the day,\n"
+            "this deck showed itself to be a strong competitor.\n"
         ),
-        "cards_comments": {},
-        "comments": "Slippery When Wet\n"
-        "\n"
-        "This deck is an old friend of mine. It has been\n"
-        "heavily modified over the years, with the most recent\n"
-        "modification being the addition of dominate to the\n"
-        "deck. The Gangrel were the first clan that I really\n"
-        "got to work in casual play, many years ago. I tried it\n"
-        "a few times in tournaments but it lacked the speed\n"
-        "necessary to win a table. After the addition of\n"
-        "dominate for some added pressure it has been much more\n"
-        "effective, with several strong showings. While a good\n"
-        "position and some luck was key in winning the day,\n"
-        "this deck showed itself to be a strong competitor.\n",
+        "crypt": {
+            "cards": [
+                {"count": 3, "id": 200634, "name": "Ingrid Rossler"},
+                {"count": 2, "id": 200233, "name": "Caitlin"},
+                {"count": 2, "id": 200265, "name": "Chandler Hungerford"},
+                {"count": 1, "id": 200457, "name": "Faruq"},
+                {"count": 1, "id": 200626, "name": "Iliana"},
+                {"count": 1, "id": 200240, "name": "Camille Devereux, The Raven"},
+                {"count": 1, "id": 201158, "name": "Ramona"},
+                {"count": 1, "id": 201188, "name": "Ricki Van Demsi"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100135, "name": "The Barrens"},
+                        {"count": 3, "id": 100199, "name": "Blood Doll"},
+                        {"count": 1, "id": 100367, "name": "Club Zombie"},
+                        {"count": 3, "id": 100572, "name": "Dominate"},
+                        {"count": 1, "id": 100588, "name": "Dreams of the Sphinx"},
+                        {"count": 2, "id": 100609, "name": "Ecoterrorists"},
+                        {"count": 1, "id": 101067, "name": "KRCG News Radio"},
+                        {"count": 1, "id": 101811, "name": "Smiling Jack, The Anarch"},
+                        {"count": 1, "id": 102189, "name": "WMRH Talk Radio"},
+                        {"count": 1, "id": 102212, "name": "Zoo Hunting Ground"},
+                    ],
+                    "count": 15,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100079, "name": "Aranthebes, The Immortal"},
+                        {"count": 2, "id": 100390, "name": "Computer Hacking"},
+                        {"count": 4, "id": 100845, "name": "Govern the Unaligned"},
+                        {"count": 2, "id": 101613, "name": "Restoration"},
+                    ],
+                    "count": 9,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 101491, "name": "Procurer"},
+                        {"count": 3, "id": 101602, "name": "Renegade Garou"},
+                    ],
+                    "count": 4,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [{"count": 1, "id": 101345, "name": "Palatial Estate"}],
+                    "count": 1,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 101249, "name": "Mr. Winthrop"},
+                        {"count": 3, "id": 101550, "name": "Raven Spy"},
+                    ],
+                    "count": 4,
+                    "type": "Retainer",
+                },
+                {
+                    "cards": [
+                        {"count": 3, "id": 100401, "name": "Conditioning"},
+                        {"count": 1, "id": 100502, "name": "Day Operation"},
+                        {"count": 5, "id": 100600, "name": "Earth Control"},
+                        {"count": 1, "id": 100765, "name": "Foreshadowing Destruction"},
+                        {"count": 4, "id": 100788, "name": "Freak Drive"},
+                    ],
+                    "count": 14,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {"count": 5, "id": 100308, "name": "Cats' Guidance"},
+                        {"count": 4, "id": 100518, "name": "Deflection"},
+                        {"count": 1, "id": 100995, "name": "Instinctive Reaction"},
+                        {"count": 2, "id": 101706, "name": "Second Tradition: Domain"},
+                        {
+                            "count": 8,
+                            "id": 102137,
+                            "name": "Wake with Evening's Freshness",
+                        },
+                    ],
+                    "count": 20,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 5, "id": 100356, "name": "Claws of the Dead"},
+                        {"count": 13, "id": 100601, "name": "Earth Meld"},
+                        {"count": 5, "id": 100771, "name": "Form of Mist"},
+                    ],
+                    "count": 23,
+                    "type": "Combat",
+                },
+            ],
+            "count": 90,
+        },
     }
     assert caplog.record_tuples == [
         # original file errors - the fixed version has none
@@ -1449,103 +2214,185 @@ def test_2k3italyqualifier(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k3italyqualifier.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k3italyqualifier"].__getstate__() == {
         "id": "2k3italyqualifier",
         "date": "2003-09-27",
         "event": "Italian ECQ",
-        "event_link": None,
         "name": "Menú: Paella y Tortilla de Patata (Menu: Paella & Potato",
         "place": "Italy, Modena",
         "player": "Iñaki Puigdollers",
         "players_count": 68,
-        "score": None,
-        "tournament_format": None,
-        "author": None,
-        "raven": 0,
-        "cards": dict(
-            [
-                ("Jost Werner", 2),
-                ("Creamy Jade", 2),
-                ("The Rose", 2),
-                ("Sheila Mezarin", 1),
-                ("Elizabeth Westcott", 1),
-                ("Mercy, Knight Inquisitor", 1),
-                ("Remilliard, Devout Crusader", 1),
-                ("Lolita", 1),
-                ("Carter", 1),
-                ("Palla Grande", 4),
-                ("The Art of Pain", 1),
-                ("Blood Doll", 2),
-                ("Direct Intervention", 1),
-                ("Vicissitude", 2),
-                ("Anarch Troublemaker", 1),
-                ("Art Scam", 9),
-                ("Enchant Kindred", 9),
-                ("Changeling", 6),
-                ("Majesty", 7),
-                ("War Ghoul", 4),
-                ("Tasha Morgan", 1),
-                ("J. S. Simmons, Esq.", 1),
-                ("Wake with Evening's Freshness", 4),
-                ("Forced Awakening", 2),
-                ("Telepathic Misdirection", 4),
-                ("My Enemy's Enemy", 4),
-                ("Plasmic Form", 5),
-                # fix-up
-                ("Jake Washington", 3),
-                ("The Hungry Coyote", 1),
-                ("The Embrace", 3),
-                ("Entrancement", 3),
-                ("The Summoning", 5),
-                ("Change of Target", 6),
-                ("Marijava Ghoul", 2),
-            ]
+        "comments": (
+            "Omelette)\n\n"
+            "Description: !toreador module with Tzimisce supportto develope a quiet\n"
+            "game while bloating and hitting with the WG. As I have said the deck\n"
+            "could be defined as a bloat deck with high bleeding potential while is\n"
+            "the time. Defend your ground, generate pool and play as many minions\n"
+            "and whever prepared offer Paella for everyone!, The potato omelette\n"
+            "will send whoever who tries to interdict to torpor... .\n"
         ),
-        "cards_comments": {
-            "Forced Awakening": (
-                "helps to dry my vamps before drinking a full Jake for supper"
-            ),
-            # fix-up
-            "Jake Washington": (
-                "He is perfect for both the WG and let my midcaps eat if hungry"
-            ),
-            "The Hungry Coyote": (
-                "after the tournament I have decided that the Jakes are enough for "
-                "this and that my minions have always better actions to do rather than "
-                'hunt. I would change it for a Pentex "anti helena/Lucas halton/..." '
-                "Subversion"
-            ),
-            "The Embrace": (
-                "extremely useful for bleed and multiple action as rescuing from "
-                "torpor/eating alive/rush walls"
-            ),
-            "Entrancement": (
-                "To defend my omelettes, for bleeding or for an extrarecruitment if "
-                "ever able, this card is so great"
-            ),
-            "The Summoning": (
-                "key, essential, If you summon a WG and the action is blocked you "
-                "don't lose the Meat machine so you could try it later, and it also "
-                "multiplies the number of getting a WG from my library"
-            ),
-            "Change of Target": (
-                "for the embraces aswell and the Ghouls if an evil killer vamps untaps "
-                "suddenly while attacking"
-            ),
-            "Marijava Ghoul": (
-                "exceptionals, There are 15 pressence action cards and this makes 'em "
-                "more efficient, but he is also meat for the WG god"
-            ),
+        "crypt": {
+            "cards": [
+                {"count": 2, "id": 200727, "name": "Jost Werner"},
+                {"count": 2, "id": 200299, "name": "Creamy Jade"},
+                {"count": 2, "id": 201205, "name": "The Rose"},
+                {"count": 1, "id": 201280, "name": "Sheila Mezarin"},
+                {"count": 1, "id": 200415, "name": "Elizabeth Westcott"},
+                {"count": 1, "id": 200978, "name": "Mercy, Knight Inquisitor"},
+                {"count": 1, "id": 201178, "name": "Remilliard, Devout Crusader"},
+                {"count": 1, "id": 200849, "name": "Lolita"},
+                {"count": 1, "id": 200251, "name": "Carter"},
+            ],
+            "count": 12,
         },
-        "comments": "Omelette)\n\n"
-        "Description: !toreador module with Tzimisce supportto develope a quiet\n"
-        "game while bloating and hitting with the WG. As I have said the deck\n"
-        "could be defined as a bloat deck with high bleeding potential while is\n"
-        "the time. Defend your ground, generate pool and play as many minions\n"
-        "and whever prepared offer Paella for everyone!, The potato omelette\n"
-        "will send whoever who tries to interdict to torpor... .\n",
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100058, "name": "Anarch Troublemaker"},
+                        {"count": 1, "id": 100098, "name": "The Art of Pain"},
+                        {"count": 2, "id": 100199, "name": "Blood Doll"},
+                        {"count": 1, "id": 100545, "name": "Direct Intervention"},
+                        {
+                            "comments": (
+                                "after the tournament I have decided that the Jakes "
+                                "are enough for this and that my minions have always "
+                                "better actions to do rather than hunt. I would change "
+                                'it for a Pentex "anti helena/Lucas halton/..." '
+                                "Subversion"
+                            ),
+                            "count": 1,
+                            "id": 100945,
+                            "name": "The Hungry Coyote",
+                        },
+                        {
+                            "comments": (
+                                "He is perfect for both the WG and let my midcaps eat "
+                                "if hungry"
+                            ),
+                            "count": 3,
+                            "id": 101019,
+                            "name": "Jake Washington",
+                        },
+                        {"count": 4, "id": 101346, "name": "Palla Grande"},
+                        {"count": 2, "id": 102116, "name": "Vicissitude"},
+                    ],
+                    "count": 15,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 9, "id": 100099, "name": "Art Scam"},
+                        {
+                            "comments": (
+                                "extremely useful for bleed and multiple action as "
+                                "rescuing from torpor/eating alive/rush walls"
+                            ),
+                            "count": 3,
+                            "id": 100633,
+                            "name": "The Embrace",
+                        },
+                        {"count": 9, "id": 100640, "name": "Enchant Kindred"},
+                        {
+                            "comments": (
+                                "To defend my omelettes, for bleeding or for an "
+                                "extrarecruitment if ever able, this card is so great"
+                            ),
+                            "count": 3,
+                            "id": 100652,
+                            "name": "Entrancement",
+                        },
+                        {
+                            "comments": (
+                                "key, essential, If you summon a WG and the action is "
+                                "blocked you don't lose the Meat machine so you could "
+                                "try it later, and it also multiplies the number of "
+                                "getting a WG from my library"
+                            ),
+                            "count": 5,
+                            "id": 101902,
+                            "name": "The Summoning",
+                        },
+                    ],
+                    "count": 29,
+                    "type": "Action",
+                },
+                {
+                    "cards": [{"count": 4, "id": 102144, "name": "War Ghoul"}],
+                    "count": 4,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 101015, "name": "J. S. Simmons, Esq."},
+                        {
+                            "comments": (
+                                "exceptionals, There are 15 pressence action cards and "
+                                "this makes 'em more efficient, but he is also meat "
+                                "for the WG god"
+                            ),
+                            "count": 2,
+                            "id": 101164,
+                            "name": "Marijava Ghoul",
+                        },
+                        {"count": 1, "id": 101943, "name": "Tasha Morgan"},
+                    ],
+                    "count": 4,
+                    "type": "Retainer",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": (
+                                "for the embraces aswell and the Ghouls if an evil "
+                                "killer vamps untaps suddenly while attacking"
+                            ),
+                            "count": 6,
+                            "id": 100323,
+                            "name": "Change of Target",
+                        },
+                        {"count": 6, "id": 100324, "name": "Changeling"},
+                    ],
+                    "count": 12,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [{"count": 5, "id": 101402, "name": "Plasmic Form"}],
+                    "count": 5,
+                    "type": "Action Modifier/Combat",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": (
+                                "helps to dry my vamps before drinking a full Jake for "
+                                "supper"
+                            ),
+                            "count": 2,
+                            "id": 100760,
+                            "name": "Forced Awakening",
+                        },
+                        {"count": 4, "id": 101259, "name": "My Enemy's Enemy"},
+                        {"count": 4, "id": 101949, "name": "Telepathic Misdirection"},
+                        {
+                            "count": 4,
+                            "id": 102137,
+                            "name": "Wake with Evening's Freshness",
+                        },
+                    ],
+                    "count": 14,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [{"count": 7, "id": 101144, "name": "Majesty"}],
+                    "count": 7,
+                    "type": "Combat",
+                },
+            ],
+            "count": 90,
+        },
     }
     assert caplog.record_tuples == [
         # original file errors - the fixed version has none
@@ -1597,106 +2444,17 @@ def test_2k8torunminiq(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k8torunminiq.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k8torunminiq"].__getstate__() == {
         "id": "2k8torunminiq",
         "date": "2008-05-31",
         "event": "MQ",
-        "event_link": None,
         "name": "Along comes the spider",
         "place": "Torun, Poland",
         "player": "Marcin Szybkowski",
         "players_count": 12,
-        "score": None,
         "tournament_format": "3R+F",
-        "author": None,
-        "raven": 0,
-        "cards": dict(
-            [
-                ("Nkule Galadima", 3),
-                ("Uchenna", 3),
-                ("Amavi", 2),
-                ("Jubal", 1),
-                ("Hasani", 1),
-                ("Dolie", 1),
-                ("Meno Ngari", 1),
-                ("Dreams of the Sphinx", 2),
-                ("Vessel", 3),
-                ("Blood Doll", 2),
-                ("Giant's Blood", 1),
-                ("Jungle Hunting Ground", 1),
-                ("Mbare Market, Harare", 1),
-                ("Legendary Vampire", 1),
-                ("Ancestor Spirit", 1),
-                ("Belonging Grants Protection", 3),
-                ("Restoration", 2),
-                ("Aranthebes, The Immortal", 1),
-                ("Army of Rats", 1),
-                ("Freak Drive", 7),
-                ("Predator's Mastery", 4),
-                ("Akunanse Kholo", 1),
-                ("Strange Day", 1),
-                ("The Secret Must Be Kept", 2),
-                ("Anarchist Uprising", 1),
-                ("Sniper Rifle", 2),
-                ("Ivory Bow", 1),
-                ("Reliquary: Akunanse Remains", 1),
-                ("Kduva's Mask", 1),
-                ("Raven Spy", 5),
-                ("Shaman", 1),
-                ("Carrion Crows", 5),
-                ("Invoking the Beast", 5),
-                ("Taste of Vitae", 4),
-                ("Rolling with the Punches", 4),
-                ("Skin of Steel", 3),
-                ("Canine Horde", 2),
-                ("Flesh Bond", 2),
-                # fix-up
-                ("Direct Intervention", 2),
-                ("Powerbase: Tshwane", 1),
-                ("WMRH Talk Radio", 1),
-                ("No Secrets From the Magaji", 3),
-                ("Predator's Transformation", 5),
-                ("Ancilla Empowerment", 1),
-                ("Superior Mettle", 2),
-                ("Predator's Communion", 4),
-            ]
-        ),
-        "cards_comments": {
-            "Ancilla Empowerment": "nobody really expects these 2 until its too late",
-            "Canine Horde": "crucial in the final",
-            "Direct Intervention": (
-                "I'm thinking about adding another one, this card is cruicial for any "
-                "block denial actions, or things that simply screw your spiders"
-            ),
-            "Flesh Bond": "butt-saver",
-            "No Secrets From the Magaji": (
-                "was thinking about 4-5, but 3 is a good number, you draw too much "
-                "attention if you put it on too early"
-            ),
-            "Powerbase: Tshwane": (
-                "there was some magic around this card, I got it in every single "
-                "game, in the first 10 cards drawn"
-            ),
-            "Predator's Communion": (
-                "very helpful before you get no secrets, easy to drop afterwards"
-            ),
-            "Predator's Mastery": "lovely thanks to several ally decks playing",
-            "Predator's Transformation": (
-                "wonderful card, can play it anytime, and the bonus superior effect "
-                "did help a lot many times"
-            ),
-            "Strange Day": "won me the final pretty much",
-            "Superior Mettle": (
-                "I'd revise the prevent cards anyway, maybe adding some with no cost, "
-                "or more of SM. it worked nice in overall though"
-            ),
-            "The Secret Must Be Kept": "amazing card against any ally deck",
-            "WMRH Talk Radio": (
-                "didn't use it at all, metagame wasn't stealth heavy though"
-            ),
-        },
         "comments": (
             "Description: This deck won the mini qualifier in Torun, a local\n"
             "tournament in Warsaw, and managed to get into the final round during\n"
@@ -1706,6 +2464,218 @@ def test_2k8torunminiq(caplog):
             "ideal setup you block out your predator while making constant pressure\n"
             "on your prey.\n"
         ),
+        "crypt": {
+            "cards": [
+                {"count": 3, "id": 201064, "name": "Nkule Galadima"},
+                {"count": 3, "id": 201401, "name": "Uchenna"},
+                {"count": 2, "id": 200066, "name": "Amavi"},
+                {"count": 1, "id": 200731, "name": "Jubal"},
+                {"count": 1, "id": 200576, "name": "Hasani"},
+                {"count": 1, "id": 200353, "name": "Dolie"},
+                {"count": 1, "id": 200977, "name": "Meno Ngari"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100061, "name": "Ancestor Spirit"},
+                        {"count": 2, "id": 100199, "name": "Blood Doll"},
+                        {
+                            "comments": (
+                                "I'm thinking about adding another one, this card is "
+                                "cruicial for any block denial actions, or things that "
+                                "simply screw your spiders"
+                            ),
+                            "count": 2,
+                            "id": 100545,
+                            "name": "Direct Intervention",
+                        },
+                        {"count": 2, "id": 100588, "name": "Dreams of the Sphinx"},
+                        {"count": 1, "id": 100824, "name": "Giant's Blood"},
+                        {"count": 1, "id": 101030, "name": "Jungle Hunting Ground"},
+                        {"count": 1, "id": 101091, "name": "Legendary Vampire"},
+                        {"count": 1, "id": 101189, "name": "Mbare Market, Harare"},
+                        {
+                            "comments": (
+                                "there was some magic around this card, I got it in "
+                                "every single game, in the first 10 cards drawn"
+                            ),
+                            "count": 1,
+                            "id": 101443,
+                            "name": "Powerbase: Tshwane",
+                        },
+                        {"count": 3, "id": 102113, "name": "Vessel"},
+                        {
+                            "comments": (
+                                "didn't use it at all, metagame wasn't stealth heavy "
+                                "though"
+                            ),
+                            "count": 1,
+                            "id": 102189,
+                            "name": "WMRH Talk Radio",
+                        },
+                    ],
+                    "count": 16,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100079, "name": "Aranthebes, The Immortal"},
+                        {"count": 1, "id": 100093, "name": "Army of Rats"},
+                        {
+                            "count": 3,
+                            "id": 100150,
+                            "name": "Belonging Grants Protection",
+                        },
+                        {
+                            "comments": (
+                                "was thinking about 4-5, but 3 is a good number, you "
+                                "draw too much attention if you put it on too early"
+                            ),
+                            "count": 3,
+                            "id": 101291,
+                            "name": "No Secrets From the Magaji",
+                        },
+                        {"count": 2, "id": 101613, "name": "Restoration"},
+                    ],
+                    "count": 10,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 101014, "name": "Ivory Bow"},
+                        {"count": 1, "id": 101037, "name": "Kduva's Mask"},
+                        {
+                            "count": 1,
+                            "id": 101596,
+                            "name": "Reliquary: Akunanse Remains",
+                        },
+                        {"count": 2, "id": 101816, "name": "Sniper Rifle"},
+                    ],
+                    "count": 5,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100059, "name": "Anarchist Uprising"},
+                        {
+                            "comments": (
+                                "nobody really expects these 2 until its too late"
+                            ),
+                            "count": 1,
+                            "id": 100065,
+                            "name": "Ancilla Empowerment",
+                        },
+                        {
+                            "comments": "amazing card against any ally deck",
+                            "count": 2,
+                            "id": 101709,
+                            "name": "The Secret Must Be Kept",
+                        },
+                    ],
+                    "count": 4,
+                    "type": "Political Action",
+                },
+                {
+                    "cards": [
+                        {"count": 5, "id": 101550, "name": "Raven Spy"},
+                        {"count": 1, "id": 101750, "name": "Shaman"},
+                    ],
+                    "count": 6,
+                    "type": "Retainer",
+                },
+                {
+                    "cards": [
+                        {"count": 7, "id": 100788, "name": "Freak Drive"},
+                        {
+                            "comments": ("lovely thanks to several ally decks playing"),
+                            "count": 4,
+                            "id": 101478,
+                            "name": "Predator's Mastery",
+                        },
+                        {
+                            "comments": "won me the final pretty much",
+                            "count": 1,
+                            "id": 101880,
+                            "name": "Strange Day",
+                        },
+                    ],
+                    "count": 12,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": (
+                                "wonderful card, can play it anytime, and the bonus "
+                                "superior effect did help a lot many times"
+                            ),
+                            "count": 5,
+                            "id": 101479,
+                            "name": "Predator's Transformation",
+                        }
+                    ],
+                    "count": 5,
+                    "type": "Action Modifier/Combat",
+                },
+                {
+                    "cards": [{"count": 1, "id": 100034, "name": "Akunanse Kholo"}],
+                    "count": 1,
+                    "type": "Action Modifier/Reaction",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": (
+                                "very helpful before you get no secrets, easy to drop "
+                                "afterwards"
+                            ),
+                            "count": 4,
+                            "id": 101477,
+                            "name": "Predator's Communion",
+                        }
+                    ],
+                    "count": 4,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": "crucial in the final",
+                            "count": 2,
+                            "id": 100290,
+                            "name": "Canine Horde",
+                        },
+                        {"count": 5, "id": 100301, "name": "Carrion Crows"},
+                        {
+                            "comments": "butt-saver",
+                            "count": 2,
+                            "id": 100748,
+                            "name": "Flesh Bond",
+                        },
+                        {"count": 5, "id": 101006, "name": "Invoking the Beast"},
+                        {"count": 4, "id": 101649, "name": "Rolling with the Punches"},
+                        {"count": 3, "id": 101792, "name": "Skin of Steel"},
+                        {
+                            "comments": (
+                                "I'd revise the prevent cards anyway, maybe adding "
+                                "some with no cost, or more of SM. it worked nice in "
+                                "overall though"
+                            ),
+                            "count": 2,
+                            "id": 101905,
+                            "name": "Superior Mettle",
+                        },
+                        {"count": 4, "id": 101945, "name": "Taste of Vitae"},
+                    ],
+                    "count": 27,
+                    "type": "Combat",
+                },
+            ],
+            "count": 90,
+        },
     }
     # WMRH Talk Radio and Predator's Communion are wrongly parsed but do not show
     # in the log, as they're merged with previous wrongly parsed blocks
@@ -1755,49 +2725,84 @@ def test_2k2eclastq(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k2eclastq.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k2eclastq"].__getstate__() == {
         "id": "2k2eclastq",
         "date": "2002-11-30",
         "event": "Austrian NC 2002 - Last Chance Qualifier",
-        "event_link": None,
-        "name": None,
         "place": "Vienna, Austria",
         "player": "Stéphane Lavrut",
         "players_count": 115,
-        "score": None,
-        "tournament_format": None,
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Lolita Houston", 3),
-                ("Terrence", 2),
-                ("Horatio", 2),
-                ("Caliban", 1),
-                ("Corine Marcón", 1),
-                ("Devin Bisley", 1),
-                ("The Rose", 1),
-                ("Wendy Wade", 1),
-                ("Blood Doll", 4),
-                ("Direct Intervention", 2),
-                ("Jake Washington", 5),
-                ("Library Hunting Ground", 2),
-                ("Memories of Mortality", 4),
-                ("Vagabond Mystic", 2),
-                ("War Ghoul", 11),
-                ("Ghoul Escort", 5),
-                ("Revenant", 4),
-                ("Changeling", 6),
-                ("Plasmic Form", 5),
-                ("Delaying Tactics", 2),
-                ("Breath of the Dragon", 2),
-                ("Trap", 7),
-            ]
-        ),
-        "cards_comments": {},
         "comments": "Description: Here is THE wargoule deck\n",
+        "crypt": {
+            "cards": [
+                {"count": 3, "id": 200850, "name": "Lolita Houston"},
+                {"count": 2, "id": 201357, "name": "Terrence"},
+                {"count": 2, "id": 200603, "name": "Horatio"},
+                {"count": 1, "id": 200236, "name": "Caliban"},
+                {"count": 1, "id": 200290, "name": "Corine Marcón"},
+                {"count": 1, "id": 200339, "name": "Devin Bisley"},
+                {"count": 1, "id": 201205, "name": "The Rose"},
+                {"count": 1, "id": 201466, "name": "Wendy Wade"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 4, "id": 100199, "name": "Blood Doll"},
+                        {"count": 2, "id": 100545, "name": "Direct Intervention"},
+                        {"count": 5, "id": 101019, "name": "Jake Washington"},
+                        {"count": 2, "id": 101102, "name": "Library Hunting Ground"},
+                        {"count": 4, "id": 101198, "name": "Memories of Mortality"},
+                    ],
+                    "count": 17,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 102087, "name": "Vagabond Mystic"},
+                        {"count": 11, "id": 102144, "name": "War Ghoul"},
+                    ],
+                    "count": 13,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [
+                        {"count": 5, "id": 100817, "name": "Ghoul Escort"},
+                        {"count": 4, "id": 101628, "name": "Revenant"},
+                    ],
+                    "count": 9,
+                    "type": "Retainer",
+                },
+                {
+                    "cards": [{"count": 6, "id": 100324, "name": "Changeling"}],
+                    "count": 6,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [{"count": 5, "id": 101402, "name": "Plasmic Form"}],
+                    "count": 5,
+                    "type": "Action Modifier/Combat",
+                },
+                {
+                    "cards": [{"count": 2, "id": 100519, "name": "Delaying Tactics"}],
+                    "count": 2,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 2, "id": 100250, "name": "Breath of the Dragon"},
+                        {"count": 7, "id": 102012, "name": "Trap"},
+                    ],
+                    "count": 9,
+                    "type": "Combat",
+                },
+            ],
+            "count": 61,
+        },
     }
     assert caplog.record_tuples == [
         # original file parsing error - the fixed version has no error
@@ -1810,60 +2815,14 @@ def test_2k2stranger(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k2stranger.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k2stranger"].__getstate__() == {
         "id": "2k2stranger",
         "date": "2002-01-05",
         "event": "The Stranger Among Us",
-        "event_link": None,
-        "name": None,
         "place": "Boston, Massachusetts",
         "player": "Kevin Scribner",
-        "players_count": 0,
-        "score": None,
-        "tournament_format": None,
-        "author": None,
-        "raven": 0,
-        "cards": collections.OrderedDict(
-            [
-                ("Caliban", 2),
-                ("Lambach", 1),
-                ("Stravinsky", 1),
-                ("Anton", 1),
-                ("Little Tailor of Prague", 1),
-                ("Meshenka", 1),
-                ("Sascha Vykos, The Angel of Caine", 1),
-                ("Corine Marcón", 1),
-                ("Devin Bisley", 1),
-                ("Lolita Houston", 1),
-                ("Terrence", 1),
-                ("Anarch Revolt", 2),
-                ("Blood Doll", 6),
-                ("Library Hunting Ground", 1),
-                ("Powerbase: Montreal", 1),
-                ("The Rack", 1),
-                ("Rötschreck", 3),
-                ("Smiling Jack, The Anarch", 2),
-                ("Tier of Souls", 3),
-                ("Revelations", 3),
-                ("Revenant", 2),
-                ("Ivory Bow", 1),
-                ("Femur of Toomler", 1),
-                ("Cats' Guidance", 6),
-                ("Forced Awakening", 6),
-                ("Read the Winds", 6),
-                ("Eagle's Sight", 6),
-                ("Enhanced Senses", 4),
-                ("Spirit's Touch", 3),
-                ("Precognition", 3),
-                ("Telepathic Misdirection", 6),
-                ("Inner Essence", 8),
-                ("Chiropteran Marauder", 10),
-                ("Breath of the Dragon", 6),
-            ]
-        ),
-        "cards_comments": {},
         "comments": (
             '"tzimisce - go: counterspell deck"\n\n'
             "special thanks to jay kristoff, for his deck on thelasombra's site,\n"
@@ -1889,6 +2848,84 @@ def test_2k2stranger(caplog):
             "having jost's inherent stealth might make a big difference in some\n"
             "games...\n"
         ),
+        "crypt": {
+            "cards": [
+                {"count": 2, "id": 200236, "name": "Caliban"},
+                {"count": 1, "id": 200810, "name": "Lambach"},
+                {"count": 1, "id": 201319, "name": "Stravinsky"},
+                {"count": 1, "id": 200113, "name": "Anton"},
+                {"count": 1, "id": 200844, "name": "Little Tailor of Prague"},
+                {"count": 1, "id": 200980, "name": "Meshenka"},
+                {"count": 1, "id": 201244, "name": "Sascha Vykos, The Angel of Caine"},
+                {"count": 1, "id": 200290, "name": "Corine Marcón"},
+                {"count": 1, "id": 200339, "name": "Devin Bisley"},
+                {"count": 1, "id": 200850, "name": "Lolita Houston"},
+                {"count": 1, "id": 201357, "name": "Terrence"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 2, "id": 100055, "name": "Anarch Revolt"},
+                        {"count": 6, "id": 100199, "name": "Blood Doll"},
+                        {"count": 1, "id": 101102, "name": "Library Hunting Ground"},
+                        {"count": 1, "id": 101439, "name": "Powerbase: Montreal"},
+                        {"count": 1, "id": 101536, "name": "The Rack"},
+                        {"count": 3, "id": 101654, "name": "Rötschreck"},
+                        {"count": 2, "id": 101811, "name": "Smiling Jack, The Anarch"},
+                    ],
+                    "count": 16,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 3, "id": 101627, "name": "Revelations"},
+                        {"count": 3, "id": 101984, "name": "Tier of Souls"},
+                    ],
+                    "count": 6,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100720, "name": "Femur of Toomler"},
+                        {"count": 1, "id": 101014, "name": "Ivory Bow"},
+                    ],
+                    "count": 2,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [{"count": 2, "id": 101628, "name": "Revenant"}],
+                    "count": 2,
+                    "type": "Retainer",
+                },
+                {
+                    "cards": [
+                        {"count": 6, "id": 100308, "name": "Cats' Guidance"},
+                        {"count": 6, "id": 100598, "name": "Eagle's Sight"},
+                        {"count": 4, "id": 100644, "name": "Enhanced Senses"},
+                        {"count": 6, "id": 100760, "name": "Forced Awakening"},
+                        {"count": 3, "id": 101475, "name": "Precognition"},
+                        {"count": 6, "id": 101559, "name": "Read the Winds"},
+                        {"count": 3, "id": 101850, "name": "Spirit's Touch"},
+                        {"count": 6, "id": 101949, "name": "Telepathic Misdirection"},
+                    ],
+                    "count": 40,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 6, "id": 100250, "name": "Breath of the Dragon"},
+                        {"count": 10, "id": 100344, "name": "Chiropteran Marauder"},
+                        {"count": 8, "id": 100986, "name": "Inner Essence"},
+                    ],
+                    "count": 24,
+                    "type": "Combat",
+                },
+            ],
+            "count": 90,
+        },
     }
     assert caplog.record_tuples == [
         ("krcg", logging.WARNING, '[    55][2k2stranger] failed to parse "notes:"')
@@ -1905,72 +2942,122 @@ def test_2k2origins1(caplog):
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k2origins1.html")) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
+    # for now, Camille / Raven do not show as separated entries in the dict version
+    # it would seem a bit old to have two cards with the same ID there
     assert TWDA["2k2origins1"].__getstate__() == {
         "id": "2k2origins1",
         "date": "2002-07-04",
         "event": "Origins Thursday",
-        "event_link": None,
-        "name": None,
         "place": "Columbus, Ohio",
-        "player": "Jay Kristoff",
         "players_count": 25,
-        "score": None,
-        "tournament_format": None,
-        "author": None,
-        "raven": 2,
-        "cards": collections.OrderedDict(
-            [
-                ("Mirembe Kabbada", 6),
-                ("Camille Devereux, The Raven", 4),
-                ("Chandler Hungerford", 2),
-                ("Zoo Hunting Ground", 1),
-                ("Ecoterrorists", 2),
-                ("Powerbase: Montreal", 1),
-                ("Club Zombie", 1),
-                ("London Evening Star, Tabloid Newspaper", 1),
-                ("KRCG News Radio", 1),
-                ("The Rumor Mill, Tabloid Newspaper", 1),
-                ("Backways", 1),
-                ("Smiling Jack, The Anarch", 2),
-                ("The Barrens", 1),
-                ("Direct Intervention", 1),
-                ("Sudden Reversal", 1),
-                ("Earth Meld", 22),
-                ("Forced Awakening", 12),
-                ("Form of Mist", 6),
-                ("Quick Meld", 6),
-                ("Earth Control", 4),
-                ("Form of Corruption", 3),
-                ("Atonement", 3),
-                ("Raven Spy", 3),
-                ("Mr. Winthrop", 2),
-                ("Renegade Garou", 2),
-                ("Army of Rats", 2),
-                ("Shadow of the Beast", 2),
-                ("Temptation", 2),
-                ("Arson", 2),
-                ("Ecstasy", 2),
-                ("Set's Call", 1),
-                ("Tasha Morgan", 1),
-                ("J. S. Simmons, Esq.", 1),
-            ]
+        "player": "Jay Kristoff",
+        "comments": (
+            "I just got home from an amazing first day at Origins. I was able to\n"
+            "eak out a tournament victory with my Mirembe Rides Again deck. 25\n"
+            "meths played in this event. 4 of the 5 finalists were from Ohio, the\n"
+            "other was Halcyan2 who is from somewhere in Illinois.\n"
+            "I'm sure details on this and the other events will follow. It's\n"
+            "bed time for me, so here is the deck:\n\n"
+            "Mirembe Rides Again!\n"
+            "by Jay Kristoff - jck@columbus.rr.com\n"
         ),
-        "cards_comments": {},
-        "comments": "I just got home from an amazing first day at Origins. I was able "
-        "to\n"
-        "eak out a tournament victory with my Mirembe Rides Again deck. "
-        "25\n"
-        "meths played in this event. 4 of the 5 finalists were from Ohio, "
-        "the\n"
-        "other was Halcyan2 who is from somewhere in Illinois.\n"
-        "I'm sure details on this and the other events will follow. It's\n"
-        "bed time for me, so here is the deck:\n"
-        "\n"
-        "Mirembe Rides Again!\n"
-        "by Jay Kristoff - jck@columbus.rr.com\n",
+        "crypt": {
+            "count": 12,
+            "cards": [
+                {"count": 6, "id": 200994, "name": "Mirembe Kabbada"},
+                {"count": 4, "id": 200240, "name": "Camille Devereux, The Raven"},
+                {"count": 2, "id": 200265, "name": "Chandler Hungerford"},
+            ],
+        },
+        "library": {
+            "count": 90,
+            "cards": [
+                {
+                    "type": "Master",
+                    "count": 14,
+                    "cards": [
+                        {"count": 1, "id": 100126, "name": "Backways"},
+                        {"count": 1, "id": 100135, "name": "The Barrens"},
+                        {"count": 1, "id": 100367, "name": "Club Zombie"},
+                        {"count": 1, "id": 100545, "name": "Direct Intervention"},
+                        {"count": 2, "id": 100609, "name": "Ecoterrorists"},
+                        {"count": 1, "id": 101067, "name": "KRCG News Radio"},
+                        {
+                            "count": 1,
+                            "id": 101120,
+                            "name": "London Evening Star, Tabloid " "Newspaper",
+                        },
+                        {"count": 1, "id": 101439, "name": "Powerbase: Montreal"},
+                        {
+                            "count": 1,
+                            "id": 101662,
+                            "name": "The Rumor Mill, Tabloid Newspaper",
+                        },
+                        {
+                            "count": 2,
+                            "id": 101811,
+                            "name": "Smiling Jack, The Anarch",
+                        },
+                        {"count": 1, "id": 101896, "name": "Sudden Reversal"},
+                        {"count": 1, "id": 102212, "name": "Zoo Hunting Ground"},
+                    ],
+                },
+                {
+                    "type": "Action",
+                    "count": 14,
+                    "cards": [
+                        {"count": 2, "id": 100093, "name": "Army of Rats"},
+                        {"count": 2, "id": 100094, "name": "Arson"},
+                        {"count": 3, "id": 100109, "name": "Atonement"},
+                        {"count": 3, "id": 100770, "name": "Form of Corruption"},
+                        {"count": 2, "id": 101740, "name": "Shadow of the Beast"},
+                        {"count": 2, "id": 101954, "name": "Temptation"},
+                    ],
+                },
+                {
+                    "type": "Ally",
+                    "count": 2,
+                    "cards": [{"count": 2, "id": 101602, "name": "Renegade Garou"}],
+                },
+                {
+                    "type": "Retainer",
+                    "count": 7,
+                    "cards": [
+                        {"count": 1, "id": 101015, "name": "J. S. Simmons, Esq."},
+                        {"count": 2, "id": 101249, "name": "Mr. Winthrop"},
+                        {"count": 3, "id": 101550, "name": "Raven Spy"},
+                        {"count": 1, "id": 101943, "name": "Tasha Morgan"},
+                    ],
+                },
+                {
+                    "type": "Action Modifier",
+                    "count": 4,
+                    "cards": [{"count": 4, "id": 100600, "name": "Earth Control"}],
+                },
+                {
+                    "type": "Reaction",
+                    "count": 15,
+                    "cards": [
+                        {"count": 2, "id": 100610, "name": "Ecstasy"},
+                        {"count": 12, "id": 100760, "name": "Forced Awakening"},
+                        {"count": 1, "id": 101730, "name": "Set's Call"},
+                    ],
+                },
+                {
+                    "type": "Combat",
+                    "count": 34,
+                    "cards": [
+                        {"count": 22, "id": 100601, "name": "Earth Meld"},
+                        {"count": 6, "id": 100771, "name": "Form of Mist"},
+                        {"count": 6, "id": 101530, "name": "Quick Meld"},
+                    ],
+                },
+            ],
+        },
     }
+    # the text version is used to generate the normalized twda, it should be there
     assert TWDA["2k2origins1"].to_txt() == (
         """Origins Thursday
 Columbus, Ohio
@@ -2040,119 +3127,6 @@ Combat (34)
 6x Form of Mist
 6x Quick Meld"""
     )
-    # for now, Camille / Raven do not show as separated entries in the dict version
-    # it would seem a bit old to have two cards with the same ID there
-    assert TWDA["2k2origins1"].to_dict() == {
-        "twda_id": "2k2origins1",
-        "date": "2002-07-04",
-        "event": "Origins Thursday",
-        "place": "Columbus, Ohio",
-        "players_count": 25,
-        "player": "Jay Kristoff",
-        "comments": (
-            "I just got home from an amazing first day at Origins. I was able to\n"
-            "eak out a tournament victory with my Mirembe Rides Again deck. 25\n"
-            "meths played in this event. 4 of the 5 finalists were from Ohio, the\n"
-            "other was Halcyan2 who is from somewhere in Illinois.\n"
-            "I'm sure details on this and the other events will follow. It's\n"
-            "bed time for me, so here is the deck:\n\n"
-            "Mirembe Rides Again!\n"
-            "by Jay Kristoff - jck@columbus.rr.com\n"
-        ),
-        "crypt": {
-            "count": 12,
-            "cards": [
-                {"count": 6, "id": "200994", "name": "Mirembe Kabbada"},
-                {"count": 4, "id": "200240", "name": "Camille Devereux, The Raven"},
-                {"count": 2, "id": "200265", "name": "Chandler Hungerford"},
-            ],
-        },
-        "library": {
-            "count": 90,
-            "cards": [
-                {
-                    "type": "Master",
-                    "count": 14,
-                    "cards": [
-                        {"count": 1, "id": "100126", "name": "Backways"},
-                        {"count": 1, "id": "100135", "name": "The Barrens"},
-                        {"count": 1, "id": "100367", "name": "Club Zombie"},
-                        {"count": 1, "id": "100545", "name": "Direct Intervention"},
-                        {"count": 2, "id": "100609", "name": "Ecoterrorists"},
-                        {"count": 1, "id": "101067", "name": "KRCG News Radio"},
-                        {
-                            "count": 1,
-                            "id": "101120",
-                            "name": "London Evening Star, Tabloid " "Newspaper",
-                        },
-                        {"count": 1, "id": "101439", "name": "Powerbase: Montreal"},
-                        {
-                            "count": 1,
-                            "id": "101662",
-                            "name": "The Rumor Mill, Tabloid Newspaper",
-                        },
-                        {
-                            "count": 2,
-                            "id": "101811",
-                            "name": "Smiling Jack, The Anarch",
-                        },
-                        {"count": 1, "id": "101896", "name": "Sudden Reversal"},
-                        {"count": 1, "id": "102212", "name": "Zoo Hunting Ground"},
-                    ],
-                },
-                {
-                    "type": "Action",
-                    "count": 14,
-                    "cards": [
-                        {"count": 2, "id": "100093", "name": "Army of Rats"},
-                        {"count": 2, "id": "100094", "name": "Arson"},
-                        {"count": 3, "id": "100109", "name": "Atonement"},
-                        {"count": 3, "id": "100770", "name": "Form of Corruption"},
-                        {"count": 2, "id": "101740", "name": "Shadow of the Beast"},
-                        {"count": 2, "id": "101954", "name": "Temptation"},
-                    ],
-                },
-                {
-                    "type": "Ally",
-                    "count": 2,
-                    "cards": [{"count": 2, "id": "101602", "name": "Renegade Garou"}],
-                },
-                {
-                    "type": "Retainer",
-                    "count": 7,
-                    "cards": [
-                        {"count": 1, "id": "101015", "name": "J. S. Simmons, Esq."},
-                        {"count": 2, "id": "101249", "name": "Mr. Winthrop"},
-                        {"count": 3, "id": "101550", "name": "Raven Spy"},
-                        {"count": 1, "id": "101943", "name": "Tasha Morgan"},
-                    ],
-                },
-                {
-                    "type": "Action Modifier",
-                    "count": 4,
-                    "cards": [{"count": 4, "id": "100600", "name": "Earth Control"}],
-                },
-                {
-                    "type": "Reaction",
-                    "count": 15,
-                    "cards": [
-                        {"count": 2, "id": "100610", "name": "Ecstasy"},
-                        {"count": 12, "id": "100760", "name": "Forced Awakening"},
-                        {"count": 1, "id": "101730", "name": "Set's Call"},
-                    ],
-                },
-                {
-                    "type": "Combat",
-                    "count": 34,
-                    "cards": [
-                        {"count": 22, "id": "100601", "name": "Earth Meld"},
-                        {"count": 6, "id": "100771", "name": "Form of Mist"},
-                        {"count": 6, "id": "101530", "name": "Quick Meld"},
-                    ],
-                },
-            ],
-        },
-    }
     assert caplog.record_tuples == []
 
 
@@ -2163,64 +3137,109 @@ def test_2k8TempleConcordance(caplog):
     with open(
         os.path.join(os.path.dirname(__file__), "2k8TempleConcordance.html")
     ) as f:
-        TWDA.load_html(f, save=False)
+        TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2k8TempleConcordance"].__getstate__() == {
         "date": "2008-02-01",
         "event": "TempleConcordance",
-        "event_link": None,
         "id": "2k8TempleConcordance",
         "name": "Howling Anarchs",
         "place": "Providence, Rhode Island",
         "player": "Matt Morgan",
         "players_count": 12,
-        "raven": 0,
-        "score": None,
         "tournament_format": "2R+F",
-        "author": None,
-        "cards": collections.OrderedDict(
-            [
-                ("Howler", 4),
-                ("The Siamese", 2),
-                ("Cynthia Ingold", 1),
-                ("Nettie Hale", 1),
-                ("Bobby Lemon", 1),
-                ("Juanita Santiago", 1),
-                ("Dani", 1),
-                ("Gillian Krader", 1),
-                ("The Anarch Free Press", 1),
-                ("Anarch Revolt", 4),
-                ("Animalism", 1),
-                ("Direct Intervention", 2),
-                ("Fame", 1),
-                ("Giant's Blood", 1),
-                ("Guardian Angel", 1),
-                ("The Rack", 1),
-                ("Seattle Committee", 1),
-                ("Smiling Jack, The Anarch", 1),
-                ("Vessel", 5),
-                ("Aranthebes, The Immortal", 1),
-                ("Enchant Kindred", 6),
-                ("Nose of the Hound", 4),
-                ("Swiftness of the Stag", 5),
-                ("Flak Jacket", 1),
-                ("Dragonbound", 1),
-                ("Cats' Guidance", 4),
-                ("Falcon's Eye", 4),
-                ("On the Qui Vive", 3),
-                ("Sense the Savage Way", 3),
-                ("Speak with Spirits", 8),
-                ("Murder of Crows", 6),
-                ("Owl Companion", 1),
-                ("Raven Spy", 4),
-                ("Aid from Bats", 5),
-                ("Canine Horde", 2),
-                ("Carrion Crows", 3),
-                ("Pack Alpha", 8),
-                ("Taste of Vitae", 2),
-            ]
-        ),
-        "cards_comments": {},
+        "crypt": {
+            "cards": [
+                {"count": 4, "id": 200607, "name": "Howler"},
+                {"count": 2, "id": 201285, "name": "The Siamese"},
+                {"count": 1, "id": 200306, "name": "Cynthia Ingold"},
+                {"count": 1, "id": 201051, "name": "Nettie Hale"},
+                {"count": 1, "id": 200211, "name": "Bobby Lemon"},
+                {"count": 1, "id": 200730, "name": "Juanita Santiago"},
+                {"count": 1, "id": 200315, "name": "Dani"},
+                {"count": 1, "id": 200519, "name": "Gillian Krader"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 1, "id": 100052, "name": "The Anarch Free Press"},
+                        {"count": 4, "id": 100055, "name": "Anarch Revolt"},
+                        {"count": 1, "id": 100070, "name": "Animalism"},
+                        {"count": 2, "id": 100545, "name": "Direct Intervention"},
+                        {"count": 1, "id": 100698, "name": "Fame"},
+                        {"count": 1, "id": 100824, "name": "Giant's Blood"},
+                        {"count": 1, "id": 100866, "name": "Guardian Angel"},
+                        {"count": 1, "id": 101536, "name": "The Rack"},
+                        {"count": 1, "id": 101704, "name": "Seattle Committee"},
+                        {"count": 1, "id": 101811, "name": "Smiling Jack, The Anarch"},
+                        {"count": 5, "id": 102113, "name": "Vessel"},
+                    ],
+                    "count": 19,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {"count": 1, "id": 100079, "name": "Aranthebes, The Immortal"},
+                        {"count": 6, "id": 100640, "name": "Enchant Kindred"},
+                        {"count": 4, "id": 101296, "name": "Nose of the Hound"},
+                    ],
+                    "count": 11,
+                    "type": "Action",
+                },
+                {
+                    "cards": [{"count": 1, "id": 100739, "name": "Flak Jacket"}],
+                    "count": 1,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {"count": 6, "id": 101254, "name": "Murder of Crows"},
+                        {"count": 1, "id": 101340, "name": "Owl Companion"},
+                        {"count": 4, "id": 101550, "name": "Raven Spy"},
+                    ],
+                    "count": 11,
+                    "type": "Retainer",
+                },
+                {
+                    "cards": [
+                        {"count": 5, "id": 101916, "name": "Swiftness of the Stag"}
+                    ],
+                    "count": 5,
+                    "type": "Action Modifier/Combat",
+                },
+                {
+                    "cards": [
+                        {"count": 4, "id": 100308, "name": "Cats' Guidance"},
+                        {"count": 4, "id": 100694, "name": "Falcon's Eye"},
+                        {"count": 3, "id": 101321, "name": "On the Qui Vive"},
+                        {"count": 3, "id": 101717, "name": "Sense the Savage Way"},
+                        {"count": 8, "id": 101840, "name": "Speak with Spirits"},
+                    ],
+                    "count": 22,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {"count": 5, "id": 100029, "name": "Aid from Bats"},
+                        {"count": 2, "id": 100290, "name": "Canine Horde"},
+                        {"count": 3, "id": 100301, "name": "Carrion Crows"},
+                        {"count": 8, "id": 101342, "name": "Pack Alpha"},
+                        {"count": 2, "id": 101945, "name": "Taste of Vitae"},
+                    ],
+                    "count": 20,
+                    "type": "Combat",
+                },
+                {
+                    "cards": [{"count": 1, "id": 100581, "name": "Dragonbound"}],
+                    "count": 1,
+                    "type": "Event",
+                },
+            ],
+            "count": 90,
+        },
         "comments": (
             "Description: Continuing in my quest to with a tournament with\n"
             "every clan alphabetically, I had to put together an Ahrimanes\n"
@@ -2280,7 +3299,7 @@ def test_2k8TempleConcordance(caplog):
         (
             "krcg",
             logging.WARNING,
-            '[    80][2k8TempleConcordance] discarded match "Ash Harrison" inside '
+            '[    80][2k8TempleConcordance] discarded match "flash harrison." inside '
             'comment "Flash Harrison. */"',
         ),
     ]

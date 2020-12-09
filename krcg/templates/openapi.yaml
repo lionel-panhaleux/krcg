@@ -1,8 +1,9 @@
-openapi: "3.0.3"
+openapi: 3.0.3
 info:
-  title: "KRCG"
+  title: KRCG
   version: "{{version}}"
-  description: "**V:tES** cards and decks based on VEKN resources, including the [TWDA](http://www.vekn.fr/decks/twd.htm)."
+  description: |
+    **V:tES** cards and decks based on VEKN resources, including the [TWDA](http://www.vekn.fr/decks/twd.htm).
   contact:
     name: "KRCG"
     url: https://github.com/lionel-panhaleux/krcg
@@ -23,11 +24,14 @@ components:
         id: { type: string }
         name: { type: string }
         count: { type: integer }
-        coments: { type: string }
-      example: { count: 4, name: Anson }
+        comments: { type: string }
     card:
       type: object
-      required: ["Id", "Name", "Type", "Card Text", "Set", "Artist"]
+      description: |
+        A card with all informations.
+        Note empty fields are not included.
+        Set information can be momentarily missing in case of a parsing error due to a change in format.
+      required: ["Id", "Name", "Type", "Card Text", "Artist"]
       properties:
         Id:
           description: Card ID
@@ -59,13 +63,43 @@ components:
           type: string
           minLength: 1
         Set:
-          description: "Sets the card has been edited in"
-          type: array
-          minLength: 1
-          items:
-            description: "[Set]:[Rarity]"
-            type: string
+          description: Sets the card has been edited in (keys are set name in english)
+          type: object
+          additionalProperties:
+            type: array
+            description: Boosters, precons and reprint bundles of the set containing the card
             minLength: 1
+            items:
+              type: object
+              description: |
+                All fields are optional.
+                Reprints have (obviously) not the same release date as other packs of the set.
+                Frequency is only present when booster "Rarity" is, but is usually not present when standard (1).
+                Copies is only present for fixed-list "Precon" decks.
+                Single-pack sets (eg. Anthology) may have no Precon key.
+                The "Blood Shadowed Court" set only has the Release Date (single pack, 100 single cards)
+                PDF may indicate a Rarity even if it does not make much sense.
+                Print on Demand Precon key indicates the vendor.
+                The Anthology was printed twice: Precon "EC Berlin Edition" indicates the card was in that print only.
+              properties:
+                Release Date:
+                  description: Release date of the pack
+                  type: string
+                  format: date
+                Rarity:
+                  description: Rarity in boosters
+                  type: string
+                Precon:
+                  description: Preconstructed bundle name
+                  type: string
+                Copies:
+                  description: Number of copies in fixed packs
+                  type: integer
+                Frequency:
+                  description: Frequency in booster compared to base rarity frequency
+                  type: number
+                  minimum: 0.5
+                  maximum: 5
         Clan:
           description: Clan (crypt cards) or clan requirement (library cards)
           type: array
@@ -181,55 +215,11 @@ components:
                 description: Flavor text (library cards only)
                 type: string
                 minLength: 0
-      example:
-        Id: "100029"
-        Name: "Aid from Bats"
-        Image: "https://images.krcg.org/aidfrombats.jpg"
-        Aka: ""
-        Type: ["Combat"]
-        Clan: []
-        Discipline: ["Animalism"]
-        Pool Cost": ""
-        Blood Cost": ""
-        Conviction Cost: ""
-        Burn Option: False
-        Card Text: |
-          [ani] Strike: 1R damage, with 1 optional maneuver.
-          [ANI] As above, with 1 optional press.
-        Flavor Text: |
-          Hanging upside down like rows of disgusting old rags
-          And grinning in their sleep. Bats!
-          D.H. Lawrence, "Bat"
-        Set: ["Jyhad:C", "VTES:C", "CE:C/PN3", "Anarchs:PG2", "Third:C", "KoT:C", "FB:PN6"]
-        Requirement: ["justicar", "inner circle"]
-        Banned: ""
-        Artist: "Melissa Benson; Eric Lofgren"
-        Capacity: ""
-        Draft: ""
-        Rulings:
-          - "[ANI] The press can only be used during the current round. [TOM 19960521]"
-        Rulings Links:
-          - Reference: "TOM 19960521"
-            URL: "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ"
-        Translations:
-          fr:
-            Name: "Aide des chauves-souris"
-            Card Text: |
-              [ani] Frapper à toute portée : 1 point de dégâts, avec 1 manœuvre optionnelle.
-              [ANI] Comme ci-dessus, avec 1 poursuite optionnelle.
-            Flavor Text: |
-              Pendues tête en bas comme des rangées de guenilles repoussantes
-              Et souriant de toutes leurs dents dans leur sommeil. Des chauves-souris !
-              D.H. Lawrence, "La Chauve-souris"
-          es:
-            Name: "Ayuda de murciélagos"
-            Card Text: |
-              [ani] Ataque: 1 de daño a distancia, con 1 maniobra opcional.
-              [ANI] Como antes, con 1 acoso opcional.
-            Flavor Text: |
-              Colgando boca abajo como hileras de trapos viejos y repugnantes
-              Y sonriendo mientras duermen. ¡Murciélagos!
-              D.H. Lawrence, "Murciélago"
+              Set:
+                type: object
+                additionalProperties:
+                  description: "Key: english name, value: translated name"
+                  type: string
     deck:
       type: object
       required: ["twda_id", "date", "player", "crypt", "library"]
@@ -274,18 +264,80 @@ components:
                     minLength: 1
                     maxLength: 90
                     items: { $ref: "#/components/schemas/card_count" }
-      example:
-        twd_id: "2014incbi"
-        name: "AAA - Alert Attention Alarm"
-        event: "Italian NC 2014"
-        place: "Bologna, Italy"
-        date: "2014-06-01"
-        player: "Enrico De Stefano (Embraced)"
-        author: null
+  examples:
+    card:
+      value:
+        Id: "100029"
+        Name: "Aid from Bats"
+        Image: "https://images.krcg.org/aidfrombats.jpg"
+        Aka: ""
+        Type: ["Combat"]
+        Clan: []
+        Discipline: ["Animalism"]
+        Pool Cost": ""
+        Blood Cost": ""
+        Conviction Cost: ""
+        Burn Option: False
+        Card Text: |
+          [ani] Strike: 1R damage, with 1 optional maneuver.
+          [ANI] As above, with 1 optional press.
+        Flavor Text: |
+          Hanging upside down like rows of disgusting old rags
+          And grinning in their sleep. Bats!
+          D.H. Lawrence, "Bat"
+        Set:
+          Anarchs: [{ Precon: Gangrel, Copies: 2 }]
+          Camarilla Edition:
+            - Rarity: Common
+            - Precon: Nosferatu
+              Copies: 3
+          First Blood: [Precon: Nosferatu, Copies: 6]
+          Jyhad: [{ Rarity: Common }]
+          Keepers of Tradition: [{ Rarity: Common }]
+          Third Edition: [{ Rarity: Common }]
+          "Vampire: The Eternal Struggle": [{ Rarity: Common }]
+        Requirement: ["justicar", "inner circle"]
+        Banned: ""
+        Artist: "Melissa Benson; Eric Lofgren"
+        Capacity: ""
+        Draft: ""
+        Rulings:
+          - "[ANI] The press can only be used during the current round. [TOM 19960521]"
+        Rulings Links:
+          - Reference: "TOM 19960521"
+            URL: "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ"
+        Translations:
+          fr:
+            Name: "Aide des chauves-souris"
+            Card Text: |
+              [ani] Frapper à toute portée : 1 point de dégâts, avec 1 manœuvre optionnelle.
+              [ANI] Comme ci-dessus, avec 1 poursuite optionnelle.
+            Flavor Text: |
+              Pendues tête en bas comme des rangées de guenilles repoussantes
+              Et souriant de toutes leurs dents dans leur sommeil. Des chauves-souris !
+              D.H. Lawrence, "La Chauve-souris"
+            Set: { "First Blood": "Premier Sang" }
+          es:
+            Name: "Ayuda de murciélagos"
+            Card Text: |
+              [ani] Ataque: 1 de daño a distancia, con 1 maniobra opcional.
+              [ANI] Como antes, con 1 acoso opcional.
+            Flavor Text: |
+              Colgando boca abajo como hileras de trapos viejos y repugnantes
+              Y sonriendo mientras duermen. ¡Murciélagos!
+              D.H. Lawrence, "Murciélago"
+            Set: { "First Blood": "Primera Sangre" }
+    deck:
+      value:
+        twd_id: 2014incbi
+        name: AAA - Alert Attention Alarm
+        event: Italian NC 2014
+        place: Bologna, Italy
+        date: 2014-06-01
+        player: Enrico De Stefano (Embraced)
         players_count: 25
-        tournament_format: "3R+F"
-        score: null
-        comments: "-- Once again, our Enrico De Stefano defend his national title. Congratulations.\n"
+        tournament_format: 3R+F
+        comments: Once again, our Enrico De Stefano defend his national title. Congratulations.
         crypt:
           count: 12
           cards:
@@ -304,33 +356,33 @@ components:
             - type: Master
               count: 30
               cards:
-                [
-                  { count: 9, name: Ashur Tablets, id: "100106" },
-                  { count: 7, name: Liquidation, id: "101112" },
-                  { count: 5, name: Villein, id: "102121" },
-                  { count: 3, name: Haven Uncovered, id: "100897" },
-                  { count: 1, name: Art Museum, id: "100095" },
-                  { count: 1, name: "Golconda: Inner Peace", id: "100842" },
-                  { count: 1, name: Information Highway, id: "100984" },
-                  { count: 1, name: Papillon, id: "101350" },
-                  { count: 1, name: "Pentex(TM) Subversion", id: "101384" },
-                  { count: 1, name: Wider View, id: "102180" },
-                ]
+                - { count: 9, name: Ashur Tablets, id: "100106" }
+                - { count: 7, name: Liquidation, id: "101112" }
+                - { count: 5, name: Villein, id: "102121" }
+                - { count: 3, name: Haven Uncovered, id: "100897" }
+                - { count: 1, name: Art Museum, id: "100095" }
+                - { count: 1, name: "Golconda: Inner Peace", id: "100842" }
+                - { count: 1, name: Information Highway, id: "100984" }
+                - { count: 1, name: Papillon, id: "101350" }
+                - { count: 1, name: "Pentex(TM) Subversion", id: "101384" }
+                - { count: 1, name: Wider View, id: "102180" }
             - type: Action
               count: 3
-              cards: [{ count: 2, name: Entrancement, id: "100652" }, { count: 1, name: Heart of the City, id: "100904" }]
+              cards:
+                - { count: 2, name: Entrancement, id: "100652" }
+                - { count: 1, name: Heart of the City, id: "100904" }
             - type: Equipment
               count: 11
               cards:
-                [
-                  { count: 6, name: ".44 Magnum", id: "100001" },
-                  { count: 3, name: Heart of Nizchetus, id: "100903" },
-                  { count: 1, name: Bowl of Convergence, id: "100243" },
-                  { count: 1, name: Codex of the Edenic Groundskeepers, id: "100374" },
-                ]
+                - { count: 6, name: ".44 Magnum", id: "100001" }
+                - { count: 3, name: Heart of Nizchetus, id: "100903" }
+                - { count: 1, name: Bowl of Convergence, id: "100243" }
+                - { count: 1, name: Codex of the Edenic Groundskeepers, id: "100374" }
             - type: Political Action
               count: 4
-              cards: [{ count: 3, name: Parity Shift, id: "101353" }, { count: 1, name: Political Stranglehold, id: "101417" }]
+              cards:
+                - { count: 3, name: Parity Shift, id: "101353" }
+                - { count: 1, name: Political Stranglehold, id: "101417" }
             - type: Action Modifier
               count: 2
               cards: [{ count: 2, name: Aire of Elation, id: "100031" }]
@@ -339,21 +391,104 @@ components:
               cards: [{ count: 4, name: "Resist Earth's Grasp", id: "101610" }]
             - type: Reaction
               count: 13
-              cards: [{ count: 8, name: "Second Tradition: Domain", id: "101706" }, { count: 5, name: Telepathic Misdirection, id: "101949" }]
+              cards:
+                - { count: 8, name: "Second Tradition: Domain", id: "101706" }
+                - { count: 5, name: Telepathic Misdirection, id: "101949" }
             - type: Combat
               count: 21
               cards:
-                [
-                  { count: 4, name: Blur, id: "100227" },
-                  { count: 4, name: Concealed Weapon, id: "100392" },
-                  { count: 4, name: "Psyche!", id: "101507" },
-                  { count: 4, name: Taste of Vitae, id: "101945" },
-                  { count: 3, name: Charismatic Aura, id: "100333" },
-                  { count: 2, name: Side Strike, id: "101778" },
-                ]
+                - { count: 4, name: Blur, id: "100227" }
+                - { count: 4, name: Concealed Weapon, id: "100392" }
+                - { count: 4, name: "Psyche!", id: "101507" }
+                - { count: 4, name: Taste of Vitae, id: "101945" }
+                - { count: 3, name: Charismatic Aura, id: "100333" }
+                - { count: 2, name: Side Strike, id: "101778" }
             - type: Event
               count: 2
-              cards: [{ count: 1, name: "Anthelios, The Red Star", id: "100074" }, { count: 1, name: Scourge of the Enochians, id: "101697" }]
+              cards:
+                - { count: 1, name: "Anthelios, The Red Star", id: "100074" }
+                - { count: 1, name: Scourge of the Enochians, id: "101697" }
+    deck-array:
+      value:
+        - twd_id: 2014incbi
+          name: AAA - Alert Attention Alarm
+          event: Italian NC 2014
+          place: Bologna, Italy
+          date: 2014-06-01
+          player: Enrico De Stefano (Embraced)
+          players_count: 25
+          tournament_format: 3R+F
+          comments: Once again, our Enrico De Stefano defend his national title. Congratulations.
+          crypt:
+            count: 12
+            cards:
+              [
+                { count: 4, name: Anson, id: "200107" },
+                { count: 2, name: Alexandra, id: "200049" },
+                { count: 2, name: Anneke, id: "200106" },
+                { count: 1, name: François Villon, id: "200478" },
+                { count: 1, name: Marcellus, id: "200910" },
+                { count: 1, name: Tatiana Romanov, id: "201347" },
+                { count: 1, name: "Volker, The Puppet Prince", id: "201458" },
+              ]
+          library:
+            count: 90
+            cards:
+              - type: Master
+                count: 30
+                cards:
+                  - { count: 9, name: Ashur Tablets, id: "100106" }
+                  - { count: 7, name: Liquidation, id: "101112" }
+                  - { count: 5, name: Villein, id: "102121" }
+                  - { count: 3, name: Haven Uncovered, id: "100897" }
+                  - { count: 1, name: Art Museum, id: "100095" }
+                  - { count: 1, name: "Golconda: Inner Peace", id: "100842" }
+                  - { count: 1, name: Information Highway, id: "100984" }
+                  - { count: 1, name: Papillon, id: "101350" }
+                  - { count: 1, name: "Pentex(TM) Subversion", id: "101384" }
+                  - { count: 1, name: Wider View, id: "102180" }
+              - type: Action
+                count: 3
+                cards:
+                  - { count: 2, name: Entrancement, id: "100652" }
+                  - { count: 1, name: Heart of the City, id: "100904" }
+              - type: Equipment
+                count: 11
+                cards:
+                  - { count: 6, name: ".44 Magnum", id: "100001" }
+                  - { count: 3, name: Heart of Nizchetus, id: "100903" }
+                  - { count: 1, name: Bowl of Convergence, id: "100243" }
+                  - { count: 1, name: Codex of the Edenic Groundskeepers, id: "100374" }
+              - type: Political Action
+                count: 4
+                cards:
+                  - { count: 3, name: Parity Shift, id: "101353" }
+                  - { count: 1, name: Political Stranglehold, id: "101417" }
+              - type: Action Modifier
+                count: 2
+                cards: [{ count: 2, name: Aire of Elation, id: "100031" }]
+              - type: Action Modifier/Combat
+                count: 4
+                cards: [{ count: 4, name: "Resist Earth's Grasp", id: "101610" }]
+              - type: Reaction
+                count: 13
+                cards:
+                  - { count: 8, name: "Second Tradition: Domain", id: "101706" }
+                  - { count: 5, name: Telepathic Misdirection, id: "101949" }
+              - type: Combat
+                count: 21
+                cards:
+                  - { count: 4, name: Blur, id: "100227" }
+                  - { count: 4, name: Concealed Weapon, id: "100392" }
+                  - { count: 4, name: "Psyche!", id: "101507" }
+                  - { count: 4, name: Taste of Vitae, id: "101945" }
+                  - { count: 3, name: Charismatic Aura, id: "100333" }
+                  - { count: 2, name: Side Strike, id: "101778" }
+              - type: Event
+                count: 2
+                cards:
+                  - { count: 1, name: "Anthelios, The Red Star", id: "100074" }
+                  - { count: 1, name: Scourge of the Enochians, id: "101697" }
 paths:
   /card:
     post:
@@ -485,6 +620,7 @@ paths:
                     enum:
                       - 1 vote
                       - 2 votes
+                      - addis ababa
                       - amsterdam
                       - anarch
                       - aragon
@@ -494,19 +630,23 @@ paths:
                       - barcelona
                       - baron
                       - berlin
+                      - birmingham
                       - bishop
                       - black hand
                       - boston
                       - brussels
                       - budapest
+                      - buenos aires
                       - cairo
                       - camarilla
                       - canberra
+                      - cape town
                       - cardinal
                       - chicago
                       - chicago
                       - cleveland
                       - columbus
+                      - copenhagen
                       - cordoba
                       - corte
                       - dallas
@@ -533,12 +673,15 @@ paths:
                       - los angeles
                       - magaji
                       - manila
+                      - mannheim
+                      - melbourne
                       - mexico city
                       - miami
                       - milan
                       - milwaukee
                       - monaco
                       - montreal
+                      - nairobi
                       - new york
                       - paris
                       - perth
@@ -551,15 +694,20 @@ paths:
                       - priscus
                       - red list
                       - regent
+                      - rio de janeiro
                       - rome
+                      - rotterdam
                       - sabbat
                       - san diego
+                      - scarce
                       - seattle
                       - seraph
                       - slave
+                      - sterile
                       - stockholm
                       - strasbourg
                       - sydney
+                      - taipei
                       - toronto
                       - venice
                       - versailles
@@ -683,6 +831,8 @@ paths:
                   - Reckless Agitation
                   - Revolutionary Council
                   - Sweepe
+        "400":
+          description: Malformed body
         "404":
           description: Not found
   /card/{name_or_id}:
@@ -705,6 +855,7 @@ paths:
           content:
             application/json:
               schema: { $ref: "#/components/schemas/card" }
+              examples: { card: { $ref: "#/components/examples/card" } }
         "404":
           description: Not found
   /complete/{partial_name}:
@@ -820,6 +971,9 @@ paths:
                 type: array
                 minLength: 1
                 items: { $ref: "#/components/schemas/deck" }
+              examples: { deck-array: { $ref: "#/components/examples/deck-array" } }
+        "400":
+          description: Malformed body
         "404":
           description: Not found
   /deck/{twda_id}:
@@ -840,5 +994,6 @@ paths:
           content:
             application/json:
               schema: { $ref: "#/components/schemas/deck" }
+              examples: { deck: { $ref: "#/components/examples/deck" } }
         "404":
           description: Not Found

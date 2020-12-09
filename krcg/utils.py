@@ -1,6 +1,6 @@
 """Generic utilities used by the library.
 """
-from typing import Any, Dict, Hashable, List, Sequence
+from typing import Any, Callable, Dict, Hashable, List, Sequence
 import argparse
 import arrow
 import collections
@@ -180,15 +180,20 @@ class Trie(collections.defaultdict):
 
     @staticmethod
     def _split(text):
-        return re.sub(r"[/:,\(\)'\"]", " ", normalize(text)).split()
+        text = normalize(text)
+        if not text:
+            return []
+        return re.sub(r"[/:,\(\)'\"]", " ", text).split()
 
-    def add(self, text: str, reference: Any) -> None:
+    def add(self, text: str, reference: Any = None) -> None:
         """Add text to the Trie
 
         Args:
             text: The text to add.
             reference: The reference to return on a match
         """
+        if reference is None:
+            reference = text
         for e, part in enumerate(Trie._split(text)):
             for i in range(1, len(part) + 1):
                 self[part[:i]][reference] += (
@@ -226,36 +231,60 @@ class Trie(collections.defaultdict):
         return ret
 
 
-def json_clean(obj: Any) -> Any:
+def json_pack(obj: Any) -> Any:
     """Remove empty values in depth, returns a JSON-serializable dict/list structure."""
     # Basic types
     if obj is None or isinstance(obj, (bool, int, float)):
         return obj
     if isinstance(obj, (str, bytes)):
         return obj if obj else None
-    # Mappings
-    if isinstance(obj, collections.abc.Mapping):
-        ret = {}
-        for key, value in obj.items():
-            value = json_clean(value)
-            if value is not None:
-                ret[key] = value
-        return ret if ret else None
     # Dates
     if isinstance(obj, arrow.Arrow):
         obj = obj.datetime
     if isinstance(obj, datetime.date):
-        return json_clean(obj.isoformat())
-    # Iterables (should be last)
-    if isinstance(obj, collections.abc.Iterable):
-        ret = []
-        for value in obj:
-            value = json_clean(value)
-            if value is not None:
-                ret.append(value)
-        return ret if ret else None
-    # Anything empty is nulled, then removed
+        return obj.isoformat()
+    # mappings and iterables (should be last)
+    obj = _deep_map(json_pack, obj)
+    # Anything empty is nulled, then removed in _deep_map
     return obj if obj else None
+
+
+def json_unpack(obj: Any) -> Any:
+    """Unpacks a dict packed for JSON with json_pack."""
+    # basic types
+    if obj is None or isinstance(obj, (bool, int, float)):
+        return obj
+    if isinstance(obj, bytes):
+        return obj if obj else None
+    # dates
+    if isinstance(obj, str):
+        try:
+            return datetime.date.fromisoformat(obj)
+        except ValueError:
+            pass
+        try:
+            return datetime.datetime.fromisoformat(obj)
+        except ValueError:
+            pass
+        return obj
+    # mappings and iterables
+    obj = _deep_map(json_unpack, obj)
+    # Anything empty is nulled, then removed in _deep_map
+    return obj if obj else None
+
+
+def _deep_map(func: Callable, obj: Any):
+    """Apply function to values of mappings and iterables, filter out None values."""
+    # mappings
+    if isinstance(obj, collections.abc.Mapping):
+        return {
+            key: value
+            for key, value in map(lambda x: (x[0], func(x[1])), obj.items())
+            if value
+        }
+    # iterables (should be last)
+    if isinstance(obj, collections.abc.Iterable):
+        return [value for value in map(func, obj) if value]
 
 
 class NargsChoiceWithAliases(argparse.Action):
@@ -284,3 +313,57 @@ class NargsChoiceWithAliases(argparse.Action):
                 for value in values
             ],
         )
+
+
+class JsonMixin:
+    def __getstate__(self):
+        return json_pack(self.__dict__)
+
+    def __setstate__(self, state: Dict) -> None:
+        self.__dict__.update(json_unpack(state))
+
+
+class i18nMixin:
+    def __init__(self):
+        super().__init__()
+        self._i18n = collections.defaultdict(dict)
+
+    def i18n_set(self, lang: str, trans: Dict[str, str]):
+        for field, value in trans.items():
+            if value and not hasattr(self, field):
+                raise ValueError(f'i18n: "{field}" not present on instance')
+        self._i18n[lang].update(trans)
+
+    def i18n_variants(self, field: str):
+        for lang, trans in self._i18n.items():
+            if field in trans:
+                yield lang, trans[field]
+
+    def i18n(self, lang: str, field: str = None):
+        ret = self._i18n.get(lang, {})
+        if not field:
+            return ret
+        return ret.get(field)
+
+
+class NamedMixin:
+    def __bool__(self):
+        return bool(self.id)
+
+    def __index__(self):
+        return self.id
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return f"<#{self.id} {self.name}>"
+
+    def __hash__(self):
+        return hash(self.id)
+
+    def __eq__(self, rhs):
+        return rhs and self.id == getattr(rhs, "id", None)
+
+    def __lt__(self, rhs):
+        return rhs and hasattr(rhs, "name") and self.name < rhs.name

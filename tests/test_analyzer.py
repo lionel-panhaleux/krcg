@@ -1,14 +1,17 @@
 from krcg import analyzer
+from krcg import vtes
 
 
-def test_base(twda):
-    A = analyzer.Analyzer(twda)
+def test_base(TWDA):
+    A = analyzer.Analyzer(TWDA)
     A.refresh()
-    assert A.played["Nana Buruku"] == 2
-    A.refresh("Nana Buruku")
-    assert sorted(A.affinity["Nana Buruku"].most_common())[0] == (
-        "Aksinya Daclau",
+    nana = vtes.VTES["Nana Buruku"]
+    aksinya = vtes.VTES["Aksinya Daclau"]
+    assert A.played[nana] == 2
+    A.refresh(nana)
+    assert sorted(A.affinity[nana].most_common())[0] == (
+        aksinya,
         1 / 2,
     )
-    A.refresh("Nana Buruku", "Aksinya Daclau", similarity=1)
+    A.refresh(nana, aksinya, similarity=1)
     assert len(A.examples) == 1

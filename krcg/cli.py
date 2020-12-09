@@ -38,7 +38,6 @@ def init(args: argparse.Namespace) -> int:
                 "VTES cards database must be initialized before TWDA database."
             )
             return 1
-        vtes.VTES.configure()
         if args.file:
             twda.TWDA.load_html(args.file)
         else:
@@ -46,7 +45,6 @@ def init(args: argparse.Namespace) -> int:
     else:
         try:
             vtes.VTES.load_from_vekn()
-            vtes.VTES.configure()
             twda.TWDA.load_from_vekn()
         except requests.exceptions.ConnectionError as e:
             logger.critical(

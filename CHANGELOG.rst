@@ -4,7 +4,7 @@ Changelog
 1.12 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Use VEKN sets CSV to parse and provide clear set information on cards
 
 
 1.11 (2020-12-09)
@@ -16,7 +16,7 @@ Changelog
 1.10 (2020-12-09)
 -----------------
 
-- Fixes and adaptations for translations
+- i18n fixes
 
 
 1.9 (2020-12-08)
