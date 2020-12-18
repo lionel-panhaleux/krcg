@@ -67,7 +67,7 @@ def test_card_variants():
         card = cards.Card._from_vekn({"Jyhad": cards.Set(name="Jyhad")}, card)
         card_map = cards.CardMap()
         card_map.add(card)
-        return sorted(k for k in card_map.keys() if isinstance(k, str))
+        return sorted(k for k in card_map._dict.keys() if isinstance(k, str))
 
     # "," suffixes in vampire names are common, and often omitted in deck lists
     assert sorted_variant(sacha_vykos) == [

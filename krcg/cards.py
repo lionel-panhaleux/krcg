@@ -18,7 +18,7 @@ from . import config
 from . import utils
 
 
-class Card(utils.i18nMixin, utils.JsonMixin, utils.NamedMixin):
+class Card(utils.i18nMixin, utils.NamedMixin):
     #: official cards renaming not registered in cards "Aka" field
     _AKA = {
         "Mask of a Thousand Faces": ["mask of 1,000 faces"],
@@ -273,6 +273,14 @@ class Card(utils.i18nMixin, utils.JsonMixin, utils.NamedMixin):
     def library(self) -> bool:
         return not self.crypt
 
+    def to_json(self):
+        return utils.json_pack(
+            {k: v for k, v in self.__dict__.items() if k not in ["crypt", "library"]}
+        )
+
+    def from_json(self, state: Dict) -> None:
+        self.__dict__.update(state)
+
     @classmethod
     def _from_vekn(cls, setmap: dict, data: dict):
         ret = cls()
@@ -281,7 +289,7 @@ class Card(utils.i18nMixin, utils.JsonMixin, utils.NamedMixin):
             return [s for s in map(str.strip, data[field].split(sep)) if s]
 
         def str_or_none(field):
-            return data[field].lower() or None if field in data else None
+            return data[field] or None if field in data else None
 
         def bool_or_none(field):
             return bool(data[field]) if field in data else None
@@ -325,7 +333,9 @@ class Card(utils.i18nMixin, utils.JsonMixin, utils.NamedMixin):
         )
         if not ret.sets:
             warnings.warn(f"no set found for {ret}")
-        ret.banned = cls._BAN_MAP[data["Banned"]] if data["Banned"] else None
+        ret.banned = (
+            cls._BAN_MAP[data["Banned"]].isoformat() if data["Banned"] else None
+        )
         ret.artists = [
             cls._ARTISTS_FIXES.get(s, s)
             for s in map(str.strip, re.split(r"[;,&]+(?!\sJr\.)", data["Artist"]))
@@ -335,6 +345,8 @@ class Card(utils.i18nMixin, utils.JsonMixin, utils.NamedMixin):
         # group can be "any"
         ret.group = str_or_none("Group")
         ret.title = str_or_none("Title")
+        if ret.title and ret.title[0] not in ["1", "2", "3", "4", "5"]:
+            ret.title = ret.title.title()
         ret.pool_cost = str_or_none("Pool Cost")  # can be X
         ret.blood_cost = str_or_none("Blood Cost")  # can be X
         ret.conviction_cost = str_or_none("Conviction Cost")  # str for consistency
@@ -380,7 +392,7 @@ class Card(utils.i18nMixin, utils.JsonMixin, utils.NamedMixin):
         return setmap[abbrev].name, ret
 
     @staticmethod
-    def _decode_rarity(rarity: str, abbrev: str, date: datetime.date) -> dict:
+    def _decode_rarity(rarity: str, abbrev: str, date: str) -> dict:
         match = re.match(
             r"^(?P<base>[a-zA-Z]+)?(?P<count>[0-9½]+)?$",
             rarity,
@@ -406,7 +418,9 @@ class Card(utils.i18nMixin, utils.JsonMixin, utils.NamedMixin):
                 return
         # fix release date for reprints
         if (abbrev, code) in Card._REPRINTS_RELEASE_DATE:
-            ret["Release Date"] = Card._REPRINTS_RELEASE_DATE[(abbrev, code)]
+            ret["Release Date"] = Card._REPRINTS_RELEASE_DATE[
+                (abbrev, code)
+            ].isoformat()
         count = match["count"]
         if not count and "Precon" in ret:
             count = 1
@@ -440,11 +454,20 @@ class CardMap(utils.FuzzyDict):
     def __len__(self):
         return len([c for c in self])
 
+    def __contains__(self, key):
+        return bool(self.get(key))
+
+    def get(self, key, default=None):
+        try:
+            return self[key]
+        except KeyError:
+            return default
+
     def load(self):
         r = requests.request("GET", config.KRCG_STATIC_SERVER + "/data/vtes.json")
         r.raise_for_status()
         self.clear()
-        self.__setstate__(r.json())
+        self.from_json(r.json())
 
     def add(self, card: Card):
         self[card.id] = card
@@ -521,13 +544,13 @@ class CardMap(utils.FuzzyDict):
                 for ref, link in ruling.links.items():
                     self[cid].rulings["links"][ref] = link
 
-    def __getstate__(self):
-        return [card.__getstate__() for card in self]
+    def to_json(self):
+        return [card.to_json() for card in self]
 
-    def __setstate__(self, state):
+    def from_json(self, state):
         for dic in state:
             card = Card()
-            card.__setstate__(dic)
+            card.from_json(dic)
             self.add(card)
 
     def _add_variants(self, name: str, card: Card):
@@ -608,10 +631,10 @@ class CardTrie:
     def add(self, card: Card):
         self.tries["en"].add(getattr(card, self.attribute, ""), card)
         for lang, trans in card.i18n_variants(self.attribute):
-            self.tries[lang].add(trans, card)
+            self.tries[lang[:2]].add(trans, card)
 
     def search(self, text: str, lang: str = None):
-        base_search = self.completion.search(text)
+        base_search = self.tries["en"].search(text)
         lang_search = collections.Counter()
         if lang in self.tries:
             lang_search = self.tries[lang].search(text)
@@ -622,24 +645,24 @@ class CardTrie:
 
 class CardSearch:
     _TRAITS = [
-        "black hand",
-        "seraph",
-        "red list",
-        "infernal",
-        "slave",
-        "scarce",
-        "sterile",
+        "Black Hand",
+        "Seraph",
+        "Red List",
+        "Infernal",
+        "Slave",
+        "Scarce",
+        "Sterile",
     ]
     _TITLES = {
-        "camarilla": {"primogen", "prince", "justicar", "inner circle", "imperator"},
-        "sabbat": {"bishop", "archbishop", "cardinal", "regent", "priscus"},
-        "anarch": {"baron"},
-        "laibon": {"magaji", "kholo"},
+        "Camarilla": {"Primogen", "Prince", "Justicar", "Inner Circle", "Imperator"},
+        "Sabbat": {"Bishop", "Archbishop", "Cardinal", "Regent", "Priscus"},
+        "Anarch": {"Baron"},
+        "Laibon": {"Magaji", "Kholo"},
     }
     _ALL_TITLES = sum(map(list, _TITLES.values()), [])
     TRIE_DIMENSIONS = [
         "name",
-        "text",
+        "card_text",
         "flavor_text",
     ]
     SET_DIMENSIONS = [
@@ -658,16 +681,7 @@ class CardSearch:
         "precon",
         "bonus",
     ]
-    NORMALIZED_DIMENSIONS = [
-        "type",
-        "sect",
-        "clan",
-        "title",
-        "city",
-        "trait",
-        "rarity",
-        "bonus",
-    ]
+    DIMENSIONS = TRIE_DIMENSIONS + SET_DIMENSIONS + ["text"]
 
     def __init__(self):
         for attr in self.TRIE_DIMENSIONS:
@@ -675,6 +689,9 @@ class CardSearch:
         for attr in self.SET_DIMENSIONS:
             setattr(self, attr, collections.defaultdict(set))
         self._all = set()
+
+    def __bool__(self):
+        return bool(self._all)
 
     def clear(self):
         for attr in self.SET_DIMENSIONS + self.TRIE_DIMENSIONS:
@@ -687,7 +704,7 @@ class CardSearch:
         self._all.add(card)
         self.name.add(card)
         for type_ in card.types:
-            self.type[type_.lower()].add(card)
+            self.type[type_].add(card)
         for artist in card.artists:
             self.artist[artist].add(card)
         for set_, rarities in card.sets.items():
@@ -698,13 +715,13 @@ class CardSearch:
                 if "Rarity" in rarity:
                     self.rarity[rarity["Rarity"]].add(card)
         if "Master" in card.types and re.search(r"(t|T)rifle", card.card_text):
-            self.bonus["trifle"].add(card)
+            self.bonus["Trifle"].add(card)
         if card.crypt:
-            self.type["crypt"].add(card)
+            self.type["Crypt"].add(card)
         else:
-            self.type["library"].add(card)
+            self.type["Library"].add(card)
         for clan in card.clans:
-            self.clan[clan.lower()].add(card)
+            self.clan[clan].add(card)
         if not card.clans:
             self.clan["none"].add(card)
         if card.group:
@@ -716,10 +733,13 @@ class CardSearch:
         if card.capacity:
             self.capacity[card.capacity].add(card)
         if card.capacity_change:
-            self.bonus["capacity"].add(card)
+            self.bonus["Capacity"].add(card)
         if re.search(r"\+(\d|X)\s+(b|B)leed", card.card_text):
-            self.bonus["bleed"].add(card)
-        for trait in re.findall(f"({'|'.join(self._TRAITS)})", card.card_text.lower()):
+            self.bonus["Bleed"].add(card)
+        for trait in re.findall(
+            f"({'|'.join(t.lower() for t in self._TRAITS)})", card.card_text.lower()
+        ):
+            trait = trait.title()
             self.trait[trait].add(card)
         self._handle_text(card)
         self._handle_disciplines(card)
@@ -732,24 +752,43 @@ class CardSearch:
         return {attr: set(getattr(self, attr).keys()) for attr in self.SET_DIMENSIONS}
 
     def __call__(self, **kwargs):
-        if "any_text" in kwargs:
+        lang = kwargs.pop("lang", "en")[:2]
+        keys = set(kwargs.keys())
+        invalid_keys = keys - set(self.DIMENSIONS)
+        if invalid_keys:
+            raise ValueError(
+                f"{invalid_keys} are not search dimensions. "
+                f"Valid dimensions are: {self.DIMENSIONS}"
+            )
+        if "text" in keys:
             result = set()
             for dim in self.TRIE_DIMENSIONS:
-                result |= set(x[0] for x in getattr(self, dim).search(kwargs.get(dim)))
+                result |= set(getattr(self, dim).search(kwargs["text"]).keys())
+                if lang != "en":
+                    result |= set(
+                        getattr(self, dim).search(kwargs["text"], lang=lang).keys()
+                    )
         else:
             result = copy.copy(self._all)
         for dim in self.TRIE_DIMENSIONS:
             if dim in kwargs:
-                result &= set(x[0] for x in getattr(self, dim).search(kwargs.get(dim)))
+                result &= set(getattr(self, dim).search(kwargs.get(dim)).keys())
         for dim in self.SET_DIMENSIONS:
             for value in kwargs.get(dim) or []:
-                if dim in self.NORMALIZED_DIMENSIONS:
-                    value = utils.normalize(value)
-                result &= getattr(self, dim).get(value, set())
+                if dim != "discipline":
+                    value = self._norm_map.get(dim, {}).get(utils.normalize(value))
+                result &= getattr(self, dim, {}).get(value, set())
         return result
 
+    @functools.cached_property
+    def _norm_map(self):
+        return {
+            dim: {utils.normalize(v): v for v in getattr(self, dim)}
+            for dim in self.SET_DIMENSIONS
+        }
+
     def _handle_text(self, card):
-        self.text.add(card)
+        self.card_text.add(card)
         if card.flavor_text:
             self.flavor_text.add(card)
         if card.draft:
@@ -758,9 +797,10 @@ class CardSearch:
     def _handle_disciplines(self, card):
         for discipline in card.disciplines:
             self.discipline[discipline].add(card)
+            self.discipline[discipline.lower()].add(card)
         if not card.disciplines:
             self.discipline["none"].add(card)
-        if card.library and len(card.disciplines) > 1:
+        elif card.library and len(card.disciplines) > 1:
             self.discipline["multi"].add(card)
         else:
             self.discipline["mono"].add(card)
@@ -774,94 +814,95 @@ class CardSearch:
     def _handle_sect(self, card):
         if card.crypt:
             if re.search(r"^(\[MERGED\] )?Sabbat", card.card_text):
-                self.sect["sabbat"].add(card)
+                self.sect["Sabbat"].add(card)
             if re.search(r"^(\[MERGED\] )?Camarilla", card.card_text):
-                self.sect["camarilla"].add(card)
+                self.sect["Camarilla"].add(card)
             if re.search(r"^(\[MERGED\] )?Laibon", card.card_text):
-                self.sect["laibon"].add(card)
+                self.sect["Laibon"].add(card)
             if re.search(r"^(\[MERGED\] )?Anarch", card.card_text):
-                self.sect["anarch"].add(card)
+                self.sect["Anarch"].add(card)
             if re.search(r"^(\[MERGED\] )?Independent", card.card_text):
-                self.sect["independent"].add(card)
+                self.sect["Independent"].add(card)
         else:
             if re.search(r"Requires a( ready)? (S|s)abbat", card.card_text):
-                self.sect["sabbat"].add(card)
+                self.sect["Sabbat"].add(card)
             if re.search(r"Requires a( ready)? (C|c)amarilla", card.card_text):
-                self.sect["camarilla"].add(card)
+                self.sect["Camarilla"].add(card)
             if re.search(r"Requires a( ready)? (L|l)aibon", card.card_text):
-                self.sect["laibon"].add(card)
+                self.sect["Laibon"].add(card)
             if re.search(
                 r"Requires a( ready|n)( (I|i)ndependent or)? (A|a)narch",
                 card.card_text,
             ):
-                self.sect["anarch"].add(card)
+                self.sect["Anarch"].add(card)
             if re.search(r"Requires a( ready|n) (I|i)ndependent", card.card_text):
-                self.sect["independent"].add(card)
+                self.sect["Independent"].add(card)
 
     def _handle_stealth_intercept(self, card):
         if re.search(r"\+(\d|X)\s+(i|I)ntercept", card.card_text):
-            self.bonus["intercept"].add(card)
+            self.bonus["Intercept"].add(card)
         # do not include stealthed actions as stealth cards
         if re.search(r"\+(\d|X)\s+(s|S)tealth (?!Ⓓ|action|political)", card.card_text):
-            self.bonus["stealth"].add(card)
+            self.bonus["Stealth"].add(card)
         # stealth/intercept maluses count has bonus of the other
-        if not set(card.types) & {"master", "vampire", "imbued"}:
+        if not set(card.types) & {"Master", "Vampire", "Imbued"}:
             if re.search(r"-(\d|X)\s+(s|S)tealth", card.card_text):
-                self.bonus["intercept"].add(card)
+                self.bonus["Intercept"].add(card)
             if re.search(r"-(\d|X)\s+(i|I)ntercept", card.card_text):
-                self.bonus["stealth"].add(card)
+                self.bonus["Stealth"].add(card)
         # list reset stealth as intercept
         if re.search(r"stealth .* to 0", card.card_text):
-            self.bonus["intercept"].add(card)
+            self.bonus["Intercept"].add(card)
         # list block denials as stealth
         if re.search(r"attempt fails", card.card_text):
-            self.bonus["stealth"].add(card)
+            self.bonus["Stealth"].add(card)
 
     def _handle_titles(self, card):
         if card.title:
             self.title[card.title].add(card)
-            self.bonus["votes"].add(card)
+            self.bonus["Votes"].add(card)
         if re.search(r"(\d|X)\s+(v|V)ote", card.card_text):
-            self.bonus["votes"].add(card)
+            self.bonus["Votes"].add(card)
         for title in re.findall(
-            f"({'|'.join(self._ALL_TITLES)})", card.card_text.lower()
+            f"({'|'.join(t.lower() for t in self._ALL_TITLES)})", card.card_text.lower()
         ):
+            title = title.title()
             self.title[title].add(card)
             for sect, titles in self._TITLES.items():
                 if title in titles:
                     self.sect[sect].add(card)
-        if card.crypt:
-            city = re.search(
-                r"(?:Prince|Baron|Archbishop) of ((?:[A-Z][A-Za-z\s-]{3,})+)",
-                card.card_text,
-            )
-            if city:
-                city = city.group(1).lower()
-                if city[-5:] == "as a ":
-                    city = city[:-5]
-                if city == "washington":
-                    city = "washington, d.c."
-                self.city[city].add(card)
-                self.bonus["votes"].add(card)
-        else:
+
+        city = re.search(
+            r"(?:Prince|Baron|Archbishop) of ((?:[A-Z][A-Za-z\s-]{3,})+)",
+            card.card_text,
+        )
+        if city:
+            city = city.group(1)
+            if city[-6:] == " as a ":
+                city = city[:-6]
+            if city == "Washington":
+                city = "Washington, D.C."
+            self.city[city].add(card)
+            self.bonus["Votes"].add(card)
+        if card.library:
             if re.search(r"Requires a( ready)? titled (S|s)abbat", card.card_text):
-                self.sect["sabbat"].add(card)
-                for title in self._TITLES["sabbat"]:
+                self.sect["Sabbat"].add(card)
+                for title in self._TITLES["Sabbat"]:
                     self.title[title].add(card)
             if re.search(r"Requires a( ready)? titled (C|c)amarilla", card.card_text):
-                self.sect["camarilla"].add(card)
-                for title in self._TITLES["camarilla"]:
+                self.sect["Camarilla"].add(card)
+                for title in self._TITLES["Camarilla"]:
                     self.title[title].add(card)
             if re.search(r"Requires a( ready)? titled vampire", card.card_text):
                 for title in self._ALL_TITLES + ["1 vote", "2 votes"]:
                     self.title[title].add(card)
             if re.search(r"Requires a( ready)? (M|m)agaji", card.card_text):
-                self.title["magaji"].add(card)
-                self.sect["laibon"].add(card)
+                self.title["Magaji"].add(card)
+                self.sect["Laibon"].add(card)
 
     def _handle_exceptions(self, card):
         if card.name == "The Baron":
-            self.sect["anarch"].remove(card)
+            self.sect["Anarch"].remove(card)
         elif card.name == "Gwen Brand":
             self.discipline["ANI"].add(card)
             self.discipline["AUS"].add(card)
@@ -869,7 +910,7 @@ class CardSearch:
             self.discipline["FOR"].add(card)
 
 
-class Set(utils.i18nMixin, utils.JsonMixin, utils.NamedMixin):
+class Set(utils.i18nMixin, utils.NamedMixin):
     def __init__(self, **kwargs):
         super().__init__()
         self.id = 0
@@ -883,9 +924,11 @@ class Set(utils.i18nMixin, utils.JsonMixin, utils.NamedMixin):
         ret = cls()
         ret.id = int(data["Id"])
         ret.abbrev = data["Abbrev"]
-        ret.release_date = datetime.datetime.strptime(
-            data["Release Date"], "%Y%m%d"
-        ).date()
+        ret.release_date = (
+            datetime.datetime.strptime(data["Release Date"], "%Y%m%d")
+            .date()
+            .isoformat()
+        )
         ret.name = data["Full Name"]
         ret.company = data["Company"]
         return ret
@@ -893,77 +936,76 @@ class Set(utils.i18nMixin, utils.JsonMixin, utils.NamedMixin):
 
 class _SetMap(dict):
     _PROMOS = [
-        ["Promo-20191123", "2020 GP Promo", "20201123"],
-        ["Promo-20191123", "2020 GP Promo", "20201123"],
-        ["Promo-20201030", "V5 Polish Edition promo", "20201030"],
-        ["Promo-20201123", "2020 GP Promo", "20201123"],
-        ["Promo-20200511", "2020 Promo Pack 2", "20200511"],
-        ["Promo-20191027", "2019 ACC Promo", "20191027"],
-        ["Promo-20191005", "2019 AC Promo", "20191005"],
-        ["Promo-20190818", "2019 EC Promo", "20190818"],
-        ["Promo-20190816", "2019 DriveThruCards Promo", "20190816"],
-        ["Promo-20190614", "2019 Promo", "20190614"],
-        ["Promo-20190601", "2019 SAC Promo", "20190601"],
-        ["Promo-20190615", "2019 NAC Promo", "20190615"],
-        ["Promo-20190629", "2019 Grand Prix Promo", "20190615"],
-        ["Promo-20190408", "2019 Promo Pack 1", "20190408"],
-        ["Promo-20181004", "2018 Humble Bundle", "20181004"],
-        ["Promo-20150219", "2015 Storyline Rewards", "20150219"],
-        ["Promo-20150221", "2015 Storyline Rewards", "20150221"],
-        ["Promo-20150214", "2015 Storyline Rewards", "20150214"],
-        ["Promo-20150211", "2015 Storyline Rewards", "20150211"],
-        ["Promo-20150216", "2015 Storyline Rewards", "20150216"],
-        ["Promo-20150220", "2015 Storyline Rewards", "20150220"],
-        ["Promo-20150218", "2015 Storyline Rewards", "20150218"],
-        ["Promo-20150217", "2015 Storyline Rewards", "20150217"],
-        ["Promo-20150213", "2015 Storyline Rewards", "20150213"],
-        ["Promo-20150212", "2015 Storyline Rewards", "20150212"],
-        ["Promo-20100510", "2010 Storyline promo", "20100510"],
-        ["Promo-20090929", "2009 Tournament / Storyline promo", "20090929"],
-        ["Promo-20090401", "2009 Tournament / Storyline promo", "20090401"],
-        ["Promo-20081119", "2008 Tournament promo", "20081119"],
-        ["Promo-20081023", "2008 Tournament promo", "20081023"],
-        ["Promo-20080810", "2008 Storyline promo", "20080810"],
-        ["Promo-20080203", "2008 Tournament promo", "20080810"],
-        ["Promo-20070601", "2007 Promo", "20070601"],
-        ["Promo-20070101", "Sword of Caine promo", "20070101"],
-        ["Promo-20061126", "2006 EC Tournament promo", "20061126"],
-        ["Promo-20061101", "2006 Storyline promo", "20061101"],
-        ["Promo-20061026", "2006 Tournament promo", "20061026"],
-        ["Promo-20060902", "2006 Tournament promo", "20060902"],
-        ["Promo-20060710", "Third Edition promo", "20060710"],
-        ["Promo-20060417", "2006 Championship promo", "20060417"],
-        ["Promo-20060213", "2006 Tournament promo", "20060213"],
-        ["Promo-20060123", "2006 Tournament promo", "20060123"],
-        ["Promo-20051026", "Legacies of Blood promo", "20051026"],
-        ["Promo-20051001", "2005 Storyline promo", "20051001"],
-        ["Promo-20050914", "Legacies of Blood promo", "20050914"],
-        ["Promo-20050611", "2005 Tournament promo", "20050611"],
-        ["Promo-20050122", "2005 Tournament promo", "20050122"],
-        ["Promo-20050115", "Kindred Most Wanted promo", "20050115"],
-        ["Promo-20041015", "Fall 2004 Storyline promo", "20041015"],
-        ["Promo-20040411", "Gehenna promo", "20040411"],
-        ["Promo-20040409", "2004 promo", "20040409"],
-        ["Promo-20040301", "Prophecies league promo", "20040301"],
-        ["Promo-20031105", "Black Hand promo", "20031105"],
-        ["Promo-20030901", "Summer 2003 Storyline promo", "20030901"],
-        ["Promo-20030307", "Anarchs promo", "20030307"],
-        ["Promo-20021201", "2003 Tournament promo", "20021201"],
-        ["Promo-20021101", "Fall 2002 Storyline promo", "20021101"],
-        ["Promo-20020811", "Sabbat War promo", "20020811"],
-        ["Promo-20020704", "Camarilla Edition promo", "20020704"],
-        ["Promo-20020201", "Winter 2002 Storyline promo", "20020201"],
-        ["Promo-20011201", "Bloodlines promo", "20011201"],
-        ["Promo-20010428", "Final Nights promo", "20010428"],
-        ["Promo-20010302", "Final Nights promo", "20010302"],
-        ["Promo-19960101", "1996 Promo", "19960101"],
+        ["Promo-20191123", "2020 GP Promo", "2020-11-23"],
+        ["Promo-20191123", "2020 GP Promo", "2020-11-23"],
+        ["Promo-20201030", "V5 Polish Edition promo", "2020-10-30"],
+        ["Promo-20201123", "2020 GP Promo", "2020-11-23"],
+        ["Promo-20200511", "2020 Promo Pack 2", "2020-05-11"],
+        ["Promo-20191027", "2019 ACC Promo", "2019-10-27"],
+        ["Promo-20191005", "2019 AC Promo", "2019-10-05"],
+        ["Promo-20190818", "2019 EC Promo", "2019-08-18"],
+        ["Promo-20190816", "2019 DriveThruCards Promo", "2019-08-16"],
+        ["Promo-20190614", "2019 Promo", "2019-06-14"],
+        ["Promo-20190601", "2019 SAC Promo", "2019-06-01"],
+        ["Promo-20190615", "2019 NAC Promo", "2019-06-15"],
+        ["Promo-20190629", "2019 Grand Prix Promo", "2019-06-15"],
+        ["Promo-20190408", "2019 Promo Pack 1", "2019-04-08"],
+        ["Promo-20181004", "2018 Humble Bundle", "2018-10-04"],
+        ["Promo-20150219", "2015 Storyline Rewards", "2015-02-19"],
+        ["Promo-20150221", "2015 Storyline Rewards", "2015-02-21"],
+        ["Promo-20150214", "2015 Storyline Rewards", "2015-02-14"],
+        ["Promo-20150211", "2015 Storyline Rewards", "2015-02-11"],
+        ["Promo-20150216", "2015 Storyline Rewards", "2015-02-16"],
+        ["Promo-20150220", "2015 Storyline Rewards", "2015-02-20"],
+        ["Promo-20150218", "2015 Storyline Rewards", "2015-02-18"],
+        ["Promo-20150217", "2015 Storyline Rewards", "2015-02-17"],
+        ["Promo-20150213", "2015 Storyline Rewards", "2015-02-13"],
+        ["Promo-20150212", "2015 Storyline Rewards", "2015-02-12"],
+        ["Promo-20100510", "2010 Storyline promo", "2010-05-10"],
+        ["Promo-20090929", "2009 Tournament / Storyline promo", "2009-09-29"],
+        ["Promo-20090401", "2009 Tournament / Storyline promo", "2009-04-01"],
+        ["Promo-20081119", "2008 Tournament promo", "2008-11-19"],
+        ["Promo-20081023", "2008 Tournament promo", "2008-10-23"],
+        ["Promo-20080810", "2008 Storyline promo", "2008-08-10"],
+        ["Promo-20080203", "2008 Tournament promo", "2008-08-10"],
+        ["Promo-20070601", "2007 Promo", "2007-06-01"],
+        ["Promo-20070101", "Sword of Caine promo", "2007-01-01"],
+        ["Promo-20061126", "2006 EC Tournament promo", "2006-11-26"],
+        ["Promo-20061101", "2006 Storyline promo", "2006-11-01"],
+        ["Promo-20061026", "2006 Tournament promo", "2006-10-26"],
+        ["Promo-20060902", "2006 Tournament promo", "2006-09-02"],
+        ["Promo-20060710", "Third Edition promo", "2006-07-10"],
+        ["Promo-20060417", "2006 Championship promo", "2006-04-17"],
+        ["Promo-20060213", "2006 Tournament promo", "2006-02-13"],
+        ["Promo-20060123", "2006 Tournament promo", "2006-01-23"],
+        ["Promo-20051026", "Legacies of Blood promo", "2005-10-26"],
+        ["Promo-20051001", "2005 Storyline promo", "2005-10-01"],
+        ["Promo-20050914", "Legacies of Blood promo", "2005-09-14"],
+        ["Promo-20050611", "2005 Tournament promo", "2005-06-11"],
+        ["Promo-20050122", "2005 Tournament promo", "2005-01-22"],
+        ["Promo-20050115", "Kindred Most Wanted promo", "2005-01-15"],
+        ["Promo-20041015", "Fall 2004 Storyline promo", "2004-10-15"],
+        ["Promo-20040411", "Gehenna promo", "2004-04-11"],
+        ["Promo-20040409", "2004 promo", "2004-04-09"],
+        ["Promo-20040301", "Prophecies league promo", "2004-03-01"],
+        ["Promo-20031105", "Black Hand promo", "2003-11-05"],
+        ["Promo-20030901", "Summer 2003 Storyline promo", "2003-09-01"],
+        ["Promo-20030307", "Anarchs promo", "2003-03-07"],
+        ["Promo-20021201", "2003 Tournament promo", "2002-12-01"],
+        ["Promo-20021101", "Fall 2002 Storyline promo", "2002-11-01"],
+        ["Promo-20020811", "Sabbat War promo", "2002-08-11"],
+        ["Promo-20020704", "Camarilla Edition promo", "2002-07-04"],
+        ["Promo-20020201", "Winter 2002 Storyline promo", "2002-02-01"],
+        ["Promo-20011201", "Bloodlines promo", "2001-12-01"],
+        ["Promo-20010428", "Final Nights promo", "2001-04-28"],
+        ["Promo-20010302", "Final Nights promo", "2001-03-02"],
+        ["Promo-19960101", "1996 Promo", "1996-01-01"],
     ]
 
     def __init__(self):
         super().__init__()
         self.add(Set(abbrev="POD", full_name="Print on Demand"))
         for abbrev, full_name, release_date in self._PROMOS:
-            release_date = datetime.datetime.strptime(release_date, "%Y%m%d").date()
             self.add(Set(abbrev=abbrev, full_name=full_name, release_date=release_date))
 
     def add(self, set_: Set) -> None:

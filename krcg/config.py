@@ -180,11 +180,9 @@ DIS_MAP = {
 }
 #: custom remap to match players abbreviations and typos
 REMAP = {
-    # our card parsing removes the dash
+    # our card parsing removes the dash and match parentheses to comments
     "bang nakh": "Bang Nakh — Tiger's Claws",
-    "khazar's diary": "Khazar's Diary (Endless Night)",
-    "ohoyo hopoksia": "Ohoyo Hopoksia (Bastet)",
-    # we not decode HTML properly as most of it is text
+    # we may not decode HTML properly as most of it is text
     "alia, god=92s messenger": "Alia, God's Messenger",
     "pentex=99 subversion": "Pentex™ Subversion",
     # traditions - players really do whatever they want

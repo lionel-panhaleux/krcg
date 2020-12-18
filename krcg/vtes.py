@@ -24,13 +24,25 @@ class _VTES:
         return self._cards[key]
 
     def __contains__(self, key):
-        return bool(self[key])
+        return key in self._cards
 
     def __len__(self) -> int:
         return len(self._cards)
 
     def __iter__(self):
         return self._cards.__iter__()
+
+    def to_json(self):
+        return [c.to_json() for c in self._cards]
+
+    def from_json(self, state):
+        for c in state:
+            card = cards.Card()
+            card.from_json(c)
+            self._cards.add(card)
+
+    def get(self, key, default=None):
+        return self._cards.get(key)
 
     def clear(self) -> None:
         self._cards.clear()
@@ -40,28 +52,19 @@ class _VTES:
         """Loaf from KRCG static"""
         self.clear()
         self._cards.load()
-        self._init()
 
     def load_from_vekn(self):
         """Load the card database from vekn.net, with translations and rulings"""
         self.clear()
         self._cards.load_from_vekn()
         self._cards.load_cards_rulings()
-        self._init()
 
     @functools.cached_property
     def amaranth(self):
-        """Amaranth IDs card map.
-
-        Cached because Amaranth can take up to 5 seconds to answer that call.
-        """
-        return {
-            int(card["id"]): self._cards[card["name"]]
-            for card in (
-                requests.get("http://amaranth.vtes.co.nz/api/cards").json()["result"]
-            )
-            if card["name"] in self._cards  # ignore storyline / experimental cards
-        }
+        """Amaranth IDs card map."""
+        r = requests.get("http://static.krcg.org/data/amaranth_ids.json")
+        r.raise_for_status()
+        return {k: self[v] for k, v in r.json().items()}
 
     def complete(self, text: str, lang: str = "en") -> List:
         """Card name completion.
@@ -75,20 +78,25 @@ class _VTES:
         Returns:
             A sorted list of results, from most likely to less likely
         """
+        self._init_search()
         ret = self._search.name.search(text, lang)
-        ret = [(self._cards[cid].name, score) for cid, score in ret]
+        ret = [(card.name, score) for card, score in ret.items()]
         return [x[0] for x in sorted(ret, key=lambda x: (-x[1], x[0]))]
 
+    @functools.cached_property
     def search_dimensions(self) -> Dict[str, List[str]]:
+        self._init_search()
         return self._search.dimensions()
 
     def search(self, **kwargs):
+        self._init_search()
         return self._search(**kwargs)
 
-    def _init(self) -> None:
+    def _init_search(self) -> None:
         """Initialize search and completion"""
-        for c in self._cards:
-            self._search.add(c)
+        if not self._search:
+            for c in self._cards:
+                self._search.add(c)
 
 
 VTES = _VTES()

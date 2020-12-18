@@ -221,8 +221,8 @@ _CLAN = "|".join(
     ]
 )
 _CRYPT_TAIL = (
-    r"(?P<crypt_tail>(?(ante_count)\s+\d{1,2}\s+"
-    + r"({}|{}|{}|\s|:|\d{{1,2}}|any)*))?".format(
+    r"(?(ante_count)(?P<crypt_tail>\s+\d{1,2}\s+"
+    + r"({}|{}|{}|\s|:|\d{{1,2}}|any)*)|%NOMATCH%)?".format(
         _DISCIPLINE_TRIGRAM, _CRYPT_TRAIT, _CLAN
     )
 )
@@ -246,10 +246,8 @@ _PUNCTUATED_TRAIT = "|".join(
         "goblin",
         "changeling",
         "tiger's claws",
-        # these two are still in the card name,
-        # but we have matching aliases in the config
-        "bastet",
-        "endless night",
+        # this one is still in the card name !
+        # "bastet",
     ]
 )
 _NAKED_TRAIT = "|".join(
@@ -338,15 +336,16 @@ _POST_COUNT = (
     r"(?!(st|nd|rd|th|.?\d|b|p|(..?port)))"
     r"(\s|\(|\)|\[|\]|:|cards?|total|\d|trifles?|,)*"
 )
+# three card names have parentheses - do not parse as comment
 _BRACED_COMMENT = (
-    r"\s+(\((?P<parenthesis_comment>[^\)]+)\)|\[(?P<bracket_comment>[^\]]+?)\s*\])"
+    r"\s+(\((?!bastet|endless night|olaf holte)(?P<parenthesis_comment>[^\)]+)\)"
+    r"|\[(?P<bracket_comment>[^\]]+?)\s*\])"
 )
 _LINE_COMMENT = (
     r"\s+(?P<comment_mark>--*|//*\**|\*\**)\s*" r"(?P<line_comment>.+?)(-|/|\*|\s)*"
 )
 _COMMENT = f"({_BRACED_COMMENT}|{_LINE_COMMENT})"
 # full card count line regular expression
-# RE = f"^{HEAD}{ANTE_COUNT}?{PUNCTUATION}{NAME}({CLASS}|{POST_COUNT}|{COMMENT})\\s*$"
 _RE = (
     f"^{_PUNCTUATION}({_ANTE_COUNT})?{_PUNCTUATION}{_NAME}{_CRYPT_TAIL}"
     f"({_POST_COUNT})?({_TRAIT})?{_COMMENT}?\\s*$"

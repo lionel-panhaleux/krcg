@@ -1,58 +1,66 @@
+import json
+import pytest
+
 from krcg import vtes
 
 
-def test_init():
-    assert vtes.VTES.search_dimensions() == {
-        "bonus": {"bleed", "intercept", "trifle", "stealth", "votes", "capacity"},
+def test_fuzzy_match():
+    assert "enchant kidnred" in vtes.VTES
+    assert vtes.VTES["enchant kidnred"].name == "Enchant Kindred"
+
+
+def test_search_dimensions():
+    assert vtes.VTES.search_dimensions == {
+        "bonus": {"Bleed", "Intercept", "Trifle", "Stealth", "Votes", "Capacity"},
         "capacity": {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},
         "clan": {
             "none",
-            "osebo",
-            "lasombra",
-            "tremere",
-            "harbinger of skulls",
-            "blood brother",
-            "toreador",
-            "giovanni",
-            "ahrimane",
-            "akunanse",
-            "brujah",
-            "assamite",
-            "follower of set",
-            "brujah antitribu",
-            "guruhi",
-            "toreador antitribu",
-            "tzimisce",
-            "malkavian",
-            "gangrel",
-            "gangrel antitribu",
-            "daughter of cacophony",
-            "salubri antitribu",
-            "samedi",
-            "baali",
-            "ravnos",
-            "kiasyd",
-            "nagaraja",
-            "pander",
-            "ventrue antitribu",
-            "nosferatu antitribu",
-            "malkavian antitribu",
-            "tremere antitribu",
-            "nosferatu",
-            "ishtarri",
-            "ventrue",
-            "gargoyle",
-            "salubri",
-            "avenger",
-            "true brujah",
-            "visionary",
-            "defender",
-            "caitiff",
-            "abomination",
-            "martyr",
-            "innocent",
-            "judge",
-            "redeemer",
+            "Osebo",
+            "Lasombra",
+            "Tremere",
+            "Harbinger of Skulls",
+            "Blood Brother",
+            "Toreador",
+            "Giovanni",
+            "Ahrimane",
+            "Akunanse",
+            "Brujah",
+            "Assamite",
+            "Follower of Set",
+            "Brujah antitribu",
+            "Guruhi",
+            "Toreador antitribu",
+            "Tzimisce",
+            "Malkavian",
+            "Gangrel",
+            "Gangrel antitribu",
+            "Daughter of Cacophony",
+            "Salubri antitribu",
+            "Samedi",
+            "Baali",
+            "Ravnos",
+            "Kiasyd",
+            "Nagaraja",
+            "Pander",
+            "Ventrue antitribu",
+            "Nosferatu antitribu",
+            "Malkavian antitribu",
+            "Tremere antitribu",
+            "Nosferatu",
+            "Ishtarri",
+            "Ventrue",
+            "Gargoyle",
+            "Salubri",
+            "Avenger",
+            "True Brujah",
+            "Visionary",
+            "Defender",
+            "Caitiff",
+            "Abomination",
+            "Martyr",
+            "Innocent",
+            "Judge",
+            "Redeemer",
         },
         "discipline": {
             # general groups
@@ -131,115 +139,118 @@ def test_init():
             "VIS",
         },
         "group": {1, 2, 3, 4, 5, 6},
-        "sect": {"sabbat", "camarilla", "anarch", "laibon", "independent"},
+        "sect": {"Sabbat", "Camarilla", "Anarch", "Laibon", "Independent"},
         "title": {
-            "justicar",
-            "inner circle",
-            "kholo",
-            "baron",
-            "prince",
-            "cardinal",
-            "regent",
-            "magaji",
-            "primogen",
-            "archbishop",
-            "priscus",
-            "bishop",
-            "imperator",
+            "Justicar",
+            "Inner Circle",
+            "Kholo",
+            "Baron",
+            "Prince",
+            "Cardinal",
+            "Regent",
+            "Magaji",
+            "Primogen",
+            "Archbishop",
+            "Priscus",
+            "Bishop",
+            "Imperator",
             "1 vote",
             "2 votes",
         },
         "city": {
-            "london",
-            "melbourne",
-            "birmingham",
-            "montreal",
-            "nairobi",
-            "mexico city",
-            "pittsburgh",
-            "taipei",
-            "seattle",
-            "chicago",
-            "atlanta",
-            "washington, d.c.",
-            "addis ababa",
-            "brussels",
-            "copenhagen",
-            "fortaleza",
-            "manila",
-            "new york",
-            "stockholm",
-            "budapest",
-            "detroit",
-            "boston",
-            "prague",
-            "columbus",
-            "buenos aires",
-            "rome",
-            "cairo",
-            "berlin",
-            "paris",
-            "dublin",
-            "cordoba",
-            "toronto",
-            "miami",
-            "milan",
-            "chicago ",
-            "mannheim",
-            "rio de janeiro",
-            "geneva",
-            "dallas",
-            "versailles",
-            "monaco",
-            "barcelona",
-            "los angeles",
-            "amsterdam",
-            "istanbul",
-            "houston",
-            "lisbon",
-            "glasgow",
-            "frankfurt",
-            "port-au-prince",
-            "canberra",
-            "philadelphia",
-            "aragon",
-            "strasbourg",
-            "milwaukee",
-            "cape town",
-            "guadalajara",
-            "cleveland",
-            "athens",
-            "sydney",
-            "rotterdam",
-            "san diego",
-            "guatemala city",
+            "London",
+            "Melbourne",
+            "Birmingham",
+            "Montreal",
+            "Nairobi",
+            "Mexico City",
+            "Pittsburgh",
+            "Taipei",
+            "Seattle",
+            "Chicago",
+            "Corte",
+            "Atlanta",
+            "Washington, D.C.",
+            "Addis Ababa",
+            "Brussels",
+            "Copenhagen",
+            "Fortaleza",
+            "Manila",
+            "New York",
+            "Stockholm",
+            "Budapest",
+            "Detroit",
+            "Boston",
+            "Prague",
+            "Columbus",
+            "Buenos Aires",
+            "Rome",
+            "Cairo",
+            "Berlin",
+            "Paris",
+            "Dublin",
+            "Cordoba",
+            "Toronto",
+            "Miami",
+            "Milan",
+            "Chicago",
+            "Mannheim",
+            "Rio de Janeiro",
+            "Geneva",
+            "Dallas",
+            "Versailles",
+            "Monaco",
+            "Barcelona",
+            "Los Angeles",
+            "Amsterdam",
+            "Istanbul",
+            "Houston",
+            "Lisbon",
+            "Glasgow",
+            "Frankfurt",
+            "Port-au-Prince",
+            "Perth",
+            "Venice",
+            "Canberra",
+            "Philadelphia",
+            "Aragon",
+            "Strasbourg",
+            "Milwaukee",
+            "Cape Town",
+            "Guadalajara",
+            "Cleveland",
+            "Athens",
+            "Sydney",
+            "Rotterdam",
+            "San Diego",
+            "Guatemala City",
         },
         "trait": {
-            "sterile",
-            "black hand",
-            "slave",
-            "red list",
-            "seraph",
-            "infernal",
-            "scarce",
+            "Sterile",
+            "Black Hand",
+            "Slave",
+            "Red List",
+            "Seraph",
+            "Infernal",
+            "Scarce",
         },
         "type": {
-            "equipment",
-            "library",
-            "action",
-            "reaction",
-            "combat",
-            "power",
-            "master",
-            "event",
-            "ally",
-            "action modifier",
-            "political action",
-            "retainer",
-            "conviction",
-            "vampire",
-            "crypt",
-            "imbued",
+            "Equipment",
+            "Library",
+            "Action",
+            "Reaction",
+            "Combat",
+            "Power",
+            "Master",
+            "Event",
+            "Ally",
+            "Action Modifier",
+            "Political Action",
+            "Retainer",
+            "Conviction",
+            "Vampire",
+            "Crypt",
+            "Imbued",
         },
         "set": {
             "1996 Promo",
@@ -688,23 +699,343 @@ def test_init():
     }
 
 
-def test_fuzzy_match():
-    assert "enchant kidnred" in vtes.VTES
-    assert vtes.VTES["enchant kidnred"].name == "Enchant Kindred"
+def test_search_basic():
+    # no parameter returns everything
+    assert len(vtes.VTES.search()) >= 3788
+    # non-existing dimension raises
+    with pytest.raises(ValueError):
+        vtes.VTES.search(foo="bar")
+    # non-existing value in dimension does not raise
+    assert len(vtes.VTES.search(bonus=["foo"])) == 0
+    # card text
+    assert vtes.VTES.search(card_text="this equipment card represents a location") == {
+        vtes.VTES["Catacombs"],
+        vtes.VTES["Dartmoor, England"],
+        vtes.VTES["Inveraray, Scotland"],
+        vtes.VTES["Living Manse"],
+        vtes.VTES["Local 1111"],
+        vtes.VTES["Lyndhurst Estate, New York"],
+        vtes.VTES["Palatial Estate"],
+        vtes.VTES["Pier 13, Port of Baltimore"],
+        vtes.VTES["Ruins of Ceoris"],
+        vtes.VTES["Ruins of Villers Abbey, Belgium"],
+        vtes.VTES["Sacré-Cœur Cathedral, France"],
+        vtes.VTES["San Lorenzo de El Escorial, Spain"],
+        vtes.VTES["San Nicolás de los Servitas"],
+        vtes.VTES["The Ankara Citadel, Turkey"],
+        vtes.VTES["Winchester Mansion"],
+        vtes.VTES["Zaire River Ferry"],
+    }
+    # flavor text
+    assert vtes.VTES.search(flavor_text="Baudelaire") == {
+        vtes.VTES["Aching Beauty"],
+        vtes.VTES["Blood Sweat"],
+        vtes.VTES["Breath of Thanatos"],
+        vtes.VTES["Cats' Guidance"],
+        vtes.VTES["Earth Meld"],
+        vtes.VTES["Form of the Serpent"],
+        vtes.VTES["Giuseppe, Gravedigger"],
+        vtes.VTES["Gleam of Red Eyes"],
+        vtes.VTES["Haven Uncovered"],
+        vtes.VTES["Opium Den"],
+        vtes.VTES["Order of Hermes Cabal"],
+        vtes.VTES["Psychic Veil"],
+        vtes.VTES["Rom Gypsy"],
+        vtes.VTES["Shade"],
+        vtes.VTES["Threats"],
+        vtes.VTES["Tongue of the Serpent"],
+        vtes.VTES["Vanish from the Mind's Eye"],
+    }
+    # all text - includes name and flavor, but not clan, discipline, etc.
+    assert vtes.VTES.search(text="Brujah") == {
+        vtes.VTES["Adana de Sforza"],
+        vtes.VTES["Al-Muntathir, God's Witness"],
+        vtes.VTES["Amusement Park Hunting Ground"],
+        vtes.VTES["Anarch Revolt"],
+        vtes.VTES["Apportation"],
+        vtes.VTES["Artistically Inept"],
+        vtes.VTES["Blade of Enoch"],
+        vtes.VTES["Blood Weakens"],
+        vtes.VTES["Brass Knuckles"],
+        vtes.VTES["Brujah Debate"],
+        vtes.VTES["Brujah Frenzy"],
+        vtes.VTES["Brujah Justicar"],
+        vtes.VTES["Carthage Remembered"],
+        vtes.VTES["Condemnation: Betrayed"],
+        vtes.VTES["Conniver"],
+        vtes.VTES["Crusade: Rome"],
+        vtes.VTES["Dmitra Ilyanova"],
+        vtes.VTES["Dogs of War"],
+        vtes.VTES["Don Cruez, The Idealist"],
+        vtes.VTES["Emissary"],
+        vtes.VTES["Fee Stake: New York"],
+        vtes.VTES["Flurry of Action"],
+        vtes.VTES["From a Sinking Ship"],
+        vtes.VTES["Galaric's Legacy"],
+        vtes.VTES["Games of Instinct"],
+        vtes.VTES["Gang Territory"],
+        vtes.VTES["Gengis"],
+        vtes.VTES["Gwendolyn"],
+        vtes.VTES["Into the Fire"],
+        vtes.VTES["Iron Heart"],
+        vtes.VTES["Jack of Both Sides"],
+        vtes.VTES["Jaroslav Pascek"],
+        vtes.VTES["Judgment: Death to the Brujah!"],
+        vtes.VTES["Learjet"],
+        vtes.VTES["Magazine"],
+        vtes.VTES["Makarios, The Seducer"],
+        vtes.VTES["Marcus Vitel (ADV)"],
+        vtes.VTES["Miranda Sanova"],
+        vtes.VTES["New Carthage"],
+        vtes.VTES["Nik"],
+        vtes.VTES["Out of Control"],
+        vtes.VTES["Peace Treaty"],
+        vtes.VTES["Praxis Seizure: Rome"],
+        vtes.VTES["Ranjan Rishi, Camarilla Scholar"],
+        vtes.VTES["Rant!"],
+        vtes.VTES["Rebel"],
+        vtes.VTES["Sire's Index Finger"],
+        vtes.VTES["Sunset Strip, Hollywood"],
+        vtes.VTES["Survivalist"],
+        vtes.VTES["Sword of Judgment"],
+        vtes.VTES["Tabriz Assembly"],
+        vtes.VTES["Tatiana Stepanova, Alastor"],
+        vtes.VTES["The Path of the Scorched Heart"],
+        vtes.VTES["Tura Vaughn"],
+        vtes.VTES["Ublo-Satha"],
+        vtes.VTES["Undead Strength"],
+        vtes.VTES["Unexpected Coalition"],
+        vtes.VTES["Vasilis, The Traitor of Don Cruez"],
+        vtes.VTES["Vendetta"],
+        vtes.VTES["Ventrue Directorate Assembly"],
+    }
+    # don't match disciplines trigrams in card text
+    # (although with braces, [thn] would match)
+    assert not vtes.VTES.search(card_text="thn")
+    # city
+    assert vtes.VTES.search(city=["Chicago"]) == {
+        vtes.VTES["Antón de Concepción"],
+        vtes.VTES["Crusade: Chicago"],
+        vtes.VTES["Horatio Ballard"],
+        vtes.VTES["Lachlan, Noddist"],
+        vtes.VTES["Lodin (Olaf Holte)"],
+        vtes.VTES["Maldavis (ADV)"],
+        vtes.VTES["Maxwell"],
+        vtes.VTES["Praxis Seizure: Chicago"],
+        vtes.VTES["Sir Walter Nash"],
+    }
+    # title
+    assert vtes.VTES.search(title=["imperator"]) == {
+        vtes.VTES["Imperator"],
+        vtes.VTES["Karsh (ADV)"],
+        vtes.VTES["National Guard Support"],
+        vtes.VTES["Persona Non Grata"],
+        vtes.VTES["Reinforcements"],
+        vtes.VTES["Rubicon"],
+        vtes.VTES["Scourge"],
+    }
+    # discipline (inf matches sup), title
+    assert vtes.VTES.search(title=["primogen"], discipline=["ser"]) == {
+        vtes.VTES["Amenophobis"]
+    }
+    # stealth, votes
+    assert vtes.VTES.search(bonus=["stealth", "votes"]) == {
+        vtes.VTES["Antonio Veradas"],
+        vtes.VTES["Bulscu (ADV)"],
+        vtes.VTES["Dark Selina"],
+        vtes.VTES["Jessica (ADV)"],
+        vtes.VTES["Joseph Cambridge"],
+        vtes.VTES["Karen Suadela"],
+        vtes.VTES["Loki's Gift"],
+        vtes.VTES["Maxwell"],
+        vtes.VTES["Natasha Volfchek"],
+        vtes.VTES["Perfect Paragon"],
+        vtes.VTES["Sela (ADV)"],
+        vtes.VTES["Suhailah"],
+        vtes.VTES["Zayyat, The Sandstorm"],
+    }
+    # clans, votes provided by master cards
+    assert vtes.VTES.search(bonus=["Votes"], clan=["Assamite"], type=["Master"]) == {
+        vtes.VTES["Alamut"],
+        vtes.VTES["The Black Throne"],
+    }
+    # votes provided by titles
+    assert vtes.VTES.search(bonus=["Votes"], clan=["Assamite"], group=[3]) == {
+        vtes.VTES["Rebekah"],
+        vtes.VTES["Enam"],
+    }
+    # title when merged
+    assert vtes.VTES.search(clan=["Assamite"], title=["Justicar"]) == {
+        vtes.VTES["Tegyrius, Vizier (ADV)"],
+    }
+    # traits
+    assert vtes.VTES.search(clan=["Nagaraja"], trait=["Black Hand"]) == {
+        vtes.VTES["Sennadurek"],
+    }
+    assert vtes.VTES.search(clan=["Assamite"], trait=["Red List"]) == {
+        vtes.VTES["Jamal"],
+        vtes.VTES["Tariq, The Silent (ADV)"],
+    }
+    # sect
+    assert vtes.VTES.search(clan=["Assamite"], sect=["Camarilla"], group=[2]) == {
+        vtes.VTES["Al-Ashrad, Amr of Alamut (ADV)"],
+        vtes.VTES["Tegyrius, Vizier"],
+        vtes.VTES["Tegyrius, Vizier (ADV)"],
+    }
+    # trait on library card
+    assert vtes.VTES.search(type=["Action Modifier"], trait=["Black Hand"]) == {
+        vtes.VTES["Circumspect Revelation"],
+        vtes.VTES["Seraph's Second"],
+        vtes.VTES["The Art of Memory"],
+    }
+    # title requirement
+    assert vtes.VTES.search(type=["Reaction"], title=["Justicar"]) == {
+        vtes.VTES["Legacy of Power"],
+        vtes.VTES["Second Tradition: Domain"],
+    }
+    # "Requires titled Sabbat/Camarilla" maps to all possible titles
+    assert vtes.VTES.search(bonus=["Intercept"], title=["Archbishop"]) == {
+        vtes.VTES["Matteus, Flesh Sculptor"],
+        vtes.VTES["National Guard Support"],
+        vtes.VTES["Persona Non Grata"],
+        vtes.VTES["Under Siege"],
+    }
+    # reducing intercept is stealth
+    assert vtes.VTES.search(
+        bonus=["Stealth"], discipline=["chi"], type=["Library"]
+    ) == {
+        vtes.VTES["Fata Morgana"],
+        vtes.VTES["Mirror's Visage"],
+        vtes.VTES["Smoke and Mirrors"],
+        vtes.VTES["Will-o'-the-Wisp"],
+    }
+    # reducing stealth is intercept
+    assert vtes.VTES.search(
+        bonus=["Intercept"], discipline=["chi"], type=["Library"]
+    ) == {
+        vtes.VTES["Draba"],
+        vtes.VTES["Ignis Fatuus"],
+        # it has [chi], intercept is on another discipline, but eh.
+        vtes.VTES["Netwar"],
+        vtes.VTES["Veiled Sight"],
+    }
+    # no discipline (crypt)
+    assert vtes.VTES.search(discipline=["none"], type=["Crypt"]) == {
+        vtes.VTES["Anarch Convert"],
+        vtes.VTES["Sandra White"],
+        vtes.VTES["Smudge the Ignored"],
+    }
+    # no discipline, sect requirement
+    assert vtes.VTES.search(
+        discipline=["none"], sect=["Sabbat"], bonus=["Intercept"]
+    ) == {
+        vtes.VTES["Abbot"],
+        vtes.VTES["Harzomatuili"],
+        vtes.VTES["Under Siege"],
+    }
+    assert vtes.VTES.search(type=["Political Action"], sect=["Independent"]) == {
+        vtes.VTES["Free States Rant"],
+        vtes.VTES["Reckless Agitation"],
+    }
+    assert vtes.VTES.search(type=["Political Action"], sect=["Anarch"]) == {
+        vtes.VTES["Anarch Salon"],
+        vtes.VTES["Eat the Rich"],
+        # this one does not show here because Anarch is not a requirement
+        # could be the other way around, no matter
+        # vtes.VTES["Exclusion Principle"],
+        # that one should not show here - its anti-Anarch, not Anarch
+        # vtes.VTES["Persona Non Grata"],
+        vtes.VTES["Firebrand"],
+        vtes.VTES["Free States Rant"],
+        vtes.VTES["Patsy"],
+        vtes.VTES["Reckless Agitation"],
+        vtes.VTES["Revolutionary Council"],
+        vtes.VTES["Sweeper"],
+    }
+    # multi-disciplines
+    assert vtes.VTES.search(discipline=["multi", "ani"], bonus=["Intercept"]) == {
+        vtes.VTES["Detect Authority"],
+        vtes.VTES["Falcon's Eye"],
+        vtes.VTES["Read the Winds"],
+        vtes.VTES["Speak with Spirits"],
+        vtes.VTES["The Mole"],
+    }
+    assert vtes.VTES.search(discipline=["choice", "ani"], bonus=["Intercept"]) == {
+        vtes.VTES["Detect Authority"],
+        vtes.VTES["Falcon's Eye"],
+        vtes.VTES["Speak with Spirits"],
+        vtes.VTES["The Mole"],
+    }
+    assert vtes.VTES.search(discipline=["combo", "ani"], bonus=["Intercept"]) == {
+        vtes.VTES["Read the Winds"],
+    }
+    # superior disciplines (vampires only)
+    assert vtes.VTES.search(discipline=["OBE"], group=[2]) == {
+        vtes.VTES["Blanche Hill"],
+        vtes.VTES["Matthias"],
+    }
+    # artist
+    assert vtes.VTES.search(artist=["E.M. Gist"]) == {
+        vtes.VTES["Flames of Insurrection"],
+        vtes.VTES["Harmony"],
+        vtes.VTES["Marcus Vitel"],
+        vtes.VTES["Public Enemy"],
+        vtes.VTES["Rutor"],
+    }
 
 
-def test_search():
+def test_search_i18n():
+    # i18n - match the given language in addition to english
+    assert vtes.VTES.search(
+        text="cette carte d'équipement représente un lieu", lang="fr"
+    ) == {
+        vtes.VTES["Living Manse"],
+        vtes.VTES["The Ankara Citadel, Turkey"],
+    }
+    # i18n - also works with region codes
+    assert vtes.VTES.search(
+        text="cette carte d'équipement représente un lieu", lang="fr-fr"
+    ) == {
+        vtes.VTES["Living Manse"],
+        vtes.VTES["The Ankara Citadel, Turkey"],
+    }
+    # i18n - whatever case is used for the region code
+    assert vtes.VTES.search(
+        text="cette carte d'équipement représente un lieu", lang="fr_FR"
+    ) == {
+        vtes.VTES["Living Manse"],
+        vtes.VTES["The Ankara Citadel, Turkey"],
+    }
+    # i18n - do not match translations in other languages
+    assert (
+        vtes.VTES.search(text="esta carta de equipo representa un lugar", lang="fr")
+        == set()
+    )
+    assert vtes.VTES.search(
+        text="esta carta de equipo representa un lugar", lang="es"
+    ) == {
+        vtes.VTES["Living Manse"],
+        vtes.VTES["The Ankara Citadel, Turkey"],
+    }
+
+
+def test_search_cornercases():
     # some tricky cards test (add cards for NR tests)
     # providing a stealth action does not register as "stealth" bonus
     assert vtes.VTES["Tracker's Mark"] in vtes.VTES.search(bonus=["intercept"])
     assert vtes.VTES["Tracker's Mark"] not in vtes.VTES.search(bonus=["stealth"])
     assert vtes.VTES["Brainwash"] not in vtes.VTES.search(bonus=["stealth"])
+    # Gwen Brand whould show up with superior disciplines
+    assert vtes.VTES["Gwen Brand"] in vtes.VTES.search(
+        discipline=["AUS", "CHI", "FOR", "ANI"], clan=["Ravnos"], group=[5]
+    )
 
 
 def test_vekn():
-    vtes.VTES.load_from_vekn()
-    assert len(vtes.VTES) >= 3788
-    assert set(vtes.VTES[100001].__getstate__().keys()) == {
+    test_vtes = vtes._VTES()
+    test_vtes.load_from_vekn()
+    assert len(test_vtes) >= 3788
+    assert set(test_vtes[100001].to_json().keys()) == {
         "_i18n",
         "_name",
         "artists",
@@ -717,3 +1048,7 @@ def test_vekn():
         "types",
         "url",
     }
+
+
+def test_dump():
+    json.dumps(vtes.VTES.to_json())

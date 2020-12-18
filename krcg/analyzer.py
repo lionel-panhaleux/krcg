@@ -1,14 +1,12 @@
 """TWDA analyzer: compute cards affinity and build decks based on TWDA.
 """
-from typing import List, Mapping, Tuple
+from typing import Iterable, List, Tuple
 import collections
 import itertools
 import random
 
-from . import cards
 from . import deck
 from . import logging
-from . import vtes
 
 Condition = deck.Condition
 Candidates = List[Tuple[str, float]]
@@ -35,13 +33,13 @@ class Analyzer(object):
         deck (deck.Deck): Deck being built
     """
 
-    def __init__(self, decks: Mapping, spoilers: bool = True):
+    def __init__(self, decks: Iterable, spoilers: bool = True):
         self.decks = decks
         if spoilers and len(self.decks) > 50:
             self.spoilers = {
                 name: count / len(self.decks)
                 for name, count in collections.Counter(
-                    itertools.chain.from_iterable(d.keys() for d in self.decks.values())
+                    itertools.chain.from_iterable(d.keys() for d in self.decks)
                 ).items()
                 if count > len(self.decks) / 4
             }
@@ -71,7 +69,7 @@ class Analyzer(object):
             The deck built
         """
         self.deck = deck.Deck(author="KRCG")
-        self.refresh(*args, condition=cards.Card.is_crypt)
+        self.refresh(*args, condition=Analyzer.is_crypt)
         # if no seed is given, choose one of the 100 most played cards,
         # but do not pick a spoiler (card played in more than 25% decks).
         if not args:
@@ -82,18 +80,26 @@ class Analyzer(object):
             ]
             logger.info("Randomly selected {}", args[0])
         # build crypt first, then library
-        self.build_deck_part(*args, condition=cards.Card.is_crypt)
-        self.refresh(condition=cards.Card.is_library)
-        self.build_deck_part(condition=cards.Card.is_library)
+        self.build_deck_part(*args, condition=Analyzer.is_crypt)
+        self.refresh(condition=Analyzer.is_library)
+        self.build_deck_part(condition=Analyzer.is_library)
         # add example decks reference in description
         self.deck.comments = "Inspired by:\n" + "\n".join(
-            f" - {twda_id:<20} {example.name or '(No Name)'}"
-            for twda_id, example in self.examples.items()
+            f" - {example.id:<20} {example.name or '(No Name)'}"
+            for example in self.examples
         )
         return self.deck
 
+    @staticmethod
+    def is_crypt(card):
+        return card.crypt
+
+    @staticmethod
+    def is_library(card):
+        return card.library
+
     def refresh(
-        self, *args: str, similarity: float = 0.6, condition: Condition = None
+        self, *args, similarity: float = 0.6, condition: Condition = None
     ) -> None:
         """Sample TWDA. This is the core method of the Analyzer.
 
@@ -119,29 +125,40 @@ class Analyzer(object):
             similarity: matching cards proportion for selection
             condition: filter on card types, clans, etc.
         """
-        reference = []
         if args:
-            reference += [a for a in args]
+            reference = set(args)
+        else:
+            reference = set()
         if self.deck:
-            reference += list(self.deck.card_names(lambda c: c not in self.spoilers))
+            reference |= set(
+                [
+                    card
+                    for card, _count in self.deck.cards(
+                        lambda c: c not in self.spoilers
+                    )
+                ]
+            )
         self.refresh_cursor = len(reference) * len(reference)
         # examples are similar (jaccard index > similarity) decks chosen from TWDA
         # spoilers (cards played in more than 25% decks) are not considered
         if reference:
-            self.examples = {
-                twda_id: example
-                for twda_id, example in self.decks.items()
+            self.examples = [
+                example
+                for example in self.decks
                 if len(
-                    set(reference)
+                    reference
                     & set(
-                        example.card_names(
-                            lambda c: c in reference or c not in self.spoilers
-                        )
+                        [
+                            card
+                            for card, _count in example.cards(
+                                lambda c: c in reference or c not in self.spoilers
+                            )
+                        ]
                     )
                 )
                 / len(reference)
                 >= similarity
-            }
+            ]
         else:
             self.examples = self.decks
         if not self.examples:
@@ -149,7 +166,7 @@ class Analyzer(object):
             raise AnalysisError()
         logger.info("Refresh examples ({})", len(self.examples))
         self.played = collections.Counter()
-        for example in self.examples.values():
+        for example in self.examples:
             self.played.update(card for card, _ in example.cards(condition))
         self.affinity = collections.defaultdict(collections.Counter)
         for card in reference:
@@ -157,14 +174,14 @@ class Analyzer(object):
         # compute average number played for each card
         self.average = collections.Counter()
         self.variance = collections.Counter()
-        for example in self.examples.values():
+        for example in self.examples:
             self.average.update(
                 {
                     card: count / self.played[card]
                     for card, count in example.cards(condition)
                 }
             )
-        for example in self.examples.values():
+        for example in self.examples:
             self.variance.update(
                 {
                     card: pow(count - self.average[card], 2) / self.played[card]
@@ -174,20 +191,18 @@ class Analyzer(object):
         if self.deck is not None:
             # compute number of cards left to find for this deck
             self.cards_left = round(
-                sum(
-                    example.cards_count(condition) for example in self.examples.values()
-                )
+                sum(example.cards_count(condition) for example in self.examples)
                 / len(self.examples)
             )
             # make sure cards_left count respects rules
-            if condition == vtes.VTES.is_library:
+            if condition == Analyzer.is_library:
                 # averaging examples counts often get us close to 90 without
                 # reaching it, so we push for it
                 if self.cards_left > 82:
                     self.cards_left = 90
                 self.cards_left = max(self.cards_left, 60)
                 self.cards_left = min(self.cards_left, 90)
-            if condition == vtes.VTES.is_crypt:
+            if condition == Analyzer.is_crypt:
                 self.cards_left = max(self.cards_left, 12)
             self.cards_left -= self.deck.cards_count(condition)
 
@@ -198,7 +213,7 @@ class Analyzer(object):
             card: The card for which to refresh affinity
             condition: The conditional function candidates have to validate
         """
-        for example in self.examples.values():
+        for example in self.examples:
             if card not in example:
                 continue
             self.affinity[card].update(
@@ -208,7 +223,7 @@ class Analyzer(object):
                 }
             )
 
-    def candidates(self, *args: str, no_filter: bool = False) -> Candidates:
+    def candidates(self, *args: str) -> Candidates:
         """Select candidates using `self.affinity`. Filter banned cards out.
 
         Args:
@@ -225,8 +240,7 @@ class Analyzer(object):
                 {
                     candidate: score
                     for candidate, score in self.affinity.get(card, {}).items()
-                    if no_filter
-                    or not (vtes.VTES[candidate].get("Banned") or candidate in args)
+                    if not (candidate.banned or candidate in args)
                 }
             )
         return candidates.most_common()

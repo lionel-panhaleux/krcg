@@ -3,7 +3,7 @@ from krcg import vtes
 
 
 def test_base(TWDA):
-    A = analyzer.Analyzer(TWDA)
+    A = analyzer.Analyzer(TWDA.values())
     A.refresh()
     nana = vtes.VTES["Nana Buruku"]
     aksinya = vtes.VTES["Aksinya Daclau"]

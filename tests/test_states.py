@@ -5,7 +5,7 @@ from krcg import vtes
 
 
 def test_card():
-    assert vtes.VTES["Aid from Bats"].__getstate__() == {
+    assert vtes.VTES["Aid from Bats"].to_json() == {
         "_i18n": {
             "es-ES": {
                 "card_text": (
@@ -93,7 +93,7 @@ def test_twda(TWDA):
     deck = TWDA["2020bf3hf"]
     test_twda = twda._TWDA()
     test_twda[deck.id] = deck
-    assert test_twda.__getstate__() == [
+    assert test_twda.to_json() == [
         {
             "comments": textwrap.dedent(
                 """
@@ -242,5 +242,5 @@ ousted pretty fast after that before any real damage to me was done.
     ]
 
     read_back = twda._TWDA()
-    read_back.__setstate__(test_twda.__getstate__())
+    read_back.from_json(test_twda.to_json())
     assert len(read_back) == 1

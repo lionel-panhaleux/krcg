@@ -1,10 +1,7 @@
 """Generic utilities used by the library.
 """
-from typing import Any, Callable, Dict, Hashable, List, Sequence
-import argparse
-import arrow
+from typing import Any, Dict, Hashable, List, Sequence
 import collections
-import datetime
 import difflib
 import re
 
@@ -43,7 +40,7 @@ class LRU(collections.OrderedDict):
             del self[oldest]
 
 
-class FuzzyDict(dict):
+class FuzzyDict:
     """A dict providing "fuzzy matching" of its keys.
 
     It matches keys that are "close enough" if there are no exact match,
@@ -66,8 +63,8 @@ class FuzzyDict(dict):
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
-        # cache
-        self.cache = LRU()
+        self._dict = dict()
+        #: cache
         self.keys_cache = None
         #: only use fuzzy match if len(key) >= to THRESHOLD
         self.threshold = threshold
@@ -87,8 +84,6 @@ class FuzzyDict(dict):
         Returns:
             The matched card name, or None. This method does not raise
         """
-        if key in self.cache:
-            return self.cache[key]
         if not isinstance(key, collections.abc.Sequence):
             return None
         if len(key) < self.threshold:
@@ -99,7 +94,6 @@ class FuzzyDict(dict):
         if result:
             result = result[0]
             logger.info('"{}" matched "{}"', key, result)
-            self.cache[key] = result
             return result
         return None
 
@@ -107,7 +101,7 @@ class FuzzyDict(dict):
         """Return all keys that are sequences and can be fuzzy matched."""
         if not self.keys_cache:
             self.keys_cache = [
-                k for k in self.keys() if isinstance(k, collections.abc.Sequence)
+                k for k in self._dict.keys() if isinstance(k, collections.abc.Sequence)
             ]
         return self.keys_cache
 
@@ -116,6 +110,13 @@ class FuzzyDict(dict):
         if alias in self.aliases:
             self._clear_cache()
         self.aliases[alias] = value
+
+    def clear(self):
+        self._dict.clear()
+        self._clear_cache()
+
+    def items(self):
+        return self._dict.items()
 
     def __getitem__(self, key: Hashable):
         """Get a key, try to find a good matching.
@@ -128,14 +129,14 @@ class FuzzyDict(dict):
         """
         key = normalize(key)
         try:
-            return super().__getitem__(key)
+            return self._dict[key]
         except KeyError:
             # aliases must match exactly
             if key in self.aliases:
-                return super().__getitem__(normalize(self.aliases[key]))
+                return self._dict[normalize(self.aliases[key])]
             fuzzy_match = self._fuzzy_match(key)
             if fuzzy_match:
-                return super().__getitem__(fuzzy_match)
+                return self._dict[fuzzy_match]
             raise
 
     def __contains__(self, key):
@@ -150,14 +151,13 @@ class FuzzyDict(dict):
         # doing a fuzzy match at each insertion is costly
         # the FuzzyDict is more likely to be filled once then used
         self._clear_cache()
-        return super().__setitem__(normalize(key), value)
+        self._dict[normalize(key)] = value
 
     def __delitem__(self, key):
         self._clear_cache()
-        return super().__delitem__(normalize(key))
+        del self._dict[normalize(key)]
 
     def _clear_cache(self):
-        self.cache.clear()
         self.keys_cache = None
 
 
@@ -232,95 +232,24 @@ class Trie(collections.defaultdict):
 
 
 def json_pack(obj: Any) -> Any:
-    """Remove empty values in depth, returns a JSON-serializable dict/list structure."""
-    # Basic types
-    if obj is None or isinstance(obj, (bool, int, float)):
-        return obj
-    if isinstance(obj, (str, bytes)):
-        return obj if obj else None
-    # Dates
-    if isinstance(obj, arrow.Arrow):
-        obj = obj.datetime
-    if isinstance(obj, datetime.date):
-        return obj.isoformat()
-    # mappings and iterables (should be last)
-    obj = _deep_map(json_pack, obj)
-    # Anything empty is nulled, then removed in _deep_map
-    return obj if obj else None
-
-
-def json_unpack(obj: Any) -> Any:
-    """Unpacks a dict packed for JSON with json_pack."""
-    # basic types
-    if obj is None or isinstance(obj, (bool, int, float)):
-        return obj
-    if isinstance(obj, bytes):
-        return obj if obj else None
-    # dates
-    if isinstance(obj, str):
-        try:
-            return datetime.date.fromisoformat(obj)
-        except ValueError:
-            pass
-        try:
-            return datetime.datetime.fromisoformat(obj)
-        except ValueError:
-            pass
-        return obj
-    # mappings and iterables
-    obj = _deep_map(json_unpack, obj)
-    # Anything empty is nulled, then removed in _deep_map
-    return obj if obj else None
-
-
-def _deep_map(func: Callable, obj: Any):
-    """Apply function to values of mappings and iterables, filter out None values."""
-    # mappings
-    if isinstance(obj, collections.abc.Mapping):
-        return {
-            key: value
-            for key, value in map(lambda x: (x[0], func(x[1])), obj.items())
-            if value
-        }
-    # iterables (should be last)
-    if isinstance(obj, collections.abc.Iterable):
-        return [value for value in map(func, obj) if value]
-
-
-class NargsChoiceWithAliases(argparse.Action):
-    """Choices with nargs +/*: this is a known issue for argparse
-    cf. https://bugs.python.org/issue9625
-    """
-
-    CHOICES = []
-    ALIASES = {}
-    CASE_SENSITIVE = False
-
-    def __call__(self, parser, namespace, values, option_string=None):
-        if not self.CASE_SENSITIVE:
-            values = [v.lower() for v in values]
-        if values:
-            for value in values:
-                if value not in self.CHOICES and value not in self.ALIASES:
-                    raise argparse.ArgumentError(
-                        self, f"invalid choice: {value} (choose from {self.CHOICES})"
-                    )
-        setattr(
-            namespace,
-            self.dest,
-            [
-                value if value in self.CHOICES else self.ALIASES[value]
-                for value in values
-            ],
-        )
-
-
-class JsonMixin:
-    def __getstate__(self):
-        return json_pack(self.__dict__)
-
-    def __setstate__(self, state: Dict) -> None:
-        self.__dict__.update(json_unpack(state))
+    """Remove empty values in depth"""
+    if isinstance(obj, dict):
+        to_delete = []
+        for k, v in obj.items():
+            json_pack(v)
+            if not v:
+                to_delete.append(k)
+        for k in to_delete:
+            del obj[k]
+    elif isinstance(obj, list):
+        to_delete = []
+        for i, v in enumerate(obj):
+            json_pack(v)
+            if not v:
+                to_delete.append(i)
+        for i in to_delete:
+            obj.pop(i)
+    return obj
 
 
 class i18nMixin:
@@ -360,7 +289,7 @@ class NamedMixin:
         return f"<#{self.id} {self.name}>"
 
     def __hash__(self):
-        return hash(self.id)
+        return self.id
 
     def __eq__(self, rhs):
         return rhs and self.id == getattr(rhs, "id", None)

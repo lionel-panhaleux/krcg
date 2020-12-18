@@ -4,13 +4,17 @@ import logging
 import os.path
 import textwrap
 
+import json
+
 from krcg import twda
 
 
-def test_load():
+def test_load_and_dump():
     test_twda = twda._TWDA()
     test_twda.load()
     assert len(test_twda) >= 3125
+    # test dump
+    json.dumps(test_twda.to_json())
 
 
 def test_2019grdojf(caplog):
@@ -19,7 +23,7 @@ def test_2019grdojf(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2019grdojf.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2019grdojf"].__getstate__() == {
+    assert TWDA["2019grdojf"].to_json() == {
         "id": "2019grdojf",
         "date": "2019-06-29",
         "event": "Garou Rim: Dawn Operation",
@@ -138,7 +142,7 @@ def test_2016ggs(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2016ggs.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2016ggs"].__getstate__() == {
+    assert TWDA["2016ggs"].to_json() == {
         "id": "2016ggs",
         "event": "Gothcon",
         "place": "Goteborg, Sweden",
@@ -251,7 +255,7 @@ def test_2k5alboraya(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k5alboraya.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k5alboraya"].__getstate__() == {
+    assert TWDA["2k5alboraya"].to_json() == {
         "id": "2k5alboraya",
         "event": "Spanish NCQ",
         "place": "Alboraya (Valencia), Spain",
@@ -359,7 +363,7 @@ def test_2k4dcqualifier(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k4dcqualifier.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k4dcqualifier"].__getstate__() == {
+    assert TWDA["2k4dcqualifier"].to_json() == {
         "id": "2k4dcqualifier",
         "event": "Atlantic Regional Qualifier",
         "place": "Washington, D.C.",
@@ -534,7 +538,7 @@ def test_2010tcdbng(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2010tcdbng"].__getstate__() == {
+    assert TWDA["2010tcdbng"].to_json() == {
         "id": "2010tcdbng",
         "event": "Trading Card Day",
         "place": "Bad Naumheim, Germany",
@@ -674,7 +678,7 @@ def test_2012pslp(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2012pslp.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2012pslp"].__getstate__() == {
+    assert TWDA["2012pslp"].to_json() == {
         "id": "2012pslp",
         "event": "Praxis Seizure: Leiria",
         "place": "Leiria, Portugal",
@@ -769,7 +773,7 @@ def test_2k7campeonatojuizforano(caplog):
     ) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k7campeonatojuizforano"].__getstate__() == {
+    assert TWDA["2k7campeonatojuizforano"].to_json() == {
         "id": "2k7campeonatojuizforano",
         "event": "Campeonato Juizforano 2007",
         "place": "Juiz de Fora, Brazil",
@@ -958,7 +962,7 @@ def test_2010pwbla1(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2010pwbla1.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2010pwbla1"].__getstate__() == {
+    assert TWDA["2010pwbla1"].to_json() == {
         "id": "2010pwbla1",
         "event": "Powerbase: Los Angeles Event #1",
         "place": "Strategicon - GAMEX 2010, Los Angeles, California",
@@ -1213,7 +1217,7 @@ def test_2k5sharednun(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k5sharednun.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k5sharednun"].__getstate__() == {
+    assert TWDA["2k5sharednun"].to_json() == {
         "id": "2k5sharednun",
         "event": "Shared Nightmare",
         "place": "Utrecht, Netherlands",
@@ -1345,7 +1349,7 @@ def test_2020pihc(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2020pihc.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2020pihc"].__getstate__() == {
+    assert TWDA["2020pihc"].to_json() == {
         "id": "2020pihc",
         "event": "Personal Involvement",
         "event_link": "http://www.vekn.net/event-calendar/event/9566",
@@ -1545,7 +1549,7 @@ def test_2k8sequeenslandcq(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k8sequeenslandcq.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k8sequeenslandcq"].__getstate__() == {
+    assert TWDA["2k8sequeenslandcq"].to_json() == {
         "id": "2k8sequeenslandcq",
         "event": "Gencon SE Queensland CCQ",
         "place": "Gencon Australia, Brisbane, Australia",
@@ -1666,7 +1670,7 @@ def test_2011ptwolss(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2011ptwolss.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2011ptwolss"].__getstate__() == {
+    assert TWDA["2011ptwolss"].to_json() == {
         "id": "2011ptwolss",
         "date": "2011-10-29",
         "event": "Poison the Well of Life",
@@ -1786,7 +1790,7 @@ def test_2k8tfnwesterville(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k8tfnwesterville.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k8tfnwesterville"].__getstate__() == {
+    assert TWDA["2k8tfnwesterville"].to_json() == {
         "id": "2k8tfnwesterville",
         "date": "2008-01-27",
         "event": "The Final Nights",
@@ -1942,7 +1946,7 @@ def test_2k7fsmc(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k7fsmc.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k7fsmc"].__getstate__() == {
+    assert TWDA["2k7fsmc"].to_json() == {
         "id": "2k7fsmc",
         "date": "2007-12-08",
         "event": "Fee Stake: Mexico City",
@@ -2055,7 +2059,7 @@ def test_2k6nerq_templecon(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k6nerq-templecon.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k6nerq-templecon"].__getstate__() == {
+    assert TWDA["2k6nerq-templecon"].to_json() == {
         "id": "2k6nerq-templecon",
         "date": "2006-01-28",
         "event": "Saqqaf, Keeper of the Grand TempleCon of Set - Northeast Regional "
@@ -2216,7 +2220,7 @@ def test_2k3italyqualifier(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k3italyqualifier.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k3italyqualifier"].__getstate__() == {
+    assert TWDA["2k3italyqualifier"].to_json() == {
         "id": "2k3italyqualifier",
         "date": "2003-09-27",
         "event": "Italian ECQ",
@@ -2446,7 +2450,7 @@ def test_2k8torunminiq(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k8torunminiq.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k8torunminiq"].__getstate__() == {
+    assert TWDA["2k8torunminiq"].to_json() == {
         "id": "2k8torunminiq",
         "date": "2008-05-31",
         "event": "MQ",
@@ -2727,7 +2731,7 @@ def test_2k2eclastq(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k2eclastq.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k2eclastq"].__getstate__() == {
+    assert TWDA["2k2eclastq"].to_json() == {
         "id": "2k2eclastq",
         "date": "2002-11-30",
         "event": "Austrian NC 2002 - Last Chance Qualifier",
@@ -2817,7 +2821,7 @@ def test_2k2stranger(caplog):
     with open(os.path.join(os.path.dirname(__file__), "2k2stranger.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k2stranger"].__getstate__() == {
+    assert TWDA["2k2stranger"].to_json() == {
         "id": "2k2stranger",
         "date": "2002-01-05",
         "event": "The Stranger Among Us",
@@ -2946,7 +2950,7 @@ def test_2k2origins1(caplog):
     assert len(TWDA) == 1
     # for now, Camille / Raven do not show as separated entries in the dict version
     # it would seem a bit old to have two cards with the same ID there
-    assert TWDA["2k2origins1"].__getstate__() == {
+    assert TWDA["2k2origins1"].to_json() == {
         "id": "2k2origins1",
         "date": "2002-07-04",
         "event": "Origins Thursday",
@@ -3139,7 +3143,7 @@ def test_2k8TempleConcordance(caplog):
     ) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1
-    assert TWDA["2k8TempleConcordance"].__getstate__() == {
+    assert TWDA["2k8TempleConcordance"].to_json() == {
         "date": "2008-02-01",
         "event": "TempleConcordance",
         "id": "2k8TempleConcordance",

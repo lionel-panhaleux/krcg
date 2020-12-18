@@ -2,6 +2,7 @@
 from typing import Callable, Dict, Generator, List, Optional, TextIO, Tuple
 import arrow
 import collections
+import datetime
 import requests
 import itertools
 import unidecode
@@ -80,7 +81,7 @@ class Deck(collections.Counter):
         ret = cls(id=uid, author=r.get("author", None))
         ret.date = arrow.get(r["modified"]).date()
         for cid, count in r["cards"].items():
-            ret[vtes.VTES.amaranth[int(cid)]] = count
+            ret[vtes.VTES.amaranth[cid]] = count
         return ret
 
     def check(self) -> bool:
@@ -120,7 +121,7 @@ class Deck(collections.Counter):
             res = False
         return res
 
-    def __getstate__(self) -> dict:
+    def to_json(self) -> dict:
         """A consistent deck serialization for the API
 
         Cards are listed in the order given by the config.TYPE_ORDER list.
@@ -133,7 +134,7 @@ class Deck(collections.Counter):
             "event": self.event,
             "event_link": self.event_link,
             "place": self.place,
-            "date": self.date,
+            "date": self.date.isoformat() if self.date else None,
             "tournament_format": self.tournament_format,
             "players_count": self.players_count,
             "player": self.player,
@@ -176,12 +177,12 @@ class Deck(collections.Counter):
                 )
         return utils.json_pack(ret)
 
-    def __setstate__(self, state) -> None:
-        state = utils.json_unpack(state)
+    def from_json(self, state) -> None:
         self.id = state.get("id")
         self.event = state.get("event")
         self.place = state.get("place")
-        self.date = state.get("date")
+        if "date" in state:
+            self.date = datetime.date.fromisoformat(state["date"])
         self.tournament_format = state.get("tournament_format")
         self.players_count = state.get("players_count")
         self.player = state.get("player")
@@ -197,7 +198,7 @@ class Deck(collections.Counter):
 
     def __reduce__(self):
         """For pickle serialization."""
-        return (Deck, (), self.__getstate__())
+        return (Deck, (), self.to_json())
 
     def __str__(self):
         return self.name or "(No Name)"
@@ -295,7 +296,8 @@ class Deck(collections.Counter):
             lines.append(self.player)
         if self.event_link:
             lines.append(self.event_link)
-        lines.append("")
+        if lines:
+            lines.append("")
         if self.score:
             lines.append(f"-- {self.score}")
             lines.append("")
@@ -307,7 +309,7 @@ class Deck(collections.Counter):
             if self.name or self.author:
                 lines.append("")
             lines.append(self.comments)
-        elif lines[-1] != "":
+        elif lines and lines[-1] != "":
             lines.append("")
         cap = sorted(
             itertools.chain.from_iterable(
@@ -347,7 +349,7 @@ class Deck(collections.Counter):
                         "Camille Devereux",
                         card.capacity,
                         " ".join(sorted(card.disciplines)),
-                        card.title or "",
+                        card.title.lower() if card.title else "",
                         card.clans[0],
                         card.group.upper(),
                     )
@@ -367,7 +369,7 @@ class Deck(collections.Counter):
                         )
                         or "-none-"
                     ),
-                    card.title or "",
+                    card.title.lower() if card.title else "",
                     card.clans[0],
                     card.group.upper(),
                 )

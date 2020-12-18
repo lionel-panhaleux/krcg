@@ -28,16 +28,18 @@ class _TWDA(collections.OrderedDict):
     """
 
     def __init__(self):
+        super().__init__()
         self.by_author = collections.defaultdict(list)
 
-    def __getstate__(self) -> list:
-        return [d.__getstate__() for d in self.values()]
+    def to_json(self):
+        return [d.to_json() for d in self.values()]
 
-    def __setstate__(self, state) -> None:
+    def from_json(self, state) -> None:
         for data in state:
             d = deck.Deck()
-            d.__setstate__(data)
+            d.from_json(data)
             self[d.id] = d
+        self._init()
 
     def load_from_vekn(self) -> None:
         """Load from vekn.net"""
@@ -50,7 +52,7 @@ class _TWDA(collections.OrderedDict):
         r = requests.request("GET", config.KRCG_STATIC_SERVER + "/data/twda.json")
         r.raise_for_status()
         self.clear()
-        self.__setstate__(r.json())
+        self.from_json(r.json())
         self._init()
 
     def load_html(self, source: TextIO) -> None:
@@ -88,9 +90,14 @@ class _TWDA(collections.OrderedDict):
         self.by_author.clear()
         for id, d in self.items():
             if d.author:
-                self.by_author[utils.normalize(d.author)].append(id)
+                author = re.sub(r"\(.*\)", "", d.author)
+                author = re.sub(r'".*"', "", author)
+                author = author.split(",")[0]
+                author = author.split("&")[0]
+                author = author.split(" and ")[0]
+                self.by_author[utils.normalize(author)].append(id)
             if d.player:
-                self.by_author[utils.normalize(d.author)].append(id)
+                self.by_author[utils.normalize(d.player)].append(id)
 
 
 TWDA = _TWDA()
