@@ -261,7 +261,7 @@ class i18nMixin:
         for field, value in trans.items():
             if value and not hasattr(self, field):
                 raise ValueError(f'i18n: "{field}" not present on instance')
-        self._i18n[lang].update(trans)
+        self._i18n[lang[:2]].update(trans)
 
     def i18n_variants(self, field: str):
         for lang, trans in self._i18n.items():
@@ -269,7 +269,12 @@ class i18nMixin:
                 yield lang, trans[field]
 
     def i18n(self, lang: str, field: str = None):
-        ret = self._i18n.get(lang, {})
+        if lang[:2] == "en":
+            if field:
+                return getattr(self, field)
+            else:
+                return self
+        ret = self._i18n.get(lang[:2], {})
         if not field:
             return ret
         return ret.get(field)

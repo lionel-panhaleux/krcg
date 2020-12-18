@@ -275,7 +275,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
 
     def to_json(self):
         return utils.json_pack(
-            {k: v for k, v in self.__dict__.items() if k not in ["crypt", "library"]}
+            {
+                k: v
+                for k, v in self.__dict__.items()
+                if k not in ["crypt", "library", "vekn_name"]
+            }
         )
 
     def from_json(self, state: Dict) -> None:
@@ -336,11 +340,13 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         ret.banned = (
             cls._BAN_MAP[data["Banned"]].isoformat() if data["Banned"] else None
         )
-        ret.artists = [
-            cls._ARTISTS_FIXES.get(s, s)
-            for s in map(str.strip, re.split(r"[;,&]+(?!\sJr\.)", data["Artist"]))
-            if s
-        ]
+        ret.artists = sorted(  # some cards have duplicated artists, eg. Ashur Tablets
+            set(
+                cls._ARTISTS_FIXES.get(s, s)
+                for s in map(str.strip, re.split(r"[;,&]+(?!\sJr\.)", data["Artist"]))
+                if s
+            )
+        )
         ret.adv = bool_or_none("Adv")
         # group can be "any"
         ret.group = str_or_none("Group")
@@ -361,9 +367,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     def _compute_url(self, lang: str = None):
         return (
             config.KRCG_STATIC_SERVER
-            + "/data/"
+            + "/card/"
             + (f"{lang[:2]}/" if lang else "")
-            + re.sub(r"[^\w\d]", "", utils.normalize(self.name).lower())
+            + re.sub(r"[^\w\d]", "", utils.normalize(self.vekn_name).lower())
             + ".jpg"
         )
 
@@ -397,45 +403,45 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             r"^(?P<base>[a-zA-Z]+)?(?P<count>[0-9½]+)?$",
             rarity,
         )
-        ret = {"Release Date": date}
+        ret = {"release_date": date}
         if not match:
             warnings.warn(f"unknown rarity {rarity}")
             return
         base = match.group("base")
         count = match.group("count")
         if not base:
-            ret["Copies"] = int(count or 1)
+            ret["copies"] = int(count or 1)
             return ret
         code = Card._RARITY_BOOSTER_CODES.get(base)
         if code:
-            ret["Rarity"] = code
+            ret["rarity"] = code
         else:
             code = Card._RARITY_PRECON_CODES.get(abbrev, {}).get(base)
             if code:
-                ret["Precon"] = code
+                ret["precon"] = code
             elif code is None:
                 warnings.warn(f"unknown base: {base} in {rarity}")
                 return
         # fix release date for reprints
         if (abbrev, code) in Card._REPRINTS_RELEASE_DATE:
-            ret["Release Date"] = Card._REPRINTS_RELEASE_DATE[
+            ret["release_date"] = Card._REPRINTS_RELEASE_DATE[
                 (abbrev, code)
             ].isoformat()
         count = match["count"]
-        if not count and "Precon" in ret:
+        if not count and "precon" in ret:
             count = 1
         # thank Aye/Orun for this "½" frequency
         if count == "½":
             count = 0.5
         if count:
             count = int(count)
-            if "Rarity" in ret:
+            if "rarity" in ret:
                 try:
-                    ret["Frequency"] = count
+                    ret["frequency"] = count
                 except KeyError:
                     warnings.warn(f"unknown frequency {count} in {rarity}")
             else:
-                ret["Copies"] = count
+                ret["copies"] = count
         return ret
 
 
@@ -562,7 +568,7 @@ class CardMap(utils.FuzzyDict):
         suffix = " (ADV)" if card.adv else ""
         while True:
             if alias:
-                self.add_alias(name + suffix, card)
+                self.add_alias(name + suffix, card.name)
             else:
                 self[name + suffix] = card
             name = name.rsplit(",", 1)
@@ -593,7 +599,7 @@ class CardMap(utils.FuzzyDict):
             trans = {
                 "name": line["Name"],
                 "url": c._compute_url(lang),
-                "card_text": line["Card Text"],
+                "card_text": line["Card Text"].replace("(D)", "Ⓓ"),
                 "sets": {
                     set_name: sets[set_name].i18n(lang, "name")
                     for set_name in c.sets.keys()
@@ -603,6 +609,7 @@ class CardMap(utils.FuzzyDict):
             if "Flavor Text" in line:
                 trans["flavor_text"] = line["Flavor Text"]
             c.i18n_set(lang, trans)
+            self.add(c)
 
         return load_line
 
@@ -640,7 +647,10 @@ class CardTrie:
             lang_search = self.tries[lang].search(text)
         for k in base_search & lang_search:
             del base_search[k]
-        return base_search + lang_search
+        ret = {"en": base_search}
+        if lang:
+            ret[lang] = lang_search
+        return ret
 
 
 class CardSearch:
@@ -710,10 +720,10 @@ class CardSearch:
         for set_, rarities in card.sets.items():
             self.set[set_].add(card)
             for rarity in rarities:
-                if "Precon" in rarity:
-                    self.precon[": ".join([set_, rarity["Precon"]])].add(card)
-                if "Rarity" in rarity:
-                    self.rarity[rarity["Rarity"]].add(card)
+                if "precon" in rarity:
+                    self.precon[": ".join([set_, rarity["precon"]])].add(card)
+                if "rarity" in rarity:
+                    self.rarity[rarity["rarity"]].add(card)
         if "Master" in card.types and re.search(r"(t|T)rifle", card.card_text):
             self.bonus["Trifle"].add(card)
         if card.crypt:
@@ -749,7 +759,10 @@ class CardSearch:
         self._handle_exceptions(card)
 
     def dimensions(self):
-        return {attr: set(getattr(self, attr).keys()) for attr in self.SET_DIMENSIONS}
+        return {
+            attr: sorted(set(getattr(self, attr).keys()))
+            for attr in self.SET_DIMENSIONS
+        }
 
     def __call__(self, **kwargs):
         lang = kwargs.pop("lang", "en")[:2]
@@ -757,22 +770,47 @@ class CardSearch:
         invalid_keys = keys - set(self.DIMENSIONS)
         if invalid_keys:
             raise ValueError(
-                f"{invalid_keys} are not search dimensions. "
+                f"Invalid search dimension {invalid_keys}. "
                 f"Valid dimensions are: {self.DIMENSIONS}"
             )
         if "text" in keys:
             result = set()
             for dim in self.TRIE_DIMENSIONS:
-                result |= set(getattr(self, dim).search(kwargs["text"]).keys())
+                result |= set(
+                    itertools.chain.from_iterable(
+                        m.keys()
+                        for m in getattr(self, dim).search(kwargs["text"]).values()
+                    )
+                )
                 if lang != "en":
                     result |= set(
-                        getattr(self, dim).search(kwargs["text"], lang=lang).keys()
+                        itertools.chain.from_iterable(
+                            m.keys()
+                            for m in getattr(self, dim)
+                            .search(kwargs["text"], lang=lang)
+                            .values()
+                        )
                     )
         else:
             result = copy.copy(self._all)
         for dim in self.TRIE_DIMENSIONS:
             if dim in kwargs:
-                result &= set(getattr(self, dim).search(kwargs.get(dim)).keys())
+                trie_result = set(
+                    itertools.chain.from_iterable(
+                        m.keys()
+                        for m in getattr(self, dim).search(kwargs.get(dim)).values()
+                    )
+                )
+                if lang != "en":
+                    trie_result |= set(
+                        itertools.chain.from_iterable(
+                            m.keys()
+                            for m in getattr(self, dim)
+                            .search(kwargs.get(dim), lang=lang)
+                            .values()
+                        )
+                    )
+                result &= trie_result
         for dim in self.SET_DIMENSIONS:
             for value in kwargs.get(dim) or []:
                 if dim != "discipline":
@@ -1037,12 +1075,12 @@ class _RulingReader:
     def _from_krcg(self, data: Union[dict, list]) -> None:
         if isinstance(data, dict):
             for card, rulings in data.items():
-                ret = _Ruling()
-                ret.cards = [_RulingReader._card_id_name(card)]
                 for ruling in rulings:
+                    ret = _Ruling()
+                    ret.cards = [_RulingReader._card_id_name(card)]
                     ret.text = ruling
                     ret.links = dict(self._get_link(ret.text))
-                yield ret
+                    yield ret
         elif isinstance(data, list):
             for ruling in data:
                 ret = _Ruling()

@@ -213,6 +213,7 @@ class Analyzer(object):
             card: The card for which to refresh affinity
             condition: The conditional function candidates have to validate
         """
+        self.affinity[card] = collections.Counter()
         for example in self.examples:
             if card not in example:
                 continue
@@ -223,7 +224,7 @@ class Analyzer(object):
                 }
             )
 
-    def candidates(self, *args: str) -> Candidates:
+    def candidates(self, *args: str, spoiler_multiplier: float = 0) -> Candidates:
         """Select candidates using `self.affinity`. Filter banned cards out.
 
         Args:
@@ -238,9 +239,13 @@ class Analyzer(object):
         for card in args:
             candidates.update(
                 {
-                    candidate: score
+                    candidate: score / len(args)
                     for candidate, score in self.affinity.get(card, {}).items()
-                    if not (candidate.banned or candidate in args)
+                    if not (
+                        candidate.banned
+                        or candidate in args
+                        or score < self.spoilers.get(candidate, 0) * spoiler_multiplier
+                    )
                 }
             )
         return candidates.most_common()

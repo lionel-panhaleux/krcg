@@ -80,7 +80,11 @@ class _VTES:
         """
         self._init_search()
         ret = self._search.name.search(text, lang)
-        ret = [(card.name, score) for card, score in ret.items()]
+        ret = [
+            (card.name if lang == "en" else card.i18n(lang, "name"), score)
+            for lang, card_score in ret.items()
+            for card, score in card_score.items()
+        ]
         return [x[0] for x in sorted(ret, key=lambda x: (-x[1], x[0]))]
 
     @functools.cached_property

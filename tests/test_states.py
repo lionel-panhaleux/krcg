@@ -7,7 +7,7 @@ from krcg import vtes
 def test_card():
     assert vtes.VTES["Aid from Bats"].to_json() == {
         "_i18n": {
-            "es-ES": {
+            "es": {
                 "card_text": (
                     "[ani] Ataque: 1 de daño a distancia, con 1 maniobra opcional.\n"
                     "[ANI] Como antes, con 1 acoso opcional."
@@ -19,9 +19,9 @@ def test_card():
                 ),
                 "name": "Ayuda de murciélagos",
                 "sets": {"First Blood": "Primera Sangre"},
-                "url": "https://static.krcg.org/data/es/aidfrombats.jpg",
+                "url": "https://static.krcg.org/card/es/aidfrombats.jpg",
             },
-            "fr-FR": {
+            "fr": {
                 "card_text": (
                     "[ani] Frapper à toute portée : 1 point de dégâts, "
                     "avec 1 manœuvre optionnelle.\n"
@@ -35,11 +35,11 @@ def test_card():
                 ),
                 "name": "Aide des chauves-souris",
                 "sets": {"First Blood": "Premier Sang"},
-                "url": "https://static.krcg.org/data/fr/aidfrombats.jpg",
+                "url": "https://static.krcg.org/card/fr/aidfrombats.jpg",
             },
         },
         "_name": "Aid from Bats",
-        "artists": ["Melissa Benson", "Eric Lofgren"],
+        "artists": ["Eric Lofgren", "Melissa Benson"],
         "card_text": (
             "[ani] Strike: 1R damage, with 1 optional maneuver.\n"
             "[ANI] As above, with 1 optional press."
@@ -54,22 +54,22 @@ def test_card():
         "name": "Aid from Bats",
         "sets": {
             "Anarchs": [
-                {"Copies": 2, "Precon": "Gangrel", "Release Date": "2003-05-19"}
+                {"copies": 2, "precon": "Gangrel", "release_date": "2003-05-19"}
             ],
             "Camarilla Edition": [
-                {"Rarity": "Common", "Release Date": "2002-08-19"},
-                {"Copies": 3, "Precon": "Nosferatu", "Release Date": "2002-08-19"},
+                {"rarity": "Common", "release_date": "2002-08-19"},
+                {"copies": 3, "precon": "Nosferatu", "release_date": "2002-08-19"},
             ],
             "First Blood": [
-                {"Copies": 6, "Precon": "Nosferatu", "Release Date": "2019-10-01"}
+                {"copies": 6, "precon": "Nosferatu", "release_date": "2019-10-01"}
             ],
-            "Jyhad": [{"Rarity": "Common", "Release Date": "1994-08-16"}],
+            "Jyhad": [{"rarity": "Common", "release_date": "1994-08-16"}],
             "Keepers of Tradition": [
-                {"Rarity": "Common", "Release Date": "2008-11-19"}
+                {"rarity": "Common", "release_date": "2008-11-19"}
             ],
-            "Third Edition": [{"Rarity": "Common", "Release Date": "2006-09-04"}],
+            "Third Edition": [{"rarity": "Common", "release_date": "2006-09-04"}],
             "Vampire: The Eternal Struggle": [
-                {"Rarity": "Common", "Release Date": "1995-09-15"}
+                {"rarity": "Common", "release_date": "1995-09-15"}
             ],
         },
         "types": ["Combat"],
@@ -85,7 +85,98 @@ def test_card():
                 "[TOM 19960521]"
             ],
         },
-        "url": "https://static.krcg.org/data/aidfrombats.jpg",
+        "url": "https://static.krcg.org/card/aidfrombats.jpg",
+    }
+
+
+def test_multiple_rulings():
+    assert vtes.VTES["Toreador Grand Ball"].to_json() == {
+        "_i18n": {
+            "es": {
+                "card_text": (
+                    "Elige a dos Toreadores preparados que controles, pon esta carta "
+                    "en juego, y gira a uno de los dos. El Toreador girado no se "
+                    "endereza normalmente. Las acciones que no sean de sangrado del "
+                    "otro Toreador no se pueden bloquear. Cualquier siervo puede "
+                    "quemar esta carta con una acción Ⓓ; los Nosferatu obtienen -1 "
+                    "de sigilo en esa acción."
+                ),
+                "name": "Gran baile Toreador",
+                "sets": {"Fifth Edition": "Quinta Edición"},
+                "url": "https://static.krcg.org/card/es/toreadorgrandball.jpg",
+            },
+            "fr": {
+                "card_text": (
+                    "Choisissez deux Toréadors disponibles que vous contrôlez, "
+                    "mettez cette carte en jeu et inclinez un des deux. Le Toréador "
+                    "incliné ne se redresse pas normalement. Les actions qui ne "
+                    "sont pas des morsures de l'autre Toréador ne peuvent pas être "
+                    "bloquées. N'importe quel serviteur peut brûler cette carte en "
+                    "action Ⓓ ; les Nosferatus reçoivent -1 en discrétion durant "
+                    "cette action."
+                ),
+                "name": "Grand bal Toréador",
+                "sets": {"Fifth Edition": "Cinquième édition"},
+                "url": "https://static.krcg.org/card/fr/toreadorgrandball.jpg",
+            },
+        },
+        "_name": "Toreador Grand Ball",
+        "artists": ["Jim Di Bartolo", "Richard Kane Ferguson"],
+        "card_text": (
+            "Choose two ready Toreador you control, put this card in play, "
+            "and lock one of the two. The locked Toreador does not unlock as "
+            "normal. The other Toreador's non-bleed actions cannot be "
+            "blocked. Any minion can burn this card as a Ⓓ action; Nosferatu "
+            "get -1 stealth during that action."
+        ),
+        "clans": ["Toreador"],
+        "id": 101989,
+        "name": "Toreador Grand Ball",
+        "pool_cost": "1",
+        "rulings": {
+            "links": {
+                "[LSJ 19970814]": (
+                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
+                    "/Xd6HOjnqBpw/_wNl-bMoKiAJ"
+                ),
+                "[LSJ 20050114]": (
+                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
+                    "/JWiZmyC2Y6s/q6JHYrE1zKYJ"
+                ),
+                "[TOM 19960528]": (
+                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
+                    "/SNpATL1McBM/yHonNZINkWUJ"
+                ),
+            },
+            "text": [
+                (
+                    'The same vampire can serve as the "second Toreador" for '
+                    "multiple Toreador Grand Balls. [TOM 19960528]"
+                ),
+                (
+                    "The first Toreador chosen for the Toreador Grand Ball "
+                    "is unblockable on all non-bleed actions. This remains "
+                    "true even after the vampire attempts a bleed. [LSJ 19970814]"
+                ),
+                (
+                    'The "does not unlock as normal" effect is redundant '
+                    "with being infernal. If the minion is infernal, his "
+                    "controller can still pay a pool to unlock him. [LSJ 20050114]"
+                ),
+            ],
+        },
+        "sets": {
+            "Camarilla Edition": [{"rarity": "Uncommon", "release_date": "2002-08-19"}],
+            "Dark Sovereigns": [{"rarity": "Uncommon", "release_date": "1995-12-15"}],
+            "Fifth Edition": [
+                {"copies": 4, "precon": "Toreador", "release_date": "2020-11-30"}
+            ],
+            "Keepers of Tradition": [
+                {"rarity": "Uncommon", "release_date": "2008-11-19"}
+            ],
+        },
+        "types": ["Master"],
+        "url": "https://static.krcg.org/card/toreadorgrandball.jpg",
     }
 
 

@@ -195,7 +195,9 @@ def test_from_amaranth():
     assert d.to_json() == {
         "id": "4d3aa426-70da-44b7-8cb7-92377a1a0dbd",
         "date": "2020-12-13",
+        "name": "First Blood: Tremere",
         "author": "BCP",
+        "comments": "https://blackchantry.com/How%20to%20play%20the%20First%20Blood%20Tremere%20deck.pdf",
         "crypt": {
             "count": 12,
             "cards": [

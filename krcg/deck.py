@@ -79,6 +79,8 @@ class Deck(collections.Counter):
         r.raise_for_status()
         r = r.json()["result"]
         ret = cls(id=uid, author=r.get("author", None))
+        ret.name = r.get("title", None)
+        ret.comments = r.get("description", "")
         ret.date = arrow.get(r["modified"]).date()
         for cid, count in r["cards"].items():
             ret[vtes.VTES.amaranth[cid]] = count
@@ -191,10 +193,16 @@ class Deck(collections.Counter):
         self.author = state.get("author")
         self.comments = state.get("comments")
         for card in state.get("crypt", {}).get("cards", []):
-            self[vtes.VTES[card["id"]]] = card["count"]
+            c = vtes.VTES[card["id"]]
+            self[c] = card["count"]
+            if card.get("comments"):
+                self.cards_comments[c] = card["comments"]
         for section in state.get("library", {}).get("cards", []):
             for card in section["cards"]:
-                self[vtes.VTES[card["id"]]] = card["count"]
+                c = vtes.VTES[card["id"]]
+                self[c] = card["count"]
+                if card.get("comments"):
+                    self.cards_comments[c] = card["comments"]
 
     def __reduce__(self):
         """For pickle serialization."""
