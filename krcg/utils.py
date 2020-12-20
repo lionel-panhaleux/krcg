@@ -1,11 +1,24 @@
 """Generic utilities used by the library.
 """
-from typing import Any, Dict, Hashable, List, Sequence
+from typing import (
+    Any,
+    Dict,
+    Generator,
+    Hashable,
+    ItemsView,
+    List,
+    Optional,
+    Sequence,
+    Tuple,
+)
 import collections
+import csv
 import difflib
+import io
 import re
-
 import unidecode
+import urllib.request
+import zipfile
 
 from . import logging
 
@@ -19,25 +32,11 @@ def normalize(s: Any):
     return unidecode.unidecode(s).lower().strip()
 
 
-class LRU(collections.OrderedDict):
-    """Python recipy for LRU cache."""
-
-    def __init__(self, maxsize: int = 256, *args, **kwargs):
-        self.maxsize = maxsize
-        super().__init__(*args, **kwargs)
-
-    def __getitem__(self, key):
-        value = super().__getitem__(key)
-        self.move_to_end(key)
-        return value
-
-    def __setitem__(self, key, value):
-        if key in self:
-            self.move_to_end(key)
-        super().__setitem__(key, value)
-        if len(self) > self.maxsize:
-            oldest = next(iter(self))
-            del self[oldest]
+def get_zip_csv(url: str, *args: str) -> List[Generator[Dict[str, str], None, None]]:
+    """Given a zipfile URL and list of CSV files in it, returns matching CSV readers."""
+    local_filename, _headers = urllib.request.urlretrieve(url)
+    z = zipfile.ZipFile(local_filename)
+    return [csv.DictReader(io.TextIOWrapper(z.open(arg))) for arg in args]
 
 
 class FuzzyDict:
@@ -63,33 +62,20 @@ class FuzzyDict:
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
-        self._dict = dict()
-        #: cache
-        self.keys_cache = None
-        #: only use fuzzy match if len(key) >= to THRESHOLD
         self.threshold = threshold
-        #: Similarity cutoff for underlying difflib.get_close_matches()
         self.cutoff = cutoff
-        #: When a key is not in dict, use an alias if it exists
         self.aliases = aliases
+        self._dict = dict()
+        self._keys_cache = None
 
     def _fuzzy_match(self, key: Hashable) -> Any:
-        """Use difflib to match incomplete or misspelled keys
-
-        It uses a cache to accelerate matching of common errors.
-
-        Args:
-            name: the card name
-
-        Returns:
-            The matched card name, or None. This method does not raise
-        """
+        """Use difflib to match incomplete or misspelled keys"""
         if not isinstance(key, collections.abc.Sequence):
             return None
         if len(key) < self.threshold:
             return None
         result = difflib.get_close_matches(
-            key, self.sequence_keys(), n=1, cutoff=self.cutoff
+            key, self._sequence_keys(), n=1, cutoff=self.cutoff
         )
         if result:
             result = result[0]
@@ -97,35 +83,44 @@ class FuzzyDict:
             return result
         return None
 
-    def sequence_keys(self) -> List[Sequence]:
+    def _sequence_keys(self) -> List[Sequence]:
         """Return all keys that are sequences and can be fuzzy matched."""
-        if not self.keys_cache:
-            self.keys_cache = [
+        if not self._keys_cache:
+            self._keys_cache = [
                 k for k in self._dict.keys() if isinstance(k, collections.abc.Sequence)
             ]
-        return self.keys_cache
+        return self._keys_cache
 
     def add_alias(self, alias: Hashable, value: Hashable) -> None:
+        """Add an alias to the dict.
+
+        The value must be a key in the dict.
+        """
         alias = normalize(alias)
         if alias in self.aliases:
             self._clear_cache()
         self.aliases[alias] = value
 
-    def clear(self):
+    def clear(self) -> None:
+        """Clear the dict."""
         self._dict.clear()
         self._clear_cache()
 
-    def items(self):
+    def items(self) -> ItemsView:
+        """Return the dict items.
+
+        The keys have been normalized (unidecode lowercase), so they may not match
+        the keys used for input.
+
+        Aliases are not included.
+        """
         return self._dict.items()
 
-    def __getitem__(self, key: Hashable):
+    def __getitem__(self, key: Hashable) -> Any:
         """Get a key, try to find a good matching.
 
-        It uses lowercase only, plus config.REMAP for common errors and abbreviations.
-        It also uses difflib to fuzzy match incomplete or misspelled names
-
-        Args:
-            key: the key to search for
+        It uses lowercase only, plus the provided aliases,
+        and uses difflib to fuzzy match incomplete or misspelled keys
         """
         key = normalize(key)
         try:
@@ -139,38 +134,46 @@ class FuzzyDict:
                 return self._dict[fuzzy_match]
             raise
 
-    def __contains__(self, key):
+    def get(self, key: Hashable, default=None) -> Any:
+        """Get a key, or default."""
+        try:
+            return self[key]
+        except KeyError:
+            return default
+
+    def __contains__(self, key: Hashable) -> bool:
         try:
             self.__getitem__(key)
             return True
         except KeyError:
             return False
 
-    def __setitem__(self, key, value):
+    def __setitem__(self, key: Hashable, value: Any) -> None:
         # testing for cache validity to avoid clearing it is premature optimization
         # doing a fuzzy match at each insertion is costly
         # the FuzzyDict is more likely to be filled once then used
         self._clear_cache()
         self._dict[normalize(key)] = value
 
-    def __delitem__(self, key):
+    def __delitem__(self, key: Hashable) -> None:
         self._clear_cache()
         del self._dict[normalize(key)]
 
-    def _clear_cache(self):
-        self.keys_cache = None
+    def _clear_cache(self) -> None:
+        """Clear the keys cache."""
+        self._keys_cache = None
 
 
 class Trie(collections.defaultdict):
     """A Trie structure for text search.
 
-    It relies on Python dict and has the following structure:
+    It relies on a Python dict with following structure:
     {prefix: {reference: score}}.
 
     When a (text, reference) couple is entered in the Trie,
     every prefix of every word of the text is added to the Trie,
     pointing to the reference with a score depending on the length
-    of the prefix and the position in the text (matching forst word is worth double).
+    of the prefix and the position in the text (matching first word is worth double).
 
     The matches are case-insensitive and use unidecode to handle unicode characters.
     """
@@ -179,7 +182,8 @@ class Trie(collections.defaultdict):
         super().__init__(lambda: collections.defaultdict(int))
 
     @staticmethod
-    def _split(text):
+    def _split(text: str) -> List[str]:
+        """Normalize the input text, split words"""
         text = normalize(text)
         if not text:
             return []
@@ -202,7 +206,7 @@ class Trie(collections.defaultdict):
                     * (2 if e == 0 else 1)
                 )
 
-    def search(self, text: str) -> Dict[str, int]:
+    def search(self, text: str) -> Optional[collections.Counter]:
         """Search text into the Trie
 
         The match is case-insensitive and use unidecode, but is otherwise exact.
@@ -212,7 +216,7 @@ class Trie(collections.defaultdict):
         Args:
             text: The text to search
         Returns:
-            References ordered by score
+            Scored references
         """
         ret = None
         for part in Trie._split(text):
@@ -232,7 +236,10 @@ class Trie(collections.defaultdict):
 
 
 def json_pack(obj: Any) -> Any:
-    """Remove empty values in depth"""
+    """Remove empty values in depth.
+
+    Used to prepare dicts or lists for a compact JSON serialization.
+    """
     if isinstance(obj, dict):
         to_delete = []
         for k, v in obj.items():
@@ -253,22 +260,28 @@ def json_pack(obj: Any) -> Any:
 
 
 class i18nMixin:
+    """A mixin for translations.
+
+    It add an `_i18n` attribute to the object,
+    and provides simple methods to manipulate it.
+    """
+
     def __init__(self):
         super().__init__()
         self._i18n = collections.defaultdict(dict)
 
-    def i18n_set(self, lang: str, trans: Dict[str, str]):
+    def i18n_set(self, lang: str, trans: Dict[str, str]) -> None:
         for field, value in trans.items():
             if value and not hasattr(self, field):
                 raise ValueError(f'i18n: "{field}" not present on instance')
         self._i18n[lang[:2]].update(trans)
 
-    def i18n_variants(self, field: str):
+    def i18n_variants(self, field: str) -> Generator[Tuple[str, Any], None, None]:
         for lang, trans in self._i18n.items():
             if field in trans:
                 yield lang, trans[field]
 
-    def i18n(self, lang: str, field: str = None):
+    def i18n(self, lang: str, field: str = None) -> Any:
         if lang[:2] == "en":
             if field:
                 return getattr(self, field)
@@ -281,6 +294,12 @@ class i18nMixin:
 
 
 class NamedMixin:
+    """A mixin for objects with name and ID.
+
+    It provides bool, int, str and repr conversions for convenience,
+    as well as hash and comparison operations so that the object can be indexed.
+    """
+
     def __bool__(self):
         return bool(self.id)
 
@@ -291,13 +310,13 @@ class NamedMixin:
         return self.name
 
     def __repr__(self):
-        return f"<#{self.id} {self.name}>"
+        return f"<{self.__class__.__name__} #{self.id} {self.name}>"
 
     def __hash__(self):
         return self.id
 
-    def __eq__(self, rhs):
+    def __eq__(self, rhs: Any):
         return rhs and self.id == getattr(rhs, "id", None)
 
-    def __lt__(self, rhs):
+    def __lt__(self, rhs: Any):
         return rhs and hasattr(rhs, "name") and self.name < rhs.name

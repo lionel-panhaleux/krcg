@@ -55,16 +55,17 @@ def test_card_variants():
         "Set": "Jyhad",
     }
 
-    def sorted_variant(card):
-        card.setdefault("Aka", "")
-        card.setdefault("Clan", "")
-        card.setdefault("Type", "")
-        card.setdefault("Disciplines", "")
-        card.setdefault("Card Text", "")
-        card.setdefault("Set", "")
-        card.setdefault("Banned", "")
-        card.setdefault("Artist", "")
-        card = cards.Card._from_vekn({"Jyhad": cards.Set(name="Jyhad")}, card)
+    def sorted_variant(data):
+        data.setdefault("Aka", "")
+        data.setdefault("Clan", "")
+        data.setdefault("Type", "")
+        data.setdefault("Disciplines", "")
+        data.setdefault("Card Text", "")
+        data.setdefault("Set", "")
+        data.setdefault("Banned", "")
+        data.setdefault("Artist", "")
+        card = cards.Card()
+        card.from_vekn(data)
         card_map = cards.CardMap()
         card_map.add(card)
         return sorted(k for k in card_map._dict.keys() if isinstance(k, str))

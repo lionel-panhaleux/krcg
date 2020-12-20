@@ -2,13 +2,11 @@
 __pycache__/
 build/
 dist/
-images/
 venv/
 *.egg-info/
 
 # test
 .pytest_cache/
-.env
 
 # editors & OS
 .vscode/

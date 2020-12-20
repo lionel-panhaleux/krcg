@@ -1,6 +1,6 @@
 """TWDA analyzer: compute cards affinity and build decks based on TWDA.
 """
-from typing import Iterable, List, Tuple
+from typing import Callable, Iterable, List, Tuple
 import collections
 import itertools
 import random
@@ -8,7 +8,6 @@ import random
 from . import deck
 from . import logging
 
-Condition = deck.Condition
 Candidates = List[Tuple[str, float]]
 
 logger = logging.logger
@@ -99,7 +98,7 @@ class Analyzer(object):
         return card.library
 
     def refresh(
-        self, *args, similarity: float = 0.6, condition: Condition = None
+        self, *args, similarity: float = 0.6, condition: Callable = None
     ) -> None:
         """Sample TWDA. This is the core method of the Analyzer.
 
@@ -206,7 +205,7 @@ class Analyzer(object):
                 self.cards_left = max(self.cards_left, 12)
             self.cards_left -= self.deck.cards_count(condition)
 
-    def refresh_affinity(self, card: str, condition: Condition = None) -> None:
+    def refresh_affinity(self, card: str, condition: Callable = None) -> None:
         """Add a card to `self.affinity` using current examples.
 
         Args:
@@ -250,7 +249,7 @@ class Analyzer(object):
             )
         return candidates.most_common()
 
-    def build_deck_part(self, *args: str, condition: Condition = None) -> None:
+    def build_deck_part(self, *args: str, condition: Callable = None) -> None:
         """Build a deck part using given condition
 
         Condition is usually `VTES.is_crypt` or `VTES.is_library` but any

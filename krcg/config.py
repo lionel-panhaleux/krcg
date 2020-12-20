@@ -1,191 +1,15 @@
 """Configuration"""
-import os.path
-import tempfile
-
 #: static KRCG server
 KRCG_STATIC_SERVER = "https://static.krcg.org"
-#: what to download
-VEKN_TWDA_URL = "http://www.vekn.fr/decks/twd.htm"
-VEKN_VTES_URL = "http://www.vekn.net/images/stories/downloads/vtescsv_utf8.zip"
-VEKN_VTES_LIBRARY_FILENAME = "vteslib.csv"
-VEKN_VTES_CRYPT_FILENAME = "vtescrypt.csv"
-VEKN_VTES_SETS_FILENAME = "vtessets.csv"
-VEKN_VTES_ENCODING = "utf_8_sig"
-VEKN_VTES_I18N_URLS = {
-    "fr-FR": (
-        "http://www.vekn.net/images/stories/downloads/french/vtescsv_utf8.fr-FR.zip"
-    ),
-    "es-ES": (
-        "http://www.vekn.net/images/stories/downloads/spanish/vtescsv_utf8.es-ES.zip"
-    ),
-}
-VEKN_VTES_I18N_LIBRARY_FILENAME = "vteslib.%s.csv"
-VEKN_VTES_I18N_CRYPT_FILENAME = "vtescrypt.%s.csv"
-VEKN_VTES_I18N_SETS_FILENAME = "vtessets.%s.csv"
-SUPPORTED_LANGUAGES = list(VEKN_VTES_I18N_URLS.keys())
-#: where to store our data
-TEMP_DIR = tempfile.gettempdir()
-TWDA_FILE = os.path.join(TEMP_DIR, "krcg-twda.pkl")
-VTES_FILE = os.path.join(TEMP_DIR, "krcg-vtes.pkl")
-#: widespread nicknames for clans
-CLANS_AKA = {
-    "!brujah": "Brujah antitribu",
-    "!gangrel": "Gangrel antitribu",
-    "!malkavian": "Malkavian antitribu",
-    "!malk": "Malkavian antitribu",
-    "!nosferatu": "Nosferatu antitribu",
-    "!nosfe": "Nosferatu antitribu",
-    "!salubri": "Salubri antitribu",
-    "!salu": "Salubri antitribu",
-    "!toreador": "Toreador antitribu",
-    "!tore": "Toreador antitribu",
-    "!tremere": "Tremere antitribu",
-    "!trem": "Tremere antitribu",
-    "!ventrue": "Ventrue antitribu",
-    "brujah anti": "Brujah antitribu",
-    "gangrel anti": "Gangrel antitribu",
-    "malkavian anti": "Malkavian antitribu",
-    "malk anti": "Malkavian antitribu",
-    "nosferatu anti": "Nosferatu antitribu",
-    "nosfe anti": "Nosferatu antitribu",
-    "salubri anti": "Salubri antitribu",
-    "salu anti": "Salubri antitribu",
-    "toreador anti": "Toreador antitribu",
-    "tore anti": "Toreador antitribu",
-    "tremere anti": "Tremere antitribu",
-    "trem anti": "Tremere antitribu",
-    "ventrue anti": "Ventrue antitribu",
-    "brother": "Blood Brother",
-    "brothers": "Blood Brother",
-    "giov": "Giovanni",
-    "malk": "Malkavian",
-    "naga": "Nagaraja",
-    "nosfe": "Nosferatu",
-    "salu": "Salubri",
-    "tore": "Toreador",
-    "trem": "Tremere",
-    "cacophony": "Daughter of Cacophony",
-    "daughter": "Daughter of Cacophony",
-    "daughters": "Daughter of Cacophony",
-    "set": "Follower of Set",
-    "setite": "Follower of Set",
-    "follower": "Follower of Set",
-    "followers": "Follower of Set",
-    "skulls": "Harbinger of Skulls",
-    "harbinger": "Harbinger of Skulls",
-    "harbingers": "Harbinger of Skulls",
-    "trujah": "True Brujah",
-}
-#: disciplines nicknames/trigrams
-DISC_AKA = {
-    "abo": "Abombwe",
-    "ani": "Animalism",
-    "aus": "Auspex",
-    "cel": "Celerity",
-    "chi": "Chimerstry",
-    "dai": "Daimoinon",
-    "dem": "Dementation",
-    "dom": "Dominate",
-    "for": "Fortitude",
-    "mal": "Maleficia",
-    "mel": "Melpominee",
-    "myt": "Mytherceria",
-    "nec": "Necromancy",
-    "obe": "Obeah",
-    "obf": "Obfuscate",
-    "obt": "Obtenebration",
-    "pot": "Potence",
-    "pre": "Presence",
-    "pro": "Protean",
-    "qui": "Quietus",
-    "san": "Sanguinus",
-    "ser": "Serpentis",
-    "spi": "Spiritus",
-    "str": "Striga",
-    "tem": "Temporis",
-    "tha": "Thaumaturgy",
-    "than": "Thanatosis",
-    "thau": "Thaumaturgy",
-    "thn": "Thanatosis",
-    "val": "Valeren",
-    "vic": "Vicissitude",
-    "vis": "Visceratika",
-}
-#: official disciplines trigrams used in crypt CSV
-DIS_MAP = {
-    "-none-": "none",
-    "abo": "abombwe",
-    "ani": "animalism",
-    "aus": "auspex",
-    "cel": "celerity",
-    "chi": "chimerstry",
-    "dai": "daimoinon",
-    "def": "defense",
-    "dem": "dementation",
-    "dom": "dominate",
-    "for": "fortitude",
-    "inn": "innocence",
-    "jud": "judgment",
-    "mar": "martyrdom",
-    "mel": "melpominee",
-    "myt": "mytherceria",
-    "nec": "necromancy",
-    "obe": "obeah",
-    "obf": "obfuscate",
-    "obt": "obtenebration",
-    "pot": "potence",
-    "pre": "presence",
-    "pro": "protean",
-    "qui": "quietus",
-    "red": "redemption",
-    "san": "sanguinus",
-    "ser": "serpentis",
-    "spi": "spiritus",
-    "tem": "temporis",
-    "tha": "thaumaturgy",
-    "thn": "thanatosis",
-    "val": "valeren",
-    "ven": "vengeance",
-    "vic": "vicissitude",
-    "vin": "vision",  # VIS is used in CSV
-    "vis": "visceratika",
-    "ABO": "ABOMBWE",
-    "ANI": "ANIMALISM",
-    "AUS": "AUSPEX",
-    "CEL": "CELERITY",
-    "CHI": "CHIMERSTRY",
-    "DAI": "DAIMOINON",
-    "DEM": "DEMENTATION",
-    "DOM": "DOMINATE",
-    "FOR": "FORTITUDE",
-    "MEL": "MELPOMINEE",
-    "MYT": "MYTHERCERIA",
-    "NEC": "NECROMANCY",
-    "OBE": "OBEAH",
-    "OBF": "OBFUSCATE",
-    "OBT": "OBTENEBRATION",
-    "POT": "POTENCE",
-    "PRE": "PRESENCE",
-    "PRO": "PROTEAN",
-    "QUI": "QUIETUS",
-    "SAN": "SANGUINUS",
-    "SER": "SERPENTIS",
-    "SPI": "SPIRITUS",
-    "TEM": "TEMPORIS",
-    "THA": "THAUMATURGY",
-    "THN": "THANATOSIS",
-    "VAL": "VALEREN",
-    "VIC": "VICISSITUDE",
-    "VIS": "VISCERATIKA",
-}
-#: custom remap to match players abbreviations and typos
-REMAP = {
-    # our card parsing removes the dash and match parentheses to comments
+SUPPORTED_LANGUAGES = ["fr", "es"]
+#: aliases to match players abbreviations and typos in the TWDA
+ALIASES = {
+    # parsing will consider the legacy double dash "--" as a comment mark
     "bang nakh": "Bang Nakh — Tiger's Claws",
-    # we may not decode HTML properly as most of it is text
+    # common HTML decoding failures
     "alia, god=92s messenger": "Alia, God's Messenger",
     "pentex=99 subversion": "Pentex™ Subversion",
-    # traditions - players really do whatever they want
+    # traditions
     "the first tradition": "First Tradition: The Masquerade",
     "first tradition": "First Tradition: The Masquerade",
     "1st tradition": "First Tradition: The Masquerade",
@@ -299,14 +123,18 @@ REMAP = {
     # punctuation
     "behind you": "Behind You!",
     "psyche": "Psyche!",
+    # too short to be registered as alternate name automatically
+    "call": "Call, The",
+    "coven": "Coven, The",
+    "rack": "Rack, The",
+    "talaq": "Talaq, The Immortal",
     # known abbreviations
     "antediluvian a.": "Antediluvian Awakening",
     "anthelios, the": "Anthelios, The Red Star",
     "archon inv.": "Archon Investigation",
-    "call": "Call, The",
     "carlton": "Carlton Van Wyk",
+    "carver's meat packing": "Carver's Meat Packing and Storage",
     "con ag": "Conservative Agitation",
-    "coven": "Coven, The",
     "direct": "Direct Intervention",
     "delaying": "Delaying Tactics",
     "dreams": "Dreams of the Sphinx",
@@ -348,10 +176,8 @@ REMAP = {
     "pentex": "Pentex(TM) Subversion",
     "pto": "Protect Thine Own",
     "pulse": "Pulse of the Canaille",
-    "rack": "Rack, The",
     "storage": "Storage Annex",
     "sudden": "Sudden Reversal",
-    "talaq": "Talaq, The Immortal",
     "telepathic misdir.": "Telepathic Misdirection",
     "true love's kiss": "True Love's Face",
     "temptation of g.p.": "Temptation of Greater Power",
@@ -375,7 +201,6 @@ REMAP = {
     "ancient influnse": "Ancient Influence",
     "blodd doll": "Blood Doll",
     "carver's meat packing plant": "Carver's Meat Packing and Storage",
-    "carver's meat packing": "Carver's Meat Packing and Storage",
     "deflekion": "deflection",
     "denys": "Deny",
     "divine intervention": "Direct Intervention",

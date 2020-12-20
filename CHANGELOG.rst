@@ -1,11 +1,20 @@
 Changelog
 =========
 
-1.12 (unreleased)
+2.0 (unreleased)
 -----------------
 
-- Use VEKN sets CSV to parse and provide clear set information on cards
+- BREAKING CHANGES:
+  
+  * No more pickling, the init phase is new
+  * Static files generation is now performed in a separated project: krcg-static
+  * Projects using this library (CLI, API, bot, ...) are now in separate repositories
 
+- Use JSON files from static.krcg.org for fast init (see krcg-static)
+- Use VEKN sets CSV to parse and provide clear set information on cards
+- Retrieve a deck list from an Amaranth UID
+- Improved search engine, with many more dimensions, including sets and artists
+- Use int IDs consistently everywhere
 
 1.11 (2020-12-09)
 -----------------

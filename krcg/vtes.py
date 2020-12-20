@@ -36,6 +36,7 @@ class _VTES:
         return [c.to_json() for c in self._cards]
 
     def from_json(self, state):
+        self.clear()
         for c in state:
             card = cards.Card()
             card.from_json(c)
@@ -49,7 +50,7 @@ class _VTES:
         self._search.clear()
 
     def load(self) -> None:
-        """Loaf from KRCG static"""
+        """Load from KRCG static"""
         self.clear()
         self._cards.load()
 
@@ -57,7 +58,7 @@ class _VTES:
         """Load the card database from vekn.net, with translations and rulings"""
         self.clear()
         self._cards.load_from_vekn()
-        self._cards.load_cards_rulings()
+        self._cards.load_rulings()
 
     @functools.cached_property
     def amaranth(self):
@@ -87,10 +88,10 @@ class _VTES:
         ]
         return [x[0] for x in sorted(ret, key=lambda x: (-x[1], x[0]))]
 
-    @functools.cached_property
+    @property
     def search_dimensions(self) -> Dict[str, List[str]]:
         self._init_search()
-        return self._search.dimensions()
+        return self._search.set_dimensions_enums
 
     def search(self, **kwargs):
         self._init_search()

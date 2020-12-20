@@ -197,7 +197,10 @@ def test_from_amaranth():
         "date": "2020-12-13",
         "name": "First Blood: Tremere",
         "author": "BCP",
-        "comments": "https://blackchantry.com/How%20to%20play%20the%20First%20Blood%20Tremere%20deck.pdf",
+        "comments": (
+            "https://blackchantry.com/"
+            "How%20to%20play%20the%20First%20Blood%20Tremere%20deck.pdf"
+        ),
         "crypt": {
             "count": 12,
             "cards": [

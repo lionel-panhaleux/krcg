@@ -1,17 +1,15 @@
 """Deck list parser.
 
-It handles the legacy TWDA as much as possible.
-They are many tricky formats used throughout this historic document.
+It handles the legacy TWDA: many tricky formats used through this historic document.
+Only modifiy this file if you know what you're doing, and proceed with caution.
 """
-from krcg.cards import Card
-from typing import TextIO, Tuple, Union
+from typing import TextIO, Tuple
 import enum
 import math
 import re
 
 import arrow
 
-from . import cards
 from . import config
 from . import logging
 from . import vtes
@@ -112,7 +110,7 @@ _HEADERS_RE = (
 )
 
 # ######################################################################################
-# Card count line regular expression (tricky one)
+# Card count line regular expression (tricky one, core of the parser)
 
 # optional punctuation
 _PUNCTUATION = r"\s*-?((x|X)+\s)?(\*|_)*\s*"
@@ -166,8 +164,25 @@ _DISCIPLINE_TRIGRAM = "|".join(
         "vis",
     ]
 )
-_CRYPT_TRAIT = "|".join(
-    set(utils.normalize(t) for t in cards.CardSearch._ALL_TITLES + ["vote", "votes"])
+_TITLE = "|".join(
+    [
+        "primogen",
+        "prince",
+        "justicar",
+        "inner circle",
+        "imperator",
+        "bishop",
+        "archbishop",
+        "cardinal",
+        "regent",
+        "priscus",
+        "baron",
+        "magaji",
+        "kholo",
+        # number before "vote(s)" that are swallowed by preceding re expression
+        "vote",
+        "votes",
+    ]
 )
 _CLAN = "|".join(
     [
@@ -223,7 +238,7 @@ _CLAN = "|".join(
 _CRYPT_TAIL = (
     r"(?(ante_count)(?P<crypt_tail>\s+\d{1,2}\s+"
     + r"({}|{}|{}|\s|:|\d{{1,2}}|any)*)|%NOMATCH%)?".format(
-        _DISCIPLINE_TRIGRAM, _CRYPT_TRAIT, _CLAN
+        _DISCIPLINE_TRIGRAM, _TITLE, _CLAN
     )
 )
 _PUNCTUATED_TRAIT = "|".join(
@@ -245,6 +260,10 @@ _PUNCTUATED_TRAIT = "|".join(
         "hunter",
         "goblin",
         "changeling",
+        # this one pften appears after double dashes in legacy deck lists:
+        # Bang Nakh -- Tiger's Claws
+        # catch it here to avoid putting it in comments,
+        # there's a matching alias in config.ALIASES
         "tiger's claws",
         # this one is still in the card name !
         # "bastet",
@@ -345,7 +364,7 @@ _LINE_COMMENT = (
     r"\s+(?P<comment_mark>--*|//*\**|\*\**)\s*" r"(?P<line_comment>.+?)(-|/|\*|\s)*"
 )
 _COMMENT = f"({_BRACED_COMMENT}|{_LINE_COMMENT})"
-# full card count line regular expression
+# The full-fledged regular expression used to parse a line in a decklist
 _RE = (
     f"^{_PUNCTUATION}({_ANTE_COUNT})?{_PUNCTUATION}{_NAME}{_CRYPT_TAIL}"
     f"({_POST_COUNT})?({_TRAIT})?{_COMMENT}?\\s*$"
@@ -353,6 +372,8 @@ _RE = (
 
 
 class Mark(enum.Enum):
+    """A comment Mark."""
+
     LINE = enum.auto()
     MULTILINE = enum.auto()
     PREFACE = enum.auto()
@@ -362,12 +383,7 @@ class Mark(enum.Enum):
 class Comment:
     """Helper for comments parsing."""
 
-    def __init__(
-        self,
-        comment: str = "",
-        card: Card = None,
-        mark: Union[None, Mark] = None,
-    ):
+    def __init__(self, comment: str = "", card: object = None, mark: Mark = None):
         self.card = card
         self.mark = mark
         self.string = comment
@@ -450,27 +466,14 @@ class Parser:
             offset: offset to add when parsing part of a bigger stream (for logs)
             twda: if true, parse for TWDA headers
         """
+        if not vtes.VTES:
+            vtes.VTES.load()
         for index, line in enumerate(input, 1):
             logger.extra["line"] = index + offset
             logger.extra["deck"] = self.deck.id
             self.parse_line(index, line, twda)
         # finalize current_comment if any
         self.comment("", mark=Mark.END)
-
-        # Legacy
-        # kept here in case we need to rework the TWDA at some point
-        # used to include config.TWDA_FIXUP fixes
-        # if twda and self.deck.id in config.TWDA_FIXUP:
-        #     fixup = config.TWDA_FIXUP[self.deck.id]
-        #     for card, count in fixup.get("cards", {}).items():
-        #         self.deck[card] = count
-        #     for card, comment in fixup.get("cards_comments", {}).items():
-        #         self.deck.cards_comments[card] = comment
-        #     if "comments" in fixup:
-        #         self.deck.comments = fixup["comments"]
-        #     if "author" in fixup:
-        #         self.deck.author = fixup["author"]
-        #     logger.info("fixed up deck")
 
         # a wrong card count can be a good indication of a parsing error
         if not twda or self.deck.id not in config.TWDA_CHECK_DECK_FAILS:
@@ -488,11 +491,6 @@ class Parser:
         if twda and self.preface:
             if self.parse_twda_headers(index, line):
                 return
-        # import ipdb
-
-        # if index > 34:
-        #     ipdb.set_trace()
-
         card, count = self.get_card(line, twda)
         if card and count:
             self.deck.update({card: count})
@@ -581,7 +579,7 @@ class Parser:
             except AttributeError:
                 pass
 
-    def get_card(self, line: str, twda: bool = False) -> Tuple[str, int]:
+    def get_card(self, line: str, twda: bool = False) -> Tuple[object, int]:
         """Try to find a card and count, register possible comment."""
         if re.match(_HEADERS_RE, utils.normalize(line)):
             return None, 0
@@ -628,7 +626,7 @@ class Parser:
         # do not match post count on a crypt card
         if card and match.group("post_count") and card.crypt:
             card, count = None, 0
-        # Too many preface comments parse like cards in the TWDA
+        # too many preface comments parse like cards in the TWDA
         if twda and name and not self.separator:
             card, count = None, 0
         # if no card was found, the whole line is a comment
@@ -676,7 +674,7 @@ class Parser:
         self.preface = self.preface and not card
         return card, count
 
-    def comment(self, comment: str, card: Card = None, mark: Mark = None) -> None:
+    def comment(self, comment: str, card: object = None, mark: Mark = None) -> None:
         """Handle a comment.
 
         Log if we suspect the potential comment to be a parsing error
