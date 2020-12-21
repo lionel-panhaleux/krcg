@@ -243,7 +243,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.draft = None
         self.rulings = {"text": [], "links": {}}
 
-    @functools.cached_property
+    @property
+    @functools.lru_cache(1)
     def vekn_name(self) -> str:
         """VEKN names as used in legacy decklists tools."""
         assert self.id, "Card is not initialized"
@@ -252,7 +253,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             ret += " (ADV)"
         return ret
 
-    @functools.cached_property
+    @property
+    @functools.lru_cache(1)
     def name(self) -> str:
         """Actual real name printed on the card."""
         assert self.id, "Card is not initialized"
@@ -264,7 +266,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             ret += " (ADV)"
         return ret
 
-    @functools.cached_property
+    @property
+    @functools.lru_cache(1)
     def crypt(self) -> bool:
         """True if this is a crypt card."""
         return set(self.types) & {"Imbued", "Vampire"}
@@ -279,7 +282,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         return utils.json_pack(
             {
                 k: v
-                for k, v in self.__dict__.items()
+                for k, v in list(self.__dict__.items()) + [("name", self.name)]
                 if k not in ["crypt", "library", "vekn_name"]
             }
         )

@@ -4,7 +4,7 @@ Changelog
 2.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Ensure Python 3.7 compatibility
 
 
 2.0 (2020-12-20)

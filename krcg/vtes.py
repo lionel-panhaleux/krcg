@@ -60,7 +60,8 @@ class _VTES:
         self._cards.load_from_vekn()
         self._cards.load_rulings()
 
-    @functools.cached_property
+    @property
+    @functools.lru_cache(1)
     def amaranth(self):
         """Amaranth IDs card map."""
         r = requests.get("http://static.krcg.org/data/amaranth_ids.json")
