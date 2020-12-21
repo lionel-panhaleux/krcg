@@ -133,9 +133,9 @@ class Deck(collections.Counter):
                 "count": self.cards_count(lambda c: c.crypt),
                 "cards": [
                     {
-                        "id": int(card),
+                        "id": card.id,
                         "count": count,
-                        "name": str(card),
+                        "name": card.name,
                         "comments": self.cards_comments.get(card),
                     }
                     for card, count in self.cards(lambda c: c.crypt)
@@ -156,9 +156,9 @@ class Deck(collections.Counter):
             for card, count in cards:
                 ret["library"]["cards"][-1]["cards"].append(
                     {
-                        "id": int(card),
+                        "id": card.id,
                         "count": count,
-                        "name": str(card),
+                        "name": card.name,
                         "comments": self.cards_comments.get(card),
                     }
                 )
