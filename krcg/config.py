@@ -2,6 +2,7 @@
 #: static KRCG server
 KRCG_STATIC_SERVER = "https://static.krcg.org"
 SUPPORTED_LANGUAGES = ["fr", "es"]
+VEKN_TWDA_URL = "http://www.vekn.fr/decks/twd.htm"
 #: aliases to match players abbreviations and typos in the TWDA
 ALIASES = {
     # parsing will consider the legacy double dash "--" as a comment mark
