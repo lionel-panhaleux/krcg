@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.3 (unreleased)
+2.3 (2020-12-21)
 ----------------
 
 - Change the way cards search work. Multi-valued queries make more sense now.
