@@ -4,7 +4,7 @@ Changelog
 2.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Minor fix for python retro-compatibility
 
 
 2.1 (2020-12-21)
