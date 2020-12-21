@@ -4,7 +4,7 @@ Changelog
 2.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Change the way cards search work. Multi-valued queries make more sense now.
 
 
 2.2 (2020-12-21)

@@ -1020,6 +1020,17 @@ def test_search_i18n():
     }
 
 
+def test_search_ranges():
+    assert vtes.VTES.search(group=[1, 2, 3], clan=["kiasyd"]) == {
+        vtes.VTES["Bartholomew"],
+        vtes.VTES["Béatrice L'Angou"],
+        vtes.VTES["Julia Prima"],
+        vtes.VTES["Kassiym Malikhair"],
+        vtes.VTES["Marconius"],
+        vtes.VTES["Quincy, The Trapper"],
+    }
+
+
 def test_search_cornercases():
     # some tricky cards test (add cards for NR tests)
     # providing a stealth action does not register as "stealth" bonus

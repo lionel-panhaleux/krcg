@@ -746,6 +746,9 @@ class CardSearch:
         "precon",
         "bonus",
     ]
+    # for those dimensions, all values must match
+    # in other dimensions, any value can match.
+    intersect_set_dimensions = ["trait", "discipline", "bonus"]
 
     def __init__(self):
         for attr in self.trie_dimensions:
@@ -854,19 +857,28 @@ class CardSearch:
             if kwargs.get(dim):
                 result &= self._text_search(dim, kwargs.get(dim), lang)
         for dim in self.set_dimensions:
-            values = kwargs.get(dim) or []
+            values = kwargs.get(dim, None)
+            if not values:
+                continue
             # allow providing providing dim=value instead of dim=[value]
             if isinstance(values, str):
                 values = [values]
             if not isinstance(values, collections.abc.Iterable):
                 values = [values]
+            dim_result = None
             for value in values:
                 # normalize value if it is not a discipline: those are case sensitive
                 if dim != "discipline":
                     value = self._normalized_map.get(dim, {}).get(
                         utils.normalize(value)
                     )
-                result &= getattr(self, dim, {}).get(value, set())
+                if dim_result is None:
+                    dim_result = copy.copy(getattr(self, dim, {}).get(value, set()))
+                elif dim in self.intersect_set_dimensions:
+                    dim_result &= getattr(self, dim, {}).get(value, set())
+                else:
+                    dim_result |= getattr(self, dim, {}).get(value, set())
+            result &= dim_result
         return result
 
     def _text_search(self, dim: str, text: str, lang: str = "en") -> Set[Card]:
