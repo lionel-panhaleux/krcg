@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1 (unreleased)
+2.1 (2020-12-21)
 ----------------
 
 - Ensure Python 3.7 compatibility
