@@ -3,6 +3,7 @@ from typing import Callable, Generator, Optional, TextIO
 import arrow
 import collections
 import datetime
+import email.utils
 import requests
 import itertools
 import unidecode
@@ -75,6 +76,22 @@ class Deck(collections.Counter):
             vtes.VTES.load()
         for cid, count in r["cards"].items():
             ret[vtes.VTES.amaranth[cid]] = count
+        return ret
+
+    @classmethod
+    def from_vdb(cls, uid: str):
+        """Fetch a deck from VDB."""
+        r = requests.get("https://vdb.smeea.casa/api/deck/" + uid)
+        r.raise_for_status()
+        r = r.json()[uid]
+        ret = cls(id=uid, author=r.get("author", r.get("owner", None)))
+        ret.name = r.get("name", None)
+        ret.comments = r.get("description", "")
+        ret.date = email.utils.parsedate_to_datetime(r["timestamp"]).date()
+        if not vtes.VTES:
+            vtes.VTES.load()
+        for cid, data in itertools.chain(r["crypt"].items(), r["library"].items()):
+            ret[vtes.VTES[int(cid)]] = data["q"]
         return ret
 
     def check(self) -> bool:
