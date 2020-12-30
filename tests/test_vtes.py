@@ -731,7 +731,6 @@ def test_search_basic():
     assert vtes.VTES.search(flavor_text="Baudelaire") == {
         vtes.VTES["Aching Beauty"],
         vtes.VTES["Blood Sweat"],
-        vtes.VTES["Breath of Thanatos"],
         vtes.VTES["Cats' Guidance"],
         vtes.VTES["Earth Meld"],
         vtes.VTES["Form of the Serpent"],

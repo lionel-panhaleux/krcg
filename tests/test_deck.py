@@ -194,7 +194,7 @@ def test_from_amaranth():
     d = deck.Deck.from_amaranth("4d3aa426-70da-44b7-8cb7-92377a1a0dbd")
     assert d.to_json() == {
         "id": "4d3aa426-70da-44b7-8cb7-92377a1a0dbd",
-        "date": "2020-12-13",
+        "date": "2020-12-28",
         "name": "First Blood: Tremere",
         "author": "BCP",
         "comments": (
