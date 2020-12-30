@@ -5,7 +5,7 @@ Changelog
 ----------------
 
 - Add a method to import a deck from VDB
-
+- RTR 20201130
 
 2.3 (2020-12-21)
 ----------------
