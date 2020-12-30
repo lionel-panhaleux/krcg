@@ -2527,6 +2527,7 @@
   - "[AUS][SER] If the action targets multiple Methusalah, you choose one minion, which must be controlled by one of the target Methusalah. [ANK 20180515]"
 102169|Weighted Walking Stick:
   - "If the damage is reduced (eg. {Nephandus}), the corresponding token is not burned (contrary to prevented damage). [LSJ 20100519]"
+  - "Full damage is applied if there are any counter left, even just 1. [ANK 20201229-2]"
 102171|Well-Aimed Car:
   - "[POT] The press can only be used during the current round. [TOM 19960521]"
 102173|Wendell Delburton:
