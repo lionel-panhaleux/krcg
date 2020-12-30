@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.5 (unreleased)
+----------------
+
+- Nothing changed yet.
+
+
 2.4 (2020-12-30)
 ----------------
 
