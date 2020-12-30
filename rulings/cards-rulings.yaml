@@ -796,7 +796,7 @@
 100687|Faceless Night:
   - "[OBF] A minion attempting to block before it is played cannot back out. [LSJ 20081202]"
   - "[OBF] A minion that has attempted to block but failed before it was played is not affected. [ANK 20190509]"
-  - '[OBF] The lock of the minion happens at action resolution. He still locks if he unlocked before that (eg. with {Guard Dogs}). Only cards that can be played "after action resolution" can be played after the lock. [ANK 20171017]'
+  - '[OBF] The lock of the minion happens at action resolution. He can play a reaction before that (eg. {Deflection}), and he still locks if he unlocked before that (eg. with {Guard Dogs}). Only cards that can be played "after action resolution" can be played after the lock happens. [ANK 20171017]'
 100690|Faerie Wards:
   - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]'
   - "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
