@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.4 (unreleased)
+2.4 (2020-12-30)
 ----------------
 
 - Add a method to import a deck from VDB
