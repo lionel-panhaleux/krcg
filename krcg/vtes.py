@@ -18,7 +18,7 @@ class _VTES:
         self._search = cards.CardSearch()
 
     def __bool__(self):
-        return bool(self._cards and self._search)
+        return bool(self._cards)
 
     def __getitem__(self, key):
         return self._cards[key]
