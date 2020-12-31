@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.5 (unreleased)
+2.5 (2020-12-31)
 ----------------
 
 - Minor fixes on TWDA parsing (2 decklists fixed)
