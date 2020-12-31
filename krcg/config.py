@@ -172,6 +172,7 @@ ALIASES = {
     "masquer": "Masquer (Wraith)",
     "mister winthrop": "Mr. Winthrop",
     "molotov": "Molotov Cocktail",
+    "ohoyo hopoksia": "Ohoyo Hopoksia (Bastet)",
     "owl": "Owl Companion",
     "patagia: flaps": "Patagia: Flaps Allowing Limited Flight",
     "pentex": "Pentex(TM) Subversion",
