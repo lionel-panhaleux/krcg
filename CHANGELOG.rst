@@ -4,7 +4,7 @@ Changelog
 2.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix TWDA parsing for plama2k1
 
 
 2.5 (2020-12-31)
