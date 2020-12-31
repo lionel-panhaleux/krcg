@@ -4,7 +4,7 @@ Changelog
 2.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Minor fixes on TWDA parsing (2 decklists fixed)
 
 
 2.4 (2020-12-30)
