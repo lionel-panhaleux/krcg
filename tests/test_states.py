@@ -72,6 +72,15 @@ def test_card():
                 {"rarity": "Common", "release_date": "1995-09-15"}
             ],
         },
+        "scans": {
+            "Anarchs": "https://static.krcg.org/card/set/anarchs/aidfrombats.jpg",
+            "Camarilla Edition": "https://static.krcg.org/card/set/camarilla-edition/aidfrombats.jpg",
+            "First Blood": "https://static.krcg.org/card/set/first-blood/aidfrombats.jpg",
+            "Jyhad": "https://static.krcg.org/card/set/jyhad/aidfrombats.jpg",
+            "Keepers of Tradition": "https://static.krcg.org/card/set/keepers-of-tradition/aidfrombats.jpg",
+            "Third Edition": "https://static.krcg.org/card/set/third-edition/aidfrombats.jpg",
+            "Vampire: The Eternal Struggle": "https://static.krcg.org/card/set/vampire:-the-eternal-struggle/aidfrombats.jpg",
+        },
         "types": ["Combat"],
         "rulings": {
             "links": {
@@ -174,6 +183,12 @@ def test_multiple_rulings():
             "Keepers of Tradition": [
                 {"rarity": "Uncommon", "release_date": "2008-11-19"}
             ],
+        },
+        "scans": {
+            "Camarilla Edition": "https://static.krcg.org/card/set/camarilla-edition/toreadorgrandball.jpg",
+            "Dark Sovereigns": "https://static.krcg.org/card/set/dark-sovereigns/toreadorgrandball.jpg",
+            "Fifth Edition": "https://static.krcg.org/card/set/fifth-edition/toreadorgrandball.jpg",
+            "Keepers of Tradition": "https://static.krcg.org/card/set/keepers-of-tradition/toreadorgrandball.jpg",
         },
         "types": ["Master"],
         "url": "https://static.krcg.org/card/toreadorgrandball.jpg",

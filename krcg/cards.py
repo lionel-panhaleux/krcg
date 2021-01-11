@@ -230,6 +230,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.multidisc = None
         self.card_text = ""
         self.sets = {}
+        self.scans = {}
         self.banned = None
         self.artists = []
         self.adv = None
@@ -343,13 +344,6 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.card_text = (
             data["Card Text"].replace("(D)", "Ⓓ").replace("{", "").replace("}", "")
         )
-        self.sets = dict(
-            Card._decode_set(set_dict, rarity)
-            for rarity in map(str.strip, data["Set"].split(","))
-            if rarity
-        )
-        if not self.sets:
-            warnings.warn(f"no set found for {self}")
         self.banned = (
             self._BAN_MAP[data["Banned"]].isoformat() if data["Banned"] else None
         )
@@ -374,15 +368,27 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.draft = data["Draft"] if "Draft" in data else None
         # computations last: some properties (ie. name) are cached,
         # only use them once everything else is set
+        self.sets = dict(
+            Card._decode_set(set_dict, rarity)
+            for rarity in map(str.strip, data["Set"].split(","))
+            if rarity
+        )
+        if not self.sets:
+            warnings.warn(f"no set found for {self}")
+        self.scans = {
+            name: self._compute_url(expansion=name.lower().replace(" ", "-"))
+            for name in self.sets.keys()
+        }
         self.url = self._compute_url()
 
-    def _compute_url(self, lang: str = None):
+    def _compute_url(self, lang: str = None, expansion: str = None):
         """Compute image URL for given language."""
         return (
             config.KRCG_STATIC_SERVER
             + "/card/"
+            + (f"set/{expansion}/" if expansion else "")
             + (f"{lang[:2]}/" if lang else "")
-            + re.sub(r"[^\w\d]", "", utils.normalize(self.vekn_name).lower())
+            + re.sub(r"[^\w\d]", "", utils.normalize(self.vekn_name))
             + ".jpg"
         )
 

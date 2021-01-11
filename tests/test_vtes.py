@@ -1055,6 +1055,7 @@ def test_vekn():
         "name",
         "pool_cost",
         "rulings",
+        "scans",
         "sets",
         "types",
         "url",
