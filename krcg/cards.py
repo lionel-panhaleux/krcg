@@ -379,8 +379,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             name: self._compute_url(
                 expansion=(
                     {
-                        "Promo-20190408": "promo-pack-1",
-                        "Promo-20181004": "humble-bundle",
+                        "2019 Promo Pack 1": "promo-pack-1",
+                        "2018 Humble Bundle": "humble-bundle",
                     }.get(name, "promo")
                     if set_dict[name].abbrev in set(sets.SetMap.PROMOS)
                     else name.lower().replace(":", "").replace(" ", "-")
