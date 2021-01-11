@@ -6,6 +6,7 @@ Changelog
 
 - Fix TWDA parsing for plama2k1
 - Add card scans URLs
+- Rulings update
 
 2.5 (2020-12-31)
 ----------------
