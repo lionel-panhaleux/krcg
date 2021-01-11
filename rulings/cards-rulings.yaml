@@ -1505,6 +1505,7 @@
 101268|Necrosis:
   - "Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "[THN] If the strike is dodged, environmental damage is not applied. [ANK 20200517]"
+  - "[THN] The environmental damage is not strike damage (eg. {Target Vitals} does not add to the environmental damage). [ANK 20201228-2]"
 101269|Neebi:
   - "When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 101272|Nephandus:
