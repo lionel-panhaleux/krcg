@@ -829,6 +829,8 @@
   - "Does not trigger if the ally is saved by {Left for Dead}. [PIB 20121028]"
   - "Does not trigger if the ally is considered the acting minion during the combat (eg. {Nar-Sheptha}). [ANK 20180913-2]"
   - "Does trigger if the ally burns by himself at the end of combat (eg. {Escaped Mental Patient}). [LSJ 20100527]"
+100710|Fear of Mekhet:
+  - "Can be moved (not played) on a vampire in torpor. [ANK 20210109]"
 100718|Feline Saboteur:
   - "[ANI][OBF] The chosen Methusalah discards, then burn 4 cards, then replace the discarded card. [ANK 20180725]"
 100723|Festivo dello Estinto:
