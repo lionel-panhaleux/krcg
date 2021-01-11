@@ -376,7 +376,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         if not self.sets:
             warnings.warn(f"no set found for {self}")
         self.scans = {
-            name: self._compute_url(expansion=name.lower().replace(" ", "-"))
+            name: self._compute_url(
+                expansion=name.lower().replace(":", "").replace(" ", "-")
+            )
             for name in self.sets.keys()
         }
         self.url = self._compute_url()
