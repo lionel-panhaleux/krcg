@@ -18,7 +18,7 @@ Portions of the materials are the copyrights and trademarks of Paradox Interacti
 and are used with permission. All rights reserved.
 For more information please visit [white-wolf.com](http://www.white-wolf.com).
 
-![Dark Pack](dark-pack.png)
+![Dark Pack](https://raw.githubusercontent.com/lionel-panhaleux/krcg/master/dark-pack.png)
 
 ## Offspring projects
 
