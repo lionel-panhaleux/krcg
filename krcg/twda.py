@@ -5,6 +5,7 @@ TWDA must be configured with `TWDA.configure()` before being used.
 """
 from typing import List, TextIO
 import collections
+import html
 import io
 import pkg_resources  # part of setuptools
 import re
@@ -77,13 +78,15 @@ class _TWDA(collections.OrderedDict):
                 # replace with a version of our own for the worst cases
                 if pkg_resources.resource_exists("twda_fix", f"{id_}.html"):
                     buffer = io.StringIO(
-                        pkg_resources.resource_string("twda_fix", f"{id_}.html").decode(
-                            "utf-8"
+                        html.unescape(
+                            pkg_resources.resource_string(
+                                "twda_fix", f"{id_}.html"
+                            ).decode("utf-8")
                         )
                     )
                 self[id_] = deck.Deck.from_txt(buffer, id=id_, offset=offset, twda=True)
             elif buffer:
-                buffer.write(line)
+                buffer.write(html.unescape(line))
         self._init()
         logger.info("TWDA loaded")
 

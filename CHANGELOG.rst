@@ -4,7 +4,7 @@ Changelog
 2.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Handle HTML escaping when parsing TWDA (eg. &amp; character)
 
 
 2.6 (2021-01-11)

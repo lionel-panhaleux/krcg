@@ -17,6 +17,10 @@ def test_load_and_dump():
     json.dumps(test_twda.to_json())
 
 
+def test_ampersand(TWDA):
+    assert TWDA["2020afb"].name == "Robbing & Rapeing"
+
+
 def test_2019grdojf(caplog):
     """Recent classic layout, we must get everything seamlessly"""
     TWDA = twda._TWDA()
