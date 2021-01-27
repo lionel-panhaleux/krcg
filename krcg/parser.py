@@ -572,7 +572,7 @@ class Parser:
             try:
                 self.deck.author = re.match(
                     r"(((c|C)reated|(d|D)eck)\s*(b|B)y|"
-                    r"(a|A)uthors?|(c|C)reators?)\s*:?\s*(?P<author>.*)$",
+                    r"(a|A)uthors?|(c|C)reators?)\s*(:|\s)\s*(?P<author>.*)$",
                     line,
                 ).group("author")
                 return True
