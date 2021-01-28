@@ -2522,7 +2522,7 @@
   - 'Does not burn if combat ends before it resolves (eg. if the opponent uses a "strike: combat ends"). [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]'
 102164|Weather Control:
   - "Damage is environmental. [RTR 19970630]"
-  - "The damage will occur even if combat is subsequently ended before range (eg. by {Mariel, Lady Thunder}). [LSJ 19971110]"
+  - "The damage is inflicted even if combat is subsequently ended before range (eg. by {Mariel, Lady Thunder}, {Alpha Glint}). [LSJ 19971110] [ANK 20190725]"
   - "The minion can play other pre-range effects before applying the damage and opening the damage prevention window, but he has to apply damage before passing the opportunity to play effects to the next player. [ANK 20170930]"
   - "Both minions have the opportunity to play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]"
 102165|Web of Knives Recruit:
@@ -2744,6 +2744,8 @@
   - "When playing a card requiring a Ventrue, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]"
 200503|Gengis (ADV):
   - "[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
+200508|Gerald Windham:
+  - "His ability gives him votes but no title. [ANK 20190725]"
 200528|Goratrix:
   - "Can steal 2 blood or life. [ANK 20190701]"
 200529|Goratrix (ADV):
@@ -2799,6 +2801,8 @@
   - "If a second Jimmy Dunn is brought out during an action, and the first Jimmy (if he has Vicissitude) plays {Reform Body}, the first Jimmy will go to torpor (from Reform Body), but will then be burned anyhow, since he cannot be contested. [LSJ 19990719] [RTR 19991001]"
   - 'If a second Jimmy Dunn is brought out during an action, the acting vampire is not considered to be "burning" the first Jimmy. [LSJ 19990719] [RTR 19991001]'
   - "If a non-contesting second copy of Jimmy enters play (via {Illusions of the Kindred}, for example), the first Jimmy won't burn himself. [LSJ 19991110]"
+200720|Josef von Bauren:
+  - "His ability can be used multiple times if one hase multiple discard phase actions. [ANK 20190725]"
 200742|Kahina the Sorceress:
   - "Her ability inflicts a total of one damage to a a minion with one or more corruption counters. [LSJ 20030820]"
   - "Keeps her title and votes if she changes sects. [LSJ 20010714]"
