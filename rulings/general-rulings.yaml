@@ -430,9 +430,15 @@
     - 102107|Vengeful Spirit
     - 102191|Wolf Companion
     - 102210|Zombie
-- ruling: 'A "strike: combat ends" will end combat before damage is applied, as will sending the employer to torpor during first strike. [RTR 19941109] [TOM 19951216]'
+- ruling: 'Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
   cards:
+    - 100153|Bestial Vengeance
+    - 100301|Carrion Crows
+    - 100476|Crypt's Sons
+    - 100495|Dark Steel
     - 100593|Duma Rafiki
+    - 100626|Elephant Guardian
+    - 100859|Groaning Corpse
     - 100891|Hatch the Viper
     - 101254|Murder of Crows
     - 101556|Razor Bat
@@ -441,6 +447,8 @@
     - 102107|Vengeful Spirit
     - 102191|Wolf Companion
     - 102210|Zombie
+    - 200017|Aeron
+    - 200908|Mambo Jeanne
 - ruling: "The discipline level used to recruit it decides which version it is (inferior or superior). This does not change once it is in play. [RTR 19941109] [ANK 20180612]"
   cards:
     - 100427|Corpse Balloon
@@ -527,7 +535,7 @@
     - 102064|Under the Skin
     - 102070|Unexpected Coalition
     - 102073|Unholy Radiance
-- ruling: "Can be used during an action, when the controller has the opportunity to play an effect as per section 1.6.1.5 of the rulebook (Sequencing). [ANK 20200616]"
+- ruling: "Can be used during an action, when the controller has the opportunity to play an effect. [ANK 20200616]"
   cards:
     - 100135|The Barrens
     - 100785|Fragment of the Book of Nod
@@ -619,38 +627,6 @@
     - 101584|Regarhagan's Hold
     - 101767|Shilmulo Tarot
     - 101877|Storage Annex
-- ruling: "Damage is not inflicted if the combat ends before normal strike resolution (eg. torpor from a strike with First Strike). [PIB 20140324]"
-  cards:
-    - 200908|Mambo Jeanne
-    - 200017|Aeron
-    - 100301|Carrion Crows
-    - 100476|Crypt's Sons
-    - 100495|Dark Steel
-    - 100859|Groaning Corpse
-    - 101254|Murder of Crows
-    - 102107|Vengeful Spirit
-    - 102191|Wolf Companion
-    - 102210|Zombie
-    - 100153|Bestial Vengeance
-    - 100626|Elephant Guardian
-    - 100891|Hatch the Viper
-    - 101734|Shade
-- ruling: 'Damage is inflicted even if the opponent dodges. It is not inflicted if anyone uses a "strike: combat ends". [ANK 20200422]'
-  cards:
-    - 200908|Mambo Jeanne
-    - 200017|Aeron
-    - 100301|Carrion Crows
-    - 100476|Crypt's Sons
-    - 100495|Dark Steel
-    - 100859|Groaning Corpse
-    - 101254|Murder of Crows
-    - 102107|Vengeful Spirit
-    - 102191|Wolf Companion
-    - 102210|Zombie
-    - 100153|Bestial Vengeance
-    - 100626|Elephant Guardian
-    - 100891|Hatch the Viper
-    - 101734|Shade
 - ruling: "Does not gain additional strikes from its owner. [RTR 19941109]"
   cards:
     - 100476|Crypt's Sons
