@@ -2587,8 +2587,10 @@
   - "The damage inflicted by his ability is environmental. [RTR 19970630] [LSJ 20070328]"
   - "His ability to get a press can only be used during the press step. [PIB 20150121]"
 "200019|Agaitas, The Scholar of Antiquities":
-  - "Additional draws are not subject to his ability (eg. {Infernal Pursuit}). [LSJ 20011202]"
+  - "Additional draws are not subject to his ability (eg. {Infernal Pursuit}, {Aura Reading}, {Learjet}). [LSJ 20011202]"
   - "If Agaitas is burned while cards owned by your prey are still face-up in front of you, you can still play and discard them as normal, but you cannot draw in your prey's library until you control Agaitas anew. [LSJ 20100304]"
+  - "Cards from his ability that go into an ash heap, hand, or library always go into their owner's ash heap, hand, or library (eg. using {Heart of Nizchetus}). [RTR 19970425] [LSJ 20060921]"
+  - "A weapon available from his ability can be chose for a {Concealed Weapon}. [LSJ 20060913]"
 200033|Akram:
   - "If his ability is used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "His ability cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
