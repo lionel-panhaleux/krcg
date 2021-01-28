@@ -880,8 +880,8 @@
 100758|Force of Personality:
   - '[PRE] [ACTION MODIFIER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 100759|Force of Will:
-  - "If the action is canceled before the aggravated damage is done, then the damage is not done (it is lost). If the action is merely ended (by {Change of Target}), then the damage occurs as normal. [RTR 20020501] [LSJ 20020927]"
-  - "{Mask of a Thousand Faces} cannot be used to take over a Force of Will action, since the former requires an unlocked vampire and the latter requires a locked one. [LSJ 20020927]"
+  - "If the action does not reach resolution (eg. {The Kiss of Ra}), the damage is not done. If the action merely ends (eg. {Change of Target}) or has no effect (eg. because cost cannot be paid), the damage occurs as normal. [RTR 20020501] [LSJ 20020927] [ANK 20210124]"
+  - "{Mask of a Thousand Faces} cannot be used to take over, since it requires an unlocked vampire and the action requires a locked one. [LSJ 20020927]"
 100760|Forced Awakening:
   - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
   - "If he fails to block, the vampire only burns a blood when the action begins to resolve (successfully or not). He can pay for reactions after declining to block, before burning a blood. [LSJ 19990421]"
