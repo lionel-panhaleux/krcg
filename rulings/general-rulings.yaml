@@ -619,3 +619,46 @@
     - 101584|Regarhagan's Hold
     - 101767|Shilmulo Tarot
     - 101877|Storage Annex
+- ruling: "Damage is not inflicted if the combat ends before normal strike resolution (eg. torpor from a strike with First Strike). [PIB 20140324]"
+  cards:
+    - 200908|Mambo Jeanne
+    - 200017|Aeron
+    - 100301|Carrion Crows
+    - 100476|Crypt's Sons
+    - 100495|Dark Steel
+    - 100859|Groaning Corpse
+    - 101254|Murder of Crows
+    - 102107|Vengeful Spirit
+    - 102191|Wolf Companion
+    - 102210|Zombie
+    - 100153|Bestial Vengeance
+    - 100626|Elephant Guardian
+    - 100891|Hatch the Viper
+    - 101734|Shade
+- ruling: 'Damage is inflicted even if the opponent dodges. It is not inflicted if anyone uses a "strike: combat ends". [ANK 20200422]'
+  cards:
+    - 200908|Mambo Jeanne
+    - 200017|Aeron
+    - 100301|Carrion Crows
+    - 100476|Crypt's Sons
+    - 100495|Dark Steel
+    - 100859|Groaning Corpse
+    - 101254|Murder of Crows
+    - 102107|Vengeful Spirit
+    - 102191|Wolf Companion
+    - 102210|Zombie
+    - 100153|Bestial Vengeance
+    - 100626|Elephant Guardian
+    - 100891|Hatch the Viper
+    - 101734|Shade
+- ruling: "Does not gain additional strikes from its owner. [RTR 19941109]"
+  cards:
+    - 100476|Crypt's Sons
+    - 100593|Duma Rafiki
+    - 101254|Murder of Crows
+    - 102107|Vengeful Spirit
+    - 102191|Wolf Companion
+    - 102210|Zombie
+    - 100626|Elephant Guardian
+    - 100891|Hatch the Viper
+    - 101734|Shade
