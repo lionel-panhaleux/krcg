@@ -743,7 +743,7 @@
 100641|Enchanted Marionette:
   - "The effect is not optional. [RTR 19980707] [LSJ 19980722]"
 100645|Enkil Cog:
-  - "If it is locked to perform an action and the action is canceled, it stays locked and the minion can choose to undertake an action again or let the Cog effect be lost. [LSJ 20081213-1]"
+  - "If locked to take an action and the action is canceled as it is played (not if it is canceled after, eg. with {Tangle Atropos' Hand}), it stays locked and the minion can choose to take an action again or let the Cog effect be lost. [LSJ 20081213-1] [ANK 20210124]"
 100646|Ennoia's Theater:
   - "Only requires one clan or the other (Gangrel or Gangrel antitribu) to be played. [ANK 20190203]"
   - "Can be used at any moment during the influence phase to get the additional transfer. [RTR 20180303]"
