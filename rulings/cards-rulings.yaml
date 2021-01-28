@@ -223,8 +223,7 @@
   - "[dom][pre] [COMBAT][REACTION] Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
 100190|Blissful Agony:
   - "[val] Damage is environmental. [RTR 19970630]"
-  - '[val] Damage is inflicted even if the opponent dodges. It is not inflicted if anyone uses a "strike: combat ends". [ANK 20200422]'
-  - "[val] Damage is not inflicted if the combat ends before normal strike resolution (eg. torpor from a strike with First Strike). [PIB 20140324]"
+  - '[val] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
   - "[VAL] If dodged, there is no new combat. [LSJ 20051020]"
   - "[VAL] In the new combat, the opponent goes first. [LSJ 20011214-3] [LSJ 20031212]"
   - "[VAL] Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
@@ -399,7 +398,7 @@
   - "[REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
   - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]"
 100323|Change of Target:
-  - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [LSJ 20070709]"
+  - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [LSJ 20070709]"
   - 'Actions without card (provided by the rulebook) are not "the same" as actions provided by cards (played or in play). [LSJ 20060522]  [LSJ 20060824] [LSJ 20080725] [LSJ 20090617]'
   - "Actions without card (provided by the rulebook) can be repeated if they have different targets. Equipping from a minion targets the equipments: if one equipment is the same, the action is the same. [RTR 19950509] [LSJ 20080710] [ANK 20200502]"
   - "Actions provided by cards in play are not the same if the card is not the same, even if the cards have the same name. [LSJ 20080725]"
@@ -492,8 +491,7 @@
   - "[DEM] Can only be used during a bleed action. [ANK 20171023] [RTR 19941109]"
 100412|Conscripted Statue:
   - "[vis] Damage is environmental. [RTR 19970630]"
-  - '[vis] Damage is inflicted even if the opponent dodges. It is not inflicted if anyone uses a "strike: combat ends". [ANK 20200422]'
-  - "[vis] Damage is not inflicted if the combat ends before normal strike resolution (eg. torpor from a strike with First Strike). [PIB 20140324]"
+  - '[vis] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
 100414|Conservative Agitation:
   - "Cannot allocate all X points to a single Methusalah, but you can allocate points to yourself. [LSJ 20000622]"
   - "Can allocate more points than a Methusalah has pool. [LSJ 20020819]"
@@ -566,8 +564,7 @@
   - "Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]"
 100496|Darkling Trickery:
   - "[MYT] Damage is environmental. [RTR 19970630] [LSJ19971028]"
-  - '[MYT] Damage is inflicted even if the opponent dodges. It is not inflicted if anyone uses a "strike: combat ends". [ANK 20200422]'
-  - "[MYT] Damage is not inflicted if the combat ends before normal strike resolution (eg. torpor from a strike with First Strike). [PIB 20140324]"
+  - '[MYT] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
 "100499|Dartmoor, England":
   - "May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]"
 100501|Dawn Operation:
@@ -702,8 +699,6 @@
   - "[PRO] If they are more than two Dual Forms of the same vampires, all the other are burned when one leaves the ready region, whatever chain they form. [LSJ 20050117]"
   - "[PRO] If more than one go to torpor at the same time (eg. from {Edged Illusion}), the controller chooses which one he keeps. [LSJ 20050805]"
   - "[PRO] The reduction in capacity is permanent, even if the Dual Form is burned. It still applies in the uncontrolled region if the vampire gets back into it. [LSJ 20051103]"
-100593|Duma Rafiki:
-  - "His ability does not apply if the combat ends before normal strike resolution (eg. torpor from a strike with First Strike). [PIB 20140324]"
 100596|Dust to Dust:
   - "The press and maneuver can only be used during the current round. [TOM 19960521]"
 100597|Dust Up:
@@ -1244,6 +1239,8 @@
 101062|The Kiss of Ra:
   - "Can be played by an acting vampire in torpor. [LSJ 19970325]"
   - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
+  - "The action has not reached resolution. The same vampire can undertake the same action again, but not if it was blocked then continued before (eg. [PRO] {Form of Mist}). [LSJ 20070709] [LSJ 20090220] [ANK 20210124]"
+  - "The action was still taken (eg. counts against {Enkil Cog} of [OBF] {Veil the Legion}). [ANK 20210124]"
 101066|Kraken's Kiss:
   - "[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]"
   - "[VIC] The press can only be used during the current round. [TOM 19960521]"
@@ -1549,7 +1546,7 @@
 101305|NRA PAC:
   - "Does not affect equip actions performed prior to its arrival in play. [LSJ 20061218]"
 101309|Obedience:
-  - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [LSJ 20070709]"
+  - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [LSJ 20070709]"
   - 'Actions without card (provided by the rulebook) are not "the same" as actions provided by cards (played or in play). [LSJ 20060522]  [LSJ 20060824] [LSJ 20080725] [LSJ 20090617]'
   - "Actions without card (provided by the rulebook) can be repeated if they have different targets. Equipping from a minion targets the equipments: if one equipment is the same, the action is the same. [RTR 19950509] [LSJ 20080710] [ANK 20200502]"
   - "Actions provided by cards in play are not the same if the card is not the same, even if the cards have the same name. [LSJ 20080725]"
@@ -1723,7 +1720,7 @@
   - "Can be retrieved by {Marthe Dizier} (reversal of previous ruling). [PIB 20111208]"
 101511|Psychomachia:
   - "The blocker is not locked. [LSJ 20030902-1]"
-  - "[pre]: The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [RTR 20020501] [LSJ 20070709]"
+  - "[pre]: The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20020501] [LSJ 20070709]"
 101515|Pulled Fangs:
   - "Counts up damage successfully inflicted during the round by the minions, retainers do not count. [TOM 19950304]"
   - "Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
@@ -1776,7 +1773,7 @@
 101571|Recure of the Homeland:
   - "Is not the default action, no blood is paid to leave torpor. [ANK 20181017]"
 101573|Red Herring:
-  - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) as per section 6.1 of the rules. [LSJ 20070709]"
+  - "The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [LSJ 20070709]"
   - 'Actions without card (provided by the rulebook) are not "the same" as actions provided by cards (played or in play). [LSJ 20060522]  [LSJ 20060824] [LSJ 20080725] [LSJ 20090617]'
   - "Actions without card (provided by the rulebook) can be repeated if they have different targets. Equipping from a minion targets the equipments: if one equipment is the same, the action is the same. [RTR 19950509] [LSJ 20080710] [ANK 20200502]"
   - "Actions provided by cards in play are not the same if the card is not the same, even if the cards have the same name. [LSJ 20080725]"
@@ -2242,8 +2239,9 @@
 101934|Taming the Beast:
   - "[abo] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 101935|Tangle Atropos' Hand:
-  - 'The canceled action has not been "performed" in respect to section 6.1 of the rules. The same vampire can undertake the same action again. [LSJ 20070709]'
-  - 'If the action was blocked then continued (eg. {Form of Mist}) before being canceled, it has been "performed" in respect to section 6.1 of the rules. [LSJ 20090220]'
+  - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
+  - "The action has not reached resolution. The same vampire can undertake the same action again, but not if it was blocked then continued before (eg. [PRO] {Form of Mist}). [LSJ 20070709] [LSJ 20090220] [ANK 20210124]"
+  - "The action was still taken (eg. counts against {Enkil Cog} or [OBF] {Veil the Legion}). [ANK 20210124]"
 101938|Target Hand:
   - "Is played during the Strike phase (6.4.3) even if you commit to a strike in the Determine Range phase (6.4.2) (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]"
   - "If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]"
@@ -2322,8 +2320,7 @@
   - 'If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
 101976|Thoughts Betrayed:
   - "[dom] Damage is environmental. [RTR 19970630] [ANK 20200422]"
-  - "[dom] Damage is inflicted if the range is closed, even if the opponent dodges. [ANK 20200422]"
-  - "[dom] Damage is not inflicted if the combat ends before normal strike resolution (eg. torpor from a strike with First Strike). [PIB 20140324]"
+  - '[dom] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
 101979|Three's a Crowd:
   - "The press can only be used during the current round. [TOM 19960521]"
 101983|Thrown Sewer Lid:
