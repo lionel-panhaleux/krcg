@@ -2215,6 +2215,8 @@
 101914|Swarm:
   - 'If grabbed by a "this vampire employs" effect (not the normal employ action), the vampire receiving the Swarm does not get to move the Swarm on to a new target. [LSJ 20051121]'
   - "If the action to employ the Swarm is blocked, the Swarm goes on the acting minion immediately, before combat, if any. [LSJ 20090601]"
+101919|Sword of Judgment:
+  - "You get the additional strike even if you don't use the weapon's strike [LSJ 20030213-2]"
 101920|Sword of Nuln:
   - "If the target has only one blood left, he pays what he can, still fails to heal the damage and goes to torpor empty. [LSJ 20090901] [LSJ 20030522-2]"
   - "Aggravated damage are not healed by default, so they are not doubled. If the target can heal them (eg. {Repair the Undead Flesh}), he must pay double. [LSJ 20031219] [LSJ 20100527]"
