@@ -5,7 +5,8 @@ Changelog
 ----------------
 
 - Handle HTML escaping when parsing TWDA (eg. &amp; character)
-
+- Additional rulings
+- Improved Author parsing in TWDA
 
 2.6 (2021-01-11)
 ----------------
