@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.7 (unreleased)
+2.7 (2021-01-29)
 ----------------
 
 - Handle HTML escaping when parsing TWDA (eg. &amp; character)
