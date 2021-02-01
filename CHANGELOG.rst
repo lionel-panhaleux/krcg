@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.8 (unreleased)
+2.8 (2021-02-01)
 ----------------
 
 - Additional rulings
