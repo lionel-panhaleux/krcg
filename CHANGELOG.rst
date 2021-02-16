@@ -4,7 +4,7 @@ Changelog
 2.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Additional rulings
 
 
 2.8 (2021-02-01)
