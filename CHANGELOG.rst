@@ -4,7 +4,7 @@ Changelog
 2.10 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix Lackey format: now handles quotes in names properly
 
 
 2.9 (2021-02-16)

@@ -418,11 +418,15 @@ class Deck(collections.Counter):
 
     def _to_txt_lackey(self) -> str:
         """Format used by LackeyCCG."""
+
+        def lackerize(name):
+            return unidecode.unidecode(card.vekn_name).replace('"', "'")
+
         lines = []
         for _, cards in self._sorted_library():
             for card, count in cards:
-                lines.append(f"{count}\t{unidecode.unidecode(card.vekn_name)}")
+                lines.append(f"{count}\t{lackerize(card.vekn_name)}")
         lines.append("Crypt:")
         for card, count in self.crypt:
-            lines.append(f"{count}\t{unidecode.unidecode(card.vekn_name)}")
+            lines.append(f"{count}\t{lackerize(card.vekn_name)}")
         return "\n".join(lines)
