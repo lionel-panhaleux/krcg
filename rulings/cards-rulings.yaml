@@ -48,7 +48,6 @@
   - If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]
   - Requirements do not apply. [ANK 20200901]
 100043|Amaranth:
-  - Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]
   - If both minions want to play a card "when a vampire should go into torpor", acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Amaranth} and vice-versa. [RTR 20010710]
 100045|Ambulance:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
