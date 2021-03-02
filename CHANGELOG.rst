@@ -5,7 +5,7 @@ Changelog
 -----------------
 
 - Fix Lackey format: now handles quotes in names properly
-
+- Additional rulings
 
 2.9 (2021-02-16)
 ----------------
