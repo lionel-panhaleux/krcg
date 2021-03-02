@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.10 (unreleased)
+2.10 (2021-03-02)
 -----------------
 
 - Fix Lackey format: now handles quotes in names properly
