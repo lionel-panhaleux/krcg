@@ -1416,7 +1416,7 @@
 101179|Mask of a Thousand Faces:
   - Can only be played by the controller of the acting minion. [LSJ 19990425]
   - Cannot be used to take over an action granted by an equipment the masked minion has, even if the masking vampire also has the same equipment. [LSJ 20020926]
-  - The action remains the same. All action modifiers remain in effect, but inherent modifiers (a minion's inherent +1 bleed for example) do not. Other effects applied to the action also carry over to the new masking vampire. [RTR 19951110] [LSJ 19971201] [RTR 20030519] [LSJ 20030521]
+  - The action remains the same. All action modifiers remain in effect, but inherent modifiers (a minion's inherent +1 bleed for example) do not. All other effects carry over to the new masking vampire. [RTR 19951110] [LSJ 19971201] [RTR 20030519] [LSJ 20030521] [ANK 20210309]
   - Cannot be used to mask an action if the masking vampire is not capable of taking that action, nor if any effect (modifier, reaction, {Aching Beauty}, inherent stealth), has been played on this action that could not have been played if the masking minion were the acting minion (not counting blood spent). [RTR 19980623] [RTR 20030519] [LSJ 20030520] [RTR 20041202]
   - Can be used after the action is blocked and before the block resolution (eg. {Venenation} can be played both before and after). [LSJ 20010803]
   - Can be used after blocks are declined if the masked minion was benefiting from an effect that made him unblockable, even if the masking minion does not benefit from the same effect (eg. {Toreador Grand Ball}, {Nakhthorheb}). [PIB 20150924-1] [PIB 20150930]
@@ -2641,7 +2641,7 @@
   - Additional draws are not subject to his ability (eg. {Infernal Pursuit}, {Aura Reading}, {Learjet}). [LSJ 20011202]
   - If Agaitas is burned while cards owned by your prey are still face-up in front of you, you can still play and discard them as normal, but you cannot draw in your prey's library until you control Agaitas anew. [LSJ 20100304]
   - Cards from his ability that go into an ash heap, hand, or library always go into their owner's ash heap, hand, or library (eg. using {Heart of Nizchetus}). [RTR 19970425] [LSJ 20060921]
-  - A weapon available from his ability can be chose for a {Concealed Weapon}. [LSJ 20060913]
+  - A weapon available from his ability can be chosen for a {Concealed Weapon}. [LSJ 20060913]
 200033|Akram:
   - If his ability is used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]
   - His ability cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]
