@@ -4,7 +4,7 @@ Changelog
 2.11 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix Talley, The Hound card name
 
 
 2.10 (2021-03-02)
