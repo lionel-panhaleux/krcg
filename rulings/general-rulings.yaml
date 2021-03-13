@@ -643,3 +643,7 @@
     - 100064|Ancient Influence
     - 101591|Reins of Power
     - 101417|Political Stranglehold
+- ruling: "The vampire's controller chooses to use the effect of the card or not. [ANK 20210309-3]"
+  cards:
+    - 101388|Perfectionist
+    - 100425|Corporal Reservoir
