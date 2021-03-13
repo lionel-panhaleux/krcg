@@ -638,3 +638,8 @@
     - 100626|Elephant Guardian
     - 100891|Hatch the Viper
     - 101734|Shade
+- ruling: "Burning the card for a vote is not considered playing it. [ANK 20210309-2]"
+  cards:
+    - 100064|Ancient Influence
+    - 101591|Reins of Power
+    - 101417|Political Stranglehold
