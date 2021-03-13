@@ -113,6 +113,7 @@
   - "[CHI] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Paradox}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 100096|The Art of Love:
   - Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]
+  - Effects applied during the discard phase are applied before you return the ally. If you lose control of the ally before that, you do not return it. [ANK 20210313]
 100097|The Art of Memory:
   - The effect is applied after resolving the action, including after all combats. [LSJ 20031112]
   - Can be used ot retrieve the action card itself (if any). [LSJ 20041115]
