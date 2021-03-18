@@ -266,6 +266,7 @@ TWDA_CHECK_DECK_FAILS = {
     "2k4edith",  # 91 cards listed
     "2k4pariscup",  # 11 crypt cards listed
     "2k3nycanarch",  # 91 cards listed
+    "ckgc2k",  # 91 cards listed
     "saveface2k1",  # 91 cards listed
     "genconuk2k1-treasure",  # 91 cards listed
     "jd32000",  # 91 cards listed
