@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.11 (unreleased)
+2.11 (2021-03-18)
 -----------------
 
 - Fix Talley, The Hound card name
