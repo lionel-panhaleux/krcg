@@ -59,7 +59,7 @@ Here are a few quickstart examples to showcase how the library can be used:
 ### VTES
 
 `krcg.vtes.VTES` is the cards library. It needs to be loaded using the `VTES.load()`
-method. Note that this loads the data from a the very efficient
+method. Note that this loads the data from the
 [KRCG static](https://static.krcg.org) server, where it's already available
 in JSON format for free, for anyone who would want to play with it.
 
@@ -286,6 +286,45 @@ The `krcg.analyzer` can provide some statistics over a collection of decks:
  (<#100698 Fame>, 0.6666666666666667)]
 ```
 
+The `krcg.seating` module provides functions to compute optimal seatings:
+
+````python
+>>> from krcg import seating
+>>> # permutations gives you the list of players for each round
+>>> seating.permutations(12, 3)
+[[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]]
+>>> # things get funny when you have 6, 7 or 11 players: you need more rounds
+>>> # but not all players play every round
+>>> seating.permutations(7, 3)
+[[4, 5, 6, 7],
+ [1, 2, 3, 7],
+ [3, 4, 5, 6],
+ [1, 2, 6, 7],
+ [1, 2, 3, 4, 5]]
+>>> # you can use the Round class to get tables from the permutations
+>>> [seating.Round(p) for p in seating.permutations(14, 3)]
+[[[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14]],
+ [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14]],
+ [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14]]]
+>>> # and the optimise function to search for an optimal seating
+>>> result, score = seating.optimise(seating.permutations(12, 3), iterations=50000)
+>>> result
+[[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]],
+ [[2, 9, 6, 10], [12, 8, 1, 5], [3, 7, 4, 11]],
+ [[11, 5, 10, 1], [6, 4, 12, 7], [8, 3, 9, 2]]]
+>>> # score.rules gives a score over the nine official rules for optimal seating
+>>> score.rules
+[0, 0, 0.0, 9, 0, 0, 0, 1.118033988749895, 2]
+>>> # you can inspect violations individualy
+>>> # for example rule #4 (players are opponents twice) has 9 violations, to see them:
+>>> score.R4
+[[1, 5], [2, 3], [2, 9], [3, 4], [4, 7], [5, 8], [6, 7], [9, 10], [10, 11]]
+>>> # for more details about the Score structure, check the docstring
+>>> help(seating.Score)
+```
+
 And finally, the `krcg.deck.Deck` class can be useful to parse and manipulate any deck.
 
 ```python
@@ -416,3 +455,4 @@ In doing so, please follow the following guidelines:
 -   Adapt the ruling wording to the cards it applies to (ie. use masculine/feminin forms)
 
 -   You can run the tests with the `pytest` command to check everything is OK
+````

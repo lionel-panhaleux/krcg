@@ -4,7 +4,7 @@ Changelog
 2.12 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Added a seating module to compute optimal seatings for tournaments
 
 
 2.11 (2021-03-18)
