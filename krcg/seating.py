@@ -228,7 +228,13 @@ class Score:
 def permutations(players_count: int, rounds_count: int):
     """Return the base permutations for given parameters
 
-    This gets complicated only if you got 6, 7 or 11 players
+    This gets complicated only if you got 6, 7 or 11 players, otherwise it's simply
+    the list of all players for each round.
+
+    >>> permutations(8, 3)
+    [[1, 2, 3, 4, 5, 6, 7, 8],
+     [1, 2, 3, 4, 5, 6, 7, 8],
+     [1, 2, 3, 4, 5, 6, 7, 8]]
     """
     if players_count < 4:
         raise RuntimeError("At least 4 players required")
