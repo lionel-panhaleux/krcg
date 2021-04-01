@@ -1,6 +1,28 @@
 from krcg import seating
 
 
+def test_permutations():
+    len(seating.permutations(5, 2)) == 2
+    len(seating.permutations(6, 2)) == 3
+    len(seating.permutations(7, 2)) == 3
+    len(seating.permutations(8, 2)) == 2
+    len(seating.permutations(9, 2)) == 2
+    len(seating.permutations(10, 2)) == 2
+    len(seating.permutations(11, 2)) == 3
+    len(seating.permutations(12, 2)) == 2
+
+    len(seating.permutations(6, 3)) == 4
+    len(seating.permutations(7, 3)) == 5
+    len(seating.permutations(11, 3)) == 4
+
+    len(seating.permutations(7, 4)) == 6
+    len(seating.permutations(7, 5)) == 7
+    len(seating.permutations(7, 6)) == 9
+
+    len(seating.permutations(6, 6)) == 7
+    len(seating.permutations(6, 7)) == 9
+
+
 def test_round():
     assert seating.Round([1, 2, 3, 4]) == [[1, 2, 3, 4]]
     assert seating.Round([1, 2, 3, 4, 5]) == [[1, 2, 3, 4, 5]]

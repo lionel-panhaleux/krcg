@@ -3,13 +3,12 @@
 # When organising a tournament, it's important to devise an equitable seating
 # which also ensures a maximum of diversity over rounds and tables.
 
-from typing import List, Tuple
+from typing import Callable, Iterable, List, Tuple
 import collections
 import math
 import numpy
 import itertools
 import random
-import sys
 
 # The seating rules: code, label, weight
 # weights are devised so that major rules always prevail over minor rules.
@@ -93,6 +92,16 @@ def measure(max_player_number: int, round_: Round) -> Measure:
     return Measure(position, opponents)
 
 
+# Violations objects listed by Score
+PlayerViolation = collections.namedtuple("PlayerViolation", ["player"])
+PairViolation = collections.namedtuple("PairViolation", ["player_1", "player_2"])
+PositionViolation = collections.namedtuple(
+    "PositionViolation", ["player_1", "player_2", "position"]
+)
+SeatViolation = collections.namedtuple("SeatViolation", ["player", "seat"])
+Deviation = collections.namedtuple("Deviation", ["player", "value"])
+
+
 class Score:
     """A detailed scoring of a seating measure.
 
@@ -142,59 +151,51 @@ class Score:
         )
     )
 
-    PlayerViolation = collections.namedtuple("PlayerViolation", ["player"])
-    PairViolation = collections.namedtuple("PairViolation", ["player_1", "player_2"])
-    PositionViolation = collections.namedtuple(
-        "PositionViolation", ["player_1", "player_2", "position"]
-    )
-    SeatViolation = collections.namedtuple("SeatViolation", ["player", "seat"])
-    Deviation = collections.namedtuple("Deviation", ["player", "value"])
-
-    def __init__(self, measure: Measure):
+    def __init__(self, measure: Measure, mask=None):
         # transfers, starting vps: compute standard deviation
-        self.R3, self.R8 = numpy.std(measure.position[:, :2], 0)
+        masked = Score._get_masked(measure, mask)
+        self.R3, self.R8 = numpy.std(masked, 0)
         # record details of anomalies for output
-        self.mean_vps, self.mean_transfers = numpy.mean(measure.position[:, :2], 0)
-        vps, transfers = numpy.transpose(measure.position[:, :2])
+        self.mean_vps, self.mean_transfers = numpy.mean(masked, 0)
+        vps, transfers = numpy.transpose(masked)
         self.vps = [
-            self.Deviation(i + 1, vps[i])
+            Deviation(i + 1, vps[i])
             for i in numpy.flatnonzero(abs(self.mean_vps - vps) > 0.5)
         ]
         self.transfers = [
-            self.Deviation(i + 1, transfers[i])
+            Deviation(i + 1, transfers[i])
             for i in numpy.flatnonzero(abs(self.mean_transfers - transfers) > 0.5)
         ]
         # same seat twice (or more)
         self.R7 = [
-            self.SeatViolation(*v)
-            for v in numpy.argwhere(measure.position[:, 2:] > 1) + 1
+            SeatViolation(*v) for v in numpy.argwhere(measure.position[:, 2:] > 1) + 1
         ]
         # fifth seat twice (or more)
-        self.R5 = [self.PlayerViolation(a) for a, s in self.R7 if s == 5]
+        self.R5 = [PlayerViolation(a) for a, s in self.R7 if s == 5]
         # opponent twice (or more)
         # note the initial list has every pair twice (symmetry), hence the `if a < b`
         self.R4 = [
-            self.PairViolation(a, b)
+            PairViolation(a, b)
             for a, b in (numpy.argwhere(measure.opponents[:, :, 0] > 1) + 1)
             if a < b
         ]
         # opponent thrice (or more)
         self.R2 = [
-            self.PairViolation(a, b)
+            PairViolation(a, b)
             for a, b in (numpy.argwhere(measure.opponents[:, :, 0] > 2) + 1)
             if a < b
         ]
         # same position twice (or more)
         self.R6 = [
-            self.PositionViolation(a, b, p)
+            PositionViolation(a, b, p)
             for a, b, p in (numpy.argwhere(measure.opponents[:, :, 1:6] > 1) + 1)
             if a < b
         ]
         # predator-prey twice (or more)
-        self.R1 = [self.PairViolation(a, b) for a, b, p in self.R6 if p in [1, 4]]
+        self.R1 = [PairViolation(a, b) for a, b, p in self.R6 if p in [1, 4]]
         # same position group twice (or more)
         self.R9 = [
-            self.PositionViolation(a, b, g)
+            PositionViolation(a, b, g)
             for a, b, g in (numpy.argwhere(measure.opponents[:, :, 6:] > 1) + 1)
             if a < b
         ]
@@ -206,23 +207,32 @@ class Score:
         self.total = sum(x * m for x, m in zip(self.rules, [R[2] for R in RULES]))
 
     @staticmethod
-    def fast_total(measure: Measure):
+    def fast_total(measure: Measure, mask=None):
         """Get just a total score of a seating measure (all rounds).
 
         This is used to speed up computations when searching for an optimum.
         """
+        masked = Score._get_masked(measure, mask)
         rules = [
             len(numpy.argwhere(measure.opponents[:, :, 1] > 1)),
             len(numpy.argwhere(measure.opponents[:, :, 0] > 2)) // 2,
-            numpy.std(measure.position[:, 0], 0),
+            numpy.std(masked[:, 0], 0),
             len(numpy.argwhere(measure.opponents[:, :, 0] > 1)) // 2,
             len(numpy.argwhere(measure.position[:, 6] > 1)),
             len(numpy.argwhere(measure.opponents[:, :, 1:6] > 1)) // 2,
             len(numpy.argwhere(measure.position[:, 2:] > 1)),
-            numpy.std(measure.position[:, 1], 0),
+            numpy.std(masked[:, 1], 0),
             len(numpy.argwhere(measure.opponents[:, :, 6:] > 1)) // 2,
         ]
         return sum(x * m for x, m in zip(rules, [R[2] for R in RULES]))
+
+    @staticmethod
+    def _get_masked(measure, add_mask):
+        masked = measure.position[:, :2]
+        mask = masked == 0
+        if add_mask is not None:
+            mask |= add_mask
+        return numpy.ma.MaskedArray(masked, mask)
 
 
 def permutations(players_count: int, rounds_count: int):
@@ -242,6 +252,10 @@ def permutations(players_count: int, rounds_count: int):
     if players_count not in [6, 7, 11]:
         base = list(range(1, players_count + 1))
         return [base[:] for _ in range(rounds_count)]
+
+    if rounds_count < 2:
+        raise RuntimeError("At least 2 rounds by player are required")
+
     # number of players you can remove to be able to play
     possible_outs = []
     for i in [4, 5, 4 + 4, 4 + 5, 5 + 5]:
@@ -249,10 +263,19 @@ def permutations(players_count: int, rounds_count: int):
             break
         possible_outs.insert(0, players_count - i)
     # check how many additional rounds we need for everybody to play the required rounds
+    # the way we do it is count the minimum number of times each player has to sit out:
+    # players:                1 2 3 4 5 6 7
+    # sit out once in round   1 1 2 2 3 3
+    # we have to exclude 2 players per round minimum, but if we have 3 rounds
+    # (counting the additional round), it is ok. If we have more we need more "cycles"
+    # players:                1 2 3 4 5 6 7
+    # sit out once in round   1 1 2 2 3 3 4
+    # sit out twice in round  4
+    # in the next step we adapt the number of sit outs to match the number of players
     additional_rounds = 1
     while (
         possible_outs[0] * (rounds_count + additional_rounds)
-        > (players_count - possible_outs[0]) * additional_rounds
+        > players_count * additional_rounds
     ):
         additional_rounds += 1
     rounds_count = rounds_count + additional_rounds
@@ -299,11 +322,28 @@ def score_rounds(rounds: List[Round]) -> Measure:
     return Score(sum(measure(max_player_number, r) for r in rounds))
 
 
-def optimise(permutations: list, iterations: int) -> Tuple[List[Round], Score]:
+def optimise(
+    permutations: list,
+    iterations: int,
+    callback: Callable = None,
+    fixed: int = 1,
+    ignore: Iterable[int] = None,
+) -> Tuple[List[Round], Score]:
     """Given a list of players for each round, compute an optimal seating.
 
+    - callback is called every 100th of the way with the following keyword arguments:
+        * step
+        * temperature
+        * score
+        * trials (since last callback call)
+        * accepts (since last callback call)
+        * improves (since last callback call)
+    - fixed is the number of permutations that are left untouched by the optimisation
+    - ignore is a list of players numbers to ignore when calculating
+      VPs and transfers deviation: players not playing all rounds should be listed
+
     Use a simulated annealing algorithm:
-        - use an exponential cooldown strategy
+        - exponential cooldown strategy
         - given the problem shape, reset the state to the best known one regularily
 
     Using a list of players per round as entry allows the function to be used for
@@ -314,27 +354,30 @@ def optimise(permutations: list, iterations: int) -> Tuple[List[Round], Score]:
     random.seed()
     # annealing parameters have been chosen experimentally
     # verbose is kept here to be set to True in case there's a need to re-examine them
-    verbose = False
     temperature_min = 0.001
     temperature_max = RULES[0][2]
     temperature_factor = -math.log(temperature_max / temperature_min)
     max_player_number = max(p for p in itertools.chain.from_iterable(permutations))
-
+    mask = None
+    if ignore:
+        mask = numpy.zeros((max_player_number, 2), bool)
+        for player in ignore:
+            mask[player - 1, :2] = 1
     # initial state
-    for permutation in permutations[1:]:
+    for permutation in permutations[fixed:]:
         random.shuffle(permutation)
     temperature = temperature_max
     measures = [
         measure(max_player_number, Round(permutation)) for permutation in permutations
     ]
-    best_score = previous_score = score = Score.fast_total(sum(measures))
+    best_score = previous_score = score = Score.fast_total(sum(measures), mask)
     best_state = [p[:] for p in permutations]
     trials, accepts, improves = 0, 0, 0
 
     # Exploration
     for step in range(iterations):
         temperature = temperature_max * math.exp(temperature_factor * step / iterations)
-        round_index = random.randrange(1, len(permutations))
+        round_index = random.randrange(fixed, len(permutations))
         permutation = permutations[round_index]
         # note all permutations may not have the same length (eg. 6, 7, 11 players)
         length = len(permutation)
@@ -344,7 +387,7 @@ def optimise(permutations: list, iterations: int) -> Tuple[List[Round], Score]:
         # only recompute the changed round, other rounds have not varied
         previous_measure = measures[round_index]
         measures[round_index] = measure(max_player_number, Round(permutation))
-        score = Score.fast_total(sum(measures))
+        score = Score.fast_total(sum(measures), mask)
         score_diff = score - previous_score
         trials += 1
         # accept or reject the move depending on its score and temperature
@@ -361,15 +404,17 @@ def optimise(permutations: list, iterations: int) -> Tuple[List[Round], Score]:
             if score < best_score:
                 best_state = [p[:] for p in permutations]
                 best_score = score
-        # every 100th of the way, output some information
+        # every 100th of the way, call the callback
         # and reset the state to the best known state
-        if not step % (iterations // 100):
-            if verbose and sys.stderr.isatty():
-                print(
-                    f"Temperatury {temperature:6.5f} - Score {score:6.2f} - "
-                    f"Accept {100 * accepts / trials:4.2f}% - "
-                    f"Improve {100 * improves / trials:4.2f}%",
-                    file=sys.stderr,
+        if step and not step % (iterations // 100 or 1):
+            if callback:
+                callback(
+                    step=step,
+                    temperature=temperature,
+                    score=score,
+                    trials=trials,
+                    accepts=accepts,
+                    improves=improves,
                 )
             trials, accepts, improves = 0, 0, 0
             permutations = [p[:] for p in best_state]
@@ -379,4 +424,4 @@ def optimise(permutations: list, iterations: int) -> Tuple[List[Round], Score]:
             ]
             previous_score = best_score
 
-    return [Round(p) for p in permutations], Score(sum(measures))
+    return [Round(p) for p in permutations], Score(sum(measures), mask)
