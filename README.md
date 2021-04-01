@@ -288,7 +288,7 @@ The `krcg.analyzer` can provide some statistics over a collection of decks:
 
 The `krcg.seating` module provides functions to compute optimal seatings:
 
-````python
+```python
 >>> from krcg import seating
 >>> # permutations gives you the list of players for each round
 >>> seating.permutations(12, 3)
@@ -455,4 +455,3 @@ In doing so, please follow the following guidelines:
 -   Adapt the ruling wording to the cards it applies to (ie. use masculine/feminin forms)
 
 -   You can run the tests with the `pytest` command to check everything is OK
-````
