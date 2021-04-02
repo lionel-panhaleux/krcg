@@ -1560,6 +1560,8 @@
   - Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]
   - Can be used on one of your own location. [LSJ 20080803-2]
 101285|Nightmares upon Nightmares:
+  - You cannot end your unlock phase or pass the impulse if you control a minion you haven't locked or burned a card for. [ANK 20210322]
+  - You can handle the effect by locking an already locked minion, then use his Infernal trait to unlock them. [ANK 20210322-2]
   - Mortal allies are not affected, and vampires with capacity above the number of Gehenna cards in play are not affected. [LSJ 20040415]
 101287|Nightstick:
   - Can prevent up to 3 damage, it can prevent less. [RTR 20041202]
