@@ -2003,6 +2003,7 @@
   - "[QUI] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Blood}). The card cannot be played if the minion cannot afford to burn the blood. [LSJ 19970224][ANK 20210226]"
 101717|Sense the Savage Way:
   - "[ANI] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
+  - "[ANI] Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
 101720|Sense Vitality:
   - "[val], [VAL] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 101721|Sensory Deprivation:
