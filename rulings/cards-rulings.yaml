@@ -161,7 +161,7 @@
 100133|Banshee Ironwail:
   - Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]
 100134|Barrenness:
-  - "[mal] is unaffected by {Orun}. [MAL] is affected by {Orun}. [ANK 20180719-1]"
+  - "[mal] is unaffected by {Orun}. [MAL] is affected by {Orun} (add and substract before applying the minimum of 1). [ANK 20180719-1]"
   - The burn option can be used if all your vampires with [mal] are in torpor. [LSJ 20091203]
 100135|The Barrens:
   - Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]
