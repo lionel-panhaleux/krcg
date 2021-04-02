@@ -200,7 +200,9 @@
   - Damage done to the bearer is environmental. [LSJ 19970801]
 100171|Black Sunrise:
   - Can be used by a vampire who is already attempting to block. [ANK 20181122-2]
-  - '[QUI] Does not ignore the normal prey, predator or target restrictions. Read: "This vampire unlocks and attempts to block". [ANK 20180623]'
+  - "[QUI] Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
+  - "[QUI] Does not ignore the normal prey, predator or target restrictions. [ANK 20180623]"
+  - "[QUI] The block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]"
 100172|The Black Throne:
   - The contract effect can be used even if the target is burned or if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]
   - The contract effect can be used if a minion with a contract leaves the ready region because his controller is ousted. [ANK 20180129-2]
@@ -517,6 +519,7 @@
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
 100432|Coterie Tactics:
   - Cannot be used if the vampires cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
+  - Does not ignore the normal prey, predator or target restrictions. [ANK 20180623]
   - The block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]
 100433|Council of Seraphim:
   - The burn option cannot be used if all your Seraph are in torpor. [LSJ 20091204]
@@ -788,6 +791,7 @@
   - If The Eternal Mask is burned by something else than its own effect (including when the vampire it is on is burned), the vampire that has been brought back is unaffected. [LSJ 20071206] [LSJ 20090725]
 100666|Eternal Vigilance:
   - Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
+  - When used to block, does not ignore the normal prey, predator or target restrictions. [ANK 20180623]
   - The block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]
 100667|The Eternals of Sirius:
   - Pay the cost at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620] [LSJ 20080612]
@@ -1043,6 +1047,7 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100864|Guard Duty:
   - Cannot be used to unlock if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
+  - When used to block, does not ignore the normal prey, predator or target restrictions. [ANK 20180623]
   - If used to unlock, the block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]
 100865|Guarded Rubrics:
   - The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]
@@ -1988,6 +1993,7 @@
 "101706|Second Tradition: Domain":
   - Can be used by a locked a vampire who is already attempting to block (eg. if he played a wake effect before)". [ANK 20181122-2]
   - Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
+  - Does not ignore the normal prey, predator or target restrictions. [ANK 20180623]
   - The block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]
   - The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Ankara Citadel, Turkey}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]
 101707|Secret Horde:
@@ -2004,6 +2010,8 @@
 101717|Sense the Savage Way:
   - "[ANI] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
   - "[ANI] Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
+  - "[ANI] Does not ignore the normal prey, predator or target restrictions. [ANK 20180623]"
+  - "[ANI] The block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]"
 101720|Sense Vitality:
   - "[val], [VAL] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 101721|Sensory Deprivation:
@@ -2429,7 +2437,8 @@
   - "May be retrieved when diablerizing a Red List vampire prior to the blood hunt referendum: it protects the vampire in that referendum. All copies on the vampire are then burned at the end of that action. [LSJ 20050222]"
 "102031|Trophy: Domain":
   - Cannot be used to unlock if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
-  - If used to unlock, the block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]
+  - When used to block, does not ignore the normal prey, predator or target restrictions. [ANK 20180623]
+  - When used to block, the block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]
 "102032|Trophy: Hunting Ground":
   - Is a non-derivative hunting ground (ie. taken into account by {Poacher's Hunting Ground}), even if not active yet. [ANK 20170430] [LSJ 20080610]
 102044|Truth of a Thousand Lies:
@@ -2454,6 +2463,7 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 102063|Under Siege:
   - Cannot be used to unlock if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
+  - When used to block, does not ignore the normal prey, predator or target restrictions. [ANK 20180623]
   - The block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]
   - Can be used for intercept even if the vampire is already unlocked. [PIB 20150216]
   - Can be used by a vampire who is already attempting to block. [ANK 20181122-2]
