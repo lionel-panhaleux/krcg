@@ -5,7 +5,7 @@ Changelog
 -----------------
 
 - Added a seating module to compute optimal seatings for tournaments
-
+- Additional rulings
 
 2.11 (2021-03-18)
 -----------------
