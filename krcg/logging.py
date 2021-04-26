@@ -46,7 +46,13 @@ class LineLogAdapter(logging.LoggerAdapter):
         """Add line number if any, format string using the str.format() method."""
         if self.isEnabledFor(level):
             msg, kwargs = self.process(msg, kwargs)
-            self.logger._log(level, self.Message(msg, *args, **kwargs), ())
+            self.logger._log(
+                level,
+                self.Message(msg, *args, **kwargs),
+                exc_info=kwargs.get("exc_info", None),
+                stack_info=kwargs.get("stack_info", None),
+                stacklevel=kwargs.get("stacklevel", 1),
+            )
 
 
 _handler = logging.StreamHandler()
