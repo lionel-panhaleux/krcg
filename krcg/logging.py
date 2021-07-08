@@ -49,6 +49,7 @@ class LineLogAdapter(logging.LoggerAdapter):
             self.logger._log(
                 level,
                 self.Message(msg, *args, **kwargs),
+                [],
                 exc_info=kwargs.get("exc_info", None),
                 stack_info=kwargs.get("stack_info", None),
                 stacklevel=kwargs.get("stacklevel", 1),
