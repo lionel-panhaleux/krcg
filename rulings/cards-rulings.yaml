@@ -2683,6 +2683,8 @@
 200033|Akram:
   - If his ability is used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]
   - His ability cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]
+200044|Alejandro Aguirre:
+  - If a card transforms the damage he inflicts to aggravated (eg. {True Faith}), this includes the damage from his ability. [ANK 20210620]
 200049|Alexandra:
   - Can use her unlock ability at any point during the turn, including during a political action. [TOM 19960214]
   - If she locks a Toreador who was attempting to block, then that block will fail. [TOM 19951007] [LSJ 19991025]
