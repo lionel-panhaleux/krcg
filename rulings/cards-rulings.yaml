@@ -908,7 +908,7 @@
 100759|Force of Will:
   - If the action does not reach resolution (eg. {The Kiss of Ra}), the damage is not done. If the action merely ends (eg. {Change of Target}) or has no effect (eg. because cost cannot be paid), the damage occurs as normal. [RTR 20020501] [LSJ 20020927] [ANK 20210124]
   - "{Mask of a Thousand Faces} cannot be used to take over, since it requires an unlocked vampire and the action requires a locked one. [LSJ 20020927]"
-  - "Cards usable after action resolution (eg. {Freak Drive}) can be played before the damage is taken. [LSJ 20010715]"
+  - Cards usable after action resolution (eg. {Freak Drive}) can be played before the damage is taken. [LSJ 20010715]
 100760|Forced Awakening:
   - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
   - If he fails to block, the vampire only burns a blood when the action begins to resolve (successfully or not). He can pay for reactions after declining to block, before burning a blood. [LSJ 19990421]
@@ -2075,6 +2075,8 @@
   - "[OBT] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Night}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 101745|Shadow Strike:
   - "[OBT] The press can only be used during the current round. [TOM 19960521]"
+101746|Shadow Twin:
+  - "[OBT] has no additional effect on a retainer. [LSJ 20010303]"
 101751|Shambling Hordes:
   - The acting vampire's controller can choose not to remove a minion from his or her ash heap and thus burn the Shambling Hordes. [LSJ 20030701-2]
   - The damage the strike does is determined when the strike resolution begins, before the Hordes loses life from any opposing "burn life" or "steal life" effect. Damage done before strike resolution, e.g. with First Strike, will reduce the damage done by the Hordes. [LSJ 20030307]
