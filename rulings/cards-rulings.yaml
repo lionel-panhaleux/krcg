@@ -1093,6 +1093,7 @@
   - "Cannot be used before damage is inflicted after action resolution (eg. {Force of will}, {Daring the Dawn}): this is still during the action. [ANK 20171124]"
   - "Cannot be used after a diablerie or an {Abactor} resolution and before the Blood Hunt: the Blood Hunt is part of the action although it is independant from it. [LSJ 20090722-2] [LSJ 20030618]"
   - "Can be used to move more blood than the target can hold: the excess goes to the blood bank. [ANK 20170804]"
+  - Can be used between two actions during another Methuselah's turn. [ANK 20210608]
 100911|Hellhound:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
 100912|Herald of Topheth:
