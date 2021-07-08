@@ -268,6 +268,8 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100214|Blood to Water:
   - Must be played after range is chosen, can be played before or after strikes are chosen. [ANK 20200703] [LSJ 20031008]
+100215|Blood Trade:
+  - Does not prevent {Consanguineous Boon} to be played. [LSJ 20040531-2]
 100217|Blood Weakens:
   - You do not replace cards that require a discipline during any action. [ANK 20201015]
 100218|Bloodbath:
@@ -347,7 +349,7 @@
 100281|Call the Lamprey:
   - "[OBT] Can be played against a vampire with no blood. [RTR 20010711]"
 100282|Call the Wild Hunt:
-  - "Does not render immune to a previously-played Frenzy card. [LSJ 20040210]"
+  - Does not render immune to a previously-played Frenzy card. [LSJ 20040210]
   - "[ANI][PRO] you choose X and then discard that many animals form your hand and cannot use any animals drawn to replace the ones you are discarding as further discards. [LSJ 20060215]"
   - "[ANI][PRO] The damage is environmental. [LSJ 20060217]"
 100284|Camarilla Exemplary:
