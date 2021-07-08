@@ -12,7 +12,7 @@
   - Cannot be played when burned as a result of a Blood Hunt referendum. [LSJ 20070417]
   - Will not trigger the {Soul Gem of Etrius} since the vampire is removed from the game instead of being burned. [LSJ 20021010]
 100006|Abbot:
-  - The +1 intercept applies to Ⓓ actions against cards controlled by the controller. It does not apply to Ⓓ actions against another Methusalah. [LSJ 20061222]
+  - The +1 intercept applies to Ⓓ actions against cards controlled by the controller. It does not apply to Ⓓ actions against another Methuselah. [LSJ 20061222]
 100007|Abjure:
   - Can be used by an incapacitated Imbued. [LSJ 20081016]
 100008|Ablative Skin:
@@ -53,7 +53,7 @@
   - If both minions want to play a card "when a vampire should go into torpor", acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Amaranth} and vice-versa. [RTR 20010710]
 100045|Ambulance:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
-  - If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]
+  - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
   - An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100046|Ambush:
@@ -77,7 +77,7 @@
 100063|The Ancestor's Talisman:
   - The effect is not optional. [RTR 19980707] [LSJ 19980722]
 100064|Ancient Influence:
-  - Applies a pool gain then a pool loss. {Poison Pill} register a 5 pool loss in all cases, a Methusalah cannot withdraw even if the total was positive. [ANK 20180813]
+  - Applies a pool gain then a pool loss. {Poison Pill} register a 5 pool loss in all cases, a Methuselah cannot withdraw even if the total was positive. [ANK 20180813]
 100066|Anesthetic Touch:
   - Does not end combat as a strike; it ends combat after strike resolution. It is still just a hand strike. [LSJ 20011210-1]
   - A dodge won't prevent combat from ending after strike resolution. [LSJ 20011210-2]
@@ -159,7 +159,7 @@
   - A banished vampire will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501]
   - '"for the rest of the game" effects pointing at the Banished vampire from other sources will resume if and when the vampire comes back into play. [TOM 19960210]'
   - '"breaking any temporary control effects" means the vampire is placed in his last permanent controller''s uncontrolled region. [RTR 20000501]'
-  - If the vampire is permanently controlled by a Methusalah other than his owner, it goes to that Methusalah uncontrolled region and is still controlled by him. It is removed from the game if that Methusalah is ousted and kept in game if his owner is ousted. [ANK 20200408-2]
+  - If the vampire is permanently controlled by a Methuselah other than his owner, it goes to that Methuselah uncontrolled region and is still controlled by him. It is removed from the game if that Methuselah is ousted and kept in game if his owner is ousted. [ANK 20200408-2]
 100133|Banshee Ironwail:
   - Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]
 100134|Barrenness:
@@ -228,7 +228,7 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100189|Bliss:
   - "[dom][pre] [COMBAT] Can be used during a combat by a vampire in torpor. [LSJ 20020416]"
-  - "[dom][pre] [COMBAT][REACTION] Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]"
+  - "[dom][pre] [COMBAT][REACTION] Can be played by a minion of a Methuselah not involved in the current combat. [ANK 20181101]"
 100190|Blissful Agony:
   - "[val] Damage is environmental. [RTR 19970630]"
   - '[val] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
@@ -402,7 +402,7 @@
 100321|Chameleon's Colors:
   - "[spi] The optional press can only be used during the current round. [TOM 19960521]"
   - '[SPI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
-  - '[SPI] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
+  - '[SPI] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[SPI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[SPI] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[SPI] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
@@ -500,7 +500,7 @@
 100394|Concoction of Vitality:
   - Can be used after declaring an action using a discipline (eg. {Govern the Unaligned}). [LSJ 20100402]
 100396|Condemn the Sins of the Father:
-  - Is directed at all Methusalah controlling one of the chosen targets. [KOT 20081119] [ANK 20180917]
+  - Is directed at all Methuselah controlling one of the chosen targets. [KOT 20081119] [ANK 20180917]
 "100400|Condemnation: Mute":
   - Only affects votes, and not ballots. [PIB 20110802]
 100405|Confusion:
@@ -509,8 +509,8 @@
   - "[vis] Damage is environmental. [RTR 19970630]"
   - '[vis] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
 100414|Conservative Agitation:
-  - Cannot allocate all X points to a single Methusalah, but you can allocate points to yourself. [LSJ 20000622]
-  - Can allocate more points than a Methusalah has pool. [LSJ 20020819]
+  - Cannot allocate all X points to a single Methuselah, but you can allocate points to yourself. [LSJ 20000622]
+  - Can allocate more points than a Methuselah has pool. [LSJ 20020819]
 100415|Consignment to Duat:
   - "[ser] Can target a vampire with no blood. [RTR 20010711]"
 100423|Coordinate Attacks:
@@ -551,7 +551,7 @@
   - If used to cancel combat, the blocking minion is still locked. [LSJ 20080611] [ANK 20210131]
   - If used to cancel combat, reactions cards pertaining to that combat (eg. {Obedience}) cannot be used afterwards. [ANK 20210131]
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [LSJ 20080611] [ANK 20190116]
-  - If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]
+  - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100478|Cryptic Rider:
   - During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]
@@ -561,7 +561,7 @@
 100484|D'habi Revenant:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
 100486|Daemonic Possession:
-  - This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]
+  - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
 100488|Dagon's Call:
   - Both the strike and the environmental damage would get boosted by {Dam the Heart's River}. [PIB 20150520]
   - "[QUI] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -671,7 +671,7 @@
 100557|Disputed Territory:
   - Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]
   - If used to steal an equipment representing a location, it can be placed on any minion controlled by the new controller. [RTR 19960112]
-  - If used to "change" the control of a location or equipment representing a location to the same Methusalah, the location cannot be moved to another minion controlled by the same Methusalah. [LSJ 19971002]
+  - If used to "change" the control of a location or equipment representing a location to the same Methuselah, the location cannot be moved to another minion controlled by the same Methuselah. [LSJ 19971002]
 100558|Dissolution:
   - "[PRO] The press can only be used during the current round. [TOM 19960521]"
 100559|Distant Friend:
@@ -697,7 +697,7 @@
   - "[CHI] Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Draba at the time it was played. [RTR 20030519]"
   - "[CHI] Can be played by a minion who is not attempting to block the action. [ANK 20190628]"
   - "[CHI] Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]"
-  - If another Methusalah is the target, he must declare whether he attempts or declines to block before Draba can be used ([chi]) or played ([CHI]). [PIB 20150820] [ANK 20200607]
+  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Draba can be used ([chi]) or played ([CHI]). [PIB 20150820] [ANK 20200607]
 100579|Draeven Softfoot:
   - He can lock to use his ability the turn he is recruited. [ANK 20180517]
 100580|Dragon's Breath Rounds:
@@ -794,7 +794,7 @@
 100665|The Eternal Mask:
   - You cannot use the effect to burn the card and the vampire if the vampire is no longer in play to be burned. [LSJ 20070928-1]
   - You still cannot burn it if the vampire that was brought back was burned and later returned to play. [LSJ 20040726] [ANK 20191031]
-  - "[SER] is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]"
+  - "[SER] is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]"
   - If The Eternal Mask is burned by something else than its own effect (including when the vampire it is on is burned), the vampire that has been brought back is unaffected. [LSJ 20071206] [LSJ 20090725]
 100666|Eternal Vigilance:
   - Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
@@ -810,7 +810,7 @@
 100675|Extortion:
   - Is usable by a locked vampire [LSJ 20010725]
 100676|Extremis Boon:
-  - The pool of the highest bidder goes to the target Methusalah. The loosers do not lose pool. [LSJ 20031121-1]
+  - The pool of the highest bidder goes to the target Methuselah. The loosers do not lose pool. [LSJ 20031121-1]
   - The starting bid must be enough to keep the target into play. [ANK 20190827]
 100680|Eyes of Argus:
   - "[AUS] The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
@@ -858,7 +858,7 @@
 100710|Fear of Mekhet:
   - Can be moved (not played) on a vampire in torpor. [ANK 20210109]
 100718|Feline Saboteur:
-  - "[ANI][OBF] The chosen Methusalah discards, then burn 4 cards, then replace the discarded card. [ANK 20180725]"
+  - "[ANI][OBF] The chosen Methuselah discards, then burn 4 cards, then replace the discarded card. [ANK 20180725]"
 100723|Festivo dello Estinto:
   - The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
@@ -895,13 +895,13 @@
   - The rest of the effect applies if the damage is prevented, it does not if it is dodged. [LSJ 19990106-2]
 100751|Flow Within the Mountain:
   - '[VIS] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
-  - '[VIS] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
+  - '[VIS] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[VIS] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[VIS] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[VIS] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 100755|Folderol:
   - "[aus] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Helena (ADV)}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
-  - "[MYT] If another Methusalah is the target, he must declare whether he attempts or declines to block before Folderol can be played. [PIB 20150820]"
+  - "[MYT] If another Methuselah is the target, he must declare whether he attempts or declines to block before Folderol can be played. [PIB 20150820]"
 100756|Follow the Alpha:
   - Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]
   - Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]
@@ -926,7 +926,7 @@
   - Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]
 100764|Foresee:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
-  - If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]
+  - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
   - An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100765|Foreshadowing Destruction:
@@ -938,7 +938,7 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100771|Form of Mist:
   - '[PRO] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
-  - '[PRO] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
+  - '[PRO] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[PRO] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[PRO] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[PRO] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost and the blood is not paid. [LSJ 19980109] [RTR 20020501] [LSJ 20031123]'
@@ -978,7 +978,7 @@
 100814|Gemini's Mirror:
   - Does not protect the minion's equipment, retainers, or any other cards on him. Just him and his blood. [LSJ 20031118]
 100816|Ghost-Eater:
-  - This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]
+  - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
 100817|Ghoul Escort:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
   - Cannot be used if blocked when leaving torpor, as no combat would happen. [ANK 20181122-1]
@@ -1063,7 +1063,7 @@
 100867|Guardian Ghoul:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
 100868|Guardian Vigil:
-  - Must be played before block is successful, but can be played after the acting Methusalah declined to add stealth. [ANK 20180926]
+  - Must be played before block is successful, but can be played after the acting Methuselah declined to add stealth. [ANK 20180926]
   - All effects apply for the duration of the action. They still apply if the action "continues as if unblocked". [ANK 20181127]
   - Can be used by a vampire who is already attempting to block. [ANK 20181122-2]
 100871|Gurchon Hall:
@@ -1121,7 +1121,7 @@
 100920|Hide the Heart:
   - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
   - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
-  - "[val], [VAL] If another Methusalah is the target, he must declare whether he attempts or declines to block before Hide the Heart can be played. [LSJ 20100507] [PIB 20150820]"
+  - "[val], [VAL] If another Methuselah is the target, he must declare whether he attempts or declines to block before Hide the Heart can be played. [LSJ 20100507] [PIB 20150820]"
 100925|High Ground:
   - When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
 100935|Horrid Reality:
@@ -1138,7 +1138,7 @@
 100947|I am Legion:
   - "[DAI][OBF] Can be used to gain a pool after a successful action, without cancelling an [aus] card. [LSJ 20100902-2]"
 100948|Ignis Fatuus:
-  - If another Methusalah is the target, he must declare whether he attempts or declines to block before Ignis Fatuus can be played. [PIB 20150820] [ANK 20200607]
+  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Ignis Fatuus can be played. [PIB 20150820] [ANK 20200607]
 100949|Ignore the Searing Flames:
   - "[DAI] Immune means damage is not inflicted, even if non-preventable or outside combat. [LSJ 20010627] [LSJ 20010629] [LSJ 20090304-1]"
   - "[DAI] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Textbook Damnation}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
@@ -1259,12 +1259,12 @@
 "101044|The Khabar: Honor":
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101046|Khazar's Diary (Endless Night):
-  - The action to put a minion from any ash heap into play is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]
+  - The action to put a minion from any ash heap into play is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
   - Wraiths minions can act the turn they are put into play. [LSJ 20080426]
   - Minions put into play by the Diary go back to their owner's ash heap when burned. [PIB 20130128-2]
 101048|Khobar Towers, Al-Khubar:
   - If used on an ally with a cost of X, X pool are gained. The value of X is the one set when the ally was recruited . [ANK 20170716] [RTR 20020501]
-  - The effect is ordered as the acting Methusalah wishes during his unlock phase (eg. can be used on {Nocturn} before it burns). [ANK 20170625]
+  - The effect is ordered as the acting Methuselah wishes during his unlock phase (eg. can be used on {Nocturn} before it burns). [ANK 20170625]
 101049|Kindred Coercion:
   - Cannot 'change' the votes of vampires who haven't voted yet, but can cancel the votes of vampires who haven't voted yet and change the votes of vampires who have voted. [RTR 19991001]
 101053|Kindred Segregation:
@@ -1274,8 +1274,8 @@
 101054|Kindred Society Games:
   - If a vampire has two copies of Kindred Society Games, each copy exerts its own effect. Unlocking the vampire normally would require a total of 2 blood. If the vampire does not unlock normally, both Games are moved to other vampire(s), although the vampire could burn 1 blood to prevent one of the Games from moving on. [RTR 19951017]
 101056|Kine Resources Contested:
-  - Cannot allocate 4 points to a single Methusalah, but you can allocate points to yourself. [LSJ 20000622]
-  - Can allocate more points than a Methusalah has pool. [LSJ 20020819]
+  - Cannot allocate 4 points to a single Methuselah, but you can allocate points to yourself. [LSJ 20000622]
+  - Can allocate more points than a Methuselah has pool. [LSJ 20020819]
 101057|King of the Mountain:
   - "[FOR] Damage dealt to the opponent is environmental. [RTR 19970630] [LSJ 19970801]"
 101062|The Kiss of Ra:
@@ -1294,6 +1294,12 @@
   - When an oust occurs, effects (eg. {Perfectionist}) and Action Modifiers (eg. {Freak Drive}) can be played after action resolution, before it ends and the new turn begins. [LSJ 20090731]
   - When an oust occurs, the current minion phase ends (eg. {Tupdog} burns). [LSJ 20090731]
   - "When an oust occurs, there is no discard phase: the new turns begins immediately (eg. {The Unmasking} is not replaced). [LSJ 20090731]"
+101075|Lay Low:
+  - The anarch can return to play when it again has blood >= capacity on it at the end of its Methuselah's influence phase. [TOM 19951209] [ANK 20210630]
+  - The anarch will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501] [ANK 20210630]
+  - '"for the rest of the game" effects pointing at the anarch from other sources will resume if and when the vampire comes back into play. [TOM 19960210] [ANK 20210630]'
+  - '"breaking any temporary control effects" means the anarch is placed in his last permanent controller''s uncontrolled region. [RTR 20000501] [ANK 20210630]'
+  - If the vampire is permanently controlled by a Methuselah other than his owner, it goes to that Methuselah uncontrolled region and is still controlled by him. It is removed from the game if that Methuselah is ousted and kept in game if his owner is ousted. [ANK 20200408-2] [ANK 20210630]
 101077|Lead Fist:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101080|Learjet:
@@ -1332,7 +1338,7 @@
   - If the target receives half of a victory point, then the Methuselah who played the Boon receives that half. The Boon is not burned until a total of one victory point has been awarded. [RTR 19991206]
   - If the effect ousting the target simultaneously ousts the target's prey (eg. {Kine Resources Contested}), the victory point goes to the Mathusalah who played Life Boon and the target gets 6 pool. [LSJ 20021029]
 101109|Lily Prelude:
-  - Can allocate more points than a Methusalah has pool. [LSJ 20020819]
+  - Can allocate more points than a Methuselah has pool. [LSJ 20020819]
 101110|The Line:
   - Can be locked when the action is announced or when the cost is paid. [ANK 20170605]
   - Can be used to reduce the cost in blood of a recruit ally (eg. {Shambling Hordes}) or employ retainer action. [ANK 20181007]
@@ -1421,10 +1427,10 @@
 101165|Marijava Thuggee:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
 101169|Marked Path:
-  - Can be burned during an action that targets only part of the Methusalah that were targeted by the first action. [LSJ 20100527]
+  - Can be burned during an action that targets only part of the Methuselah that were targeted by the first action. [LSJ 20100527]
 101175|Martyr's Resilience:
   - Can be used by a vampire in torpor. [LSJ 20020416]
-  - Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]
+  - Can be played by a minion of a Methuselah not involved in the current combat. [ANK 20181101]
   - Cannot be used if there is no damage to prevent. [LSJ 20001114]
   - "[AUS][FOR] Prevents up to X+1 damage, it can prevent less. [RTR 20041202]"
   - "[AUS][FOR] Unused prevention does not carry over. [LSJ 20001114]"
@@ -1448,7 +1454,7 @@
 101181|Masque of Judas:
   - "[aus][obf] The press can only be used during the current round. [TOM 19960521]"
 101183|Masquerade Endangered:
-  - Multiple copies may be played by different Methusalahs after a single action, but all would be burned during the vampire's next unlock phase. [TOM 19950921]
+  - Multiple copies may be played by different Methuselahs after a single action, but all would be burned during the vampire's next unlock phase. [TOM 19950921]
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
 101184|Masquerade Enforcement:
   - Does not affect merging (base with advanced vampire cards). [LSJ 20030527]
@@ -1484,8 +1490,8 @@
 101215|Mind Rape:
   - "[DOM] Can be played on a locked vampire. [PIB 20150412]"
   - "[DOM] Can be burned to take control of the target at any point during the appropriate minion phase. It does not have to be done before non-mandatory actions. [LSJ 20001201]"
-  - "[DOM] Is removed if its controller (the Methusalah who played it) is ousted (rulings before 2008-11-19 have been reversed). [ANK 20181110]"
-  - "[DOM] The stolen minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]"
+  - "[DOM] Is removed if its controller (the Methuselah who played it) is ousted (rulings before 2008-11-19 have been reversed). [ANK 20181110]"
+  - "[DOM] The stolen minion is removed from the game when he should return to a Methuselah who has been ousted. [ANK 20181110]"
   - "[DOM] The stolen minion returns to his previous controller even if he is in torpor (but stays in torpor). [LSJ 20010119]"
 101217|Minion Tap:
   - Pay the cost (if any, eg. {Secure Haven} or {Villein} on the target) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]
@@ -1498,7 +1504,7 @@
   - The burn option can be used if all your vampires with [mal] are in torpor. [LSJ 20091203]
 101222|Mirror Image:
   - '[CHI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
-  - '[CHI] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
+  - '[CHI] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[CHI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[CHI] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[CHI] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
@@ -1519,7 +1525,7 @@
   - "If the opponent strikes: combat ends, this strike is not resolved and the Cocktail is not put on this minion, even if combat continues thanks to another effect like {Relentless Reaper}. [ANK 20200203-1]"
 101236|Momentary Delay:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
-  - If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]
+  - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
   - An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - Can be used if a Slave locked to enter combat instead of the blocking minion, if the other conditions are met. [ANK 20200114]
@@ -1529,7 +1535,7 @@
 101244|Morphean Blow:
   - "[val] If the combat continues or a new combat begins, the card is not put on the opposing minion, he can act and block. [RTR 20020501]"
   - '[VAL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
-  - '[VAL] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
+  - '[VAL] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[VAL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[VAL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[VAL] If the combat continues or a new combat begins, the \"action continues as if unblocked\" effect is lost. [LSJ 19980109] [RTR 20020501]'
@@ -1567,7 +1573,7 @@
   - Additional damage provided by Aim cards are not reduced separately. [LSJ 20091123-2]
   - Damage done by a weapon is reduced if it is wielded by the opposing minion. [LSJ 20091123-2]
 101275|Netwar:
-  - "[aus] If another Methusalah is the target, he must declare whether he attempts or declines to block before Netwar can be played. [LSJ 20100507] [ANK 20210131-1]"
+  - "[aus] If another Methuselah is the target, he must declare whether he attempts or declines to block before Netwar can be played. [LSJ 20100507] [ANK 20210131-1]"
   - "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101276|Neutral Guard:
   - If another effect also sets the range, the first to resolve has priority (eg. {Squirrel's Balance} and {Asanbonsam Ghoul} resolve before). [PIB 20120214]
@@ -1594,7 +1600,7 @@
   - "[aus], [spi] If the target unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]"
 101302|Nosferatu Putrescence:
   - Can be used by a vampire in torpor. [LSJ 20020416]
-  - Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]
+  - Can be played by a minion of a Methuselah not involved in the current combat. [ANK 20181101]
 101305|NRA PAC:
   - Does not affect equip actions performed prior to its arrival in play. [LSJ 20061218]
 101309|Obedience:
@@ -1606,7 +1612,7 @@
   - The action ends unsuccessfuly immediately, combat does not happen, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20170105] [ANK 20200207]
   - Cannot be played if the opponent is not the acting vampire, for example if a slave took his place. [ANK 20171212]
 101315|Of Noble Blood:
-  - Is a Ⓓ action if a vampire controlled by another Methusalah is chosen. [ANK 20190606]
+  - Is a Ⓓ action if a vampire controlled by another Methuselah is chosen. [ANK 20190606]
 101317|Ohoyo Hopoksia (Bastet):
   - If her ability is used when a minion blocks an action, the blocking minion still locks for the block. [ANK 20200714]
 101320|Omael Kuman:
@@ -1647,16 +1653,16 @@
 101349|Pandora's Whisper:
   - The card to retrieve must be announced when declaring the action. [LSJ 20010627]
 101353|Parity Shift:
-  - Can not be played if there is no legal target (no other Methusalah with more pool than you). [ANK 20191228]
+  - Can not be played if there is no legal target (no other Methuselah with more pool than you). [ANK 20191228]
   - The pool awarded can be used to play {Life Boon} to save the target from an oust. [LSJ 20100527]
-  - If the target has less than 3 pool when referendum passes, the Methusalah calling the referendum chooses how to distribute within the bounds of the terms. [LSJ 20010606]
+  - If the target has less than 3 pool when referendum passes, the Methuselah calling the referendum chooses how to distribute within the bounds of the terms. [LSJ 20010606]
 101380|Peace Treaty:
   - Only requires that the pool cost be paid in order to keep the weapon. Blood costs, if any, need not be repaid to keep a weapon. [RTR 20010710]
   - Can be called even if there are no weapons in play. [RTR 20010710]
   - One can decide to burn a weapon with no pool cost (not paying zero). [ANK 20190724]
 101381|Peacemaker:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
-  - If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]
+  - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 101383|Pentex™ Loves You!:
   - "The ability to increase bleed is treated as an action modifier: it can be used at any time during the action. [LSJ 19970718]"
@@ -1739,7 +1745,7 @@
 101479|Predator's Transformation:
   - '[abo] [ACTION MODIFIER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101481|Pressing Flesh:
-  - This is not a directed action, even when targeting another Methusalah's ash heap. [LSJ 20010627] [ANK 20181129]
+  - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
   - Requirements need not to be met. If the ally requires a discipline, the inferior version is used. If the cost is X (eg. {Reanimated Corpse}), X is zero. [LSJ 20071015] [LSJ 20100302-1]
 101482|Preternatural Evasion:
   - "[CEL] The blood is burned when playing the card. [ANK 20200703-2]"
@@ -1826,8 +1832,8 @@
 101565|Rebirth:
   - Cannot be used following an {Amaranth} or an {Abactor} as they are not diablerie actions. [ANK 20190701]
 101567|Reckless Agitation:
-  - Cannot allocate 6 points to a single Methusalah, and you cannot allocate points to yourself. [LSJ 20000622] [LSJ 20100129]
-  - Can allocate more points than a Methusalah has pool. [LSJ 20020819]
+  - Cannot allocate 6 points to a single Methuselah, and you cannot allocate points to yourself. [LSJ 20000622] [LSJ 20100129]
+  - Can allocate more points than a Methuselah has pool. [LSJ 20020819]
 101571|Recure of the Homeland:
   - Is not the default action, no blood is paid to leave torpor. [ANK 20181017]
 101572|Recurring Contemplation:
@@ -1923,9 +1929,9 @@
   - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat.  [ANK 20170111] [PIB 20130319]"
 101640|The Rising:
   - Anything that would increase the pool amount is considered "gaining pool". [ANK 20181105]
-  - Methusalahs do not gain the pool granted by a bleed action (eg. {Kindred Spirit}) if they do not have the edge or a VP beforehand. [LSJ 20100206-2]
-  - Methusalahs gain the pool granted by an effect after a successful bleed action (eg. {The unnamed}), since they get the edge before the effect kicks in. [LSJ 20100210-2]
-  - When ousting their prey, Methusalahs decide if they gain the VP before or after gaining the pool. [LSJ 20100208]
+  - Methuselahs do not gain the pool granted by a bleed action (eg. {Kindred Spirit}) if they do not have the edge or a VP beforehand. [LSJ 20100206-2]
+  - Methuselahs gain the pool granted by an effect after a successful bleed action (eg. {The unnamed}), since they get the edge before the effect kicks in. [LSJ 20100210-2]
+  - When ousting their prey, Methuselahs decide if they gain the VP before or after gaining the pool. [LSJ 20100208]
   - "{Off Kilter}'s additional pool cannot be gained if you do not have a VP (edge is burned before pool is gained). [LSJ 20100207]"
 101642|Ritual of the Bitter Rose:
   - Can be played after a diablerie, before the blood hunt. [ANK 20201228]
@@ -1980,7 +1986,7 @@
   - "[cel] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {High Orun}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 101684|Save Face:
   - Can be used by a vampire in torpor. [LSJ 20020416]
-  - Can be played by a minion of a Methusalah not involved in the current combat. [ANK 20181101]
+  - Can be played by a minion of a Methuselah not involved in the current combat. [ANK 20181101]
   - The gain blood effect is applied after combats ends, no combat card can be played afterwards. The acting player chooses the order of after-combat effects. [LSJ 20071116]
 101688|Scarlet Lore:
   - "[nec] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
@@ -1988,7 +1994,7 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101691|Scobax:
   - "[STR] If the action ends, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
-  - If another Methusalah is the target, he must declare whether he attempts or declines to block before Scobax can be played. [PIB 20150820] [ANK 20200607]
+  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Scobax can be played. [PIB 20150820] [ANK 20200607]
 101692|Scorn of Adonis:
   - May be played at any time during the voting process, and will retroactively cause the loss of pool to Methuselahs voting 'no' before it is played, as well as to Methuselahs voting 'no' after it is played. [RTR 19951110]
   - Each Scorn played may only cause the loss of one pool to a given Methuselah, regardless of how may 'no' votes that Methuselah casts. [RTR 19951110]
@@ -1998,7 +2004,7 @@
   - If it is declared with first strike and if the opposing minion declared a strike based on strength, that minion’s strength is decreased by Scorpion’s Touch when it resolves. [PIB 20110830]
   - You cannot play another strike card to serve as the hand strike for Scorpion's Touch. [LSJ 20010627]
 101697|Scourge of the Enochians:
-  - If the option to burn a vampire is used, the card goes to the predator immediately, even if there is still a mandatory effect to resolve. If not, the predator must take the card when he has the opportunity to play an effect, after the acting Methusalah applied other mandatory effects (eg. losing blood to {Dragonbound}). [ANK 20200508-1]
+  - If the option to burn a vampire is used, the card goes to the predator immediately, even if there is still a mandatory effect to resolve. If not, the predator must take the card when he has the opportunity to play an effect, after the acting Methuselah applied other mandatory effects (eg. losing blood to {Dragonbound}). [ANK 20200508-1]
 101702|Scrying of Secrets:
   - Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425] [ANK 20190113]
 101703|Seal of Veddartha:
@@ -2054,13 +2060,13 @@
   - Are still considered as an equipment after they are "activated". [LSJ 20100527]
 101735|Shadow Body:
   - '[OBT] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
-  - '[OBT] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
+  - '[OBT] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[OBT] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[OBT] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[OBT] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101736|Shadow Boxing:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
-  - If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]
+  - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
   - An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - Cannot be used if a Slave locked to enter combat instead of the blocking minion. [ANK 20200114]
@@ -2096,7 +2102,7 @@
 101760|Shattering Blow:
   - Cannot be used if there is no equipment to destroy. [RTR 19980928]
 101765|Shepherd's Innocence:
-  - "[ANI] Is directed at all Methusalah controlling a card that require Animalism [ani]. [LSJ 20080809-1] [KOT 20081119]"
+  - "[ANI] Is directed at all Methuselah controlling a card that require Animalism [ani]. [LSJ 20080809-1] [KOT 20081119]"
   - "[ANI] Retainers and Equipments you control can also be rearranged. [LSJ 20080803-2] [LSJ 19981102]"
 101767|Shilmulo Tarot:
   - There is no limit to the number of cards it can store. [PIB 20110712-2]
@@ -2147,7 +2153,7 @@
   - The additional cost is paid at the same time the normal cost is paid. [ANK 20190625]
 101811|Smiling Jack, The Anarch:
   - Each other player must burn a pool or a vampire blood for each counter on Jack. Failing to burn a blood from an empty vampire will not lessen the obligation. [LSJ 19971212]
-  - Other Methusalah can pay with any combination of pool and different vampires to meet the total number of counters. [ANK 20181006]
+  - Other Methuselah can pay with any combination of pool and different vampires to meet the total number of counters. [ANK 20181006]
 101814|Smoke Grenade:
   - 'Still burns when used if the opponent uses a "strike: combat ends" too. It does not burn if combat ends before strike resolution (eg. {Rötschreck}). [LSJ 20001127-2] [LSJ 20010806-1]'
   - Still burns if the combat continues or a new combat begins. [RTR 20020501] [LSJ 20040601]
@@ -2183,7 +2189,7 @@
   - "[ACTION MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
   - "[ACTION MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
 101838|Sowing Dissension:
-  - Is a Ⓓ action against all other Methusalahs [PIB 20150821] [RTR 20080808]
+  - Is a Ⓓ action against all other Methuselahs [PIB 20150821] [RTR 20080808]
 101840|Speak with Spirits:
   - "[SPI] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101841|Special Report:
@@ -2199,7 +2205,7 @@
   - "[OBE] If the bleed is canceled, the vampire still returns to its original controller. [RTR 20020501]"
   - '[OBE] "After resolution" effects are applied before the target vampire is returned to his or her previous controller. [LSJ 20030219]'
   - "[OBE] The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]"
-  - "[OBE] The minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]"
+  - "[OBE] The minion is removed from the game when he should return to a Methuselah who has been ousted. [ANK 20181110]"
 101853|Spiritual Protector:
   - Does not restrict the opposing minion if no block occurred. [TOM 19951208-2]
   - Does not restrict the ability of retainers to use equipment. [RTR 19960112]
@@ -2265,7 +2271,7 @@
 101895|Sudario Refraction:
   - The chosen cards are named when the action is declared. The current Sudario cannot be part of them. [LSJ 20050422] [LSJ 20090722]
   - Any copy of the named card can be fetched upon resolution. [LSJ 20090722]
-  - If no copy of a named card is in the ash heap upon resolution (eg. {The Erciyes Fragments} was used to take it), the effect still resolves for the other copies and the acting Methusalah discards 3 cards. [LSJ 20090722]
+  - If no copy of a named card is in the ash heap upon resolution (eg. {The Erciyes Fragments} was used to take it), the effect still resolves for the other copies and the acting Methuselah discards 3 cards. [LSJ 20090722]
 101896|Sudden Reversal:
   - Can only cancel master cards that are played from the hand in the normal fashion. [RTR 20001020]
   - If used to cancel a Trifle, the target does not get an extra Master Phase Action from the canceled Trifle. [LSJ 20090126] [RBK 20181001-162]
@@ -2364,14 +2370,14 @@
   - "Multiple Templar cards provide different actions: if the vampire manage to unlock during the minion phase, he can perform the two actions. [RTR 20030519]"
 101954|Temptation:
   - If used to steal a vampire in combat, combat ends. Any damage yet to resolve still resolves before the change of control. [LSJ 20020618]
-  - The stolen minion is removed from the game when he should return to a Methusalah who has been ousted. [ANK 20181110]
+  - The stolen minion is removed from the game when he should return to a Methuselah who has been ousted. [ANK 20181110]
   - The stolen minion returns to his previous controller even if he is in torpor (but stays in torpor). [LSJ 20010119]
   - If played on one of your own vampires, the action is undirected. Its effect can be used to unlock the vampire. [LSJ 20010828] [ANK 20180917]
   - "Multiple Temptations on the same minion are handled separately: effects do not stask, stealing the minion only burns the counters on one of them. [LSJ 20010227]"
   - "No effect can be used between the decision to burn the counters and the moment the vampire changes control: the effect is resolved at once. (eg. {Shalmath} cannot untap). [PIB 20121028]"
   - If used to steal a minion attempting to block, the block attempt fails. [LSJ 20080326]
-  - If used to steal a minion targeted by an action, the action continues with the same target. Methusalahs who declined to block do not get another opportunity. If the target is not legal anymore (eg. [DOM] {Slaughtering the Herd}), the action ends with no effect. [LSJ 20020725]
-  - If used to steal a minion during an action, Methusalahs who declined to block are still declining to block. The new controller, if he is eligible and has not declined to block yet, can block with the stolen minion even if the previous controller has declined to block. [PIB 20150501]
+  - If used to steal a minion targeted by an action, the action continues with the same target. Methuselahs who declined to block do not get another opportunity. If the target is not legal anymore (eg. [DOM] {Slaughtering the Herd}), the action ends with no effect. [LSJ 20020725]
+  - If used to steal a minion during an action, Methuselahs who declined to block are still declining to block. The new controller, if he is eligible and has not declined to block yet, can block with the stolen minion even if the previous controller has declined to block. [PIB 20150501]
 101956|Tend the Flock:
   - The blood comes from the blood bank. [ANK 20190511]
 101957|Tenebrous Form:
@@ -2397,7 +2403,7 @@
   - The Progeny gets the default Sect of the clan of its progenitor, even if the progenitor himself is not a member of that sect. [ANK 20200117]
 101975|Those Who Endure Judge:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
-  - If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]
+  - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
 101976|Thoughts Betrayed:
   - "[dom] Damage is environmental. [RTR 19970630] [ANK 20200422]"
   - '[dom] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
@@ -2414,7 +2420,7 @@
   - The first Toreador chosen for the Toreador Grand Ball is unblockable on all non-bleed actions. This remains true even after the vampire attempts a bleed. [LSJ 19970814]
 101991|Toreador's Bane:
   - '[mel] [MEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
-  - '[mel] [MEL] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
+  - '[mel] [MEL] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[mel] [MEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[mel] [MEL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[mel] [MEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
@@ -2423,7 +2429,7 @@
   - Any "+X strength" effect adds to it. [LSJ 20100813]
 101995|Torrent:
   - '[CEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
-  - '[CEL] If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
+  - '[CEL] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[CEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
   - '[CEL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[CEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
@@ -2573,7 +2579,7 @@
   - May still be "canceled as it is played" when used as an out-of-turn master. [LSJ 20031201]
 102135|Vulture's Buffet:
   - Is a hunt action. [ANK 20200421]
-  - Cannot be played if there is no minion or retainer in any Methusalah's ash heap. [ANK 20200420-3]
+  - Cannot be played if there is no minion or retainer in any Methuselah's ash heap. [ANK 20200420-3]
   - Is undirected. [ANK 20180202]
 102137|Wake with Evening's Freshness:
   - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
@@ -2603,7 +2609,7 @@
 102152|Wasserschloss Anif, Austria:
   - Can only receive blood from one Tremere on any given turn. [RTR 19960221]
 102160|Wave of Insanity:
-  - "[DEM] Is directed at all Methusalah controlling an ally. [LSJ 20080809-1] [KOT 20081119]"
+  - "[DEM] Is directed at all Methuselah controlling an ally. [LSJ 20080809-1] [KOT 20081119]"
 102161|Wave of Lethargy:
   - Card text was changed in 2007, previous rulings do not apply. [ANK 20200408-1]
 102162|Waxen Poetica:
@@ -2620,7 +2626,7 @@
   - Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606] [ANK 20190707]
 102168|Weigh the Heart:
   - '[AUS][SER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
-  - "[AUS][SER] If the action targets multiple Methusalah, you choose one minion, which must be controlled by one of the target Methusalah. [ANK 20180515]"
+  - "[AUS][SER] If the action targets multiple Methuselah, you choose one minion, which must be controlled by one of the target Methuselah. [ANK 20180515]"
 102169|Weighted Walking Stick:
   - If the damage is reduced (eg. {Nephandus}) or not inflicted (eg. {Blood Fury}), the corresponding token is not burned (contrary to prevented damage). [LSJ 20100519]
   - Full damage is applied if there are any counter left, even just 1. [ANK 20201229-2]
@@ -2768,7 +2774,7 @@
   - When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
 200242|The Capuchin:
   - If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} does not target him anymore). [ANK 20200417]
-  - If his controller is not his original owner and he burns, he goes to his original owner ash heap, breaking all control effect, then to his owner's uncontrolled area. The Methusalah who was controlling him when he burned gets the additional transfers. [ANK 20200417]
+  - If his controller is not his original owner and he burns, he goes to his original owner ash heap, breaking all control effect, then to his owner's uncontrolled area. The Methuselah who was controlling him when he burned gets the additional transfers. [ANK 20200417]
 200245|Carlotta Giovanni:
   - The card being retrieved is announced when the action is declared. [LSJ 19970922]
 200247|Carmine Giovanni:
@@ -2942,7 +2948,7 @@
   - When using his ability, you do not get to see the card drawn as replacement. [PIB 20121031]
 200826|Leandro:
   - Choice is mandatory, there is no default. If all players forget, forcing one choice or the other on the victim is not a suitable remedy. [LSJ 20021210-1]
-  - "When a Methusalah decides to get no transfer, he can still use other effects that put blood on his uncontrolled vampires (eg. [DOM] {Govern the Unaligned}, {Powerbase: Montreal}). [LSJ 20100527]"
+  - "When a Methuselah decides to get no transfer, he can still use other effects that put blood on his uncontrolled vampires (eg. [DOM] {Govern the Unaligned}, {Powerbase: Montreal}). [LSJ 20100527]"
 200840|Lisandro Giovanni:
   - When playing a card requiring a Ventrue antitribu or a Samedi, he is treated as a such for all effects of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play (eg. {Houngan} can be played on him, but he does not get blood and cannot lock to get blood). [ANK 20190228] [PIB 20141006]
   - You can still use the burn options of cards with a requirement he could meet when you play them, but does not meet while in play. [LSJ 20050225]
@@ -3214,7 +3220,7 @@
   - His special ability only affects the cost of masters played by his controller. [LSJ 20081124-1]
 201463|Wamukota:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
-  - If the action continues "as if unblocked", Methusalah that had declined to block before do not get another opportunity to block. [ANK 20190116]
+  - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - His ability to end combat can be used when he is in torpor. [LSJ 20011022]
 201471|Winterlich:
