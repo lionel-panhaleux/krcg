@@ -1956,7 +1956,8 @@
 101670|Sacré-Cœur Cathedral, France:
   - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 101672|Sacrificial Lamb:
-  - If the target has a {Soul Gem of Etrius}, the Gem effet applies and it cannot be transfered. [LSJ 19970516]
+  - If the target has a {Soul Gem of Etrius}, the Gem effect applies and it cannot be transfered. [LSJ 19970516]
+  - If the target does not burn (eg. {Byzar}'s ability) then no blood is gained and no equipment transfered. [LSJ 20100423]
 101675|Samuel Haight:
   - He cannot "steal equipment as a strike" if there is no equipment to steal. [RTR 19980928]
 101676|San Lorenzo de El Escorial, Spain:
@@ -2742,10 +2743,12 @@
   - "[MERGED] Is Anarch Baron. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
 200229|Byzar:
   - His ability will make a diablerie unsuccessful (blood and equipment stay on him). [LSJ 20100228]
+  - When he burns from aggravated damage, additional damage is lost. [ANK 20210424]
+  - If {Amaranth} burns him and he comes back in torpor, another {Amaranth} can be played. [ANK 20210424]
 200232|Cailean:
   - When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
 200242|The Capuchin:
-  - If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} do not target him anymore). [ANK 20200417]
+  - If he burns, he looses all cards and counters on him, all cards and effects lose track of him and he is considered a new vampire for all game purposes (eg. {The Rack} does not target him anymore). [ANK 20200417]
   - If his controller is not his original owner and he burns, he goes to his original owner ash heap, breaking all control effect, then to his owner's uncontrolled area. The Methusalah who was controlling him when he burned gets the additional transfers. [ANK 20200417]
 200245|Carlotta Giovanni:
   - The card being retrieved is announced when the action is declared. [LSJ 19970922]
