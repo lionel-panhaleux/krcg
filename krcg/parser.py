@@ -127,6 +127,7 @@ _NAME = r"(?P<name>channel 10|.+?)(,\s*$)?"
 _DISCIPLINE_TRIGRAM = "|".join(
     [
         "-none-",
+        "none",
         "abo",
         "ani",
         "aus",
@@ -235,11 +236,10 @@ _CLAN = "|".join(
         "redeemer",
     ]
 )
-_CRYPT_TAIL = (
-    r"(?(ante_count)(?P<crypt_tail>\s+\d{1,2}\s+"
-    + r"({}|{}|{}|\s|:|\d{{1,2}}|any)*)|%NOMATCH%)?".format(
-        _DISCIPLINE_TRIGRAM, _TITLE, _CLAN
-    )
+_CRYPT_TAIL = r"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{})\s+".format(
+    _DISCIPLINE_TRIGRAM
+) + r"({}|{}|{}|\s|:|g?\d{{1,2}}|any|g\*)*)|%NOMATCH%)?".format(
+    _DISCIPLINE_TRIGRAM, _TITLE, _CLAN
 )
 _PUNCTUATED_TRAIT = "|".join(
     [
@@ -258,6 +258,7 @@ _PUNCTUATED_TRAIT = "|".join(
         "bane mummy",
         "wraith",
         "hunter",
+        "giovanni",
         "goblin",
         "changeling",
         # this one pften appears after double dashes in legacy deck lists:
@@ -285,7 +286,6 @@ _NAKED_TRAIT = "|".join(
         "follower of set",
         "gangrel",
         "gangrel antitribu",
-        "giovanni",
         "guruhi",
         "harbinger of skulls",
         "ishtarri",
@@ -692,11 +692,21 @@ class Parser:
             and not self.current_comment.multiline
             and not self.current_comment.mark
         ):
-            logger.warning(
-                'failed to parse "{}"',
-                self.current_comment.log,
-                extra={"line": (logger.extra.get("line") or 1) - 1},
-            )
+            # TODO use regexes
+            if self.current_comment.string.startswith(
+                "This deck was last saved"
+            ) or self.current_comment.string.startswith("http"):
+                logger.debug(
+                    'ignoring tail comment "{}"',
+                    self.current_comment.log,
+                    extra={"line": (logger.extra.get("line") or 1) - 1},
+                )
+            else:
+                logger.warning(
+                    'failed to parse "{}"',
+                    self.current_comment.log,
+                    extra={"line": (logger.extra.get("line") or 1) - 1},
+                )
             self.current_comment = None
         # log unmarked multiline comments in the middle of the list
         # they happen a lot in the TWDA, but checking them may be needed
