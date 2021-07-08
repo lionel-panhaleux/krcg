@@ -4,7 +4,8 @@ Changelog
 2.13 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Additional rulings
+- Parser is now FELDB compatible
 
 
 2.12 (2021-04-02)
