@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.14 (unreleased)
+2.14 (2021-07-08)
 -----------------
 
 - Fix logging issue (quickfix)
