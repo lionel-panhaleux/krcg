@@ -21,7 +21,7 @@ class LineLogAdapter(logging.LoggerAdapter):
 
     def process(self, msg, kwargs):
         """Accept an extra line argument, but also use the line set on self."""
-        self.extra.update(kwargs.get("extra", {}))
+        self.extra.update(kwargs.pop("extra", {}))
         prefix = ""
         if self.extra.get("line"):
             prefix += "[%6s]" % self.extra["line"]
@@ -46,14 +46,7 @@ class LineLogAdapter(logging.LoggerAdapter):
         """Add line number if any, format string using the str.format() method."""
         if self.isEnabledFor(level):
             msg, kwargs = self.process(msg, kwargs)
-            self.logger._log(
-                level,
-                self.Message(msg, *args, **kwargs),
-                [],
-                exc_info=kwargs.get("exc_info", None),
-                stack_info=kwargs.get("stack_info", None),
-                stacklevel=kwargs.get("stacklevel", 1),
-            )
+            self.logger._log(level, self.Message(msg, *args, **kwargs), [])
 
 
 _handler = logging.StreamHandler()
