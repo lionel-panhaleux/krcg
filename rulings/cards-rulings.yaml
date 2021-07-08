@@ -2500,6 +2500,7 @@
 102088|Vampiric Disease:
   - At the beginning of the unlock phase, an afflicted vampires unlocks and burns a blood before effects that are applied "during" the unlock phase. [ANK 20180702]
   - Unlocking an already unlocked vampire does not trigger the effect. [ANK 20170227] [LSJ 20020408]
+  - The counter is placed after range is determined, before strikes are chosen (defensive strikes like dodge or combat ends do not avoid it). [ANK 20210422] [LSJ 20040830]
 102089|Vampiric Speed:
   - "[CEL] The press can only be used during the current round. [TOM 19960521]"
 102092|Vast Wealth:
