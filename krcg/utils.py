@@ -15,14 +15,14 @@ import collections
 import csv
 import difflib
 import io
+import logging
 import re
 import unidecode
 import urllib.request
 import zipfile
 
-from . import logging
 
-logger = logging.logger
+logger = logging.getLogger("krcg")
 
 
 def normalize(s: Any):
@@ -79,7 +79,7 @@ class FuzzyDict:
         )
         if result:
             result = result[0]
-            logger.info('"{}" matched "{}"', key, result)
+            logger.info('"%s" matched "%s"', key, result)
             return result
         return None
 

@@ -1534,7 +1534,7 @@ for the day.
         (
             "krcg",
             logging.WARNING,
-            "[   134][2020pihc] deck has too few cards (59) [Sauce or GTFO]",
+            "deck 2020pihc has too few cards (59) [Sauce or GTFO]",
         ),
     ]
 

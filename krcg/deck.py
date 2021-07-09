@@ -4,19 +4,18 @@ import arrow
 import collections
 import datetime
 import email.utils
-import requests
 import itertools
+import logging
+import requests
 import unidecode
 
-
 from . import config
-from . import logging
 from . import parser
 from . import vtes
 from . import utils
 
 
-logger = logging.logger
+logger = logging.getLogger("krcg")
 
 
 class Deck(collections.Counter):
@@ -107,26 +106,26 @@ class Deck(collections.Counter):
         crypt_count = self.cards_count(lambda c: c.crypt)
         if library_count < 60:
             logger.warning(
-                "deck has too few cards ({count}) [{repr}]",
-                id=self.id,
-                count=library_count,
-                repr=self,
+                "deck %s has too few cards (%s) [%s]",
+                self.id,
+                library_count,
+                self,
             )
             res = False
         if library_count > 90:
             logger.warning(
-                "deck has too many cards ({count}) [{repr}]",
-                id=self.id,
-                count=library_count,
-                repr=self,
+                "deck %s has too many cards (%s) [%s]",
+                self.id,
+                library_count,
+                self,
             )
             res = False
         if crypt_count < 12:
             logger.warning(
-                "deck is missing crypt cards ({count}) [{repr}]",
-                id=self.id,
-                count=crypt_count,
-                repr=self,
+                "deck %s is missing crypt cards (%s) [%s]",
+                self.id,
+                crypt_count,
+                self,
             )
             res = False
         return res

@@ -7,18 +7,18 @@ from typing import List, TextIO
 import collections
 import html
 import io
+import logging
 import pkg_resources  # part of setuptools
 import re
 
 import requests
 
 from . import config
-from . import logging
 from . import deck
 from . import utils
 from . import vtes
 
-logger = logging.logger
+logger = logging.getLogger("krcg")
 
 
 class _TWDA(collections.OrderedDict):
