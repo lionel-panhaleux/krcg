@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.15 (unreleased)
+2.15 (2021-07-09)
 -----------------
 
 - Fix logging properly: logging is not configured by the lib anymore
