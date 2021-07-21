@@ -802,7 +802,8 @@
   - When used to block, does not ignore the normal prey, predator or target restrictions. [ANK 20180623]
   - The block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]
 100667|The Eternals of Sirius:
-  - Pay the cost at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620] [LSJ 20080612]
+  - Pay the cost at the same time you gain pool from it, you do not get ousted in between (ie. can be played when at 4 pool). [LSJ 20020620] [LSJ 20080612]
+  - You must be able to pay the cost to play it (ie. cannot be played when at 3 pool). [ANK 20210714-2]
 100668|Evil Eye:
   - The burn option can be used if all your vampires with [mal] are in torpor. [LSJ 20091203]
 100669|Ex Nihilo:
