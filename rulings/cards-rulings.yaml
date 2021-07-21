@@ -465,7 +465,7 @@
 100354|Clan Loyalty:
   - The blocking minion is not locked [ANK 20180321]
 100356|Claws of the Dead:
-  - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike. (can be played after both strikes have been chosen) [RTR 19960112]"
+  - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike. Can be played after both strikes have been chosen. [RTR 19960112]"
 100358|Cleave:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - The effect lasts until the end of the action. [LSJ 20060412]
@@ -2653,7 +2653,7 @@
 102184|Winchester Mansion:
   - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 102190|Wolf Claws:
-  - "[pro] Must be played before strike resolution (and damage prevention) in order to affect the current strike [RTR 19960112]"
+  - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike. Can be played after both strikes have been chosen. [RTR 19960112]"
 102192|Wooden Stake:
   - If placed on a minion that cannot have equipment, the Stake is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]
   - The "does not unlock as normal" effect continues to apply if the Stake is burned or moved. [LSJ 19980831]
