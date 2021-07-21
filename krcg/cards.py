@@ -39,7 +39,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         "striga": "striga",
         "maleficia": "maleficia",
         "flight": "flight",
-        "vision": "vin",  # avoid coollision with visceratika
+        "vision": "vin",  # avoid collision with visceratika
         # standard list
         "judgment": "jud",
         "innocence": "inn",
