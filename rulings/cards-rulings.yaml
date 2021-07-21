@@ -2570,7 +2570,7 @@
   - Cannot be played if you have another one, even if it has only one counter left. [PIB 20121031]
   - If another effect offers an alternative for card replacement (eg. {Steely Tenacity}), you choose which to apply. [ANK 20200905]
 102128|Vivienne Géroux:
-  - Cannot play cards requiring both [for] and [cel]. [ANK 20180731-1]
+  - Can play cards requiring both [for] and [cel]. [ANK 20210719]
 102130|Voices of the Castle:
   - "[tha] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Uta Kovacs}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 102131|Voter Captivation:
