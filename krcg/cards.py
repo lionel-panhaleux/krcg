@@ -181,12 +181,18 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "DTC": "DriveThruCards",
         },
         "Promo-20181004": {"HB": "Humble Bundle"},
+        "TU":{
+            "A": "Bundle 1",
+            "B": "Bundle 2",
+        }
     }
     _REPRINTS_RELEASE_DATE = {
         ("KoT", "Reprint Bundle 1"): datetime.date(2018, 5, 5),
         ("KoT", "Reprint Bundle 2"): datetime.date(2018, 5, 5),
         ("HttB", "Reprint Bundle 1"): datetime.date(2018, 7, 14),
         ("HttB", "Reprint Bundle 2"): datetime.date(2018, 7, 14),
+        ("TU", "Bundle 1"): datetime.date(2021, 7, 9),
+        ("TU", "Bundle 2"): datetime.date(2021, 7, 9),
     }
     _ARTISTS_FIXES = {
         "Alejandro Collucci": "Alejandro Colucci",
@@ -370,7 +376,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         # only use them once everything else is set
         self.sets = dict(
             Card._decode_set(set_dict, rarity)
-            for rarity in map(str.strip, data["Set"].split(","))
+            for rarity in map(str.strip, itertools.chain.from_iterable(s.split(";") for s in data["Set"].split(",")))
             if rarity
         )
         if not self.sets:
@@ -455,7 +461,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             if code:
                 ret["precon"] = code
             elif code is None:
-                warnings.warn(f"unknown base: {base} in {rarity}")
+                warnings.warn(f"unknown base: {base} in {abbrev}:{rarity}")
                 return
         # fix release date for reprints
         if (abbrev, code) in Card._REPRINTS_RELEASE_DATE:
