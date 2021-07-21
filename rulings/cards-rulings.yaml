@@ -577,7 +577,7 @@
   - If the action is blocked, damage is applied after combat [RTR 19980623]
 100493|Dark Influences:
   - If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]
-  - If used to cancel an action, the action is not performed in respect to section 6.1 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]
+  - If used to cancel an action, the action is not performed in respect to section 3 of the rules. [LSJ 19980212]
   - If used to cancel a limited effect (bleed, additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]
   - The card is still considered played. The same reaction or modifier cannot be played again by the same minion. Another Aim card can not be played once one has been canceled, nor any other card which text prohibits to be played more than once. [LSJ 19980212] [ANK 20190104]
   - Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]
@@ -647,7 +647,7 @@
   - Will not extend temporary change of control effects when they expire. [LSJ 20040518]
 100545|Direct Intervention:
   - If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]
-  - If used to cancel an action, the action is not performed in respect to section 6.1 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]
+  - If used to cancel an action, the action is not performed in respect to section 3 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]
   - If used to cancel a limited effect (bleed, additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]
   - The card is still considered played. The same reaction or modifier cannot be played again by the same minion. Another Aim card can not be played once one has been canceled, nor any other card which text prohibits to be played more than once. [LSJ 19980212] [ANK 20190104]
   - Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]
@@ -1687,7 +1687,7 @@
 101401|Piper:
   - When used to recruit an ally, the ally cannot act this turn. [LSJ 20080630] [RTR 20180303]
   - This is not an action, so cost reductions refering to an action like {Charisma} or {Erichtho} do not apply. [LSJ 20090115-1] [ANK 20170309]
-  - This does not count as performing the action to recruit this ally in respect to section 6.1 of the rules. The same vampire can recruit the same ally the normal way later this turn if he unlocks (and/or Piper it a second time). [LSJ 20080815]
+  - This does not count as performing the action to recruit this ally in respect to section 3 of the rules. The same vampire can recruit the same ally the normal way later this turn if he unlocks (and/or Piper it a second time). [LSJ 20080815]
   - When recruiting an ally or retainer whose effect depend on Discipline level, the chosen vampire decides in respect to his disciplines the normal way. [LSJ 20080803]
   - The ally card is not "played" by the vampire (eg. {Louhi}'s ability cannot cancel it). [ANK 20201229]
 101405|Pocket Out of Time:
