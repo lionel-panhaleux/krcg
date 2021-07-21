@@ -1660,6 +1660,7 @@
   - Can not be played if there is no legal target (no other Methuselah with more pool than you). [ANK 20191228]
   - The pool awarded can be used to play {Life Boon} to save the target from an oust. [LSJ 20100527]
   - If the target has less than 3 pool when referendum passes, the Methuselah calling the referendum chooses how to distribute within the bounds of the terms. [LSJ 20010606]
+  - Changes in pool during the referendum (after terms are chosen) do not affect the outcome. [LSJ 20041004]
 101380|Peace Treaty:
   - Only requires that the pool cost be paid in order to keep the weapon. Blood costs, if any, need not be repaid to keep a weapon. [RTR 20010710]
   - Can be called even if there are no weapons in play. [RTR 20010710]
