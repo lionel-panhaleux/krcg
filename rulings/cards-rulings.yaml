@@ -714,6 +714,7 @@
   - Cannot move blood to Imbued in the uncontrolled region. [LSJ 20070516]
   - Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]
   - Cards that are not replaced count against the hand size. [ANK 20180318]
+  - The hand size bonus ends during the discard phase, it can be ordered as the acting Methuselah wishes against other end-of-turn and discard phase effects, following normal sequencing rules. [LSJ 20020904-2]
 100591|Drum of Xipe Totec:
   - The minion cannot use the discipline nor the maneuver provided if some effect prevents him to use the equipment (eg. {Drawing Out the Beast}). [RTR 20010710]
 100592|Dual Form:
