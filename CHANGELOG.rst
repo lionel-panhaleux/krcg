@@ -1,10 +1,29 @@
 Changelog
 =========
 
-2.13 (unreleased)
+2.16 (unreleased)
 -----------------
 
 - Nothing changed yet.
+
+
+2.15 (2021-07-09)
+-----------------
+
+- Fix logging properly: logging is not configured by the lib anymore
+
+
+2.14 (2021-07-08)
+-----------------
+
+- Fix logging issue (quickfix)
+
+
+2.13 (2021-07-08)
+-----------------
+
+- Additional rulings
+- Parser is now FELDB compatible
 
 
 2.12 (2021-04-02)

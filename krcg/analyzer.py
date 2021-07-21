@@ -6,11 +6,11 @@ import itertools
 import random
 
 from . import deck
-from . import logging
+import logging
 
 Candidates = List[Tuple[str, float]]
 
-logger = logging.logger
+logger = logging.getLogger("krcg")
 
 
 class AnalysisError(Exception):
@@ -42,7 +42,7 @@ class Analyzer(object):
                 ).items()
                 if count > len(self.decks) / 4
             }
-            logger.debug("Spoilers: {}", self.spoilers)
+            logger.debug("Spoilers: %s", self.spoilers)
         else:
             self.spoilers = {}
         self.examples = None
@@ -77,7 +77,7 @@ class Analyzer(object):
                     random.randrange(100)
                 ]
             ]
-            logger.info("Randomly selected {}", args[0])
+            logger.info("Randomly selected %s", args[0])
         # build crypt first, then library
         self.build_deck_part(*args, condition=Analyzer.is_crypt)
         self.refresh(condition=Analyzer.is_library)
@@ -163,7 +163,7 @@ class Analyzer(object):
         if not self.examples:
             logger.error("No example in TWDA")
             raise AnalysisError()
-        logger.info("Refresh examples ({})", len(self.examples))
+        logger.info("Refresh examples (%s)", len(self.examples))
         self.played = collections.Counter()
         for example in self.examples:
             self.played.update(card for card, _ in example.cards(condition))
@@ -278,7 +278,7 @@ class Analyzer(object):
                 logger.info("No more candidates")
                 return
             next_card, score = candidates[0]
-            logger.info("Selected {} ({:.2f})", next_card, score)
+            logger.info("Selected %s (%.2f)", next_card, score)
             count = min(self.cards_left, round(self.average[next_card]))
             self.deck.update({next_card: count})
             self.cards_left -= count

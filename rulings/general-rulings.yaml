@@ -573,6 +573,15 @@
     - 101527|Qetu the Evil Doer
     - 101665|Saatet-ta
     - 102048|Tutu the Doubly Evil One
+- ruling: "Is not shuffled into the library when it is discarded. [LSJ 20010710]"
+  cards:
+    - 100033|Akhenaten, The Sun Pharaoh
+    - 100042|Amam the Devourer
+    - 101047|Kherebutu
+    - 101273|Nephren-Ka
+    - 101527|Qetu the Evil Doer
+    - 101665|Saatet-ta
+    - 102048|Tutu the Doubly Evil One
 - ruling: "Immune means damage is not inflicted, even if non-preventable or outside combat. [LSJ 20010627] [LSJ 20010629] [LSJ 20090304-1]"
   cards:
     - 100044|Ambrosius, The Ferryman

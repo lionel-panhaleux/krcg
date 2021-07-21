@@ -5,18 +5,18 @@ Only modifiy this file if you know what you're doing, and proceed with caution.
 """
 from typing import TextIO, Tuple
 import enum
+import logging
 import math
 import re
 
 import arrow
 
 from . import config
-from . import logging
 from . import vtes
 from . import utils
 
 
-logger = logging.logger
+logger = logging.getLogger("krcg")
 
 #: classic headers in deck lists
 _HEADERS = [
@@ -127,6 +127,7 @@ _NAME = r"(?P<name>channel 10|.+?)(,\s*$)?"
 _DISCIPLINE_TRIGRAM = "|".join(
     [
         "-none-",
+        "none",
         "abo",
         "ani",
         "aus",
@@ -235,11 +236,10 @@ _CLAN = "|".join(
         "redeemer",
     ]
 )
-_CRYPT_TAIL = (
-    r"(?(ante_count)(?P<crypt_tail>\s+\d{1,2}\s+"
-    + r"({}|{}|{}|\s|:|\d{{1,2}}|any)*)|%NOMATCH%)?".format(
-        _DISCIPLINE_TRIGRAM, _TITLE, _CLAN
-    )
+_CRYPT_TAIL = r"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{})\s+".format(
+    _DISCIPLINE_TRIGRAM
+) + r"({}|{}|{}|\s|:|g?\d{{1,2}}|any|g\*)*)|%NOMATCH%)?".format(
+    _DISCIPLINE_TRIGRAM, _TITLE, _CLAN
 )
 _PUNCTUATED_TRAIT = "|".join(
     [
@@ -258,6 +258,7 @@ _PUNCTUATED_TRAIT = "|".join(
         "bane mummy",
         "wraith",
         "hunter",
+        "giovanni",
         "goblin",
         "changeling",
         # this one pften appears after double dashes in legacy deck lists:
@@ -285,7 +286,6 @@ _NAKED_TRAIT = "|".join(
         "follower of set",
         "gangrel",
         "gangrel antitribu",
-        "giovanni",
         "guruhi",
         "harbinger of skulls",
         "ishtarri",
@@ -371,6 +371,14 @@ _RE = (
 )
 
 
+class LineLogAdapter(logging.LoggerAdapter):
+    """Log line and deck"""
+
+    def process(self, msg, kwargs):
+        self.extra.update(kwargs.get("extra", {}))
+        return "[%6s][%s] %s" % (self.extra["line"], self.extra["deck"], msg), kwargs
+
+
 class Mark(enum.Enum):
     """A comment Mark."""
 
@@ -427,7 +435,7 @@ class Comment:
                 self.string.split("\n", 1)[0],
             )
             if match:
-                logger.warning('failed to parse "{}"', self.log)
+                logger.warning('failed to parse "%s"', self.log)
                 self.string = ""
 
     @property
@@ -458,6 +466,11 @@ class Parser:
         self.preface = True
         self.separator = False  # used only for additional checks on the TWDA
         self.deck = deck
+        self.logger = logger
+
+    @property
+    def _previous_line(self):
+        return (getattr(self.logger, "extra", {}).get("line") or 1) - 1
 
     def parse(self, input: TextIO, offset: int = 0, twda: bool = False) -> None:
         """Parse given stream.
@@ -469,8 +482,9 @@ class Parser:
         if not vtes.VTES:
             vtes.VTES.load()
         for index, line in enumerate(input, 1):
-            logger.extra["line"] = index + offset
-            logger.extra["deck"] = self.deck.id
+            self.logger = LineLogAdapter(
+                logger, {"line": index + offset, "deck": self.deck.id}
+            )
             self.parse_line(index, line, twda)
         # finalize current_comment if any
         self.comment("", mark=Mark.END)
@@ -478,8 +492,6 @@ class Parser:
         # a wrong card count can be a good indication of a parsing error
         if not twda or self.deck.id not in config.TWDA_CHECK_DECK_FAILS:
             self.deck.check()
-        logger.extra["line"] = None
-        logger.extra["deck"] = None
 
     def parse_line(self, index: int, line: str, twda: bool):
         """Parse a line of text."""
@@ -604,7 +616,7 @@ class Parser:
                         # distinguishing them from actual Master discipline cards
                         # is not decidable so we log and ignore the line
                         if name.strip(" :()[]-_*=") in _DISCIPLINES:
-                            logger.warning('improper discipline "{}"', line)
+                            self.logger.warning('improper discipline "%s"', line)
                             return None, 0
             try:
                 card = vtes.VTES[name]
@@ -618,7 +630,7 @@ class Parser:
             and self.current_comment
             and self.current_comment.mark == Mark.MULTILINE
         ):
-            logger.warning('discarded match "{}" inside comment "{}"', name, line)
+            self.logger.warning('discarded match "%s" inside comment "%s"', name, line)
             card, count = None, 0
         # do not match crypt tail expression on a library card
         if card and match.group("crypt_tail") and not card.crypt:
@@ -692,11 +704,21 @@ class Parser:
             and not self.current_comment.multiline
             and not self.current_comment.mark
         ):
-            logger.warning(
-                'failed to parse "{}"',
-                self.current_comment.log,
-                extra={"line": (logger.extra.get("line") or 1) - 1},
-            )
+            # TODO use regexes
+            if self.current_comment.string.startswith(
+                "This deck was last saved"
+            ) or self.current_comment.string.startswith("http"):
+                self.logger.debug(
+                    'ignoring tail comment "%s"',
+                    self.current_comment.log,
+                    extra={"line": self._previous_line},
+                )
+            else:
+                self.logger.warning(
+                    'failed to parse "%s"',
+                    self.current_comment.log,
+                    extra={"line": self._previous_line},
+                )
             self.current_comment = None
         # log unmarked multiline comments in the middle of the list
         # they happen a lot in the TWDA, but checking them may be needed
@@ -708,9 +730,9 @@ class Parser:
             and not self.preface
         ):
             logger.debug(
-                'unexpected multiline comment "{}"',
+                'unexpected multiline comment "%s"',
                 self.current_comment.log,
-                extra={"line": (logger.extra.get("line") or 1) - 1},
+                extra={"line": self._previous_line},
             )
         # if this is a new comment block, register the previous comment on the deck
         if self.current_comment and (
