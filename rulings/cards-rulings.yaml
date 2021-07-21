@@ -2460,6 +2460,8 @@
 102017|The Treatment:
   - Does nothing to the target Prince if the Prince is in Torpor with zero blood. [TOM 19960423]
   - Will cease functioning if the vampire it is on loses his Prince title. It will resume working if the vampire becomes a Prince again. [LSJ 19980209]
+102023|Tribute to the Master:
+  - Can be played with no ready vampire. [ANK 20210717]
 102025|Triole's Revenge:
   - The Ventrue is burned only if the hunt isn't blocked, he still burns if the benefit of the hunt is reduced to zero. [TOM 19951212-3]
 102026|Trochomancy:
