@@ -205,6 +205,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         "Heather Kreiter": "Heather V. Kreiter",
         "Jeff Holt": 'Jeff "el jefe" Holt',
         "L. Snelly": "Lawrence Snelly",
+        "Martín de Diego Sábada": "Martín de Diego",
         "Mathias Tapia": "Matias Tapia",
         "Mattias Tapia": "Matias Tapia",
         "Matt Mitchell": "Matthew Mitchell",
