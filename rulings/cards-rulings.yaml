@@ -2568,6 +2568,7 @@
   - '[ACTION MODIFIER] Cards and effects that can be played "after resolution" (and only them) can be played after its use. [ANK 20190425]'
 102121|Villein:
   - Pay the cost (if any) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]
+  - You must be able to pay the cost to play it (eg. cannot play a third Villein with only 1 pool). [ANK 20210714]
   - If the target has less blood at resolution than the amount annouced, you take what you can. [LSJ 20100216] [ANK 20180512-2]
 102124|Virtuosa:
   - '[MEL] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
