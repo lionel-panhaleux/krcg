@@ -181,10 +181,10 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "DTC": "DriveThruCards",
         },
         "Promo-20181004": {"HB": "Humble Bundle"},
-        "TU":{
+        "TU": {
             "A": "Bundle 1",
             "B": "Bundle 2",
-        }
+        },
     }
     _REPRINTS_RELEASE_DATE = {
         ("KoT", "Reprint Bundle 1"): datetime.date(2018, 5, 5),
@@ -376,7 +376,12 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         # only use them once everything else is set
         self.sets = dict(
             Card._decode_set(set_dict, rarity)
-            for rarity in map(str.strip, itertools.chain.from_iterable(s.split(";") for s in data["Set"].split(",")))
+            for rarity in map(
+                str.strip,
+                itertools.chain.from_iterable(
+                    s.split(";") for s in data["Set"].split(",")
+                ),
+            )
             if rarity
         )
         if not self.sets:
