@@ -86,7 +86,11 @@ class Deck(collections.Counter):
         ret = cls(id=uid, author=r.get("author", r.get("owner", None)))
         ret.name = r.get("name", None)
         ret.comments = r.get("description", "")
-        ret.date = email.utils.parsedate_to_datetime(r["timestamp"]).date() if ("timestamp" in r) else None
+        ret.date = (
+            email.utils.parsedate_to_datetime(r["timestamp"]).date()
+            if ("timestamp" in r)
+            else None
+        )
         if not vtes.VTES:
             vtes.VTES.load()
         for cid, data in itertools.chain(r["crypt"].items(), r["library"].items()):
