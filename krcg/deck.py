@@ -8,6 +8,7 @@ import itertools
 import logging
 import requests
 import unidecode
+import urllib.parse
 
 from . import config
 from . import parser
@@ -434,12 +435,19 @@ class Deck(collections.Counter):
             lines.append(f"{count}\t{lackerize(card.vekn_name)}")
         return "\n".join(lines)
 
-    def to_vdb(self, name: str = "New KRCG Deck") -> str:
+    def to_vdb(self) -> str:
         """Generating vdb.smeaa.casa link to deck"""
-        link = f"https://vdb.smeea.casa/decks?name={name}&author=KRCG#"
+        link = f"https://vdb.smeea.casa/decks?"
+        link += urllib.parse.urlencode(
+            {
+                "name": self.name or "New KRCG Deck",
+                "author": self.author or self.player or "KRCG",
+            }
+        )
+        link += "#"
         for card, count in self.crypt:
-            link = link + str(card.id) + "=" + str(count) + ";"
+            link += f"{card.id}={count};"
         for _, cards in self._sorted_library():
             for card, count in cards:
-                link = link + str(card.id) + "=" + str(count) + ";"
+                link += f"{card.id}={count};"
         return link[:-1]
