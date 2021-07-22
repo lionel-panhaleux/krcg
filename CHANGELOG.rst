@@ -4,7 +4,9 @@ Changelog
 2.16 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Additional rulings
+- VDB "deck in URL" format for decks
+- Fixed an error when loading a VDB deck
 
 
 2.15 (2021-07-09)
