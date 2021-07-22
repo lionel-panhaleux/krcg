@@ -86,7 +86,11 @@ class Deck(collections.Counter):
         ret = cls(id=uid, author=r.get("author", r.get("owner", None)))
         ret.name = r.get("name", None)
         ret.comments = r.get("description", "")
-        ret.date = email.utils.parsedate_to_datetime(r["timestamp"]).date()
+        ret.date = (
+            email.utils.parsedate_to_datetime(r["timestamp"]).date()
+            if ("timestamp" in r)
+            else None
+        )
         if not vtes.VTES:
             vtes.VTES.load()
         for cid, data in itertools.chain(r["crypt"].items(), r["library"].items()):
@@ -429,3 +433,13 @@ class Deck(collections.Counter):
         for card, count in self.crypt:
             lines.append(f"{count}\t{lackerize(card.vekn_name)}")
         return "\n".join(lines)
+
+    def to_vdb(self, name: str = "New KRCG Deck") -> str:
+        """Generating vdb.smeaa.casa link to deck"""
+        link = f"https://vdb.smeea.casa/decks?name={name}&author=KRCG#"
+        for card, count in self.crypt:
+            link = link + str(card.id) + "=" + str(count) + ";"
+        for _, cards in self._sorted_library():
+            for card, count in cards:
+                link = link + str(card.id) + "=" + str(count) + ";"
+        return link[:-1]
