@@ -392,6 +392,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                 expansion=(
                     {
                         "2019 Promo Pack 1": "promo-pack-1",
+                        "2020 Promo Pack 2": "promo-pack-2",
+                        "2021 Kickstarter Promo": "kickstarter-promo",
                         "2018 Humble Bundle": "humble-bundle",
                     }.get(name, "promo")
                     if set_dict[name].abbrev in set(sets.SetMap.PROMOS)

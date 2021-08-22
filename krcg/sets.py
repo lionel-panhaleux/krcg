@@ -35,6 +35,7 @@ class SetMap(dict):
 
     PROMOS = {
         "Promo-20210709": ["2021 Kickstarter Promo", "2021-07-09"],
+        "Promo-20210701": ["2021 Kickstarter Promo", "2021-07-01"],
         "Promo-20210331": ["2021 Mind’s Eye Theatre Promo", "2021-03-31"],
         "Promo-20210310": ["2021 Resellers Promo", "2021-03-31"],
         "Promo-20191123": ["2020 GP Promo", "2020-11-23"],
@@ -53,6 +54,7 @@ class SetMap(dict):
         "Promo-20181004": ["2018 Humble Bundle", "2018-10-04"],
         "Promo-20150219": ["2015 Storyline Rewards", "2015-02-19"],
         "Promo-20150221": ["2015 Storyline Rewards", "2015-02-21"],
+        "Promo-20150215": ["2015 Storyline Rewards", "2015-02-15"],
         "Promo-20150214": ["2015 Storyline Rewards", "2015-02-14"],
         "Promo-20150211": ["2015 Storyline Rewards", "2015-02-11"],
         "Promo-20150216": ["2015 Storyline Rewards", "2015-02-16"],
