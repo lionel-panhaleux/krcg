@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.17 (unreleased)
+2.17 (2021-08-22)
 -----------------
 
 - Take VEKN CSV changes into account (sets renamed)
