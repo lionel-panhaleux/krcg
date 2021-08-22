@@ -251,6 +251,38 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.draft = None
         self.rulings = {"text": [], "links": {}}
 
+    def diff(self, rhs):
+        res = {}
+        if self.name != rhs.name:
+            res["name"] = [self.name, rhs.name]
+        if self.card_text != rhs.card_text:
+            res["card_text"] = [self.card_text, rhs.card_text]
+        if set(self.types) != set(rhs.types):
+            res["types"] = [self.types, rhs.types]
+        if set(self.clans) != set(rhs.clans):
+            res["clans"] = [self.clans, rhs.clans]
+        if set(self.disciplines) - {"viz", "vin"} != set(rhs.disciplines) - {"viz", "vin"}:
+            res["disciplines"] = [self.disciplines, rhs.disciplines]
+        if (self.capacity or 0) != (rhs.capacity or 0):
+            res["capacity"] = [self.capacity, rhs.capacity]
+        if bool(self.adv) != bool(rhs.adv):
+            res["adv"] = [self.adv, rhs.adv]
+        if bool(self.banned) != bool(rhs.banned):
+            res["banned"] = [self.banned, rhs.banned]
+        if self.group != rhs.group:
+            res["group"] = [self.group, rhs.group]
+        if self.pool_cost != rhs.pool_cost:
+            res["pool_cost"] = [self.pool_cost, rhs.pool_cost]
+        if self.blood_cost != rhs.blood_cost:
+            res["blood_cost"] = [self.blood_cost, rhs.blood_cost]
+        if self.conviction_cost != rhs.conviction_cost:
+            res["conviction_cost"] = [self.conviction_cost, rhs.conviction_cost]
+        if bool(self.burn_option) != bool(rhs.burn_option):
+            res["burn_option"] = [self.burn_option, rhs.burn_option]
+        if (self.flavor_text or "") != (rhs.flavor_text or ""):
+            res["flavor_text"] = [self.flavor_text, rhs.flavor_text]
+        return res
+
     @property
     @functools.lru_cache(1)
     def vekn_name(self) -> str:
@@ -297,6 +329,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
 
     def from_json(self, state: Dict) -> None:
         """Get the card form a dict."""
+        state.pop("name")
         self.__dict__.update(state)
 
     def from_vekn(
@@ -502,14 +535,14 @@ class CardMap(utils.FuzzyDict):
     len() will also return the number of unique cards, not the count of name variations.
     """
 
-    _VEKN_CSV = (
+    _VEKN_CSV = [
         "http://www.vekn.net/images/stories/downloads/vtescsv_utf8.zip",
         [
             "vtessets.csv",
             "vtescrypt.csv",
             "vteslib.csv",
         ],
-    )
+    ]
     _VEKN_CSV_I18N = {
         "fr-FR": (
             "http://www.vekn.net/images/stories/downloads/"
