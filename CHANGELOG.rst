@@ -4,7 +4,8 @@ Changelog
 2.17 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Take VEKN CSV changes into account (sets renamed)
+- Add a diff feature for cards, to compare CSV versions.
 
 
 2.16 (2021-07-22)
