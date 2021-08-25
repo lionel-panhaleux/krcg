@@ -1872,6 +1872,8 @@
   - Unused prevention does not carry over. [LSJ 20001114]
 101589|Reindoctrination:
   - Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]
+101591|Reins of Power:
+  - Applies a pool gain then a pool loss. {Poison Pill} ignores the gain and only takes the loss into account, a Methuselah cannot withdraw even if the total was positive. [ANK 20180813]
 101595|Relentless Reaper:
   - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
   - "[THN] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
