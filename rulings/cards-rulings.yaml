@@ -1650,6 +1650,7 @@
 101334|Oubliette:
   - "[OBT] If the combat continues or a new combat begins, no blood is burned. [RTR 20020501]"
   - "[OBT] If the strike is dodged, no blood is burned. [LSJ 19980526] [RTR 20041202]"
+  - "[OBT] Does not inflict damage (eg. does not benefit from {Target Vitals}). [LSJ 20080226]"
 101336|Out of the Frying Pan:
   - Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
