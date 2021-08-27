@@ -528,6 +528,10 @@
   - The block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]
 100433|Council of Seraphim:
   - The burn option cannot be used if all your Seraph are in torpor. [LSJ 20091204]
+100434|Courier:
+  - Needs not be unlocked to let you look at a card. [LSJ 20001102]
+  - Multiple Courier can look at and discard the top library card in succession. [LSJ 20001102]
+  - One Courier only lets you look at the top library card once per bleed. [LSJ 20001102-2]
 100435|The Coven:
   - Can be locked during damage resolution, but not while healing damage or preventing destruction (you cannot take 2, lock The Coven, then take the rest). [PIB 20121031]
   - The predator must take control of it when he gets the the opportunity to play effects. If a players declares his turn ends, he does not get the opportunity to use it before it is moved to his predator, even retroactively if the mandatory effect was forgotten. [LSJ 20100723] [PIB 20111002]
