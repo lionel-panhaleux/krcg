@@ -4,7 +4,7 @@ Changelog
 2.18 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Additional rulings
 
 
 2.17 (2021-08-22)
