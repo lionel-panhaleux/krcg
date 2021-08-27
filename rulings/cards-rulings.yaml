@@ -128,7 +128,7 @@
   - "[thn], [THN] The end of combat is triggered by the vampire going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
   - "[thn], [THN] Cards that can be played at the end of combat (eg. {Amaranth}, {Decapitate}) can be played before combat ends. [LSJ 20011214-4]"
   - "[for] If played on a diablerie attempt (eg. {Amaranth}), the diablerie is unsuccessful. Another {Amaranth} can be played. [LSJ 19970224] [LSJ 20011214-4]"
-  - "[for] If played by an ally, the ally is burned instead of going to torpor. [ANK 20170412] [RBK 20181001-163]"
+  - "[for] If played by an ally, the ally is burned instead of going to torpor. [ANK 20170412] [RBK 20200701-6]"
   - "[for] Cannot be played when burned as a result of a Blood Hunt referendum. [LSJ 20070417]"
 100106|Ashur Tablets:
   - Can be played with no card in the ash heap. [PIB 20130119]
@@ -148,7 +148,7 @@
 100125|Backstep:
   - The press can only be used during the current round. [TOM 19960521]
 100127|Baleful Doll:
-  - The bearer (if he unlocks normally) unlocks at the beginning of the unlock phase, before this effect can be used. [PIB 20151009] [RBK 20181001-4]
+  - The bearer (if he unlocks normally) unlocks at the beginning of the unlock phase, before this effect can be used. [PIB 20151009] [RBK 20200701-1]
 100128|Baltimore Purge:
   - There is no time to use other effects between the choosing of the vampires and those vampires going to torpor. [LSJ 20050111]
   - The effect during the unlock phase is not an action, you can choose a vampire with a {Secure Haven} on him. [PIB 20121028]
@@ -374,7 +374,7 @@
 100298|Carlton Van Wyk:
   - He can use his ability to burn a vampire who has committed diablerie the turn she is recruited. [ANK 20180517]
 100303|Carver's Meat Packing and Storage:
-  - The effect to burn a hostage counter can be done only once per turn. [ANK 20200729] [RBK 20181001-11]
+  - The effect to burn a hostage counter can be done only once per turn. [ANK 20200729] [RBK 20200701-4]
 100306|Catacombs:
   - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 100307|Catatonic Fear:
@@ -1129,7 +1129,7 @@
 100920|Hide the Heart:
   - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
   - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
-  - "[val], [VAL] If another Methuselah is the target, he must declare whether he attempts or declines to block before Hide the Heart can be played. [LSJ 20100507] [PIB 20150820]"
+  - "[val], [VAL] Sequencing applies. For example, if another Methuselah is targeted by the action, they must declare if they attempt or decline to block before you can play Hide the Heart. [LSJ 20100507] [PIB 20150820] [RBK 20200701-2]"
 100925|High Ground:
   - When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
 100935|Horrid Reality:
@@ -1597,7 +1597,7 @@
 101287|Nightstick:
   - Can prevent up to 3 damage, it can prevent less. [RTR 20041202]
 101290|No Confidence:
-  - '"loses the benefit" means he gets no vote, is note considered titled, and yields the title immediately if it would contest. [LSJ 20080602] [RBK 20181001-10]'
+  - '"loses the benefit" means he gets no vote, is not considered titled, and yields the title immediately if it would contest. [LSJ 20080602] [RBK 20200701-3]'
 101291|No Secrets From the Magaji:
   - It still burns if a block is attempted and then an effect prevents the block (eg. {Daring the Dawn}). [LSJ 20090810]
 101293|Nocturn:
@@ -2287,7 +2287,7 @@
   - If no copy of a named card is in the ash heap upon resolution (eg. {The Erciyes Fragments} was used to take it), the effect still resolves for the other copies and the acting Methuselah discards 3 cards. [LSJ 20090722]
 101896|Sudden Reversal:
   - Can only cancel master cards that are played from the hand in the normal fashion. [RTR 20001020]
-  - If used to cancel a Trifle, the target does not get an extra Master Phase Action from the canceled Trifle. [LSJ 20090126] [RBK 20181001-162]
+  - If used to cancel a Trifle, the target does not get an extra Master Phase Action from the canceled Trifle. [LSJ 20090126] [RBK 20200701-5]
 101897|Summon History:
   - Requirements do not apply. If the card is an ally, it can act this turn. [LSJ 20100204]
   - You must decide the value of X (blood cost) when playing the card. [LSJ 20100314]
@@ -2618,7 +2618,7 @@
   - Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action would end with no effect if an effect tries to continue it (eg. {Ambulance}). [LSJ 20090325-2]
   - The unlock effect is applied after the action is resolved and the referendum (if any) concluded. If the acting vampire is not a Nosferatu anymore at that point, he does not unlock. [LSJ 20090216] [ANK 20180922]
 102151|Wash:
-  - If used to cancel a Trifle, the target does not get an extra Master Phase Action from the canceled Trifle. [ANK 20170124] [LSJ 20090126] [RBK 20181001-162]
+  - If used to cancel a Trifle, the target does not get an extra Master Phase Action from the canceled Trifle. [ANK 20170124] [LSJ 20090126] [RBK 20200701-5]
   - The additional Master Phase Action it provides does not count as a Trifle bonus, the target can get yet an additional Master Phase Action if they play a Trifle afterwards. [ANK 20170124] [LSJ 20090126]
   - If used to cancel an out-of-turn master, that Methuselah still cannot play another out-of-turn master against the same master phase, even though the first was canceled and won't count against that master phase. [LSJ 20070309-2]
   - If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
@@ -2837,7 +2837,7 @@
 200403|Edward Vignes:
   - His ability cannot be used if the action is blocked. [LSJ 20041022]
 200417|Ellison Humboldt:
-  - Can use his ability only once per referendum. [ANK 20180307-2] [RBK 20181001-11]
+  - Can use his ability only once per referendum. [ANK 20180307-2] [RBK 20200701-4]
 200424|Enkidu, The Noah:
   - He cannot attempt an action to equip nor strike to steal an equipment. [LSJ 20050315] [LSJ 20010210]
   - He can equip with an equipment that is a location when in play. [LSJ 20050315]
@@ -2983,7 +2983,7 @@
   - Lubomira is the one not to unlock as normal. [PIB 20110915-1]
 200870|Lucian:
   - Cannot attempt to steal a piece of equipment that he is prohibited from having (eg. a second {Leather Jacket}). [LSJ 19980206]
-  - The stolen equipment cannot be used until the next round. [LSJ 19980206] [RBK 20181001-645]
+  - The stolen equipment cannot be used until the next round. [LSJ 19980206] [RBK 20200701-7]
 200871|Lucian, the Perfect:
   - Strikes that do not target him (dodge, combat ends) do not cost more. They do if they plan to damage him after combat (eg. [PRE] {Catatonic Fear}). They do not if they target a card on him (eg. {Target Retainer}, {Canine Horde}). [LSJ 20090528-2] [LSJ 20031118]
   - Strikes the opponent commits to during the determine range phase (by using an optional maneuver) cost more, but the card itself does not (eg. {Jann Berger} pays 1 blood for a {Thrown Gate} played for the maneuver, but zero if he plays it when choosing his strike). [LSJ 20090529]
@@ -3100,7 +3100,7 @@
 201136|Pugfar:
   - His ability to give a press can only be used during the press step. [PIB 20150121]
 201138|Qawiyya el-Ghaduba:
-  - Her ability can be used only once per minion phase. [ANK 20190207] [RBK 20181001-11]
+  - Her ability can be used only once per minion phase. [ANK 20190207] [RBK 20200701-4]
 201144|Quincy, The Trapper:
   - His ability means he must perform the same action twice in two different turns. Tokens can be used to keep track of it if players agree. [ANK 20170202]
 201147|Rabbat, The Sewer Goddess:
@@ -3163,7 +3163,7 @@
 201332|Synner-G:
   - His ability applies when equipping in a non-normal way (eg. {Pier 13, Port of Baltimore}). [PIB 20150105-2]
 201334|T.J.:
-  - Must be unlocked with at least 2 blood to use his ability. [ANK 20200508-2] [RBK 20181001-11]
+  - Must be unlocked with at least 2 blood to use his ability. [ANK 20200508-2] [RBK 20200701-4]
 201337|Talley, The Hound:
   - Gets his +1 intercept if an action has any one target that would be enough to enable his effect. [RTR 20080808] [KOT 20081119]
 201344|Tariq, The Silent:
