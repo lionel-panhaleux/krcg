@@ -218,6 +218,8 @@
 100180|Blessed Blade:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - A minion who maneuvers with a weapon (eg. {Blade of Bellona}) may still use Blessed Blade to strike with that weapon as his initial strike that round. [ANK 20180704] [LSJ 20050304]
+100181|Blessed Resilience:
+  - Only a controlled vampire can be burned from play. Uncontrolled and contested vampires do not qualify. [ANK 20210813]
 100182|Blessing of Chaos:
   - The prohibition to play certain cards applies from the moment the vampire attempts to block until the end of the action, even if he fails to block. [LSJ 20080818]
 100183|Blessing of Durga Syn:
