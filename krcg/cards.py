@@ -261,7 +261,10 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             res["types"] = [self.types, rhs.types]
         if set(self.clans) != set(rhs.clans):
             res["clans"] = [self.clans, rhs.clans]
-        if set(self.disciplines) - {"viz", "vin"} != set(rhs.disciplines) - {"viz", "vin"}:
+        if set(self.disciplines) - {"viz", "vin"} != set(rhs.disciplines) - {
+            "viz",
+            "vin",
+        }:
             res["disciplines"] = [self.disciplines, rhs.disciplines]
         if (self.capacity or 0) != (rhs.capacity or 0):
             res["capacity"] = [self.capacity, rhs.capacity]

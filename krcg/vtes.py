@@ -65,10 +65,7 @@ class _VTES:
         old_cards = cards.CardMap()
         old_cards._VEKN_CSV[0] = url
         old_cards.load_from_vekn()
-        res = {
-            c: "NEW"
-            for c in self._cards if c.id not in old_cards
-        }
+        res = {c: "NEW" for c in self._cards if c.id not in old_cards}
         for c in self._cards:
             if c.id in old_cards:
                 diff = old_cards[c.id].diff(c)
