@@ -4,7 +4,7 @@ Changelog
 2.19 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix parsing of viz trigram (deck lists parser)
 
 
 2.18 (2021-08-27)

@@ -163,6 +163,7 @@ _DISCIPLINE_TRIGRAM = "|".join(
         "vic",
         "vin",
         "vis",
+        "viz",
     ]
 )
 _TITLE = "|".join(
