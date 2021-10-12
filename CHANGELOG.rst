@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.19 (unreleased)
+2.19 (2021-10-12)
 -----------------
 
 - Fix parsing of viz trigram (deck lists parser)
