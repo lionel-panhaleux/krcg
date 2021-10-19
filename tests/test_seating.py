@@ -1,42 +1,48 @@
 from krcg import seating
 
 
-def test_permutations():
-    len(seating.permutations(5, 2)) == 2
-    len(seating.permutations(6, 2)) == 3
-    len(seating.permutations(7, 2)) == 3
-    len(seating.permutations(8, 2)) == 2
-    len(seating.permutations(9, 2)) == 2
-    len(seating.permutations(10, 2)) == 2
-    len(seating.permutations(11, 2)) == 3
-    len(seating.permutations(12, 2)) == 2
+def test_rounds():
+    len(seating.get_rounds(5, 2)) == 2
+    len(seating.get_rounds(6, 2)) == 3
+    len(seating.get_rounds(7, 2)) == 3
+    len(seating.get_rounds(8, 2)) == 2
+    len(seating.get_rounds(9, 2)) == 2
+    len(seating.get_rounds(10, 2)) == 2
+    len(seating.get_rounds(11, 2)) == 3
+    len(seating.get_rounds(12, 2)) == 2
 
-    len(seating.permutations(6, 3)) == 4
-    len(seating.permutations(7, 3)) == 5
-    len(seating.permutations(11, 3)) == 4
+    len(seating.get_rounds(6, 3)) == 4
+    len(seating.get_rounds(7, 3)) == 5
+    len(seating.get_rounds(11, 3)) == 4
 
-    len(seating.permutations(7, 4)) == 6
-    len(seating.permutations(7, 5)) == 7
-    len(seating.permutations(7, 6)) == 9
+    len(seating.get_rounds(7, 4)) == 6
+    len(seating.get_rounds(7, 5)) == 7
+    len(seating.get_rounds(7, 6)) == 9
 
-    len(seating.permutations(6, 6)) == 7
-    len(seating.permutations(6, 7)) == 9
+    len(seating.get_rounds(6, 6)) == 7
+    len(seating.get_rounds(6, 7)) == 9
 
 
 def test_round():
-    assert seating.Round([1, 2, 3, 4]) == [[1, 2, 3, 4]]
-    assert seating.Round([1, 2, 3, 4, 5]) == [[1, 2, 3, 4, 5]]
-    assert seating.Round([1, 2, 3, 4, 5, 6, 7, 8]) == [[1, 2, 3, 4], [5, 6, 7, 8]]
-    assert seating.Round([1, 2, 3, 4, 5, 6, 7, 8, 9]) == [[1, 2, 3, 4, 5], [6, 7, 8, 9]]
+    assert seating.Round.from_players([1, 2, 3, 4]) == [[1, 2, 3, 4]]
+    assert seating.Round.from_players([1, 2, 3, 4, 5]) == [[1, 2, 3, 4, 5]]
+    assert seating.Round.from_players([1, 2, 3, 4, 5, 6, 7, 8]) == [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+    ]
+    assert seating.Round.from_players([1, 2, 3, 4, 5, 6, 7, 8, 9]) == [
+        [1, 2, 3, 4, 5],
+        [6, 7, 8, 9],
+    ]
 
 
 def test_measure():
-    M = seating.measure(4, seating.Round([1, 2, 3, 4]))
+    M = seating.measure(4, seating.Round.from_players([1, 2, 3, 4]))
     assert M.position.tolist() == [
-        [4, 1, 1, 0, 0, 0, 0],
-        [4, 2, 0, 1, 0, 0, 0],
-        [4, 3, 0, 0, 1, 0, 0],
-        [4, 4, 0, 0, 0, 1, 0],
+        [1, 4, 1, 1, 0, 0, 0, 0],
+        [1, 4, 2, 0, 1, 0, 0, 0],
+        [1, 4, 3, 0, 0, 1, 0, 0],
+        [1, 4, 4, 0, 0, 0, 1, 0],
     ]
     assert M.opponents.tolist() == [
         [
@@ -66,10 +72,10 @@ def test_measure():
     ]
     MM = sum((M, M))
     assert MM.position.tolist() == [
-        [8, 2, 2, 0, 0, 0, 0],
-        [8, 4, 0, 2, 0, 0, 0],
-        [8, 6, 0, 0, 2, 0, 0],
-        [8, 8, 0, 0, 0, 2, 0],
+        [2, 8, 2, 2, 0, 0, 0, 0],
+        [2, 8, 4, 0, 2, 0, 0, 0],
+        [2, 8, 6, 0, 0, 2, 0, 0],
+        [2, 8, 8, 0, 0, 0, 2, 0],
     ]
     assert MM.opponents.tolist() == [
         [
@@ -97,13 +103,13 @@ def test_measure():
             [0, 0, 0, 0, 0, 0, 0, 0],
         ],
     ]
-    M = seating.measure(5, seating.Round([1, 2, 3, 4, 5]))
+    M = seating.measure(5, seating.Round.from_players([1, 2, 3, 4, 5]))
     assert M.position.tolist() == [
-        [5, 1, 1, 0, 0, 0, 0],
-        [5, 2, 0, 1, 0, 0, 0],
-        [5, 3, 0, 0, 1, 0, 0],
-        [5, 4, 0, 0, 0, 1, 0],
-        [5, 4, 0, 0, 0, 0, 1],
+        [1, 5, 1, 1, 0, 0, 0, 0],
+        [1, 5, 2, 0, 1, 0, 0, 0],
+        [1, 5, 3, 0, 0, 1, 0, 0],
+        [1, 5, 4, 0, 0, 0, 1, 0],
+        [1, 5, 4, 0, 0, 0, 0, 1],
     ]
     assert M.opponents.tolist() == [
         [
@@ -146,8 +152,8 @@ def test_measure():
 
 def test_score():
     permutations = [[1, 2, 3, 4, 5], [2, 5, 3, 1, 4], [2, 1, 5, 4, 3]]
-    rounds = [seating.Round(p) for p in permutations]
-    score = seating.score_rounds(rounds)
+    rounds = [seating.Round.from_players(p) for p in permutations]
+    score = seating.Score(rounds)
     assert score.R1 == []
     assert score.R2 == [
         (1, 2),
@@ -174,10 +180,10 @@ def test_score():
         (3, 5),
         (4, 5),
     ]
+    assert score.R7 == [(2, 1), (3, 3), (4, 4)]
     assert score.R5 == []
     assert score.R6 == []
-    assert score.R7 == [(2, 1), (3, 3), (4, 4)]
-    assert score.R8 == 2.727636339397171
+    assert score.R8 == 0.9092121131323905
     assert score.R9 == [
         (1, 2, 1),
         (1, 3, 2),
@@ -190,21 +196,25 @@ def test_score():
         (3, 5, 2),
         (4, 5, 1),
     ]
-    assert score.mean_vps == 15
-    assert score.mean_transfers == 8.4
+    assert score.mean_vps == 5.0
+    assert score.mean_transfers == 2.8
     assert score.vps == []
-    assert score.transfers == [(1, 7), (2, 4), (3, 10), (4, 12), (5, 9)]
-    assert score.rules == [0, 10, 0, 10, 0, 0, 3, 2.727636339397171, 10]
-    assert score.total == 10010003282.763634
+    assert score.transfers == [
+        (2, 1.3333333333333333),
+        (3, 3.3333333333333335),
+        (4, 4.0),
+    ]
+    assert score.rules == [0, 10, 0, 10, 0, 0, 3, 0.9092121131323905, 10]
+    assert score.total == 10010003100.921211
 
 
 def test_best_seating():
     # mainly check the function executes, results are not stable
-    rounds, score = seating.optimise(seating.permutations(13, 3), iterations=1000)
+    rounds, score = seating.optimise(seating.get_rounds(13, 3), iterations=1000)
     assert len(rounds) == 3
     # mean values don't change
-    assert score.mean_vps == 13.153846153846153
-    assert score.mean_transfers == 7.846153846153846
+    assert score.mean_vps == 4.384615384615385
+    assert score.mean_transfers == 2.6153846153846154
     # these rules are never satisfied for 13 players
     assert score.R3 > 0
     assert score.R4 != []

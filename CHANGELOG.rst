@@ -4,7 +4,8 @@ Changelog
 2.20 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Seating: any form of round can now be optimised (4-players table can be anywhere)
+- Seating: now transparantly handles players who don't play all the rounds
 
 
 2.19 (2021-10-12)
