@@ -2442,6 +2442,8 @@
 101976|Thoughts Betrayed:
   - "[dom] Damage is environmental. [RTR 19970630] [ANK 20200422]"
   - '[dom] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
+  - "[DOM] Cards that merely provide the ability to strike (eg. {.44 Magnum}), are allowed. [ANK 20210928-2]"
+  - "[DOM] Strike cards that are played during the Determine Range step because they provide a maneuver (eg. {Aid from Bats}) are not allowed. [ANK 20210928-2]"
 101979|Three's a Crowd:
   - The press can only be used during the current round. [TOM 19960521]
 101983|Thrown Sewer Lid:
