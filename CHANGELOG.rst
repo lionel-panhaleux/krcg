@@ -7,6 +7,7 @@ Changelog
 - Seating: any form of round can now be optimised (4-players table can be anywhere)
 - Seating: now transparantly handles players who don't play all the rounds
 - Deck format: fix LackeyCCG format (quotes in card names)
+- Additional rulings
 
 2.19 (2021-10-12)
 -----------------
