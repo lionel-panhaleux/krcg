@@ -48,7 +48,7 @@
   - "[ANI] The press can only be used during the current round. [TOM 19960521]"
 100038|Alastor:
   - If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]
-  - Requirements do not apply. [ANK 20200901]
+  - Requirements do not apply. If a discipline is required (eg. {Inscription}) and the Alastor vampire does not have it, the inferior version is used. [ANK 20200901] [LSJ 20040518-2]
 100043|Amaranth:
   - If both minions want to play a card "when a vampire should go into torpor", acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Amaranth} and vice-versa. [RTR 20010710]
 100045|Ambulance:
@@ -404,6 +404,7 @@
 100316|Chain of Command:
   - Cannot bring more than one copy of a unique vampire out, by the rule prohibiting self-contesting. [LSJ 20040722]
   - If a commanded vampire is burned (eg. {Daring the Dawn}), he is not brought back to the crypt. [LSJ 20040616]
+  - If none of the vampires can bleed (eg. {Aabbt Kindred}), they all go to the bottom of the crypt. [LSJ 20040518-2]
 100319|Chalice of Kinship:
   - The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]
 100320|Chameleon:
@@ -466,7 +467,7 @@
   - "[VIC] Must be played before strike resolution and damage prevention in order to affect the current strike (can be played after both strikes have been chosen). [RTR 19960112]"
   - "[VIC] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Metamorphosis}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 100347|Church of the Order of St. Blaise:
-  - Can put counters on locations that use "blood" or "pool" counters. [PIB 20110712-1]
+  - Can put counters on locations that use "blood" or "pool" counters. [PIB 20110712-1] [LSJ 20040518-2]
 100352|Claiming the Body:
   - The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
 100353|Clan Impersonation:
@@ -663,8 +664,8 @@
 100543|The Diamond Thunderbolt:
   - If used to cancel a card that has a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
   - "If used to cancel the change of control of a {Corruption} action, only the control change is prevented: the corruption counters are burned. [LSJ 20070222-2]"
-  - The cost of the change of control effect is still paid. Any bids made are paid. Any counters burned are still burned. [LSJ 20040518]
-  - Will not extend temporary change of control effects when they expire. [LSJ 20040518]
+  - The cost of the change of control effect is still paid. Any bids made are paid. Any counters burned are still burned. [LSJ 20040518] [LSJ 20040518-2]
+  - Will not extend temporary change of control effects when they expire. [LSJ 20040518] [LSJ 20040518-2]
 100545|Direct Intervention:
   - If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]
   - If used to cancel an action, the action is not performed in respect to section 3 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]
@@ -1070,7 +1071,7 @@
   - Is not mortal, is a monster. [ANK 20200203-2]
 100857|Grenade:
   - Damage done to the bearer is environmental. [LSJ 19970801]
-  - Does not burn nor inflict damage if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1][LSJ 19981006]
+  - Does not burn nor inflict damage if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]
 100858|Grey Thorne:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
   - Can play cards requiring [cel] or [pot] but not both. [ANK 20180731-1]
@@ -1342,6 +1343,9 @@
   - If the vampire is permanently controlled by a Methuselah other than his owner, it goes to that Methuselah uncontrolled region and is still controlled by him. It is removed from the game if that Methuselah is ousted and kept in game if his owner is ousted. [ANK 20200408-2] [ANK 20210630]
 101077|Lead Fist:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
+101078|Leadership Vacuum:
+  - The votes include bonus votes from cards or ability (eg. {Eze, The Demon Prince}, {Firebrand}) but not conditional votes (eg. {Sundown}, {Aura of Invincibility}). [ANK 20211009] [LSJ 20040518-2]
+  - Priscus ballots are not taken into account. [ANK 20211009] [LSJ 20041025]
 101080|Learjet:
   - If a card played by the minion with Learjet has a delayed replacement, the additional card is drawn when the replacement is drawn. [PIB 20110718]
   - The additional replacement is optionnal, you get to see the normal replacement before you decide to draw the additional card. [LSJ 20050224-4]
@@ -1738,11 +1742,14 @@
   - "[TEM] Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
 101406|Poison Pill:
   - Any decrease in pool (burning, paying, ...) is considered "loosing pool". [ANK 20180719-2]
+  - Gaining pool does not count as a negative loss. If a vote entails both a gain and a loss (eg. {Ancient Influence}), only the loss is counted, not the difference. [ANK 20180813] [LSJ 20041025]
 101416|Political Seizure:
   - If you yield the Political Seizure, the location it was contesting does not come into play under your control. [LSJ 19980223]
 101418|Political Struggle:
   - The acting vampire gains X votes if the vampire with this card is burned, no matter how that vampire is burned. [LSJ 19990119]
   - If the victim is burned by diablerie, the votes gained from Political Struggle are gained before the blood hunt referendum. [LSJ 20050707]
+  - The votes include bonus votes from cards or ability (eg. {Eze, The Demon Prince}, {Firebrand}) but not conditional votes (eg. {Sundown}, {Aura of Invincibility}). [ANK 20211009] [LSJ 20040518-2]
+  - Priscus ballots are not taken into account. [ANK 20211009] [LSJ 20041025]
 101420|Port Authority:
   - "The cards are replaced before unlocking cards: other unlock effects cannot be ordered before. [ANK 20200129] [LSJ 20091208]"
 101422|The Portrait:
@@ -2086,7 +2093,7 @@
   - If contested, it will not be burned when the target (vampire) goes to torpor, nor will it be burned if it enters play while the target vampire is in torpor. [RTR 19960124]
 101714|Selective Silence:
   - "[QUI] No other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
-  - "[QUI] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Blood}). The card cannot be played if the minion cannot afford to burn the blood. [LSJ 19970224][ANK 20210226]"
+  - "[QUI] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Blood}). The card cannot be played if the minion cannot afford to burn the blood. [LSJ 19970224] [ANK 20210226]"
 101717|Sense the Savage Way:
   - "[ANI] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
   - "[ANI] Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]"
@@ -2139,8 +2146,8 @@
   - If the card combat card is moved, the Satyr cannot use it as if played from your hand anymore, even if it was moved on him (eg. {Weighted Walking Stick}) [LSJ 20010716] [LSJ]
   - The card on him cannot be canceled as it is played when he plays it as if from your hand. [LSJ 20010716]
   - The card put on him is not into play. [ANK 20190629]
-  - 'He can play any card "as a vampire" even if it does not require a discipline (eg. {Taste of Vitae}). REVERSAL of previous rulings. [LSJ 20080717]'
-  - He cannot use a card to commit diablerie (eg. {Amaranth}) [LSJ 20080717][RTR 19970630]
+  - He can play any card "as a vampire" even if it does not require a discipline (eg. {Taste of Vitae}). REVERSAL of previous rulings. [LSJ 20080717]
+  - He cannot use a card to commit diablerie (eg. {Amaranth}) [LSJ 20080717] [RTR 19970630]
   - If a card he plays as a vampire sends him to torpor (eg. by using {Reform Body}), he burns. REVERSAL of previous rulings. [LSJ 20060409]
   - If he takes aggravated damage from a card he plays as a vampire (eg. {Burst of Sunlight}), he loses one life but does not go to torpor. [LSJ 20060409]
 101738|Shadow Feint:
@@ -2714,7 +2721,7 @@
   - The card to retrieve must be announced when declaring the action. [LSJ 20010627]
 102179|White Phosphorus Grenade:
   - Damage done to the bearer is environmental. [LSJ 19970801]
-  - 'Does not burn if combat ends before it resolves (eg. if the opponent uses a "strike: combat ends"). [LSJ 20001127-2] [LSJ 20010806-1][LSJ 19981006]'
+  - 'Does not burn if combat ends before it resolves (eg. if the opponent uses a "strike: combat ends"). [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]'
 102180|Wider View:
   - Cards removed from the game are public. [LSJ 20080314]
 102183|Will-o'-the-Wisp:
@@ -3030,7 +3037,7 @@
   - You can still use the burn options of cards with a requirement he could meet when you play them, but does not meet while in play. [LSJ 20050225]
   - Cannot be treated as a Ventrue antitribu nor a Samedi while uncontrolled or in the crypt (eg. {Coroner's Contact} cannot fetch him). [PIB 20150530]
 200844|Little Tailor of Prague:
-  - His ability works on allies recruited in a non-standard way (eg. {Piper}). [ANK 20210913][LSJ 20090116]
+  - His ability works on allies recruited in a non-standard way (eg. {Piper}). [ANK 20210913] [LSJ 20090116]
 200852|Lord Aaron Wesley Wilkshire:
   - The methusalem playing the frenzy card chooses if the cost is paid in blood or pool. [LSJ 20060831]
 200856|Lord Tremere:
@@ -3199,7 +3206,7 @@
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
   - Card with multiple types (eg. Reaction/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
 201257|Sébastien Goulet:
-  - His ability works on allies recruited in a non-standard way (eg. {Piper}). [ANK 20210913][LSJ 20090116]
+  - His ability works on allies recruited in a non-standard way (eg. {Piper}). [ANK 20210913] [LSJ 20090116]
 201260|Sela (ADV):
   - "[MERGED] Is Sabbat Archbishop of Rome. [ANK 20180524]"
 201269|Seterpenre:
