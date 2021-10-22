@@ -850,6 +850,8 @@
   - Vampires with a Sabbat title lose the benefit from it until they becomre Sabbat again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]
 100697|False Resonance:
   - "[CHI] Cannot be used to get stealth then cancel the [aus] card that provided intercept to the blocking minion. [ANK 20180201]"
+100698|Fame:
+  - Paying a pool during the unlock phase can be ordered with other unlock effects by the acting Methuselah, but must be handled before another Methuselah has the opportunity to use an unlock effect. [LSJ 20010121]
 100699|Familial Bond:
   - Cannot be played if intercept is not required (as per the rules, section 6.2.2). [ANK 20200329]
   - A locked vampire cannot use the "lock to fight" effect, even if he uses a wake effect. [PIB 20121107]
