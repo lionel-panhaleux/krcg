@@ -2297,6 +2297,7 @@
   - The chosen cards are named when the action is declared. The current Sudario cannot be part of them. [LSJ 20050422] [LSJ 20090722]
   - Any copy of the named card can be fetched upon resolution. [LSJ 20090722]
   - If no copy of a named card is in the ash heap upon resolution (eg. {The Erciyes Fragments} was used to take it), the effect still resolves for the other copies and the acting Methuselah discards 3 cards. [LSJ 20090722]
+  - If the library is empty and the hand is not full, you draw the returned cards up to hand size before discarding at random. [LSJ 20080612-2]
 101896|Sudden Reversal:
   - Can only cancel master cards that are played from the hand in the normal fashion. [RTR 20001020]
   - If used to cancel a Trifle, the target does not get an extra Master Phase Action from the canceled Trifle. [LSJ 20090126] [RBK 20200701-5]
