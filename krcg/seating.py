@@ -3,7 +3,7 @@
 # When organising a tournament, it's important to devise an equitable seating
 # which also ensures a maximum of diversity over rounds and tables.
 
-from typing import Callable, Dict, Hashable, Iterable, List, Tuple
+from typing import Callable, Hashable, Iterable, List, Tuple
 import collections
 import concurrent.futures
 import math
