@@ -200,8 +200,9 @@ def test_score():
     assert score.mean_transfers == 2.8
     assert score.vps == []
     assert score.transfers == [
-        (2, 1.3333333333333333),
-        (3, 3.3333333333333335),
+        (1, 2 + 1 / 3),
+        (2, 1 + 1 / 3),
+        (3, 3 + 1 / 3),
         (4, 4.0),
     ]
     assert score.rules == [0, 10, 0, 10, 0, 0, 3, 0.9092121131323905, 10]
@@ -213,8 +214,8 @@ def test_best_seating():
     rounds, score = seating.optimise(seating.get_rounds(13, 3), iterations=1000)
     assert len(rounds) == 3
     # mean values don't change
-    assert score.mean_vps == 4.384615384615385
-    assert score.mean_transfers == 2.6153846153846154
+    assert round(score.mean_vps, 5) == 4.38462
+    assert round(score.mean_transfers, 5) == 2.61538
     # these rules are never satisfied for 13 players
     assert score.R3 > 0
     assert score.R4 != []
