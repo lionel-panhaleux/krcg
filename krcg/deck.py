@@ -424,7 +424,7 @@ class Deck(collections.Counter):
         """Format used by LackeyCCG."""
 
         def lackerize(name):
-            return unidecode.unidecode(card.vekn_name).replace('"', "'")
+            return unidecode.unidecode(card.vekn_name)
 
         lines = []
         for _, cards in self._sorted_library():
