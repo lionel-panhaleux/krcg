@@ -93,6 +93,8 @@
   - "[CHI] Can prevent 1 damage twice on separated strikes in the same round. [ANK 20200318]"
 100078|Approximation of Loyalty:
   - '[pre] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[PRE] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[PRE] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 100080|Arcane Appraiser:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
 100084|Archon:
@@ -218,6 +220,8 @@
 100180|Blessed Blade:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - A minion who maneuvers with a weapon (eg. {Blade of Bellona}) may still use Blessed Blade to strike with that weapon as his initial strike that round. [ANK 20180704] [LSJ 20050304]
+  - '[val][REFLEX] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[val][REFLEX] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 100181|Blessed Resilience:
   - Only a controlled vampire can be burned from play. Uncontrolled and contested vampires do not qualify. [ANK 20210813]
 100182|Blessing of Chaos:
@@ -231,6 +235,8 @@
 100189|Bliss:
   - "[dom][pre] [COMBAT] Can be used during a combat by a vampire in torpor. [LSJ 20020416]"
   - "[dom][pre] [COMBAT][REACTION] Can be played by a minion of a Methuselah not involved in the current combat. [ANK 20181101]"
+  - '[dom][pre] [COMBAT][REACTION] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[dom][pre] [COMBAT][REACTION] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 100190|Blissful Agony:
   - "[val] Damage is environmental. [RTR 19970630]"
   - '[val] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
@@ -292,6 +298,8 @@
 100231|Body of Sun:
   - "[pro] Damage done to the striking minion is environmental. [LSJ 19970801]"
 100232|Bollix:
+  - '[pre] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[pre] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
   - "[tha] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100233|Bomb:
   - Using the provided action does not force the minion to strike with it if he is blocked. [LSJ 19971215]
@@ -433,6 +441,8 @@
   - No other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100333|Charismatic Aura:
+  - '[aus][pre] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[aus][pre] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
   - "[aus][pre] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Adana de Sforza}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 100334|Charming Lobby:
   - During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]
@@ -833,6 +843,9 @@
   - "[OBF] A minion attempting to block before it is played cannot back out. [LSJ 20081202]"
   - "[OBF] A minion that has attempted to block but failed before it was played is not affected. [ANK 20190509]"
   - '[OBF] The lock of the minion happens at action resolution. He can play a reaction before that (eg. {Deflection}), and he still locks if he unlocked before that (eg. with {Guard Dogs}). Only cards that can be played "after action resolution" can be played after the lock happens. [ANK 20171017]'
+100689|Fae Contortion:
+  - '[myt] [REFLEX] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[myt] [REFLEX] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 100690|Faerie Wards:
   - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]'
   - "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
@@ -1068,7 +1081,6 @@
   - Can cancel superior {Thoughts Betrayed} and {Shape Mastery} (when the latter is used to cancel a strike). [LSJ 20050224-2]
   - Cannot cancel a card that destroys or steals an equipment or weapon. [LSJ 20050221]
   - Cannot cancel a card restricting the use of disciplines. [LSJ 20050221]
-  - If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
 100862|Growing Fury:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100864|Guard Duty:
@@ -1087,6 +1099,9 @@
   - You need two ready vampires to gain blood. [PIB 20130221]
 100872|Guru:
   - The blood is gained after the referendum effects are applied. [LSJ 20090115-2]
+100878|Hall of Hades' Court:
+  - '[tem] [ACTION MODIFIER][REACTION] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[tem] [ACTION MODIFIER][REACTION] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 100879|Hall of Mirrors:
   - "[CHI] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Paradox}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 100882|Hand of Conrad:
@@ -1154,6 +1169,8 @@
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
 100947|I am Legion:
   - "[DAI][OBF] Can be used to gain a pool after a successful action, without cancelling an [aus] card. [LSJ 20100902-2]"
+  - '[dai][obf], [DAI][OBF] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[dai][obf], [DAI][OBF] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 100948|Ignis Fatuus:
   - If another Methuselah is the target, he must declare whether he attempts or declines to block before Ignis Fatuus can be played. [PIB 20150820] [ANK 20200607]
 100949|Ignore the Searing Flames:
@@ -1256,6 +1273,9 @@
 101021|Jar the Soul:
   - "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]"
   - If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]
+101023|Jones, The:
+  - '[SER] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[SER] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 101023|The Jones:
   - "[ser] The press can only be used during the current round. [TOM 19960521]"
 101026|Journal of Hrorsh:
@@ -1644,6 +1664,8 @@
   - Can be used by a vampire who is already attempting to block. [ANK 20181122-2]
 101325|Ophidian Gaze:
   - '[SER][PRE] Can be used to cancel an action modifier player "after the action/referendum is successful" (eg. {Voter Captivation} or {Freak Drive}). [ANK 20180909]'
+  - '[SER][PRE] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[SER][PRE] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 101330|Orgy of Blood:
   - Can be used by a vampire going to torpor or about to be burned. [LSJ 20100721]
 101331|Orun:
@@ -1733,8 +1755,7 @@
 101428|Power of All:
   - Cannot be played during combat. [LSJ 20080618]
   - Cannot be used to cancel an action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]
-  - If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
-  - Other reaction cards (eg. wake effects) cannot be used as there is no action. [PIB 20120808]
+  - Other reaction cards (eg. wake effects) cannot be used if there is no action. [PIB 20120808]
 101429|Power of One:
   - "[pre] Can only be used during a bleed action. [ANK 20171023] [RTR 19941109]"
 101430|Power Structure:
@@ -1852,6 +1873,7 @@
 101557|React with Conviction:
   - If used to cancel a {Corruption} action, then the action is canceled in its entirety and the corruption counters are not burned. [LSJ 20070222-1]
   - If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
+  - Can be used to cancel all action cards, including employ retainer, recruit ally and political action. [ANK 20200813-2]
 101559|Read the Winds:
   - "[ANI][AUS] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101561|Reality Mirror:
@@ -1943,7 +1965,7 @@
   - "[tem] Can be used to cancel all action cards, including employ retainer, recruit ally and political action. [ANK 20200813-2]"
   - '[tem] Cannot be used to cancel the action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]'
   - '[tem] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
-  - "[TEM] Other reaction cards (eg. wake effects) cannot be used as there is no action. [PIB 20120808]"
+  - "[TEM] Other reaction cards (eg. wake effects) cannot be used if there is no action. [PIB 20120808]"
   - "[TEM] Cannot be played during combat. [LSJ 20080618]"
 101634|Riddle Phantastique:
   - If put into play with no counters, it burns immediately. [LSJ 20070307]
@@ -2037,6 +2059,9 @@
   - You cannot play another strike card to serve as the hand strike for Scorpion's Touch. [LSJ 20010627]
 101697|Scourge of the Enochians:
   - If the option to burn a vampire is used, the card goes to the predator immediately, even if there is still a mandatory effect to resolve. If not, the predator must take the card when he has the opportunity to play an effect, after the acting Methuselah applied other mandatory effects (eg. losing blood to {Dragonbound}). [ANK 20200508-1]
+101701|Scry the Hearthstone:
+  - '[VIS] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[VIS] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 101702|Scrying of Secrets:
   - Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425] [ANK 20190113]
 101703|Seal of Veddartha:
@@ -2322,7 +2347,6 @@
   - The "lock to reduce the cost" effect can be used when the action is announced or when the cost is paid. [LSJ 20090705]
 101906|Supernatural Resistance:
   - If used to cancel the opposing minion's strike, that minion must still choose a strike and could play the same one again. [LSJ 20090818]
-  - If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
 101907|Suppressing Fire:
   - Can only be played by the controller of the acting minion. [LSJ 19990425]
   - Multiple copies can be played by different minions on the same action. [ANK 20200515]
@@ -2488,10 +2512,10 @@
   - "[pre] The pool is burned after the referendum effects are applied, including any oust and pool gained from it. [LSJ 20090115-2]"
   - "[PRE] The pool is burned when the votes are tallied, before applying the referendum effects. [RTR 20010710]"
 102016|Treat the Sick Mind:
-  - Cannot be played during combat. [LSJ 20080618]
-  - Cannot be used to cancel an action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]
-  - If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
-  - Other reaction cards (eg. wake effects) cannot be used as there is no action. [PIB 20120808]
+  - '[OBE] [REACTION] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - "[OBE] [REACTION] Cannot be played during combat. [LSJ 20080618]"
+  - '[OBE] [REACTION] Cannot be used to cancel an action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]'
+  - '[OBE] [REACTION] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 102017|The Treatment:
   - Does nothing to the target Prince if the Prince is in Torpor with zero blood. [TOM 19960423]
   - Will cease functioning if the vampire it is on loses his Prince title. It will resume working if the vampire becomes a Prince again. [LSJ 19980209]
@@ -2652,7 +2676,6 @@
   - If used to cancel a Trifle, the target does not get an extra Master Phase Action from the canceled Trifle. [ANK 20170124] [LSJ 20090126] [RBK 20200701-5]
   - The additional Master Phase Action it provides does not count as a Trifle bonus, the target can get yet an additional Master Phase Action if they play a Trifle afterwards. [ANK 20170124] [LSJ 20090126]
   - If used to cancel an out-of-turn master, that Methuselah still cannot play another out-of-turn master against the same master phase, even though the first was canceled and won't count against that master phase. [LSJ 20070309-2]
-  - If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
 102152|Wasserschloss Anif, Austria:
   - Can only receive blood from one Tremere on any given turn. [RTR 19960221]
 102160|Wave of Insanity:
