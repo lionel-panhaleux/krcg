@@ -178,6 +178,7 @@
   - Still cannot be burned if the target equipment was burned and somehow returned to play. [LSJ 20040726] [ANK 20191031]
 100144|Bear-Baiting:
   - Damage is environmental. [RTR 19970630]
+  - Cannot be played if the blocker's crypt is empty. [LSJ 20031107]
   - "{Change of Target} can be played after Bear-Baiting (younger, older, or the same age). [LSJ 20040312]"
   - If the combat is canceled, the action is still blocked, {Mask of a Thousand Faces} cannot be used to continue it, but an effect can be used to continue the action as if unblocked (eg. {Crypt's Sons}, {Momentary Delay}). [LSJ 20090322] [ANK 20181003] [LSJ 20010803-2]
 100146|Beast Meld:
