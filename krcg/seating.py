@@ -27,6 +27,7 @@ RULES = [
     ["R9", "position group", 1],
 ]
 
+
 # A helper to get relative position and position group
 # keys are (table_size, relative position index)
 POSITION_MEASURE = {
