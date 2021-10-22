@@ -382,6 +382,7 @@
 100293|Car Bomb:
   - Is to be used when the action is announced. [PIB 20150820]
   - If the action ends, no other action modifier or reaction can be played afterwards. [RTR 20180719]
+  - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]
 100298|Carlton Van Wyk:
   - He can use his ability to burn a vampire who has committed diablerie the turn she is recruited. [ANK 20180517]
 100303|Carver's Meat Packing and Storage:
@@ -422,6 +423,7 @@
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
   - "[REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
   - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]"
+  - "[REACTION] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]"
 100323|Change of Target:
   - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [LSJ 20070709]
   - Actions without card (provided by the rulebook) are not "the same" as actions provided by cards (played or in play). [LSJ 20060522]  [LSJ 20060824] [LSJ 20080725] [LSJ 20090617]
@@ -2086,6 +2088,8 @@
   - The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Ankara Citadel, Turkey}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]
 101707|Secret Horde:
   - If put into play with no counters (X=0), it burns immediately. [LSJ 20070308]
+101710|Secret Passage:
+  - When burned to make an action fail, the action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]
 101711|Secure Haven:
   - All Methuselahs, including the target vampire's controller, must pay one extra pool when playing Master cards on the target minion. [TOM 19951208-1]
   - Adds one to the cost of the master card targetting the vampire, cost reductions from other effects do apply. [LSJ 20070829-1]
