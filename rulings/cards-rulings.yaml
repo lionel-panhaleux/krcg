@@ -623,6 +623,7 @@
   - The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]
 100515|Deep Song:
   - "[ANI] The lock and enter combat effects are simultaneous. Both are lost if the action ends before that (eg. {Obedience}). [ANK 20200702]"
+  - "[ANI] If another effect changes the acting minion in combat later on, it takes precedence (eg. {Nar-Sheptha}). [ANK 20211022]"
 100516|Deer Rifle:
   - The optional maneuvers cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]
 100517|Defender of the Haven:
@@ -1609,6 +1610,9 @@
   - "[AUS] Can be played when failing to block because of stealth: it is still declining to block. [ANK 20211003]"
 101263|The Name Forgotten:
   - Each Methuselah must find as many copies of the vampire as possible when searching. [LSJ 20050611]
+101264|Nar-Sheptha:
+  - If burned in combat, her effect ceases immediately and the acting minion returns to normal for the rest of the combat. [ANK 20211022]
+  - Supersedes previous effects that changed the acting minion for the combat (eg. {Deep Song}). [ANK 20211022]
 101268|Necrosis:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - "[THN] If the strike is dodged, environmental damage is not applied. [ANK 20200517]"
