@@ -2988,6 +2988,8 @@
   - When playing a card requiring a Ventrue antitribu or a Samedi, he is treated as a such for all effects of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play (eg. {Houngan} can be played on him, but he does not get blood and cannot lock to get blood). [ANK 20190228] [PIB 20141006]
   - You can still use the burn options of cards with a requirement he could meet when you play them, but does not meet while in play. [LSJ 20050225]
   - Cannot be treated as a Ventrue antitribu nor a Samedi while uncontrolled or in the crypt (eg. {Coroner's Contact} cannot fetch him). [PIB 20150530]
+200844|Little Tailor of Prague:
+  - His ability works on allies recruited in a non-standard way (eg. {Piper}). [ANK 20210913][LSJ 20090116]
 200852|Lord Aaron Wesley Wilkshire:
   - The methusalem playing the frenzy card chooses if the cost is paid in blood or pool. [LSJ 20060831]
 200856|Lord Tremere:
@@ -3155,6 +3157,8 @@
 201253|Scout Youngwood:
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
   - Card with multiple types (eg. Reaction/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
+201257|Sébastien Goulet:
+  - His ability works on allies recruited in a non-standard way (eg. {Piper}). [ANK 20210913][LSJ 20090116]
 201260|Sela (ADV):
   - "[MERGED] Is Sabbat Archbishop of Rome. [ANK 20180524]"
 201269|Seterpenre:
