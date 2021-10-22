@@ -656,3 +656,85 @@
   cards:
     - 101388|Perfectionist
     - 100425|Corporal Reservoir
+- ruling: 'Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  cards:
+    - 100419|Contingency Planning
+    - 100493|Dark Influences
+    - 100510|Death Seeker
+    - 100523|Denial of Aphrodite's Favor
+    - 100545|Direct Intervention
+    - 100554|Disengage
+    - 100636|Emergency Preparations
+    - 100668|Evil Eye
+    - 100697|False Resonance
+    - 100921|Hide the Mind
+    - 101009|Iron Heart
+    - 101253|Mundane
+    - 101303|Not to Be
+    - 101428|Power of All
+    - 101506|Pseudo-Blindness
+    - 101633|Rewind Time
+    - 101754|Shape Mastery
+    - 101896|Sudden Reversal
+    - 101906|Supernatural Resistance
+    - 101959|Terra Incognita
+    - 101998|Touch of Clarity
+    - 102008|Tranquility
+    - 102151|Wash
+- ruling: If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
+  cards:
+    - 100419|Contingency Planning
+    - 100493|Dark Influences
+    - 100510|Death Seeker
+    - 100523|Denial of Aphrodite's Favor
+    - 100545|Direct Intervention
+    - 100554|Disengage
+    - 100636|Emergency Preparations
+    - 100668|Evil Eye
+    - 100697|False Resonance
+    - 100921|Hide the Mind
+    - 101009|Iron Heart
+    - 101253|Mundane
+    - 101303|Not to Be
+    - 101428|Power of All
+    - 101506|Pseudo-Blindness
+    - 101633|Rewind Time
+    - 101754|Shape Mastery
+    - 101896|Sudden Reversal
+    - 101906|Supernatural Resistance
+    - 101959|Terra Incognita
+    - 101998|Touch of Clarity
+    - 102008|Tranquility
+    - 102151|Wash
+- ruling: '[abo] [REFLEX] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  cards:
+    - "100537|Devil-Channel: Back"
+    - "100538|Devil-Channel: Feet"
+    - "100539|Devil-Channel: Hands"
+    - "100540|Devil-Channel: Throat"
+    - 101005|Invoke Poison Glands
+    - 101006|Invoking the Beast
+    - 101477|Predator's Communion
+    - 101478|Predator's Mastery
+    - 101479|Predator's Transformation
+    - "101928|Taking the Skin: Minion"
+    - "101929|Taking the Skin: Vulture"
+    - 101934|Taming the Beast
+    - 102081|Unseen Hibernation
+    - 102177|Whistling Up the Beast
+- ruling: '[abo] [REFLEX] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
+  cards:
+    - "100537|Devil-Channel: Back"
+    - "100538|Devil-Channel: Feet"
+    - "100539|Devil-Channel: Hands"
+    - "100540|Devil-Channel: Throat"
+    - 101005|Invoke Poison Glands
+    - 101006|Invoking the Beast
+    - 101477|Predator's Communion
+    - 101478|Predator's Mastery
+    - 101479|Predator's Transformation
+    - "101928|Taking the Skin: Minion"
+    - "101929|Taking the Skin: Vulture"
+    - 101934|Taming the Beast
+    - 102081|Unseen Hibernation
+    - 102177|Whistling Up the Beast
