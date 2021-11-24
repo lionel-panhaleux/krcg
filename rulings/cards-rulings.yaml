@@ -1279,11 +1279,10 @@
 101021|Jar the Soul:
   - "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]"
   - If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]
-101023|Jones, The:
-  - '[SER] Cards are not replaced during the "as played" window. [LSJ 20061013]'
-  - '[SER] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 101023|The Jones:
   - "[ser] The press can only be used during the current round. [TOM 19960521]"
+  - '[SER] Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  - '[SER] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 101026|Journal of Hrorsh:
   - Equipping it does not put a counter on it [LSJ 20100207-2]
 "101028|Judgment: Camarilla Segregation":

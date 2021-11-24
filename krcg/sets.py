@@ -34,6 +34,7 @@ class SetMap(dict):
     """A dict of all sets, index by Abbreviation and English name."""
 
     PROMOS = {
+        "Promo-20211015": ["2021 Promo Pack 3", "2021-10-15"],
         "Promo-20210709": ["2021 Kickstarter Promo", "2021-07-09"],
         "Promo-20210701": ["2021 Kickstarter Promo", "2021-07-01"],
         "Promo-20210331": ["2021 Mind’s Eye Theatre Promo", "2021-03-31"],
