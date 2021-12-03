@@ -156,7 +156,7 @@ class Deck(collections.Counter):
                     {
                         "id": card.id,
                         "count": count,
-                        "name": card.name,
+                        "name": card.usual_name,
                         "comments": self.cards_comments.get(card),
                     }
                     for card, count in self.cards(lambda c: c.crypt)

@@ -141,7 +141,7 @@ def test_search_dimensions():
             "vis",
             "viz",
         ],
-        "group": [1, 2, 3, 4, 5, 6],
+        "group": [1, 2, 3, 4, 5, 6, 7],
         "sect": ["Anarch", "Camarilla", "Independent", "Laibon", "Sabbat"],
         "title": [
             "1 vote",
@@ -162,11 +162,13 @@ def test_search_dimensions():
         ],
         "city": [
             "Addis Ababa",
+            "Algiers",
             "Amsterdam",
             "Aragon",
             "Athens",
             "Atlanta",
             "Barcelona",
+            "Belo Horizonte",
             "Berlin",
             "Birmingham",
             "Boston",
@@ -193,6 +195,7 @@ def test_search_dimensions():
             "Guatemala City",
             "Houston",
             "Istanbul",
+            "Johannesburg",
             "Lisbon",
             "London",
             "Los Angeles",
@@ -203,8 +206,10 @@ def test_search_dimensions():
             "Miami",
             "Milan",
             "Milwaukee",
+            "Mombasa",
             "Monaco",
             "Montreal",
+            "Moscow",
             "Nairobi",
             "New York",
             "Paris",
@@ -223,6 +228,7 @@ def test_search_dimensions():
             "Sydney",
             "Taipei",
             "Tampa",
+            "Thessaloniki",
             "Toronto",
             "Venice",
             "Versailles",
@@ -285,6 +291,7 @@ def test_search_dimensions():
             "2020 Promo Pack 2",
             "2021 Kickstarter Promo",
             "2021 Mind’s Eye Theatre Promo",
+            "2021 Promo Pack 3",
             "2021 Resellers Promo",
             "Anarch Unbound",
             "Anarchs",
@@ -304,6 +311,7 @@ def test_search_dimensions():
             "Fall 2002 Storyline promo",
             "Fall 2004 Storyline promo",
             "Fifth Edition",
+            "Fifth Edition (Anarch)",
             "Final Nights",
             "Final Nights promo",
             "First Blood",
@@ -355,6 +363,10 @@ def test_search_dimensions():
             "Camarilla Edition: Toreador",
             "Camarilla Edition: Tremere",
             "Camarilla Edition: Ventrue",
+            "Fifth Edition (Anarch): Banu Haqim",
+            "Fifth Edition (Anarch): Brujah",
+            "Fifth Edition (Anarch): Gangrel",
+            "Fifth Edition (Anarch): Ministry",
             "Fifth Edition: Malkavian",
             "Fifth Edition: Nosferatu",
             "Fifth Edition: Toreador",
@@ -446,6 +458,7 @@ def test_search_dimensions():
             "Bob Stevlic",
             "Brad Williams",
             "Brian Ashmore",
+            "Brian Graupner",
             "Brian Horton",
             "Brian LeBlanc",
             "Brian Miskelley",
@@ -460,6 +473,7 @@ def test_search_dimensions():
             "Chris Richards",
             "Chris Stevens",
             "Christel Espenkrona",
+            "Christian Byrne",
             "Christopher Rush",
             "Christopher Shy",
             "Cliff Nielson",
@@ -501,6 +515,7 @@ def test_search_dimensions():
             "Esther Sanz",
             "Felipe Gaona",
             "Francesc Grimalt",
+            "Francisco Tébar",
             "Franz Vohwinkel",
             "Fred Harper",
             "Fred Hooper",
@@ -520,6 +535,7 @@ def test_search_dimensions():
             "Heather Hudson",
             "Heather J. McKinney",
             "Heather V. Kreiter",
+            "Helena García Huang",
             "Ian Hernaiz",
             "Imaginary Friends Studios",
             "J Frederick Y",
@@ -540,6 +556,7 @@ def test_search_dimensions():
             "Jeff Miracola",
             "Jeff Rebner",
             "Jenny Frison",
+            "Jer Carolina",
             "Jeremy C. Bills",
             "Jeremy McHugh",
             "Jesús Ybarzábal",
@@ -563,6 +580,7 @@ def test_search_dimensions():
             "Julie Collins",
             "Justin Norman",
             "Kaja Foglio",
+            "Kamilla Khaminskaya",
             "Kari Christensen",
             "Karl Waller",
             "Katie McCaskill",
@@ -571,6 +589,7 @@ def test_search_dimensions():
             "Kent Williams",
             "Kevin McCann",
             "Kieran Yanner",
+            "Kim Aldau",
             "Krasen Maximov",
             "Kyri Koniotis",
             "L. A. Williams",
@@ -879,6 +898,7 @@ def test_search_basic():
     }
     # title when merged
     assert vtes.VTES.search(clan=["Assamite"], title=["Justicar"]) == {
+        vtes.VTES["Kasim Bayar"],
         vtes.VTES["Tegyrius, Vizier (ADV)"],
     }
     # traits
@@ -913,11 +933,12 @@ def test_search_basic():
         vtes.VTES["Persona Non Grata"],
         vtes.VTES["Under Siege"],
     }
-    # reducing intercept is stealth
+    # reducing intercept is stealth, denying block is stealth
     assert vtes.VTES.search(
         bonus=["Stealth"], discipline=["chi"], type=["Library"]
     ) == {
         vtes.VTES["Fata Morgana"],
+        vtes.VTES["Heart's Desire"],
         vtes.VTES["Mirror's Visage"],
         vtes.VTES["Smoke and Mirrors"],
         vtes.VTES["Will-o'-the-Wisp"],
@@ -967,6 +988,7 @@ def test_search_basic():
     }
     # multi-disciplines
     assert vtes.VTES.search(discipline=["multi", "ani"], bonus=["Intercept"]) == {
+        vtes.VTES["Deep Ecology"],
         vtes.VTES["Detect Authority"],
         vtes.VTES["Falcon's Eye"],
         vtes.VTES["Read the Winds"],
@@ -974,6 +996,7 @@ def test_search_basic():
         vtes.VTES["The Mole"],
     }
     assert vtes.VTES.search(discipline=["choice", "ani"], bonus=["Intercept"]) == {
+        vtes.VTES["Deep Ecology"],
         vtes.VTES["Detect Authority"],
         vtes.VTES["Falcon's Eye"],
         vtes.VTES["Speak with Spirits"],
@@ -1053,6 +1076,8 @@ def test_search_cornercases():
     assert vtes.VTES["Gwen Brand"] in vtes.VTES.search(
         discipline=["AUS", "CHI", "FOR", "ANI"], clan=["Ravnos"], group=[5]
     )
+    # The Baron is not Anarch
+    assert vtes.VTES["The Baron"] not in vtes.VTES.search(sect=["Anarch"])
 
 
 def test_vekn():

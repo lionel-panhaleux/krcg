@@ -31,9 +31,9 @@
     - 100945|The Hungry Coyote
     - 101643|Ritual Scalpel
     - 101926|Tainted Vitae
-    - 200064|Amadeo
-    - 200131|Ariadne
-    - 200594|Hesha Ruhadze
+    - 200064|Amadeo (G2)
+    - 200131|Ariadne (G5)
+    - 200594|Hesha Ruhadze (G2)
 - ruling: 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, his controller can still pay a pool to unlock him. [LSJ 20050114]'
   cards:
     - 100339|Children of Osiris
@@ -279,71 +279,71 @@
 - ruling: "Black Hand is not a title, it is a trait unrelated to any sect. The trait is not lost if the vampire changes sect. [LSJ 20070322] [ANK 20180807]"
   cards:
     - "102027|Trophy: Chosen"
-    - 200038|Al-Muntathir, God's Witness
-    - 200124|Appius Claudius Corvus
-    - 200129|Aredhel
-    - 200146|Ash Harrison
-    - 200165|Banjoko
-    - 200204|Blackhorse Tanner
-    - 200246|Carmen
-    - 200277|Claudia
-    - 200287|The Colonel
-    - 200325|Darvag, The Butcher of Rus
-    - 200348|Djuhah, The Bronze Bow
-    - 200359|Dominique Santo Paulo
-    - 200371|Dovey Ebfwe
-    - 200381|Dr. Morrow, The Skindoctor
-    - 200410|Elimelech the Twice-Damned
-    - 200435|Ermenegildo, The Rake
-    - 200449|Ezekiel, Lord of Montreal
-    - 200488|Gabriel de Cambrai
-    - 200496|Gatjil Munyarryun
-    - 200507|Gerald FitzGerald
-    - 200560|Hagar Stone
-    - 200589|Henri Lavenant
-    - 200633|Ingram Frizer
-    - 200650|Izhim abd Azrael
-    - 200667|Jalan-Aajav
-    - '200710|Joe "Boot" Hill'
-    - 200754|Karif al Numair
-    - 200764|Katherine Stoddard
-    - 200766|Kazimir Savostin
-    - 200775|Kestrelle Hayes
-    - 200852|Lord Aaron Wesley Wilkshire
-    - 200865|Lubomira Hradok
-    - 200919|Marge Khan
-    - 200926|Mariano Pomposo
-    - 200942|Marthe Dizier
-    - 200959|Mateusz Kazimirski, Biker of Blood
-    - 201011|Morlock
-    - 201013|Mosfair
-    - 201032|Nails
-    - 201057|Nicomedes
-    - 201062|Nizzam al-Latif
-    - 201066|Nostoket
-    - 201075|Olga Triminov
-    - '201083|Ondine "Boudicca" Sinclair'
-    - 201123|Phillipe Rigaud
-    - 201126|Piotr Andreikov
-    - 201166|Rashid Stockton
-    - 201185|Reza Fatir, The Dark Angel
-    - 201189|Rico Loco
-    - 201198|Roger Farnsworth
-    - 201247|Saul Meira
-    - 201261|Selena
-    - 201263|Sennadurek
-    - 201271|Shaggydog
-    - 201296|Skryta Zyleta
-    - 201304|Soldat
-    - 201343|Tarbaby Jack
-    - 201345|Tariq, The Silent (ADV)
-    - 201354|Teresita, The Godmother
-    - 201461|Wah Chun-Yuen
-    - 201467|White Lily
-    - 201483|Yasmin the Black
-    - 201485|Yazid Tamari
-    - 201486|Yazid Tamari (ADV)
-    - 201510|Zubeida
+    - 200038|Al-Muntathir, God's Witness (G5)
+    - 200124|Appius Claudius Corvus (G5)
+    - 200129|Aredhel (G4)
+    - 200146|Ash Harrison (G5)
+    - 200165|Banjoko (G3)
+    - 200204|Blackhorse Tanner (G3)
+    - 200246|Carmen (G5)
+    - 200277|Claudia (G5)
+    - 200287|The Colonel (G3)
+    - 200325|Darvag, The Butcher of Rus (G4)
+    - 200348|Djuhah, The Bronze Bow (G5)
+    - 200359|Dominique Santo Paulo (G4)
+    - 200371|Dovey Ebfwe (G6)
+    - 200381|Dr. Morrow, The Skindoctor (G5)
+    - 200410|Elimelech the Twice-Damned (G5)
+    - 200435|Ermenegildo, The Rake (G4)
+    - 200449|Ezekiel, Lord of Montreal (G3)
+    - 200488|Gabriel de Cambrai (G4)
+    - 200496|Gatjil Munyarryun (G5)
+    - 200507|Gerald FitzGerald (G5)
+    - 200560|Hagar Stone (G5)
+    - 200589|Henri Lavenant (G3)
+    - 200633|Ingram Frizer (G3)
+    - 200650|Izhim abd Azrael (G5)
+    - 200667|Jalan-Aajav (G3)
+    - '200710|Joe "Boot" Hill (G4)'
+    - 200754|Karif al Numair (G5)
+    - 200764|Katherine Stoddard (G3)
+    - 200766|Kazimir Savostin (G3)
+    - 200775|Kestrelle Hayes (G5)
+    - 200852|Lord Aaron Wesley Wilkshire (G4)
+    - 200865|Lubomira Hradok (G5)
+    - 200919|Marge Khan (G5)
+    - 200926|Mariano Pomposo (G3)
+    - 200942|Marthe Dizier (G3)
+    - 200959|Mateusz Kazimirski, Biker of Blood (G6)
+    - 201011|Morlock (G4)
+    - 201013|Mosfair (G4)
+    - 201032|Nails (G4)
+    - 201057|Nicomedes (G4)
+    - 201062|Nizzam al-Latif (G5)
+    - 201066|Nostoket (G4)
+    - 201075|Olga Triminov (G3)
+    - '201083|Ondine "Boudicca" Sinclair (G5)'
+    - 201123|Phillipe Rigaud (G4)
+    - 201126|Piotr Andreikov (G3)
+    - 201166|Rashid Stockton (G5)
+    - 201185|Reza Fatir, The Dark Angel (G4)
+    - 201189|Rico Loco (G4)
+    - 201198|Roger Farnsworth (G3)
+    - 201247|Saul Meira (G5)
+    - 201261|Selena (G3)
+    - 201263|Sennadurek (G4)
+    - 201271|Shaggydog (G5)
+    - 201296|Skryta Zyleta (G3)
+    - 201304|Soldat (G3)
+    - 201343|Tarbaby Jack (G3)
+    - 201345|Tariq, The Silent (G2 ADV)
+    - 201354|Teresita, The Godmother (G3)
+    - 201461|Wah Chun-Yuen (G3)
+    - 201467|White Lily (G4)
+    - 201483|Yasmin the Black (G3)
+    - 201485|Yazid Tamari (G3)
+    - 201486|Yazid Tamari (G3 ADV)
+    - 201510|Zubeida (G5)
 - ruling: "Once in play, can be equipped from the minion it's on (rulebook action) by another minion that does not meet the requirements. [ANK 20180719-3]"
   cards:
     - 100063|The Ancestor's Talisman
@@ -383,30 +383,30 @@
     - 101388|Perfectionist
     - "101598|Reliquary: Shango Remains"
     - 101892|Succubus
-    - 200029|Aisha
-    - 200033|Akram
-    - 200034|Aksinya Daclau
-    - 200083|Andreas, The Bard of Crete
-    - 200157|Baba Yaga, the Iron Hag
-    - 200164|Baldesar Rossellini
-    - 200204|Blackhorse Tanner
-    - 200238|Calvin Cleaver
-    - 200448|Eze, The Demon Prince
-    - 200527|Gold Pan Dan
-    - 200542|Gualtiero Ghiberti
-    - 200666|Jalal Sayad
-    - 200793|Krassimir
-    - 200860|Louhi
-    - 200868|Lucas Halton
-    - 200877|Lucubratio
-    - 200964|Maureen, Dark Priestess
-    - 200966|Maxwell
-    - 201048|Nergal
-    - 201266|Serenna the White
-    - 201274|Shalmath
-    - 201310|Spiridonas
-    - 201460|Vulture
-    - 201502|Zayyat, The Sandstorm
+    - 200029|Aisha (G2)
+    - 200033|Akram (G2)
+    - 200034|Aksinya Daclau (G4)
+    - 200083|Andreas, The Bard of Crete (G1)
+    - 200157|Baba Yaga, the Iron Hag (G5)
+    - 200164|Baldesar Rossellini (G4)
+    - 200204|Blackhorse Tanner (G3)
+    - 200238|Calvin Cleaver (G4)
+    - 200448|Eze, The Demon Prince (G3)
+    - 200527|Gold Pan Dan (G5)
+    - 200542|Gualtiero Ghiberti (G4)
+    - 200666|Jalal Sayad (G2)
+    - 200793|Krassimir (G2)
+    - 200860|Louhi (G4)
+    - 200868|Lucas Halton (G3)
+    - 200877|Lucubratio (G4)
+    - 200964|Maureen, Dark Priestess (G4)
+    - 200966|Maxwell (G3)
+    - 201048|Nergal (G5)
+    - 201266|Serenna the White (G6)
+    - 201274|Shalmath (G6)
+    - 201310|Spiridonas (G2)
+    - 201460|Vulture (G2)
+    - 201502|Zayyat, The Sandstorm (G3)
 - ruling: "If multiple ousts happen, players whose prey gets ousted get a victory point, even if they are being ousted themselves. Only the surviving ones get 6 pool from the oust of their prey (not of their grand-prey). [LSJ 20000309]"
   cards:
     - 100064|Ancient Influence
@@ -447,8 +447,8 @@
     - 102107|Vengeful Spirit
     - 102191|Wolf Companion
     - 102210|Zombie
-    - 200017|Aeron
-    - 200908|Mambo Jeanne
+    - 200017|Aeron (G3)
+    - 200908|Mambo Jeanne (G6)
 - ruling: "The discipline level used to recruit it decides which version it is (inferior or superior). This does not change once it is in play. [RTR 19941109] [ANK 20180612]"
   cards:
     - 100427|Corpse Balloon
@@ -592,25 +592,25 @@
     - 101763|Shell Break
     - 101853|Spiritual Protector
     - 102053|Tye Cooper
-    - 200249|Carolina Vález
-    - 200984|Mictlantecuhtli
+    - 200249|Carolina Vález (G5)
+    - 200984|Mictlantecuhtli (G5)
 - ruling: "His ability can be used when in torpor. [LSJ 20011022] [LSJ 20100902-2]"
   cards:
-    - 200486|Fustuk
-    - 200605|The Horde
-    - 200652|Jack
-    - 200962|Matthew Romans
-    - 200982|Michael Luther
-    - 201061|Nitidas
-    - 201334|T.J.
+    - 200486|Fustuk (G5)
+    - 200605|The Horde (G6)
+    - 200652|Jack (G2)
+    - 200962|Matthew Romans (G4)
+    - 200982|Michael Luther (G3)
+    - 201061|Nitidas (G6)
+    - 201334|T.J. (G4)
 - ruling: "Her ability can be used when in torpor. [LSJ 20011022] [LSJ 20100902-2]"
   cards:
-    - 200049|Alexandra
-    - 200091|Angela Preston
-    - 200971|Melinda Galbraith (ADV)
-    - 201214|Ruxandra
-    - 201273|Shahid
-    - 201279|Sheela Na Gig
+    - 200049|Alexandra (G2)
+    - 200091|Angela Preston (G2)
+    - 200971|Melinda Galbraith (G4 ADV)
+    - 201214|Ruxandra (G5)
+    - 201273|Shahid (G4)
+    - 201279|Sheela Na Gig (G5)
 - ruling: '"Before resolution" means after strikes have been declared but before they resolve. [RTR 19990105]'
   cards:
     - 100580|Dragon's Breath Rounds
