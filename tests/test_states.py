@@ -52,6 +52,7 @@ def test_card():
         ),
         "id": 100029,
         "name": "Aid from Bats",
+        "printed_name": "Aid from Bats",
         "sets": {
             "Anarchs": [
                 {"copies": 2, "precon": "Gangrel", "release_date": "2003-05-19"}
@@ -152,6 +153,7 @@ def test_multiple_rulings():
         "clans": ["Toreador"],
         "id": 101989,
         "name": "Toreador Grand Ball",
+        "printed_name": "Toreador Grand Ball",
         "pool_cost": "1",
         "rulings": {
             "links": {

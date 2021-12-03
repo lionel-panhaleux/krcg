@@ -1091,6 +1091,7 @@ def test_vekn():
         "card_text",
         "id",
         "name",
+        "printed_name",
         "pool_cost",
         "rulings",
         "scans",

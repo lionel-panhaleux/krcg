@@ -367,14 +367,16 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         return utils.json_pack(
             {
                 k: v
-                for k, v in list(self.__dict__.items()) + [("name", self.name)]
+                for k, v in list(self.__dict__.items())
+                + [("name", self.name), ("printed_name", self.printed_name)]
                 if k not in ["crypt", "library", "vekn_name"]
             }
         )
 
     def from_json(self, state: Dict) -> None:
         """Get the card form a dict."""
-        state.pop("name")
+        state.pop("name", None)
+        state.pop("printed_name", None)
         self.__dict__.update(state)
 
     def from_vekn(
