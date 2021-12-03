@@ -96,7 +96,7 @@ class _VTES:
         self._init_search()
         ret = self._search.name.search(text, lang)
         ret = [
-            (card.name if lang == "en" else card.i18n(lang, "name"), score)
+            (card.usual_name if lang == "en" else card.i18n(lang, "name"), score)
             for lang, card_score in ret.items()
             for card, score in card_score.items()
         ]
