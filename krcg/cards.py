@@ -667,7 +667,6 @@ class CardMap(utils.FuzzyDict):
         r.raise_for_status()
         self.clear()
         self.from_json(r.json())
-        self._map_names()
 
     def _map_names(self) -> None:
         """Add name and variations access for all cards."""
@@ -835,7 +834,7 @@ class CardMap(utils.FuzzyDict):
             card = Card()
             card.from_json(dict_)
             self[card.id] = card
-            self._map_names()
+        self._map_names()
 
 
 class CardTrie:
