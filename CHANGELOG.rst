@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.20 (unreleased)
+2.20 (2021-12-04)
 -----------------
 
 - Add Banu Haqim and Ministry clans (Assamite and Follower of Set can still be used and are equivalent)
