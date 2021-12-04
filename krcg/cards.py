@@ -825,11 +825,11 @@ class CardMap(utils.FuzzyDict):
                     self[cid].rulings["links"][ref] = link
 
     def to_json(self) -> Dict:
-        """Return a compact dict representation for JSON serialization."""
+        """Return a compact list representation for JSON serialization."""
         return [card.to_json() for card in self]
 
     def from_json(self, state: Dict):
-        """Initialize from a JSON dict."""
+        """Initialize from a JSON list."""
         for dict_ in state:
             card = Card()
             card.from_json(dict_)
