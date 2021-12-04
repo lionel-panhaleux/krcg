@@ -86,21 +86,21 @@ class Round(list):
                 yield table_number, position, table_size, player
 
     def iter_tables(self):
-        """Iterate on the tables, not the players (default)"""
+        """Convenience method for symmetry with `iter_players`"""
         yield from super().__iter__()
 
     def iter_players(self):
-        """Convenience method for symmetry with `iter_tables`"""
+        """Iterate on the players, not the tables (default)"""
         for table in super().__iter__():
             for player in table:
                 yield player
 
     def tables_count(self):
-        """Get the number of tables (default len gives the number of players)"""
+        """Convenience function for symmetry with `players_count`"""
         return super().__len__()
 
     def players_count(self):
-        """Convenience function for symmetry with `tables_count`"""
+        """Get the number of players (default len gives the number of tables)"""
         return sum(len(table) for table in self.iter_tables())
 
     def __global_index_to_tuple(self, index: int):
