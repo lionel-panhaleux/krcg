@@ -501,6 +501,17 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             + "/card/"
             + (f"set/{expansion}/" if expansion else "")
             + (f"{lang[:2]}/" if lang else "")
+            + re.sub(r"[^\w\d]", "", utils.normalize(self.name))
+            + ".jpg"
+        )
+
+    def _compute_legacy_url(self, lang: str = None, expansion: str = None):
+        """Compute image URL for given language."""
+        return (
+            config.KRCG_STATIC_SERVER
+            + "/card/"
+            + (f"set/{expansion}/" if expansion else "")
+            + (f"{lang[:2]}/" if lang else "")
             + re.sub(r"[^\w\d]", "", utils.normalize(self.vekn_name))
             + ".jpg"
         )
