@@ -33,14 +33,11 @@ class _VTES:
         return self._cards.__iter__()
 
     def to_json(self):
-        return [c.to_json() for c in self._cards]
+        return self._cards.to_json()
 
     def from_json(self, state):
         self.clear()
-        for c in state:
-            card = cards.Card()
-            card.from_json(c)
-            self._cards.add(card)
+        self._cards.from_json(state)
 
     def get(self, key, default=None):
         return self._cards.get(key)
