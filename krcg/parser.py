@@ -200,6 +200,8 @@ _CLAN = "|".join(
         "akunanse",
         "brujah",
         "assamite",
+        "banu haqim",
+        "ministry",
         "follower of set",
         "brujah antitribu",
         "guruhi",

@@ -310,7 +310,18 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         ret = self._name
         suffix = self.get_suffix(minimal=True)
         if suffix:
-            ret += " ({suffix})"
+            ret += f" ({suffix})"
+        return ret
+
+    @property
+    @functools.lru_cache(1)
+    def web_name(self) -> str:
+        """Name used for filenames on web applications."""
+        assert self.id, "Card is not initialized"
+        ret = self._name
+        suffix = self.get_suffix()
+        if suffix:
+            ret += f" ({suffix})"
         return ret
 
     @property
@@ -440,7 +451,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             data["Card Text"].replace("(D)", "Ⓓ").replace("{", "").replace("}", "")
         )
         for old_name, new_name in self._CLAN_RENAMES.items():
-            self.card_text.replace(old_name, new_name)
+            self.card_text = self.card_text.replace(old_name, new_name)
         self.banned = (
             self._BAN_MAP[data["Banned"]].isoformat() if data["Banned"] else None
         )
@@ -487,7 +498,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                         "2018 Humble Bundle": "humble-bundle",
                     }.get(name, "promo")
                     if set_dict[name].abbrev in set(sets.SetMap.PROMOS)
-                    else name.lower().replace(":", "").replace(" ", "-")
+                    else name.lower()
+                    .replace(":", "")
+                    .replace(" ", "-")
+                    .replace("(", "")
+                    .replace(")", "")
                 )
             )
             for name in self.sets.keys()
@@ -501,12 +516,12 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             + "/card/"
             + (f"set/{expansion}/" if expansion else "")
             + (f"{lang[:2]}/" if lang else "")
-            + re.sub(r"[^\w\d]", "", utils.normalize(self.name))
+            + re.sub(r"[^\w\d]", "", utils.normalize(self.web_name))
             + ".jpg"
         )
 
     def _compute_legacy_url(self, lang: str = None, expansion: str = None):
-        """Compute image URL for given language."""
+        """Compute legacy image URL for given language."""
         return (
             config.KRCG_STATIC_SERVER
             + "/card/"
@@ -701,10 +716,13 @@ class CardMap(utils.FuzzyDict):
                 card = self[cid]
                 if card._name != name:
                     warnings.warn(f"{name} does not match {cid} in {lang} translation")
+                card_text = line["Card Text"].replace("(D)", "Ⓓ")
+                for old_name, new_name in card._CLAN_RENAMES.items():
+                    card_text = card_text.replace(old_name, new_name)
                 trans = {
                     "name": line["Name"],
                     "url": card._compute_url(lang[:2]),
-                    "card_text": line["Card Text"].replace("(D)", "Ⓓ"),
+                    "card_text": card_text,
                     "sets": {
                         set_name: set_dict[set_name].i18n(lang[:2], "name")
                         for set_name in card.sets.keys()
@@ -817,7 +835,6 @@ class CardMap(utils.FuzzyDict):
             card = Card()
             card.from_json(dict_)
             self[card.id] = card
-            self._set_enriched_properties()
             self._map_names()
 
 
