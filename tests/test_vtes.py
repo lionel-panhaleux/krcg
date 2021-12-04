@@ -25,6 +25,7 @@ def test_search_dimensions():
             "Assamite",
             "Avenger",
             "Baali",
+            "Banu Haqim",
             "Blood Brother",
             "Brujah",
             "Brujah antitribu",
@@ -46,6 +47,7 @@ def test_search_dimensions():
             "Malkavian",
             "Malkavian antitribu",
             "Martyr",
+            "Ministry",
             "Nagaraja",
             "Nosferatu",
             "Nosferatu antitribu",
@@ -887,17 +889,17 @@ def test_search_basic():
         vtes.VTES["Zayyat, The Sandstorm"],
     }
     # clans, votes provided by master cards
-    assert vtes.VTES.search(bonus=["Votes"], clan=["Assamite"], type=["Master"]) == {
+    assert vtes.VTES.search(bonus=["Votes"], clan=["Banu Haqim"], type=["Master"]) == {
         vtes.VTES["Alamut"],
         vtes.VTES["The Black Throne"],
     }
-    # votes provided by titles
+    # votes provided by titles - legacy clan names still work
     assert vtes.VTES.search(bonus=["Votes"], clan=["Assamite"], group=[3]) == {
         vtes.VTES["Rebekah"],
         vtes.VTES["Enam"],
     }
     # title when merged
-    assert vtes.VTES.search(clan=["Assamite"], title=["Justicar"]) == {
+    assert vtes.VTES.search(clan=["Banu Haqim"], title=["Justicar"]) == {
         vtes.VTES["Kasim Bayar"],
         vtes.VTES["Tegyrius, Vizier (ADV)"],
     }
@@ -905,12 +907,12 @@ def test_search_basic():
     assert vtes.VTES.search(clan=["Nagaraja"], trait=["Black Hand"]) == {
         vtes.VTES["Sennadurek"],
     }
-    assert vtes.VTES.search(clan=["Assamite"], trait=["Red List"]) == {
+    assert vtes.VTES.search(clan=["Banu Haqim"], trait=["Red List"]) == {
         vtes.VTES["Jamal"],
         vtes.VTES["Tariq, The Silent (ADV)"],
     }
     # sect
-    assert vtes.VTES.search(clan=["Assamite"], sect=["Camarilla"], group=[2]) == {
+    assert vtes.VTES.search(clan=["Banu Haqim"], sect=["Camarilla"], group=[2]) == {
         vtes.VTES["Al-Ashrad, Amr of Alamut (ADV)"],
         vtes.VTES["Tegyrius, Vizier"],
         vtes.VTES["Tegyrius, Vizier (ADV)"],

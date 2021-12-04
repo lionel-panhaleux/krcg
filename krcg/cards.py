@@ -21,6 +21,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     _AKA = {
         101179: ["mask of 1,000 faces"],
     }
+    #: VEKN CSV uses old clan names for retro-compatibility
+    _CLAN_RENAMES = {
+        "Assamite": "Banu Haqim",
+        "Follower of Set": "Ministry",
+    }
     #: Actual ban dates
     _BAN_MAP = {
         "1995": datetime.date(1995, 11, 1),  # RTR 19951006
@@ -409,6 +414,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.aka = split("Aka", ";")
         self.types = split("Type", "/")
         self.clans = split("Clan", "/")
+        for i in range(len(self.clans)):
+            if self.clans[i] in self._CLAN_RENAMES:
+                self.clans[i] = self._CLAN_RENAMES[self.clans[i]]
         capacity = data.get("Capacity")
         if capacity and re.search(r"^[^\d]", capacity):
             self.capacity_change = capacity
@@ -431,6 +439,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.card_text = (
             data["Card Text"].replace("(D)", "Ⓓ").replace("{", "").replace("}", "")
         )
+        for old_name, new_name in self._CLAN_RENAMES.items():
+            self.card_text.replace(old_name, new_name)
         self.banned = (
             self._BAN_MAP[data["Banned"]].isoformat() if data["Banned"] else None
         )
@@ -695,6 +705,8 @@ class CardMap(utils.FuzzyDict):
                 card.i18n_set(lang[:2], trans)
         urllib.request.urlcleanup()
         self._set_enriched_properties()
+        # all name variants computed, now we can map all those name in the dict
+        self._map_names()
 
     def _set_enriched_properties(self):
         """Set enriched properties on cards.
@@ -741,8 +753,6 @@ class CardMap(utils.FuzzyDict):
                 name_variants = list(self._variants(name, card))
                 name_variants = name_variants[1:]  # first name is the actual name
                 card.i18n_set(lang, {"name_variants": name_variants})
-        # all name variants computed, now we can map all those name in the dict
-        self._map_names()
 
     def _variants(self, name, card):
         suffix = card.get_suffix()
@@ -795,7 +805,9 @@ class CardMap(utils.FuzzyDict):
         for dict_ in state:
             card = Card()
             card.from_json(dict_)
-            self.add(card)
+            self[card.id] = card
+            self._set_enriched_properties()
+            self._map_names()
 
 
 class CardTrie:
@@ -896,6 +908,7 @@ class CardSearch:
         "Laibon": {"Magaji", "Kholo"},
     }
     _ALL_TITLES = sum(map(list, _TITLES.values()), [])
+    _LEGACY_CLANS = {v: k for k, v in Card._CLAN_RENAMES.items()}
     trie_dimensions = [
         "name",
         "card_text",
@@ -967,6 +980,8 @@ class CardSearch:
             self.type["Library"].add(card)
         for clan in card.clans:
             self.clan[clan].add(card)
+            if clan in self._LEGACY_CLANS:
+                self.clan[self._LEGACY_CLANS[clan]].add(card)
         if not card.clans:
             self.clan["none"].add(card)
         if card.group:
