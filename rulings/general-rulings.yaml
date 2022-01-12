@@ -755,11 +755,9 @@
     - 101082|Leathery Hide
     - 101817|Soak
     - 102172|Well-Marked
-- ruling: "Only vampires of appropriate sect for the title can be the target of referendums giving the title. [LSJ 20041026]"
+- ruling: "Only a Camarilla vampire can be chosen, it cannot be played without a valid target. [LSJ 20041026]"
   cards:
     - 100262|Brujah Justicar
-    - 100806|Gangrel Justicar
-    - 100960|Imperator
     - 101154|Malkavian Justicar
     - 101299|Nosferatu Justicar
     - 101990|Toreador Justicar
