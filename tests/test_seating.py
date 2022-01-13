@@ -209,7 +209,7 @@ def test_score():
     assert score.total == 10010003100.921211
 
 
-def test_best_seating():
+def test_optimise():
     # mainly check the function executes, results are not stable
     rounds, score = seating.optimise(seating.get_rounds(13, 3), iterations=1000)
     assert len(rounds) == 3
@@ -221,3 +221,13 @@ def test_best_seating():
     assert score.R4 != []
     assert score.R8 > 0
     assert score.R9 != []
+
+
+def test_optimise_table():
+    permutations = [[1, 2, 3, 4, 5], [2, 5, 3, 1, 4]]
+    rounds = [seating.Round.from_players(p) for p in permutations]
+    # on second round, player 4 leaves. Table needs to be re-optimised
+    rounds[1].set_table(0, [2, 5, 3, 1])
+    rounds, score = seating.optimise_table(rounds, 0)
+    assert rounds == [[[1, 2, 3, 4, 5]], [[5, 3, 2, 1]]]
+    assert score == 26000065.0

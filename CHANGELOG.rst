@@ -4,7 +4,9 @@ Changelog
 2.21 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Rename Thaumaturgy to Blood Sorcery
+- Improve seating methods
+- Add 2021 SAC Promo set
 
 
 2.20 (2021-12-04)

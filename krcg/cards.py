@@ -26,6 +26,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         "Assamite": "Banu Haqim",
         "Follower of Set": "Ministry",
     }
+    _DISC_RENAMES = {
+        "Thaumaturgy": "Blood Sorcery",
+    }
     #: Actual ban dates
     _BAN_MAP = {
         "1995": datetime.date(1995, 11, 1),  # RTR 19951006
@@ -451,6 +454,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             data["Card Text"].replace("(D)", "Ⓓ").replace("{", "").replace("}", "")
         )
         for old_name, new_name in self._CLAN_RENAMES.items():
+            self.card_text = self.card_text.replace(old_name, new_name)
+        for old_name, new_name in self._DISC_RENAMES.items():
             self.card_text = self.card_text.replace(old_name, new_name)
         self.banned = (
             self._BAN_MAP[data["Banned"]].isoformat() if data["Banned"] else None
