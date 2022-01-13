@@ -19,7 +19,15 @@ from . import utils
 class Card(utils.i18nMixin, utils.NamedMixin):
     #: official cards renaming not registered in cards "Aka" field
     _AKA = {
-        "Mask of a Thousand Faces": ["mask of 1,000 faces"],
+        101179: ["mask of 1,000 faces"],
+    }
+    #: VEKN CSV uses old clan names for retro-compatibility
+    _CLAN_RENAMES = {
+        "Assamite": "Banu Haqim",
+        "Follower of Set": "Ministry",
+    }
+    _DISC_RENAMES = {
+        "Thaumaturgy": "Blood Sorcery",
     }
     #: Actual ban dates
     _BAN_MAP = {
@@ -185,6 +193,12 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "A": "Bundle 1",
             "B": "Bundle 2",
         },
+        "V5A": {
+            "PB": "Brujah",
+            "PMin": "Ministry",
+            "PBh": "Banu Haqim",
+            "PG": "Gangrel",
+        },
     }
     _REPRINTS_RELEASE_DATE = {
         ("KoT", "Reprint Bundle 1"): datetime.date(2018, 5, 5),
@@ -249,6 +263,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.burn_option = None
         self.flavor_text = None
         self.draft = None
+        # enriched properties (not directly in original CSV, but convenient)
+        self.has_advanced = None  # same vampire appears as advanced in the same group
+        self.has_evolution = None  # same vampire appears in a higher group
+        self.is_evolution = None  # same vampire appears in a lower group
+        self.name_variants = []  # variations you want to match when parsing a decklist
         self.rulings = {"text": [], "links": {}}
 
     def diff(self, rhs):
@@ -292,22 +311,64 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         """VEKN names as used in legacy decklists tools."""
         assert self.id, "Card is not initialized"
         ret = self._name
-        if self.adv:
-            ret += " (ADV)"
+        suffix = self.get_suffix(minimal=True)
+        if suffix:
+            ret += f" ({suffix})"
+        return ret
+
+    @property
+    @functools.lru_cache(1)
+    def web_name(self) -> str:
+        """Name used for filenames on web applications."""
+        assert self.id, "Card is not initialized"
+        ret = self._name
+        suffix = self.get_suffix()
+        if suffix:
+            ret += f" ({suffix})"
+        return ret
+
+    @property
+    @functools.lru_cache(1)
+    def usual_name(self) -> str:
+        """Unique name, as printed plus minimal suffix for unicity."""
+        assert self.id, "Card is not initialized"
+        ret = self.printed_name
+        suffix = self.get_suffix(minimal=True)
+        if suffix:
+            ret += f" ({suffix})"
         return ret
 
     @property
     @functools.lru_cache(1)
     def name(self) -> str:
+        """Unique name for the card."""
+        ret = self.printed_name
+        suffix = self.get_suffix()
+        if suffix:
+            ret += f" ({suffix})"
+        return ret
+
+    @property
+    @functools.lru_cache(1)
+    def printed_name(self) -> str:
         """Actual real name printed on the card."""
         assert self.id, "Card is not initialized"
         ret = self._name
         if ret[-5:] == ", The":
             ret = "The " + ret[:-5]
-        ret = ret.replace("(TM)", "™")
+        return ret.replace("(TM)", "™")
+
+    def get_suffix(self, minimal=False) -> str:
+        suffixes = []
+        if self.group and (self.is_evolution or not minimal):
+            if self.group == "ANY":
+                prefix = ""
+            else:
+                prefix = "G"
+            suffixes.append(f"{prefix}{self.group}")
         if self.adv:
-            ret += " (ADV)"
-        return ret
+            suffixes.append("ADV")
+        return " ".join(suffixes)
 
     @property
     @functools.lru_cache(1)
@@ -325,14 +386,16 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         return utils.json_pack(
             {
                 k: v
-                for k, v in list(self.__dict__.items()) + [("name", self.name)]
+                for k, v in list(self.__dict__.items())
+                + [("name", self.name), ("printed_name", self.printed_name)]
                 if k not in ["crypt", "library", "vekn_name"]
             }
         )
 
     def from_json(self, state: Dict) -> None:
         """Get the card form a dict."""
-        state.pop("name")
+        state.pop("name", None)
+        state.pop("printed_name", None)
         self.__dict__.update(state)
 
     def from_vekn(
@@ -365,6 +428,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.aka = split("Aka", ";")
         self.types = split("Type", "/")
         self.clans = split("Clan", "/")
+        for i in range(len(self.clans)):
+            if self.clans[i] in self._CLAN_RENAMES:
+                self.clans[i] = self._CLAN_RENAMES[self.clans[i]]
         capacity = data.get("Capacity")
         if capacity and re.search(r"^[^\d]", capacity):
             self.capacity_change = capacity
@@ -387,6 +453,10 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.card_text = (
             data["Card Text"].replace("(D)", "Ⓓ").replace("{", "").replace("}", "")
         )
+        for old_name, new_name in self._CLAN_RENAMES.items():
+            self.card_text = self.card_text.replace(old_name, new_name)
+        for old_name, new_name in self._DISC_RENAMES.items():
+            self.card_text = self.card_text.replace(old_name, new_name)
         self.banned = (
             self._BAN_MAP[data["Banned"]].isoformat() if data["Banned"] else None
         )
@@ -433,7 +503,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                         "2018 Humble Bundle": "humble-bundle",
                     }.get(name, "promo")
                     if set_dict[name].abbrev in set(sets.SetMap.PROMOS)
-                    else name.lower().replace(":", "").replace(" ", "-")
+                    else name.lower()
+                    .replace(":", "")
+                    .replace(" ", "-")
+                    .replace("(", "")
+                    .replace(")", "")
                 )
             )
             for name in self.sets.keys()
@@ -442,6 +516,17 @@ class Card(utils.i18nMixin, utils.NamedMixin):
 
     def _compute_url(self, lang: str = None, expansion: str = None):
         """Compute image URL for given language."""
+        return (
+            config.KRCG_STATIC_SERVER
+            + "/card/"
+            + (f"set/{expansion}/" if expansion else "")
+            + (f"{lang[:2]}/" if lang else "")
+            + re.sub(r"[^\w\d]", "", utils.normalize(self.web_name))
+            + ".jpg"
+        )
+
+    def _compute_legacy_url(self, lang: str = None, expansion: str = None):
+        """Compute legacy image URL for given language."""
         return (
             config.KRCG_STATIC_SERVER
             + "/card/"
@@ -588,20 +673,22 @@ class CardMap(utils.FuzzyDict):
         self.clear()
         self.from_json(r.json())
 
-    def add(self, card: Card) -> None:
-        """Add a card to the map, with all name variatoins.
-
-        Can be called multiple times for a single card, for translations.
-        """
-        self[card.id] = card
-        self._add_variants(card._name, card)
-        for name in card.aka:
-            self._add_variants(name, card)
-        for _lang, name in card.i18n_variants("name"):
-            # to avoid fuzzy matching translated names, they're added as aliases only
-            self._add_name_and_shortcuts(name, card, alias=True)
-        for aka in Card._AKA.get(card.name, []):
-            self[aka] = card
+    def _map_names(self) -> None:
+        """Add name and variations access for all cards."""
+        cards = list(self)
+        for card in cards:
+            self[card.name] = card
+            for variant in card.name_variants:
+                self[variant] = card
+            # to avoid fuzzy matching translated names,
+            # they're added as aliases only
+            for _lang, name in card.i18n_variants("name"):
+                self.add_alias(name, card.id)
+            for _lang, variants in card.i18n_variants("name_variants"):
+                for variant in variants:
+                    self.add_alias(variant, card.id)
+            for name in Card._AKA.get(card.id, []):
+                self[name] = self[card.id]
 
     def load_from_vekn(self):
         """Load from official VEKN CSV files."""
@@ -624,7 +711,7 @@ class CardMap(utils.FuzzyDict):
         for line in itertools.chain.from_iterable(main_files[1:]):
             card = Card()
             card.from_vekn(line, set_dict)
-            self.add(card)
+            self[card.id] = card
         for lang, files in i18n_files.items():
             for line in itertools.chain.from_iterable(files[1:]):
                 name = line.pop("Name")
@@ -633,10 +720,13 @@ class CardMap(utils.FuzzyDict):
                 card = self[cid]
                 if card._name != name:
                     warnings.warn(f"{name} does not match {cid} in {lang} translation")
+                card_text = line["Card Text"].replace("(D)", "Ⓓ")
+                for old_name, new_name in card._CLAN_RENAMES.items():
+                    card_text = card_text.replace(old_name, new_name)
                 trans = {
                     "name": line["Name"],
                     "url": card._compute_url(lang[:2]),
-                    "card_text": line["Card Text"].replace("(D)", "Ⓓ"),
+                    "card_text": card_text,
                     "sets": {
                         set_name: set_dict[set_name].i18n(lang[:2], "name")
                         for set_name in card.sets.keys()
@@ -646,8 +736,88 @@ class CardMap(utils.FuzzyDict):
                 if "Flavor Text" in line:
                     trans["flavor_text"] = line["Flavor Text"]
                 card.i18n_set(lang[:2], trans)
-                self.add(card)
         urllib.request.urlcleanup()
+        self._set_enriched_properties()
+        # all name variants computed, now we can map all those name in the dict
+        self._map_names()
+
+    def _set_enriched_properties(self):
+        """Set enriched properties on cards.
+
+        This method sets addition information related to the cards
+        that are not in the original CSV:
+        - card.name_variants
+        - card.has_advanced
+        - card.has_evolution
+        - card.is_evolution
+        """
+        # first compute, for cards with same name (crypt cards only),
+        # which were the one to appear first (first_group)
+        same_name = collections.defaultdict(list)
+        for card in self:
+            same_name[card._name].append(card)
+        same_name = {k: v for k, v in same_name.items() if len(v) > 1}
+        for name, cards in same_name.items():
+            groups = collections.defaultdict(list)
+            for card in cards:
+                groups[card.group].append(card)
+            groups = sorted(groups.items(), key=lambda a: a[0])
+            for i, (_group, cards) in enumerate(groups):
+                if len(cards) > 1:
+                    assert sum(bool(c.adv) for c in cards) == 1, "bad advanced mark"
+                for card in cards:
+                    if not card.adv and len(cards) > 1:
+                        card.has_advanced = True
+                    if i < len(groups) - 1:
+                        card.has_evolution = True
+                    if i > 0:
+                        card.is_evolution = True
+        # now compute variants - cards in first_group can omit the group suffix
+        # advanced version can never omit the suffix
+        for card in self:
+            name_variants = list(self._variants(card._name, card))
+            name_variants = name_variants[1:]  # first name is the actual name
+            card.name_variants.extend(name_variants)
+            # registered official AKA (old name / previous version)
+            for name in card.aka:
+                card.name_variants.extend(self._variants(name, card))
+            # translations variants are registered in their respective i18 dict
+            for lang, name in card.i18n_variants("name"):
+                name_variants = list(self._variants(name, card))
+                name_variants = name_variants[1:]  # first name is the actual name
+                card.i18n_set(lang, {"name_variants": name_variants})
+
+    def _variants(self, name, card):
+        suffix = card.get_suffix()
+        if suffix:
+            suffix = f" ({suffix})"
+        else:
+            suffix = ""
+        yield from self._word_variants(name, suffix)
+        if suffix and not card.is_evolution:
+            if card.adv:
+                yield from self._word_variants(name, " (ADV)")
+            else:
+                yield from self._word_variants(name, "")
+
+    def _word_variants(self, name, suffix):
+        if "(TM)" in name:
+            yield from self._word_variants(name.replace("(TM)", "™"), suffix)
+        if name[-5:] == ", The":
+            yield from self._comma_splits("The " + name[:-5], suffix)
+        yield from self._comma_splits(name, suffix)
+        if name[:4] == "The ":
+            yield from self._comma_splits(name[4:] + ", The", suffix)
+
+    def _comma_splits(self, name, suffix):
+        while True:
+            yield name + suffix
+            name = name.rsplit(",", 1)
+            if len(name) < 2:
+                break
+            name = name[0]
+            if len(name) <= self.threshold:
+                break
 
     def load_rulings(self) -> None:
         """Load card rulings from package YAML files."""
@@ -660,36 +830,16 @@ class CardMap(utils.FuzzyDict):
                     self[cid].rulings["links"][ref] = link
 
     def to_json(self) -> Dict:
-        """Return a compact dict representation for JSON serialization."""
+        """Return a compact list representation for JSON serialization."""
         return [card.to_json() for card in self]
 
     def from_json(self, state: Dict):
-        """Initialize from a JSON dict."""
+        """Initialize from a JSON list."""
         for dict_ in state:
             card = Card()
             card.from_json(dict_)
-            self.add(card)
-
-    def _add_variants(self, name: str, card: Card):
-        """Add all variants of the name."""
-        self._add_name_and_shortcuts(name, card)
-        if name[-5:].lower() == ", the":
-            self._add_name_and_shortcuts("the " + name[:-5], card)
-
-    def _add_name_and_shortcuts(self, name: str, card: Card, alias: bool = False):
-        """Add the name and shortcuts (splitting comma-separated qualifiers)."""
-        suffix = " (ADV)" if card.adv else ""
-        while True:
-            if alias:
-                self.add_alias(name + suffix, card.name)
-            else:
-                self[name + suffix] = card
-            name = name.rsplit(",", 1)
-            if len(name) < 2:
-                return
-            name = name[0]
-            if len(name) <= self.threshold:
-                return
+            self[card.id] = card
+        self._map_names()
 
 
 class CardTrie:
@@ -790,6 +940,7 @@ class CardSearch:
         "Laibon": {"Magaji", "Kholo"},
     }
     _ALL_TITLES = sum(map(list, _TITLES.values()), [])
+    _LEGACY_CLANS = {v: k for k, v in Card._CLAN_RENAMES.items()}
     trie_dimensions = [
         "name",
         "card_text",
@@ -861,6 +1012,8 @@ class CardSearch:
             self.type["Library"].add(card)
         for clan in card.clans:
             self.clan[clan].add(card)
+            if clan in self._LEGACY_CLANS:
+                self.clan[self._LEGACY_CLANS[clan]].add(card)
         if not card.clans:
             self.clan["none"].add(card)
         if card.group:
@@ -1045,7 +1198,11 @@ class CardSearch:
         if not set(card.types) & {"Master", "Vampire", "Imbued"}:
             if re.search(r"-(\d|X)\s+(s|S)tealth", card.card_text):
                 self.bonus["Intercept"].add(card)
+            if re.search(r"(s|S)tealth\s+to\s+(0|zero)", card.card_text):
+                self.bonus["Intercept"].add(card)
             if re.search(r"-(\d|X)\s+(i|I)ntercept", card.card_text):
+                self.bonus["Stealth"].add(card)
+            if re.search(r"(i|I)ntercept\s+to\s+(0|zero)", card.card_text):
                 self.bonus["Stealth"].add(card)
         # list reset stealth as intercept
         if re.search(r"stealth .* to 0", card.card_text):
@@ -1101,11 +1258,11 @@ class CardSearch:
     def _handle_exceptions(self, card):
         """Search exceptions not handled automatically."""
         # The Baron has his name in card text, but is not an Anarch Baron.
-        if card.name == "The Baron":
+        if card.id == 200167:  # "The Baron"
             self.sect["Anarch"].remove(card)
             self.title["Baron"].remove(card)
         # Gwen has another set of disciplines under condition
-        elif card.name == "Gwen Brand":
+        elif card.id == 200553:  # "Gwen Brand"
             self.discipline["ANI"].add(card)
             self.discipline["AUS"].add(card)
             self.discipline["CHI"].add(card)

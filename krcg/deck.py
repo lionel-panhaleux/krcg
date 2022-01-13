@@ -83,7 +83,7 @@ class Deck(collections.Counter):
         """Fetch a deck from VDB."""
         r = requests.get("https://vdb.smeea.casa/api/deck/" + uid)
         r.raise_for_status()
-        r = r.json()[uid]
+        r = r.json()
         ret = cls(id=uid, author=r.get("author", r.get("owner", None)))
         ret.name = r.get("name", None)
         ret.comments = r.get("description", "")
@@ -156,7 +156,7 @@ class Deck(collections.Counter):
                     {
                         "id": card.id,
                         "count": count,
-                        "name": card.name,
+                        "name": card.usual_name,
                         "comments": self.cards_comments.get(card),
                     }
                     for card, count in self.cards(lambda c: c.crypt)

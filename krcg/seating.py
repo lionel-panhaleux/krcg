@@ -3,7 +3,7 @@
 # When organising a tournament, it's important to devise an equitable seating
 # which also ensures a maximum of diversity over rounds and tables.
 
-from typing import Callable, Dict, Hashable, Iterable, List, Tuple
+from typing import Callable, Hashable, Iterable, List, Tuple
 import collections
 import concurrent.futures
 import math
@@ -73,7 +73,7 @@ class Round(list):
         players = list(self.iter_players())
         random.shuffle(players)
         for i in range(self.players_count()):
-            self[i] = players[i]
+            self.set_player(i, players[i])
 
     def iter_table_players(self) -> Iterable[Tuple[int, int, int, Hashable]]:
         """Full information players iteration
@@ -86,21 +86,21 @@ class Round(list):
                 yield table_number, position, table_size, player
 
     def iter_tables(self):
-        """Iterate on the tables, not the players (default)"""
+        """Convenience method for symmetry with `iter_players`"""
         yield from super().__iter__()
 
     def iter_players(self):
-        """Convenience method for symmetry with `iter_tables`"""
+        """Iterate on the players, not the tables (default)"""
         for table in super().__iter__():
             for player in table:
                 yield player
 
     def tables_count(self):
-        """Get the number of tables (default len gives the number of players)"""
+        """Convenience function for symmetry with `players_count`"""
         return super().__len__()
 
     def players_count(self):
-        """Convenience function for symmetry with `tables_count`"""
+        """Get the number of players (default len gives the number of tables)"""
         return sum(len(table) for table in self.iter_tables())
 
     def __global_index_to_tuple(self, index: int):
@@ -115,15 +115,29 @@ class Round(list):
         else:
             raise IndexError("Out of bounds")
 
-    def __getitem__(self, index: int):
-        """Access items transparently using a global index"""
-        i, j = self.__global_index_to_tuple(index)
-        return super().__getitem__(i)[j]
+    def get_table(self, index: int):
+        """Access tables directly (for symmetry with players)"""
+        return self[index]
 
-    def __setitem__(self, index, value: Hashable):
-        """Access items transparently using a global index"""
+    def set_table(self, index: int, value):
+        """Modify tables directly (for symmetry with players)"""
+        self[index] = value
+
+    def get_player(self, index: int):
+        """Access players directly"""
         i, j = self.__global_index_to_tuple(index)
-        super().__getitem__(i)[j] = value
+        return self[i][j]
+
+    def set_player(self, index: int, value):
+        """Modify players directly"""
+        i, j = self.__global_index_to_tuple(index)
+        self[i][j] = value
+
+    def swap_players(self, i: int, j: int):
+        """Swap players directly. Useful for round optimisation."""
+        i1, i2 = self.__global_index_to_tuple(i)
+        j1, j2 = self.__global_index_to_tuple(j)
+        self[i1][i2], self[j1][j2] = self[j1][j2], self[i1][i2]
 
     # NOTE: Do not mess with default iteration to avoid problems with multiprocessing
 
@@ -311,6 +325,9 @@ class Score:
         ]
         return sum(x * m for x, m in zip(rules, [R[2] for R in RULES]))
 
+    def __str__(self):
+        return f"{self.total} {self.rules}"
+
 
 def get_rounds(players_count: int, rounds_count: int) -> List[Round]:
     """Return the base rounds for given parameters
@@ -457,7 +474,7 @@ def optimise(
         length = round_.players_count()
         i = random.randrange(length)
         j = random.randrange(length)
-        round_[i], round_[j] = round_[j], round_[i]
+        round_.swap_players(i, j)
         # only recompute the changed round, other rounds have not varied
         previous_measure = measures[round_index]
         measures[round_index] = measure(max_player_number, round_)
@@ -467,7 +484,7 @@ def optimise(
         # accept or reject the move depending on its score and temperature
         # the higher temperature, the higher the chance to accept a non-improving move
         if score_diff > 0 and math.exp(-score_diff / temperature) < random.random():
-            round_[i], round_[j] = round_[j], round_[i]
+            round_.swap_players(i, j)
             score = previous_score
             measures[round_index] = previous_measure
         else:
@@ -496,6 +513,31 @@ def optimise(
             previous_score = best_score
 
     return best_state, Score(best_state, max_player_number=max_player_number)
+
+
+def optimise_table(
+    rounds: List[Round],
+    table: int,
+) -> Tuple[List[Round], Score]:
+    """Optimise a single table in the last round.
+
+    Useful to add or remove a player from an existing seating, before the round begins.
+    """
+    current_round = Round.copy(rounds[-1])
+    best_score = math.inf
+    best_table = current_round.get_table(table)[:]
+    max_player_number = _max_player_number(rounds)
+    measures = [measure(max_player_number, r) for r in rounds]
+    for permutation in itertools.permutations(rounds[-1].get_table(table)):
+        current_round.set_table(table, permutation)
+        measures[-1] = measure(max_player_number, current_round)
+        score = Score.fast_total(sum(measures))
+        if score < best_score:
+            best_score = score
+            best_table = permutation[:]
+    current_round.set_table(table, list(best_table))
+    rounds[-1] = current_round
+    return rounds, best_score
 
 
 def archon_seating(players_count: int, rounds_per_player: int):

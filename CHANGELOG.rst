@@ -1,12 +1,23 @@
 Changelog
 =========
 
-2.20 (unreleased)
+2.21 (unreleased)
 -----------------
 
+- Rename Thaumaturgy to Blood Sorcery
+- Improve seating methods
+- Add 2021 SAC Promo set
+
+
+2.20 (2021-12-04)
+-----------------
+
+- Add Banu Haqim and Ministry clans (Assamite and Follower of Set can still be used and are equivalent)
+- Change card name management (and JSON) to cope with vampires "evolutions" from V5 Anarch (same vampire, higher group)
 - Seating: any form of round can now be optimised (4-players table can be anywhere)
 - Seating: now transparantly handles players who don't play all the rounds
 - Deck format: fix LackeyCCG format (quotes in card names)
+- Additional rulings
 
 2.19 (2021-10-12)
 -----------------

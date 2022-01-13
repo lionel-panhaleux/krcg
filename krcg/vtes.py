@@ -33,14 +33,11 @@ class _VTES:
         return self._cards.__iter__()
 
     def to_json(self):
-        return [c.to_json() for c in self._cards]
+        return self._cards.to_json()
 
     def from_json(self, state):
         self.clear()
-        for c in state:
-            card = cards.Card()
-            card.from_json(c)
-            self._cards.add(card)
+        self._cards.from_json(state)
 
     def get(self, key, default=None):
         return self._cards.get(key)
@@ -96,7 +93,7 @@ class _VTES:
         self._init_search()
         ret = self._search.name.search(text, lang)
         ret = [
-            (card.name if lang == "en" else card.i18n(lang, "name"), score)
+            (card.usual_name if lang == "en" else card.i18n(lang, "name"), score)
             for lang, card_score in ret.items()
             for card, score in card_score.items()
         ]

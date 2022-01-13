@@ -43,8 +43,8 @@ Crypt (12 cards, min=7, max=24, avg=3.75)
 -----------------------------------------
 1x Gilbert Duane          7 AUS DOM OBF      prince  Malkavian:1
 1x Mariel, Lady Thunder   7 DOM OBF aus tha          Malkavian:1
-1x Badr al-Budur          5 OBF cel dom qui          Assamite:2
-1x Count Ormonde          5 OBF dom pre ser          Follower of Set:2
+1x Badr al-Budur          5 OBF cel dom qui          Banu Haqim:2
+1x Count Ormonde          5 OBF dom pre ser          Ministry:2
 1x Didi Meyers            5 DOM aus cel obf          Malkavian:1
 1x Zebulon                5 OBF aus dom pro          Malkavian:1
 1x Dimple                 2 obf                      Nosferatu:1

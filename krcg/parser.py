@@ -200,6 +200,8 @@ _CLAN = "|".join(
         "akunanse",
         "brujah",
         "assamite",
+        "banu haqim",
+        "ministry",
         "follower of set",
         "brujah antitribu",
         "guruhi",
@@ -621,7 +623,7 @@ class Parser:
                             return None, 0
             try:
                 card = vtes.VTES[name]
-                if name == "raven" and card.name == "Camille Devereux, The Raven":
+                if name == "raven" and card.name == "Camille Devereux, The Raven (G1)":
                     self.deck.raven = count
             except KeyError:
                 count = 0

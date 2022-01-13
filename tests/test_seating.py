@@ -200,23 +200,34 @@ def test_score():
     assert score.mean_transfers == 2.8
     assert score.vps == []
     assert score.transfers == [
-        (2, 1.3333333333333333),
-        (3, 3.3333333333333335),
+        (1, 2 + 1 / 3),
+        (2, 1 + 1 / 3),
+        (3, 3 + 1 / 3),
         (4, 4.0),
     ]
     assert score.rules == [0, 10, 0, 10, 0, 0, 3, 0.9092121131323905, 10]
     assert score.total == 10010003100.921211
 
 
-def test_best_seating():
+def test_optimise():
     # mainly check the function executes, results are not stable
     rounds, score = seating.optimise(seating.get_rounds(13, 3), iterations=1000)
     assert len(rounds) == 3
     # mean values don't change
-    assert score.mean_vps == 4.384615384615385
-    assert score.mean_transfers == 2.6153846153846154
+    assert round(score.mean_vps, 5) == 4.38462
+    assert round(score.mean_transfers, 5) == 2.61538
     # these rules are never satisfied for 13 players
     assert score.R3 > 0
     assert score.R4 != []
     assert score.R8 > 0
     assert score.R9 != []
+
+
+def test_optimise_table():
+    permutations = [[1, 2, 3, 4, 5], [2, 5, 3, 1, 4]]
+    rounds = [seating.Round.from_players(p) for p in permutations]
+    # on second round, player 4 leaves. Table needs to be re-optimised
+    rounds[1].set_table(0, [2, 5, 3, 1])
+    rounds, score = seating.optimise_table(rounds, 0)
+    assert rounds == [[[1, 2, 3, 4, 5]], [[5, 3, 2, 1]]]
+    assert score == 26000065.0
