@@ -2013,9 +2013,11 @@
 101652|Root of Vitality:
   - "[vic] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 101654|Rötschreck:
-  - Can only be played during the strike announcement phase, on the opponent, when a minion attempts to make a strike that is effective at the current range and would inflict aggravated damage to this opponent, even if the opponent treats aggravated damage as normal. [RTR 19961113] [RTR 19980623] [RTR 19980928] [RTR 20041202] [ANK 20200130-1]
+  - Is played on the opponent when a minion attempts to inflict aggravated damage to this opponent, even if the opponent treats aggravated damage as normal. [RTR 19961113] [RTR 19980623] [ANK 20200130-1]
+  - Cannot be played if the damage is not effective at the current range, but works against Dodge and Combat Ends. [RTR 19980928] [ANK 20211102]
+  - Can be played if a non-strike effect would inflict aggravated damage to the opponent (eg. {Outside the Hourglass}). REVERSAL of the 2004 RTR. [ANK 20211026]
+  - Is played after declaration of the damaging effect, before resolution. It can be played before or after the opponent's strike is announced. [LSJ 19990217]
   - "Combat ends immediately, strikes are not resolved (including strike: combat ends), damage prevention cannot be played, and a second Rötschreck cannot be played. [LSJ 19990217] [LSJ 20020715] [LSJ 20060803]"
-  - Can be played before or after the opponent's strike is announced. [LSJ 19990217]
   - Combat cards usable "when the opposing vampire is going / should go into torpor" cannot be used. [LSJ 20020402]
   - If the combat continues or a new combat begins, the card is put on the vampire, he is not locked and does not go to torpor. He still does not unlock as normal. [RTR 20020501] [LSJ 20071009]
   - The "does not unlock as normal" effect stops if Rötschreck is burned or removed. [ANK 20191025]
