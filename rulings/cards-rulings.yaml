@@ -143,6 +143,8 @@
   - "[DOM] Is a hand strike, and its resolution is simultaneous with the opponent's strike, unlike a normal combat ends strike. The opponent's strike do damage. [LSJ 20071112]"
 100120|Aye:
   - Any frenzy card that targets/selects/chooses/affects the minion when played, is considered being played on the minion. [LSJ 20051113]
+100121|Baal's Bloody Talons:
+  - The weapon does not burn if it is temporarily out of play (eg. {Kerrie}, {Dagger}). [LSJ 20100211-2]
 100123|Backflip:
   - The press can only be used during the current round. [TOM 19960521]
 100124|Backstab:
@@ -485,6 +487,7 @@
 100358|Cleave:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - The effect lasts until the end of the action. [LSJ 20060412]
+  - The weapon does not burn if it is temporarily out of play (eg. {Kerrie}, {Dagger}). The active Methuselah order the effects at the end of the action as they wish. [LSJ 20100211-2]
 100359|Clio's Kiss:
   - "[tem] The card to retrieve must be announced when declaring the action. [LSJ 20010627]"
 100362|Cloak the Gathering:
@@ -1812,6 +1815,7 @@
 101481|Pressing Flesh:
   - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
   - Requirements need not to be met. If the ally requires a discipline, the inferior version is used. If the cost is X (eg. {Reanimated Corpse}), X is zero. [LSJ 20071015] [LSJ 20100302-1]
+  - Can be used on an Imbued, it comes back as a zombie ally and is not an Imbued anymore. It has no Creed and cannot use Virtues, nor does it get Convictions. [LSJ 20100211]
 101482|Preternatural Evasion:
   - "[CEL] The blood is burned when playing the card. [ANK 20200703-2]"
   - "[CEL] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Mitru the Hunter}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
