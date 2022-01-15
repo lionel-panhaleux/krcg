@@ -505,6 +505,8 @@
   - "[tha] The press can only be used during the current round. [TOM 19960521]"
 100378|Coma:
   - '[DEM] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]'
+100381|Command of the Beast:
+  - "[DOM] A limited bleed modifier can be played before or after. [LSJ 20100218] [RTR 20180511-2]"
 100388|Compel the Spirit:
   - Can only be played if the ally or retainer is in the ash heap, not if he was moved elsewhere. [RTR 19980928] [LSJ 19980929]
   - The ally or retainer retrieved is considered a new ally or retainer for all game purposes. In particular, he is not bound to not repeat an action his previous incarnation has already performed this turn. [LSJ 20010627]
@@ -710,6 +712,8 @@
   - "[dem] can be played by a vampire with superior Dementation [DEM]. [PIB 20130311]"
 100563|Diversion:
   - "[tha] can target a vampire with no blood. [RTR 20010711]"
+100565|Divine Image:
+  - "[SER] A limited bleed modifier can be played before or after. [LSJ 20100218] [RTR 20180511-2]"
 100568|Dog Pack:
   - 'If put on a minion after an opponent as declared a "strike: combat ends" (eg. using {Pack Alpha} or {Summon Spirit Beast}), the opponent''s strike has no effect. [ANK 20190412]'
 100570|Domain Challenge:
@@ -1143,6 +1147,8 @@
   - "Cannot be used after a diablerie or an {Abactor} resolution and before the Blood Hunt: the Blood Hunt is part of the action although it is independant from it. [LSJ 20090722-2] [LSJ 20030618]"
   - "Can be used to move more blood than the target can hold: the excess goes to the blood bank. [ANK 20170804]"
   - Can be used between two actions during another Methuselah's turn. [ANK 20210608]
+100910|Hell-for-Leather:
+  - "[cel] A limited additional strike can be played before or after. [LSJ 20001206] [ANK 20211124]"
 100911|Hellhound:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
 100912|Herald of Topheth:
@@ -1382,6 +1388,8 @@
   - "Cannot be used on a vampire who merged last turn: merging is not entering play. [LSJ 20030519-2]"
 101095|Lesser Boon:
   - Effects that depend on the successful block do not see the block as successful. [RTR 20080808]
+101098|Leverage:
+  - A limited bleed modifier can be played before or after. [LSJ 20100218] [RTR 20180511-2]
 101100|Libertas:
   - The additional cost does not apply once the minion has failed to block, so it does not apply to the cost of the action card. [LSJ 20080818]
 101103|Life Boon:
@@ -1780,6 +1788,7 @@
   - Other reaction cards (eg. wake effects) cannot be used if there is no action. [PIB 20120808]
 101429|Power of One:
   - "[pre] Can only be used during a bleed action. [ANK 20171023] [RTR 19941109]"
+  - "[pot] A limited bleed modifier can be played before or after. [LSJ 20100218] [RTR 20180511-2]"
 101430|Power Structure:
   - Cannot be used during a Blood Hunt referendum, since there is no political action. [ANK 20190707]
 "101431|Powerbase: Barranquilla":
@@ -1867,8 +1876,11 @@
 101526|Putrescent Servitude:
   - Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]
   - Does not stack with similar effects to provide superior [POT] (eg. {Leech}). [ANK 20180111]
+101532|Quickness:
+  - "[CEL] A limited additional strike can be played before or after. [LSJ 20001206] [ANK 20211124]"
 101533|Quicksilver Contemplation:
   - "[aus][tem] [ACTION MODIFIER][REACTION] Cannot be burned during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
+  - "[AUS][TEM] A limited bleed modifier can be played before or after. [LSJ 20100218] [RTR 20180511-2]"
 101536|The Rack:
   - May not select a new target just for falling out of contention. [RTR 19960112]
   - Will not target a new copy of the same vampire if the original is burned or yielded. [TOM 19960122]
