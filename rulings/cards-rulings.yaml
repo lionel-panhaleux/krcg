@@ -203,6 +203,7 @@
   - If it uses its last life to pay for an action, the action still resolves fully. If that leads to an oust, the oust is resolved before resolving effects triggered by the fact that the Bima burns. [LSJ 20080512]
 100161|Bind the Night-Walker:
   - The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]
+  - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]
 100166|Black Gloves:
   - Damage done to the bearer is environmental. [LSJ 19970801]
 100171|Black Sunrise:
@@ -1978,7 +1979,7 @@
   - Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]
   - Does not count environmental damage. [ANK 20200925]
   - Can be played by a vampire going to torpor. Can be played by a vampire who is about to burn. [ANK 20201122] [ANK 20200926]
-  - Does not allow to take control of the opponent. [ANK 20200925]
+  - Does not allow to take control of the opponent. [ANK 20200925] [ANK 20211105]
 101627|Revelations:
   - "[aus] You do not get to see the card drawn as replacement. [PIB 20121031]"
 101631|Revolutionary Council:
@@ -2074,6 +2075,7 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101691|Scobax:
   - "[STR] If the action ends, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
+  - "[STR] If the action ends, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]"
   - If another Methuselah is the target, he must declare whether he attempts or declines to block before Scobax can be played. [PIB 20150820] [ANK 20200607]
 101692|Scorn of Adonis:
   - May be played at any time during the voting process, and will retroactively cause the loss of pool to Methuselahs voting 'no' before it is played, as well as to Methuselahs voting 'no' after it is played. [RTR 19951110]
@@ -2616,6 +2618,7 @@
   - Offers the additional stealth on actions to equip it from another friendly minion as well, even with other equipment in the same action. [LSJ 20060222]
 102081|Unseen Hibernation:
   - "[abo] The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
+  - "[abo] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]"
 102082|Unwholesome Bond:
   - Cannot be used by {Angelo} or {New Blood} on a uncontrolled vampire with no circle designation, even another {Angelo} or {New Blood}. [LSJ 20050927]
 102087|Vagabond Mystic:
@@ -2647,7 +2650,7 @@
 102099|Veles' Hunt:
   - Modifiers and reactions can be played during and after the referendum (eg. {Voter Captivation}, {Delaying Tactics}). [LSJ 20081202-2]
 102100|Velvet Tongue:
-  - If an effect causes a minion to be unable to cast votes or ballots during a referendum, that minion is forced to abstain, whether he or she had already cast votes or ballots or not. [PIB 20141226]
+  - "[ser] Putting a corruption counter on a minion does not give you an opportunity to steal it. [ANK 20200925] [ANK 20211105]"
 102103|Veneficti:
   - The burn option can be used if all your infernal vampires are in torpor. [LSJ 20091203]
 102104|Venenation:
@@ -2777,6 +2780,8 @@
 102208|Zip Gun:
   - Damage done to the bearer is environmental. [LSJ 19970801]
   - No damage is done to the bearer if he does not strike with the gun (eg. if it is destroyed with first strike). [LSJ 20100310]
+102232|The Platinum Protocol:
+  - Putting a corruption counter on a minion does not give you an opportunity to steal it. [ANK 20200925] [ANK 20211105]"
 200011|Adana de Sforza (G4):
   - Card with multiple types (eg. Combat/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron (G3):
@@ -3030,6 +3035,8 @@
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
 200775|Kestrelle Hayes (G5):
   - Gets +1 stealth on Ⓓ actions against multiple Methuselahs if one or more of the targets control no ready Sabbat vampire. [PIB 20150526] [RTR 20080808]
+200780|Khay'tall, Snake of Eden (G2):
+  - If a minion gains a corruption counter after they cast their votes (eg. [ser] {Velvet Tongue}), their votes are cancelled and they're forced to abstain instead. [PIB 20141226]
 200798|Kyoko Shinsegawa (G3):
   - The action provided is a hunt action and benefit from hunt bonuses. [LSJ 20030311] [LSJ 20090113-2]
   - If other hunt actions are granted, she may choose from among those options. [LSJ 20060306]
@@ -3218,6 +3225,7 @@
   - His controller gets the Edge after the effects of the successful action are applied. If it is a referendum, he gets the Edge after the referendum is concluded. [LSJ 20011222]
 201243|Sarrasine (G2 ADV):
   - "[MERGED] Is Camarilla. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
+  - "[MERGED] Putting a corruption counter on a minion does not give you an opportunity to steal it. [ANK 20200925] [ANK 20211105]"
 201245|Sascha Vykos, The Angel of Caine (G2 ADV):
   - When using his ability to draw, discard afterwards. [ANK 20190707]
 201253|Scout Youngwood (G6):
