@@ -1040,6 +1040,7 @@
   - Are not mortal, are a monster. [ANK 20200203-2]
 100823|Gianna di Canneto:
   - She can use her ability to burn an equipment an opponent has commited to use as a strike (eg. by using the maneuver of a {.44 MAgnum}). In this case the opponent strike has no effect. [PIB 20141026]
+  - 'She cannot use her ability to inflict damage if a "Strike: combat ends" was used, or if combat ends due to first strike aggravated damage. [ANK 20211130]'
   - She can lock to use her ability the turn she is recruited. [ANK 20180517]
 100824|Giant's Blood:
   - Cannot target an uncontrolled vampire. [LSJ 20061109]
@@ -2726,6 +2727,8 @@
   - If used to cancel an out-of-turn master, that Methuselah still cannot play another out-of-turn master against the same master phase, even though the first was canceled and won't count against that master phase. [LSJ 20070309-2]
 102152|Wasserschloss Anif, Austria:
   - Can only receive blood from one Tremere on any given turn. [RTR 19960221]
+102153|Waste Management Operation:
+  - If the library is empty and the hand not full, you draw immediately after using it. [ANK 20211201]
 102160|Wave of Insanity:
   - "[DEM] Is directed at all Methuselah controlling an ally. [LSJ 20080809-1] [KOT 20081119]"
 102161|Wave of Lethargy:
