@@ -419,9 +419,10 @@
     - 101271|Neonate Breach
     - 101567|Reckless Agitation
     - 101591|Reins of Power
-- ruling: "The damage is neither environmental nor considered done by the minion it is on: it is damage done by the retainer. [ANK 20180612]"
+- ruling: "The damage is environmental, the retainer is the damage source. Immunity to retainer or retainer type works against it. [ANK 20180612] [ANK 20211127]"
   cards:
     - 100593|Duma Rafiki
+    - 100626|Elephant Guardian
     - 100891|Hatch the Viper
     - 101254|Murder of Crows
     - 101556|Razor Bat
