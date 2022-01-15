@@ -167,6 +167,7 @@
   - If the vampire is permanently controlled by a Methuselah other than his owner, it goes to that Methuselah uncontrolled region and is still controlled by him. It is removed from the game if that Methuselah is ousted and kept in game if his owner is ousted. [ANK 20200408-2]
 100133|Banshee Ironwail:
   - Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]
+  - If a block is successful, the blood is burned before any other effect can be used (eg. {Promise of 1528}). REVERSAL of earlier rulings. [ANK 20210627]
 100134|Barrenness:
   - "[mal] is unaffected by {Orun}. [MAL] is affected by {Orun} (add and substract before applying the minimum of 1). [ANK 20180719-1]"
   - The burn option can be used if all your vampires with [mal] are in torpor. [LSJ 20091203]
@@ -1573,7 +1574,8 @@
   - '[CHI] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101223|Mirror Walk:
   - "[THA] The would be blocker is locked even if he benefits from an effect that prevents him to lock when he blocks. He is not locked from the block, but from Mirror Walk's effect. [ANK 20191204]"
-  - "[THA] If the action is blocked, it ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
+  - "[THA] If the action is blocked, it ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards (eg. {Freak Drive}, slave rule, {Sowing Dissension}). [RTR 20180719] [ANK 20200207] [ANK 20210627]"
+  - "[THA] If the action is blocked, no other effect can be used (eg. {Crypt's Son}, {Promise of 1528}) before resolving Mirror Walk delayed effect. However, effects that trigger at the same moment (eg. {Banshee Ironwall}) are still applied. [ANK 20210627] [ANK 20211207]"
 101224|Mirror's Visage:
   - "[chi] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 101227|Mistaken Identity:
@@ -2624,9 +2626,10 @@
 102074|Unity:
   - You can cut however you want (eg. count cards, cut only one or two). [LSJ 20060413]
 102076|Unleash Hell's Fury:
-  - If the block is successful, the aggravated damage is inflicted and the card burned even if the action is ended before block resolution. [LSJ 20100301]
-  - If {The Kiss of Ra} or {Elder Impersonation} are used, the block does not happen. It is not locked if {Faceless Night} was played. [LSJ 20100210]
-  - Can attempt to block even if locked. [LSJ 20100210]
+  - If the action is blocked, no other effect can be used (eg. {Crypt's Son}, {Change of Target}) before burning Unleash Hell's Fury and inflicting aggravated damage. [ANK 20210627] [ANK 20211207]"
+  - If the block is successful, the aggravated damage is inflicted and the card burned even if the action is ended (eg. {Mirror Walk}) before block resolution. [LSJ 20100301]
+  - If {The Kiss of Ra} or {Elder Impersonation} are used, the block does not happen. [LSJ 20100210]
+  - Unleash Hell's Fury is not locked if {Faceless Night} was played. Also, it can attempt to block even if locked. [LSJ 20100210]
   - Once it's attempting to block, its intercept can be affected by other cards normally (eg. {KRCG News Radio}). [ANK 20211112-2]
   - The burn option can be used if all your infernal vampires are in torpor. [LSJ 20091203]
 102078|Unlicensed Taxicab:
