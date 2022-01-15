@@ -2622,7 +2622,7 @@
   - "[abo] The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
   - "[abo] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]"
 102082|Unwholesome Bond:
-  - Cannot be used by {Angelo} or {New Blood} on a uncontrolled vampire with no circle designation, even another {Angelo} or {New Blood}. [LSJ 20050927]
+  - Can be used by {Angelo} or {New Blood} on a uncontrolled vampire with no circle designation, even another {Angelo} or {New Blood}. Multiple uncontrolled Angelos or New Bloods are in distinct "circle of one" though, so you have to choose one. [LSJ 20050927] [ANK 20211113]
 102087|Vagabond Mystic:
   - He can lock to use his ability the turn he is recruited. [ANK 20180517]
   - His ability cannot be used in the middle of a single damage resolution step. [LSJ 20001111]
@@ -2824,7 +2824,8 @@
 200091|Angela Preston (G2):
   - When she is influenced out, her ability to unlock a vampire can be used during the ongoing influence phase. [RTR 20180303]
 200094|Angelo (G3):
-  - A vampire with no circle designation is in his own unique circle of one. Angelo cannot be seen as a member of such a circle. [LSJ 20020609]
+  - A vampire with no circle designation is in his own unique circle of one. [LSJ 20020609] [ANK 20211113]
+  - Angelo can be in the "unique circle of one" of any vampire, including another copy of himself. Two uncontrolled Angelo are in different circles, an active Angelo has to choose (eg. for {Unwholesome Bond}). [ANK 20211113]
   - He cannot attempt an action to employ a retainer, nor strike to steal a retainer. [LSJ 20050315] [LSJ 20010210]
 200103|Annabelle Triabell (G3):
   - Her ability applies to all Toreadors, not just the ones in play at the time the action resolved. [LSJ 20030811]
@@ -3163,7 +3164,8 @@
 201049|Nergal (G5 ADV):
   - Card with multiple types (eg. Reaction/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
 201052|New Blood (ANY):
-  - A vampire with no circle designation is in his own unique circle of one. New blood cannot choose to be part of such a circle. [LSJ 20020609]
+  - A vampire with no circle designation is in his own "unique circle of one". [LSJ 20020609] [ANK 20211113]
+  - New Blood can be in the "unique circle of one" of any vampire, including another copy of himself. Two uncontrolled New Bloods are in different circles (eg. for {Unwholesome Bond}). [ANK 20211113]
   - Cannot choose to be part of the "Inner Circle" and get the title. The Inner Circle title and a Blood Brothers circle are different things. [ANK 20190117-2]
 201087|Owain Evans, The Wanderer (G3):
   - His ability can only be used once each unlock, even if control of Owain changes during that unlock phase. [LSJ 20040127]
