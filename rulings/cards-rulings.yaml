@@ -96,6 +96,8 @@
   - '[pre] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
   - '[PRE] Cards are not replaced during the "as played" window. [LSJ 20061013]'
   - '[PRE] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
+  - "[PRE] The card is still considered played. The same reaction cannot be played again by the same minion. [LSJ 19980212] [LSJ 20061207]"
+  - "[PRE] Must be played right after the reaction card to cancel is played. Another modifier cannot be played before that. [LSJ 20061207]"
 100080|Arcane Appraiser:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
 100084|Archon:
