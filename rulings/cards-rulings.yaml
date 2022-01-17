@@ -1547,6 +1547,8 @@
 101209|Mighty Grapple:
   - "[POT] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "[POT] The optional press can only be used during the current round. [TOM 19960521]"
+101210|Millicent Smith, Puritan Vampire Hunter:
+  - If an action is blocked, no other effect can be used (eg. {Crypt's Son}) before resolving Millicent's delayed effect. However, effects that trigger at the same moment (eg. {Unleash Hell's Fury}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]
 101211|Mind Numb:
   - The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]
 101214|Mind of the Wilds:
@@ -1575,7 +1577,7 @@
 101223|Mirror Walk:
   - "[THA] The would be blocker is locked even if he benefits from an effect that prevents him to lock when he blocks. He is not locked from the block, but from Mirror Walk's effect. [ANK 20191204]"
   - "[THA] If the action is blocked, it ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards (eg. {Freak Drive}, slave rule, {Sowing Dissension}). [RTR 20180719] [ANK 20200207] [ANK 20210627]"
-  - "[THA] If the action is blocked, no other effect can be used (eg. {Crypt's Son}, {Promise of 1528}) before resolving Mirror Walk delayed effect. However, effects that trigger at the same moment (eg. {Banshee Ironwall}) are still applied. [ANK 20210627] [ANK 20211207]"
+  - "[THA] If the action is blocked, no other effect can be used (eg. {Crypt's Son}, {Promise of 1528}) before resolving Mirror Walk delayed effect. However, effects that trigger at the same moment (eg. {Banshee Ironwall}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]"
 101224|Mirror's Visage:
   - "[chi] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 101227|Mistaken Identity:
@@ -2626,8 +2628,8 @@
 102074|Unity:
   - You can cut however you want (eg. count cards, cut only one or two). [LSJ 20060413]
 102076|Unleash Hell's Fury:
-  - If the action is blocked, no other effect can be used (eg. {Crypt's Son}, {Change of Target}) before burning Unleash Hell's Fury and inflicting aggravated damage. [ANK 20210627] [ANK 20211207]"
-  - If the block is successful, the aggravated damage is inflicted and the card burned even if the action is ended (eg. {Mirror Walk}) before block resolution. [LSJ 20100301]
+  - If the action is blocked, no other effect can be used (eg. {Crypt's Son}, {Change of Target}) before burning Unleash Hell's Fury and inflicting aggravated damage. However, effects that trigger at the same moment (eg. {Banshee Ironwall}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]""
+  - If the block is successful, the aggravated damage is inflicted and the card burned even if the action is ended (eg. {Mirror Walk}) before block resolution. [LSJ 20100301] [ANK 20220116]
   - If {The Kiss of Ra} or {Elder Impersonation} are used, the block does not happen. [LSJ 20100210]
   - Unleash Hell's Fury is not locked if {Faceless Night} was played. Also, it can attempt to block even if locked. [LSJ 20100210]
   - Once it's attempting to block, its intercept can be affected by other cards normally (eg. {KRCG News Radio}). [ANK 20211112-2]
