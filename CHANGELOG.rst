@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.21 (unreleased)
+2.21 (2022-01-17)
 -----------------
 
 - Rename Thaumaturgy to Blood Sorcery
