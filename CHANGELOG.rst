@@ -7,6 +7,7 @@ Changelog
 - Rename Thaumaturgy to Blood Sorcery
 - Improve seating methods
 - Add 2021 SAC Promo set
+- Additional rulings
 
 
 2.20 (2021-12-04)
