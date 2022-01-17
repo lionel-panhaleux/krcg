@@ -2834,7 +2834,7 @@
 200074|Amisa (G2):
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
 200076|Anarch Convert (ANY):
-  - His "as he enters play" ability can be used before he enters contest if there is another one in play. This is not self-contesting. [LSJ 20080526] [ANK 20211214]
+  - His "as he enters play" ability can be used before he enters contest if there is another one in play. This is not self-contesting. [LSJ 20080526] [RTR 20180303] [ANK 20211214]
   - Can "convert" an already anarch vampire if he is not titled. [PIB 20121031]
 200080|Andre LeRoux (G5):
   - His ability can be used only once per successful bleed, but can be used multiple times on different bleeds during the same turn. [LSJ 20081123]
@@ -3031,6 +3031,7 @@
 200688|Jenna Cross (G4):
   - If a cost reduction applies (eg. {Salvador Garcia}), the controller can choose to apply it first so that her ability does not kick in. [ANK 20200709]
 200705|Jimmy Dunn (G2):
+  - Can be influenced out if you already control one. [RTR 20180303]
   - If a second Jimmy Dunn is brought out during an action, and the first Jimmy (if he has Vicissitude) plays {Reform Body}, the first Jimmy will go to torpor (from Reform Body), but will then be burned anyhow, since he cannot be contested. [LSJ 19990719] [RTR 19991001]
   - If a second Jimmy Dunn is brought out during an action, the acting vampire is not considered to be "burning" the first Jimmy. [LSJ 19990719] [RTR 19991001]
   - If a non-contesting second copy of Jimmy enters play (via {Illusions of the Kindred}, for example), the first Jimmy won't burn himself. [LSJ 19991110]
