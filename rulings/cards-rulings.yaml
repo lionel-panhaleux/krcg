@@ -577,6 +577,7 @@
   - Can be equipped by a minion who cannot use it. [LSJ 20030607]
 100475|Cry Wolf:
   - His ability continues to apply fully if he is not a werewolf (eg. {Pressing Flesh}). [LSJ 20100212]
+  - If he unlocks after having performed his mandatory action, he's free to take any action. [LSJ 20090226]
 100476|Crypt's Sons:
   - If used to cancel combat, the blocking minion is still locked. [LSJ 20080611] [ANK 20210131]
   - If used to cancel combat, reactions cards pertaining to that combat (eg. {Obedience}) cannot be used afterwards. [ANK 20210131]
@@ -1439,7 +1440,9 @@
   - You cannot use another strike card as the hand strike for Lucky Blow. [LSJ 20010627]
 101132|Lunatic Eruption:
   - The mandatory attack action must be taken before any non-mandatory actions. [LSJ 20001127]
-  - If the minion it is on has entered combat and unlocks, he is free to take any other action. [ANK 20200227]
+  - If the minion it is on has entered combat and unlocks, he is free to take any other action. [LSJ 20090226] [ANK 20200227]
+  - If a minion has two of those, he is stuck and cannot act. [LSJ 20041103]
+  - The action to burn it is directed at the Methuselah who controls the minion it is on. It is undirected if it is yourself. [LSJ 20010328]
 101134|Lure of the Serpent:
   - Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]
 101135|Lyndhurst Estate, New York:
@@ -3020,6 +3023,8 @@
   - Her "as she enters play" ability can be used before she enters contest if there is another one in play. [LSJ 20080526]
 200634|Ingrid Rossler (G2):
   - When she is influenced out, her bonus transfers do not apply for the ongoing influence phase. [RTR 20180303]
+200665|Jaggedy Andy (G4):
+  - If he goes to torpor and their controller cannot discard two cards, they discard as many as they can. [ANK 20211010]
 200666|Jalal Sayad (G2):
   - If his ability is used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]
   - His ability cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]
@@ -3216,6 +3221,7 @@
   - His ability do not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
 201123|Phillipe Rigaud (G4):
   - 'If he cannot commit diablerie, then his card text does not force him to: he is not "stuck", he is free to take any other legal action. [LSJ 20050514]'
+  - As long as there is an opportunity for diablerie, he must attempt it, even if he did so already and unlocked. [ANK 20211010]
 201127|Pochtli (G2):
   - When using his ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]
 201129|Porphyrion (G5):
@@ -3391,3 +3397,7 @@
   - "[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
 201502|Zayyat, The Sandstorm (G3):
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
+201585|Elen Kamjian (G6):
+  - If she unlocks after having performed her mandatory bleed, she is free to take any action. [LSJ 20090226] [ANK 20211009-2]
+  - Another bleed action (eg. {Flurry of Action}) does not count as the bleed action her ability forces her to take. [ANK 20211009-2]
+  - If her ability makes a bleed mandatory but she has performed a bleed already this turn, she is stuck and cannot act. [ANK 20211009-2]
