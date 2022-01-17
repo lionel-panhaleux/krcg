@@ -188,6 +188,8 @@
   - "{Change of Target} can be played after Bear-Baiting (younger, older, or the same age). [LSJ 20040312]"
   - If the combat is canceled, the action is still blocked, {Mask of a Thousand Faces} cannot be used to continue it, but an effect can be used to continue the action as if unblocked (eg. {Crypt's Sons}, {Momentary Delay}). [LSJ 20090322] [ANK 20181003] [LSJ 20010803-2]
 100146|Beast Meld:
+  - "[ani][pro] The damage prevention can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[ani][pro] The damage prevention is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
   - '[ANI][PRO] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 100147|The Becoming:
   - If moved to the uncontrolled region (eg. by {Banishment}), it continues to be a vampire and can be influenced as a 1 capacity vampire. [RTR 19990712] [LSJ 20090625]
@@ -1107,6 +1109,9 @@
   - Cannot cancel a card restricting the use of disciplines. [LSJ 20050221]
 100862|Growing Fury:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
+100863|Guard Dogs:
+  - "[ANI] The maneuver can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[ANI] The maneuver is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 100864|Guard Duty:
   - Cannot be used to unlock if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
   - When used to block, does not ignore the normal prey, predator or target restrictions. [ANK 20180623]
@@ -1117,9 +1122,9 @@
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
 100868|Guardian Vigil:
   - Must be played before block is successful, but can be played after the acting Methuselah declined to add stealth. [ANK 20180926]
-  - All effects apply for the duration of the action. They still apply if the action "continues as if unblocked". [ANK 20181127]
+  - All effects apply for the duration of the action. They still apply if the action "continues as if unblocked" (eg. [PRO] {Form of Mist}) and, if [aus] was used, the maneuver is provided again. [LSJ 20010814-2] [ANK 20181127]
   - Can be used by a vampire who is already attempting to block. [ANK 20181122-2]
-  - The maneuver does not carry over to another combat (eg. {Psyche!}). [LSJ 20010819-2]
+  - "[aus] The maneuver can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
 100871|Gurchon Hall:
   - You need two ready vampires to gain blood. [PIB 20130221]
 100872|Guru:
@@ -1272,6 +1277,9 @@
   - Effects, modifiers and reaction to modify stealth or intercept can be plated afterwards. [ANK 20210926]
 100994|Instantaneous Transformation:
   - "[CEL][PRO] Can be played if the action is unblocked even if it has no effect due to lack of a suitable target. [LSJ 20070411]"
+100995|Instinctive Reaction:
+  - "[ANI] The maneuver can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[ANI] The maneuver is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 100998|Internal Recursion:
   - Is played before the combat begins. [LSJ 20020204]
   - "[pre] The blocking vampire do not unlock if the vampire uses another effect to end combat as a strike. [RTR 20020501]"
@@ -1837,7 +1845,9 @@
 "101470|Praxis Seizure: Stockholm":
   - The additional capacity is lost if the title is lost. [TOM 19960210]
 101475|Precognition:
-  - The damage prevention can only be used if the block is successful, and only in the resulting (block-induced) combat. [LSJ 20010813]
+  - "[AUS] The damage prevention can only be used if the block is successful, and only in the resulting (block-induced) combat. [LSJ 20010813]"
+  - "[AUS] The prevention does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010819-2]"
+  - "[AUS] The prevention is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 101479|Predator's Transformation:
   - '[abo] [ACTION MODIFIER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
 101481|Pressing Flesh:
@@ -2119,6 +2129,8 @@
 101697|Scourge of the Enochians:
   - If the option to burn a vampire is used, the card goes to the predator immediately, even if there is still a mandatory effect to resolve. If not, the predator must take the card when he has the opportunity to play an effect, after the acting Methuselah applied other mandatory effects (eg. losing blood to {Dragonbound}). [ANK 20200508-1]
 101701|Scry the Hearthstone:
+  - "[vis] The maneuver can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[vis] The maneuver is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
   - '[VIS] Cards are not replaced during the "as played" window. [LSJ 20061013]'
   - '[VIS] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 101702|Scrying of Secrets:
@@ -2274,6 +2286,9 @@
 101811|Smiling Jack, The Anarch:
   - Each other player must burn a pool or a vampire blood for each counter on Jack. Failing to burn a blood from an empty vampire will not lessen the obligation. [LSJ 19971212]
   - Other Methuselah can pay with any combination of pool and different vampires to meet the total number of counters. [ANK 20181006]
+101813|Smoke and Mirrors:
+  - "[chi] The maneuver can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[chi] The maneuver is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 101814|Smoke Grenade:
   - 'Still burns when used if the opponent uses a "strike: combat ends" too. It does not burn if combat ends before strike resolution (eg. {Rötschreck}). [LSJ 20001127-2] [LSJ 20010806-1]'
   - Still burns if the combat continues or a new combat begins. [RTR 20020501] [LSJ 20040601]
@@ -2328,6 +2343,9 @@
   - '[OBE] "After resolution" effects are applied before the target vampire is returned to his or her previous controller. [LSJ 20030219]'
   - "[OBE] The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]"
   - "[OBE] The minion is removed from the game when he should return to a Methuselah who has been ousted. [ANK 20181110]"
+101850|Spirit's Touch:
+  - "[AUS] The maneuver can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[AUS] The maneuver is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 101853|Spiritual Protector:
   - Does not restrict the opposing minion if no block occurred. [TOM 19951208-2]
   - Does not restrict the ability of retainers to use equipment. [RTR 19960112]
