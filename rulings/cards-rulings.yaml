@@ -935,7 +935,8 @@
 100747|Fleetness:
   - "[CEL] If the target unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]"
 100749|Flesh of Marble:
-  - The vampire preventing the damage can choose which one of the damage he does not prevent, normal or aggravated. [LSJ 20021001]
+  - "[pro] Cannot be used to prevent aggravated damage, even if the minion treats them as normal damage (eg. {Skin of Night}). [LSJ 20040812-2] [PIB 20130327]"
+  - "[PRO] The vampire preventing the damage can choose which one of the damage he does not prevent, normal or aggravated. [LSJ 20021001]"
 100750|Fleshcraft:
   - The action to burn Fleshcraft suffers the -1 stealth penalty as well, so is usually at zero stealth to start (or -1 stealth if superior [VIC]). [LSJ 19970224]
   - The rest of the effect applies if the damage is prevented, it does not if it is dodged. [LSJ 19990106-2]
