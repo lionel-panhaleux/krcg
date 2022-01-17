@@ -1533,7 +1533,8 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - Multiple copies stack their bonuses. [LSJ 20020904]
 101192|The Meddling of Semsith:
-  - Will stay in play (uselessly) when the target is burned. [LSJ 20021008]
+  - Stays in play and still reduces your handsize when the target is ousted. [LSJ 20021008]
+  - Is removed from play and its effect cancelled if the Methuselah who played it is ousted. [LSJ 20021008]
   - Cards that are not replaced count against the hand size (eg. successive combats against {Raptor} stack the non-replaced cards). [ANK 20180318]
 101195|Melange:
   - Can be put on an ally. [RTR 20020501]
