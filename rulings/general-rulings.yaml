@@ -750,3 +750,8 @@
     - 101897|Summon History
     - 101899|Summon Spirit Beast
     - 102183|Will-o'-the-Wisp
+- ruling: Cannot be used to prevent aggravated damage, even if the minion treats them as normal damage (eg. {Skin of Night}). [LSJ 20040812-2] [PIB 20130327]
+  cards:
+    - 101082|Leathery Hide
+    - 101817|Soak
+    - 102172|Well-Marked
