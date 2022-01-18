@@ -439,12 +439,12 @@
   - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [LSJ 20070709]
   - Actions without card (provided by the rulebook) are not "the same" as actions provided by cards (played or in play). [LSJ 20060522]  [LSJ 20060824] [LSJ 20080725] [LSJ 20090617]
   - "Actions without card (provided by the rulebook) can be repeated if they have different targets. Equipping from a minion targets the equipments: if one equipment is the same, the action is the same. [RTR 19950509] [LSJ 20080710] [ANK 20200502]"
-  - Actions provided by cards in play are not the same if the card is not the same, even if the cards have the same name. [LSJ 20080725]
-  - Is played after a minion successfully blocks but before the blocker is locked and combat begins. It cannot be used if the action is ended without being blocked. [LSJ 19980224] [RTR 19991206]
+  - Actions provided by different cards in play are not the same, even if the cards have the same name. [LSJ 20080725]
+  - Is played after a minion successfully blocks, before the blocker is locked and combat begins. It cannot be used if the action is ended without being blocked. [LSJ 19980224] [RTR 19991206]
   - Effects triggered when the action is blocked are still applied (eg. {Unleash Hell's Fury}, {Truth of Blood}, {Aching Beauty}). [RTR 19991206]
-  - "No other modifier can be played afterwards: the action is ended, it cannot be modified anymore. [LSJ 20010803-1] [RTR 20180719]"
-  - "If the acting minion was performing a mandatory action, he unlocks and is stuck and cannot act: he should but cannot take the mandatory action. [LSJ 19980112]"
-  - If used when blocked while leaving torpor, the action ends immediately and the blocker does not get an opportunity for diablerie. [LSJ 20050105-2]
+  - "No other modifier or reaction can be played afterwards: the action has ended. [LSJ 20010803-1] [RTR 20180719]"
+  - "If the card prevents the acting minion from performing a mandatory action, he is stuck and cannot act. [LSJ 19980112]"
+  - If used while leaving torpor, the blocker does not get an opportunity for diablerie. [LSJ 20050105-2]
 100325|Changeling Skin Mask:
   - The superior Obfuscate is not optional. [RTR 19980707] [LSJ 19980722]
 100326|Chanjelin Ward:
