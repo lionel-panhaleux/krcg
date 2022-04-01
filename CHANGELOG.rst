@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.22 (unreleased)
+2.22 (2022-04-01)
 -----------------
 
 - Fix TWDA parsing
