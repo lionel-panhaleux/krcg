@@ -69,7 +69,7 @@ class _TWDA(collections.OrderedDict):
             except AttributeError:
                 pass
             # new decklist
-            if re.match(r"^<hr><pre>$", line):
+            if re.match(r"^<hr><pre>\s*$", line):
                 buffer = io.StringIO()
                 offset = index
             # whole decklist fetched, parse it
