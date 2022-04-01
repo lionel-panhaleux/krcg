@@ -4,7 +4,9 @@ Changelog
 2.22 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix TWDA parsing
+- Fix VDB URL parsing
+- Added generic decklist parsing from URL
 
 
 2.21 (2022-01-17)
