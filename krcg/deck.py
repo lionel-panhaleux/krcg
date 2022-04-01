@@ -84,6 +84,7 @@ class Deck(collections.Counter):
         r = requests.get("https://vdb.smeea.casa/api/deck/" + uid)
         r.raise_for_status()
         r = r.json()
+        logger.debug("VDB replied: %s", r)
         ret = cls(id=uid, author=r.get("author", r.get("owner", None)))
         ret.name = r.get("name", None)
         ret.comments = r.get("description", "")
@@ -94,9 +95,43 @@ class Deck(collections.Counter):
         )
         if not vtes.VTES:
             vtes.VTES.load()
-        for cid, data in itertools.chain(r["crypt"].items(), r["library"].items()):
-            ret[vtes.VTES[int(cid)]] = data["q"]
+        for cid, count in r["cards"].items():
+            count = int(count)
+            if count <= 0:
+                continue
+            ret[vtes.VTES[int(cid)]] = count
         return ret
+
+    @classmethod
+    def from_url(cls, url: str):
+        """Fetch from any deckbuilding website"""
+        result = urllib.parse.urlparse(url)
+        if result.netloc == "amaranth.vtes.co.nz":
+            if result.fragment.startswith("deck/"):
+                return cls.from_amaranth(result.fragment[5:])
+            raise ValueError("Unknown Amaranth URL format")
+        elif result.netloc == "vdb.smeea.casa":
+            if result.path != "/decks":
+                raise ValueError("Unknown VDB URL path")
+            params = urllib.parse.parse_qs(result.query)
+            if "id" in params:
+                return cls.from_vdb(params["id"][0])
+            elif result.fragment:
+                ret = cls()
+                ret.name = params.get("name", None)
+                ret.author = params.get("author", None)
+                ret.comments = params.get("description", "")
+                if not vtes.VTES:
+                    vtes.VTES.load()
+                for item in result.fragment.split(";"):
+                    card, count = item.split("=", 1)
+                    count = int(count)
+                    if count <= 0:
+                        continue
+                    ret[vtes.VTES[int(card)]] = count
+                return ret
+            raise ValueError("Unknown VDB URL format")
+        raise ValueError("Unknown deck URL provider")
 
     def check(self) -> bool:
         """Check a deck conforms to the rules IRT cards count
