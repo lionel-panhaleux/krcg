@@ -2,6 +2,8 @@
 #
 # When organising a tournament, it's important to devise an equitable seating
 # which also ensures a maximum of diversity over rounds and tables.
+# Original criteria:
+# https://groups.google.com/g/rec.games.trading-cards.jyhad/c/4YivYLDVYQc/m/CCH-ZBU5UiUJ
 
 from typing import Callable, Hashable, Iterable, List, Tuple
 import collections
@@ -16,14 +18,14 @@ import random
 # weights are devised so that major rules always prevail over minor rules.
 # stddev rules (R3, R8) need a factor of 100 over the next one to prevail.
 RULES = [
-    ["R1", "predator-prey", 10 ** 10],
-    ["R2", "opponent thrice", 10 ** 9],
-    ["R3", "available vps", 10 ** 8],
-    ["R4", "opponent twice", 10 ** 6],
-    ["R5", "fifth seat", 10 ** 5],
-    ["R6", "position", 10 ** 4],
-    ["R7", "same seat", 10 ** 3],
-    ["R8", "starting transfers", 10 ** 2],
+    ["R1", "predator-prey", 10**10],
+    ["R2", "opponent thrice", 10**9],
+    ["R3", "available vps", 10**8],
+    ["R4", "opponent twice", 10**6],
+    ["R5", "fifth seat", 10**5],
+    ["R6", "position", 10**4],
+    ["R7", "same seat", 10**3],
+    ["R8", "starting transfers", 10**2],
     ["R9", "position group", 1],
 ]
 
@@ -193,10 +195,7 @@ Deviation = collections.namedtuple("Deviation", ["player", "value"])
 
 
 class Score:
-    """A detailed scoring of a seating measure.
-
-    Original criteria:
-    https://groups.google.com/g/rec.games.trading-cards.jyhad/c/4YivYLDVYQc/m/CCH-ZBU5UiUJ
+    """A detailed scoring of a seating measure (official VEKN criteria).
 
     R1 No pair of players repeat their predator-prey relationship. This is mandatory.
     R2 No pair of players share a table through all three rounds, when possible.
