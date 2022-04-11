@@ -81,7 +81,7 @@ class Deck(collections.Counter):
     @classmethod
     def from_vdb(cls, uid: str):
         """Fetch a deck from VDB."""
-        r = requests.get("https://vdb.smeea.casa/api/deck/" + uid)
+        r = requests.get("https://vdb.im/api/deck/" + uid)
         r.raise_for_status()
         r = r.json()
         logger.debug("VDB replied: %s", r)
@@ -110,7 +110,7 @@ class Deck(collections.Counter):
             if result.fragment.startswith("deck/"):
                 return cls.from_amaranth(result.fragment[5:])
             raise ValueError("Unknown Amaranth URL format")
-        elif result.netloc == "vdb.smeea.casa":
+        elif result.netloc in {"vdb.smeea.casa", "vdb.im"}:
             if result.path != "/decks":
                 raise ValueError("Unknown VDB URL path")
             params = urllib.parse.parse_qs(result.query)
@@ -472,7 +472,7 @@ class Deck(collections.Counter):
 
     def to_vdb(self) -> str:
         """Generating vdb.smeaa.casa link to deck"""
-        link = "https://vdb.smeea.casa/decks?"
+        link = "https://vdb.im/decks?"
         link += urllib.parse.urlencode(
             {
                 "name": self.name or "New KRCG Deck",
