@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.23 (unreleased)
+2.23 (2022-04-11)
 -----------------
 
 - Update VDB Domain name (now vdb.im)
