@@ -4,6 +4,7 @@ It handles the legacy TWDA: many tricky formats used through this historic docum
 Only modifiy this file if you know what you're doing, and proceed with caution.
 """
 from typing import TextIO, Tuple
+import datetime
 import enum
 import logging
 import math
@@ -512,13 +513,22 @@ class Parser:
 
     def parse_twda_headers(self, index: int, line: str):
         """Parse a line of text for TWDA headers."""
-        if index < 4:
-            if index == 1:
-                self.deck.event = line
-            elif index == 2:
-                self.deck.place = line
-            elif index == 3:
+        if index == 1:
+            self.deck.event = line
+            return True
+        # third line should always be the date, but it has happened that some
+        # submissions lack this field, misformat it,
+        # or omit the location (2nd line) for online events
+        if not self.deck.date:
+            try:
                 self.deck.date = arrow.get(line, "MMMM Do YYYY").date()
+                return True
+            except arrow.parser.ParserMatchError:
+                if index == 3:
+                    self.logger.warning("Unable to parse date header: %s", line)
+                pass
+        if index == 2:
+            self.deck.place = line
             return True
         if not self.deck.tournament_format:
             try:
@@ -593,6 +603,11 @@ class Parser:
                 return True
             except AttributeError:
                 pass
+        # Always put a date, so if no date was parsed in headers,
+        # just put today as the date
+        if not self.deck.date:
+            self.deck.date = datetime.date.today()
+            self.logger.warning("No date found, using today")
 
     def get_card(self, line: str, twda: bool = False) -> Tuple[object, int]:
         """Try to find a card and count, register possible comment."""
