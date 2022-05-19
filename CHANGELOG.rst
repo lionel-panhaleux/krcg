@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.24 (unreleased)
+2.24 (2022-05-19)
 -----------------
 
 - Ignore cards with a zero count when importing a deck from Amaranth URL
