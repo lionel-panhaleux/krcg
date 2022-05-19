@@ -75,6 +75,9 @@ class Deck(collections.Counter):
         if not vtes.VTES:
             vtes.VTES.load()
         for cid, count in r["cards"].items():
+            count = int(count)
+            if count <= 0:
+                continue
             ret[vtes.VTES.amaranth[cid]] = count
         return ret
 
