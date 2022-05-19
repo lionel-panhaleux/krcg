@@ -5,7 +5,7 @@ Changelog
 -----------------
 
 - Ignore cards with a zero count when importing a deck from Amaranth URL
-
+- Fix corner case on seating computation (player in list but not playing)
 
 2.23 (2022-04-11)
 -----------------
