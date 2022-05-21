@@ -2,9 +2,13 @@ from typing import Dict, List, Set, Tuple
 import collections
 import collections.abc
 import copy
+import csv
 import datetime
 import functools
+import io
 import itertools
+import os
+import pkg_resources
 import re
 import requests
 import urllib.request
@@ -14,6 +18,9 @@ from . import config
 from . import rulings
 from . import sets
 from . import utils
+
+
+LOCAL_CARDS = os.getenv("LOCAL_CARDS")
 
 
 class Card(utils.i18nMixin, utils.NamedMixin):
@@ -198,6 +205,13 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "PMin": "Ministry",
             "PBh": "Banu Haqim",
             "PG": "Gangrel",
+        },
+        "NB": {
+            "PM": "Malkavian",
+            "PN": "Nosferatu",
+            "PTo": "Toreador",
+            "PTr": "Tremere",
+            "PV": "Ventrue",
         },
     }
     _REPRINTS_RELEASE_DATE = {
@@ -694,7 +708,29 @@ class CardMap(utils.FuzzyDict):
         """Load from official VEKN CSV files."""
         set_dict = sets.SetMap()
         # download the zip files containing the official CSV
-        main_files = utils.get_zip_csv(self._VEKN_CSV[0], *self._VEKN_CSV[1])
+        if LOCAL_CARDS:
+            main_files = [
+                csv.DictReader(
+                    io.TextIOWrapper(
+                        pkg_resources.resource_stream("cards", "vtessets.csv"),
+                        encoding="utf-8-sig",
+                    )
+                ),
+                csv.DictReader(
+                    io.TextIOWrapper(
+                        pkg_resources.resource_stream("cards", "vtescrypt.csv"),
+                        encoding="utf-8-sig",
+                    )
+                ),
+                csv.DictReader(
+                    io.TextIOWrapper(
+                        pkg_resources.resource_stream("cards", "vteslib.csv"),
+                        encoding="utf-8-sig",
+                    )
+                ),
+            ]
+        else:
+            main_files = utils.get_zip_csv(self._VEKN_CSV[0], *self._VEKN_CSV[1])
         i18n_files = {
             lang: utils.get_zip_csv(url, *filenames)
             for lang, (url, filenames) in self._VEKN_CSV_I18N.items()
