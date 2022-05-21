@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.25 (unreleased)
+2.25 (2022-05-21)
 -----------------
 
 - Add New Blood
