@@ -4,7 +4,8 @@ Changelog
 2.25 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Add New Blood
+- Add the possibility to use KRCG cards files instead of the official VEKN ones
 
 
 2.24 (2022-05-19)
