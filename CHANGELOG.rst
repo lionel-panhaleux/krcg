@@ -4,7 +4,7 @@ Changelog
 2.26 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Add minimal JSON serialization Deck.to_minimal_json()
 
 
 2.25 (2022-05-21)
