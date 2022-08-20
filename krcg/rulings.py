@@ -33,7 +33,11 @@ class RulingReader:
                 ret = Ruling()
                 ret.cards = [_card_id_name(card)]
                 ret.text = ruling
-                ret.links = dict(self._get_link(ret.text))
+                try:
+                    ret.links = dict(self._get_link(ret.text))
+                except KeyError:
+                    warnings.warn(f"Ruling: link not found for `{card}`")
+                    raise
                 yield ret
         for ruling in yaml.safe_load(
             pkg_resources.resource_string("rulings", "general-rulings.yaml")
@@ -41,7 +45,11 @@ class RulingReader:
             ret = Ruling()
             ret.cards = [_card_id_name(card) for card in ruling["cards"]]
             ret.text = ruling["ruling"]
-            ret.links = dict(self._get_link(ret.text))
+            try:
+                ret.links = dict(self._get_link(ret.text))
+            except KeyError:
+                warnings.warn(f"Ruling: link not found for general ruling `{ret.text}`")
+                raise
             yield ret
 
     def _get_link(self, text: str) -> Generator:
