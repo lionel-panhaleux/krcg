@@ -443,7 +443,7 @@
   - Is played after a minion successfully blocks, before the blocker is locked and combat begins. It cannot be used if the action is ended without being blocked. [LSJ 19980224] [RTR 19991206]
   - Effects triggered when the action is blocked are still applied (eg. {Unleash Hell's Fury}, {Truth of Blood}, {Aching Beauty}). [RTR 19991206]
   - "No other modifier or reaction can be played afterwards: the action has ended. [LSJ 20010803-1] [RTR 20180719]"
-  - "If the card prevents the acting minion from performing a mandatory action, he is stuck and cannot act. [LSJ 19980112]"
+  - If the card prevents the acting minion from performing a mandatory action, he is stuck and cannot act. [LSJ 19980112]
   - If used while leaving torpor, the blocker does not get an opportunity for diablerie. [LSJ 20050105-2]
 100325|Changeling Skin Mask:
   - The superior Obfuscate is not optional. [RTR 19980707] [LSJ 19980722]
@@ -543,6 +543,8 @@
   - Can allocate more points than a Methuselah has pool. [LSJ 20020819]
 100415|Consignment to Duat:
   - "[ser] Can target a vampire with no blood. [RTR 20010711]"
+100418|Contagion:
+  - "[DAI] Stealing the minion is part of the strike resolution, it does not happen if the strike is not selected and it can be dodged. [ANK 20200909] [LSJ 20040130]"
 100423|Coordinate Attacks:
   - Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]
 100427|Corpse Balloon:
