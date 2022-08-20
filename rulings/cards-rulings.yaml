@@ -774,6 +774,7 @@
   - The press and maneuver can only be used during the current round. [TOM 19960521]
 100597|Dust Up:
   - "[ani] [pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+  - "[cel] The additional strike is not optional: you cannot play it for the dodge only if you already played it for a (limited) additional strike this round. [ANK 20220204]"
 100598|Eagle's Sight:
   - "[AUS] Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [RTR 20020501]"
   - "[AUS] Only applies to one block attempt. If the action later continues as if unblocked (eg.{Form of Mist}), another one is needed. [LSJ 20030227]"
