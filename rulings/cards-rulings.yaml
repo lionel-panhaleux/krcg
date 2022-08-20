@@ -2021,6 +2021,8 @@
   - Is not the default action, no blood is paid to leave torpor or rescue from torpor. [ANK 20181017]
 101617|Resurrection:
   - Can only resurrect allies or retainers burned from play. Discards and blocked actions do not qualify. [LSJ 20011216-1]
+101623|Revelation of Despair:
+  - "[SER] When the acting minion gets stolen, the block still happens and the blocking minion locks. [ANK 20220127]"
 101624|Revelation of Ecstasy:
   - Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]
   - Can target a locked minion. [ANK 20170303]
@@ -2715,7 +2717,7 @@
   - The burn option can be used if all your infernal vampires are in torpor. [LSJ 20091203]
 102104|Venenation:
   - Modifiers that are played before block resolution like {Change of Target} can be played after Venenation. [ANK 20190524] [LSJ 20020126]
-  - If the combat is canceled by Venenation, the action is still blocked, {Mask of a Thousand Faces} cannot be used to continue it, but an effect can be used to continue the action as if unblocked (eg. {Crypt's Sons}, {Momentary Delay}). [ANK 20181003] [LSJ 20010803-2]
+  - If the combat is canceled by Venenation, the action is still blocked, the blocking minion locks. {Mask of a Thousand Faces} cannot be used to continue it, but an effect can be used to continue the action as if unblocked (eg. {Crypt's Sons}, {Momentary Delay}). [ANK 20181003] [LSJ 20010803-2] [ANK 20220127]
 102106|Vengeance of Samiel:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 102113|Vessel:
