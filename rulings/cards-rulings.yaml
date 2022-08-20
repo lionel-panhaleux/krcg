@@ -93,7 +93,7 @@
   - "[CHI] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
   - "[CHI] Can prevent 1 damage twice on separated strikes in the same round. [ANK 20200318]"
 100078|Approximation of Loyalty:
-  - '[pre] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[pre] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
   - '[PRE] Cards are not replaced until all effects played "as a card is played" are resolved. [LSJ 20061013]'
   - '[PRE] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
   - "[PRE] The card is still considered played. The same reaction cannot be played again by the same minion. [LSJ 19980212] [LSJ 20061207]"
@@ -190,7 +190,7 @@
 100146|Beast Meld:
   - "[ani][pro] The damage prevention can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
   - "[ani][pro] The damage prevention is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
-  - '[ANI][PRO] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[ANI][PRO] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 100147|The Becoming:
   - If moved to the uncontrolled region (eg. by {Banishment}), it continues to be a vampire and can be influenced as a 1 capacity vampire. [RTR 19990712] [LSJ 20090625]
 100153|Bestial Vengeance:
@@ -730,7 +730,7 @@
   - Locked minions are counted after the referendum is completed. [RTR 19941109]
 100571|Domain of Evernight:
   - "[tem] Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [PIB 20130319]"
-  - '[TEM] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
+  - '[TEM] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 100573|Dominate Kine:
   - "[DOM] If used to steal an equipment representing a location, it can be placed on any minion controlled by the new controller. [RTR 19960112]"
 100575|Donate:
@@ -905,7 +905,7 @@
   - Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]
   - Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]
 100706|Fata Amria:
-  - '[CHI] [REACTION] Cards and effects that can be played "after resolution" (and only them) can be played after it. [ANK 20190425]'
+  - '[CHI] [REACTION] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 100709|FBI Special Affairs Division:
   - Does not trigger if the ally is saved by {Left for Dead}. [PIB 20121028]
   - Does not trigger if the ally is considered the acting minion during the combat (eg. {Nar-Sheptha}). [ANK 20180913-2]
@@ -965,7 +965,7 @@
   - If played on a vampire who successfully hunts with a {Perfectionist}, {Perfectionist} grants the blood before combat. [LSJ 20110308]
   - Is played after resolution, but still during the action. Cards and effects that played "after resolution" (eg. {Freak Drive}) can be played before it, but not after. [LSJ 19981028] [LSJ 20100206-2]
 100758|Force of Personality:
-  - '[PRE] [ACTION MODIFIER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[PRE] [ACTION MODIFIER] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 100759|Force of Will:
   - If the action does not reach resolution (eg. {The Kiss of Ra}), the damage is not done. [RTR 20020501] [LSJ 20020927] [ANK 20210124]
   - If the action merely ends (eg. {Change of Target}) or has no effect (eg. because cost cannot be paid), the damage occurs as normal. [RTR 20020501] [LSJ 20020927] [ANK 20210124]
@@ -1186,7 +1186,7 @@
 100919|Hide:
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
   - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
-  - '[ACTION MODIFIER] [1 CONVICTION] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[ACTION MODIFIER] [1 CONVICTION] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 100920|Hide the Heart:
   - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
   - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
@@ -1857,7 +1857,7 @@
   - "[AUS] The prevention does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010819-2]"
   - "[AUS] The prevention is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 101479|Predator's Transformation:
-  - '[abo] [ACTION MODIFIER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[abo] [ACTION MODIFIER] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 101481|Pressing Flesh:
   - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
   - Requirements need not to be met. If the ally requires a discipline, the inferior version is used. If the cost is X (eg. {Reanimated Corpse}), X is zero. [LSJ 20071015] [LSJ 20100302-1]
@@ -2003,7 +2003,7 @@
   - Paying for the equipment found is not optional if a ready minion meet the requirements. If paying the cost will oust the controlling Methuselah, then she is ousted. [RTR 19941109] [RTR 20010710]
 101606|Repulsion:
   - "[OBE] Can be used even if the stealth is not currently needed. [LSJ 20011214-2]"
-  - '[pre] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[pre] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 101608|Resilience:
   - Cannot be used if there is no damage to prevent. [LSJ 20001114]
   - Prevents up to 3 non-aggravated damage, it can be used to prevent less. [RTR 20041202]
@@ -2251,7 +2251,7 @@
 101771|Shoulder Drop:
   - Is played and inflicts damage after the strikes have been resolved and inflicted damage, before any other pair of strikes and before the press step. [ANK 20171226]
 101773|Shroud Mastery:
-  - '[NEC] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[NEC] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 101779|Sideslip:
   - "[CEL] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 101781|The Signet of King Saul:
@@ -2277,7 +2277,7 @@
   - Cannot be used if there is no damage to prevent. [LSJ 20001114]
   - Unused prevention does not carry over. [LSJ 20001114]
 101794|Skin of the Chameleon:
-  - '[tha] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[tha] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 101797|Slake the Thirst:
   - If multiple effects make you gain blood, even due to a single card (eg. {Redistribution}), you choose on which effect to apply Slake the Thirst. [LJS 20100203]
   - "[san] Can be played multiple times on the same blood gain (eg. {Taste of Vitae}). [LSJ 20100206-2]"
@@ -2367,7 +2367,7 @@
   - '{Mask of a Thousand Faces} cannot be played after playing a superior Spying Mission because Spying Mission is played "when the action resolves". [LSJ 19980105]'
   - Is played when a bleed would be successful, before resolution. [LSJ 20110502]
 101858|Squirrel Balance:
-  - '[cel] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[cel] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
   - If another effect also sets the range, the first to resolve has priority (eg. {Asanbonsam Ghoul} and {Neutral Guard} resolve after). [PIB 20120214]
 101860|Starshell Grenade Launcher:
   - Using the Launcher to reduce stealth does not force the minion to strike with it if he blocks. [LSJ 19971215]
@@ -2728,7 +2728,7 @@
   - You must be able to pay the cost to play it (eg. cannot play a third Villein with only 1 pool). [ANK 20210714]
   - If the target has less blood at resolution than the amount annouced, you take what you can. [LSJ 20100216] [ANK 20180512-2]
 102124|Virtuosa:
-  - '[MEL] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[MEL] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 102126|Visit from the Capuchin:
   - Cannot be played if you have another one, even if it has only one counter left. [PIB 20121031]
   - If another effect offers an alternative for card replacement (eg. {Steely Tenacity}), you choose which to apply. [ANK 20200905]
@@ -2791,7 +2791,7 @@
   - Ravnos can target a Ravnos with no blood with the +1 stealth hunt action. [RTR 20010711]
   - Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606] [ANK 20190707]
 102168|Weigh the Heart:
-  - '[AUS][SER] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[AUS][SER] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
   - "[AUS][SER] If the action targets multiple Methuselah, you choose one minion, which must be controlled by one of the target Methuselah. [ANK 20180515]"
 102169|Weighted Walking Stick:
   - If the damage is reduced (eg. {Nephandus}) or not inflicted (eg. {Blood Fury}), the corresponding token is not burned (contrary to prevented damage). [LSJ 20100519]
@@ -2808,7 +2808,7 @@
 102180|Wider View:
   - Cards removed from the game are public. [LSJ 20080314]
 102183|Will-o'-the-Wisp:
-  - '[CHI] Cards and effects that can be played "as the action is announced" (and only them) can be played before it. [ANK 20190425]'
+  - '[CHI] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 102184|Winchester Mansion:
   - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 102190|Wolf Claws:

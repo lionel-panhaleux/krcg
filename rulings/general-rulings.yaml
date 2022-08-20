@@ -76,7 +76,7 @@
     - 101724|Seraph's Second
     - 101236|Momentary Delay
     - 100595|Dusk Work
-- ruling: 'Cards and effects that can be played "as the action is announced" can be played before it. [ANK 20190425]'
+- ruling: 'Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g., Conditioning). [ANK 20190425]'
   cards:
     - 102138|Walk of Caine
     - 100097|The Art of Memory
