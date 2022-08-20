@@ -1514,6 +1514,8 @@
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
 101169|Marked Path:
   - Can be burned during an action that targets only part of the Methuselah that were targeted by the first action. [LSJ 20100527]
+101174|Martinelli's Ring:
+  - The bearer cannot use [ser] or [dem] cards on themselves (eg. {Mummify}). [LSJ 20080212]
 101175|Martyr's Resilience:
   - Can be used by a vampire in torpor. [LSJ 20020416]
   - Can be played by a minion of a Methuselah not involved in the current combat. [ANK 20181101]
@@ -2830,6 +2832,7 @@
 102202|Young Bloods:
   - They may use their built-in action against a vampire with only 1 blood. If successful, that vampire burns his 1 blood. [LSJ 20070213]
   - If the target of their ability unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]
+  - If they are burned by a strike, the blood gained from burning them is awarded after strike resolution (it cannot normally not be used to heal from their strike). [LSJ 20080212]
 102203|Zaire River Ferry:
   - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 102204|Zapaderin:
