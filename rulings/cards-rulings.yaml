@@ -2665,6 +2665,7 @@
   - "[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]"
 102069|Undying Thirst:
   - If the vampire is empty, he must either hunt or diablerize, this is a mandatory action. [LSJ 20081213-2]
+  - Has no effect on a vampire that cannot commit diablerie (eg. because of {Humanitas}). [LSJ 20050324-2]
 102071|Unflinching Persistence:
   - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
 102072|Unholy Penance:
