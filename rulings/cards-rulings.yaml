@@ -2507,6 +2507,7 @@
   - Can be played if the opponent was burned. [LSJ 20031201-2]
 101946|Tattoo Signal:
   - The burn option can be used if all your Seraph are in torpor. [LSJ 20091203]
+  - You cannot use the burn option if you have a ready Seraph, even if they already have a Tattoo Signal. [LSJ 20070410]
 101947|Taunt the Caged Beast:
   - "[ANI] The prey goes first in the combat (for declaring maneuvers, strikes, presses). [LSJ 20070319]"
 101948|Telepathic Counter:
@@ -2679,6 +2680,7 @@
   - Unleash Hell's Fury is not locked if {Faceless Night} was played. Also, it can attempt to block even if locked. [LSJ 20100210]
   - Once it's attempting to block, its intercept can be affected by other cards normally (eg. {KRCG News Radio}). [ANK 20211112-2]
   - The burn option can be used if all your infernal vampires are in torpor. [LSJ 20091203]
+  - The fact it is Unique has no bearing on the burn option. You cannot use the burn option if you have an infernal vampire ready, even if you already have an Unleash Hell's Fury in play. [LJS 20100203-2]
 102078|Unlicensed Taxicab:
   - Offers the additional stealth on actions to equip it from another friendly minion as well, even with other equipment in the same action. [LSJ 20060222]
 102081|Unseen Hibernation:
@@ -2848,6 +2850,8 @@
 102208|Zip Gun:
   - Damage done to the bearer is environmental. [LSJ 19970801]
   - No damage is done to the bearer if he does not strike with the gun (eg. if it is destroyed with first strike). [LSJ 20100310]
+102227|Hunger of Marduk:
+  - The provided strike can be chosen and used more than once during the round. [ANK 20220207]
 102232|The Platinum Protocol:
   - Putting a corruption counter on a minion does not give you an opportunity to steal it. [ANK 20200925] [ANK 20211105]"
 200011|Adana de Sforza (G4):
@@ -3443,5 +3447,3 @@
   - If she unlocks after having performed her mandatory bleed, she is free to take any action. [LSJ 20090226] [ANK 20211009-2]
   - Another bleed action (eg. {Flurry of Action}) does not count as the bleed action her ability forces her to take. [ANK 20211009-2]
   - If her ability makes a bleed mandatory but she has performed a bleed already this turn, she is stuck and cannot act. [ANK 20211009-2]
-102227|Hunger of Marduk:
-  - The provided strike can be chosen and used more than once during the round. [ANK 20220207]
