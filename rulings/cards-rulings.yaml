@@ -1180,6 +1180,7 @@
   - "[OBE] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 100907|Heaven's Gate:
   - "[nec] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
+  - "[obe] / [OBE] Forbids any combat with the ally afterwards. Cards that would start a new combat cannot be played (eg. {Psyche!}, {Bum's Rush}). [ANK 20220429]"
 100908|Heidelberg Castle, Germany:
   - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
   - Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]
@@ -1826,8 +1827,8 @@
   - The ally card is not "played" by the vampire (eg. {Louhi}'s ability cannot cancel it). [ANK 20201229]
 101405|Pocket Out of Time:
   - "[obt] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Night}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
-  - "[TEM] If used to start a new combat, effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "[TEM] Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
+  - "[TEM] Cannot be used to start a new combat if the opponent is not ready. [ANK 20220429]"
 101406|Poison Pill:
   - Any decrease in pool (burning, paying, ...) is considered "loosing pool". [ANK 20180719-2]
   - Gaining pool does not count as a negative loss. If a vote entails both a gain and a loss (eg. {Ancient Influence}), only the loss is counted, not the difference. [ANK 20180813] [LSJ 20041025]
@@ -1925,6 +1926,7 @@
   - Can be played on a vampire who already has a Proxy Kissed (and was moved to uncontrolled and re-influenced). [LSJ 20050720-1]
   - Is played during your turn in the influence phase, counts against the master phase of your next turn and prohibits you to play a second out-of-turn master card before your next master phase. [PIB 20150524]
 101507|Psyche!:
+  - "[CEL] Cannot be played if the opponent is going to torpor. [ANK 20220429]"
   - "[CEL] Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]"
   - "[CEL] Cannot be played if there is already a combat queued. [RTR 20020501]"
   - "[CEL] Is played during combat, when combat is about to end. It must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519], [PIB 20111202]"
