@@ -1362,10 +1362,10 @@
 101049|Kindred Coercion:
   - Cannot 'change' the votes of vampires who haven't voted yet, but can cancel the votes of vampires who haven't voted yet and change the votes of vampires who have voted. [RTR 19991001]
 101053|Kindred Segregation:
-  - Only requires that the pool cost be paid in order to keep the ally. Blood costs, if any, need not be repaid to keep an ally. [RTR 20010710]
+  - Only requires the pool cost to be paid in order to keep the ally. Allies with blood costs can be kept by paying 0 pool. [RTR 20010710]
   - Can be called even if there are no allies in play. [RTR 20010710]
   - One can decide to burn an ally with no pool cost (not paying zero). [ANK 20190724]
-  - Does not affect Imbued, they have a cost of zero. [LSJ 20060409]
+  - Imbued can be kept by paying 0 pool, as they have a "pool cost to recruit" of zero. [LSJ 20060409]
 101054|Kindred Society Games:
   - If a vampire has two copies of Kindred Society Games, each copy exerts its own effect. Unlocking the vampire normally would require a total of 2 blood. If the vampire does not unlock normally, both Games are moved to other vampire(s), although the vampire could burn 1 blood to prevent one of the Games from moving on. [RTR 19951017]
 101056|Kine Resources Contested:
