@@ -1954,6 +1954,7 @@
 101555|Rayzeel's Song:
   - "[ani] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Dragos}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 101557|React with Conviction:
+  - If used to cancel an action, the action is not performed, the minion stays unlocked (and can try the same action again). [LSJ 20060425]
   - If used to cancel a {Corruption} action, then the action is canceled in its entirety and the corruption counters are not burned. [LSJ 20070222-1]
   - If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
   - Can be used to cancel all action cards, including employ retainer, recruit ally and political action. [ANK 20200813-2]
@@ -3254,6 +3255,11 @@
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
 201045|Nehsi (G2):
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
+201048|Nergal (G5):
+  - If he plays a action he can only pay for with his ability, he has to use his ability when the action resolves (even if a {Deflection} was played on a bleed). [LSJ 20091021-2]
+  - If he lost a blood during the course of an action that he could have paid for when announced, he can choose wether or not to use his ability to be able to pay for it. [LSJ 20091021-2]
+  - If he cannot pay for the action even with his ability, his ability is not considered used for the action (even if it was announced). [LSJ 20091021-2]
+  - If a card he plays is cancelled as it played and no cost is paid, his ability is not considered used for the turn. [LSJ 20091021-2]
 201049|Nergal (G5 ADV):
   - Card with multiple types (eg. Reaction/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
 201052|New Blood (ANY):
