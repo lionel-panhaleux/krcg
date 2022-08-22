@@ -600,6 +600,9 @@
   - Only moves when a Methuselah gets the Edge who does not already have the Edge. [LSJ 19971006]
 100484|D'habi Revenant:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+100485|Dabbler:
+  - Cannot be used if the action is canceled. [ANK 20220411]
+  - Takes into account all the cards played, even if they are canceled. [ANK 20220411]
 100486|Daemonic Possession:
   - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
 100488|Dagon's Call:
