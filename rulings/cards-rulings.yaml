@@ -606,6 +606,7 @@
   - Both the strike and the environmental damage would get boosted by {Dam the Heart's River}. [PIB 20150520]
   - "[QUI] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100489|Dam the Heart's River:
+  - The opponent is the one affected by frenzy (eg. for {Blade of Enoch}). [ANK 20220409]
   - Adding damage to strikes which are not damage dealing strikes will not deal damage [RTR 19960221]
   - The additional damage is the same type as the strike's damage. [RTR 19970630]
   - Applies to environmental damage inflicted to the opposing minion. [ANK 20181128]
