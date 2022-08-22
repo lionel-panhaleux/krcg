@@ -73,6 +73,7 @@
   - Burns the target vampire when the target is reduced to zero blood in combat, regardless of the source of the loss. [RTR 19980623]
   - "Will not burn a vampire for entering a combat with zero blood: there must be an actual blood loss. [RTR 19980623]"
   - Diablerie does not trigger Anathema. [LSJ 20021122-2] [ANK 20211112]
+  - Does not trigger if the vampire is burned by aggravated damage during damage resolution. [LSJ 20021120]
   - Damage done by combat effects after combat ends do not trigger Anathema. [LSJ 19980225]
   - Multiple Anathemas don't multiply the pool gain. Once one Anathema resolves it burns the vampire and the others are burned before they get to resolve. [LSJ 20021117]
 100063|The Ancestor's Talisman:
