@@ -56,7 +56,7 @@
     - 101989|Toreador Grand Ball
     - 102125|Visionquest
     - 102192|Wooden Stake
-- ruling: 'Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played after it. [LSJ 19981028] [ANK 20190425]'
+- ruling: 'Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played before or after it. [LSJ 19981028] [ANK 20190425]'
   cards:
     - 100102|As the Crow
     - 100446|CrimethInc.
@@ -76,7 +76,38 @@
     - 101724|Seraph's Second
     - 101236|Momentary Delay
     - 100595|Dusk Work
-- ruling: 'Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g., Conditioning). [ANK 20190425]'
+- ruling: 'Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g., {Conditioning}). [ANK 20190425]'
+  cards:
+    - 102138|Walk of Caine
+    - 100097|The Art of Memory
+    - 100502|Day Operation
+    - 100513|Deed the Heart's Desire
+    - 100544|Din of the Damned
+    - 100565|Divine Image
+    - 100802|Gang Tactics
+    - 100820|Ghouled
+    - 100849|The Grandest Trick
+    - 101122|Loose Cannon
+    - 101162|Mantle of the Moon
+    - 101199|Memory Rift
+    - 101282|Ni Dieu ni Maître
+    - 101286|Nightshades
+    - 101304|Notorious Brutality
+    - 101382|Penitent Resilience
+    - 101386|Perfect Clarity
+    - 101572|Recurring Contemplation
+    - 101712|Seduction
+    - 101725|Serenading the Kami
+    - 101764|Shell Game
+    - 101776|Shroudsight
+    - 101805|The Sleeping Mind
+    - 101867|Stealth Ritus
+    - 101870|Stiff Contempt
+    - 101880|Strange Day
+    - 101925|Tainted Spring
+    - 101975|Those Who Endure Judge
+    - 102058|Uncontrollable Rage
+- ruling: "Replace the action card (if any) before playing it. [ANK 20181208]"
   cards:
     - 102138|Walk of Caine
     - 100097|The Art of Memory
