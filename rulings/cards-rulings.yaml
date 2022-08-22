@@ -2448,6 +2448,8 @@
 101902|The Summoning:
   - "[PRE] Is not the same action as the recruitment of the ally. You could perform both actions in the same turn with the same vampire. [PIB 20110915-2]"
   - "[PRE] The requirements and cost of the ally do not count as requirements nor cost for the action (eg. you cannot use {CrimethInc.} even if the ally requires an Anarch). [LSJ 20100725]"
+  - "[PRE] When used to recruit an ally, the ally cannot act this turn. [LSJ 20080630] [RTR 20180303]"
+  - '[PRE] The ally card is not "played" by the vampire (eg. {Louhi}''s ability cannot cancel it). [ANK 20201229]'
 101904|Sunset Strip, Hollywood:
   - The "lock to reduce the cost" effect can be used when the action is announced or when the cost is paid. [LSJ 20090705]
 101906|Supernatural Resistance:
