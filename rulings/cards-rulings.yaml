@@ -615,6 +615,8 @@
   - The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]
 100492|Daring the Dawn:
   - If the action is blocked, damage is applied after combat [RTR 19980623]
+  - The damage is applied if the action reaches resolution, even if it ends before combat (eg. {Mirror Walk}, {Change of Target}) or has no effect (eg. because cost cannot be paid). [ANK 20220331] [ANK 20210124] [LSJ 20020927] [LSJ 20021115]
+  - The damage is not applied if the action is canceled before resolution (eg. {Tangle Atropos' Hand}, {The Kiss of Ra}). [ANK 20220401] [ANK 20211015] [ANK 20210124]
 100493|Dark Influences:
   - If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]
   - If used to cancel an action, the action is not performed in respect to section 3 of the rules. [LSJ 19980212]
@@ -972,8 +974,8 @@
 100758|Force of Personality:
   - '[PRE] [ACTION MODIFIER] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 100759|Force of Will:
-  - If the action does not reach resolution (eg. {The Kiss of Ra}), the damage is not done. [RTR 20020501] [LSJ 20020927] [ANK 20210124]
-  - If the action merely ends (eg. {Change of Target}) or has no effect (eg. because cost cannot be paid), the damage occurs as normal. [RTR 20020501] [LSJ 20020927] [ANK 20210124]
+  - The damage is applied if the action reaches resolution, even if it ends before combat (eg. {Mirror Walk}, {Change of Target}) or has no effect (eg. because cost cannot be paid). [ANK 20220331] [ANK 20210124] [LSJ 20020927] [LSJ 20021115]
+  - The damage is not applied if the action is canceled before resolution (eg. {Tangle Atropos' Hand}, {The Kiss of Ra}). [ANK 20220401] [ANK 20211015] [ANK 20210124]
   - "{Mask of a Thousand Faces} cannot be used to take over, since it requires an unlocked vampire and the action requires a locked one. [LSJ 20020927]"
   - Cards usable after action resolution (eg. {Freak Drive}) can be played before or after the damage is taken. [LSJ 20010715]
 100760|Forced Awakening:
@@ -1370,7 +1372,7 @@
 101062|The Kiss of Ra:
   - Can be played by an acting vampire in torpor. [LSJ 19970325]
   - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
-  - The action has not reached resolution. The same vampire can undertake the same action again, but not if it was blocked then continued before (eg. [PRO] {Form of Mist}). [LSJ 20070709] [LSJ 20090220] [ANK 20210124]
+  - The action has not reached resolution, it is effectively canceled. The same vampire can undertake the same action again, but not if it was blocked then continued before (eg. [PRO] {Form of Mist}). [ANK 20211015] [ANK 20210124] [LSJ 20090220] [LSJ 20070709]
   - The action was still taken (eg. counts against {Enkil Cog} of [OBF] {Veil the Legion}). [ANK 20210124]
 101066|Kraken's Kiss:
   - "[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]"
