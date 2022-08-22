@@ -1090,6 +1090,8 @@
 100836|Glaser Rounds:
   - Must wait until the second time a given gun is used in a given combat to play it. [RTR 19941109]
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
+100839|Glutton:
+  - Can be used to unlock a ready Ishtarri with no blood. [LSJ 19970707]
 100840|Go Anarch:
   - Is not the default action, no blood is paid to become Anarch. [ANK 20181017]
   - Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
@@ -3056,6 +3058,8 @@
   - Allies have no blood, they cannot take Ⓓ actions against him, except if they are acting as a vampire. [LSJ 20030815]
 200443|Eurayle Gelasia Mylonas (G4):
   - Her ability is undirect if you control the target, directed to the controller of the target otherwise. [PIB 20121210]
+200448|Eze, The Demon Prince (G3):
+  - His unlock ability is mandatory, it is applied even if the action unlocks him already. [LSJ 20051211]
 200450|Ezmerelda (G2):
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
 200452|Fabrizia Contreraz (G4):
@@ -3498,5 +3502,3 @@
   - If her ability makes a bleed mandatory but she has performed a bleed already this turn, she is stuck and cannot act. [ANK 20211009-2]
 201627|Evan Klein (G6):
   - Actions from minions of the same controller targeting him are undirected, so they are not affected by his ability. [LSJ 20030214-2]
-Glutton:
-  - "Can be used to unlock a ready Ishtarri with no blood. [LSJ\_19970707]"
