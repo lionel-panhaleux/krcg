@@ -1213,6 +1213,8 @@
   - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
   - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
   - "[val], [VAL] Sequencing applies. For example, if another Methuselah is targeted by the action, they must declare if they attempt or decline to block before you can play Hide the Heart. [LSJ 20100507] [PIB 20150820] [RBK 20200701-2]"
+100921|Hide the Mind:
+  - Cannot be used to cancel a card that could be played with [aus] but has not been (eg. {Anesthetic Touch} play with [obe]). [PIB 20130704]
 100924|High Aye:
   - The discard effect happens after action resolution (and all combats, if any). [LSJ 20060426]
 100925|High Ground:
@@ -1321,6 +1323,8 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101008|Iron Glare:
   - "[pot][pre] Cannot be used during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
+101009|Iron Heart:
+  - Cannot be used to cancel a card that could be played with [pre] (or [dom]) but has not been (eg. {Virtuosa} play with [mel]). [PIB 20130704]
 101013|Island of Yiaros:
   - Provides no additional strength to a Priscus for his ballots. [RTR 19970630]
 101016|Jack of Both Sides:
@@ -3092,6 +3096,8 @@
 200587|Helena (G3 ADV):
   - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
   - "[MERGED] Immune means damage is not inflicted, even if non-preventable or outside combat. [LSJ 20010627] [LSJ 20010629] [LSJ 20090304-1]"
+200590|Henry Taylor (G3):
+  - A card with multiple types (eg. {Swallowed by the Night}) needs to have been played as a combat card to be eligible. [LSJ 20031221]
 200604|Horatio Ballard (G3):
   - Cannot use his special ability to become a Prince if he has changed sect and is no longer Camarilla. [LSJ 20030202]
 200606|Horrock (G3):
@@ -3505,5 +3511,3 @@
   - If her ability makes a bleed mandatory but she has performed a bleed already this turn, she is stuck and cannot act. [ANK 20211009-2]
 201627|Evan Klein (G6):
   - Actions from minions of the same controller targeting him are undirected, so they are not affected by his ability. [LSJ 20030214-2]
-200590|Henry Taylor (G3):
-  - A card with multiple types (eg. {Swallowed by the Night}) needs to have been played as a combat card to be eligible. [LSJ 20031221]
