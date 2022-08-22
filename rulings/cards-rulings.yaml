@@ -677,6 +677,10 @@
 100528|Descent into Darkness:
   - Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]
   - Damage inflicted after the action resolution (eg. {Daring the Dawn}) are not applied. [LSJ 20040616]
+  - If played by an ally, the ally can never come back. [LSJ 20060124]
+  - All cards on the vamipre come back unlocked. [LSJ 20060908]
+  - The vampire will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501] [LSJ 20060908]
+  - "Cards and effects targeting the vampire (eg. {The Rack}) will resume if and when the vampire comes back into play. [TOM 19960211] [LSJ 20010809-2] [LSJ 20010809-3] [LSJ 20060908]"
 100532|Detect Authority:
   - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [RTR 20180719]"
 100534|Determine:
@@ -1941,7 +1945,7 @@
   - May not select a new target just for falling out of contention. [RTR 19960112]
   - Will not target a new copy of the same vampire if the original is burned or yielded. [TOM 19960122]
   - Can provide blood if the target is in torpor, not if it is not controlled (eg. after a {Banishment}). [PIB 20150522] [LSJ 20010623]
-  - "Tracks the target if it leaves the game by contesting or {Banishment}: if the target gets back into play, The Rack gives it blood again. [LSJ 20010809-2]"
+  - "Tracks the target if it leaves the game by contesting or {Banishment}: if the target gets back into play, The Rack gives it blood again. [LSJ 20010809-2] [LSJ 20010809-3]"
   - If the target is stolen, the new controller chooses if the vampires gains blood during The Rack controllers unlock phase. [ANK 20200130-2]
 101543|Rapid Healing:
   - Is not the default action, no blood is paid to leave torpor. [ANK 20181017]
