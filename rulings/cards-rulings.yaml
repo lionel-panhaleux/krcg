@@ -1706,7 +1706,7 @@
 101287|Nightstick:
   - Can prevent up to 3 damage, it can prevent less. [RTR 20041202]
 101290|No Confidence:
-  - "Is not a card requiring an Anarch. [LSJ 20080812]"
+  - Is not a card requiring an Anarch. [LSJ 20080812]
   - '"loses the benefit" means he gets no vote, is not considered titled, and yields the title immediately if it would contest. [LSJ 20080602] [RBK 20200701-3]'
 101291|No Secrets From the Magaji:
   - It still burns if a block is attempted and then an effect prevents the block (eg. {Daring the Dawn}). [LSJ 20090810]
@@ -2734,6 +2734,7 @@
 102095|Veil of Darkness:
   - The card that has no effect still counts as played, if it was an action, the vampire is not locked and can perform another (or the same) action. [LSJ 20090323]
   - Does not affect allies who play cards requiring a Discipline "as a vampire". [LSJ 20050606]
+  - The effect needs to be applied before anyone has an opportunity to play another cancelation effect (eg. {Direct Intervention}). [LSJ 20100728] [LSJ 20090213]
 102097|Veil the Legions:
   - Can only be played by the controller of the acting minion. [LSJ 19990425]
 102098|Veiled Sight:
@@ -2921,6 +2922,8 @@
   - Only modifiers and reactions that can be played "when the action/bleed would be successful" can be played after it. [LSJ 20090205]
   - He can use his ability on his own bleed to get (-1 +2) = +1 bleed. [LSJ 20081124-2]
   - His ability cannot be used after {Spying Mission}. If his ability reduces a bleed to zero, it is no longer successful and {Spying Mission} cannot be used afterwards. [PIB 20150612]
+200086|Andrew Stuart (G4):
+  - His ability needs to be applied before anyone has an opportunity to play another cancelation effect (eg. {Direct Intervention}). [LSJ 20100728] [LSJ 20090213]
 200091|Angela Preston (G2):
   - When she is influenced out, her ability to unlock a vampire can be used during the ongoing influence phase. [RTR 20180303]
 200094|Angelo (G3):
@@ -3459,6 +3462,10 @@
   - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - His ability to end combat can be used when he is in torpor. [LSJ 20011022]
+201464|Watenda (G2):
+  - The cost he pays takes into account any cost modification that applies for the opposing minion. [LSJ 20091124]
+  - When canceling a card, he pays any pool cost in blood. [LSJ 20071015-2]
+  - He can use his ability even if he's going to torpor. [LSJ 20021007]
 201471|Winterlich (G6):
   - When recruit a changeling ally, he is treated as a meeting the requirements for all effects of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [ANK 20190228]
   - You can still use the burn options of cards with a requirement he could meet when you play them, but does not meet while in play. [LSJ 20050225]
