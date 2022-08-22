@@ -167,7 +167,7 @@
   - A banished vampire can return to play when it again has blood >= capacity on it at the end of its Methuselah's influence phase. [TOM 19951209]
   - A banished vampire will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501]
   - All cards on the vamipre come back unlocked. [LSJ 20060908]
-  - "Continuous effects targeting the Banished vampire (eg. {The Rack}) resume if and when the vampire comes back into play. [TOM 19960210] [LSJ 20010809-2] [LSJ 20010809-3]"
+  - Continuous effects targeting the Banished vampire (eg. {The Rack}) resume if and when the vampire comes back into play. [TOM 19960210] [LSJ 20010809-2] [LSJ 20010809-3]
   - '"breaking any temporary control effects" means the vampire is placed in his last permanent controller''s uncontrolled region. [RTR 20000501]'
   - If the vampire is permanently controlled by a Methuselah other than his owner, it goes to that Methuselah uncontrolled region and is still controlled by him. It is removed from the game if that Methuselah is ousted and kept in game if his owner is ousted. [ANK 20200408-2]
 100133|Banshee Ironwail:
@@ -681,7 +681,7 @@
   - If played by an ally, the ally can never come back. [LSJ 20060124]
   - All cards on the vamipre come back unlocked. [LSJ 20060908]
   - The vampire will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501] [LSJ 20060908]
-  - "Cards and effects targeting the vampire (eg. {The Rack}) will resume if and when the vampire comes back into play. [TOM 19960211] [LSJ 20010809-2] [LSJ 20010809-3] [LSJ 20060908]"
+  - Cards and effects targeting the vampire (eg. {The Rack}) will resume if and when the vampire comes back into play. [TOM 19960211] [LSJ 20010809-2] [LSJ 20010809-3] [LSJ 20060908]
 100532|Detect Authority:
   - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [RTR 20180719]"
 100534|Determine:
@@ -1209,6 +1209,8 @@
   - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
   - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
   - "[val], [VAL] Sequencing applies. For example, if another Methuselah is targeted by the action, they must declare if they attempt or decline to block before you can play Hide the Heart. [LSJ 20100507] [PIB 20150820] [RBK 20200701-2]"
+100924|High Aye:
+  - The discard effect happens after action resolution (and all combats, if any). [LSJ 20060426]
 100925|High Ground:
   - When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
 100935|Horrid Reality:
