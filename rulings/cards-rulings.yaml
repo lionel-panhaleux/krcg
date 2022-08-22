@@ -2893,6 +2893,8 @@
   - He gains blood if he casts no vote, even if he has lost his title or is in torpor. [LSJ 20010526]
 200068|Ambrogino Giovanni (G2):
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
+200070|Ambrosio Luis Monçada, Plenipotentiary (G2):
+  - Actions from minions of the same controller targeting him are undirected, so they are not affected by his ability. [LSJ 20030214-2]
 200072|Amelia, The Blood Red Tears (G3):
   - Her ability triggers after combat if she's still in play, even in torpor. If she is burned during combat, it does not trigger. [ANK 20200420-1]
   - If multiple combats occur in the same action, the opposing minion burns 1 blood or life each time the combat ends. [ANK 20200420-1]
@@ -3464,3 +3466,5 @@
   - If she unlocks after having performed her mandatory bleed, she is free to take any action. [LSJ 20090226] [ANK 20211009-2]
   - Another bleed action (eg. {Flurry of Action}) does not count as the bleed action her ability forces her to take. [ANK 20211009-2]
   - If her ability makes a bleed mandatory but she has performed a bleed already this turn, she is stuck and cannot act. [ANK 20211009-2]
+201627|Evan Klein (G6):
+  - Actions from minions of the same controller targeting him are undirected, so they are not affected by his ability. [LSJ 20030214-2]
