@@ -1714,6 +1714,7 @@
   - Can be played by a minion of a Methuselah not involved in the current combat. [ANK 20181101]
 101305|NRA PAC:
   - Does not affect equip actions performed prior to its arrival in play. [LSJ 20061218]
+  - The minions who performed an equip action when it was in play unlock at the end of turn regardless of wether NRA PAC is still in play or not. [LSJ 20080619]
 101309|Obedience:
   - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [LSJ 20070709]
   - Actions without card (provided by the rulebook) are not "the same" as actions provided by cards (played or in play). [LSJ 20060522]  [LSJ 20060824] [LSJ 20080725] [LSJ 20090617]
