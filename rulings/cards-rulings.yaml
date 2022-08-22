@@ -525,7 +525,7 @@
   - Can only be played if the ally or retainer is in the ash heap, not if he was moved elsewhere. [RTR 19980928] [LSJ 19980929]
   - The ally or retainer retrieved is considered a new ally or retainer for all game purposes. In particular, he is not bound to not repeat an action his previous incarnation has already performed this turn. [LSJ 20010627]
   - Requirements need not to be met. If the ally requires a discipline, the inferior version is used. If the cost is X (eg. {Reanimated Corpse}), X is zero. [LSJ 20071015] [LSJ 20100302-1]
-  - Cannot be used if the ally in the ash heap was representing something else while in play (eg. {Khazar's Diary (Endless Night)}, {Absimiliard's Army}). [LSJ 20071014]
+  - Cannot be used if the ally in the ash heap was representing something else while in play (eg. {Khazar's Diary (Endless Night)}). [LSJ 20071014]
 100389|Compress:
   - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100392|Concealed Weapon:
@@ -1340,7 +1340,7 @@
   - Requirements must be met but this does not count as an action "requiring" anything. [LSJ 20100303] [ANK 20180817]
   - Does not prevent the acting vampire to play the equipment or retainer directly this turn if he unlocks (not the same action). [ANK 20180817]
 101019|Jake Washington:
-  - Is not an ally in the ash heap (eg. {Compel the Spirit} cannot be played on him). [LSJ 20020115] [LSJ 20030128]
+  - Is not an ally in the ash heap (eg. {Compel the Spirit} cannot be played on him). [LSJ 20071014] [LSJ 20020115] [LSJ 20030128]
   - His "starting life amount" is 1 ({Vagabond Mystic} cannot give hime more life). [LSJ 20030520-2]
 101020|Jar of Skin Eaters:
   - Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]
@@ -1366,6 +1366,7 @@
   - The provided action ends with no effect if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]
 101035|Kaymakli Fragment:
   - "Does not make the vampire Sabbat nor infernal: it merely gives the option to such vampires. [PIB 20150809]"
+  - Coutinuous effects stop tracking cards shuffled back into the crypt. Any previous effect affecting one of the crypt card is voided. [LSJ 20071014]
 101039|Kerrie:
   - The damage done from the ranged strike is damage from the weapon, so it can be modified by effects that modify melee weapon damage. [LSJ 20051220]
 101040|Kevlar Vest:
@@ -1996,6 +1997,8 @@
   - "[ANI][AUS] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101561|Reality Mirror:
   - Cannot be used to bypass restrictions (like Clan restriction or any other play restriction). [LSJ 20020426]
+101563|Reanimated Corpse:
+  - Looses all its pathos counters if it is burned. If it is brought back with X being zero (eg. {Compel the Spirit}), it has no pathos counter and burns immediately.
 101565|Rebirth:
   - Cannot be used following an {Amaranth} or an {Abactor} as they are not diablerie actions. [ANK 20190701]
 101567|Reckless Agitation:
@@ -2394,6 +2397,7 @@
 101845|Spell of Life:
   - The mummies put into play are unique by card name. The name is "in play" for anything that cares. They will contest unique minions of the same name, vampire or allies. If one is {Nefertiti}, then {Aabbt Kindred} will be able to take directed actions. [LSJ 20070928-2] [LSJ 20071001-2]
   - The mummies do not contest non-unique vampires (eg. {Aabbt Kindred}), but two mummies made of the same non-unique vampire contest one another. [LSJ 20070928-2]
+  - If one of the mummy is burned, the card goes to the ash heap where it counts as a vampire (eg. {Possession} can be used, but not {Compel the Spirit}). [LSJ 20071014]
 101847|Spirit Claws:
   - "[pro] Must be played before strike resolution (and damage prevention) in order to affect the current strike [RTR 19960112]"
   - "[SPI][PRO] The [pro] and [spi][pro] versions do not contest with it. [ANK 20180630]"
