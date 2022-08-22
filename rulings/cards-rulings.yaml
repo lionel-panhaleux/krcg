@@ -30,6 +30,7 @@
   - Can be played against a vampire with no blood. [RTR 20010711]
 100014|Abyssal Hunter:
   - If ranged aggravated damage is inflicted at close range against him, he burns. [PIB 20110818]
+  - If he burns an ally with his action, this counts as a Ⓓ action burning an ally (eg. for Trophies). [ANK 20220507]
 100018|Aching Beauty:
   - The pool loss occurs if the block would be successful, even if the action is ended (eg. {Change of Target} or {Obedience}) or made unblockable ({Horrific Countenance}) at this point. [RTR 19991206] [LSJ 20091125]
   - The cost is cumulative if a vampire has multiple copies of the card on him. [LSJ 19980225]
@@ -342,6 +343,8 @@
   - Transfers may not be made to the vampire - neither to put blood on nor to move blood off. [RTR 19950413]
 100250|Breath of the Dragon:
   - Damage done to the striking minion is environmental. [LSJ 19970801]
+100253|Brick Laying:
+  - "[POT] If it burns an ally as a result, this counts as a Ⓓ action burning an ally (eg. Trophies, {Predator's Transformation}). [ANK 20220507]"
 100254|Brigitte Gebauer:
   - She can lock to use her ability the turn she is recruited. [ANK 20180517]
 100257|Brother's Blood:
@@ -547,6 +550,7 @@
   - Can allocate more points than a Methuselah has pool. [LSJ 20020819]
 100415|Consignment to Duat:
   - "[ser] Can target a vampire with no blood. [RTR 20010711]"
+  - "[ser] If it burns an ally as a result, this counts as a Ⓓ action burning an ally (eg. Trophies, {Predator's Transformation}). [ANK 20220507]"
 100418|Contagion:
   - "[DAI] Stealing the minion is part of the strike resolution, it does not happen if the strike is not selected and it can be dodged. [ANK 20200909] [LSJ 20040130]"
 100423|Coordinate Attacks:
@@ -594,6 +598,8 @@
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [LSJ 20080611] [ANK 20190116]
   - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
+100477|Cryptic Mission:
+  - If used on an ally and it burns as a result, this counts as a Ⓓ action burning an ally (eg. Trophies, {Predator's Transformation}). [ANK 20220507]
 100478|Cryptic Rider:
   - During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]
   - Can be used after a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]
@@ -1225,6 +1231,8 @@
   - If the weapon retrieved has requirements that the vampire does not meet, then it is burned. [RTR 20010710]
   - If a copy of a unique card already in play is retrieved, then the weapon is contested until the end of combat. It becomes uncontested during the next appropriate unlock phase. [TOM 19951212-1]
   - The weapon is burned or returned to the library if it is still in play, even if it is not on the minion anymore (eg. {Rowan Ring}, {Wooden Stake}). [LSJ 20001019]
+100937|Horseshoes:
+  - If used on an ally and it burns as a result, this counts as a Ⓓ action burning an ally (eg. Trophies, {Predator's Transformation}). [ANK 20220507]
 100938|Hospital Food:
   - The action is successful even if no blood is gained. [LSJ 20050720-2]
 100939|Hostile Takeover:
@@ -1342,7 +1350,7 @@
   - 'When used as a strike, it does not burn if combat ends before it resolves (eg. if the opponent uses a "strike: combat ends"). [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]'
 101021|Jar the Soul:
   - "Does not damage vampires: an empty vampire will simply attempt to burn blood and fail. [TOM 19951212-2]"
-  - If an ally is targeted, it will only be locked - it will not lose a life even if the superior version is used. [RTR 19971201]
+  - "[SER] If it burns an ally as a result, this counts as a Ⓓ action burning an ally (eg. Trophies, {Predator's Transformation}). [ANK 20220507]"
 101023|The Jones:
   - "[ser] The press can only be used during the current round. [TOM 19960521]"
   - '[SER] Cards are not replaced during the "as played" window. [LSJ 20061013]'
@@ -1893,6 +1901,7 @@
   - "[AUS] The prevention does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010819-2]"
   - "[AUS] The prevention is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 101479|Predator's Transformation:
+  - "[abo] [ACTION MODIFIER] Any Ⓓ action that ends up burning an ally counts as a Ⓓ action burning an ally (eg. {Horseshoes}). [ANK 20220507]"
   - '[abo] [ACTION MODIFIER] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
 101481|Pressing Flesh:
   - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
@@ -2332,6 +2341,8 @@
   - This is an "equip action" [TOM 19960130]
 101807|The Slow Withering:
   - The additional cost is paid at the same time the normal cost is paid. [ANK 20190625]
+101809|Smash and Grab:
+  - "[ani] If used on an ally and it burns as a result, this counts as a Ⓓ action burning an ally (eg. Trophies, {Predator's Transformation}). [ANK 20220507]"
 101811|Smiling Jack, The Anarch:
   - Each other player must burn a pool or a vampire blood for each counter on Jack. Failing to burn a blood from an empty vampire will not lessen the obligation. [LSJ 19971212]
   - Other Methuselah can pay with any combination of pool and different vampires to meet the total number of counters. [ANK 20181006]
@@ -2455,6 +2466,7 @@
   - The dodge part protects from the opponent's strike (even if done with First Strike), the hand strike part inflicts damage during the normal strike resolution. [ANK 20180913-1]
 101892|Succubus:
   - Can use her action on a vampire with no blood. [RTR 20010711]
+  - If she steals a life from an ally and it burns, this counts as a Ⓓ action burning an ally (eg. for Trophies). [ANK 20220507]
 101894|Succulent Vitae:
   - "[QUI] The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
