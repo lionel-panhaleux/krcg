@@ -1219,14 +1219,13 @@
 100951|Illegal Search and Seizure:
   - A weapon's "current damage" is the amount of damage that it would inflict if used as a strike by the bearer against a generic opponent. [RTR 19980623]
 100954|Illusions of the Kindred:
-  - If the combat continues nonetheless, the card has no effect (no crypt card is drawn, no new combat occurs afterwards). [RTR 20020501]
-  - Queues a combat. No other combat can be queued afterwards. [LSJ 19971003]
+  - If the combat continues nonetheless (eg. {Telepathic Tracking}), the card has no effect (no crypt card is drawn, no new combat occurs afterwards). [RTR 20020501]
+  - Queues a combat. No other combat can be queued afterwards (eg. {Psyche!} cannot be used). [LSJ 19971003]
   - Cannot be used if there is already another combat queued. [RTR 20020501]
   - Cannot be played when your crypt is empty. [RTR 20000501]
   - If the illusionary vampire does not enter combat, then he or she is removed from the game at the end of the current action. [LSJ 19991110]
-  - If the illusionary vampire is burned in combat, the acting Methuselah chooses whether he is sent to the ash heap or removed from the game. [RTR 20001020]
-  - If the illusionary vampire is burned via blood hunt referendum (because it played {Amaranth}) in the combat, it goes to the ash heap and cannot be removed from the game. [PIB 20110810]
-  - Even if he has the same name as a vampire in play, the illusonary vampire is considered another vampire for all purposes. [LSJ 20100213]
+  - If the illusionary vampire is burned in combat (aggravated damage or blood hunt referendum after an {Amaranth}), it goes to the ash heap and cannot be removed from the game. [PIB 20110810]
+  - Even if he has the same name as a vampire in play, the illusonary vampire is considered another vampire for all purposes (eg. {Jimmy Dunn}'s ability does not trigger). [LSJ 20100213] [LSJ 19991110]
   - If the illusionary vampire has a title, he can use the votes (eg. in a Blood Hunt referendum) even if there is another instance of the title in play. [LSJ 20030419]
   - If the card drawn is an imbued, the imbued would briefly come into play, become incapacitated, and then be removed from the game. [LSJ 20060323]
   - If the vampire playing it goes to torpor (eg. {Outside the Hourglass}), the new combat still occurs. [ANK 20180104]
