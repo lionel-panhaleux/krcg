@@ -3504,3 +3504,5 @@
   - If her ability makes a bleed mandatory but she has performed a bleed already this turn, she is stuck and cannot act. [ANK 20211009-2]
 201627|Evan Klein (G6):
   - Actions from minions of the same controller targeting him are undirected, so they are not affected by his ability. [LSJ 20030214-2]
+200590|Henry Taylor (G3):
+  - A card with multiple types (eg. {Swallowed by the Night}) needs to have been played as a combat card to be eligible. [LSJ 20031221]
