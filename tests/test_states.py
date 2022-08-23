@@ -147,7 +147,7 @@ def test_multiple_rulings():
             "Choose two ready Toreador you control, put this card in play, "
             "and lock one of the two. The locked Toreador does not unlock as "
             "normal. The other Toreador's non-bleed actions cannot be "
-            "blocked. Any minion can burn this card as a Ⓓ action; Nosferatu "
+            "blocked. Minions can burn this card as a Ⓓ action; Nosferatu "
             "get -1 stealth during that action."
         ),
         "clans": ["Toreador"],
@@ -196,6 +196,9 @@ def test_multiple_rulings():
             "Keepers of Tradition": [
                 {"rarity": "Uncommon", "release_date": "2008-11-19"}
             ],
+            "New Blood": [
+                {"copies": 4, "precon": "Toreador", "release_date": "2022-04-17"}
+            ],
         },
         "scans": {
             "Camarilla Edition": (
@@ -211,6 +214,9 @@ def test_multiple_rulings():
             "Keepers of Tradition": (
                 "https://static.krcg.org/card/set/"
                 "keepers-of-tradition/toreadorgrandball.jpg"
+            ),
+            "New Blood": (
+                "https://static.krcg.org/card/set/" "new-blood/toreadorgrandball.jpg"
             ),
         },
         "types": ["Master"],

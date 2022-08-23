@@ -2007,7 +2007,7 @@
 101561|Reality Mirror:
   - Cannot be used to bypass restrictions (like Clan restriction or any other play restriction). [LSJ 20020426]
 101563|Reanimated Corpse:
-  - Looses all its pathos counters if it is burned. If it is brought back with X being zero (eg. {Compel the Spirit}), it has no pathos counter and burns immediately.
+  - Looses all its pathos counters if it is burned. If it is brought back with X being zero (eg. {Compel the Spirit}), it has no pathos counter and burns immediately. [LSJ 20071015]
 101565|Rebirth:
   - Cannot be used following an {Amaranth} or an {Abactor} as they are not diablerie actions. [ANK 20190701]
 101567|Reckless Agitation:
@@ -3435,12 +3435,11 @@
   - When contesting her, the new copy provides 4 pool, then the old copy is removed from the game (for leaving play due to contest). The new copy remains face down, out-of-play, ready to be turned face up during her next unlock phase. [LSJ 20070829-2]
 201310|Spiridonas (G2):
   - "His special ability is treated as an action modifier as far as timing goes: it can be used after the block attempts are concluded. [SFC 19960819]"
-201326|Sundown (ADV):
-  - "[MERGED] Can use his ability while locked. [ANK 20220705]"
 201326|Sundown (G3 ADV):
   - "[MERGED] His ability to force a vampire to abstain applies to Priscus votes and ballots. [LSJ 19971001]"
   - "[MERGED] His ability to force a vampire to abstain can cancel the votes and ballots of the vampire. [LSJ 20100311]"
   - "[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
+  - "[MERGED] Can use his ability while locked. [ANK 20220705]"
 201327|Sutekh, The Dark God (G2):
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
 201331|Synesios (G2):
