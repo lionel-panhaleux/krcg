@@ -3319,6 +3319,8 @@
 201030|Nahir (G3):
   - The hand size is still +X if Nahir is in torpor. [ANK 20191218]
   - Can use her ability multiple times during the same master phase if there are multiple master phase actions. [ANK 20191218]
+201033|Nakhthorheb (G4):
+  - If the block succeeds and the blocking minion gets a corruption counter (eg. {Venenation}), Nakhthorheb is still blocked. [LSJ 20071021]
 201043|Neferu (G4):
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
   - Cannot use her ability to force an abstaining vampire to vote. [ANK 20190731]
