@@ -2431,9 +2431,10 @@
   - No reaction can be played afterwards to make the bleed unsuccessful and "beat" the Spying Mission. [TOM 19960303] [TOM 19960226-2]
   - Once in play, it must be burned on the next successful bleed against the same Methuselah, it cannot be used to increase an unsuccesful bleed of zero. [TOM 19950620]
   - The bleed it is played on is considered unsuccessful. Previous Spying Missions won't trigger during that action. [RTR 19960530]
-  - "{Archon Investigation} cannot be played after a Spying Mission is burned for +2 bleed, since the bleed is already resolved at that point. [LSJ 19980105]"
-  - '{Mask of a Thousand Faces} cannot be played after playing a superior Spying Mission because Spying Mission is played "when the action resolves". [LSJ 19980105]'
+  - "{Archon Investigation} cannot be played after a Spying Mission is burned for +2 bleed, since the bleed is about to resolve at that point. [LSJ 19980105]"
+  - '{Mask of a Thousand Faces} cannot be played after playing a superior Spying Mission because Spying Mission is played "when the action would resolve". [LSJ 19980105]'
   - Is played when a bleed would be successful, before resolution. [LSJ 20110502]
+  - If it is cancelled (eg. {Direct Intervention}), it is too late for the target to play reactions. If the cost of the cancellation ousts a player, handle the oust before resolving the bleed. [LSJ 20050607] [LSJ 20050608]
 101858|Squirrel Balance:
   - '[cel] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
   - "[cel] Replace the action card (if any) before playing it. [ANK 20181208]"
