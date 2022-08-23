@@ -472,16 +472,17 @@
   - "[aus][pre] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Adana de Sforza}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 100334|Charming Lobby:
   - During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]
-  - A bloodhunt vote does not qualify. [TOM 19950921]
   - The next referendum (passing automatically) can be called by another Methuselah's vampire. [PIB 20110719]
   - Cannot be used on effects that allow to play a political action card "as if from hand" (eg. {Echo of Harmonies}) [ANK 20201029]
-  - "If used on a political action card in hand, that card must be announced and in hand when Charming Lobby is played, before it is replaced, but need not to be shown: it can be kept apart face down. [ANK 20180925-2] [LSJ 20101210] [LSJ 20100130]"
+  - "If used on a political action card in hand, that card must be announced and in hand when Charming Lobby is played, before it is replaced, but need not to be shown: it can be kept apart face down. If the action is canceled or failed, the political action card stays in hand. [ANK 20220704] [ANK 20180925-2] [LSJ 20101210] [LSJ 20100130]"
+  - If used on a political action card in hand, that card is considered "played" when the action reaches successful resolution and provides its inherent vote. [ANK 20220704]
   - If used on a political action card in hand, that card cannot be canceled as it is played (eg. by {Direct Intervention}). [LSJ 20090113-3]
   - If {Delaying Tactics} is used, the chosen political action card (if any) goes back into its owner's hand, and other minions are forbidden to perform Charming Lobby. [ANK 20201029-2] [LSJ 20030426]
-  - The requirements and cost of the political action card (if any) apply. If the cost is X, X is chosen at resolution. [LSJ 20100819]
+  - The requirements and cost of the political action card (if any) apply. If the cost is X, X is chosen at resolution. [ANK 20220704] [LSJ 20100819]
   - The cost of the political action card (if any) is not a cost of the action (eg. {Ravnos Carnival} cannot be used to pay it). [LSJ 20091021]
+  - A bloodhunt referendum following a diablerie is not a referendum called by a vampire. [TOM 19950921]
   - If played by an ally "as a vampire", they can call a referendum listed on a political action card in hand. [RTR 20020501]
-  - Is a political action but not a "political action card" [POLITICAL ACTION] (eg. {Luna Giovanni}'s ability cannot target it, it cannot be discarded for a vote). [LSJ 20070927] [LSJ 20050407]
+  - Is a political action but not a "political action card" [POLITICAL ACTION] (eg. {Luna Giovanni}'s ability cannot target it, it cannot be discarded for a vote). [ANK 20220704][LSJ 20070927] [LSJ 20050407]
 100335|Charnas the Imp:
   - Does nothing to an empty vampire which unlocks in torpor. [RTR 19941109]
   - Cannot be damaged by host, but does not stop host from using effects which would normally damage it. [RTR 19941109]
