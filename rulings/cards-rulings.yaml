@@ -1889,6 +1889,8 @@
   - Cannot be played during combat. [LSJ 20080618]
   - Cannot be used to cancel an action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]
   - Other reaction cards (eg. wake effects) cannot be used if there is no action. [PIB 20120808]
+  - If used to cancel an action, the action is not performed in respect to section 3 of the rules. [LSJ 19980212]
+  - If used to cancel a limited effect (bleed, additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]
 101429|Power of One:
   - "[pre] Can only be used during a bleed action. [ANK 20171023] [RTR 19941109]"
   - "[pot] A limited bleed modifier can be played before or after. [LSJ 20100218] [RTR 20180511-2]"
