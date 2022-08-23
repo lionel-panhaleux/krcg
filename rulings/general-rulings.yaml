@@ -583,6 +583,28 @@
     - "101467|Praxis Seizure: Paris"
     - "101468|Praxis Seizure: Rome"
     - "101470|Praxis Seizure: Stockholm"
+- ruling: The ability can be used while locked or in torpor, only once per referendum. [ANK 20220705] [LSJ 20100705] [LSJ 20011022] [LSJ 20100902-2] [ANK 20180307-2] [RBK 20200701-4]
+  cards:
+    - 200763|Kateline Nadasdy (G4)
+    - 200065|Amaravati (G4)
+    - 200417|Ellison Humboldt (G3)
+    - 201043|Neferu (G4)
+    - 200455|Fakir al Sidi (G4)
+    - 200136|Arishat (G6)
+- ruling: The ability can be used while locked, only once per referendum. [ANK 20220705]
+  cards:
+    - 201314|Stefano Giovanni (G2)
+    - 201325|Sundown (G3)
+    - 200317|Danielle Diron (G3 ADV)
+    - 200724|Joseph O'Grady (G3)
+    - 201529|Alexa Draper (G6)
+    - 200426|Enzo Giovanni, Pentex Board of Directors (G2 ADV)
+    - 200030|Aisha az-Zahra (G5)
+    - 200377|Dr. John Dee (G4)
+    - 201170|Rebekah (G3)
+    - 200187|Bela Kardoza (G4)
+    - 200535|Gravitnir (G4)
+    - 200885|Luna Giovanni (G5)
 
 # ######################################################################################################### locquipments
 
