@@ -344,6 +344,7 @@
   - Is not affected by a {Dark Influences} in play. [LSJ 20081120-2]
 100245|Brainwash:
   - Only transfers are forbidden, other mouvements are not affected (eg. {Govern the Unaligned} at superior [DOM]). The vampire can become controlled if it reaches capacity, Brainwash stays on it (if {Banishment} is used, the effect resumes). [LSJ 20010211]
+  - You can only target a vampire by position, the target Methuselah can shuffle their crypt. If you have no clue (tokens, cards) about a previously revealed vampire's position, you have to take a bet. In case multiple copies of the same vampire are subject to different effects, the controller must track them, but they can do it secretly (eg. {Banishment} was used on one that would benefit from {The Rack} if controlled again). [LSJ 20040728]
 100250|Breath of the Dragon:
   - Damage done to the striking minion is environmental. [LSJ 19970801]
 100253|Brick Laying:
@@ -1856,6 +1857,8 @@
   - "The cards are replaced before unlocking cards: other unlock effects cannot be ordered before. [ANK 20200129] [LSJ 20091208]"
 101422|The Portrait:
   - If the revealed vampire is between 7 and 10 capacity and the acting vampire has bled this turn already, he simply unlocks and the remainder of the effect is lost. [LSJ 20021118]
+101423|Possession:
+  - Any continuous effect having been applied to the vampire before is lost when they go in the ash heap. [LSJ 20040726]
 101425|Potio Martyrium:
   - Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]
   - The damage is done during combat, the opponent can use combat cards to prevent it. [LSJ 20100205]
