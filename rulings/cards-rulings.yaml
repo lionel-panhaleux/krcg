@@ -642,7 +642,7 @@
   - '[MYT] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
 100497|Darkness Within:
   - 'The blood is removed during strike resolution, before mending damage. It is not removed if a "strike: combat ends" resolves. [LSJ 20051123]'
-  - The effect is ordered against other steal blood effects by the acting minion's controller. [LSJ 20020301]
+  - The effect is ordered against steal blood effects (eg. {Theft of Vitae}) by the acting minion's controller. [LSJ 20020301]
 100499|Dartmoor, England:
   - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 100501|Dawn Operation:
@@ -2623,7 +2623,7 @@
   - If your prey cannot afford to contest, she pays what she has, she is ousted, and you still yield. [RTR 20010710]
 101966|Theft of Vitae:
   - Can target a minion with less blood or life than the amount stolen. [RTR 20010711]
-  - "If both opponents play Theft of Vitae, they resolve simultaneously: blood amounts are adjusted by the total of gain and loss and no blood wear off. [ANK 20200123]"
+  - "If both opponents play Theft of Vitae, they resolve simultaneously: blood amounts are adjusted by the total of gain and loss and no blood wear off. [ANK 20200123] [LSJ 20041027]"
 101968|Therbold Realty:
   - The reduction applies to equipments that are locations (eg. {Palatial Estate}). [LSJ 20080107]
 101969|Thicker than Blood:
