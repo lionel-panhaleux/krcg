@@ -1380,8 +1380,9 @@
   - Prevents up to 2 damage from gun strikes, it can be used to prevent less. [RTR 20041202]
   - Can be used to prevent the damage from two separated gun strikes doing one damage each. [LSJ 20081210]
 101041|Keystone Kine:
-  - "[obf] the ally is chosen at action resolution (not declaration). [LSJ 20080608]"
-  - "[obf] this counts as a Ⓓ action burning the ally (eg. for trophies). [LSJ 20080608]"
+  - "[obf] The ally is chosen at action resolution (not declaration). [LSJ 20080608]"
+  - "[obf] This counts as a Ⓓ action burning the ally (eg. for trophies). [LSJ 20080608]"
+  - "[obf] The cost of an imbued is their starting life (cost to influence). Note this is not a cost to recruit (see {Kindred Segregation}). [ANK 20220528]"
 "101044|The Khabar: Honor":
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101046|Khazar's Diary (Endless Night):
