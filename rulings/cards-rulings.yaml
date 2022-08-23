@@ -2676,6 +2676,7 @@
   - "[THN] Environmental damage do not qualify, only damage inflicted by the acting vampire. [ANK 20200517]"
 102012|Trap:
   - The provided press must be handled first. Another press cannot be used to continue (eg. {Boxed In}) if there's already a press to continue. [ANK 20200525-1]
+  - A minion that cannot play or use presses (eg. {Mukhtar Bey}) can play it and does provide the presses, the minion is not the one pressing. [LSJ 20040521]
 102013|Travelers Obey the Tenets:
   - The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]
 102014|Treachery:
@@ -3561,3 +3562,5 @@
   - If her ability makes a bleed mandatory but she has performed a bleed already this turn, she is stuck and cannot act. [ANK 20211009-2]
 201627|Evan Klein (G6):
   - Actions from minions of the same controller targeting him are undirected, so they are not affected by his ability. [LSJ 20030214-2]
+201021|Mukhtar Bey (G4):
+  - He can play {Trap} and it provides presses. [LSJ 20040521]
