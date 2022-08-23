@@ -1182,6 +1182,8 @@
   - You need two ready vampires to gain blood. [PIB 20130221]
 100872|Guru:
   - The blood is gained after the referendum effects are applied. [LSJ 20090115-2]
+100876|Hackerspace:
+  - A counter is added when {Anarch Convert} enters play, before using his ability. If he uses his ability to make a non-anarch vampire anarch, a second counter is added. [ANK 20210410]
 100878|Hall of Hades' Court:
   - '[tem] [ACTION MODIFIER][REACTION] Cards are not replaced during the "as played" window. [LSJ 20061013]'
   - '[tem] [ACTION MODIFIER][REACTION] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
