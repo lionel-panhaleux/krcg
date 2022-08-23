@@ -522,6 +522,7 @@
 100377|Collapse the Arches:
   - "[tha] The press can only be used during the current round. [TOM 19960521]"
 100378|Coma:
+  - The opponent is wounded (if they play {Undying Tenacity}, they go to torpor after combat). [LSJ 20090622-2]
   - '[DEM] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]'
 100381|Command of the Beast:
   - "[DOM] A limited bleed modifier can be played before or after. [LSJ 20100218] [RTR 20180511-2]"
@@ -860,6 +861,8 @@
 100650|Enticement:
   - Is directed at your prey. [LSJ 20010807]
   - If the edge is lost during the action (eg. {High Priest Angra Mainyu}), the prey takes no damage but you still cannot bleed anymore this turn. [LSJ 20100527]
+100651|Entombment:
+  - "[OBT] The opponent is wounded (if they play {Undying Tenacity}, they go to torpor after combat). [LSJ 20090622-2]"
 100656|The Erciyes Fragments:
   - Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]
   - If used to play a political action and {Delaying Tactics} is played, the political action card goes to its owner's hand. [LSJ 20050322]
@@ -2148,6 +2151,7 @@
 101655|Rowan Ring:
   - Adding damage to the Ring strike will not deal damage. [RTR 19960221]
   - 'Only usable at close range. Damage prevention cannot be used against it, but dodge and "strike: combat ends" will avoid the effect. [LSJ 19980219]'
+  - If the strike is inflicted, the opponent is wounded (if they play {Undying Tenacity}, they go to torpor after combat). [LSJ 20090622-2]
   - If placed on a minion that cannot have equipment, the Ring is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]
   - The "does not unlock as normal" effect continues to apply if the Ring is burned or moved. [LSJ 19980831]
 101658|Ruins of Ceoris:
