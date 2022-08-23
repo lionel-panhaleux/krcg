@@ -2384,7 +2384,7 @@
   - When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
   - The bearer is not commited to use it if he or she uses another effect to set the range. [RTR 20020501]
   - If a new combat occurs due to an effect like {Psyche!}, the Rifle can not be used to set the range. [LSJ 20010814]
-  - If a Slave locks to enter combat instead of a blocking minion, he cannot use the Rifle to set the range [ANK 20200115]
+  - If a Slave locks to enter combat instead of a blocked minion, the opponent cannot use the Rifle to set the range [ANK 20200115]
   - The ability to set the range can only be used if the weapon was equipped when blocking (eg. not when using {Disguised Weapon} after the block). [LSJ 20021028]
 101817|Soak:
   - Cannot be used if there is no damage to prevent. [LSJ 20001114]
