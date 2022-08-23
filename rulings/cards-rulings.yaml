@@ -385,6 +385,7 @@
   - "[NEC] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Bone}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 100280|Call the Great Beast:
   - The action to put a counter on the card is an action that requires Baali. [LSJ 20050112]
+  - The action to put the 11th counter on it is an action to put a vampire into play, a sterile vampire cannot do it (eg. {Blood Cult Awareness Network} gives it -1 stealth). [LSJ 20060815] [LSJ 20011212]
 100281|Call the Lamprey:
   - "[OBT] Can be played against a vampire with no blood. [RTR 20010711]"
 100282|Call the Wild Hunt:
@@ -2859,7 +2860,7 @@
   - The minion can play other pre-range effects before applying the damage and opening the damage prevention window, but he has to apply damage before passing the opportunity to play effects to the next player. [ANK 20170930]
   - Both minions have the opportunity to play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]
 102165|Web of Knives Recruit:
-  - It is not an action to put a vampire in play. [LSJ 20060616-2]
+  - It is not an action to put a vampire in play (eg. {Blood Cult Awareness Network} does not give it -1 stealth). [LSJ 20060616-2]
 102166|Week of Nightmares:
   - Ravnos can target a Ravnos with no blood with the +1 stealth hunt action. [RTR 20010711]
   - Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606] [ANK 20190707]
