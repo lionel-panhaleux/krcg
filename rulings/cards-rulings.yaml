@@ -699,6 +699,7 @@
   - Cards and effects targeting the vampire (eg. {The Rack}) will resume if and when the vampire comes back into play. [TOM 19960211] [LSJ 20010809-2] [LSJ 20010809-3] [LSJ 20060908]
 100532|Detect Authority:
   - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [RTR 20180719]"
+  - "[ani] Not usable against actions targeting an equipment or retainer, they do not target the minion. [LSJ 20090324]"
 100534|Determine:
   - Cannot be used to cancel an action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]
   - If used to cancel a card that had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
@@ -1116,6 +1117,8 @@
   - Is not the default action, no blood is paid to become Anarch. [ANK 20181017]
   - Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
+100841|Goblinism:
+  - "[pot] The action is directed at the Methuselah controlling the location, undirected if you control it. [RBK 20200701-9] [LSJ 20090324]"
 100843|Goodnight, Sweet Prince:
   - Can be used on your own crypt. [TOM 19960419]
 100844|Goth Band:
@@ -1189,6 +1192,8 @@
   - The block needs to be successful, so the blocking minion is locked. [ANK 20190708]
 100892|Hatchling:
   - The created vampire is not unique. [LSJ 20100221]
+100893|Haunt:
+  - "[NEC] The action is directed at the Methuselah controlling the location, undirected if you control it. [RBK 20200701-9] [LSJ 20090324]"
 100896|Haven Hunting:
   - Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]
   - Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]

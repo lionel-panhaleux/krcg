@@ -549,6 +549,18 @@
     - 200166|Barbaro Lucchese (G3)
     - 201451|Virgil (G2)
     - 201454|Virstania, The Great Mother (G3)
+- ruling: "An action directed at a card controlled by another Methuselah is directed at that Methuselah. [RBK 20200701-9] [LSJ 20090324]"
+  cards:
+    - 100094|Arson
+    - 100233|Bomb
+    - 100259|The Bruisers
+    - 100391|Conceal
+    - 100719|Felix "Fix" Hessian
+    - 101301|Nosferatu Performance Art
+    - 101324|Open War
+    - 101632|Rewilding
+    - 101809|Smash and Grab
+    - 102193|The World's a Canvas
 
 # ######################################################################################################### locquipments
 
