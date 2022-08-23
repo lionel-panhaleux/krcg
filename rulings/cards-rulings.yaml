@@ -861,6 +861,7 @@
   - Can be used at any moment during the influence phase to get the additional transfer. [RTR 20180303]
 100647|Enrage:
   - "[PRE] If the vampire cannot burn 2 blood, he cannot attempt an action other than hunt or enter combat. [ANK 20180327]"
+  - "[PRE] If the vampire it is on attempts an action and it is canceled (eg. {Direct Intervention}) they do not burn 2 blood. [LSJ 20090208]"
 100648|Ensconced:
   - "[VIS][REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
   - "[VIS][REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]"
