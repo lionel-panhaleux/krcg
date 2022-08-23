@@ -2399,9 +2399,10 @@
 101848|Spirit Marionette:
   - "[OBE] Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]"
   - "[OBE] The mandatory bleed action must be performed before any non-mandatory actions. [LSJ 20011216-2]"
+  - "[OBE] The mandatory bleed can be performed by playing a card (eg. {Computer Hacking}). [LSJ 20021121-2]"
   - "[OBE] If the bleed is canceled, the vampire still returns to its original controller. [RTR 20020501]"
   - '[OBE] "After resolution" effects are applied before the target vampire is returned to his or her previous controller. [LSJ 20030219]'
-  - "[OBE] The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]"
+  - "[OBE] The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121] [LSJ 20021122-3]"
   - "[OBE] The minion is removed from the game when he should return to a Methuselah who has been ousted. [ANK 20181110]"
 101850|Spirit's Touch:
   - "[AUS] The maneuver can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
