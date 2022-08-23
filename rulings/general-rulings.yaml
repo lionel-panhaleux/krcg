@@ -561,6 +561,28 @@
     - 101632|Rewilding
     - 101809|Smash and Grab
     - 102193|The World's a Canvas
+- ruling: "Counts as requiring an Anarch (for eg. {Powerbase: Los Angeles}). [LSJ 20080603] [LSJ 20050128]"
+  cards:
+    - 100320|Chameleon
+    - 101324|Open War
+    - 101377|Patsy
+    - 101631|Revolutionary Council
+    - 101915|Sweeper
+    - 102218|Bait and Switch
+    - 102230|Organized Resistance
+- ruling: The additional capacity is lost if the title is lost. [TOM 19960210]
+  cards:
+    - "101448|Praxis Seizure: Athens"
+    - "101450|Praxis Seizure: Barcelona"
+    - "101451|Praxis Seizure: Berlin"
+    - "101453|Praxis Seizure: Brussels"
+    - "101454|Praxis Seizure: Cairo"
+    - "101460|Praxis Seizure: Geneva"
+    - "101461|Praxis Seizure: Glasgow"
+    - "101466|Praxis Seizure: Monaco"
+    - "101467|Praxis Seizure: Paris"
+    - "101468|Praxis Seizure: Rome"
+    - "101470|Praxis Seizure: Stockholm"
 
 # ######################################################################################################### locquipments
 
