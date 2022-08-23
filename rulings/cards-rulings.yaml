@@ -1560,6 +1560,8 @@
   - During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]
 101158|Malkavian Time Auction:
   - Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]
+  - Bidding continues until noone wants to bid. You do not participate in the bid. [LSJ 20030604]
+  - If an equipment, retainer or location on a minion changes controller, the new controller chooses a new target they control for them. [LSJ 20030606]
 101159|Malleable Visage:
   - Does not change the acting minion (for purposes of the "No Repeat Actions" rule, among other things) and may be played by a minion who is not capable of taking the action. [LSJ 20011023] [RTR 20020501]
   - Requires a ready, unlocked vampire. [RTR 20010710]
@@ -2141,7 +2143,7 @@
 101654|Rötschreck:
   - Is played on the vampire that would receive the aggravated damage. [RTR 19980623]
   - Can only be played after declaration of a strike, before resolution. It can be played before or after the opponent's strike is announced. [LSJ 19990217] [RTR 20041202]
-  - Cannot be played if a non-strike effect would inflict aggravated damage (eg. {Outside the Hourglass} with {Domain of Evernnight}). REVERSAL of a 2011 ruling. [ANK 20220114]
+  - Cannot be played if a non-strike effect would inflict aggravated damage (eg. {Outside the Hourglass} with {Domain of Evernight}). REVERSAL of a 2011 ruling. [ANK 20220114]
   - Cannot be played if the damage is not effective at the current range [RTR 19980928] [ANK 20211102]
   - "Can be played and is effective even if the opponent has announced a Strike: Dodge or Strike: Combat Ends. [LSJ 20011005] [ANK 20211102]"
   - Can be played and is effective even if the opponent treats aggravated damage as normal. [ANK 20200130-1]
