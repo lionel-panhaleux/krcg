@@ -3103,6 +3103,8 @@
   - The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2] [PIB 20110918]
 200498|Gem Ghastly (G5):
   - When playing a card requiring a Ventrue, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]
+200501|Genevieve (G2):
+  - Her votes and ballots must be cast on the same side (for or against). [RBK 20200701-8] [LSJ 20051113-2]
 200503|Gengis (G3 ADV):
   - "[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
 200508|Gerald Windham (G5):
@@ -3113,6 +3115,7 @@
   - "[MERGED] Is Camarilla. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 200534|Gratiano (G2):
   - If {Fall of the Sabbat} is in play, Priscii do not benefit from their title and have no ballot. The Priscii subreferendum still happens and Gratiano benefits from his bonus ballot. [LSJ 20040519]
+  - His votes (if any) and ballots must be cast on the same side (for or against). [RBK 20200701-8] [LSJ 20051113-2]
 200545|Guillaume Giovanni (G4):
   - His ability is not triggered when playing a Unique Location for contest. [LSJ 20080107]
 200560|Hagar Stone (G5):
