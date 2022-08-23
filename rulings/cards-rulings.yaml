@@ -90,7 +90,6 @@
   - May be played after a block is successful before combat begins. [LSJ 20060410]
 100071|The Ankara Citadel, Turkey:
   - Concerning the cost of the cards, multiplications and divisions are applied first, followed by additions and substractions. [RTR 20070707]
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 100076|Apparition:
   - Can be played at any time in combat, even if there is no damage to prevent yet. [LSJ 20010315]
   - "[CHI] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
@@ -104,6 +103,8 @@
   - "[PRE] Must be played right after the reaction card to cancel is played. Another modifier cannot be played in between. [LSJ 20061207]"
 100080|Arcane Appraiser:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+100083|Arcanum Investigator:
+  - His action is directed against the Methuselah controlling the equipment, not the minion it's on. [LSJ 20090324]"
 100084|Archon:
   - If a vampire blocks an Archon, he or she burns 1 blood regardless of which action the Archon was taking. [RTR 19960221]
   - "Multiple Archon cards provide different actions: if the vampire manage to unlock during the minion phase, he can perform the two actions. [RTR 20030519]"
@@ -410,8 +411,6 @@
   - He can use his ability to burn a vampire who has committed diablerie the turn she is recruited. [ANK 20180517]
 100303|Carver's Meat Packing and Storage:
   - The effect to burn a hostage counter can be done only once per turn. [ANK 20200729] [RBK 20200701-4]
-100306|Catacombs:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 100307|Catatonic Fear:
   - "[PRE] Damage is done by the vampire (not environmental). [RTR 19970630] [LSJ 19990723]"
   - "[PRE] The damage is inflicted after the end of combat. [RTR 19970630]"
@@ -534,6 +533,8 @@
   - Cannot be used if the ally in the ash heap was representing something else while in play (eg. {Khazar's Diary (Endless Night)}). [LSJ 20071014]
 100389|Compress:
   - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+100391|Conceal:
+  - Is directed against the Methuselah controlling the equipment or location, not the minion it's on. [LSJ 20090324]
 100392|Concealed Weapon:
   - "The weapon must be announced and in hand when the card is played, before it is replaced, but need not to be shown: it can be kept apart face down. [LSJ 19991207] [ANK 20180925-2] [LSJ 20100130]"
   - A weapon's "current damage" is the amount of damage that it would inflict if used as a strike against a generic opponent. [RTR 19980623]
@@ -646,8 +647,6 @@
 100497|Darkness Within:
   - 'The blood is removed during strike resolution, before mending damage. It is not removed if a "strike: combat ends" resolves. [LSJ 20051123]'
   - The effect is ordered against steal blood effects (eg. {Theft of Vitae}) by the acting minion's controller. [LSJ 20020301]
-100499|Dartmoor, England:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 100501|Dawn Operation:
   - Only applies to damage done in combat, not damage done after combat like {Catatonic Fear}. [LSJ 20020314] [PIB 20130319]
   - Applies to environmental and retainer damage too. [PIB 20150603-1]
@@ -1137,6 +1136,8 @@
 100855|Gregory Winter:
   - Can use his action on a vampire with no blood. [RTR 20010711]
   - Is not mortal, is a monster. [ANK 20200203-2]
+100856|Gremlins:
+  - "[myt] Is directed against the Methuselah controlling the equipment, not the minion it's on. [LSJ 20090324]"
 100857|Grenade:
   - Damage done to the bearer is environmental. [LSJ 19970801]
   - Does not burn nor inflict damage if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]
@@ -1341,8 +1342,6 @@
 101000|Into the Fire:
   - Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
-101002|Inveraray, Scotland:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 101005|Invoke Poison Glands:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101008|Iron Glare:
@@ -1486,16 +1485,14 @@
   - Cannot be used by an ally acting "as a vampire". [ANK 20200605]
 101112|Liquidation:
   - Is not playable if you have less than 7 cards in your library. [LSJ 20070901]
-101114|Living Manse:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
-101117|Local 1111:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 101118|Lock:
   - Once in play, applies to an action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2] [KOT 20081119]
 101121|Loner:
   - Only considers the minions controlled during the influence phase. It does not care if minions you no longer control acted this turn. [LSJ 20060616-1]
 101123|Lord of Serenity:
   - "[for] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
+101124|Loss:
+  - "[qui] Is directed against the Methuselah controlling the equipment or location, not the minion it's on. [LSJ 20090324]"
 101126|Lost in Translation:
   - Must be played before action resolution, ie. before any modifier or reaction played "as the action/bleed would be successful" are played. It cannot be played after a {Spying Mission} on the vampire triggers. [LSJ 19980105]
   - "Can be played when failing to block because of stealth: it is still declining to block. [ANK 20211003]"
@@ -1519,8 +1516,6 @@
   - The action to burn it is directed at the Methuselah who controls the minion it is on. It is undirected if it is yourself. [LSJ 20010328]
 101134|Lure of the Serpent:
   - Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]
-101135|Lyndhurst Estate, New York:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 101136|Maabara:
   - All other players can see which card is selected from the ash heap. [ANK 20200523]
 101137|Machine Blitz:
@@ -1812,8 +1807,6 @@
   - The damage is applied even if the combat ends prematurely (eg. {Illusions of the Kindred}) [ANK 20180104] [LSJ 19971110]
 101342|Pack Alpha:
   - Requirements (clan, discipline) apply. [LSJ 20051207]
-101345|Palatial Estate:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 101348|Panacea:
   - "[aus] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Helena (ADV)}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 101349|Pandora's Whisper:
@@ -1844,8 +1837,6 @@
   - If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]
   - Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]
   - "[DEM] The press can only be used during the current round. [TOM 19960521]"
-101400|Pier 13, Port of Baltimore:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 101401|Piper:
   - When used to recruit an ally, the ally cannot act this turn. [LSJ 20080630] [RTR 20180303]
   - This is not an action, so cost reductions refering to an action like {Charisma} or {Erichtho} do not apply. [LSJ 20090115-1] [ANK 20170309]
@@ -1938,6 +1929,7 @@
   - "[qui] can target a vampire with no blood. [RTR 20010711]"
   - "[ser] can target a vampire with no blood.[RTR 20010711]"
   - "[ser] If the target unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]"
+  - "[aus] is directed against the Methuselah controlling the equipment, not the minion it's on. [LSJ 20090324]"
 101487|Priority Contract:
   - Can be burned to get 3 pool when a minion leaves the ready region because his controller is ousted. [ANK 20180129-2]
 101493|Projectile:
@@ -2158,12 +2150,8 @@
   - If the strike is inflicted, the opponent is wounded (if they play {Undying Tenacity}, they go to torpor after combat). [LSJ 20090622-2]
   - If placed on a minion that cannot have equipment, the Ring is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]
   - The "does not unlock as normal" effect continues to apply if the Ring is burned or moved. [LSJ 19980831]
-101658|Ruins of Ceoris:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 101659|Ruins of Charizel:
   - Only works when unlocking minions using their Infernal ability (eg. not with {Path of Evil Revelations} nor {Metro Underground}). [LSJ 20050228-2]
-101660|Ruins of Villers Abbey, Belgium:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 101664|Rutor's Hand:
   - If the vampire is stolen before "your next turn", the Hand will not allow the vampire an extra unlock until a Methuselah begins a turn with the vampire with the Hand under her control. [LSJ 20031106]
 101665|Saatet-ta:
@@ -2174,17 +2162,11 @@
   - The same vampire can be chosen multiple times if multiple copies are played. [LSJ 19970707]
 101668|Sabbat Threat:
   - You can gain pool from the Edge before burning it to remove the threat counters, and loose no pool to the threat counters. [TOM 19951214-1]
-101670|Sacré-Cœur Cathedral, France:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 101672|Sacrificial Lamb:
   - If the target has a {Soul Gem of Etrius}, the Gem effect applies and it cannot be transfered. [LSJ 19970516]
   - If the target does not burn (eg. {Byzar}'s ability) then no blood is gained and no equipment transfered. [LSJ 20100423]
 101675|Samuel Haight:
   - He cannot "steal equipment as a strike" if there is no equipment to steal. [RTR 19980928]
-101676|San Lorenzo de El Escorial, Spain:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
-101677|San Nicolás de los Servitas:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 101681|The Sargon Fragment:
   - When using the provided action, the card to retrieve must be named when declaring the action. [LSJ 20010627]
   - Upon resolution, any copy of the named card in the ash heap can be fetched. [LSJ 20050228]
@@ -2909,8 +2891,6 @@
 102183|Will-o'-the-Wisp:
   - '[CHI] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
   - "[CHI] Replace the action card (if any) before playing it. [ANK 20181208]"
-102184|Winchester Mansion:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 102190|Wolf Claws:
   - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike. Can be played after both strikes have been chosen. [RTR 19960112]"
 102192|Wooden Stake:
@@ -2937,8 +2917,6 @@
   - They may use their built-in action against a vampire with only 1 blood. If successful, that vampire burns his 1 blood. [LSJ 20070213]
   - If the target of their ability unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]
   - If they are burned by a strike, the blood gained from burning them is awarded after strike resolution (it cannot normally not be used to heal from their strike). [LSJ 20080212]
-102203|Zaire River Ferry:
-  - May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
 102204|Zapaderin:
   - Can only be played by the controller of the acting minion. [LSJ 19990425]
   - Multiple copies can be played by different minions on the same action. [ANK 20200515]
@@ -3002,6 +2980,7 @@
 200104|Annazir (G5):
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
   - He cannot perform the action provided by his ability twice in the same turn. [ANK 20220615]
+  - The action provided by his ability is directed against the Methuselah controlling the equipment or location, not the minion it's on. [LSJ 20090324]"
 200106|Anneke (G1):
   - Her ability only affects the rule restricting who gets to block an action. She must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 20020501] [LSJ 20041203]
 200135|Arika (G2):
