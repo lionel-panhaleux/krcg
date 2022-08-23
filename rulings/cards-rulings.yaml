@@ -589,6 +589,7 @@
   - If moved to the uncontrolled region, it continues to be a vampire and can be influenced. [RTR 19990712]
 100446|CrimethInc.:
   - Can be played if the action is unblocked even if it has no effect due to lack of a suitable target. [LSJ 20070411]
+  - An action requiring a Baron (eg. {Open War}) is an action requiring an Anarch. [LSJ 20080603] [LSJ 20050128]
 100449|The Crocodile Temple:
   - Cannot be used if the action ousted you. [ANK 20180326]
 100450|Crocodile's Tongue:
@@ -2812,6 +2813,8 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 102113|Vessel:
   - Can be used when the vampire is in torpor. [PIB 20150522]
+102118|Victim of Habit:
+  - You can lock the card to remove less than three copies, but then the prey does not burn pool. [LSJ 20050408-2]
 102120|Vigilance:
   - "[REACTION] [1 CONVICTION] Can be used only when reactions can be used (during an action). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
   - '[ACTION MODIFIER] Cards and effects that can be played "after resolution" (and only them) can be played after its use. [ANK 20190425]'
@@ -2996,6 +2999,7 @@
   - Her ability applies to all Toreadors, not just the ones in play at the time the action resolved. [LSJ 20030811]
 200104|Annazir (G5):
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
+  - He cannot perform the action provided by his ability twice in the same turn. [ANK 20220615]
 200106|Anneke (G1):
   - Her ability only affects the rule restricting who gets to block an action. She must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 20020501] [LSJ 20041203]
 200135|Arika (G2):
@@ -3207,6 +3211,7 @@
 200770|Kemintiri (G2 ADV):
   - "[MERGED] Keeps her title and votes if she changes sects. [LSJ 20010714]"
   - "[MERGED] When playing a card requiring Camarilla, Ventrue and/or justicar, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228] [LSJ 20101013]"
+  - "[MERGED] If she plays a political action requiring a Justicar, she is not seen as such by other cards or effects during the referendum (eg. if another vampire plays {Closed Session} and she's not Camarilla she will not be able to vote. If she plays it, she can vote). [LSJ 20050128-2]"
   - "[MERGED] Does not enable you to play master cards, it only enables her to play certain minion cards. [LSJ 20050721]"
   - "[MERGED] When considered a justicar, she is also implicitly considered Camarilla. [LSJ 20050128]"
 200773|Kephamos, High Priest of Marrakech (G2):
