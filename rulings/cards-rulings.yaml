@@ -2510,6 +2510,7 @@
 101897|Summon History:
   - Requirements do not apply. If the card is an ally, it can act this turn. [LSJ 20100204]
   - You must decide the value of X (blood cost) when playing the card. [LSJ 20100314]
+  - If used to fetch a card with a variable cost of X, X is zero (eg. {Reanimated Corpse}), whatever cost was announced and paid for Summon History. [PIB 20111101]
 101898|Summon Soul:
   - "[NEC] Is removed from play as part of the resolution, it cannot be retrieved by {Shroudsight}. [ANK 20170331]"
 101902|The Summoning:
