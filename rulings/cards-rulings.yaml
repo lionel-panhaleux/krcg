@@ -2257,7 +2257,7 @@
   - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
   - An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
-  - Cannot be used if a Slave locked to enter combat instead of the blocking minion. [ANK 20200114]
+  - "[OBF][POT][ACTION MODIFIER] Cannot be used by a Slave that entered combat instead of the acting minion. [ANK 20200114]"
   - "[OBF][POT][ACTION MODIFIER] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Adana de Sforza}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 101737|Shadow Court Satyr:
   - Cannot use an effect that requires two or more Disciplines. [LSJ 20021216]
