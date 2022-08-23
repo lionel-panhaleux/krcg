@@ -1318,7 +1318,7 @@
   - "[THA] Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]"
 100978|Infernal Familiar:
   - Can be used to meet one (not both) of the normal Discipline requirements of a multi-Discipline card. [LSJ 20011217]
-  - No counter is added if the vampire uses a game effect other than the Familiar to play a card that requires a Discipline he or she does not have. [RTR 20020501]
+  - No counter is added if the vampire uses another game effect (eg. {Ian Forestal}, another {Infernal Familiar}) to play a card that requires a Discipline they do not have. [RTR 20020501] [LSJ 20100517]
 100980|Infernal Pursuit:
   - "[CEL] The card you discard need not be one of the cards that you just drew. [TOM 19950924]"
   - "[CEL] If canceled as it is played, its effect is not applied and only one card is drawn as a replacement. [LSJ 20021022]"
