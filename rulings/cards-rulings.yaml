@@ -1064,6 +1064,8 @@
   - Only prevents the use of equipment after it is played - it will not cancel the effects of equipment used before it is played. [TOM 19960326]
 100793|From a Sinking Ship:
   - Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]
+100794|Frontal Assault:
+  - If you play more than one, you gain and loose pool for all of them (they stack). [LSJ 20061018]
 100798|Galaric's Legacy:
   - Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
