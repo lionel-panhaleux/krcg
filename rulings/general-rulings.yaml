@@ -773,29 +773,31 @@
 
 - ruling: "Is not a vampire in the ash heap (eg. {Possession} cannot be played on it). [LSJ 20020115]"
   cards:
-    - 101971|Thin-Blooded Seer
-    - "101973|Third Tradition: Progeny"
-    - "102035|Trophy: Progeny"
-    - 102046|Tumnimos
-    - 102159|Waters of Duat
     - 100010|Abomination
     - 100129|Bamba
     - 100147|The Becoming
     - 100256|Brother in Arms
+    - 100280|Call the Great Beast
     - 100441|Creation Rites
     - 100633|The Embrace
-- ruling: "If moved to the uncontrolled region (eg. by {Banishment}), it continues to be a vampire and can be influenced. [RTR 19990712]"
-  cards:
     - 101971|Thin-Blooded Seer
     - "101973|Third Tradition: Progeny"
     - "102035|Trophy: Progeny"
     - 102046|Tumnimos
     - 102159|Waters of Duat
+- ruling: "If moved to the uncontrolled region (eg. by {Banishment}), it continues to be a vampire and can be influenced. [RTR 19990712]"
+  cards:
     - 100010|Abomination
     - 100129|Bamba
     - 100256|Brother in Arms
+    - 100280|Call the Great Beast
     - 100441|Creation Rites
     - 100633|The Embrace
+    - 101971|Thin-Blooded Seer
+    - "101973|Third Tradition: Progeny"
+    - "102035|Trophy: Progeny"
+    - 102046|Tumnimos
+    - 102159|Waters of Duat
 
 # ################################################################################################################ mummy
 
