@@ -1507,6 +1507,8 @@
   - Is not playable if you have less than 7 cards in your library. [LSJ 20070901]
 101118|Lock:
   - Once in play, applies to an action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2] [KOT 20081119]
+101119|Loki's Gift:
+  - "[PRO] The blood burned is not affected by effects modifying the hunt amount (eg. {Ariadne}). [ANK 20220809]"
 101121|Loner:
   - Only considers the minions controlled during the influence phase. It does not care if minions you no longer control acted this turn. [LSJ 20060616-1]
 101123|Lord of Serenity:
