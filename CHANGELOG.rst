@@ -4,7 +4,7 @@ Changelog
 2.27 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Additional rulings
 
 
 2.26 (2022-08-23)
