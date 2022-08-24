@@ -2244,6 +2244,7 @@
 101731|Set's Curse:
   - Can be used on a target that cannot be burned (eg. {Ilomba}), but then it is not put into play. [ANK 20190422]
   - Can be used on a target that is shuffled in library after it is burned (eg. {Kherebutu}), both effects are applied normally. [ANK 20200813]
+  - Once in play, is an ally with a cost of zero. [LSJ 20080804]
 101733|Shackles of Enkidu:
   - If placed on a minion that cannot have equipment or weapon, the Shackles are burned. [LSJ 19980831]
   - '"The shackled minion" refers to the minion the card is placed upon (not the Gangrel the card is put on with the equip action). [TOM 19951212-2]'
