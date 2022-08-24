@@ -1929,6 +1929,7 @@
   - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
   - Requirements need not to be met. If the ally requires a discipline, the inferior version is used. If the cost is X (eg. {Reanimated Corpse}), X is zero. [LSJ 20071015] [LSJ 20100302-1]
   - Can be used on an Imbued, it comes back as a zombie ally and is not an Imbued anymore. It has no Creed and cannot use Virtues, nor does it get Convictions. [LSJ 20100211]
+  - A card burned while representing something else (eg. an ally raised by {Khazar's Diary (Endless Night)}) is not a valid target. [LSJ 20100325-2]
 101482|Preternatural Evasion:
   - "[CEL] The blood is burned when playing the card. [ANK 20200703-2]"
   - "[CEL] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Mitru the Hunter}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
