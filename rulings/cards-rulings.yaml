@@ -2050,8 +2050,6 @@
 101582|Reformation:
   - "[chi] Cannot be used if there is no equipment to destroy. [RTR 19980928]"
   - "[dom] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Salvador Garcia}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
-101587|Regent:
-  - It is a title card, so it is out of play if the title is contested, and the "enter combat" action is not usable when the card is not in play. [LSJ 20070808-2]
 101588|Rego Motum:
   - Prevents up to 2 or 4 damage, it can be used to prevent less. [RTR 20041202]
   - Cannot be used if there is no damage to prevent. [LSJ 20001114]

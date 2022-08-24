@@ -617,6 +617,15 @@
     - 201331|Synesios (G2)
     - 200618|Ibn Khaldun, Scholar (G4)
     - 200793|Krassimir (G2)
+- ruling: If the title is contested, the card is turned face down out of play and the provided action cannot be used. [LSJ 20070808-2]
+  cards:
+    - 101587|Regent
+    - "100712|Fee Stake: Boston"
+    - "100713|Fee Stake: Corte"
+    - "100714|Fee Stake: Los Angeles"
+    - "100715|Fee Stake: New York"
+    - "100716|Fee Stake: Perth"
+    - "100717|Fee Stake: Seattle"
 
 # ######################################################################################################### locquipments
 
