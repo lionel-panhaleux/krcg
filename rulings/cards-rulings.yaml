@@ -980,7 +980,8 @@
   - If it has been equipped or played already, an effect can still "put it into play" provided it is not an "equip" action (eg. {Kiss of Lachesis}, {Grasp the Ghostly}). [LSJ 20060209]
 100745|Flash Grenade:
   - If the opponent dodges, the "is locked and does not unlock as normal" effect do not apply, but it still burns. [RTR 20041202] [LSJ 20060808]
-  - 'If the combat continues or a new combat begins, the "is locked and does not unlock as normal" effect do not apply, but it still burns. [RTR 20020501] [LSJ 20040601], '
+  - 'If the combat continues or a new combat begins, the "is locked and does not unlock as normal" effect do not apply, but it still burns. [RTR 20020501] [LSJ 20040602], '
+  - If the opponent unlocks before combat ends (eg. {Majesty}), the Grenade locks them again after it ends. [LSJ 20040601]
   - 'Still burns when used if the opponent uses a "strike: combat ends" too. It does not if combat ends before strike resolution (eg. {Rötschreck}). [LSJ 20001127-2] [LSJ 20010806-1]'
 100747|Fleetness:
   - "[CEL] If the target unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]"
@@ -2359,7 +2360,7 @@
   - "[chi] The maneuver is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 101814|Smoke Grenade:
   - 'Still burns when used if the opponent uses a "strike: combat ends" too. It does not burn if combat ends before strike resolution (eg. {Rötschreck}). [LSJ 20001127-2] [LSJ 20010806-1]'
-  - Still burns if the combat continues or a new combat begins. [RTR 20020501] [LSJ 20040601]
+  - Still burns if the combat continues or a new combat begins. [RTR 20020501] [LSJ 20040602]
 101816|Sniper Rifle:
   - When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
   - The bearer is not commited to use it if he or she uses another effect to set the range. [RTR 20020501]
