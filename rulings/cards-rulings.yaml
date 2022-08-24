@@ -1415,7 +1415,7 @@
 101046|Khazar's Diary (Endless Night):
   - The action to put a minion from any ash heap into play is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
   - Wraiths minions can act the turn they are put into play. [LSJ 20080426]
-  - Minions put into play by the Diary go back to their owner's ash heap when burned. [PIB 20130128-2]
+  - Minions put into play by the Diary go back to their owner's ash heap when burned. They do not count has allies burned from play (eg. for {Pressing Flesh}). [PIB 20130128-2] [LSJ 20100325-2]
 101048|Khobar Towers, Al-Khubar:
   - If used on an ally with a cost of X, X pool are gained. The value of X is the one set when the ally was recruited . [ANK 20170716] [RTR 20020501]
   - The effect is ordered as the acting Methuselah wishes during his unlock phase (eg. can be used on {Nocturn} before it burns). [ANK 20170625]
