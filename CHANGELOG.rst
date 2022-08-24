@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.27 (unreleased)
+2.27 (2022-08-24)
 -----------------
 
 - Additional rulings
