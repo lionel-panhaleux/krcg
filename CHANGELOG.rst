@@ -4,7 +4,7 @@ Changelog
 2.28 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Add variants to crypt cards information (base, advanced, evolution)
 
 
 2.27 (2022-08-24)

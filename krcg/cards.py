@@ -281,6 +281,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.has_advanced = None  # same vampire appears as advanced in the same group
         self.has_evolution = None  # same vampire appears in a higher group
         self.is_evolution = None  # same vampire appears in a lower group
+        self.variants = {}  # variants of the same vampire (base, adv, evolution)
         self.name_variants = []  # variations you want to match when parsing a decklist
         self.rulings = {"text": [], "links": {}}
 
@@ -371,6 +372,18 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         if ret[-5:] == ", The":
             ret = "The " + ret[:-5]
         return ret.replace("(TM)", "™")
+
+    @property
+    @functools.lru_cache(1)
+    def _key(self) -> str:
+        """Used internally for advanced / evolutions / variants computations"""
+        if self.group == "ANY":
+            key = "ANY"
+        else:
+            key = f"G{self.group}"
+        if self.adv:
+            key += " ADV"
+        return key
 
     def get_suffix(self, minimal=False) -> str:
         suffixes = []
@@ -786,6 +799,7 @@ class CardMap(utils.FuzzyDict):
         - card.has_advanced
         - card.has_evolution
         - card.is_evolution
+        - card.variants
         """
         # first compute, for cards with same name (crypt cards only),
         # which were the one to appear first (first_group)
@@ -795,9 +809,12 @@ class CardMap(utils.FuzzyDict):
         same_name = {k: v for k, v in same_name.items() if len(v) > 1}
         for name, cards in same_name.items():
             groups = collections.defaultdict(list)
+            variants = {}
             for card in cards:
                 groups[card.group].append(card)
+                variants[card._key] = card.id
             groups = sorted(groups.items(), key=lambda a: a[0])
+
             for i, (_group, cards) in enumerate(groups):
                 if len(cards) > 1:
                     assert sum(bool(c.adv) for c in cards) == 1, "bad advanced mark"
@@ -808,6 +825,10 @@ class CardMap(utils.FuzzyDict):
                         card.has_evolution = True
                     if i > 0:
                         card.is_evolution = True
+                    card.variants = {
+                        k: v for k, v in variants.items() if k != card._key
+                    }
+
         # now compute variants - cards in first_group can omit the group suffix
         # advanced version can never omit the suffix
         for card in self:

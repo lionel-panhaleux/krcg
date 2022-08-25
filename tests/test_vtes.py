@@ -1111,6 +1111,43 @@ def test_vekn():
         "types",
         "url",
     }
+    assert test_vtes[201362].to_json() == {
+        "_name": "Theo Bell",
+        "artists": ["John Van Fleet"],
+        "capacity": 7,
+        "card_text": (
+            "Camarilla: Theo may enter combat with any ready minion "
+            "controlled by another Methuselah as a Ⓓ action. If you control "
+            "a ready prince or justicar, blood hunts cannot be called on "
+            "Theo."
+        ),
+        "clans": ["Brujah"],
+        "disciplines": ["cel", "dom", "pre", "POT"],
+        "group": "2",
+        "has_advanced": True,
+        "has_evolution": True,
+        "id": 201362,
+        "name": "Theo Bell (G2)",
+        "name_variants": ["Theo Bell"],
+        "printed_name": "Theo Bell",
+        "scans": {
+            "Camarilla Edition": (
+                "https://static.krcg.org/card/set/camarilla-edition/theobellg2.jpg"
+            ),
+            "Final Nights": (
+                "https://static.krcg.org/card/set/final-nights/theobellg2.jpg"
+            ),
+        },
+        "sets": {
+            "Camarilla Edition": [
+                {"copies": 1, "precon": "Brujah", "release_date": "2002-08-19"}
+            ],
+            "Final Nights": [{"rarity": "Uncommon", "release_date": "2001-06-11"}],
+        },
+        "types": ["Vampire"],
+        "url": "https://static.krcg.org/card/theobellg2.jpg",
+        "variants": {"G2 ADV": 201363, "G6": 201613},
+    }
 
 
 def test_dump():
