@@ -806,10 +806,11 @@
 100592|Dual Form:
   - "[PRO] A vampire's capacity can never be reduced below one. [RTR 19990712]"
   - "[PRO] The disciplines are copied when the action resolves, including any additional disciplines (eg. {Seal of Veddartha}). Disciplines gained after the action are not copied. [ANK 20170226]"
-  - "[PRO] The reudction in capacity happens first: the copy also has a reduced capacity. [LSJ 20050116]"
+  - "[PRO] Only the clan, sect, capacity and disciplines are copied. Titles and other traits like Infernal or Scarce are not. [LSJ 20050116]"
+  - "[PRO] The reduction in capacity happens first: the copy also has a reduced capacity. [LSJ 20050116]"
   - "[PRO] If one of the pair leaves the ready region, the other is burned. That burning of the other won't cause the first to burn. [LSJ 20050117]"
-  - "[PRO] If they are more than two Dual Forms of the same vampires, all the other are burned when one leaves the ready region, whatever chain they form. [LSJ 20050117]"
-  - "[PRO] If more than one go to torpor at the same time (eg. from {Edged Illusion}), the controller chooses which one he keeps. [LSJ 20050805]"
+  - "[PRO] If they are more than two Dual Forms of the same vampires, all the others are burned when one leaves the ready region, whatever chain they form. [LSJ 20050117]"
+  - "[PRO] If more than one go to torpor at the same time (eg. from {Edged Illusion}), the controller chooses which one they keep. [LSJ 20050805]"
   - "[PRO] The reduction in capacity is permanent, even if the Dual Form is burned. It still applies in the uncontrolled region if the vampire gets back into it. [LSJ 20051103]"
 100596|Dust to Dust:
   - The press and maneuver can only be used during the current round. [TOM 19960521]
