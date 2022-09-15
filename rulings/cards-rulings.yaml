@@ -265,9 +265,11 @@
   - "[val] Damage is environmental. [RTR 19970630]"
   - '[val] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
   - "[VAL] If dodged, there is no new combat. [LSJ 20051020]"
+  - "[VAL] Cannot be played against an ally. [PIB 20111105]"
   - "[VAL] In the new combat, the opponent goes first. [LSJ 20011214-3] [LSJ 20031212]"
   - "[VAL] Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]"
   - "[VAL] Cannot be used to start a new combat with a vampire on his way to torpor. [LSJ 20100604-1]"
+  - "[VAL] If both vampires play it, the acting Methuselah decides which resolves first. The other is lost. [PIB 20120225] [LSJ 20011215]"
   - "[ani] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
 100192|Blood Agony:
   - Must be played before strike resolution and damage prevention in order to affect the current strike (can be played after both strikes have been chosen). [RTR 19960112]
