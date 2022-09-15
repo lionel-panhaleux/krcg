@@ -1834,8 +1834,8 @@
   - Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
 101338|Outside the Hourglass:
-  - No other effect can be used before the damage prevention window, it begins immediately. [ANK 20170930]
-  - Both minions can play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]
+  - The damage is inflicted by the minion (not environmental). [PIB 20120426]
+  - Both minions can play prevention and non-prevention pre-range effects before mending the damage. If another pre-range damaging effect is played then, all damages are prevented and mended together. [ANK 20170930]
   - The damage is applied even if the combat ends prematurely (eg. {Illusions of the Kindred}) [ANK 20180104] [LSJ 19971110]
 101342|Pack Alpha:
   - Requirements (clan, discipline) apply. [LSJ 20051207]
@@ -2882,10 +2882,9 @@
 102162|Waxen Poetica:
   - 'Does not burn if combat ends before it resolves (eg. if the opponent uses a "strike: combat ends"). [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]'
 102164|Weather Control:
-  - Damage is environmental. [RTR 19970630]
-  - The damage is inflicted even if combat is subsequently ended before range (eg. by {Mariel, Lady Thunder}, {Alpha Glint}). [LSJ 19971110] [ANK 20190725]
-  - The minion can play other pre-range effects before applying the damage and opening the damage prevention window, but he has to apply damage before passing the opportunity to play effects to the next player. [ANK 20170930]
-  - Both minions have the opportunity to play prevention and non-prevention pre-range effects during the damage prevention window. [ANK 20170930]
+  - The damage is environmental. [RTR 19970630]
+  - The damage is applied even if the combat ends prematurely (eg. by {Mariel, Lady Thunder}, {Alpha Glint}). [LSJ 19971110] [ANK 20190725]
+  - Both minions have the opportunity to play prevention and non-prevention pre-range effects before mending the damage. If another pre-range damaging effect is played then, all damages are prevented and mended together. [ANK 20170930]
 102165|Web of Knives Recruit:
   - It is not an action to put a vampire in play (eg. {Blood Cult Awareness Network} does not give it -1 stealth). [LSJ 20060616-2]
 102166|Week of Nightmares:
