@@ -458,15 +458,6 @@
     - 201214|Ruxandra (G5)
     - 201273|Shahid (G4)
     - 201279|Sheela Na Gig (G5)
-- ruling: '"Before resolution" means after strikes have been declared but before they resolve. [RTR 19990105]'
-  cards:
-    - 100580|Dragon's Breath Rounds
-    - 100836|Glaser Rounds
-    - 101160|Manstopper Rounds
-    - 101689|Scattershot
-    - 101885|Strike at the True Flesh
-    - 100121|Baal's Bloody Talons
-    - 100304|Caseless Rounds
 - ruling: "If it leaves play, the card on it is burned. [LSJ 20021128]"
   cards:
     - 100343|Chiram's Hold
@@ -703,6 +694,27 @@
     - 201433|Veejay Vinod (G6)
     - 201484|Yavu Matebo (G4)
     - 201510|Zubeida (G5)
+
+# ############################################################################################################# aim-like
+
+- ruling: '"Before resolution" means after strikes have been declared but before they resolve. [RTR 19990105]'
+  cards:
+    - 100580|Dragon's Breath Rounds
+    - 100836|Glaser Rounds
+    - 101160|Manstopper Rounds
+    - 101689|Scattershot
+    - 101885|Strike at the True Flesh
+    - 100121|Baal's Bloody Talons
+    - 100304|Caseless Rounds
+- ruling: "Cannot be played on an opponent's weapon. [LSJ 20020425]"
+  cards:
+    - 100580|Dragon's Breath Rounds
+    - 100836|Glaser Rounds
+    - 101160|Manstopper Rounds
+    - 101689|Scattershot
+    - 101885|Strike at the True Flesh
+    - 100121|Baal's Bloody Talons
+    - 100304|Caseless Rounds
 
 # ################################################################################## modifier as the action is announced
 
