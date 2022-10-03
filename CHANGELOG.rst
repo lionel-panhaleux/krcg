@@ -4,7 +4,7 @@ Changelog
 2.29 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Add Third: Starter Kit precons
 
 
 2.28 (2022-08-25)
