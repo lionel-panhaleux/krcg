@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.29 (unreleased)
+2.29 (2022-10-04)
 -----------------
 
 - Add Third: Starter Kit precons
