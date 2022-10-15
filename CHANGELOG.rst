@@ -4,7 +4,7 @@ Changelog
 2.30 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Add 2022 European GP Promo
 
 
 2.29 (2022-10-04)
