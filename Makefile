@@ -14,6 +14,10 @@ release:
 update:
 	pip install --upgrade --upgrade-strategy eager -e ".[dev]"
 
+prep:
+	python -m cards
+	LOCAL_CARDS=1 pytest -vvs
+
 clean:
 	rm -rf dist
 	rm -rf .pytest_cache
