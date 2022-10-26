@@ -516,6 +516,8 @@
   - If the vampire changes clan to a clan inappropriate for his title, he loses its benefit until his clan is appropriate. He immediately yields the title if it is contested or he receives a new one. [RTR 20201130] [LSJ 20060904]
 100354|Clan Loyalty:
   - The blocking minion is not locked [ANK 20180321]
+100355|Clandestine Contract:
+  - The action to put the card in play and the one once the card is in play are different (a vampire can take both in the same turn if they unlock in between). [ANK 20220910]
 100356|Claws of the Dead:
   - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike. Can be played after both strikes have been chosen. [RTR 19960112]"
 100358|Cleave:
