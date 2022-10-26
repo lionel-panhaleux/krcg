@@ -284,6 +284,7 @@
   - If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]
   - A weapon strike done with first strike is unaffected (unless Soul Burn is used with first strike too). [LSJ 20040928]
   - Only nullify the weapon damage when it resolves, an opponent can successfully use {Rötschreck} after declaring a strike with {Ivory Bow}. [ANK 20170519]
+  - The opponent cannot play [for] prevention cards (eg. for cycling). [LSJ 20050628]
 100203|Blood of Acid:
   - Damage from Blood of Acid is environmental. [RTR 19970630] [LSJ 20020708]
   - Environmental damage is not counted by Blood of Acid. [RTR 19970630]
@@ -296,6 +297,7 @@
   - "[THA] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]
   - Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]
+  - The opponent cannot play [for] prevention cards (eg. for cycling). [LSJ 20050628]
 100209|Blood Shield:
   - The blood is burned by the opponent when the owner prevents damage, immediately, before loosing blood to heal strike damage. Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528-1]
 100212|Blood Tears of Kephran:
@@ -330,6 +332,7 @@
   - '[pre] Cards are not replaced during the "as played" window. [LSJ 20061013]'
   - '[pre] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
   - "[tha] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+  - "[tha] The opponent cannot play [for] prevention cards (eg. for cycling). [LSJ 20050628]"
 100233|Bomb:
   - Using the provided action does not force the minion to strike with it if he is blocked. [LSJ 19971215]
   - Damage done to the bearer is environmental. [LSJ 19970801]
@@ -667,6 +670,7 @@
   - Applies to environmental and retainer damage too. [PIB 20150603-1]
 100503|Dead Hand:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
+  - "[NEC] The opponent cannot play [for] prevention cards (eg. for cycling). [LSJ 20050628]"
 100510|Death Seeker:
   - If used to cancel a strike, another strike is chosen. [LSJ 20100206]
   - If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]
@@ -2403,6 +2407,7 @@
   - A weapon strike done with first strike is unaffected (unless Soul Burn is used with first strike too). [LSJ 20040928]
   - Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]
   - Only nullify the weapon damage when it resolves, an opponent can successfully use {Rötschreck} after declaring a strike with {Ivory Bow}. [ANK 20170519]
+  - The opponent cannot play [for] prevention cards (eg. for cycling). [LSJ 20050628]
 101832|Soul Gem of Etrius:
   - If the new vampire is the same as the one who burned, he is still considered a new vampire for all purposes. (eg. he can bleed even if the previous version has already bled this turn) [LSJ 20100213]
   - "Does not trigger if the bearer is removed from the game (eg. {Golconda: Inner Peace}) [LSJ 20000113]"
