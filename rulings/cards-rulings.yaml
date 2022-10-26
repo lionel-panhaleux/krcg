@@ -3249,6 +3249,8 @@
   - Gets +1 stealth on Ⓓ actions against multiple Methuselahs if one or more of the targets control no ready Sabbat vampire. [PIB 20150526] [RTR 20080808]
 200780|Khay'tall, Snake of Eden (G2):
   - If a minion gains a corruption counter after they cast their votes (eg. [ser] {Velvet Tongue}), their votes are cancelled and they're forced to abstain instead. [PIB 20141226]
+200793|Krassimir (G2):
+  - When he cancels an action, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [LSJ 20011202-2]
 200798|Kyoko Shinsegawa (G3):
   - The action provided by her ability is a hunt action and benefit from hunt bonuses. [LSJ 20030311] [LSJ 20090113-2]
   - She can only perform the action provided by her ability once per turn. [PIB 20121112]
