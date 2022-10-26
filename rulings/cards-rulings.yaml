@@ -1446,7 +1446,10 @@
   - If used on an ally with a cost of X, X pool are gained. The value of X is the one set when the ally was recruited . [ANK 20170716] [RTR 20020501]
   - The effect is ordered as the acting Methuselah wishes during his unlock phase (eg. can be used on {Nocturn} before it burns). [ANK 20170625]
 101049|Kindred Coercion:
-  - Cannot 'change' the votes of vampires who haven't voted yet, but can cancel the votes of vampires who haven't voted yet and change the votes of vampires who have voted. [RTR 19991001]
+  - "[dom] Can force a vampire who has not voted yet to keep abstaining. [RTR 19991001]"
+  - "[DOM] Playable on an abstaining vampire: it does not force them to vote, but restricts their choice if they do. [RTR 19991001] [LSJ 20030828]"
+101051|Kindred Manipulation:
+  - "Playable on an abstaining vampire: it does not force them to vote, but restricts their choice if they do. [RTR 19991001] [LSJ 20030828]"
 101053|Kindred Segregation:
   - Only requires the pool cost to be paid in order to keep the ally. Allies with blood costs can be kept by paying 0 pool. [RTR 20010710]
   - Can be called even if there are no allies in play. [RTR 20010710]
