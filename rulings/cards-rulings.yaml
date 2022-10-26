@@ -735,6 +735,8 @@
   - The press can only be used during the current round. [TOM 19960521]
 100541|Día de los Muertos:
   - During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]
+100542|Diabolic Lure:
+  - "[DAI] The opponent burns pool wether or not the pact counters reach capacity. [LSJ 20100205-2] [ANK 20221007]"
 100543|The Diamond Thunderbolt:
   - If used to cancel a card that has a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
   - "If used to cancel the change of control of a {Corruption} action, only the control change is prevented: the corruption counters are burned. [LSJ 20070222-2]"
