@@ -2168,7 +2168,8 @@
   - The "does not unlock as normal" effect stops if Rötschreck is burned or removed. [ANK 20191025]
 101655|Rowan Ring:
   - Adding damage to the Ring strike will not deal damage. [RTR 19960221]
-  - 'Only usable at close range. Damage prevention cannot be used against it, but dodge and "strike: combat ends" will avoid the effect. [LSJ 19980219]'
+  - Only usable at close range. Damage prevention cannot be used against it. [LSJ 19980219]
+  - If the opponent dodges or ends combat, they avoid the effect and the ring stays. [LSJ 19980219] [ANK 20220923]'
   - If the strike is inflicted, the opponent is wounded (if they play {Undying Tenacity}, they go to torpor after combat). [LSJ 20090622-2]
   - If placed on a minion that cannot have equipment, the Ring is burned. The "does not unlock as normal" effect still applies. [LSJ 19980831]
   - The "does not unlock as normal" effect continues to apply if the Ring is burned or moved. [LSJ 19980831]
@@ -2966,6 +2967,11 @@
 102232|The Platinum Protocol:
   - "[pro] The minion getting the corruption counter is chosen at action resolution (not declaration). [LSJ 20080608]"
   - "[pro] Putting a corruption counter on a minion does not give you an opportunity to steal it. [ANK 20200925] [ANK 20211105]"
+102236|The British Museum, London:
+  - Checks the card type in hand, reduction and unlock apply to equipments that are locations when in play. [ANK 20220824]
+  - The reduction applies to all valid equipments, even without using the unlock or not equipping from hand. [ANK 20221026]
+102238|Enhanced Coagulant:
+  - The card stays there if the strike is dodged [ANK 20220923]
 200011|Adana de Sforza (G4):
   - Card with multiple types (eg. Combat/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron (G3):
