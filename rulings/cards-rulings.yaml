@@ -959,6 +959,7 @@
   - Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]
 100706|Fata Amria:
   - '[CHI] [REACTION] Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played before or after it. [LSJ 19981028] [ANK 20190425]'
+  - The target can burn it at unlock even if they're already unlocked, but cannot burn it if they do not unlock as normal (eg. {Sensory Deprivation}). [LSJ 20010814-3] [LSJ 20020109]
 100709|FBI Special Affairs Division:
   - Does not trigger if the ally is saved by {Left for Dead}. [PIB 20121028]
   - Does not trigger if the ally is considered the acting minion during the combat (eg. {Nar-Sheptha}). [ANK 20180913-2]
