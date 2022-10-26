@@ -2334,6 +2334,8 @@
   - The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
 101760|Shattering Blow:
   - Cannot be used if there is no equipment to destroy. [RTR 19980928]
+101761|Shattering Crescendo:
+  - "[mel], [MEL] Requires to have the second in hand to play it. [LSJ 20100208-2] [LSJ 20100823]"
 101765|Shepherd's Innocence:
   - "[ANI] Is directed at all Methuselah controlling a card that require Animalism [ani]. [LSJ 20080809-1] [KOT 20081119]"
   - "[ANI] Retainers and Equipments you control can also be rearranged. [LSJ 20080803-2] [LSJ 19981102]"
