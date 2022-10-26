@@ -3031,6 +3031,8 @@
   - The action provided by his ability is directed against the Methuselah controlling the equipment or location, not the minion it's on. [LSJ 20090324]"
 200106|Anneke (G1):
   - Her ability only affects the rule restricting who gets to block an action. She must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 20020501] [LSJ 20041203]
+200116|Antonio d'Erlette (G4):
+  - "Cost reductions apply (eg. {Powerbase: Tshwane}), except if they require an action (eg. {Charisma}). [LSJ 20090920-2] [RTR 20070707]"
 200135|Arika (G2):
   - Arika's prey can use a location during her unlock phase before burning it. [ANK 20200629]
   - Arika's prey cannot end her unlock phase if she controls a location that she hasn't burned a pool for, even if she gained control of that location during that unlock phase. [LSJ 19990405]
@@ -3242,7 +3244,7 @@
 200770|Kemintiri (G2 ADV):
   - "[MERGED] Keeps her title and votes if she changes sects. [LSJ 20010714]"
   - "[MERGED] When playing a card requiring Camarilla, Ventrue and/or justicar, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228] [LSJ 20101013]"
-  - "[MERGED] If she plays a political action requiring a Justicar, she is not seen as such by other cards or effects during the referendum (eg. if another vampire plays {Closed Session} and she's not Camarilla she will not be able to vote. If she plays it, she can vote). [LSJ 20050128-2]"
+  - "[MERGED] If she plays a political action requiring a Justicar, she is not seen as such by other cards or effects during the referendum (eg. if another vampire plays {Closed Session} and she's not Camarilla she will not be able to vote. If she plays it, she can vote). [LSJ 20050128-2] [ANK 20221011-4] [RTR 20070707]"
   - "[MERGED] Does not enable you to play master cards, it only enables her to play certain minion cards. [LSJ 20050721]"
   - "[MERGED] When considered a justicar, she is also implicitly considered Camarilla. [LSJ 20050128]"
 200773|Kephamos, High Priest of Marrakech (G2):
