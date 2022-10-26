@@ -276,6 +276,7 @@
 100195|Blood Brother Ambush:
   - Can be used by a Brujah Antitribu taking an action while in torpor. If this happens, the blocker loses the opportunity to commit diablerie. [RTR 20010710]
   - No other modifier can be played afterwards, combat begins immediately. [LSJ 20010806-2]
+  - "The vampire playing it is not considered having burned a minion (eg. for {Taking the Skin: Minion}), but the opponent is. [LSJ 20090922] [ANK 20220916]"
 100199|Blood Doll:
   - Can be used when the vampire is in torpor. [PIB 20150522]
 100201|Blood Fury:
@@ -570,6 +571,7 @@
 100412|Conscripted Statue:
   - "[vis] Damage is environmental. [RTR 19970630]"
   - '[vis] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
+  - "[VIS] The vampire playing it is not considered having burned a minion (eg. for {Taking the Skin: Minion}, but the opponent is. [LSJ 20090922] [ANK 20220916]"
 100414|Conservative Agitation:
   - Cannot allocate all X points to a single Methuselah, but you can allocate points to yourself. [LSJ 20000622]
   - Can allocate more points than a Methuselah has pool. [LSJ 20020819]
@@ -2561,7 +2563,7 @@
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
 "101928|Taking the Skin: Minion":
   - "[abo] [COMBAT] If a minion is burned in combat, his opponent his always considered to have burned him. [LSJ 20090922]"
-  - "[abo] [ACTION MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
+  - "[abo] [ACTION MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability, {Blood Brother Ambush}). [RTR 19960124] [LSJ 20090922] [ANK 20181022] [ANK 20220916]"
   - "[abo] [ACTION MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
 101930|Talaq, The Immortal:
   - While he can play cards that require [qui] or [tha], he does not actually have those Disciplines. He does not benefit from {Tremere Convocation}, for example. [LSJ 19980303]
