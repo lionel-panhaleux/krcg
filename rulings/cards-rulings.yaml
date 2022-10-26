@@ -532,6 +532,7 @@
   - "[NEC] The press can only be used during the current round. [TOM 19960521]"
 100377|Collapse the Arches:
   - "[tha] The press can only be used during the current round. [TOM 19960521]"
+  - "[vis], [VIS] Does not prevent the opponent from dodging, the dodge just has no effect. [LSJ 20030902-2] [LSJ 20060808-1]"
 100378|Coma:
   - Only effective at close range. [RBK 20200701-10] [LSJ 20000110]
   - The opponent is wounded (if they play {Undying Tenacity}, they go to torpor after combat). [LSJ 20090622-2]
@@ -822,6 +823,7 @@
 100597|Dust Up:
   - "[ani] [pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "[cel] The additional strike is not optional: you cannot play it for the dodge only if you already played it for a (limited) additional strike this round. [ANK 20220204]"
+  - "[ani] Does not prevent the opponent from dodging, the dodge just has no effect. [LSJ 20030902-2] [LSJ 20060808-1]"
 100598|Eagle's Sight:
   - "[AUS] Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [RTR 20020501]"
   - "[AUS] Only applies to one block attempt. If the action later continues as if unblocked (eg.{Form of Mist}), another one is needed. [LSJ 20030227]"
@@ -831,6 +833,7 @@
   - "[PRO] The vampire still unlocks if an effect continues the combat or begins a new combat. [RTR 20020501]"
 100604|Earthshock:
   - Can be used at long range to target a retainer, even if their employer has flight [FLIGHT]. [LSJ 20060509]
+  - Does not prevent the opponent from dodging, the dodge just has no effect. [LSJ 20030902-2] [LSJ 20060808-1]
 100607|Eccentric Billionaire:
   - The "lock to reduce the cost" effect can be used when the action is announced or when the cost is paid. [LSJ 20090705] [ANK 20170605]
   - He can lock to use his ability the turn he is recruited. [ANK 20180517]
@@ -960,6 +963,7 @@
 100706|Fata Amria:
   - '[CHI] [REACTION] Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played before or after it. [LSJ 19981028] [ANK 20190425]'
   - The target can burn it at unlock even if they're already unlocked, but cannot burn it if they do not unlock as normal (eg. {Sensory Deprivation}). [LSJ 20010814-3] [LSJ 20020109]
+  - Does not prevent the opponent from dodging, the dodge just has no effect. [LSJ 20030902-2] [LSJ 20060808-1]
 100709|FBI Special Affairs Division:
   - Does not trigger if the ally is saved by {Left for Dead}. [PIB 20121028]
   - Does not trigger if the ally is considered the acting minion during the combat (eg. {Nar-Sheptha}). [ANK 20180913-2]
@@ -1952,6 +1956,7 @@
 101493|Projectile:
   - A minion who maneuvers with a gun may still use Projectile to shoot with that gun as his initial strike that round. [LSJ 20050304]
   - Cannot be used to strike with a weapon whose strike isn't ranged. [LSJ 20050224-3]
+  - Does not prevent the opponent from dodging, the dodge just has no effect. [LSJ 20030902-2] [LSJ 20060808-1]
 101494|Promise of 1528:
   - The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
 101500|Protected Resources:
@@ -2204,6 +2209,7 @@
   - Each Scorn played may only cause the loss of one pool to a given Methuselah, regardless of how may 'no' votes that Methuselah casts. [RTR 19951110]
 101693|Scorpion Sting:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
+  - "[ANI] Does not prevent the opponent from dodging, the dodge just has no effect. [LSJ 20030902-2] [LSJ 20060808-1]"
 101694|Scorpion's Touch:
   - If it is declared with first strike and if the opposing minion declared a strike based on strength, that minion’s strength is decreased by Scorpion’s Touch when it resolves. [PIB 20110830]
   - You cannot play another strike card to serve as the hand strike for Scorpion's Touch. [LSJ 20010627]
@@ -2295,7 +2301,7 @@
   - If a card he plays as a vampire sends him to torpor (eg. by using {Reform Body}), he burns. REVERSAL of previous rulings. [LSJ 20060409]
   - If he takes aggravated damage from a card he plays as a vampire (eg. {Burst of Sunlight}), he loses one life but does not go to torpor. [LSJ 20060409]
 101738|Shadow Feint:
-  - Will not prohibit the opposing minion from choosing dodge as his strike, and, if chosen, the dodge will still resolve. The dodge simply has no effect on the Shadow Feinted strike. [LSJ 20030902-2]
+  - "[CEL][OBF] Does not prevent the opponent from dodging, the dodge just has no effect. [LSJ 20030902-2] [LSJ 20060808-1]"
 101741|Shadow of the Wolf:
   - The +1 damage only applies to the additional strike. [LSJ 19970331]
   - "[PRO] The press can only be used during the current round. [TOM 19960521]"
@@ -2817,6 +2823,7 @@
   - If the combat is canceled by Venenation, the action is still blocked, the blocking minion locks. {Mask of a Thousand Faces} cannot be used to continue it, but an effect can be used to continue the action as if unblocked (eg. {Crypt's Sons}, {Momentary Delay}). [ANK 20181003] [LSJ 20010803-2] [ANK 20220127]
 102106|Vengeance of Samiel:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
+  - "[val], [VAL] Does not prevent the opponent from dodging, the dodge just has no effect. [LSJ 20030902-2] [LSJ 20060808-1]"
 102113|Vessel:
   - Can be used when the vampire is in torpor. [PIB 20150522]
 102118|Victim of Habit:
