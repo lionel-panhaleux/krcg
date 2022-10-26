@@ -867,6 +867,7 @@
   - Does not burn if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]
 100628|Eluding the Arms of Morpheus:
   - Can be used by a vampire who is already attempting to block. [ANK 20181122-2]
+  - Cannot be used if the vampire cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
 100634|Emerald Legionnaire:
   - His ability cannot be used from the ash heap, he needs to be ready. [ANK 20180511-1]
   - When using his ability to put another one into play, it does not require a ready Harbinger, the pool cost of the new one is not paid, the new one can act this turn and can use his ability to bring another one immediately. [ANK 20180509]
