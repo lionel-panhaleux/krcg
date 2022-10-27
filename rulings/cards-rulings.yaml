@@ -3104,6 +3104,8 @@
   - "[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
 200316|Danielle Diron (G3):
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
+200327|De Sade (G5):
+  - His ability applies only to the first time a vampire casts hist votes, not if they change afterwards (eg. {Kindred Manipulation}). [ANK 20221019]
 200333|Demdemeh (G4):
   - The animal retainers turned into allies keep their current life counters and remember their original "starting life", for effects that notice "starting life". The retainers' special abilities are lost, as well as any continuous effect affecting them (eg. bonus from {Tainted Spring}). [LSJ 20051116-1] [LSJ 20081213-3]
 200335|Democritus (G1):
