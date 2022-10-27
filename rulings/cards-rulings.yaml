@@ -194,7 +194,7 @@
 100142|Bauble:
   - If it is burned by another mean than its effect, the weapon is not burned. [LSJ 20090113-1]
   - It cannot be burned if the target equipment is not in play. [RTR 20080808]
-  - Still cannot be burned if the target equipment was burned and somehow returned to play. [LSJ 20040726] [ANK 20191031]
+  - Still cannot be burned if the target equipment was burned and somehow returned to play. [LSJ 20040726] [ANK 20191031-2]
 100144|Bear-Baiting:
   - Damage is environmental. [RTR 19970630]
   - Cannot be played if the blocker's crypt is empty. [LSJ 20031107]
@@ -911,7 +911,7 @@
   - If his strike resolves, he cannot be saved from burning (with eg. {Heaven's Gate} of {Left for Dead}). [LSJ 20070507] [LSJ 20021205]
 100665|The Eternal Mask:
   - You cannot use the effect to burn the card and the vampire if the vampire is no longer in play to be burned. [LSJ 20070928-1]
-  - You still cannot burn it if the vampire that was brought back was burned and later returned to play. [LSJ 20040726] [ANK 20191031]
+  - You still cannot burn it if the vampire that was brought back was burned and later returned to play. [LSJ 20040726] [ANK 20191031-2]
   - "[SER] is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]"
   - If The Eternal Mask is burned by something else than its own effect (including when the vampire it is on is burned), the vampire that has been brought back is unaffected. [LSJ 20071206] [LSJ 20090725]
 100666|Eternal Vigilance:
@@ -1060,8 +1060,8 @@
   - An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100765|Foreshadowing Destruction:
-  - "[DOM] Can be played against a target with 10 or more pool and does not count against the limit in this case: it will only have a lingering effect (+3 bleed if the target happens to have 9 or less). [PIB 20110817]"
-  - "[DOM] If the bleed bonus is lost during the action (eg. {Deflection} to another target), it does not count against the limit anymore and an additional bleed modifier can be used. [ANK 20211019-2]"
+  - "[DOM] Can be played against a target with 10 or more pool and does not count against the limit in this case: it will only have a lingering effect (+3 bleed if the target happens to have 9 or less). [PIB 20110817] [ANK 20191031]"
+  - "[DOM] If the bleed bonus is lost during the action (eg. {Deflection} to another target), it does not count against the limit anymore and an additional bleed modifier can be used. [ANK 20191031] [ANK 20211019-2]"
 100766|Forest of Shadows:
   - May be used anytime it is unlocked, even if it has been used previously during the same action (it must be unlocked by some method, of course). [TOM 19960109]
 100767|Forger's Hammer:
