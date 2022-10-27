@@ -889,6 +889,17 @@ class CardMap(utils.FuzzyDict):
                 self[cid].rulings["text"].append(ruling.text)
                 for ref, link in ruling.links.items():
                     self[cid].rulings["links"][ref] = link
+            for card_reference in re.findall(r"{[^}]+}", ruling.text):
+                card_reference = card_reference[1:-1]
+                if card_reference not in self:
+                    warnings.warn(
+                        f"Rulings: {cid}|{name} mentions unknown card {card_reference}"
+                    )
+                if self[card_reference].usual_name != card_reference:
+                    warnings.warn(
+                        f"Rulings: {cid}|{name} mentions {card_reference} "
+                        f"instead of '{self[card_reference].name}'"
+                    )
 
     def to_json(self) -> Dict:
         """Return a compact list representation for JSON serialization."""

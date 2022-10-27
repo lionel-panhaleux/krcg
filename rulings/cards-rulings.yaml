@@ -46,7 +46,7 @@
   - If used as a placeholder to represent something else, its text does not apply (including the "Unique" part). A {Shock Troops} vampire would simply be a non-unique 1-cap Sabbat with no clan and no discipline. [LSJ 20071001-1]
   - If you play Agent of Power on a vampire and that vampire plays a {Dual Form} at superior [PRO], the Dual Form gains the Discipline provided by the Agent of Power and keeps it once the Agent of Power burns. [LSJ 20071005-1]
 100027|Ahriman's Demesne:
-  - "[OBT] The opponent does not go to torpor, {Undead Persistance} cannot be played. [LSJ 20040608] "
+  - "[OBT] The opponent does not go to torpor, {Undead Persistence} cannot be played. [LSJ 20040608] "
 100029|Aid from Bats:
   - "[ANI] The press can only be used during the current round. [TOM 19960521]"
 100038|Alastor:
@@ -137,7 +137,7 @@
   - The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]
 100103|Asanbonsam Ghoul:
   - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
-  - If another effect also sets the range, the first to resolve has priority (eg. {Squirrel's Balance} resolves before, {Neutral Guard} resolves after). [PIB 20120214]
+  - If another effect also sets the range, the first to resolve has priority (eg. {Squirrel Balance} resolves before, {Neutral Guard} resolves after). [PIB 20120214]
 100105|Ashes to Ashes:
   - "[thn], [THN] The end of combat is triggered by the vampire going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
   - "[thn], [THN] Cards that can be played at the end of combat (eg. {Amaranth}, {Decapitate}) can be played before combat ends. [LSJ 20011214-4]"
@@ -1132,7 +1132,7 @@
 100822|The Ghouls of Plaza Morería:
   - Are not mortal, are a monster. [ANK 20200203-2]
 100823|Gianna di Canneto:
-  - She can use her ability to burn an equipment an opponent has commited to use as a strike (eg. by using the maneuver of a {.44 MAgnum}). In this case the opponent strike has no effect. [PIB 20141026]
+  - She can use her ability to burn an equipment an opponent has commited to use as a strike (eg. by using the maneuver of a {.44 Magnum}). In this case the opponent strike has no effect. [PIB 20141026]
   - 'She cannot use her ability to inflict damage if a "Strike: combat ends" was used, or if combat ends due to first strike aggravated damage. [ANK 20211130]'
   - She can lock to use her ability the turn she is recruited. [ANK 20180517]
 100824|Giant's Blood:
@@ -1252,7 +1252,7 @@
 100908|Heidelberg Castle, Germany:
   - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
   - Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]
-  - "Cannot be used before damage is inflicted after action resolution (eg. {Force of will}, {Daring the Dawn}): this is still during the action. [ANK 20171124]"
+  - "Cannot be used before damage is inflicted after action resolution (eg. {Force of Will}, {Daring the Dawn}): this is still during the action. [ANK 20171124]"
   - "Cannot be used after a diablerie or an {Abactor} resolution and before the Blood Hunt: the Blood Hunt is part of the action although it is independant from it. [LSJ 20090722-2] [LSJ 20030618]"
   - "Can be used to move more blood than the target can hold: the excess goes to the blood bank. [ANK 20170804]"
   - Can be used between two actions during another Methuselah's turn. [ANK 20210608]
@@ -1468,7 +1468,7 @@
   - Can be played by an acting vampire in torpor. [LSJ 19970325]
   - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
   - The action has not reached resolution, it is effectively canceled. The same vampire can undertake the same action again, but not if it was blocked then continued before (eg. [PRO] {Form of Mist}). [ANK 20211015] [ANK 20210124] [LSJ 20090220] [LSJ 20070709]
-  - The action was still taken (eg. counts against {Enkil Cog} of [OBF] {Veil the Legion}). [ANK 20210124]
+  - The action was still taken (eg. counts against {Enkil Cog} of [OBF] {Veil the Legions}). [ANK 20210124]
 101066|Kraken's Kiss:
   - "[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]"
   - "[VIC] The press can only be used during the current round. [TOM 19960521]"
@@ -1684,7 +1684,7 @@
   - "[POT] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "[POT] The optional press can only be used during the current round. [TOM 19960521]"
 101210|Millicent Smith, Puritan Vampire Hunter:
-  - If an action is blocked, no other effect can be used (eg. {Crypt's Son}) before resolving Millicent's delayed effect. However, effects that trigger at the same moment (eg. {Unleash Hell's Fury}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]
+  - If an action is blocked, no other effect can be used (eg. {Crypt's Sons}) before resolving Millicent's delayed effect. However, effects that trigger at the same moment (eg. {Unleash Hell's Fury}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]
 101211|Mind Numb:
   - The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]
 101214|Mind of the Wilds:
@@ -1713,7 +1713,7 @@
 101223|Mirror Walk:
   - "[THA] The would be blocker is locked even if he benefits from an effect that prevents him to lock when he blocks. He is not locked from the block, but from Mirror Walk's effect. [ANK 20191204]"
   - "[THA] If the action is blocked, it ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards (eg. {Freak Drive}, slave rule, {Sowing Dissension}). [RTR 20180719] [ANK 20200207] [ANK 20210627]"
-  - "[THA] If the action is blocked, no other effect can be used (eg. {Crypt's Son}, {Promise of 1528}) before resolving Mirror Walk delayed effect. However, effects that trigger at the same moment (eg. {Banshee Ironwall}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]"
+  - "[THA] If the action is blocked, no other effect can be used (eg. {Crypt's Sons}, {Promise of 1528}) before resolving Mirror Walk delayed effect. However, effects that trigger at the same moment (eg. {Banshee Ironwail}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]"
 101224|Mirror's Visage:
   - "[chi] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 101227|Mistaken Identity:
@@ -1786,7 +1786,7 @@
   - "[aus] If another Methuselah is the target, he must declare whether he attempts or declines to block before Netwar can be played. [LSJ 20100507] [ANK 20210131-1]"
   - "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101276|Neutral Guard:
-  - If another effect also sets the range, the first to resolve has priority (eg. {Squirrel's Balance} and {Asanbonsam Ghoul} resolve before). [PIB 20120214]
+  - If another effect also sets the range, the first to resolve has priority (eg. {Squirrel Balance} and {Asanbonsam Ghoul} resolve before). [PIB 20120214]
 101279|The New Inquisition:
   - When a vampire goes to torpor, the card is replaced before any other effect (eg. before losing pool to {Fame}). [LSJ 20100527]
 101280|New Management:
@@ -2163,7 +2163,7 @@
   - "[cel] [CEL] Is a damage dealing strike and can be modified by other effects like {Target Vitals} or {Dam the Heart's River}, even if they are done after combat.  [ANK 20170111] [PIB 20130319]"
 101640|The Rising:
   - Anything that would increase the pool amount is considered "gaining pool". [ANK 20181105]
-  - Methuselahs do not gain the pool granted by a bleed action (eg. {Kindred Spirit}) if they do not have the edge or a VP beforehand. [LSJ 20100206-2]
+  - Methuselahs do not gain the pool granted by a bleed action (eg. {Kindred Spirits}) if they do not have the edge or a VP beforehand. [LSJ 20100206-2]
   - Methuselahs gain the pool granted by an effect after a successful bleed action (eg. {The unnamed}), since they get the edge before the effect kicks in. [LSJ 20100210-2]
   - When ousting their prey, Methuselahs decide if they gain the VP before or after gaining the pool. [LSJ 20100208]
   - "{Off Kilter}'s additional pool cannot be gained if you do not have a VP (edge is burned before pool is gained). [LSJ 20100207]"
@@ -2432,7 +2432,7 @@
 101832|Soul Gem of Etrius:
   - If the new vampire is the same as the one who burned, he is still considered a new vampire for all purposes. (eg. he can bleed even if the previous version has already bled this turn) [LSJ 20100213]
   - "Does not trigger if the bearer is removed from the game (eg. {Golconda: Inner Peace}) [LSJ 20000113]"
-  - Functions even if the bearer (now burned) was prohibited from using equipments (eg. because of {Drawing out the Beast}). [LSJ 20010729]
+  - Functions even if the bearer (now burned) was prohibited from using equipments (eg. because of {Drawing Out the Beast}). [LSJ 20010729]
   - If the drawn vampire (B) is younger and would be put into play with Gem but is burned instead (self-contestinging, for example), then the Gem activates again, drawing a new vampire (C) and comparing his capacity to B's capacity. [RTR 20010710] [LSJ 20030918]
   - Can grab an imbued. In that case, the imbued is either placed in the uncontrolled region or placed empty into the incapacitated region with the Gem, as determined by his starting life. [LSJ 20060323]
   - Still produces its full effect if the new younger vampire cannot use equipment (eg. {Beast, The Leatherface of Detroit}). [LSJ 20100527]
@@ -2454,7 +2454,7 @@
   - The mummies put into play are unique by card name. The name is "in play" for anything that cares. They contest unique minions of the same name, vampire or allies. If one is {Nefertiti}, then {Aabbt Kindred} will be able to take directed actions. [LSJ 20070928-2] [LSJ 20071001-2]
   - The mummies do not contest non-unique vampires (eg. {Aabbt Kindred}), but two mummies made of the same non-unique vampire contest one another. [LSJ 20070928-2]
   - If one of the mummy is burned, the card goes to the ash heap where it counts as a vampire (eg. {Possession} can be used, but not {Compel the Spirit}). [LSJ 20071014]
-  - The mummies are not affected by {Wormood}. [LSJ 20100716]
+  - The mummies are not affected by {Wormwood}. [LSJ 20100716]
 101847|Spirit Claws:
   - "[pro] Must be played before strike resolution (and damage prevention) in order to affect the current strike [RTR 19960112]"
   - "[SPI][PRO] The [pro] and [spi][pro] versions do not contest with it. [ANK 20180630]"
@@ -2597,7 +2597,7 @@
 101935|Tangle Atropos' Hand:
   - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
   - The action has not reached resolution. The same vampire can undertake the same action again, but not if it was blocked then continued before (eg. [PRO] {Form of Mist}). [LSJ 20070709] [LSJ 20090220] [ANK 20210124]
-  - The action was still taken (eg. counts against {Enkil Cog} or [OBF] {Veil the Legion}). [ANK 20210124]
+  - The action was still taken (eg. counts against {Enkil Cog} or [OBF] {Veil the Legions}). [ANK 20210124]
 101938|Target Hand:
   - Is played during the Strike phase even if you commit to a strike in the Determine Range phase (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]
   - If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]
@@ -2798,7 +2798,7 @@
 102074|Unity:
   - You can cut however you want (eg. count cards, cut only one or two). [LSJ 20060413]
 102076|Unleash Hell's Fury:
-  - If the action is blocked, no other effect can be used (eg. {Crypt's Son}, {Change of Target}) before burning Unleash Hell's Fury and inflicting aggravated damage. However, effects that trigger at the same moment (eg. {Banshee Ironwall}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]""
+  - If the action is blocked, no other effect can be used (eg. {Crypt's Sons}, {Change of Target}) before burning Unleash Hell's Fury and inflicting aggravated damage. However, effects that trigger at the same moment (eg. {Banshee Ironwail}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]""
   - If the block is successful, the aggravated damage is inflicted and the card burned even if the action is ended (eg. {Mirror Walk}) before block resolution. [LSJ 20100301] [ANK 20220116]
   - If {The Kiss of Ra} or {Elder Impersonation} are used, the block does not happen. [LSJ 20100210]
   - Unleash Hell's Fury is not locked if {Faceless Night} was played. Also, it can attempt to block even if locked. [LSJ 20100210]
@@ -3642,6 +3642,6 @@
 201608|Nonu Dis (G6):
   - His ability can be used only once per master phase. [ANK 20220617]
 201613|Theo Bell (G6):
-  - Can be merged with {Theo Bell (G2 ADV)} if you get to control one (eg. {Graverobbing}). [ANK 20220805-2]
+  - Can be merged with {Theo Bell (ADV)} if you get to control one (eg. {Graverobbing}). [ANK 20220805-2]
 201627|Evan Klein (G6):
   - Actions from minions of the same controller targeting him are undirected, so they are not affected by his ability. [LSJ 20030214-2]
