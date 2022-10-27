@@ -1491,6 +1491,7 @@
 101078|Leadership Vacuum:
   - The votes include bonus votes from cards or ability (eg. {Eze, The Demon Prince}, {Firebrand}) but not conditional votes (eg. {Sundown}, {Aura of Invincibility}). [ANK 20211009] [LSJ 20040518-2]
   - Priscus ballots are not taken into account. [ANK 20211009] [LSJ 20041025]
+  - Changing the numbers on counters on the card does not change the X value (eg. {Goth Band}). [ANK 20221024]
 101080|Learjet:
   - If a card played by the minion with Learjet has a delayed replacement, the additional card is drawn when the replacement is drawn. [PIB 20110718]
   - The additional replacement is optionnal, you get to see the normal replacement before you decide to draw the additional card. [LSJ 20050224-4]
