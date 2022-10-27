@@ -1873,6 +1873,8 @@
   - The pool awarded can be used to play {Life Boon} to save the target from an oust. [LSJ 20100527]
   - If the target has less than 3 pool when referendum passes, the Methuselah calling the referendum chooses how to distribute within the bounds of the terms. [LSJ 20010606]
   - Changes in pool during the referendum (after terms are chosen) do not affect the outcome. [LSJ 20041004]
+"101357|Patagia: Flaps Allowing Limited Flight":
+  - Can only be used when the vampire its on is in combat himself. [ANK 20221021]
 101380|Peace Treaty:
   - Only requires that the pool cost be paid in order to keep the weapon. Blood costs, if any, need not be repaid to keep a weapon. [RTR 20010710]
   - Can be called even if there are no weapons in play. [RTR 20010710]
@@ -3159,6 +3161,8 @@
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
 200452|Fabrizia Contreraz (G4):
   - She only gets her votes if your prey controls a ready Camarilla vampire. [PIB 20150713]
+200459|Fatima al-Faqadi (G2):
+  - Can only use her ability when she is in combat herself. [ANK 20221021]
 200485|Frondator (G4):
   - The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2] [PIB 20110918]
 200498|Gem Ghastly (G5):
@@ -3368,6 +3372,8 @@
   - When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
 200982|Michael Luther (G3):
   - His ability is only usable once each referendum, even if he unlocks somehow during the referendum. [LSJ 20041207]
+200983|Michaela (G5):
+  - Can only use her ability when she is in combat herself. [ANK 20221021]
 200995|Miriam Benyona (G2):
   - The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2]
 201006|Montano (G3):
@@ -3601,8 +3607,10 @@
   - The cost he pays takes into account any cost modification that applies for the opposing minion. [LSJ 20091124]
   - When canceling a card, he pays any pool cost in blood. [LSJ 20071015-2]
   - He can use his ability even if he's going to torpor. [LSJ 20021007]
+  - Can only use his ability when he is in combat himself. [ANK 20221021]
 201467|White Lily (G4):
   - Requirements need to be met. [LSJ 20080702-3]
+  - Can only use her ability when she is in combat herself. [ANK 20221021]
 201471|Winterlich (G6):
   - When recruit a changeling ally, he is treated as a meeting the requirements for all effects of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [ANK 20190228]
   - You can still use the burn options of cards with a requirement he could meet when you play them, but does not meet while in play. [LSJ 20050225]
