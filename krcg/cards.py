@@ -484,6 +484,10 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.card_text = (
             data["Card Text"].replace("(D)", "Ⓓ").replace("{", "").replace("}", "")
         )
+        if "{" in data["Card Text"]:
+            self.text_change = True
+        else:
+            self.text_change = False
         for old_name, new_name in self._CLAN_RENAMES.items():
             self.card_text = self.card_text.replace(old_name, new_name)
         for old_name, new_name in self._DISC_RENAMES.items():
