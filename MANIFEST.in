@@ -1,5 +1,6 @@
 include LICENSE README.md CHANGELOG.rst
 
+graft cards
 graft krcg
 graft rulings
 graft twda_fix

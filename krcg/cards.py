@@ -2,9 +2,13 @@ from typing import Dict, List, Set, Tuple
 import collections
 import collections.abc
 import copy
+import csv
 import datetime
 import functools
+import io
 import itertools
+import os
+import pkg_resources
 import re
 import requests
 import urllib.request
@@ -14,6 +18,9 @@ from . import config
 from . import rulings
 from . import sets
 from . import utils
+
+
+LOCAL_CARDS = os.getenv("LOCAL_CARDS")
 
 
 class Card(utils.i18nMixin, utils.NamedMixin):
@@ -181,6 +188,10 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "PB": "Brujah antitribu",
             "PM": "Malkavian antitribu",
             "PTz": "Tzimisce",
+            "SKB": "Starter Kit Brujah antitribu",
+            "SKM": "Starter Kit Malkavian antitribu",
+            "SKTr": "Starter Kit Tremere antitribu",
+            "SKTz": "Starter Kit Tzimisce",
         },
         "Tenth": {"A": "Tin A", "B": "Tin B"},
         "Anthology": {"LARP": "EC Berlin Edition"},
@@ -198,6 +209,13 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "PMin": "Ministry",
             "PBh": "Banu Haqim",
             "PG": "Gangrel",
+        },
+        "NB": {
+            "PM": "Malkavian",
+            "PN": "Nosferatu",
+            "PTo": "Toreador",
+            "PTr": "Tremere",
+            "PV": "Ventrue",
         },
     }
     _REPRINTS_RELEASE_DATE = {
@@ -267,6 +285,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.has_advanced = None  # same vampire appears as advanced in the same group
         self.has_evolution = None  # same vampire appears in a higher group
         self.is_evolution = None  # same vampire appears in a lower group
+        self.variants = {}  # variants of the same vampire (base, adv, evolution)
         self.name_variants = []  # variations you want to match when parsing a decklist
         self.rulings = {"text": [], "links": {}}
 
@@ -357,6 +376,18 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         if ret[-5:] == ", The":
             ret = "The " + ret[:-5]
         return ret.replace("(TM)", "™")
+
+    @property
+    @functools.lru_cache(1)
+    def _key(self) -> str:
+        """Used internally for advanced / evolutions / variants computations"""
+        if self.group == "ANY":
+            key = "ANY"
+        else:
+            key = f"G{self.group}"
+        if self.adv:
+            key += " ADV"
+        return key
 
     def get_suffix(self, minimal=False) -> str:
         suffixes = []
@@ -694,7 +725,29 @@ class CardMap(utils.FuzzyDict):
         """Load from official VEKN CSV files."""
         set_dict = sets.SetMap()
         # download the zip files containing the official CSV
-        main_files = utils.get_zip_csv(self._VEKN_CSV[0], *self._VEKN_CSV[1])
+        if LOCAL_CARDS:
+            main_files = [
+                csv.DictReader(
+                    io.TextIOWrapper(
+                        pkg_resources.resource_stream("cards", "vtessets.csv"),
+                        encoding="utf-8-sig",
+                    )
+                ),
+                csv.DictReader(
+                    io.TextIOWrapper(
+                        pkg_resources.resource_stream("cards", "vtescrypt.csv"),
+                        encoding="utf-8-sig",
+                    )
+                ),
+                csv.DictReader(
+                    io.TextIOWrapper(
+                        pkg_resources.resource_stream("cards", "vteslib.csv"),
+                        encoding="utf-8-sig",
+                    )
+                ),
+            ]
+        else:
+            main_files = utils.get_zip_csv(self._VEKN_CSV[0], *self._VEKN_CSV[1])
         i18n_files = {
             lang: utils.get_zip_csv(url, *filenames)
             for lang, (url, filenames) in self._VEKN_CSV_I18N.items()
@@ -750,6 +803,7 @@ class CardMap(utils.FuzzyDict):
         - card.has_advanced
         - card.has_evolution
         - card.is_evolution
+        - card.variants
         """
         # first compute, for cards with same name (crypt cards only),
         # which were the one to appear first (first_group)
@@ -759,9 +813,12 @@ class CardMap(utils.FuzzyDict):
         same_name = {k: v for k, v in same_name.items() if len(v) > 1}
         for name, cards in same_name.items():
             groups = collections.defaultdict(list)
+            variants = {}
             for card in cards:
                 groups[card.group].append(card)
+                variants[card._key] = card.id
             groups = sorted(groups.items(), key=lambda a: a[0])
+
             for i, (_group, cards) in enumerate(groups):
                 if len(cards) > 1:
                     assert sum(bool(c.adv) for c in cards) == 1, "bad advanced mark"
@@ -772,6 +829,10 @@ class CardMap(utils.FuzzyDict):
                         card.has_evolution = True
                     if i > 0:
                         card.is_evolution = True
+                    card.variants = {
+                        k: v for k, v in variants.items() if k != card._key
+                    }
+
         # now compute variants - cards in first_group can omit the group suffix
         # advanced version can never omit the suffix
         for card in self:
@@ -828,6 +889,17 @@ class CardMap(utils.FuzzyDict):
                 self[cid].rulings["text"].append(ruling.text)
                 for ref, link in ruling.links.items():
                     self[cid].rulings["links"][ref] = link
+            for card_reference in re.findall(r"{[^}]+}", ruling.text):
+                card_reference = card_reference[1:-1]
+                if card_reference not in self:
+                    warnings.warn(
+                        f"Rulings: {cid}|{name} mentions unknown card {card_reference}"
+                    )
+                if self[card_reference].usual_name != card_reference:
+                    warnings.warn(
+                        f"Rulings: {cid}|{name} mentions {card_reference} "
+                        f"instead of '{self[card_reference].name}'"
+                    )
 
     def to_json(self) -> Dict:
         """Return a compact list representation for JSON serialization."""

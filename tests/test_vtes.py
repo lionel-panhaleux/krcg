@@ -297,6 +297,7 @@ def test_search_dimensions():
             "2021 Promo Pack 3",
             "2021 Resellers Promo",
             "2021 SAC Promo",
+            "2022 European GP Promo",
             "Anarch Unbound",
             "Anarchs",
             "Anarchs promo",
@@ -330,6 +331,7 @@ def test_search_dimensions():
             "Legacies of Blood promo",
             "Lords of the Night",
             "Lost Kindred",
+            "New Blood",
             "Nights of Reckoning",
             "Print on Demand",
             "Prophecies league promo",
@@ -409,6 +411,11 @@ def test_search_dimensions():
             "Lords of the Night: Followers of Set",
             "Lords of the Night: Giovanni",
             "Lords of the Night: Ravnos",
+            "New Blood: Malkavian",
+            "New Blood: Nosferatu",
+            "New Blood: Toreador",
+            "New Blood: Tremere",
+            "New Blood: Ventrue",
             "Print on Demand: DriveThruCards",
             "Sabbat Preconstructed: Den of Fiends",
             "Sabbat Preconstructed: Libertine Ball",
@@ -424,6 +431,10 @@ def test_search_dimensions():
             "The Unaligned: Bundle 2",
             "Third Edition: Brujah antitribu",
             "Third Edition: Malkavian antitribu",
+            "Third Edition: Starter Kit Brujah antitribu",
+            "Third Edition: Starter Kit Malkavian antitribu",
+            "Third Edition: Starter Kit Tremere antitribu",
+            "Third Edition: Starter Kit Tzimisce",
             "Third Edition: Tremere antitribu",
             "Third Edition: Tzimisce",
         ],
@@ -589,6 +600,7 @@ def test_search_dimensions():
             "Karl Waller",
             "Katie McCaskill",
             "Kelly Howlett",
+            "Ken Kokoszka",
             "Ken Meyer, Jr.",
             "Kent Williams",
             "Kevin McCann",
@@ -661,7 +673,7 @@ def test_search_dimensions():
             "Pete Venters",
             "Peter Bergting",
             "Peter Kim",
-            "Peter Morbacher",
+            "Peter Mohrbacher",
             "Peter Scholtz",
             "Phil Wohr",
             "Phillip Hilliker",
@@ -788,7 +800,6 @@ def test_search_basic():
         vtes.VTES["Al-Muntathir, God's Witness"],
         vtes.VTES["Amusement Park Hunting Ground"],
         vtes.VTES["Anarch Revolt"],
-        vtes.VTES["Apportation"],
         vtes.VTES["Artistically Inept"],
         vtes.VTES["Blade of Enoch"],
         vtes.VTES["Blood Weakens"],
@@ -817,6 +828,7 @@ def test_search_basic():
         vtes.VTES["Jack of Both Sides"],
         vtes.VTES["Jaroslav Pascek"],
         vtes.VTES["Judgment: Death to the Brujah!"],
+        vtes.VTES["Kevin Jackson (G7)"],
         vtes.VTES["Learjet"],
         vtes.VTES["Magazine"],
         vtes.VTES["Makarios, The Seducer"],
@@ -853,6 +865,7 @@ def test_search_basic():
         vtes.VTES["Antón de Concepción"],
         vtes.VTES["Crusade: Chicago"],
         vtes.VTES["Horatio Ballard"],
+        vtes.VTES["Kevin Jackson (G7)"],
         vtes.VTES["Lachlan, Noddist"],
         vtes.VTES["Lodin (Olaf Holte)"],
         vtes.VTES["Maldavis (ADV)"],
@@ -883,6 +896,7 @@ def test_search_basic():
         vtes.VTES["Joseph Cambridge"],
         vtes.VTES["Karen Suadela"],
         vtes.VTES["Loki's Gift"],
+        vtes.VTES["Maila"],
         vtes.VTES["Maxwell"],
         vtes.VTES["Natasha Volfchek"],
         vtes.VTES["Perfect Paragon"],
@@ -1102,6 +1116,43 @@ def test_vekn():
         "sets",
         "types",
         "url",
+    }
+    assert test_vtes[201362].to_json() == {
+        "_name": "Theo Bell",
+        "artists": ["John Van Fleet"],
+        "capacity": 7,
+        "card_text": (
+            "Camarilla: Theo may enter combat with any ready minion "
+            "controlled by another Methuselah as a Ⓓ action. If you control "
+            "a ready prince or justicar, blood hunts cannot be called on "
+            "Theo."
+        ),
+        "clans": ["Brujah"],
+        "disciplines": ["cel", "dom", "pre", "POT"],
+        "group": "2",
+        "has_advanced": True,
+        "has_evolution": True,
+        "id": 201362,
+        "name": "Theo Bell (G2)",
+        "name_variants": ["Theo Bell"],
+        "printed_name": "Theo Bell",
+        "scans": {
+            "Camarilla Edition": (
+                "https://static.krcg.org/card/set/camarilla-edition/theobellg2.jpg"
+            ),
+            "Final Nights": (
+                "https://static.krcg.org/card/set/final-nights/theobellg2.jpg"
+            ),
+        },
+        "sets": {
+            "Camarilla Edition": [
+                {"copies": 1, "precon": "Brujah", "release_date": "2002-08-19"}
+            ],
+            "Final Nights": [{"rarity": "Uncommon", "release_date": "2001-06-11"}],
+        },
+        "types": ["Vampire"],
+        "url": "https://static.krcg.org/card/theobellg2.jpg",
+        "variants": {"G2 ADV": 201363, "G6": 201613},
     }
 
 

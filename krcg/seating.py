@@ -248,10 +248,11 @@ class Score:
 
     def score_measure(self, measure: Measure, rounds_count: int) -> None:
         # transfers, starting vps: compute standard deviation
-        vps = measure.position[:, 1] / measure.position[:, 0]
-        transfers = measure.position[:, 2] / measure.position[:, 0]
-        self.R3 = numpy.std(vps)
-        self.R8 = numpy.std(transfers)
+        with numpy.errstate(divide="ignore", invalid="ignore"):
+            vps = measure.position[:, 1] / measure.position[:, 0]
+            transfers = measure.position[:, 2] / measure.position[:, 0]
+        self.R3 = numpy.std(vps, where=measure.position[:, 0] != 0)
+        self.R8 = numpy.std(transfers, where=measure.position[:, 0] != 0)
         # record details of anomalies for output
         self.mean_vps = numpy.mean(vps)
         self.mean_transfers = numpy.mean(transfers)
@@ -311,17 +312,24 @@ class Score:
 
         This is used to speed up computations when searching for an optimum.
         """
-        rules = [
-            len(numpy.argwhere(measure.opponents[:, :, 1] > 1)),
-            len(numpy.argwhere(measure.opponents[:, :, 0] > 2)) // 2,
-            numpy.std(measure.position[:, 1] / measure.position[:, 0]),
-            len(numpy.argwhere(measure.opponents[:, :, 0] > 1)) // 2,
-            len(numpy.argwhere(measure.position[:, 6] > 1)),
-            len(numpy.argwhere(measure.opponents[:, :, 1:6] > 1)) // 2,
-            len(numpy.argwhere(measure.position[:, 3:] > 1)),
-            numpy.std(measure.position[:, 2] / measure.position[:, 0]),
-            len(numpy.argwhere(measure.opponents[:, :, 6:] > 1)) // 2,
-        ]
+        with numpy.errstate(divide="ignore", invalid="ignore"):
+            rules = [
+                len(numpy.argwhere(measure.opponents[:, :, 1] > 1)),
+                len(numpy.argwhere(measure.opponents[:, :, 0] > 2)) // 2,
+                numpy.std(
+                    measure.position[:, 1] / measure.position[:, 0],
+                    where=measure.position[:, 0] != 0,
+                ),
+                len(numpy.argwhere(measure.opponents[:, :, 0] > 1)) // 2,
+                len(numpy.argwhere(measure.position[:, 6] > 1)),
+                len(numpy.argwhere(measure.opponents[:, :, 1:6] > 1)) // 2,
+                len(numpy.argwhere(measure.position[:, 3:] > 1)),
+                numpy.std(
+                    measure.position[:, 2] / measure.position[:, 0],
+                    where=measure.position[:, 0] != 0,
+                ),
+                len(numpy.argwhere(measure.opponents[:, :, 6:] > 1)) // 2,
+            ]
         return sum(x * m for x, m in zip(rules, [R[2] for R in RULES]))
 
     def __str__(self):

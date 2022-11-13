@@ -1,11 +1,48 @@
 Changelog
 =========
 
-2.24 (unreleased)
+2.30 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Add 2022 European GP Promo
 
+
+2.29 (2022-10-04)
+-----------------
+
+- Add Third: Starter Kit precons
+
+
+2.28 (2022-08-25)
+-----------------
+
+- Add variants to crypt cards information (base, advanced, evolution)
+
+
+2.27 (2022-08-24)
+-----------------
+
+- Additional rulings
+
+
+2.26 (2022-08-23)
+-----------------
+
+- Add minimal JSON serialization Deck.to_minimal_json()
+
+
+2.25 (2022-05-21)
+-----------------
+
+- Add New Blood
+- Add the possibility to use KRCG cards files instead of the official VEKN ones
+
+
+2.24 (2022-05-19)
+-----------------
+
+- Ignore cards with a zero count when importing a deck from Amaranth URL
+- Fix corner case on seating computation (player in list but not playing)
 
 2.23 (2022-04-11)
 -----------------

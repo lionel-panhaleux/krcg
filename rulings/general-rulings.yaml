@@ -56,7 +56,7 @@
     - 101989|Toreador Grand Ball
     - 102125|Visionquest
     - 102192|Wooden Stake
-- ruling: 'Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played after it. [LSJ 19981028] [ANK 20190425]'
+- ruling: 'Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played before or after it. [LSJ 19981028] [ANK 20190425]'
   cards:
     - 100102|As the Crow
     - 100446|CrimethInc.
@@ -76,99 +76,6 @@
     - 101724|Seraph's Second
     - 101236|Momentary Delay
     - 100595|Dusk Work
-- ruling: 'Cards and effects that can be played "as the action is announced" can be played before it. [ANK 20190425]'
-  cards:
-    - 102138|Walk of Caine
-    - 100097|The Art of Memory
-    - 100502|Day Operation
-    - 100513|Deed the Heart's Desire
-    - 100544|Din of the Damned
-    - 100565|Divine Image
-    - 100802|Gang Tactics
-    - 100820|Ghouled
-    - 100849|The Grandest Trick
-    - 101122|Loose Cannon
-    - 101162|Mantle of the Moon
-    - 101199|Memory Rift
-    - 101282|Ni Dieu ni Maître
-    - 101286|Nightshades
-    - 101304|Notorious Brutality
-    - 101382|Penitent Resilience
-    - 101386|Perfect Clarity
-    - 101572|Recurring Contemplation
-    - 101712|Seduction
-    - 101725|Serenading the Kami
-    - 101764|Shell Game
-    - 101776|Shroudsight
-    - 101805|The Sleeping Mind
-    - 101867|Stealth Ritus
-    - 101870|Stiff Contempt
-    - 101880|Strange Day
-    - 101925|Tainted Spring
-    - 101975|Those Who Endure Judge
-    - 102058|Uncontrollable Rage
-- ruling: 'Cards and effects that are played "as the card is played" must be played before it. Wake effects can be played before it. [ANK 20181208]'
-  cards:
-    - 102138|Walk of Caine
-    - 100097|The Art of Memory
-    - 100502|Day Operation
-    - 100513|Deed the Heart's Desire
-    - 100544|Din of the Damned
-    - 100565|Divine Image
-    - 100802|Gang Tactics
-    - 100820|Ghouled
-    - 100849|The Grandest Trick
-    - 101122|Loose Cannon
-    - 101162|Mantle of the Moon
-    - 101199|Memory Rift
-    - 101282|Ni Dieu ni Maître
-    - 101286|Nightshades
-    - 101304|Notorious Brutality
-    - 101382|Penitent Resilience
-    - 101386|Perfect Clarity
-    - 101572|Recurring Contemplation
-    - 101712|Seduction
-    - 101725|Serenading the Kami
-    - 101764|Shell Game
-    - 101776|Shroudsight
-    - 101805|The Sleeping Mind
-    - 101867|Stealth Ritus
-    - 101870|Stiff Contempt
-    - 101880|Strange Day
-    - 101925|Tainted Spring
-    - 101975|Those Who Endure Judge
-    - 102058|Uncontrollable Rage
-- ruling: "Replace the action card (if any) before playing it. [ANK 20181208]"
-  cards:
-    - 102138|Walk of Caine
-    - 100097|The Art of Memory
-    - 100502|Day Operation
-    - 100513|Deed the Heart's Desire
-    - 100544|Din of the Damned
-    - 100565|Divine Image
-    - 100802|Gang Tactics
-    - 100820|Ghouled
-    - 100849|The Grandest Trick
-    - 101122|Loose Cannon
-    - 101162|Mantle of the Moon
-    - 101199|Memory Rift
-    - 101282|Ni Dieu ni Maître
-    - 101286|Nightshades
-    - 101304|Notorious Brutality
-    - 101382|Penitent Resilience
-    - 101386|Perfect Clarity
-    - 101572|Recurring Contemplation
-    - 101712|Seduction
-    - 101725|Serenading the Kami
-    - 101764|Shell Game
-    - 101776|Shroudsight
-    - 101805|The Sleeping Mind
-    - 101867|Stealth Ritus
-    - 101870|Stiff Contempt
-    - 101880|Strange Day
-    - 101925|Tainted Spring
-    - 101975|Those Who Endure Judge
-    - 102058|Uncontrollable Rage
 - ruling: "Is not replaced until the condition is met, even if it is burned. [LSJ 20080805]"
   cards:
     - 101279|The New Inquisition
@@ -180,23 +87,6 @@
     - 100011|Absimiliard's Army
     - 100217|Blood Weakens
     - 100796|Fueled by Heart's Blood
-- ruling: "[abo] [REFLEX] Any frenzy card that targets/selects/chooses/affects the minion when played, is considered being played on the minion. [LSJ 20051113]"
-  cards:
-    - 102177|Whistling Up the Beast
-    - "100537|Devil-Channel: Back"
-    - "100538|Devil-Channel: Feet"
-    - "100539|Devil-Channel: Hands"
-    - "100540|Devil-Channel: Throat"
-    - 101005|Invoke Poison Glands
-    - 101006|Invoking the Beast
-    - 101477|Predator's Communion
-    - 101478|Predator's Mastery
-    - 101479|Predator's Transformation
-    - "101928|Taking the Skin: Minion"
-    - "101929|Taking the Skin: Vulture"
-    - 101934|Taming the Beast
-    - 102081|Unseen Hibernation
-    - 102177|Whistling Up the Beast
 - ruling: 'The "other Gehenna cards in play" requirement is only checked when playing the card. [PIB 20121031]'
   cards:
     - 100695|Fall of the Camarilla
@@ -229,31 +119,6 @@
     - 102002|Toy Chest Test
     - 102017|The Treatment
     - 102022|Tribunal Judgment
-- ruling: "Is not a vampire in the ash heap (eg. {Possession} cannot be played on it). [LSJ 20020115]"
-  cards:
-    - 101971|Thin-Blooded Seer
-    - "101973|Third Tradition: Progeny"
-    - "102035|Trophy: Progeny"
-    - 102046|Tumnimos
-    - 102159|Waters of Duat
-    - 100010|Abomination
-    - 100129|Bamba
-    - 100147|The Becoming
-    - 100256|Brother in Arms
-    - 100441|Creation Rites
-    - 100633|The Embrace
-- ruling: "If moved to the uncontrolled region (eg. by {Banishment}), it continues to be a vampire and can be influenced. [RTR 19990712]"
-  cards:
-    - 101971|Thin-Blooded Seer
-    - "101973|Third Tradition: Progeny"
-    - "102035|Trophy: Progeny"
-    - 102046|Tumnimos
-    - 102159|Waters of Duat
-    - 100010|Abomination
-    - 100129|Bamba
-    - 100256|Brother in Arms
-    - 100441|Creation Rites
-    - 100633|The Embrace
 - ruling: "If it uses its last life to play an action modifier, the action fails. If it uses its last life to play a strike, combat ends before strike resolution. [ANK 20180928-1]"
   cards:
     - 100033|Akhenaten, The Sun Pharaoh
@@ -564,24 +429,6 @@
     - 101349|Pandora's Whisper
     - 102137|Wake with Evening's Freshness
     - 102151|Wash
-- ruling: "If burned and shuffled into the library, other effects that apply when it is burned still apply (eg. {Set's Curse} puts an ally into play). [ANK 20200813]"
-  cards:
-    - 100033|Akhenaten, The Sun Pharaoh
-    - 100042|Amam the Devourer
-    - 101047|Kherebutu
-    - 101273|Nephren-Ka
-    - 101527|Qetu the Evil Doer
-    - 101665|Saatet-ta
-    - 102048|Tutu the Doubly Evil One
-- ruling: "Is not shuffled into the library when it is discarded. [LSJ 20010710]"
-  cards:
-    - 100033|Akhenaten, The Sun Pharaoh
-    - 100042|Amam the Devourer
-    - 101047|Kherebutu
-    - 101273|Nephren-Ka
-    - 101527|Qetu the Evil Doer
-    - 101665|Saatet-ta
-    - 102048|Tutu the Doubly Evil One
 - ruling: "Immune means damage is not inflicted, even if non-preventable or outside combat. [LSJ 20010627] [LSJ 20010629] [LSJ 20090304-1]"
   cards:
     - 100044|Ambrosius, The Ferryman
@@ -611,15 +458,6 @@
     - 201214|Ruxandra (G5)
     - 201273|Shahid (G4)
     - 201279|Sheela Na Gig (G5)
-- ruling: '"Before resolution" means after strikes have been declared but before they resolve. [RTR 19990105]'
-  cards:
-    - 100580|Dragon's Breath Rounds
-    - 100836|Glaser Rounds
-    - 101160|Manstopper Rounds
-    - 101689|Scattershot
-    - 101885|Strike at the True Flesh
-    - 100121|Baal's Bloody Talons
-    - 100304|Caseless Rounds
 - ruling: "If it leaves play, the card on it is burned. [LSJ 20021128]"
   cards:
     - 100343|Chiram's Hold
@@ -656,6 +494,346 @@
   cards:
     - 101388|Perfectionist
     - 100425|Corporal Reservoir
+- ruling: X can be zero. [LSJ 20030502]
+  cards:
+    - 100119|Awe
+    - 100242|Bounty
+    - 100918|Hidden Strength
+    - 101115|Living Wood Staff
+    - 101563|Reanimated Corpse
+    - 101707|Secret Horde
+    - 101768|Shock Troops
+    - 101897|Summon History
+    - 101899|Summon Spirit Beast
+    - 102183|Will-o'-the-Wisp
+- ruling: Cannot be used to prevent aggravated damage, even if the minion treats them as normal damage (eg. {Skin of Night}). [LSJ 20040812-2] [PIB 20130327]
+  cards:
+    - 101082|Leathery Hide
+    - 101817|Soak
+    - 102172|Well-Marked
+- ruling: "Only a Camarilla vampire can be chosen, it cannot be played without a valid target. [LSJ 20041026]"
+  cards:
+    - 100262|Brujah Justicar
+    - 101154|Malkavian Justicar
+    - 101299|Nosferatu Justicar
+    - 101990|Toreador Justicar
+    - 102021|Tremere Justicar
+    - 102111|Ventrue Justicar
+- ruling: "The two actions provided are not cross-restrictive. Each can be performed once during the same turn by the same minion. [LSJ 20100909]"
+  cards:
+    - 100042|Amam the Devourer
+    - 100084|Archon
+    - 100436|Covenant of Blood
+    - 100500|Dauntain Black Magician
+    - 100569|Dogs of War
+    - 100855|Gregory Winter
+    - 101024|Joseph Pander
+    - 101035|Kaymakli Fragment
+    - 101076|Lazarene Inquisitor
+    - 101132|Lunatic Eruption
+    - 101324|Open War
+    - "101432|Powerbase: Berlin"
+    - "101441|Powerbase: Rome"
+    - 101666|Sabbat Inquisitor
+    - 101952|Templar
+    - 102211|Zoning Board
+    - 200166|Barbaro Lucchese (G3)
+    - 201451|Virgil (G2)
+    - 201454|Virstania, The Great Mother (G3)
+- ruling: "An action directed at a card controlled by another Methuselah is directed at that Methuselah. [RBK 20200701-9] [LSJ 20090324]"
+  cards:
+    - 100094|Arson
+    - 100233|Bomb
+    - 100259|The Bruisers
+    - 100391|Conceal
+    - 100719|Felix "Fix" Hessian
+    - 101301|Nosferatu Performance Art
+    - 101324|Open War
+    - 101632|Rewilding
+    - 101809|Smash and Grab
+    - 102193|The World's a Canvas
+- ruling: "Counts as requiring an Anarch (for eg. {Powerbase: Los Angeles}). [LSJ 20080603] [LSJ 20050128]"
+  cards:
+    - 100320|Chameleon
+    - 101324|Open War
+    - 101377|Patsy
+    - 101631|Revolutionary Council
+    - 101915|Sweeper
+    - 102218|Bait and Switch
+    - 102230|Organized Resistance
+- ruling: The additional capacity is lost if the title is lost. [TOM 19960210]
+  cards:
+    - "101448|Praxis Seizure: Athens"
+    - "101450|Praxis Seizure: Barcelona"
+    - "101451|Praxis Seizure: Berlin"
+    - "101453|Praxis Seizure: Brussels"
+    - "101454|Praxis Seizure: Cairo"
+    - "101460|Praxis Seizure: Geneva"
+    - "101461|Praxis Seizure: Glasgow"
+    - "101466|Praxis Seizure: Monaco"
+    - "101467|Praxis Seizure: Paris"
+    - "101468|Praxis Seizure: Rome"
+    - "101470|Praxis Seizure: Stockholm"
+- ruling: The ability can be used while locked or in torpor, only once per referendum. [ANK 20220705] [LSJ 20100705] [LSJ 20011022] [LSJ 20100902-2] [ANK 20180307-2] [RBK 20200701-4]
+  cards:
+    - 200763|Kateline Nadasdy (G4)
+    - 200065|Amaravati (G4)
+    - 200417|Ellison Humboldt (G3)
+    - 201043|Neferu (G4)
+    - 200455|Fakir al Sidi (G4)
+    - 200136|Arishat (G6)
+- ruling: The ability can be used while locked, only once per referendum. [ANK 20220705]
+  cards:
+    - 201314|Stefano Giovanni (G2)
+    - 201325|Sundown (G3)
+    - 200317|Danielle Diron (G3 ADV)
+    - 200724|Joseph O'Grady (G3)
+    - 201529|Alexa Draper (G6)
+    - 200426|Enzo Giovanni, Pentex Board of Directors (G2 ADV)
+    - 200030|Aisha az-Zahra (G5)
+    - 200377|Dr. John Dee (G4)
+    - 201170|Rebekah (G3)
+    - 200187|Bela Kardoza (G4)
+    - 200535|Gravitnir (G4)
+    - 200885|Luna Giovanni (G5)
+- ruling: Can use a multi-discipline card with a potential (unused) Celerity [cel] effect. [LSJ 20050322-2]
+  cards:
+    - 201274|Shalmath (G6)
+    - 200891|Lydia, Grand Praetor (G6)
+    - 201044|Nehemiah (G4)
+    - 201067|Nu, The Pillar (G2)
+    - 200037|Al-Muntaquim, The Avenger (G4)
+    - 200038|Al-Muntathir, God's Witness (G5)
+    - 200988|Mikael Birkholm (G6)
+    - 201331|Synesios (G2)
+    - 200618|Ibn Khaldun, Scholar (G4)
+    - 200793|Krassimir (G2)
+- ruling: If the title is contested, the card is turned face down out of play and the provided action cannot be used. [LSJ 20070808-2]
+  cards:
+    - 101587|Regent
+    - "100712|Fee Stake: Boston"
+    - "100713|Fee Stake: Corte"
+    - "100714|Fee Stake: Los Angeles"
+    - "100715|Fee Stake: New York"
+    - "100716|Fee Stake: Perth"
+    - "100717|Fee Stake: Seattle"
+
+# ######################################################################################################### locquipments
+
+- ruling: May be put on any minion if the controller changes. If the new controller has no minions, it is burned. [RTR 19960112]
+  cards:
+    - 100071|The Ankara Citadel, Turkey
+    - 100306|Catacombs
+    - 100499|Dartmoor, England
+    - 100847|Gran Madre di Dio, Italy
+    - 101002|Inveraray, Scotland
+    - 101114|Living Manse
+    - 101117|Local 1111
+    - 101135|Lyndhurst Estate, New York
+    - 101345|Palatial Estate
+    - 101400|Pier 13, Port of Baltimore
+    - 101658|Ruins of Ceoris
+    - 101660|Ruins of Villers Abbey, Belgium
+    - 101670|Sacré-Cœur Cathedral, France
+    - 101676|San Lorenzo de El Escorial, Spain
+    - 101677|San Nicolás de los Servitas
+    - 102184|Winchester Mansion
+    - 102203|Zaire River Ferry
+- ruling: An action targeting it (eg. {Conceal}) is directed at the Methuselah controlling it, not the minion it's on. [LSJ 20090324]"
+  cards:
+    - 100071|The Ankara Citadel, Turkey
+    - 100306|Catacombs
+    - 100499|Dartmoor, England
+    - 100847|Gran Madre di Dio, Italy
+    - 101002|Inveraray, Scotland
+    - 101114|Living Manse
+    - 101117|Local 1111
+    - 101135|Lyndhurst Estate, New York
+    - 101345|Palatial Estate
+    - 101400|Pier 13, Port of Baltimore
+    - 101658|Ruins of Ceoris
+    - 101660|Ruins of Villers Abbey, Belgium
+    - 101670|Sacré-Cœur Cathedral, France
+    - 101676|San Lorenzo de El Escorial, Spain
+    - 101677|San Nicolás de los Servitas
+    - 102184|Winchester Mansion
+    - 102203|Zaire River Ferry
+- ruling: "The scarce penalty considers the apparent clan while controlled (in case of {Clan Impersonation} and {Banishment}). [LSJ 20011015]"
+  cards:
+    - 200037|Al-Muntaquim, The Avenger (G4)
+    - 200038|Al-Muntathir, God's Witness (G5)
+    - 200057|Allonzo Montoya (G3)
+    - 200119|Anu Diptinatpa (G6)
+    - 200145|Asguresh (G5)
+    - 200206|Blanche Hill (G2)
+    - 200443|Eurayle Gelasia Mylonas (G4)
+    - 200618|Ibn Khaldun, Scholar (G4)
+    - 200728|Jozz (G6)
+    - 200751|Kanimana Belghazi (G2)
+    - 200793|Krassimir (G2)
+    - 200824|Le Dinh Tho (G2)
+    - 200859|Lorrie Dunsirn (G4)
+    - 200891|Lydia, Grand Praetor (G6)
+    - 200961|Matthew (G6)
+    - 200963|Matthias (G2)
+    - 200988|Mikael Birkholm (G6)
+    - 200995|Miriam Benyona (G2)
+    - 201016|Mr. Noir (G4)
+    - 201031|Nahum Enosh (G6)
+    - 201044|Nehemiah (G4)
+    - 201067|Nu, The Pillar (G2)
+    - 201070|Obaluaye (G5)
+    - 201094|Pariah (G2)
+    - 201132|Prejudice (G4)
+    - 201153|Raful al-Zarqa (G2)
+    - 201248|Saulot, The Wanderer (G4)
+    - 201263|Sennadurek (G4)
+    - 201266|Serenna the White (G6)
+    - 201274|Shalmath (G6)
+    - 201331|Synesios (G2)
+    - 201433|Veejay Vinod (G6)
+    - 201484|Yavu Matebo (G4)
+    - 201510|Zubeida (G5)
+
+# ############################################################################################################# aim-like
+
+- ruling: '"Before resolution" means after strikes have been declared but before they resolve. [RTR 19990105]'
+  cards:
+    - 100580|Dragon's Breath Rounds
+    - 100836|Glaser Rounds
+    - 101160|Manstopper Rounds
+    - 101689|Scattershot
+    - 101885|Strike at the True Flesh
+    - 100121|Baal's Bloody Talons
+    - 100304|Caseless Rounds
+- ruling: "Cannot be played on an opponent's weapon. [LSJ 20020425]"
+  cards:
+    - 100580|Dragon's Breath Rounds
+    - 100836|Glaser Rounds
+    - 101160|Manstopper Rounds
+    - 101689|Scattershot
+    - 101885|Strike at the True Flesh
+    - 100121|Baal's Bloody Talons
+    - 100304|Caseless Rounds
+
+# ################################################################################## modifier as the action is announced
+
+- ruling: 'Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g., {Conditioning}). [ANK 20190425]'
+  cards:
+    - 102138|Walk of Caine
+    - 100097|The Art of Memory
+    - 100502|Day Operation
+    - 100513|Deed the Heart's Desire
+    - 100544|Din of the Damned
+    - 100565|Divine Image
+    - 100802|Gang Tactics
+    - 100820|Ghouled
+    - 100849|The Grandest Trick
+    - 101122|Loose Cannon
+    - 101162|Mantle of the Moon
+    - 101199|Memory Rift
+    - 101282|Ni Dieu ni Maître
+    - 101286|Nightshades
+    - 101304|Notorious Brutality
+    - 101382|Penitent Resilience
+    - 101386|Perfect Clarity
+    - 101572|Recurring Contemplation
+    - 101712|Seduction
+    - 101725|Serenading the Kami
+    - 101764|Shell Game
+    - 101776|Shroudsight
+    - 101805|The Sleeping Mind
+    - 101867|Stealth Ritus
+    - 101870|Stiff Contempt
+    - 101880|Strange Day
+    - 101925|Tainted Spring
+    - 101975|Those Who Endure Judge
+    - 102058|Uncontrollable Rage
+- ruling: "Replace the action card (if any) before playing it. [ANK 20181208]"
+  cards:
+    - 102138|Walk of Caine
+    - 100097|The Art of Memory
+    - 100502|Day Operation
+    - 100513|Deed the Heart's Desire
+    - 100544|Din of the Damned
+    - 100565|Divine Image
+    - 100802|Gang Tactics
+    - 100820|Ghouled
+    - 100849|The Grandest Trick
+    - 101122|Loose Cannon
+    - 101162|Mantle of the Moon
+    - 101199|Memory Rift
+    - 101282|Ni Dieu ni Maître
+    - 101286|Nightshades
+    - 101304|Notorious Brutality
+    - 101382|Penitent Resilience
+    - 101386|Perfect Clarity
+    - 101572|Recurring Contemplation
+    - 101712|Seduction
+    - 101725|Serenading the Kami
+    - 101764|Shell Game
+    - 101776|Shroudsight
+    - 101805|The Sleeping Mind
+    - 101867|Stealth Ritus
+    - 101870|Stiff Contempt
+    - 101880|Strange Day
+    - 101925|Tainted Spring
+    - 101975|Those Who Endure Judge
+    - 102058|Uncontrollable Rage
+
+# ############################################################################################################## embrace
+
+- ruling: "Is not a vampire in the ash heap (eg. {Possession} cannot be played on it). [LSJ 20020115]"
+  cards:
+    - 100010|Abomination
+    - 100129|Bamba
+    - 100147|The Becoming
+    - 100256|Brother in Arms
+    - 100280|Call the Great Beast
+    - 100441|Creation Rites
+    - 100633|The Embrace
+    - 101971|Thin-Blooded Seer
+    - "101973|Third Tradition: Progeny"
+    - "102035|Trophy: Progeny"
+    - 102046|Tumnimos
+    - 102159|Waters of Duat
+- ruling: "If moved to the uncontrolled region (eg. by {Banishment}), it continues to be a vampire and can be influenced. [RTR 19990712]"
+  cards:
+    - 100010|Abomination
+    - 100129|Bamba
+    - 100256|Brother in Arms
+    - 100280|Call the Great Beast
+    - 100441|Creation Rites
+    - 100633|The Embrace
+    - 101971|Thin-Blooded Seer
+    - "101973|Third Tradition: Progeny"
+    - "102035|Trophy: Progeny"
+    - 102046|Tumnimos
+    - 102159|Waters of Duat
+
+# ################################################################################################################ mummy
+
+- ruling: "If burned and shuffled into the library, other effects that apply when it is burned still apply (eg. {Set's Curse} puts an ally into play). [ANK 20200813]"
+  cards:
+    - 100033|Akhenaten, The Sun Pharaoh
+    - 100042|Amam the Devourer
+    - 101047|Kherebutu
+    - 101273|Nephren-Ka
+    - 101527|Qetu the Evil Doer
+    - 101665|Saatet-ta
+    - 102048|Tutu the Doubly Evil One
+- ruling: "Is not shuffled into the library when it is discarded. [LSJ 20010710]"
+  cards:
+    - 100033|Akhenaten, The Sun Pharaoh
+    - 100042|Amam the Devourer
+    - 101047|Kherebutu
+    - 101273|Nephren-Ka
+    - 101527|Qetu the Evil Doer
+    - 101665|Saatet-ta
+    - 102048|Tutu the Doubly Evil One
+
+# ########################################################################################################## cancel card
+
 - ruling: 'Cards are not replaced during the "as played" window. [LSJ 20061013]'
   cards:
     - 100419|Contingency Planning
@@ -706,6 +884,9 @@
     - 101998|Touch of Clarity
     - 102008|Tranquility
     - 102151|Wash
+
+# ############################################################################################################### reflex
+
 - ruling: '[abo] [REFLEX] Cards are not replaced during the "as played" window. [LSJ 20061013]'
   cards:
     - "100537|Devil-Channel: Back"
@@ -738,28 +919,19 @@
     - 101934|Taming the Beast
     - 102081|Unseen Hibernation
     - 102177|Whistling Up the Beast
-- ruling: X can be zero. [LSJ 20030502]
+- ruling: "[abo] [REFLEX] Any frenzy card that targets/selects/chooses/affects the minion when played, is considered being played on the minion. [LSJ 20051113]"
   cards:
-    - 100119|Awe
-    - 100242|Bounty
-    - 100918|Hidden Strength
-    - 101115|Living Wood Staff
-    - 101563|Reanimated Corpse
-    - 101707|Secret Horde
-    - 101768|Shock Troops
-    - 101897|Summon History
-    - 101899|Summon Spirit Beast
-    - 102183|Will-o'-the-Wisp
-- ruling: Cannot be used to prevent aggravated damage, even if the minion treats them as normal damage (eg. {Skin of Night}). [LSJ 20040812-2] [PIB 20130327]
-  cards:
-    - 101082|Leathery Hide
-    - 101817|Soak
-    - 102172|Well-Marked
-- ruling: "Only a Camarilla vampire can be chosen, it cannot be played without a valid target. [LSJ 20041026]"
-  cards:
-    - 100262|Brujah Justicar
-    - 101154|Malkavian Justicar
-    - 101299|Nosferatu Justicar
-    - 101990|Toreador Justicar
-    - 102021|Tremere Justicar
-    - 102111|Ventrue Justicar
+    - "100537|Devil-Channel: Back"
+    - "100538|Devil-Channel: Feet"
+    - "100539|Devil-Channel: Hands"
+    - "100540|Devil-Channel: Throat"
+    - 101005|Invoke Poison Glands
+    - 101006|Invoking the Beast
+    - 101477|Predator's Communion
+    - 101478|Predator's Mastery
+    - 101479|Predator's Transformation
+    - "101928|Taking the Skin: Minion"
+    - "101929|Taking the Skin: Vulture"
+    - 101934|Taming the Beast
+    - 102081|Unseen Hibernation
+    - 102177|Whistling Up the Beast
