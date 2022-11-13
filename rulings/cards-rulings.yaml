@@ -14,7 +14,7 @@
   - Cannot be played when burned as a result of a Blood Hunt referendum. [LSJ 20070417]
   - Will not trigger the {Soul Gem of Etrius} since the vampire is removed from the game instead of being burned. [LSJ 20021010]
 100006|Abbot:
-  - The +1 intercept applies to Ⓓ actions against cards controlled by the controller. It does not apply to Ⓓ actions against another Methuselah. [LSJ 20061222]
+  - The +1 intercept applies to actions directed at cards controlled by the controller. It does not apply to actions directed at other Methuselahs. [LSJ 20061222]
 100007|Abjure:
   - Can be used by an incapacitated Imbued. [LSJ 20081016]
 100008|Ablative Skin:
@@ -31,16 +31,16 @@
 100013|Absorb the Mind:
   - Can be played against a vampire with no blood. [RTR 20010711]
 100014|Abyssal Hunter:
-  - If ranged aggravated damage is inflicted at close range against him, he burns. [PIB 20110818]
-  - If he burns an ally with his action, this counts as a Ⓓ action burning an ally (eg. for Trophies). [ANK 20220507]
+  - Burns if ranged aggravated damage is inflicted on it at close range. [PIB 20110818]
+  - If he burns an ally with his action, this counts as a directed action burning an ally (eg. for Trophies). [ANK 20220507]
 100018|Aching Beauty:
   - The pool loss occurs if the block would be successful, even if the action is ended (eg. {Change of Target} or {Obedience}) or made unblockable ({Horrific Countenance}) at this point. [RTR 19991206] [LSJ 20091125]
-  - The cost is cumulative if a vampire has multiple copies of the card on him. [LSJ 19980225]
+  - Burn pool effects are cumulative. [LSJ 19980225]
 100023|The Admonitions:
   - Cannot be used when a card is played, to draw a card that would cancel it "as it is played". [RTR 20040501]
   - If you are the only Methuselah to control a Sabbat vampire, you keep control of The Admonitions each turn. [LSJ 20031121]
 100024|Agate Talisman:
-  - Can be equipped by a vampire with capacity less than 4, although he cannot lock it to get a vote. [LSJ 20030607]
+  - Can be equipped by a vampire with capacity less than 4, although they cannot lock it to get a vote. [LSJ 20030607]
 100025|Agent of Power:
   - Is unique and provides a discipline even when it was not played in the normal fashion (eg. diablerie, {Deviki Prasanta}, {Bima}). [LSJ 20071001-1] [LSJ 20100422]
   - If used as a placeholder to represent something else, its text does not apply (including the "Unique" part). A {Shock Troops} vampire would simply be a non-unique 1-cap Sabbat with no clan and no discipline. [LSJ 20071001-1]
@@ -50,10 +50,10 @@
 100029|Aid from Bats:
   - "[ANI] The press can only be used during the current round. [TOM 19960521]"
 100038|Alastor:
-  - If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]
+  - If the weapon retrieved costs blood, that cost is paid by the vampire chosen by the vote. [LSJ 20040518]
   - Requirements do not apply. If a discipline is required (eg. {Inscription}) and the Alastor vampire does not have it, the inferior version is used. [ANK 20200901] [LSJ 20040518-2]
 100043|Amaranth:
-  - If both minions want to play a card "when a vampire should go into torpor", acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Amaranth} and vice-versa. [RTR 20010710]
+  - If both minions want to play a card "when a vampire should go into torpor", the acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play {Amaranth} and vice-versa. [RTR 20010710]
 100045|Ambulance:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
   - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
@@ -70,6 +70,7 @@
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
 100055|Anarch Revolt:
   - The cost is cumulative if they are multiple copies in play. [LSJ 19980225]
+  - If a Methuselah controls no ready Anarch by the end of the unlock phase, they must burn 1 pool, even if they had a ready Anarch at some point during the unlock phase. [LSJ 20080106]
 100058|Anarch Troublemaker:
   - Can lock a vampire that is already locked. [PIB 20121031]
 100060|Anathema:
@@ -97,20 +98,21 @@
   - "[CHI] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
   - "[CHI] Can prevent 1 damage twice on separated strikes in the same round. [ANK 20200318]"
 100078|Approximation of Loyalty:
-  - '[pre] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[pre] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[pre] Replace the action card (if any) before playing it. [ANK 20181208]"
   - '[PRE] Cards are not replaced until all effects played "as a card is played" are resolved. [LSJ 20061013]'
   - '[PRE] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
   - "[PRE] The card is still considered played. The same reaction cannot be played again by the same minion. [LSJ 19980212] [LSJ 20061207]"
   - "[PRE] Must be played right after the reaction card to cancel is played. Another modifier cannot be played in between. [LSJ 20061207]"
 100080|Arcane Appraiser:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100083|Arcanum Investigator:
   - His action is directed against the Methuselah controlling the equipment, not the minion it's on. [LSJ 20090324]"
 100084|Archon:
-  - If a vampire blocks an Archon, he or she burns 1 blood regardless of which action the Archon was taking. [RTR 19960221]
-  - "Multiple Archon cards provide different actions: if the vampire manage to unlock during the minion phase, he can perform the two actions. [RTR 20030519]"
-  - The cost is cumulative if a vampire has multiple copies of the card on him. [LSJ 19980225]
+  - If a vampire blocks an Archon, they burn 1 blood regardless of which action the Archon was taking. [RTR 19960221]
+  - "Each copy of this card provides its own action: if the vampire manage to unlock during the minion phase, he can perform the action more than once (once per copy). [RTR 20030519]"
+  - Burn blood effects are cumulative. [LSJ 19980225]
+  - A vampire with no blood can still block, they burn what they can. [LSJ 19970707]
 100085|Archon Investigation:
   - Must be played after blocks are declined, playing it implicitly declines block attempts. [LSJ 20070203]
   - Must be played before action resolution, before any modifier or reaction played "as the action would be successful" are played (eg. cannot be played after a {Spying Mission} on the vampire triggers). [LSJ 19980105]
@@ -136,7 +138,7 @@
 100100|Art's Traumatic Essence:
   - The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]
 100103|Asanbonsam Ghoul:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
   - If another effect also sets the range, the first to resolve has priority (eg. {Squirrel Balance} resolves before, {Neutral Guard} resolves after). [PIB 20120214]
 100105|Ashes to Ashes:
   - "[thn], [THN] The end of combat is triggered by the vampire going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
@@ -168,19 +170,19 @@
   - The bearer (if he unlocks normally) unlocks at the beginning of the unlock phase, before this effect can be used. [PIB 20151009] [RBK 20200701-1]
 100128|Baltimore Purge:
   - There is no time to use other effects between the choosing of the vampires and those vampires going to torpor. [LSJ 20050111]
-  - The effect during the unlock phase is not an action, you can choose a vampire with a {Secure Haven} on him. [PIB 20121028]
+  - The effect during the unlock phase is not an action, you can choose a vampire with a {Secure Haven} on them. [PIB 20121028]
   - If you control a ready Lasombra, the chosen vampires may not be older than the acting vampire. [ANK 20210529]
 100129|Bamba:
   - You only fetch one discipline card in total, not one in each of hand, library and ash heap. [LSJ 20090528-1]
 100131|Banishment:
   - Is not directed (eg. {Secure Haven} offers no protection). [ANK 20221019-3]
   - A banished vampire can return to play when it again has blood >= capacity on it at the end of its Methuselah's influence phase. [TOM 19951209]
-  - A banished vampire will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501]
+  - A banished vampire will remember all effects that had been applied to them, just as contested vampires do. This includes gained or lost titles. [RTR 20000501]
   - Cards on the banished vampire that change their capacity do not applied while uncontrolled, but additional blood for increased capacity does not drain off when they get controlled as these effects resume. [PIB 20140122]
   - All cards on the vampire come back unlocked. [LSJ 20060908]
   - Continuous effects targeting the banished vampire (eg. {The Rack}) resume if and when the vampire comes back into play. [TOM 19960210] [LSJ 20010809-2] [LSJ 20010809-3]
   - '"breaking any temporary control effects" means the vampire is placed in his last permanent controller''s uncontrolled region. [RTR 20000501]'
-  - If the vampire is permanently controlled by a Methuselah other than his owner, it goes to that Methuselah uncontrolled region and is still controlled by him. It is removed from the game if that Methuselah is ousted and kept in game if his owner is ousted. [ANK 20200408-2]
+  - If the vampire is permanently controlled by a Methuselah other than his owner, it goes to that Methuselah uncontrolled region and is still controlled by them. It is removed from the game if that Methuselah is ousted and kept in game if his owner is ousted. [ANK 20200408-2]
 100133|Banshee Ironwail:
   - Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]
   - If a block is successful, the blood is burned before any other effect can be used (eg. {Promise of 1528}). REVERSAL of earlier rulings. [ANK 20210627]
@@ -204,7 +206,7 @@
 100146|Beast Meld:
   - "[ani][pro] The damage prevention can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
   - "[ani][pro] The damage prevention is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
-  - '[ANI][PRO] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[ANI][PRO] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[ANI][PRO] Replace the action card (if any) before playing it. [ANK 20181208]"
 100147|The Becoming:
   - If moved to the uncontrolled region (eg. by {Banishment}), it continues to be a vampire and can be influenced as a 1 capacity vampire. [RTR 19990712] [LSJ 20090625]
@@ -214,7 +216,7 @@
 100156|Betrayer:
   - The affected Methuselah is named when the card is played. [RTR 19980928]
   - Each of their turns, the person subjected to Betrayer can name a vampire. If the guess is correct, Betrayer is burned. [RTR 19941109]
-  - Is cumulative. A player can be damaged by multiple Betrayers each turn. A Methuselah targeted by more than one Betrayer would have to pay 1 pool for each Betrayer in order to burn them, even if the same vampire is the betrayer in each case. [RTR 19941109]
+  - Is cumulative: a player can be damaged by multiple Betrayers each turn. A Methuselah targeted by more than one Betrayer would have to pay 1 pool for each Betrayer in order to burn them, even if the same vampire is the betrayer in each case. [RTR 19941109]
   - If the vampire chosen for Betrayer is burned, so is Betrayer. If the vampire chosen for Betrayer becomes contested, Betrayer is nullified until the contest is resolved, at which time the Betrayer is reactivated. If a player takes control of the vampire that is the target of the betrayer, that player takes the pool loss. [RTR 19941109]
   - You select an uncontrolled vampire when you play the card. If you have a choice (more than one of your uncontrolled vampires is controlled by the other Methuselah), you still have to choose just one of them to be the Betrayer. [LSJ 19990419]
 100159|Big Game:
@@ -222,7 +224,7 @@
 100160|Bima:
   - The discipline needs not be announced when Bima is played. The replacement card can be used if it is a discipline. [PIB 20150418]
   - '"that Discipline" refers to the card on Bima. If the card is no longer there, then the effect cannot be used. [LSJ 20071006]'
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
   - If it uses its last life to pay for an action, the action still resolves fully. If that leads to an oust, the oust is resolved before resolving effects triggered by the fact that the Bima burns. [LSJ 20080512]
 100161|Bind the Night-Walker:
   - The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]
@@ -303,7 +305,7 @@
   - Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]
   - The opponent cannot play [for] prevention cards (eg. for cycling). [LSJ 20050628]
 100209|Blood Shield:
-  - The blood is burned by the opponent when the owner prevents damage, immediately, before loosing blood to heal strike damage. Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention himself. [LSJ 20090528-1]
+  - The blood is burned by the opponent when the owner prevents damage, immediately, before loosing blood to heal strike damage. Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention themselves. [LSJ 20090528-1]
 100212|Blood Tears of Kephran:
   - Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]
 100213|Blood Tempering:
@@ -408,7 +410,7 @@
   - "[ANI][PRO] The damage is environmental. [LSJ 20060217]"
 100284|Camarilla Exemplary:
   - Burn blood effects are cumulative. [LSJ 19980225]
-  - A vampire with no blood can still block, he burns what he can. [LSJ 19970707]
+  - A vampire with no blood can still block, they burn what they can. [LSJ 19970707]
   - The same vampire can be chosen multiple times if multiple copies are played. [LSJ 19970707]
 100286|Camarilla Vitae Slave:
   - The vampire keeps his chosen Discipline at superior until his controller's next unlock phase even if the retainer is burned or stolen. [LSJ 19970224]
@@ -586,12 +588,12 @@
 100423|Coordinate Attacks:
   - Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]
 100427|Corpse Balloon:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100428|Corpse Minion:
   - May be used any number of times during a single action. [TOM 19960109]
 100429|Corrupt Construction:
   - If recruited in the normal fashion, the card will have been replaced by the time the ally enters play. In other cases however, it won't have been and the Methuselah will have to work with only the cards in hand (or ash heap) to add life to it before replacing. [LSJ 20070707]
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100432|Coterie Tactics:
   - Cannot be used if the vampires cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
   - Does not ignore the normal prey, predator or target restrictions. [ANK 20180623]
@@ -637,7 +639,7 @@
 100483|Curse of Nitocris:
   - Only moves when a Methuselah gets the Edge who does not already have the Edge. [LSJ 19971006]
 100484|D'habi Revenant:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100485|Dabbler:
   - Cannot be used if the action is canceled. [ANK 20220411]
   - Takes into account all the cards played, even if they are canceled. [ANK 20220411]
@@ -731,7 +733,7 @@
   - If used to cancel a card that had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
 100536|Deviki Prasanta:
   - Cannot put a Discipline card on a vampire if it could normally not be put on him (eg. because he already has the superior level of that discipline). [ANK 20200320]
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 "100537|Devil-Channel: Back":
   - "[abo] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {High Orun}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 "100538|Devil-Channel: Feet":
@@ -1039,7 +1041,7 @@
   - If played on a vampire who successfully hunts with a {Perfectionist}, {Perfectionist} grants the blood before combat. [LSJ 20110308]
   - Is played after resolution, but still during the action. Cards and effects that played "after resolution" (eg. {Freak Drive}) can be played before it, but not after. [LSJ 19981028] [LSJ 20100206-2]
 100758|Force of Personality:
-  - '[PRE] [ACTION MODIFIER] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[PRE] [ACTION MODIFIER] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[PRE] [ACTION MODIFIER] Replace the action card (if any) before playing it. [ANK 20181208]"
 100759|Force of Will:
   - The damage is applied if the action reaches resolution, even if it ends before combat (eg. {Mirror Walk}, {Change of Target}, {Red Herring}) or has no effect (eg. because cost cannot be paid). [ANK 20220331] [ANK 20210124] [LSJ 20020927] [LSJ 20021115] [ANK 20221011-2]
@@ -1116,19 +1118,19 @@
 100816|Ghost-Eater:
   - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
 100817|Ghoul Escort:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
   - Cannot be used if blocked when leaving torpor, as no combat would happen. [ANK 20181122-1]
 100818|Ghoul Messenger:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100819|Ghoul Retainer:
   - The Ghoul is never the "bearer" of the weapon that it uses. Any side-effect of using the weapon is applied to the employing minion, as normal. [TOM 19951114]
-  - Is not mortal, is a monster. [ANK 20200203-2]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2]
   - Damage is not inflicted at long range. [ANK 20210929]
 100820|Ghouled:
   - The ally is recruited as a mortal and changed to a ghoul afterwards (eg. {Sunset Strip, Hollywood} can be used to reduce its cost). His "starting life" is still the base mortal amount. [LSJ 20030520-2]
   - Goes to the ash heap when played, if it has been removed when the action succeeds, it has no effect. [ANK 20220805]
 100821|Ghouled Street Thug:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100822|The Ghouls of Plaza Morería:
   - Are not mortal, are a monster. [ANK 20200203-2]
 100823|Gianna di Canneto:
@@ -1179,14 +1181,14 @@
   - Search the crypt for only one Kiasyd, not any number. [ANK 20210304]
 100855|Gregory Winter:
   - Can use his action on a vampire with no blood. [RTR 20010711]
-  - Is not mortal, is a monster. [ANK 20200203-2]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2]
 100856|Gremlins:
   - "[myt] Is directed against the Methuselah controlling the equipment, not the minion it's on. [LSJ 20090324]"
 100857|Grenade:
   - Damage done to the bearer is environmental. [LSJ 19970801]
   - Does not burn nor inflict damage if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]
 100858|Grey Thorne:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
   - Can play cards requiring [cel] or [pot] but not both. [ANK 20180731-1]
 100861|Groundfighting:
   - The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Salvador Garcia}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]
@@ -1208,7 +1210,7 @@
 100865|Guarded Rubrics:
   - The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]
 100867|Guardian Ghoul:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100868|Guardian Vigil:
   - Must be played before block is successful, but can be played after the acting Methuselah declined to add stealth. [ANK 20180926]
   - All effects apply for the duration of the action. They still apply if the action "continues as if unblocked" (eg. [PRO] {Form of Mist}) and, if [aus] was used, the maneuver is provided again. [LSJ 20010814-2] [ANK 20181127]
@@ -1259,7 +1261,7 @@
 100910|Hell-for-Leather:
   - "[cel] A limited additional strike can be played before or after. [LSJ 20001206] [ANK 20211124]"
 100911|Hellhound:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100912|Herald of Topheth:
   - Can use {Charming Lobby} to call a referendum "as a vampire". [RTR 20020501]
   - If it uses its last life to pay for an action, the action still resolves fully. If that leads to an oust, the oust is resolved before resolving effects triggered by the fact that the Herald burns. [LSJ 20080512]
@@ -1277,7 +1279,7 @@
 100919|Hide:
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
   - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
-  - '[ACTION MODIFIER] [1 CONVICTION] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[ACTION MODIFIER] [1 CONVICTION] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
 100920|Hide the Heart:
   - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
   - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
@@ -1619,9 +1621,9 @@
 101160|Manstopper Rounds:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101164|Marijava Ghoul:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 101165|Marijava Thuggee:
-  - Is not mortal, is a monster. [ANK 20200203-2] [LSJ 20060515]
+  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 101169|Marked Path:
   - Can be burned during an action that targets only part of the Methuselah that were targeted by the first action. [LSJ 20100527]
 101174|Martinelli's Ring:
@@ -1750,7 +1752,7 @@
   - "[DOM] Cannot be used to let the target play a [dom] action card. [LSJ 20100527]"
 101251|Mummify:
   - The unlock effect takes place before the end of combat. The rest of the effect takes place after the end of combat. [RTR 19970630]
-  - If combat continues or a new combat begins, the vampire unlocks but does not go to torpor. [RTR 20020501] [LSJ 20020505]
+  - If combat continues or a new combat begins, the vampire unlocks but does not go to torpor. [RTR 20020501] [LSJ 20020505-1]
 101254|Murder of Crows:
   - Are neither mortal nor monster. [ANK 20200203-2] [LSJ 20060515]
 101255|Muricia's Call:
@@ -1828,7 +1830,7 @@
   - The action ends unsuccessfuly immediately, combat does not happen, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20170105] [ANK 20200207]
   - Cannot be played if the opponent is not the acting vampire, for example if a slave took his place. [ANK 20171212]
 101315|Of Noble Blood:
-  - Is a Ⓓ action if a vampire controlled by another Methuselah is chosen. [ANK 20190606]
+  - Is a directed action if a vampire controlled by another Methuselah is chosen. [ANK 20190606]
 101317|Ohoyo Hopoksia (Bastet):
   - If her ability is used when a minion blocks an action, the blocking minion still locks for the block. [ANK 20200714]
 101320|Omael Kuman:
@@ -1956,8 +1958,8 @@
   - "[AUS] The prevention does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010819-2]"
   - "[AUS] The prevention is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 101479|Predator's Transformation:
-  - "[abo] [ACTION MODIFIER] Any Ⓓ action that ends up burning an ally counts as a Ⓓ action burning an ally (eg. {Horseshoes}). [ANK 20220507]"
-  - '[abo] [ACTION MODIFIER] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - "[abo] [ACTION MODIFIER] Any directed action that ends up burning an ally counts as a directed action burning an ally (eg. {Horseshoes}). [ANK 20220507]"
+  - '[abo] [ACTION MODIFIER] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[abo] [ACTION MODIFIER] Replace the action card (if any) before playing it. [ANK 20181208]"
 101481|Pressing Flesh:
   - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
@@ -2105,12 +2107,12 @@
 101602|Renegade Garou:
   - The additional strike is mandatory. [PIB 20121028]
 101603|Renewed Vigor:
-  - "[obe], [OBE]: Is undirected if you control the target, directed to the controller of the target otherwise. [PIB 20121210]"
+  - "[obe], [OBE]: Is undirected if you control the target, directed at the controller of the target otherwise. [PIB 20121210]"
 101605|Repo Man:
   - Paying for the equipment found is not optional if a ready minion meet the requirements. If paying the cost will oust the controlling Methuselah, then she is ousted. [RTR 19941109] [RTR 20010710]
 101606|Repulsion:
   - "[OBE] Can be used even if the stealth is not currently needed. [LSJ 20011214-2]"
-  - '[pre] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[pre] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[pre] Replace the action card (if any) before playing it. [ANK 20181208]"
 101608|Resilience:
   - Cannot be used if there is no damage to prevent. [LSJ 20001114]
@@ -2356,7 +2358,7 @@
 101771|Shoulder Drop:
   - Is played and inflicts damage after the strikes have been resolved and inflicted damage, before any other pair of strikes and before the press step. [ANK 20171226]
 101773|Shroud Mastery:
-  - '[NEC] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[NEC] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[NEC] Replace the action card (if any) before playing it. [ANK 20181208]"
 101779|Sideslip:
   - "[CEL] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
@@ -2383,7 +2385,7 @@
   - Cannot be used if there is no damage to prevent. [LSJ 20001114]
   - Unused prevention does not carry over. [LSJ 20001114]
 101794|Skin of the Chameleon:
-  - '[tha] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[tha] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[tha] Replace the action card (if any) before playing it. [ANK 20181208]"
 101797|Slake the Thirst:
   - If multiple effects make you gain blood, even due to a single card (eg. {Redistribution}), you choose on which effect to apply Slake the Thirst. [LJS 20100203]
@@ -2444,7 +2446,7 @@
   - "[ACTION MODIFIER] If the minion is burned because of a referendum or as a side-effect of the action, this does not count as the acting minion burning him. (eg. {War Ghoul} when recruited, {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s ability). [RTR 19960124] [LSJ 20090922] [ANK 20181022]"
   - "[ACTION MODIFIER] If played on a diablerie, can be played before or after getting a Discipline card (if any), but must be played before the Blood Hunt. [RTR 19991206]"
 101838|Sowing Dissension:
-  - Is a Ⓓ action against all other Methuselahs [PIB 20150821] [RTR 20080808]
+  - Is an action directed at all other Methuselahs [PIB 20150821] [RTR 20080808]
 101840|Speak with Spirits:
   - "[SPI] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101841|Special Report:
@@ -2482,7 +2484,7 @@
   - Is played when a bleed would be successful, before resolution. [LSJ 20110502]
   - If it is cancelled (eg. {Direct Intervention}), it is too late for the target to play reactions. If the cost of the cancellation ousts a player, handle the oust before resolving the bleed. [LSJ 20050607] [LSJ 20050608]
 101858|Squirrel Balance:
-  - '[cel] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[cel] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[cel] Replace the action card (if any) before playing it. [ANK 20181208]"
   - If another effect also sets the range, the first to resolve has priority (eg. {Asanbonsam Ghoul} and {Neutral Guard} resolve after). [PIB 20120214]
 101860|Starshell Grenade Launcher:
@@ -2641,7 +2643,7 @@
 101951|Telepathic Vote Counting:
   - May be played before, during, or after votes and ballots have been cast. [LSJ 19980130]
 101952|Templar:
-  - "Multiple Templar cards provide different actions: if the vampire manage to unlock during the minion phase, he can perform the two actions. [RTR 20030519]"
+  - "Each copy of this card provides its own action: if the vampire manage to unlock during the minion phase, he can perform the action more than once (once per copy). [RTR 20030519]"
 101954|Temptation:
   - If used to steal a vampire in combat, combat ends. Any damage yet to resolve still resolves before the change of control. [LSJ 20020618]
   - The stolen minion is removed from the game when he should return to a Methuselah who has been ousted. [ANK 20181110]
@@ -2864,7 +2866,7 @@
   - You must be able to pay the cost to play it (eg. cannot play a third Villein with only 1 pool). [ANK 20210714]
   - If the target has less blood at resolution than the amount annouced, you take what you can. [LSJ 20100216] [ANK 20180512-2]
 102124|Virtuosa:
-  - '[MEL] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[MEL] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[MEL] Replace the action card (if any) before playing it. [ANK 20181208]"
 102126|Visit from the Capuchin:
   - Cannot be played if you have another one, even if it has only one counter left. [PIB 20121031]
@@ -2927,7 +2929,7 @@
   - Ravnos can target a Ravnos with no blood with the +1 stealth hunt action. [RTR 20010711]
   - Cannot choose to target a vampire when using another non-standard hunt action (eg. {Abactor}). [LSJ 20090606] [ANK 20190707]
 102168|Weigh the Heart:
-  - '[AUS][SER] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[AUS][SER] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[AUS][SER] If the action targets multiple Methuselah, you choose one minion, which must be controlled by one of the target Methuselah. [ANK 20180515]"
   - "[AUS][SER] Replace the action card (if any) before playing it. [ANK 20181208]"
 102169|Weighted Walking Stick:
@@ -2945,7 +2947,7 @@
 102180|Wider View:
   - Cards removed from the game are public. [LSJ 20080314]
 102183|Will-o'-the-Wisp:
-  - '[CHI] Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g. {Conditioning}). [ANK 20190425]'
+  - '[CHI] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[CHI] Replace the action card (if any) before playing it. [ANK 20181208]"
 102190|Wolf Claws:
   - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike. Can be played after both strikes have been chosen. [RTR 19960112]"
@@ -3150,10 +3152,10 @@
 200434|Erlik (G3):
   - His "as he enters play" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902] [ANK 20180626-1]
 200438|Ethan Locke (G2):
-  - Ethan's Ⓓ action is directed at the controller of the skill card, not the controller of the vampire. [LSJ 19970224]
+  - Ethan's action is directed at the controller of the skill card, not the controller of the vampire. [LSJ 19970224]
   - When he steals a master Discipline card, his controller becomes the controller of the Discipline card. [LSJ 19990709]
 200439|Étienne Fauberge (G3):
-  - Allies have no blood, they cannot take Ⓓ actions against him, except if they are acting as a vampire. [LSJ 20030815]
+  - Allies have no blood, they cannot take directed actions against him, except if they are acting as a vampire. [LSJ 20030815]
 200443|Eurayle Gelasia Mylonas (G4):
   - Her ability is undirect if you control the target, directed to the controller of the target otherwise. [PIB 20121210]
 200448|Eze, The Demon Prince (G3):
@@ -3262,7 +3264,7 @@
 200773|Kephamos, High Priest of Marrakech (G2):
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
 200775|Kestrelle Hayes (G5):
-  - Gets +1 stealth on Ⓓ actions against multiple Methuselahs if one or more of the targets control no ready Sabbat vampire. [PIB 20150526] [RTR 20080808]
+  - Gets +1 stealth on actions directed at multiple Methuselahs if one or more of the targets control no ready Sabbat vampire. [PIB 20150526] [RTR 20080808]
 200780|Khay'tall, Snake of Eden (G2):
   - If a minion gains a corruption counter after they cast their votes (eg. [ser] {Velvet Tongue}), their votes are cancelled and they're forced to abstain instead. [PIB 20141226]
 200793|Krassimir (G2):
