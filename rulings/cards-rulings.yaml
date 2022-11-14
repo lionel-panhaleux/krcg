@@ -505,7 +505,7 @@
   - This is an "equip action" [TOM 19960130]
 100344|Chiropteran Marauder:
   - "[VIC] Must be played before strike resolution and damage prevention in order to affect the current strike (can be played after both strikes have been chosen). [RTR 19960112]"
-  - "[VIC] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Metamorphosis}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
+  - "[VIC] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Path of Metamorphosis}, {Dragos}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 100347|Church of the Order of St. Blaise:
   - Can put counters on locations that use "blood" or "pool" counters. [PIB 20110712-1] [LSJ 20040518-2]
 100352|Claiming the Body:
@@ -3112,6 +3112,7 @@
   - You burn one pool before he enters contest if there is another one in play. [LSJ 20080526]
 200386|Dragos (G2):
   - If his opponent plays superior {Terror Frenzy}, Dragos does not burn one additional blood for combat card he plays (reversal of previous rulings). [LSJ 20090107]
+  - A "burn blood" effect on a combat card is not a cost (eg. {Chiropteran Marauder}), it is unaffected by his ability. [LSJ 20090107] [LSJ 20070829-3]
 200389|Drozodny (G5):
   - When using his ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]
 200401|Edith Blount (G3):
