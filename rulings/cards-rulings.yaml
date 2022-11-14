@@ -3469,7 +3469,7 @@
   - Can use his ability to cancel a master card multiple times each turn. [ANK 20200420-2]
   - When using his ability, the cost of the canceled card must still be paid. [LSJ 20090601-2]
 201240|Sargon (G2):
-  - His controller gets the Edge after the effects of the successful action are applied. If it is a referendum, he gets the Edge after the referendum is concluded. [LSJ 20011222]
+  - His controller gets the Edge after the action resolves. If it is a referendum, he gets the Edge after the referendum is concluded. [LSJ 20011222] [ANK 20221028-2]
 201243|Sarrasine (G2 ADV):
   - "[MERGED] Is Camarilla. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
   - "[MERGED] Putting a corruption counter on a minion does not give you an opportunity to steal it. [ANK 20200925] [ANK 20211105]"
