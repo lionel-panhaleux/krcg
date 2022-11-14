@@ -2962,6 +2962,8 @@
 102208|Zip Gun:
   - Damage done to the bearer is environmental. [LSJ 19970801]
   - No damage is done to the bearer if he does not strike with the gun (eg. if it is destroyed with first strike). [LSJ 20100310]
+"102226|Haqim's Law: Retribution":
+  - If used by a Banu Haqim and another takes the action over with {Mask of a Thousand Faces}, they cannot use it again. [ANK 20221102-2]
 102227|Hunger of Marduk:
   - The provided strike can be chosen and used more than once during the round. [ANK 20220207]
 102232|The Platinum Protocol:
@@ -2972,6 +2974,11 @@
   - The reduction applies to all valid equipments, even without using the unlock or not equipping from hand. [ANK 20221026]
 102238|Enhanced Coagulant:
   - The card stays there if the strike is dodged [ANK 20220923]
+  - Cannot be used against an ally. [ANK 20221102]
+102242|Mobile HQ, Operation Antigen:
+  - The card is locked if used to enter combat, even if that action fails. [ANK 20221102]
+102244|The Shard, London:
+  - The cost reduction applies to minion cards, they are also played by the Methuselah. [ANK 20221102]
 200011|Adana de Sforza (G4):
   - Card with multiple types (eg. Combat/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron (G3):
@@ -3639,3 +3646,5 @@
   - Can be merged with {Theo Bell (ADV)} if you get to control one (eg. {Graverobbing}). [ANK 20220805-2]
 201627|Evan Klein (G6):
   - Actions from minions of the same controller targeting him are undirected, so they are not affected by his ability. [LSJ 20030214-2]
+201641|The Guardian (G6):
+  - When using his ability, the opponent is the acting minion and play their combat effects first. [ANK 20221102]
