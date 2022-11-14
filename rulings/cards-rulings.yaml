@@ -216,7 +216,7 @@
 100156|Betrayer:
   - The affected Methuselah is named when the card is played. [RTR 19980928]
   - Each of their turns, the person subjected to Betrayer can name a vampire. If the guess is correct, Betrayer is burned. [RTR 19941109]
-  - Is cumulative: a player can be damaged by multiple Betrayers each turn. A Methuselah targeted by more than one Betrayer would have to pay 1 pool for each Betrayer in order to burn them, even if the same vampire is the betrayer in each case. [RTR 19941109]
+  - "Is cumulative: a player can be damaged by multiple Betrayers each turn. A Methuselah targeted by more than one Betrayer would have to pay 1 pool for each Betrayer in order to burn them, even if the same vampire is the betrayer in each case. [RTR 19941109]"
   - If the vampire chosen for Betrayer is burned, so is Betrayer. If the vampire chosen for Betrayer becomes contested, Betrayer is nullified until the contest is resolved, at which time the Betrayer is reactivated. If a player takes control of the vampire that is the target of the betrayer, that player takes the pool loss. [RTR 19941109]
   - You select an uncontrolled vampire when you play the card. If you have a choice (more than one of your uncontrolled vampires is controlled by the other Methuselah), you still have to choose just one of them to be the Betrayer. [LSJ 19990419]
 100159|Big Game:
@@ -1752,7 +1752,7 @@
   - "[DOM] Cannot be used to let the target play a [dom] action card. [LSJ 20100527]"
 101251|Mummify:
   - The unlock effect takes place before the end of combat. The rest of the effect takes place after the end of combat. [RTR 19970630]
-  - If combat continues or a new combat begins, the vampire unlocks but does not go to torpor. [RTR 20020501] [LSJ 20020505-1]
+  - If combat continues or a new combat begins, the vampire unlocks but does not go to torpor. [RTR 20020501] [LSJ 20020505]
 101254|Murder of Crows:
   - Are neither mortal nor monster. [ANK 20200203-2] [LSJ 20060515]
 101255|Muricia's Call:

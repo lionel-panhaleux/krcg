@@ -33,6 +33,8 @@ class RulingReader:
                 ret = Ruling()
                 ret.cards = [_card_id_name(card)]
                 ret.text = ruling
+                if not ret.text or not isinstance(ret.text, str):
+                    warnings.warn(f"absent or misformed text in '{card}' ruling")
                 try:
                     ret.links = dict(self._get_link(ret.text))
                 except KeyError:
@@ -45,6 +47,10 @@ class RulingReader:
             ret = Ruling()
             ret.cards = [_card_id_name(card) for card in ruling["cards"]]
             ret.text = ruling["ruling"]
+            if not ret.text or not isinstance(ret.text, str):
+                warnings.warn(
+                    f"absent or misformed text in general ruling for {ret.cards}"
+                )
             try:
                 ret.links = dict(self._get_link(ret.text))
             except KeyError:
