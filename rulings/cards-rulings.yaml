@@ -855,6 +855,8 @@
   - "[CHI] If some minions cannot be targeted because of another effect, the action will simply have no effect on the things it cannot target. [RTR 20080808]"
 100618|Elder Intervention:
   - Can be used during any bleed attempt made against you, not just ones declared against you. [RTR 19960530]
+100620|Elder Library:
+  - If there is another copy in play, it enters contest without modifying the hand size. [ANK 20221028]
 100623|The Eldest Command Undeath:
   - If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire. [LSJ 20081002]
 100625|Elemental Stoicism:
@@ -1693,6 +1695,8 @@
   - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
 101230|Mob Rule:
   - Each Methuselah must decide how much blood to burn for it during the resolution. It does not give an ability for the rest of the political action. However, there can be some give and take during the resolution. For example, Methuselahs can choose to burn one blood at a time and wait to see what the others do. [LSJ 20030602]
+101232|Mokolé Blood:
+  - If there is another copy in play, the cards are put on it before it enters contest. [ANK 20221028] [LSJ 20090428-1]
 101233|The Mole:
   - "[ani] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101234|Mole's Tunneling:
@@ -2324,6 +2328,7 @@
   - "[ANI] Retainers and Equipments you control can also be rearranged. [LSJ 20080803-2] [LSJ 19981102]"
 101767|Shilmulo Tarot:
   - There is no limit to the number of cards it can store. [PIB 20110712-2]
+  - If there is another copy in play, the cards are put on it before it enters contest. [ANK 20221028] [LSJ 20090428-1]
 101770|Shotgun Ritual:
   - "[THA] The press can only be used during the current round. [TOM 19960521]"
 101771|Shoulder Drop:
