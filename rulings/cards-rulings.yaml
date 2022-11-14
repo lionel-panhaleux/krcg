@@ -1162,6 +1162,7 @@
   - If the equipment is burned before it runs out of pathos counters, it goes to its owner's ash heap and is not removed from the game. [LSJ 20060209]
 100853|Great Symposium:
   - Search the crypt for only one Kiasyd, not any number. [ANK 20210304]
+  - The search can fail, you still get to distribute 3 blood. [LSJ 20100306]
 100855|Gregory Winter:
   - Can use his action on a vampire with no blood. [RTR 20010711]
 100856|Gremlins:
