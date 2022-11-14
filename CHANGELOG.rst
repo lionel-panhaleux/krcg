@@ -5,7 +5,7 @@ Changelog
 -----------------
 
 - Add 2022 European GP Promo
-
+- Add Fall of London
 
 2.29 (2022-10-04)
 -----------------
