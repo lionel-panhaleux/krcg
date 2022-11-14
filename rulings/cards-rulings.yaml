@@ -27,7 +27,6 @@
   - Putting the top card of your library in play as a ghoul does not count as playing the card. [LSJ 20040531]
   - The card used to represent the ally is face up, but the name on that card is ignored if something goes looking for a card by name. They do not contest. [LSJ 20040623] [LSJ 20071003]
   - A burned ghoul is removed from the game but is still burned first, triggering cards such as {Tension in the Ranks}. [LSJ 20090920]
-  - The Ghouls are not mortal, they are monsters. [ANK 20200203-2]
 100013|Absorb the Mind:
   - Can be played against a vampire with no blood. [RTR 20010711]
 100014|Abyssal Hunter:
@@ -104,8 +103,6 @@
   - '[PRE] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
   - "[PRE] The card is still considered played. The same reaction cannot be played again by the same minion. [LSJ 19980212] [LSJ 20061207]"
   - "[PRE] Must be played right after the reaction card to cancel is played. Another modifier cannot be played in between. [LSJ 20061207]"
-100080|Arcane Appraiser:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100083|Arcanum Investigator:
   - His action is directed against the Methuselah controlling the equipment, not the minion it's on. [LSJ 20090324]"
 100084|Archon:
@@ -138,7 +135,6 @@
 100100|Art's Traumatic Essence:
   - The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]
 100103|Asanbonsam Ghoul:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
   - If another effect also sets the range, the first to resolve has priority (eg. {Squirrel Balance} resolves before, {Neutral Guard} resolves after). [PIB 20120214]
 100105|Ashes to Ashes:
   - "[thn], [THN] The end of combat is triggered by the vampire going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
@@ -224,7 +220,6 @@
 100160|Bima:
   - The discipline needs not be announced when Bima is played. The replacement card can be used if it is a discipline. [PIB 20150418]
   - '"that Discipline" refers to the card on Bima. If the card is no longer there, then the effect cannot be used. [LSJ 20071006]'
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
   - If it uses its last life to pay for an action, the action still resolves fully. If that leads to an oust, the oust is resolved before resolving effects triggered by the fact that the Bima burns. [LSJ 20080512]
 100161|Bind the Night-Walker:
   - The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]
@@ -587,13 +582,10 @@
   - "[DAI] Stealing the minion is part of the strike resolution, it does not happen if the strike is not selected and it can be dodged. [ANK 20200909] [LSJ 20040130]"
 100423|Coordinate Attacks:
   - Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]
-100427|Corpse Balloon:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100428|Corpse Minion:
   - May be used any number of times during a single action. [TOM 19960109]
 100429|Corrupt Construction:
   - If recruited in the normal fashion, the card will have been replaced by the time the ally enters play. In other cases however, it won't have been and the Methuselah will have to work with only the cards in hand (or ash heap) to add life to it before replacing. [LSJ 20070707]
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100432|Coterie Tactics:
   - Cannot be used if the vampires cannot attempt to block the action (eg. {Daring the Dawn}). [LSJ 20010714-2]
   - Does not ignore the normal prey, predator or target restrictions. [ANK 20180623]
@@ -638,8 +630,6 @@
   - Can be used after a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]
 100483|Curse of Nitocris:
   - Only moves when a Methuselah gets the Edge who does not already have the Edge. [LSJ 19971006]
-100484|D'habi Revenant:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100485|Dabbler:
   - Cannot be used if the action is canceled. [ANK 20220411]
   - Takes into account all the cards played, even if they are canceled. [ANK 20220411]
@@ -733,7 +723,6 @@
   - If used to cancel a card that had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
 100536|Deviki Prasanta:
   - Cannot put a Discipline card on a vampire if it could normally not be put on him (eg. because he already has the superior level of that discipline). [ANK 20200320]
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 "100537|Devil-Channel: Back":
   - "[abo] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {High Orun}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 "100538|Devil-Channel: Feet":
@@ -1118,21 +1107,13 @@
 100816|Ghost-Eater:
   - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
 100817|Ghoul Escort:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
   - Cannot be used if blocked when leaving torpor, as no combat would happen. [ANK 20181122-1]
-100818|Ghoul Messenger:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100819|Ghoul Retainer:
   - The Ghoul is never the "bearer" of the weapon that it uses. Any side-effect of using the weapon is applied to the employing minion, as normal. [TOM 19951114]
-  - Ghouls are monsters, not mortals. [ANK 20200203-2]
   - Damage is not inflicted at long range. [ANK 20210929]
 100820|Ghouled:
   - The ally is recruited as a mortal and changed to a ghoul afterwards (eg. {Sunset Strip, Hollywood} can be used to reduce its cost). His "starting life" is still the base mortal amount. [LSJ 20030520-2]
   - Goes to the ash heap when played, if it has been removed when the action succeeds, it has no effect. [ANK 20220805]
-100821|Ghouled Street Thug:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
-100822|The Ghouls of Plaza Morería:
-  - Are not mortal, are a monster. [ANK 20200203-2]
 100823|Gianna di Canneto:
   - She can use her ability to burn an equipment an opponent has commited to use as a strike (eg. by using the maneuver of a {.44 Magnum}). In this case the opponent strike has no effect. [PIB 20141026]
   - 'She cannot use her ability to inflict damage if a "Strike: combat ends" was used, or if combat ends due to first strike aggravated damage. [ANK 20211130]'
@@ -1181,14 +1162,12 @@
   - Search the crypt for only one Kiasyd, not any number. [ANK 20210304]
 100855|Gregory Winter:
   - Can use his action on a vampire with no blood. [RTR 20010711]
-  - Ghouls are monsters, not mortals. [ANK 20200203-2]
 100856|Gremlins:
   - "[myt] Is directed against the Methuselah controlling the equipment, not the minion it's on. [LSJ 20090324]"
 100857|Grenade:
   - Damage done to the bearer is environmental. [LSJ 19970801]
   - Does not burn nor inflict damage if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]
 100858|Grey Thorne:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
   - Can play cards requiring [cel] or [pot] but not both. [ANK 20180731-1]
 100861|Groundfighting:
   - The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Salvador Garcia}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]
@@ -1209,8 +1188,6 @@
   - If used to unlock, the block attempt and subsequent combat still happen if the action lacks a suitable target because of the unlock (eg. {Ambush}). [LSJ 20090514]
 100865|Guarded Rubrics:
   - The provided action ends with no effect, if the acting minion does not possess the equipment when the action resolves. It is still considered successful if not blocked. [RTR 19960221]
-100867|Guardian Ghoul:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100868|Guardian Vigil:
   - Must be played before block is successful, but can be played after the acting Methuselah declined to add stealth. [ANK 20180926]
   - All effects apply for the duration of the action. They still apply if the action "continues as if unblocked" (eg. [PRO] {Form of Mist}) and, if [aus] was used, the maneuver is provided again. [LSJ 20010814-2] [ANK 20181127]
@@ -1260,8 +1237,6 @@
   - Can be used between two actions during another Methuselah's turn. [ANK 20210608]
 100910|Hell-for-Leather:
   - "[cel] A limited additional strike can be played before or after. [LSJ 20001206] [ANK 20211124]"
-100911|Hellhound:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 100912|Herald of Topheth:
   - Can use {Charming Lobby} to call a referendum "as a vampire". [RTR 20020501]
   - If it uses its last life to pay for an action, the action still resolves fully. If that leads to an oust, the oust is resolved before resolving effects triggered by the fact that the Herald burns. [LSJ 20080512]
@@ -1620,10 +1595,6 @@
   - Requires a ready, unlocked vampire. [RTR 20010710]
 101160|Manstopper Rounds:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
-101164|Marijava Ghoul:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
-101165|Marijava Thuggee:
-  - Ghouls are monsters, not mortals. [ANK 20200203-2] [LSJ 20060515]
 101169|Marked Path:
   - Can be burned during an action that targets only part of the Methuselah that were targeted by the first action. [LSJ 20100527]
 101174|Martinelli's Ring:
