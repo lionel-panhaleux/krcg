@@ -1003,6 +1003,7 @@
 100743|Flaming Candle:
   - Is not burned if another effect make the vampire burn 1 blood upon action declaration. [RTR 20020501]
   - If it has been equipped or played already, an effect can still "put it into play" provided it is not an "equip" action (eg. {Kiss of Lachesis}, {Grasp the Ghostly}). [LSJ 20060209]
+  - Once in play, it can be moved (eg. {Heidelberg Castle, Germany}), or equipped by another minion from the minion who has it. [ANK 20221103]
 100745|Flash Grenade:
   - If the opponent dodges, the "is locked and does not unlock as normal" effect do not apply, but it still burns. [RTR 20041202] [LSJ 20060808]
   - 'If the combat continues or a new combat begins, the "is locked and does not unlock as normal" effect do not apply, but it still burns. [RTR 20020501] [LSJ 20040602], '
