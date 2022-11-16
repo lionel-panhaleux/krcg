@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.31 (unreleased)
+2.31 (2022-11-16)
 -----------------
 
 - Card: add `ordered_set` to indicate the order of sets by release date
