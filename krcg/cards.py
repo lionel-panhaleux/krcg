@@ -1,4 +1,4 @@
-from typing import Dict, List, Set, Tuple
+from typing import Counter, Dict, Generator, List, Set, Tuple
 import collections
 import collections.abc
 import copy
@@ -292,7 +292,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.name_variants = []  # variations you want to match when parsing a decklist
         self.rulings = {"text": [], "links": {}}
 
-    def diff(self, rhs):
+    def diff(self, rhs) -> Dict[str, Tuple[str, str]]:
         res = {}
         if self.name != rhs.name:
             res["name"] = [self.name, rhs.name]
@@ -563,7 +563,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         }
         self.url = self._compute_url()
 
-    def _compute_url(self, lang: str = None, expansion: str = None):
+    def _compute_url(self, lang: str = None, expansion: str = None) -> str:
         """Compute image URL for given language."""
         return (
             config.KRCG_STATIC_SERVER
@@ -574,7 +574,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             + ".jpg"
         )
 
-    def _compute_legacy_url(self, lang: str = None, expansion: str = None):
+    def _compute_legacy_url(self, lang: str = None, expansion: str = None) -> str:
         """Compute legacy image URL for given language."""
         return (
             config.KRCG_STATIC_SERVER
@@ -705,7 +705,7 @@ class CardMap(utils.FuzzyDict):
         """Use config.ALIASES as aliases"""
         super().__init__(aliases=config.ALIASES if aliases is None else aliases)
 
-    def __iter__(self):
+    def __iter__(self) -> Generator[Card, None, None]:
         """When iterating only, return each card once."""
         for key, card in self.items():
             if isinstance(key, int):
@@ -739,7 +739,7 @@ class CardMap(utils.FuzzyDict):
             for name in Card._AKA.get(card.id, []):
                 self[name] = self[card.id]
 
-    def load_from_vekn(self):
+    def load_from_vekn(self) -> None:
         """Load from official VEKN CSV files."""
         set_dict = sets.SetMap()
         # download the zip files containing the official CSV
@@ -812,7 +812,7 @@ class CardMap(utils.FuzzyDict):
         # all name variants computed, now we can map all those name in the dict
         self._map_names()
 
-    def _set_enriched_properties(self):
+    def _set_enriched_properties(self) -> None:
         """Set enriched properties on cards.
 
         This method sets addition information related to the cards
@@ -866,7 +866,7 @@ class CardMap(utils.FuzzyDict):
                 name_variants = name_variants[1:]  # first name is the actual name
                 card.i18n_set(lang, {"name_variants": name_variants})
 
-    def _variants(self, name, card):
+    def _variants(self, name, card) -> Generator[str, None, None]:
         suffix = card.get_suffix()
         if suffix:
             suffix = f" ({suffix})"
@@ -879,7 +879,7 @@ class CardMap(utils.FuzzyDict):
             else:
                 yield from self._word_variants(name, "")
 
-    def _word_variants(self, name, suffix):
+    def _word_variants(self, name, suffix) -> Generator[str, None, None]:
         if "(TM)" in name:
             yield from self._word_variants(name.replace("(TM)", "™"), suffix)
         if name[-5:] == ", The":
@@ -888,7 +888,7 @@ class CardMap(utils.FuzzyDict):
         if name[:4] == "The ":
             yield from self._comma_splits(name[4:] + ", The", suffix)
 
-    def _comma_splits(self, name, suffix):
+    def _comma_splits(self, name, suffix) -> Generator[str, None, None]:
         while True:
             yield name + suffix
             name = name.rsplit(",", 1)
@@ -923,7 +923,7 @@ class CardMap(utils.FuzzyDict):
         """Return a compact list representation for JSON serialization."""
         return [card.to_json() for card in self]
 
-    def from_json(self, state: Dict):
+    def from_json(self, state: Dict) -> None:
         """Initialize from a JSON list."""
         for dict_ in state:
             card = Card()
@@ -953,7 +953,7 @@ class CardTrie:
         for lang, trans in card.i18n_variants(self.attribute):
             self.tries[lang[:2]].add(trans, card)
 
-    def search(self, text: str, lang: str = None) -> Dict[str, collections.Counter]:
+    def search(self, text: str, lang: str = None) -> Dict[str, Counter[Card]]:
         """Search for `text`, in english and optional `lang`.
 
         Returns:
@@ -1066,10 +1066,10 @@ class CardSearch:
         self._set_dimensions_enums = None
         self._normalized_set_enum_map = None
 
-    def __bool__(self):
+    def __bool__(self) -> bool:
         return bool(self._all)
 
-    def clear(self):
+    def clear(self) -> None:
         """Clear content."""
         for attr in self.set_dimensions + self.trie_dimensions:
             try:
@@ -1077,7 +1077,7 @@ class CardSearch:
             except TypeError:
                 pass
 
-    def add(self, card: Card):
+    def add(self, card: Card) -> None:
         """Add a card to the engine."""
         self._set_dimensions_enums = None
         self._normalized_set_enum_map = None
@@ -1132,11 +1132,11 @@ class CardSearch:
         self._handle_exceptions(card)
 
     @property
-    def dimensions(self):
+    def dimensions(self) -> List[str]:
         return self.trie_dimensions + self.set_dimensions + ["text"]
 
     @property
-    def set_dimensions_enums(self):
+    def set_dimensions_enums(self) -> Dict[str, List[str]]:
         if not self._set_dimensions_enums:
             self._set_dimensions_enums = {
                 attr: sorted(set(getattr(self, attr).keys()))
@@ -1207,7 +1207,7 @@ class CardSearch:
         return result
 
     @property
-    def _normalized_map(self):
+    def _normalized_map(self) -> Dict[str, Dict[str, str]]:
         """Used by __call__ (the search itself) to match set dimensions values
 
         This allows to match values case insensitively
@@ -1223,7 +1223,7 @@ class CardSearch:
             }
         return self._normalized_set_enum_map
 
-    def _handle_text(self, card):
+    def _handle_text(self, card) -> None:
         """Helper handling card text."""
         self.card_text.add(card)
         if card.flavor_text:
@@ -1231,7 +1231,7 @@ class CardSearch:
         if card.draft:
             self.bonus["draft"].add(card.draft, card)
 
-    def _handle_disciplines(self, card):
+    def _handle_disciplines(self, card) -> None:
         """Helper handling card disciplines."""
         for discipline in card.disciplines:
             self.discipline[discipline].add(card)
@@ -1249,7 +1249,7 @@ class CardSearch:
         if card.multidisc:
             self.discipline["choice"].add(card)
 
-    def _handle_sect(self, card):
+    def _handle_sect(self, card) -> None:
         """Helper handling sects."""
         if card.crypt:
             if re.search(r"^(\[MERGED\] )?Sabbat", card.card_text):
@@ -1277,7 +1277,7 @@ class CardSearch:
             if re.search(r"Requires a( ready|n) (I|i)ndependent", card.card_text):
                 self.sect["Independent"].add(card)
 
-    def _handle_stealth_intercept(self, card):
+    def _handle_stealth_intercept(self, card) -> None:
         """Helper handling stealth and intercept."""
         if re.search(r"\+(\d|X)\s+(i|I)ntercept", card.card_text):
             self.bonus["Intercept"].add(card)
@@ -1301,7 +1301,7 @@ class CardSearch:
         if re.search(r"attempt fails", card.card_text):
             self.bonus["Stealth"].add(card)
 
-    def _handle_titles(self, card):
+    def _handle_titles(self, card) -> None:
         """Helper handling titles, votes and city."""
         if card.title:
             self.title[card.title].add(card)
@@ -1345,7 +1345,7 @@ class CardSearch:
                 self.title["Magaji"].add(card)
                 self.sect["Laibon"].add(card)
 
-    def _handle_exceptions(self, card):
+    def _handle_exceptions(self, card) -> None:
         """Search exceptions not handled automatically."""
         # The Baron has his name in card text, but is not an Anarch Baron.
         if card.id == 200167:  # "The Baron"

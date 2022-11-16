@@ -7,7 +7,7 @@ Changelog
 - Card: add `ordered_set` to indicate the order of sets by release date
 - Card: add `_set`, the VEKN original value
 - Card: artists order (from VEKN file) is now preserved
-
+- Technical: improved methods typing
 
 2.30 (2022-11-14)
 -----------------

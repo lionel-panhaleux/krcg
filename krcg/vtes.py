@@ -3,7 +3,7 @@
 If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
-from typing import Dict, List
+from typing import Dict, Generator, List, Set, Tuple, Union
 import functools
 import requests
 
@@ -29,17 +29,17 @@ class _VTES:
     def __len__(self) -> int:
         return len(self._cards)
 
-    def __iter__(self):
+    def __iter__(self) -> Generator[cards.Card, None, None]:
         return self._cards.__iter__()
 
-    def to_json(self):
+    def to_json(self) -> dict:
         return self._cards.to_json()
 
-    def from_json(self, state):
+    def from_json(self, state) -> None:
         self.clear()
         self._cards.from_json(state)
 
-    def get(self, key, default=None):
+    def get(self, key, default=None) -> cards.Card:
         return self._cards.get(key)
 
     def clear(self) -> None:
@@ -51,13 +51,13 @@ class _VTES:
         self.clear()
         self._cards.load()
 
-    def load_from_vekn(self):
+    def load_from_vekn(self) -> None:
         """Load the card database from vekn.net, with translations and rulings"""
         self.clear()
         self._cards.load_from_vekn()
         self._cards.load_rulings()
 
-    def diff(self, url):
+    def diff(self, url) -> Dict[cards.Card, Union[str, Tuple[str, str]]]:
         """Compute a diff from previous VEKN CSV files."""
         old_cards = cards.CardMap()
         old_cards._VEKN_CSV[0] = url
@@ -72,13 +72,13 @@ class _VTES:
 
     @property
     @functools.lru_cache(1)
-    def amaranth(self):
+    def amaranth(self) -> Dict[int, cards.Card]:
         """Amaranth IDs card map."""
         r = requests.get("http://static.krcg.org/data/amaranth_ids.json")
         r.raise_for_status()
         return {k: self[v] for k, v in r.json().items()}
 
-    def complete(self, text: str, lang: str = "en") -> List:
+    def complete(self, text: str, lang: str = "en") -> List[str]:
         """Card name completion.
 
         Matches on the start of the name are returned first,
@@ -104,7 +104,7 @@ class _VTES:
         self._init_search()
         return self._search.set_dimensions_enums
 
-    def search(self, **kwargs):
+    def search(self, **kwargs) -> Dict[str, Set[cards.Card]]:
         self._init_search()
         return self._search(**kwargs)
 
