@@ -268,6 +268,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.combo = None
         self.multidisc = None
         self.card_text = ""
+        # original VEKN value: use `sets` instead for more accessible info
+        self._set = ""
         self.sets = {}
         self.scans = {}
         self.banned = None
@@ -282,6 +284,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.flavor_text = None
         self.draft = None
         # enriched properties (not directly in original CSV, but convenient)
+        self.ordered_sets = []  # sets in release order
         self.has_advanced = None  # same vampire appears as advanced in the same group
         self.has_evolution = None  # same vampire appears in a higher group
         self.is_evolution = None  # same vampire appears in a lower group
@@ -418,6 +421,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             {
                 k: v
                 for k, v in list(self.__dict__.items())
+                # add usual names for convenience
                 + [("name", self.name), ("printed_name", self.printed_name)]
                 if k not in ["crypt", "library", "vekn_name"]
             }
@@ -425,6 +429,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
 
     def from_json(self, state: Dict) -> None:
         """Get the card form a dict."""
+        # remove convenience names to avoid overriding the properties
         state.pop("name", None)
         state.pop("printed_name", None)
         self.__dict__.update(state)
@@ -456,6 +461,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
 
         self.id = int(data["Id"])
         self._name = data["Name"]
+        self._set = data["Set"]
         self.aka = split("Aka", ";")
         self.types = split("Type", "/")
         self.clans = split("Clan", "/")
@@ -495,12 +501,14 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.banned = (
             self._BAN_MAP[data["Banned"]].isoformat() if data["Banned"] else None
         )
-        self.artists = sorted(  # some cards have duplicated artists, eg. Ashur Tablets
-            set(
+        # remove potential duplicated artists (eg. Ashur Tablets)
+        # collections.Counter to keep the order (ordered dict with convenient init)
+        self.artists = list(
+            collections.Counter(
                 self._ARTISTS_FIXES.get(s, s)
                 for s in map(str.strip, re.split(r"[;,&]+(?!\sJr\.)", data["Artist"]))
                 if s
-            )
+            ).keys()
         )
         self.adv = bool_or_none("Adv")
         # group can be "any"
@@ -514,6 +522,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.burn_option = bool_or_none("Burn Option")
         self.flavor_text = data["Flavor Text"] if "Flavor Text" in data else None
         self.draft = data["Draft"] if "Draft" in data else None
+
         # computations last: some properties (ie. name) are cached,
         # only use them once everything else is set
         self.sets = dict(
@@ -526,7 +535,12 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             )
             if rarity
         )
-        if not self.sets:
+        if self.sets:
+            self.ordered_sets = sorted(
+                [s for s in self.sets if set_dict[s].release_date],
+                key=lambda x: set_dict[x].release_date,
+            )
+        else:
             warnings.warn(f"no set found for {self}")
         self.scans = {
             name: self._compute_url(

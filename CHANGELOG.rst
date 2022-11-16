@@ -4,7 +4,9 @@ Changelog
 2.31 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Card: add `ordered_set` to indicate the order of sets by release date
+- Card: add `_set`, the VEKN original value
+- Card: artists order (from VEKN file) is now preserved
 
 
 2.30 (2022-11-14)
