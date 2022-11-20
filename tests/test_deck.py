@@ -283,6 +283,99 @@ def test_from_amaranth():
     }
 
 
+def test_from_vdbh():
+    d = deck.Deck.from_vdb("4d3aa426-70da-44b7-8cb7-92377a1a0dbd")
+    assert d.to_json() == {
+        "id": "4d3aa426-70da-44b7-8cb7-92377a1a0dbd",
+        "date": "2020-12-28",
+        "name": "First Blood: Tremere",
+        "author": "BCP",
+        "comments": (
+            "https://blackchantry.com/"
+            "How%20to%20play%20the%20First%20Blood%20Tremere%20deck.pdf"
+        ),
+        "crypt": {
+            "count": 12,
+            "cards": [
+                {"id": 201020, "count": 2, "name": "Muhsin Samir"},
+                {"id": 201213, "count": 2, "name": "Rutor"},
+                {"id": 201388, "count": 2, "name": "Troius"},
+                {"id": 201501, "count": 2, "name": "Zane"},
+                {"id": 200025, "count": 2, "name": "Aidan Lyle"},
+                {"id": 200280, "count": 2, "name": "Claus Wegener"},
+            ],
+        },
+        "library": {
+            "count": 86,
+            "cards": [
+                {
+                    "type": "Master",
+                    "count": 9,
+                    "cards": [
+                        {"id": 100015, "count": 1, "name": "Academic Hunting Ground"},
+                        {"id": 100081, "count": 1, "name": "Arcane Library"},
+                        {"id": 100199, "count": 4, "name": "Blood Doll"},
+                        {"id": 100329, "count": 1, "name": "Chantry"},
+                        {"id": 102092, "count": 2, "name": "Vast Wealth"},
+                    ],
+                },
+                {
+                    "type": "Action",
+                    "count": 12,
+                    "cards": [
+                        {"id": 100845, "count": 12, "name": "Govern the Unaligned"}
+                    ],
+                },
+                {
+                    "type": "Ally",
+                    "count": 1,
+                    "cards": [{"id": 101963, "count": 1, "name": "Thadius Zho"}],
+                },
+                {
+                    "type": "Equipment",
+                    "count": 7,
+                    "cards": [
+                        {"id": 100001, "count": 4, "name": ".44 Magnum"},
+                        {"id": 101014, "count": 1, "name": "Ivory Bow"},
+                        {"id": 101856, "count": 2, "name": "Sport Bike"},
+                    ],
+                },
+                {
+                    "type": "Retainer",
+                    "count": 1,
+                    "cards": [{"id": 100335, "count": 1, "name": "Charnas the Imp"}],
+                },
+                {
+                    "type": "Action Modifier",
+                    "count": 6,
+                    "cards": [{"id": 100236, "count": 6, "name": "Bonding"}],
+                },
+                {
+                    "type": "Reaction",
+                    "count": 30,
+                    "cards": [
+                        {"id": 100644, "count": 4, "name": "Enhanced Senses"},
+                        {"id": 100760, "count": 5, "name": "Forced Awakening"},
+                        {"id": 101321, "count": 5, "name": "On the Qui Vive"},
+                        {"id": 101475, "count": 4, "name": "Precognition"},
+                        {"id": 101850, "count": 4, "name": "Spirit's Touch"},
+                        {"id": 101949, "count": 8, "name": "Telepathic Misdirection"},
+                    ],
+                },
+                {
+                    "type": "Combat",
+                    "count": 20,
+                    "cards": [
+                        {"id": 100077, "count": 8, "name": "Apportation"},
+                        {"id": 101966, "count": 10, "name": "Theft of Vitae"},
+                        {"id": 102139, "count": 2, "name": "Walk of Flame"},
+                    ],
+                },
+            ],
+        },
+    }
+
+
 def test_deck_to_vdb():
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:

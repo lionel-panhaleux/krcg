@@ -4,7 +4,7 @@ Changelog
 2.33 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix Deck.from_url
 
 
 2.32 (2022-11-20)

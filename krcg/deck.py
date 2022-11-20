@@ -114,7 +114,7 @@ class Deck(collections.Counter):
                 return cls.from_amaranth(result.fragment[5:])
             raise ValueError("Unknown Amaranth URL format")
         elif result.netloc in {"vdb.smeea.casa", "vdb.im"}:
-            if result.path != "/decks":
+            if not result.path.startswith("/decks"):
                 raise ValueError("Unknown VDB URL path")
             params = urllib.parse.parse_qs(result.query)
             if "id" in params:
@@ -133,8 +133,8 @@ class Deck(collections.Counter):
                         continue
                     ret[vtes.VTES[int(card)]] = count
                 return ret
-            elif result.fragment.startswith("decks/"):
-                return cls.from_vdb(result.fragment[6:])
+            elif result.path.startswith("/decks/"):
+                return cls.from_vdb(result.path[7:])
             raise ValueError("Unknown VDB URL format")
         raise ValueError("Unknown deck URL provider")
 
