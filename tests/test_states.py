@@ -39,7 +39,8 @@ def test_card():
             },
         },
         "_name": "Aid from Bats",
-        "artists": ["Eric Lofgren", "Melissa Benson"],
+        "_set": "Jyhad:C, VTES:C, CE:C/PN3, Anarchs:PG2, Third:C, KoT:C, FB:PN6",
+        "artists": ["Melissa Benson", "Eric Lofgren"],
         "card_text": (
             "[ani] Strike: 1R damage, with 1 optional maneuver.\n"
             "[ANI] As above, with 1 optional press."
@@ -53,6 +54,15 @@ def test_card():
         "id": 100029,
         "name": "Aid from Bats",
         "printed_name": "Aid from Bats",
+        "ordered_sets": [
+            "Jyhad",
+            "Vampire: The Eternal Struggle",
+            "Camarilla Edition",
+            "Anarchs",
+            "Third Edition",
+            "Keepers of Tradition",
+            "First Blood",
+        ],
         "sets": {
             "Anarchs": [
                 {"copies": 2, "precon": "Gangrel", "release_date": "2003-05-19"}
@@ -142,7 +152,8 @@ def test_multiple_rulings():
             },
         },
         "_name": "Toreador Grand Ball",
-        "artists": ["Jim Di Bartolo", "Richard Kane Ferguson"],
+        "_set": "DS:U, CE:U, KoT:U, V5:PTo4, NB:PTo4",
+        "artists": ["Richard Kane Ferguson", "Jim Di Bartolo"],
         "card_text": (
             "Choose two ready Toreador you control, put this card in play, "
             "and lock one of the two. The locked Toreador does not unlock as "
@@ -155,6 +166,13 @@ def test_multiple_rulings():
         "name": "Toreador Grand Ball",
         "printed_name": "Toreador Grand Ball",
         "pool_cost": "1",
+        "ordered_sets": [
+            "Dark Sovereigns",
+            "Camarilla Edition",
+            "Keepers of Tradition",
+            "Fifth Edition",
+            "New Blood",
+        ],
         "rulings": {
             "links": {
                 "[LSJ 19970814]": (

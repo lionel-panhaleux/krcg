@@ -1113,12 +1113,14 @@ def test_vekn():
     assert set(test_vtes[100001].to_json().keys()) == {
         "_i18n",
         "_name",
+        "_set",
         "artists",
         "card_text",
         "id",
         "name",
         "printed_name",
         "pool_cost",
+        "ordered_sets",
         "rulings",
         "scans",
         "sets",
@@ -1127,6 +1129,7 @@ def test_vekn():
     }
     assert test_vtes[201362].to_json() == {
         "_name": "Theo Bell",
+        "_set": "FN:U, CE:PB",
         "artists": ["John Van Fleet"],
         "capacity": 7,
         "card_text": (
@@ -1144,6 +1147,7 @@ def test_vekn():
         "name": "Theo Bell (G2)",
         "name_variants": ["Theo Bell"],
         "printed_name": "Theo Bell",
+        "ordered_sets": ["Final Nights", "Camarilla Edition"],
         "scans": {
             "Camarilla Edition": (
                 "https://static.krcg.org/card/set/camarilla-edition/theobellg2.jpg"
