@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.32 (unreleased)
+2.32 (2022-11-20)
 -----------------
 
 - Fix VDB links (new format)
