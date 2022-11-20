@@ -133,6 +133,8 @@ class Deck(collections.Counter):
                         continue
                     ret[vtes.VTES[int(card)]] = count
                 return ret
+            elif result.fragment.startswith("decks/"):
+                return cls.from_vdb(result.fragment[6:])
             raise ValueError("Unknown VDB URL format")
         raise ValueError("Unknown deck URL provider")
 

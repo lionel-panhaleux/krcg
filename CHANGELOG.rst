@@ -4,7 +4,7 @@ Changelog
 2.32 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix VDB links (new format)
 
 
 2.31 (2022-11-16)
