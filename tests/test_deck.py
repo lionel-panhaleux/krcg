@@ -283,12 +283,12 @@ def test_from_amaranth():
     }
 
 
-def test_from_vdbh():
-    d = deck.Deck.from_vdb("4d3aa426-70da-44b7-8cb7-92377a1a0dbd")
+def test_from_vdb():
+    d = deck.Deck.from_vdb("b798e734fff7404085f7b01ad2ccb479")
     assert d.to_json() == {
-        "id": "4d3aa426-70da-44b7-8cb7-92377a1a0dbd",
-        "date": "2020-12-28",
-        "name": "First Blood: Tremere",
+        "id": "b798e734fff7404085f7b01ad2ccb479",
+        "date": "2021-01-11",
+        "name": "First Blood Tremere",
         "author": "BCP",
         "comments": (
             "https://blackchantry.com/"
@@ -297,12 +297,12 @@ def test_from_vdbh():
         "crypt": {
             "count": 12,
             "cards": [
+                {"id": 200025, "count": 2, "name": "Aidan Lyle"},
+                {"id": 200280, "count": 2, "name": "Claus Wegener"},
                 {"id": 201020, "count": 2, "name": "Muhsin Samir"},
                 {"id": 201213, "count": 2, "name": "Rutor"},
                 {"id": 201388, "count": 2, "name": "Troius"},
                 {"id": 201501, "count": 2, "name": "Zane"},
-                {"id": 200025, "count": 2, "name": "Aidan Lyle"},
-                {"id": 200280, "count": 2, "name": "Claus Wegener"},
             ],
         },
         "library": {
