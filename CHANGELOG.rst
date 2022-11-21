@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.33 (unreleased)
+2.33 (2022-11-21)
 -----------------
 
 - Fix Deck.from_url
