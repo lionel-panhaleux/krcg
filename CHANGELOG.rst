@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.34 (unreleased)
+2.34 (2023-01-04)
 -----------------
 
 - Fix TWDA parsing for evolutions, eg. Theo Bell (G6)
