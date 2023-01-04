@@ -619,6 +619,15 @@ class Parser:
         if match:
             name = match.group("name")
             count = int(match.group("ante_count") or 0)
+            # get the group from the crypt tail
+            group = None
+            tail = match.group("crypt_tail")
+            if tail:
+                try:
+                    group = int(tail[-1])
+                except ValueError:
+                    pass
+
         if name:
             if not count:
                 # do not match name with no count prefix during the preface
@@ -636,9 +645,18 @@ class Parser:
                         if name.strip(" :()[]-_*=") in _DISCIPLINES:
                             self.logger.warning('improper discipline "%s"', line)
                             return None, 0
+            # for evolutions (eg. Theo Bell (G6)) the name in TWDA
+            # might not contain the group, we need to rely on the group in crypt tail
+            if name and group and name[-1] != ")":
+                name += f" (g{group})"
             try:
                 card = vtes.VTES[name]
-                if name == "raven" and card.name == "Camille Devereux, The Raven (G1)":
+                # special case for Camille / Raven to keep them distinct if the decklist
+                # predates the merge of the two crypt cards
+                if (
+                    name in ["raven", "raven (g1)"]
+                    and card.name == "Camille Devereux, The Raven (G1)"
+                ):
                     self.deck.raven = count
             except KeyError:
                 count = 0

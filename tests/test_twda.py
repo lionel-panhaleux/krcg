@@ -3311,3 +3311,262 @@ def test_2k8TempleConcordance(caplog):
             'comment "Flash Harrison. */"',
         ),
     ]
+
+
+def test_10211(caplog):
+    """Evolution where group is not indicated in the name (but at end of line)"""
+    caplog.set_level(logging.WARNING)
+    TWDA = twda._TWDA()
+    with open(os.path.join(os.path.dirname(__file__), "10211.html")) as f:
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["10211"].to_json() == {
+        "date": "2022-06-09",
+        "event": "10211Origins - Thursday 2",
+        "event_link": "https://www.vekn.net/event-calendar/event/10211",
+        "id": "10211",
+        "place": "Columbus, Ohio",
+        "player": "Darby Keeney",
+        "players_count": 21,
+        "score": "1gw6 + 3vp in the final",
+        "tournament_format": "2R+F",
+        "comments": "Description: Bruise bleed based around V5 Brujah Barons, New "
+        "Carthage and Anarch bleed cards. It carries light multi-action, "
+        "a touch of stealth and just enough bounce that it doesn't have "
+        "to look left immediately. The titles influence others' political "
+        "actions, even if I'm not using them myself.\n"
+        "\n"
+        "In the final, I roasted my prey's opening (famous) Malgorzata "
+        "even though she dropped a Blood of Acid in the first combat.  It "
+        "was ENTIRELY worth losing a 3-cap who had already done the "
+        "Illegalism/unlock/Manifesto trick.  I ate Mal a turn or two "
+        "later, just to be sure she didn't make beads.\n"
+        "\n"
+        "The original build used more superior Presence minions but no "
+        "Theo and some Enchant Kindred. I didn't like the pace at which "
+        "it played and adjusted for more immediate offense.  I finally "
+        "broke down and added Theo right before Origins - he sheds red "
+        "cards and I get a second +1 strength minion.\n"
+        "Every one of those revisions made the deck better and this "
+        "iteration feels extremely solid.\n"
+        "\n"
+        "-- I think there might be a 78 card version that's even more "
+        "consistent.  And no, you don't need Ashur Tablets.\n",
+        "crypt": {
+            "cards": [
+                {"count": 2, "id": 201613, "name": "Theo Bell (G6)"},
+                {"count": 2, "id": 201576, "name": "Aline Gädeke"},
+                {"count": 2, "id": 201614, "name": "Valeriya Zinovieva"},
+                {"count": 2, "id": 201526, "name": "Leumeah"},
+                {"count": 1, "id": 201579, "name": "Atiena"},
+                {"count": 1, "id": 201581, "name": "Brandon Grime"},
+                {"count": 1, "id": 201585, "name": "Elen Kamjian"},
+                {"count": 1, "id": 200132, "name": "Ariane"},
+            ],
+            "count": 12,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {"count": 2, "id": 100199, "name": "Blood Doll"},
+                        {"count": 1, "id": 100297, "name": "Carfax Abbey"},
+                        {
+                            "comments": "dangerous play in today's meta",
+                            "count": 1,
+                            "id": 100366,
+                            "name": "Club Illusion",
+                        },
+                        {"count": 2, "id": 100588, "name": "Dreams of the Sphinx"},
+                        {"count": 1, "id": 100698, "name": "Fame"},
+                        {
+                            "comments": "this card just keeps getting " "better.",
+                            "count": 1,
+                            "id": 100809,
+                            "name": "Garibaldi-Meucci Museum",
+                        },
+                        {"count": 1, "id": 100824, "name": "Giant's Blood"},
+                        {
+                            "comments": "this version could probably " "drop to 1 copy",
+                            "count": 2,
+                            "id": 101277,
+                            "name": "New Carthage",
+                        },
+                        {
+                            "comments": "more unlocked Barons at the "
+                            "end of my turn.",
+                            "count": 1,
+                            "id": 101435,
+                            "name": "Powerbase: Los Angeles",
+                        },
+                        {
+                            "comments": "this could be 6 copies and the "
+                            "deck wouldn't suffer.",
+                            "count": 5,
+                            "id": 102121,
+                            "name": "Villein",
+                        },
+                        {"count": 1, "id": 102150, "name": "Warzone Hunting Ground"},
+                    ],
+                    "count": 18,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": "should probably change to LA "
+                            "just for thematic reasons",
+                            "count": 1,
+                            "id": 100715,
+                            "name": "Fee Stake: New York",
+                        },
+                        {
+                            "comments": "combat minions that bleed, "
+                            "then unlock and fight are "
+                            "pretty good.",
+                            "count": 9,
+                            "id": 100952,
+                            "name": "Illegalism",
+                        },
+                        {
+                            "comments": "see above. The occasional pool "
+                            "steal can screw up other "
+                            "players' math.",
+                            "count": 10,
+                            "id": 102229,
+                            "name": "Line Brawl",
+                        },
+                        {
+                            "comments": "almost overkill with Theo and " "Line Brawls.",
+                            "count": 1,
+                            "id": 101324,
+                            "name": "Open War",
+                        },
+                    ],
+                    "count": 21,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": "slotted during last revision, "
+                            "these things are gold in the "
+                            "mid game (get them AFTER you "
+                            "unlock from Illegialism, don't "
+                            "defer bleed actions to get it)",
+                            "count": 2,
+                            "id": 100053,
+                            "name": "Anarch Manifesto, An",
+                        }
+                    ],
+                    "count": 2,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": "I didn't bother with the "
+                            "unlimited [pot] line with a "
+                            "Monkey Wrench, it's better to "
+                            "just have these for stealth on "
+                            "bleeds.",
+                            "count": 6,
+                            "id": 101429,
+                            "name": "Power of One",
+                        },
+                        {
+                            "comments": "don't laugh...even at inferior "
+                            "it is an unlocked bouncer (or "
+                            "a multirushing Theo at "
+                            "superior).",
+                            "count": 2,
+                            "id": 102205,
+                            "name": "Zephyr",
+                        },
+                    ],
+                    "count": 8,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": "this card is shaking up the "
+                            "meta around here.",
+                            "count": 5,
+                            "id": 102218,
+                            "name": "Bait and Switch",
+                        }
+                    ],
+                    "count": 5,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {
+                            "comments": "kind of iffy, but I like "
+                            "having extra maneuvers and "
+                            "presses hanging around.",
+                            "count": 2,
+                            "id": 100232,
+                            "name": "Bollix",
+                        },
+                        {
+                            "comments": "never played on a minion I "
+                            "wasn't dunking anyway, this "
+                            "might be overkill.",
+                            "count": 2,
+                            "id": 100549,
+                            "name": "Disarm",
+                        },
+                        {
+                            "comments": "only OK in this deck since "
+                            "Dust Up often eats the "
+                            "additional strike.",
+                            "count": 3,
+                            "id": 100563,
+                            "name": "Diversion",
+                        },
+                        {
+                            "comments": "underrated as a dual use " "combat tool.",
+                            "count": 10,
+                            "id": 100597,
+                            "name": "Dust Up",
+                        },
+                        {
+                            "comments": "because Earth Meld decks need "
+                            "to be killed with fire.",
+                            "count": 4,
+                            "id": 100959,
+                            "name": "Immortal Grapple",
+                        },
+                        {
+                            "comments": "sometimes minions just need to " "stay down",
+                            "count": 2,
+                            "id": 101515,
+                            "name": "Pulled Fangs",
+                        },
+                        {
+                            "comments": "slotted in yet another [pot] "
+                            "deck....this card is poorly "
+                            "designed.",
+                            "count": 5,
+                            "id": 101942,
+                            "name": "Target Vitals",
+                        },
+                        {"count": 4, "id": 101945, "name": "Taste of Vitae"},
+                        {
+                            "comments": 'a token nod to "screw your '
+                            'Sniper Rifle" with backup '
+                            "defensive value",
+                            "count": 4,
+                            "id": 101982,
+                            "name": "Thrown Gate",
+                        },
+                    ],
+                    "count": 36,
+                    "type": "Combat",
+                },
+            ],
+            "count": 90,
+        },
+    }
