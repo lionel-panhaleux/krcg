@@ -4,7 +4,7 @@ Changelog
 2.34 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix TWDA parsing for evolutions, eg. Theo Bell (G6)
 
 
 2.33 (2022-11-21)
