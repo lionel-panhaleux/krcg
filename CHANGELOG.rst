@@ -4,7 +4,7 @@ Changelog
 2.35 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix cards CSV files parsing to allow partial load of supplementary files (eg. test)
 
 
 2.34 (2023-01-04)
