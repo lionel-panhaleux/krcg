@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.35 (unreleased)
+2.35 (2023-02-19)
 -----------------
 
 - Fix cards CSV files parsing to allow partial load of supplementary files (eg. test)
