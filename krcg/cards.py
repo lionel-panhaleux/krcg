@@ -435,7 +435,10 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.__dict__.update(state)
 
     def from_vekn(
-        self, data: Dict[str, str], set_dict: Dict[str, sets.Set] = sets.DEFAULT_SET_MAP
+        self,
+        data: Dict[str, str],
+        set_dict: Dict[str, sets.Set] = sets.DEFAULT_SET_MAP,
+        default_set: str = None,
     ) -> None:
         """Read a card from a dict generated from a VEKN official CSV.
 
@@ -445,10 +448,10 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         """
 
         def split(field, sep):
-            return [s for s in map(str.strip, data[field].split(sep)) if s]
+            return [s for s in map(str.strip, data.get(field, "").split(sep)) if s]
 
         def str_or_none(field):
-            return data[field] or None if field in data else None
+            return data[field].replace("@", "") or None if field in data else None
 
         def bool_or_none(field):
             return bool(data[field]) if field in data else None
@@ -461,10 +464,10 @@ class Card(utils.i18nMixin, utils.NamedMixin):
 
         self.id = int(data["Id"])
         self._name = data["Name"]
-        self._set = data["Set"]
+        self._set = str_or_none("Set") or default_set
         self.aka = split("Aka", ";")
-        self.types = split("Type", "/")
-        self.clans = split("Clan", "/")
+        self.types = [a.replace("@", "") for a in split("Type", "/")]
+        self.clans = [a.replace("@", "") for a in split("Clan", "/")]
         for i in range(len(self.clans)):
             if self.clans[i] in self._CLAN_RENAMES:
                 self.clans[i] = self._CLAN_RENAMES[self.clans[i]]
@@ -480,6 +483,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         if "&" in data[discipline_key]:
             self.combo = True
         for s in re.split(r"[\s/&]+", data[discipline_key]):
+            s = s.replace("@", "")
             # distinguish vision (vin) from visceratika (vis)
             if s.lower() == "vis" and "Imbued" in self.types:
                 s = "vin"
@@ -488,7 +492,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                 self.disciplines.append(s)
         # braces have been used in the CSV to denote last card text change
         self.card_text = (
-            data["Card Text"].replace("(D)", "Ⓓ").replace("{", "").replace("}", "")
+            data["Card Text"]
+            .replace("(D)", "Ⓓ")
+            .replace("{", "")
+            .replace("}", "")
+            .replace("@", "")
         )
         if "{" in data["Card Text"]:
             self.text_change = True
@@ -499,14 +507,16 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         for old_name, new_name in self._DISC_RENAMES.items():
             self.card_text = self.card_text.replace(old_name, new_name)
         self.banned = (
-            self._BAN_MAP[data["Banned"]].isoformat() if data["Banned"] else None
+            self._BAN_MAP[data["Banned"]].isoformat() if data.get("Banned") else None
         )
         # remove potential duplicated artists (eg. Ashur Tablets)
         # collections.Counter to keep the order (ordered dict with convenient init)
         self.artists = list(
             collections.Counter(
                 self._ARTISTS_FIXES.get(s, s)
-                for s in map(str.strip, re.split(r"[;,&]+(?!\sJr\.)", data["Artist"]))
+                for s in map(
+                    str.strip, re.split(r"[;,&]+(?!\sJr\.)", data.get("Artist", ""))
+                )
                 if s
             ).keys()
         )
@@ -530,18 +540,21 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             for rarity in map(
                 str.strip,
                 itertools.chain.from_iterable(
-                    s.split(";") for s in data["Set"].split(",")
+                    s.split(";") for s in data.get("Set", default_set).split(",") if s
                 ),
             )
             if rarity
         )
         if self.sets:
             self.ordered_sets = sorted(
-                [s for s in self.sets if set_dict[s].release_date],
+                [s for s in self.sets.keys() if set_dict[s].release_date],
                 key=lambda x: set_dict[x].release_date,
             )
         else:
             warnings.warn(f"no set found for {self}")
+        # some cards have one set, no date, eg. playtest cards
+        if self.sets and not self.ordered_sets:
+            self.ordered_sets = list(self.sets.keys())
         self.scans = {
             name: self._compute_url(
                 expansion=(
@@ -738,6 +751,20 @@ class CardMap(utils.FuzzyDict):
                     self.add_alias(variant, card.id)
             for name in Card._AKA.get(card.id, []):
                 self[name] = self[card.id]
+
+    def load_from_files(
+        self, *files: io.BufferedIOBase, set_abbrev: str = None
+    ) -> None:
+        """Load from local files. We don't expect a sets file, nor translation files."""
+        files = [
+            csv.DictReader(io.TextIOWrapper(f, encoding="utf-8-sig")) for f in files
+        ]
+        for line in itertools.chain.from_iterable(files):
+            card = Card()
+            card.from_vekn(line, default_set=set_abbrev)
+            self[card.id] = card
+        self._set_enriched_properties()
+        self._map_names()
 
     def load_from_vekn(self) -> None:
         """Load from official VEKN CSV files."""

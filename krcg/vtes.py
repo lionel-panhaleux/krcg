@@ -5,6 +5,7 @@ VTES must be configured with `VTES.configure()` before being used.
 """
 from typing import Dict, Generator, List, Set, Tuple, Union
 import functools
+import io
 import requests
 
 from . import cards
@@ -56,6 +57,9 @@ class _VTES:
         self.clear()
         self._cards.load_from_vekn()
         self._cards.load_rulings()
+
+    def load_from_files(self, *files: io.TextIOBase, set_abbrev: str = None) -> None:
+        self._cards.load_from_files(*files, set_abbrev=set_abbrev)
 
     def diff(self, url) -> Dict[cards.Card, Union[str, Tuple[str, str]]]:
         """Compute a diff from previous VEKN CSV files."""
