@@ -4,7 +4,7 @@ Changelog
 2.36 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Added 2022 Promo
 
 
 2.35 (2023-02-19)
