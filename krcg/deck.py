@@ -6,6 +6,7 @@ import datetime
 import email.utils
 import itertools
 import logging
+import re
 import requests
 import unidecode
 import urllib.parse
@@ -186,7 +187,7 @@ class Deck(collections.Counter):
             "tournament_format": self.tournament_format,
             "players_count": self.players_count,
             "player": self.player,
-            "score": self.score,
+            "score": str(self.score) if self.score else None,
             "name": self.name,
             "author": self.author,
             "comments": self.comments,
@@ -243,7 +244,7 @@ class Deck(collections.Counter):
         self.tournament_format = state.get("tournament_format")
         self.players_count = state.get("players_count")
         self.player = state.get("player")
-        self.score = state.get("score")
+        self.score = DeckScore(state.get("score"))
         self.name = state.get("name")
         self.author = state.get("author")
         self.comments = state.get("comments")
@@ -502,3 +503,34 @@ class Deck(collections.Counter):
             for card, count in cards:
                 link += f"{card.id}={count};"
         return link[:-1]
+
+
+class DeckScore:
+    def __init__(self, s: Optional[str] = None):
+        self.game_wins = None
+        self.round_vps = None
+        self.finals_vps = None
+        if s is None:
+            return
+        score = re.match(
+            r"(\s*-?-?\s*(?P<game_wins>\d)\s*gw\s*"
+            r"(?P<round_vps>\d+(\.|,)?\d?)\s*(vp)?\s*)?"
+            r"(\s*-?-?\s*\+?\s*(?P<finals_vps>\d(\.|,)?\d?)\s*"
+            r"(?(game_wins).?|vp))?",
+            s.lower(),
+        )
+        if score.end() < 1:
+            raise ValueError("No score information")
+        self.game_wins = score.group("game_wins")
+        self.round_vps = score.group("round_vps")
+        self.finals_vps = score.group("finals_vps")
+
+    def __str__(self):
+        ret = ""
+        if self.game_wins:
+            ret += f"{self.game_wins}GW"
+        if self.round_vps:
+            ret += f"{self.round_vps}"
+        if self.finals_vps:
+            ret += f"+{self.finals_vps}"
+        return ret

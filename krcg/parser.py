@@ -13,6 +13,7 @@ import re
 import arrow
 
 from . import config
+from . import deck
 from . import vtes
 from . import utils
 
@@ -504,9 +505,24 @@ class Parser:
         line = line.replace(" :", ":")
         line = line.replace("( ", "(")
         line = line.replace(" )", ")")
-        if twda and self.preface:
-            if self.parse_twda_headers(index, line):
+        if self.preface:
+            if twda and self.parse_twda_headers(index, line):
                 return
+            if self.parse_headers(index, line):
+                return
+        else:
+            # Always put a date, so if no date was parsed in headers,
+            # just put today as the date
+            if not self.deck.date:
+                self.deck.date = datetime.date.today()
+                if twda:
+                    self.logger.warning("No date found, using today")
+            # author is only set if different than player
+            if self.deck.author and not self.deck.player:
+                self.deck.player = self.deck.author
+                self.deck.author = None
+            if self.deck.author == self.deck.player:
+                self.deck.author = None
         card, count = self.get_card(line, twda)
         if card and count:
             self.deck.update({card: count})
@@ -532,13 +548,13 @@ class Parser:
             return True
         if not self.deck.tournament_format:
             try:
-                self.deck.tournament_format = re.match(r"^\s*(\d+R\+F)", line).group(1)
+                self.deck.tournament_format = re.match(r"\s*(\d+R\+F)", line).group(1)
                 return True
             except AttributeError:
                 pass
         if not self.deck.players_count:
             try:
-                players_count = re.match(r"^\s*(\d+|\?+)\s*player", line).group(1)
+                players_count = re.match(r"\s*(\d+|\?+)\s*player", line).group(1)
                 self.deck.players_count = int(players_count)
                 return True
             except AttributeError:
@@ -566,48 +582,62 @@ class Parser:
             if player:
                 self.deck.player = player
             return True
+        return False
+
+    def parse_headers(self, index: int, line: str):
+        description = re.match(r"^\s*(D|d)escription\s*:?\s*", line)
+        if description:
+            line = line[description.end() :]
         if not self.deck.score:
             try:
-                score = re.match(
-                    r"-?-?\s*((?P<round_wins>\d)\s*(G|g)(W|w)\s*"
-                    r"(?P<round_vps>\d(\.|,)?\d?)\s*((v|V)(p|P))?\s*\+?\s*)?"
-                    r"(?P<final>\d(\.|,)?\d?)\s*(v|V)(p|P)",
-                    line,
-                )
-                if score.group("round_wins"):
-                    self.deck.score = "{}gw{} + {}vp in the final".format(
-                        score.group("round_wins"),
-                        score.group("round_vps"),
-                        score.group("final"),
-                    )
-                else:
-                    self.deck.score = "{}vp in the final".format(score.group("final"))
+                self.deck.score = deck.DeckScore(line)
                 return True
-            except AttributeError:
+            except (AttributeError, ValueError):
                 pass
         if not self.deck.name:
             try:
-                self.deck.name = re.match(
-                    r"^\s*((d|D)eck)?\s?(n|N)ame\s*:\s*(?P<name>.*)$", line
-                ).group("name")
+                self.deck.name = (
+                    re.match(r"^\s*((d|D)eck)?\s?(n|N)ame\s*:\s*(?P<name>.*)$", line)
+                    .group("name")
+                    .strip()
+                )
                 return True
-            except AttributeError:
+            except (AttributeError, ValueError):
                 pass
         if not self.deck.author:
             try:
-                self.deck.author = re.match(
-                    r"(((c|C)reated|(d|D)eck)\s*(b|B)y|"
-                    r"(a|A)uthors?|(c|C)reators?)\s*(:|\s)\s*(?P<author>.*)$",
-                    line,
-                ).group("author")
+                self.deck.author = (
+                    re.match(
+                        r"\s*(((c|C)reated|(d|D)eck)\s*(b|B)y|"
+                        r"(a|A)uthors?|(c|C)reators?)\s*(:|\s)\s*(?P<author>.*)$",
+                        line,
+                    )
+                    .group("author")
+                    .strip()
+                )
                 return True
             except AttributeError:
                 pass
-        # Always put a date, so if no date was parsed in headers,
-        # just put today as the date
+        if not self.deck.player:
+            try:
+                self.deck.player = (
+                    re.match(
+                        r"\s*((p|P)layed\s*(b|B)y)|((p|P)layer)\s*(:|\s)\s*"
+                        r"(?P<player>.*)$",
+                        line,
+                    )
+                    .group("player")
+                    .strip()
+                )
+                return True
+            except AttributeError:
+                pass
         if not self.deck.date:
-            self.deck.date = datetime.date.today()
-            self.logger.warning("No date found, using today")
+            try:
+                self.deck.date = arrow.get(line, "MMMM Do YYYY").date()
+                return True
+            except arrow.parser.ParserMatchError:
+                pass
 
     def get_card(self, line: str, twda: bool = False) -> Tuple[object, int]:
         """Try to find a card and count, register possible comment."""

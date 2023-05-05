@@ -389,7 +389,7 @@ ousted pretty fast after that before any real damage to me was done.
             "place": "Hyvinkää, Finland",
             "player": "Niko Vanhatalo",
             "players_count": 14,
-            "score": "1gw5 + 3vp in the final",
+            "score": "1GW5+3",
             "tournament_format": "2R+F",
         },
     ]

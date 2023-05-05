@@ -30,7 +30,7 @@ May 8th 2010
 10 players
 Rudolf Scholz
 
--- 4vp in the final
+-- +4
 
 Deck Name: The Storage Procurers
 

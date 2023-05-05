@@ -36,7 +36,7 @@ def test_2019grdojf(caplog):
         "players_count": 10,
         "player": "Esa-Matti Smolander",
         "tournament_format": "3R+F",
-        "score": "1gw3.5 + 4vp in the final",
+        "score": "1GW3.5+4",
         "name": "Parliament of Shadows precon with no changes.",
         "crypt": {
             "cards": [
@@ -154,6 +154,7 @@ def test_2016ggs(caplog):
         "players_count": 16,
         "player": "Hugh Angseesing",
         "tournament_format": "3R+F",
+        "score": "2GW9",
         "name": "DoC Swedish Sirens",
         "crypt": {
             "cards": [
@@ -246,9 +247,6 @@ def test_2016ggs(caplog):
             ],
             "count": 88,
         },
-        "comments": (
-            "Description: 2GW9 and winner in Sweden qualifier 26th March 2016\n"
-        ),
     }
     assert caplog.record_tuples == []
 
@@ -550,7 +548,7 @@ def test_2010tcdbng(caplog):
         "players_count": 10,
         "player": "Rudolf Scholz",
         "tournament_format": "2R+F",
-        "score": "4vp in the final",
+        "score": "+4",
         "name": "The Storage Procurers",
         "crypt": {
             "cards": [
@@ -1362,7 +1360,7 @@ def test_2020pihc(caplog):
         "player": "Jay Kristoff",
         "players_count": 10,
         "tournament_format": "2R+F",
-        "score": "0gw2.5 + 1.5vp in the final",
+        "score": "0GW2.5+1.5",
         "name": "Sauce or GTFO",
         "crypt": {
             "cards": [
@@ -3328,7 +3326,7 @@ def test_10211(caplog):
         "place": "Columbus, Ohio",
         "player": "Darby Keeney",
         "players_count": 21,
-        "score": "1gw6 + 3vp in the final",
+        "score": "1GW6+3",
         "tournament_format": "2R+F",
         "comments": "Description: Bruise bleed based around V5 Brujah Barons, New "
         "Carthage and Anarch bleed cards. It carries light multi-action, "
