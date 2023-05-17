@@ -1,10 +1,12 @@
 Changelog
 =========
 
-2.37 (unreleased)
+3.0 (unreleased)
 -----------------
 
 - Add set info for reprints (HttB and KoT)
+- Seating: *Breaking change* Now handles any Hashable for players (not just integers).
+  `krcg.seating.get_rounds` now takes a list of Hashable instead as input parameter of an integer.
 
 
 2.36 (2023-04-17)
