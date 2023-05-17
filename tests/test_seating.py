@@ -2,25 +2,25 @@ from krcg import seating
 
 
 def test_rounds():
-    len(seating.get_rounds(5, 2)) == 2
-    len(seating.get_rounds(6, 2)) == 3
-    len(seating.get_rounds(7, 2)) == 3
-    len(seating.get_rounds(8, 2)) == 2
-    len(seating.get_rounds(9, 2)) == 2
-    len(seating.get_rounds(10, 2)) == 2
-    len(seating.get_rounds(11, 2)) == 3
-    len(seating.get_rounds(12, 2)) == 2
+    len(seating.get_rounds(list(range(5)), 2)) == 2
+    len(seating.get_rounds(list(range(6)), 2)) == 3
+    len(seating.get_rounds(list(range(7)), 2)) == 3
+    len(seating.get_rounds(list(range(8)), 2)) == 2
+    len(seating.get_rounds(list(range(9)), 2)) == 2
+    len(seating.get_rounds(list(range(10)), 2)) == 2
+    len(seating.get_rounds(list(range(11)), 2)) == 3
+    len(seating.get_rounds(list(range(12)), 2)) == 2
 
-    len(seating.get_rounds(6, 3)) == 4
-    len(seating.get_rounds(7, 3)) == 5
-    len(seating.get_rounds(11, 3)) == 4
+    len(seating.get_rounds(list(range(6)), 3)) == 4
+    len(seating.get_rounds(list(range(7)), 3)) == 5
+    len(seating.get_rounds(list(range(11)), 3)) == 4
 
-    len(seating.get_rounds(7, 4)) == 6
-    len(seating.get_rounds(7, 5)) == 7
-    len(seating.get_rounds(7, 6)) == 9
+    len(seating.get_rounds(list(range(7)), 4)) == 6
+    len(seating.get_rounds(list(range(7)), 5)) == 7
+    len(seating.get_rounds(list(range(7)), 6)) == 9
 
-    len(seating.get_rounds(6, 6)) == 7
-    len(seating.get_rounds(6, 7)) == 9
+    len(seating.get_rounds(list(range(6)), 6)) == 7
+    len(seating.get_rounds(list(range(6)), 7)) == 9
 
 
 def test_round():
@@ -34,10 +34,18 @@ def test_round():
         [1, 2, 3, 4, 5],
         [6, 7, 8, 9],
     ]
+    assert seating.Round.from_players(
+        ["A", "B", "C", "D", "E", "F", "G", "H", "I"]
+    ) == [
+        ["A", "B", "C", "D", "E"],
+        ["F", "G", "H", "I"],
+    ]
 
 
 def test_measure():
-    M = seating.measure(4, seating.Round.from_players([1, 2, 3, 4]))
+    M = seating.measure(
+        {1: 0, 2: 1, 3: 2, 4: 3}, seating.Round.from_players([1, 2, 3, 4])
+    )
     assert M.position.tolist() == [
         [1, 4, 1, 1, 0, 0, 0, 0],
         [1, 4, 2, 0, 1, 0, 0, 0],
@@ -103,7 +111,9 @@ def test_measure():
             [0, 0, 0, 0, 0, 0, 0, 0],
         ],
     ]
-    M = seating.measure(5, seating.Round.from_players([1, 2, 3, 4, 5]))
+    M = seating.measure(
+        {1: 0, 2: 1, 3: 2, 4: 3, 5: 4}, seating.Round.from_players([1, 2, 3, 4, 5])
+    )
     assert M.position.tolist() == [
         [1, 5, 1, 1, 0, 0, 0, 0],
         [1, 5, 2, 0, 1, 0, 0, 0],
@@ -211,7 +221,9 @@ def test_score():
 
 def test_optimise():
     # mainly check the function executes, results are not stable
-    rounds, score = seating.optimise(seating.get_rounds(13, 3), iterations=1000)
+    rounds, score = seating.optimise(
+        seating.get_rounds(list(range(13)), 3), iterations=1000
+    )
     assert len(rounds) == 3
     # mean values don't change
     assert round(score.mean_vps, 5) == 4.38462
