@@ -8,7 +8,7 @@ import collections
 import html
 import io
 import logging
-import pkg_resources  # part of setuptools
+import importlib.resources
 import re
 
 import requests
@@ -76,14 +76,9 @@ class _TWDA(collections.OrderedDict):
             elif re.match(r"^</pre>", line):
                 buffer.seek(0)
                 # replace with a version of our own for the worst cases
-                if pkg_resources.resource_exists("twda_fix", f"{id_}.html"):
-                    buffer = io.StringIO(
-                        html.unescape(
-                            pkg_resources.resource_string(
-                                "twda_fix", f"{id_}.html"
-                            ).decode("utf-8")
-                        )
-                    )
+                fix_file = importlib.resources.files("twda_fix").joinpath(f"{id_}.html")
+                if fix_file.is_file():
+                    buffer = io.StringIO(html.unescape(fix_file.read_text("utf-8")))
                 self[id_] = deck.Deck.from_txt(buffer, id=id_, offset=offset, twda=True)
             elif buffer:
                 buffer.write(html.unescape(line))
