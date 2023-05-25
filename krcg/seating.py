@@ -532,12 +532,10 @@ def optimise(
     return best_state, Score(best_state, pm=pm)
 
 
-def optimise_table(
-    rounds: List[Round],
-    table: int,
-) -> Tuple[List[Round], Score]:
+def optimise_table(rounds: List[Round], table: int) -> Score:
     """Optimise a single table in the last round.
 
+    Modifies the list of round in place.
     Useful to add or remove a player from an existing seating, before the round begins.
     """
     current_round = Round.copy(rounds[-1])
@@ -552,9 +550,8 @@ def optimise_table(
         if score < best_score:
             best_score = score
             best_table = permutation[:]
-    current_round.set_table(table, list(best_table))
-    rounds[-1] = current_round
-    return rounds, best_score
+    rounds[-1].set_table(table, list(best_table))
+    return best_score
 
 
 def archon_seating(players_count: int, rounds_per_player: int):
