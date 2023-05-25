@@ -5,10 +5,10 @@ import copy
 import csv
 import datetime
 import functools
+import importlib.resources
 import io
 import itertools
 import os
-import pkg_resources
 import re
 import requests
 import urllib.request
@@ -774,19 +774,19 @@ class CardMap(utils.FuzzyDict):
             main_files = [
                 csv.DictReader(
                     io.TextIOWrapper(
-                        pkg_resources.resource_stream("cards", "vtessets.csv"),
+                        importlib.resources.files("cards").joinpath("vtessets.csv"),
                         encoding="utf-8-sig",
                     )
                 ),
                 csv.DictReader(
                     io.TextIOWrapper(
-                        pkg_resources.resource_stream("cards", "vtescrypt.csv"),
+                        importlib.resources.files("cards").joinpath("vtescrypt.csv"),
                         encoding="utf-8-sig",
                     )
                 ),
                 csv.DictReader(
                     io.TextIOWrapper(
-                        pkg_resources.resource_stream("cards", "vteslib.csv"),
+                        importlib.resources.files("cards").joinpath("vteslib.csv"),
                         encoding="utf-8-sig",
                     )
                 ),

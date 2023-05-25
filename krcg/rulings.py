@@ -1,7 +1,7 @@
 """Rulings parsing.
 """
 from typing import Generator, Tuple
-import pkg_resources
+import importlib.resources
 import re
 import warnings
 import yaml
@@ -21,13 +21,13 @@ class RulingReader:
 
     def __init__(self):
         self.links = yaml.safe_load(
-            pkg_resources.resource_string("rulings", "rulings-links.yaml")
+            importlib.resources.files("rulings").joinpath("rulings-links.yaml")
         )
 
     def __iter__(self):
         """Yield Ruling instances"""
         for card, rulings in yaml.safe_load(
-            pkg_resources.resource_string("rulings", "cards-rulings.yaml")
+            importlib.resources.files("rulings").joinpath("cards-rulings.yaml")
         ).items():
             for ruling in rulings:
                 ret = Ruling()
@@ -42,7 +42,7 @@ class RulingReader:
                     raise
                 yield ret
         for ruling in yaml.safe_load(
-            pkg_resources.resource_string("rulings", "general-rulings.yaml")
+            importlib.resources.files("rulings").joinpath("general-rulings.yaml")
         ):
             ret = Ruling()
             ret.cards = [_card_id_name(card) for card in ruling["cards"]]
