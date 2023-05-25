@@ -4,10 +4,13 @@ Changelog
 3.0 (unreleased)
 -----------------
 
-- Add set info for reprints (HttB and KoT)
-- Seating: *Breaking change* Now handles any Hashable for players (not just integers).
-  `krcg.seating.get_rounds` now takes a list of Hashable instead as input parameter of an integer.
+- **BREAKING CHANGES:**
+    * Add set info for reprints (HttB and KoT)
+    * Seating: Now handles any `Hashable` for players (not just integers).
+      `krcg.seating.get_rounds` now takes a list of `Hashable` instead
+      as input parameter of an integer.
 
+- Migrated depreacted pkg_resources to importlib.resources
 
 2.36 (2023-04-17)
 -----------------
@@ -18,7 +21,8 @@ Changelog
 2.35 (2023-02-19)
 -----------------
 
-- Fix cards CSV files parsing to allow partial load of supplementary files (eg. test)
+- Fix cards CSV files parsing to allow
+  partial load of supplementary files (eg. test)
 
 
 2.34 (2023-01-04)
@@ -116,8 +120,10 @@ Changelog
 2.20 (2021-12-04)
 -----------------
 
-- Add Banu Haqim and Ministry clans (Assamite and Follower of Set can still be used and are equivalent)
-- Change card name management (and JSON) to cope with vampires "evolutions" from V5 Anarch (same vampire, higher group)
+- Add Banu Haqim and Ministry clans
+  (Assamite and Follower of Set can still be used and are equivalent)
+- Change card name management (and JSON) to cope with vampires "evolutions"
+  from V5 Anarch (same vampire, higher group)
 - Seating: any form of round can now be optimised (4-players table can be anywhere)
 - Seating: now transparantly handles players who don't play all the rounds
 - Deck format: fix LackeyCCG format (quotes in card names)
@@ -247,7 +253,7 @@ Changelog
 ----------------
 
 - BREAKING CHANGES:
-  
+
   * No more pickling, the init phase is new
   * Static files generation is now performed in a separated project: krcg-static
   * Projects using this library (CLI, API, bot, ...) are now in separate repositories
