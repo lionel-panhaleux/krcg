@@ -106,6 +106,8 @@ class SetMap(dict):
         "Promo-20010428": ["Final Nights promo", "2001-04-28"],
         "Promo-20010302": ["Final Nights promo", "2001-03-02"],
         "Promo-19960101": ["1996 Promo", "1996-01-01"],
+        "HttB-R": ["Heirs to the Blood Reprint", "2018-07-14"],
+        "KoT-R": ["Keepers of Tradition Reprint", "2018-05-05"],
     }
 
     def __init__(self):

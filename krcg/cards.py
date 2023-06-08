@@ -536,14 +536,18 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         # computations last: some properties (ie. name) are cached,
         # only use them once everything else is set
         self.sets = dict(
-            Card._decode_set(set_dict, rarity)
-            for rarity in map(
-                str.strip,
-                itertools.chain.from_iterable(
-                    s.split(";") for s in data.get("Set", default_set).split(",") if s
-                ),
+            itertools.chain.from_iterable(
+                Card._decode_set(set_dict, rarity)
+                for rarity in map(
+                    str.strip,
+                    itertools.chain.from_iterable(
+                        s.split(";")
+                        for s in data.get("Set", default_set).split(",")
+                        if s
+                    ),
+                )
+                if rarity
             )
-            if rarity
         )
         if self.sets:
             self.ordered_sets = sorted(
@@ -601,7 +605,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     @staticmethod
     def _decode_set(
         set_dict: Dict[str, sets.Set], expansion: str
-    ) -> Tuple[str, List[Dict]]:
+    ) -> Generator[None, None, Tuple[str, List[Dict]]]:
         """Decode a set string from official CSV.
 
         From Jyhad:R2 to {"Jyhad": {"rarity": "Rare", "frequency": 2}}
@@ -612,7 +616,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         )
         if not match:
             warnings.warn(f"failed to parse set: {expansion}")
-            return expansion, []
+            yield expansion, []
         match = match.groupdict()
         abbrev = match["abbrev"]
         try:
@@ -626,7 +630,14 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             for r in map(lambda a: Card._decode_rarity(a, abbrev, date), rarities)
             if r
         ]
-        return set_dict[abbrev].name, ret
+        reprints, ret = Card._partition(
+            ret, lambda r: r.get("precon", "").startswith("Reprint ")
+        )
+        for r in reprints:
+            r["precon"] = r["precon"][8:]
+        if reprints:
+            yield (set_dict[abbrev].name + " Reprint", reprints)
+        yield (set_dict[abbrev].name, ret)
 
     @staticmethod
     def _decode_rarity(rarity: str, abbrev: str, date: str) -> dict:
@@ -675,6 +686,18 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             else:
                 ret["copies"] = count
         return ret
+
+    @staticmethod
+    def _partition(iterable, condition):
+        """Partition an iterable given a condition: returns list matching, list not matching"""
+        lhs = []
+        rhs = []
+        for it in iterable:
+            if condition(it):
+                lhs.append(it)
+            else:
+                rhs.append(it)
+        return lhs, rhs
 
 
 class CardMap(utils.FuzzyDict):

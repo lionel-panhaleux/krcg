@@ -4,7 +4,7 @@ Changelog
 2.37 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Add set info for reprints (HttB and KoT)
 
 
 2.36 (2023-04-17)
