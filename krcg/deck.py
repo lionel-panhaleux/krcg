@@ -244,7 +244,7 @@ class Deck(collections.Counter):
         self.tournament_format = state.get("tournament_format")
         self.players_count = state.get("players_count")
         self.player = state.get("player")
-        self.score = DeckScore(state.get("score"))
+        self.score = DeckScore(state.get("score")) if state.get("score") else None
         self.name = state.get("name")
         self.author = state.get("author")
         self.comments = state.get("comments")
@@ -516,10 +516,11 @@ class DeckScore:
             r"(\s*-?-?\s*(?P<game_wins>\d)\s*gw\s*"
             r"(?P<round_vps>\d+(\.|,)?\d?)\s*(vp)?\s*)?"
             r"(\s*-?-?\s*\+?\s*(?P<finals_vps>\d(\.|,)?\d?)\s*"
-            r"(?(game_wins).?|vp))?",
+            r"(?(game_wins).?|vp)?)?",
             s.lower(),
         )
         if score.end() < 1:
+            print(s)
             raise ValueError("No score information")
         self.game_wins = score.group("game_wins")
         self.round_vps = score.group("round_vps")
