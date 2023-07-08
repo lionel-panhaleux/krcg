@@ -689,7 +689,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
 
     @staticmethod
     def _partition(iterable, condition):
-        """Partition an iterable given a condition: returns list matching, list not matching"""
+        """Partition iterable given a condition: returns matching, not matching"""
         lhs = []
         rhs = []
         for it in iterable:
