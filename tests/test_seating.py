@@ -240,6 +240,6 @@ def test_optimise_table():
     rounds = [seating.Round.from_players(p) for p in permutations]
     # on second round, player 4 leaves. Table needs to be re-optimised
     rounds[1].set_table(0, [2, 5, 3, 1])
-    rounds, score = seating.optimise_table(rounds, 0)
+    score = seating.optimise_table(rounds, 0)
     assert rounds == [[[1, 2, 3, 4, 5]], [[5, 3, 2, 1]]]
     assert score == 26000065.0
