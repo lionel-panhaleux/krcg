@@ -796,22 +796,19 @@ class CardMap(utils.FuzzyDict):
         if LOCAL_CARDS:
             main_files = [
                 csv.DictReader(
-                    io.TextIOWrapper(
-                        importlib.resources.files("cards").joinpath("vtessets.csv"),
-                        encoding="utf-8-sig",
-                    )
+                    importlib.resources.files("cards")
+                    .joinpath("vtessets.csv")
+                    .read_text("utf-8-sig"),
                 ),
                 csv.DictReader(
-                    io.TextIOWrapper(
-                        importlib.resources.files("cards").joinpath("vtescrypt.csv"),
-                        encoding="utf-8-sig",
-                    )
+                    importlib.resources.files("cards")
+                    .joinpath("vtescrypt.csv")
+                    .read_text("utf-8-sig"),
                 ),
                 csv.DictReader(
-                    io.TextIOWrapper(
-                        importlib.resources.files("cards").joinpath("vteslib.csv"),
-                        encoding="utf-8-sig",
-                    )
+                    importlib.resources.files("cards")
+                    .joinpath("vteslib.csv")
+                    .read_text("utf-8-sig"),
                 ),
             ]
         else:

@@ -21,13 +21,17 @@ class RulingReader:
 
     def __init__(self):
         self.links = yaml.safe_load(
-            importlib.resources.files("rulings").joinpath("rulings-links.yaml")
+            importlib.resources.files("rulings")
+            .joinpath("rulings-links.yaml")
+            .read_text("utf-8")
         )
 
     def __iter__(self):
         """Yield Ruling instances"""
         for card, rulings in yaml.safe_load(
-            importlib.resources.files("rulings").joinpath("cards-rulings.yaml")
+            importlib.resources.files("rulings")
+            .joinpath("cards-rulings.yaml")
+            .read_text("utf-8")
         ).items():
             for ruling in rulings:
                 ret = Ruling()
@@ -42,7 +46,9 @@ class RulingReader:
                     raise
                 yield ret
         for ruling in yaml.safe_load(
-            importlib.resources.files("rulings").joinpath("general-rulings.yaml")
+            importlib.resources.files("rulings")
+            .joinpath("general-rulings.yaml")
+            .read_text("utf-8")
         ):
             ret = Ruling()
             ret.cards = [_card_id_name(card) for card in ruling["cards"]]
