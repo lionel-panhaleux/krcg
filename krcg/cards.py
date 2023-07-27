@@ -662,7 +662,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             code = Card._RARITY_PRECON_CODES.get(abbrev, {}).get(base)
             if code:
                 ret["precon"] = code
-            elif code is None:
+            elif code is None and abbrev[:5] != "Promo":
+                # promo "origins" can be there, but it's largely inconsistent
+                # eg. Promo-20230531:Chapters
                 warnings.warn(f"unknown base: {base} in {abbrev}:{rarity}")
                 return
         # fix release date for reprints
