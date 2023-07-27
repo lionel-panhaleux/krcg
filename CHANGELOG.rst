@@ -1,8 +1,8 @@
 Changelog
 =========
 
-3.0 (unreleased)
------------------
+3.0 (2023-07-27)
+----------------
 
 - **BREAKING CHANGES:**
     * Add set info for reprints (HttB and KoT)
