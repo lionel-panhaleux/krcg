@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0 (unreleased)
+2.37 (2023-07-27)
 -----------------
 
 - **BREAKING CHANGES:**
