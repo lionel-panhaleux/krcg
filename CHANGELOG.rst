@@ -1,13 +1,7 @@
 Changelog
 =========
 
-2.38 (unreleased)
------------------
-
-- Nothing changed yet.
-
-
-2.37 (2023-07-27)
+3.0 (unreleased)
 -----------------
 
 - **BREAKING CHANGES:**
@@ -17,6 +11,7 @@ Changelog
       as input parameter of an integer.
 
 - Migrated depreacted pkg_resources to importlib.resources
+- Shadows of Berlin and Echoes of Gehenna
 
 2.36 (2023-04-17)
 -----------------
