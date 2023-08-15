@@ -489,7 +489,7 @@ class Deck(collections.Counter):
 
     def to_vdb(self) -> str:
         """Generating vdb.smeaa.casa link to deck"""
-        link = "https://vdb.im/decks?"
+        link = "https://vdb.im/decks/deck?"
         link += urllib.parse.urlencode(
             {
                 "name": self.name or "New KRCG Deck",
