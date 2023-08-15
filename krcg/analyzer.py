@@ -238,7 +238,7 @@ class Analyzer(object):
         for card in args:
             candidates.update(
                 {
-                    candidate: score / len(args)
+                    candidate: score
                     for candidate, score in self.affinity.get(card, {}).items()
                     if not (
                         candidate.banned

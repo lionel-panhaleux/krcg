@@ -4,7 +4,7 @@ Changelog
 3.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Analyzer: fix cards scores numbers in the candidates() method
 
 
 3.0 (2023-07-27)
