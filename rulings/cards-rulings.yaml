@@ -2963,6 +2963,7 @@
   - Damage done to the bearer is environmental. [LSJ 19970801]
   - No damage is done to the bearer if he does not strike with the gun (eg. if it is destroyed with first strike). [LSJ 20100310]
 "102226|Haqim's Law: Retribution":
+  - "Can only be used once per action (multiple Haqim's Law: Retribution can each be used once). [ANK 20221102-2]"
   - If used by a Banu Haqim and another takes the action over with {Mask of a Thousand Faces}, they cannot use it again. [ANK 20221102-2]
 102227|Hunger of Marduk:
   - The provided strike can be chosen and used more than once during the round. [ANK 20220207]
@@ -2979,6 +2980,8 @@
   - The card is locked if used to enter combat, even if that action fails. [ANK 20221102]
 102244|The Shard, London:
   - The cost reduction applies to minion cards, they are also played by the Methuselah. [ANK 20221102]
+  - Can be locked to reduce the cost at any point before resolution, from when the action is announced to just before the cost is paid. [ANK 20230620]
+  - Can be used to allow you to play cards which cost you could not pay otherwise (eg. {Procurer}). [ANK 20230621]
 200011|Adana de Sforza (G4):
   - Card with multiple types (eg. Combat/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron (G3):
