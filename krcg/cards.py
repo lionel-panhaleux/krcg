@@ -8,6 +8,7 @@ import functools
 import importlib.resources
 import io
 import itertools
+import logging
 import os
 import re
 import requests
@@ -20,6 +21,7 @@ from . import sets
 from . import utils
 
 
+logger = logging.getLogger("krcg")
 LOCAL_CARDS = os.getenv("LOCAL_CARDS")
 
 
@@ -787,7 +789,11 @@ class CardMap(utils.FuzzyDict):
         ]
         for line in itertools.chain.from_iterable(files):
             card = Card()
-            card.from_vekn(line, default_set=set_abbrev)
+            try:
+                card.from_vekn(line, default_set=set_abbrev)
+            except Exception:
+                logger.exception("Failed to parse card <%s>", line)
+                raise
             self[card.id] = card
         self._set_enriched_properties()
         self._map_names()
