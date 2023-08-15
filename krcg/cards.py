@@ -76,6 +76,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         "necromancy": "nec",
         "obeah": "obe",
         "obfuscate": "obf",
+        "oblivion": "obl",
         "obtenebration": "obt",
         "potence": "pot",
         "presence": "pre",
