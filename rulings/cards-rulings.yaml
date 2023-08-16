@@ -950,7 +950,7 @@
 100687|Faceless Night:
   - "[OBF] A minion attempting to block before it is played cannot back out. [LSJ 20081202]"
   - "[OBF] A minion that has attempted to block but failed before it was played is not affected. [ANK 20190509]"
-  - '[OBF] The lock of the minion happens at action resolution. He can play a reaction before that (eg. {Deflection}), and he still locks if he unlocked before that (eg. with {Guard Dogs}). Only cards that can be played "after action resolution" can be played after the lock happens. [ANK 20171017]'
+  - "[OBF] The aspirant blocker is locked at resolution. He can play {Deflection} before that, and even attempt to block again if it is deflected back. He can play {Guard Dogs} before the lock, not after. [ANK 20171017] [ANK 20230305]"
 100689|Fae Contortion:
   - '[myt] [REFLEX] Cards are not replaced during the "as played" window. [LSJ 20061013]'
   - '[myt] [REFLEX] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
