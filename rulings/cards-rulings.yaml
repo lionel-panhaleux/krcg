@@ -2258,6 +2258,7 @@
   - Adds one to the cost of the master card targetting the vampire, cost reductions from other effects do apply. [LSJ 20070829-1]
   - 'Choosing is targeting: cards that "choose" the vampire like {The Rack}, {Toreador Grand Ball}, {Piper} or {Tend the Flock} are considered to target it, their cost is increased. Actions that choose the vampire cannot be played against him (eg. {Propaganda}, {Spirit Marionette}, {Shattering Crescendo}) [LSJ 20031010] [LSJ 20090319] [ANK 20180907]'
   - Actions that target retainers, equipment, or other cards on the minion are allowed, as are actions that target cards not on the minion, even if such cards have "named" or "chosen" that minion. [TOM 19951208-1] [LSJ 19980302-1]
+  - There is no additional cost for using the effects of cards already in play (eg. {KRCG News Radio}). [ANK 20221120]
   - If contested, it will not be burned when the target (vampire) goes to torpor, nor will it be burned if it enters play while the target vampire is in torpor. [RTR 19960124]
 101714|Selective Silence:
   - "[QUI] No other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
