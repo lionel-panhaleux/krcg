@@ -2828,6 +2828,7 @@
   - If the block is successful, the aggravated damage is inflicted and the card burned even if the action is ended (eg. {Mirror Walk}) before block resolution. [LSJ 20100301] [ANK 20220116]
   - If {The Kiss of Ra} or {Elder Impersonation} are used, the block does not happen. [LSJ 20100210]
   - Unleash Hell's Fury is not locked if {Faceless Night} was played. Also, it can attempt to block even if locked. [LSJ 20100210]
+  - If attempting to block requires to pay or burn blood (eg. {Dominion}), Unleash Hell's Fury cannot block. [ANK 20230226]
   - Once it's attempting to block, its intercept can be affected by other cards normally (eg. {KRCG News Radio}). [ANK 20211112-2]
   - The burn option can be used if all your infernal vampires are in torpor. [LSJ 20091203]
   - The fact it is Unique has no bearing on the burn option. You cannot use the burn option if you have an infernal vampire ready, even if you already have an Unleash Hell's Fury in play. [LSJ 20100203-2]
