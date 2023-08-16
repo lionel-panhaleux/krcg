@@ -1905,6 +1905,8 @@
   - If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]
   - Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]
   - "[DEM] The press can only be used during the current round. [TOM 19960521]"
+101398|Phased Motion Detector:
+  - Can provide intercept only once during each action. [RBK 20200701-4] [ANK 20230116]
 101401|Piper:
   - When used to recruit an ally, the ally cannot act this turn. [LSJ 20080630] [RTR 20180303]
   - This is not an action, so cost reductions refering to an action like {Charisma} or {Erichtho} do not apply. [LSJ 20090115-1] [ANK 20170309]
