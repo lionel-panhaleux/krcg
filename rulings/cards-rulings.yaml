@@ -156,6 +156,7 @@
   - "[DOM] Is a hand strike, and its resolution is simultaneous with the opponent's strike, unlike a normal combat ends strike. The opponent's strike do damage. [LSJ 20071112]"
 100120|Aye:
   - Any frenzy card that targets/selects/chooses/affects the minion when played, is considered being played on the minion. [LSJ 20051113]
+  - The cards effects do not apply if the vampire is not Laibon. [ANK 20221208]
 100121|Baal's Bloody Talons:
   - The weapon does not burn if it is temporarily out of play (eg. {Kerrie}, {Dagger}). [LSJ 20100211-2]
 100123|Backflip:
@@ -379,6 +380,8 @@
   - "Only causes the affected Brujah to enter combat with a second minion: that minion is not considered to be blocking the Brujah in any way. [RTR 19950906]"
   - Must select a "ready, unlocked minion" to send the Brujah into combat with. It cannot be played if there are no such minions. [RTR 19951110]
   - Can only be played on a ready acting Brujah. [RTR 19980623]
+100263|Brutal Influence:
+  - "You may lock Orun cards the vampire has even if they're not Laibon: in this case none burns because of the bleed. [ANK 20221208]"
 100264|Brute Force:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100267|Bundi:
@@ -925,6 +928,8 @@
   - During the master phase, the controller chooses between paying the blood or burning the vampire. Reversal of previous rulings. [ANK 20220503]
   - Any effect that would give more blood to the vampire is a gain of blood, so does not apply (eg. {Heidelberg Castle, Germany}). [ANK 20221019-2]
   - If the owner treats aggravated damage as normal, he is immune to them too. [LSJ 20040120]
+100673|Exile:
+  - "[PRE] You may lock Orun cards the vampire has even if they're not Laibon. [ANK 20221208]"
 100675|Extortion:
   - Is usable by a locked vampire [LSJ 20010725]
 100676|Extremis Boon:
@@ -1833,7 +1838,8 @@
 101330|Orgy of Blood:
   - Can be used by a vampire going to torpor or about to be burned. [LSJ 20100721]
 101331|Orun:
-  - A vampire with multiple Oruns will only burn one Orun if he successfully bleeds for more than 2. [LSJ 20090603]
+  - A vampire with multiple Oruns will only burns one Orun if he successfully bleeds for more than 2. [LSJ 20090603]
+  - The cards effects do not apply if the vampire is not Laibon. [ANK 20221208]
 101333|Ossian:
   - His life total can exceed his starting life capacity (it is the case for all allies). [ANK 20171109]
   - The life is gained after the presses are handled. It is gained if the round ends prematurely. [RTR 20030519]
