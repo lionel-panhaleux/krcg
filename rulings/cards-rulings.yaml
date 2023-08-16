@@ -1599,6 +1599,7 @@
 101150|Malkavian Dementia:
   - Does not require control of a ready Malkavian. [RTR 19951124]
   - The loss of control happens at the start of unlock phase, before unlocking. This can not be ordered among other unlock effects, the Malkavian is not unlocked. [ANK 20200129] [LSJ 20091208] [RTR 19951017]
+  - It makes no difference if the target changes clan afterwards. [ANK 20221208-2]
 "101151|Malkavian Derangement: Alternate Personality":
   - If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
   - If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
