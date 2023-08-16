@@ -1356,6 +1356,7 @@
 100978|Infernal Familiar:
   - Can be used to meet one (not both) of the normal Discipline requirements of a multi-Discipline card. [LSJ 20011217]
   - No counter is added if the vampire uses another game effect (eg. {Ian Forestal}, another {Infernal Familiar}) to play a card that requires a Discipline they do not have. [RTR 20020501] [LSJ 20100517]
+  - A counter is added if the card is canceled as it is played (eg. {Direct Intervention}). [LSJ 20000424]
 100980|Infernal Pursuit:
   - "[CEL] The card you discard need not be one of the cards that you just drew. [TOM 19950924]"
   - "[CEL] If canceled as it is played, its effect is not applied and only one card is drawn as a replacement. [LSJ 20021022]"
