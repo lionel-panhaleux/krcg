@@ -655,7 +655,7 @@
   - The damage is not applied if the action is canceled before resolution (eg. {Tangle Atropos' Hand}, {The Kiss of Ra}). [ANK 20220401] [ANK 20211015] [ANK 20210124]
 100493|Dark Influences:
   - If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]
-  - If used to cancel an action, the action is not performed in respect to section 3 of the rules. [LSJ 19980212]
+  - If used to cancel an action, the action is not performed in respect to section 3 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]
   - If used to cancel a limited effect (bleed, additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]
   - The card is still considered played. The same reaction or modifier cannot be played again by the same minion. Another Aim card can not be played once one has been canceled, nor any other card which text prohibits to be played more than once. [LSJ 19980212] [ANK 20190104]
   - Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]
@@ -2139,6 +2139,7 @@
   - "[tem] Can be used to cancel all action cards, including employ retainer, recruit ally and political action. [ANK 20200813-2]"
   - '[tem] Cannot be used to cancel the action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]'
   - '[tem] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
+  - "[tem] If used to cancel an action, the action is not performed in respect to section 3 of the rules and the minion is free to attempt the same action again. [LSJ 19980212] [LSJ 20020801]"
   - "[TEM] Other reaction cards (eg. wake effects) cannot be used if there is no action. [PIB 20120808]"
   - "[TEM] Cannot be played during combat. [LSJ 20080618]"
 101634|Riddle Phantastique:
