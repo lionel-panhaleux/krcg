@@ -434,7 +434,7 @@
   - "[PRE] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [LSJ 20070124]"
   - "[PRE] Is a damage dealing strike and can be modified by effects like {Target Vitals} or {Dam the Heart's River}.  [ANK 20170111] [LSJ 20071011]"
 100308|Cats' Guidance:
-  - "[ani] Is played after combat [RTR 19980623]"
+  - "[ani] Is played after all combats are handled. [RTR 19980623] [LSJ 20040219] [ANK 20221130]"
   - "[ani] Can not be played if the vampire is in torpor, for example if he went into torpor during the combat resulting from the block. [LSJ 20000103]"
 100309|Cauldron of Blood:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
