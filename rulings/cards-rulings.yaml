@@ -392,7 +392,7 @@
 100271|Burning Wrath:
   - All the damage is aggravated. [LSJ 20020122]
 100273|Burst of Sunlight:
-  - Damage done to the striking minion is environmental. [LSJ 19970801]
+  - Damage done to the striking minion is environmental, it is inflicted regardless of the range. [LSJ 19970801] [ANK 20221212]
 100274|Business Pressure:
   - Each Methuselah must decide how much pool to burn for it during the resolution of the effect. It does not give an ability for the rest of the political action. However, there can be some give and take during the resolution of the effect. For example, each Methuselah can choose to burn one pool at a time as pool is burned for votes. [RTR 19960530]
 100275|Cadet:
