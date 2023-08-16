@@ -3129,6 +3129,8 @@
   - "[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]"
 200316|Danielle Diron (G3):
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
+200319|Danylo (G5):
+  - Cannot fetch equipments that are locations while in play (locquipments). [LSJ 20080114] [ANK 20221210]
 200327|De Sade (G5):
   - His ability applies only to the first time a vampire casts hist votes, not if they change afterwards (eg. {Kindred Manipulation}). [ANK 20221019]
 200333|Demdemeh (G4):
