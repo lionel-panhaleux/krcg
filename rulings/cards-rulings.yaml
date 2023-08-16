@@ -2159,6 +2159,7 @@
   - The card is burned before the vampire leaves the ready region (eg. it is burned if {Banishment} is used on the vampire it is on) [ANK 20180511-1]
 101636|Rigor Mortis:
   - "[thn], [THN] The press can only be used during the current round. [TOM 19960521]"
+  - "[THN] Canceling a maneuver provided by a strike does not cancel the strike (eg. {Aid from Bats}, {.44 Magnum}). The chosen strike cannot be changed. [LSJ 20050228-3] [ANK 20230111]"
 101637|Riposte:
   - "[cel] [CEL] The damage is dealt just after the combat ends. [RTR 19970630]"
   - "[cel] [CEL] The damage is only dealt if the strike was resolved at close range. [LSJ 19970915]"
