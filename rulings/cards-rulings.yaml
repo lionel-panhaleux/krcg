@@ -2368,6 +2368,8 @@
   - The damage the strike does is determined when the strike resolution begins, before the Hordes loses life from any opposing "burn life" or "steal life" effect. Damage done before strike resolution, e.g. with First Strike, will reduce the damage done by the Hordes. [LSJ 20030307]
 101752|Shame:
   - Damage is environmental. [RTR 19970630]
+101757|Shatter the Gate:
+  - The counters stay active after the acting Methuselah is ousted. [LSJ 20100206-2]
 101758|Shattered Mirror:
   - The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
 101760|Shattering Blow:
