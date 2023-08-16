@@ -1354,6 +1354,7 @@
   - The additional damage is the same type as the strike's damage. [RTR 19970630]
 100972|Incriminating Videotape:
   - The target is chosen when the card is played, and does not change. If stolen, the chosen minion is unable to block the new possessor (and can now block whoever used to have it). [TOM 19960114] [LSJ 20020514]
+  - If it is not equipped but merely put into play (eg. {Alastor}), no minion is chosen. One is if it is equipped (eg. {Magic of the Smith}). [LSJ 20090428-2]
 100973|Indomitability:
   - "[FOR] The press can only be used during the current round. [TOM 19960521]"
   - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
@@ -1727,6 +1728,7 @@
   - Each Methuselah must decide how much blood to burn for it during the resolution. It does not give an ability for the rest of the political action. However, there can be some give and take during the resolution. For example, Methuselahs can choose to burn one blood at a time and wait to see what the others do. [LSJ 20030602]
 101232|Mokolé Blood:
   - If there is another copy in play, the cards are put on it before it enters contest. [ANK 20221028] [LSJ 20090428-1]
+  - If it is not equipped but merely put into play (eg. {Alastor}), it does not get cards. It does is if it is equipped (eg. {Magic of the Smith}). [LSJ 20090428-2]
 101233|The Mole:
   - "[ani] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101234|Mole's Tunneling:
@@ -2376,6 +2378,7 @@
 101767|Shilmulo Tarot:
   - There is no limit to the number of cards it can store. [PIB 20110712-2]
   - If there is another copy in play, the cards are put on it before it enters contest. [ANK 20221028] [LSJ 20090428-1]
+  - If it is not equipped but merely put into play (eg. {Alastor}), it does not get 2 cards. It does is if it is equipped (eg. {Magic of the Smith}). [LSJ 20090428-2]
 101770|Shotgun Ritual:
   - "[THA] The press can only be used during the current round. [TOM 19960521]"
 101771|Shoulder Drop:
