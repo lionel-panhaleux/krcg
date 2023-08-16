@@ -1340,7 +1340,7 @@
 100971|Increased Strength:
   - The additional damage is the same type as the strike's damage. [RTR 19970630]
 100972|Incriminating Videotape:
-  - If it is stolen, then the chosen minion is unable to block the new possessor of the Videotape (and can now block whoever used to have it). If it is removed from play, its effect ends. [TOM 19960114]
+  - The target is chosen when the card is played, and does not change. If stolen, the chosen minion is unable to block the new possessor (and can now block whoever used to have it). [TOM 19960114] [LSJ 20020514]
 100973|Indomitability:
   - "[FOR] The press can only be used during the current round. [TOM 19960521]"
   - "[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
