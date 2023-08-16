@@ -62,6 +62,8 @@
   - If the target unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]
 100047|Amria:
   - The press can only be used during the current round. [TOM 19960521]
+100050Anachronism:
+  - All weapons that provide ranged strikes are considered "ranged weapons" (eg. {Kerrie}). [LSJ 20060825]
 100051|Ananasi Vampirephile:
   - When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
   - Can use {Pack Alpha} to put a retainer requiring [ani] in play. [LSJ 20060417]
