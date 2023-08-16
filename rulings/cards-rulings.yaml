@@ -141,7 +141,7 @@
 100103|Asanbonsam Ghoul:
   - If another effect also sets the range, the first to resolve has priority (eg. {Squirrel Balance} resolves before, {Neutral Guard} resolves after). [PIB 20120214]
 100105|Ashes to Ashes:
-  - "[thn], [THN] The end of combat is triggered by the vampire going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still be wounded. [LSJ 20021122]"
+  - "[thn], [THN] The end of combat is triggered by the vampire going to torpor - this can be interrupted by cards such as {Undying Tenacity} or {Undead Persistence}, but the vampire would still unlock, gain blood and be wounded. [LSJ 20020211] [LSJ 20021122]"
   - "[thn], [THN] Cards that can be played at the end of combat (eg. {Amaranth}, {Decapitate}) can be played before combat ends. [LSJ 20011214-4]"
   - "[for] If played on a diablerie attempt (eg. {Amaranth}), the diablerie is unsuccessful. Another {Amaranth} can be played. [LSJ 19970224] [LSJ 20011214-4]"
   - "[for] If played by an ally, the ally is burned instead of going to torpor. [ANK 20170412] [RBK 20200701-6]"
@@ -559,6 +559,7 @@
   - Cannot be used if the ally in the ash heap was representing something else while in play (eg. {Khazar's Diary (Endless Night)}). [LSJ 20071014]
 100389|Compress:
   - "[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
+  - "[thn], [THN] Not a hand strike. [LSJ 20020211]"
 100391|Conceal:
   - Is directed against the Methuselah controlling the equipment or location, not the minion it's on. [LSJ 20090324]
 100392|Concealed Weapon:
@@ -2985,6 +2986,8 @@
 102183|Will-o'-the-Wisp:
   - '[CHI] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[CHI] Replace the action card (if any) before playing it. [ANK 20181208]"
+102188|Withering:
+  - Does not apply to the current strike of the opponent. [LSJ 20020211]
 102190|Wolf Claws:
   - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike. Can be played after both strikes have been chosen. [RTR 19960112]"
 102192|Wooden Stake:
@@ -3533,7 +3536,7 @@
 201164|Raphael Catarari (G4):
   - 'Unlocking is the first thing to do in the unlock phase: if he is odd, gaining one blood later in the unlock phase will not let him "unlock as normal" this turn. [LSJ 20060911]'
 201173|Reg Driscoll (G2):
-  - His ability is activated after he equips with the equipment. He cannot use his ability to move the {Eye of Hazimel}. [LSJ 20060221]
+  - His ability is activated after he equips with the equipment. He cannot use his ability to move the {Eye of Hazimel}, or an equipment that is a locatino while in play. [LSJ 20020211] [LSJ 20060221]
   - You may move all or none the equipment he gets to just one minion, but you cannot split. [LSJ 20050217] [LSJ 20090622]
 "201175|Regina Giovanni, The Right Hand of Augustus (G2)":
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
