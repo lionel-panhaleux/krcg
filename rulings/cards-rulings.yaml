@@ -2068,7 +2068,7 @@
 101565|Rebirth:
   - Cannot be used following an {Amaranth} or an {Abactor} as they are not diablerie actions. [ANK 20190701]
 101567|Reckless Agitation:
-  - Cannot allocate 6 points to a single Methuselah, and you cannot allocate points to yourself. [LSJ 20000622] [LSJ 20100129]
+  - Cannot allocate 6 points to a single Methuselah, nor any point to yourself. Cannot be played if there is only one opponent left. [LSJ 20000622] [LSJ 20100129]
   - Can allocate more points than a Methuselah has pool. [LSJ 20020819]
 101571|Recure of the Homeland:
   - Is not the default action, no blood is paid to leave torpor. [ANK 20181017]
