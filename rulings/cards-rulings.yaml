@@ -1286,7 +1286,6 @@
 100935|Horrid Reality:
   - If no weapon can be found, the cost is still paid. [TOM 19951212-1]
   - If the weapon retrieved has requirements that the vampire does not meet, then it is burned. [RTR 20010710]
-  - If a copy of a unique card already in play is retrieved, then the weapon is contested until the end of combat. It becomes uncontested during the next appropriate unlock phase. [TOM 19951212-1]
   - The weapon is burned or returned to the library if it is still in play, even if it is not on the minion anymore (eg. {Rowan Ring}, {Wooden Stake}). [LSJ 20001019]
 100937|Horseshoes:
   - If used on an ally and it burns as a result, this counts as a Ⓓ action burning an ally (eg. Trophies, {Predator's Transformation}). [ANK 20220507]
