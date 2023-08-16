@@ -421,8 +421,8 @@
   - Cards and effects that can be played "after resolution" (and only them) can be played after the gain blood effect. [ANK 20190113]
 100293|Car Bomb:
   - Is to be used when the action is announced. [PIB 20150820]
-  - The action fails. Action modifiers and reactions can be played afterwards (eg. {Zephyr}). [RTR 20180719] [ANK 20220118]
-  - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]
+  - If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20220118] [ANK 20221205].
+  - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]
 100298|Carlton Van Wyk:
   - He can use his ability to burn a vampire who has committed diablerie the turn she is recruited. [ANK 20180517]
 100303|Carver's Meat Packing and Storage:
@@ -460,8 +460,8 @@
 100322|Champion:
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
   - "[REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
-  - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]"
-  - "[REACTION] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]"
+  - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
+  - "[REACTION] The action fails has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
 100323|Change of Target:
   - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [LSJ 20070709]
   - Actions without card (provided by the rulebook) are not "the same" as actions provided by cards (played or in play). [LSJ 20060522]  [LSJ 20060824] [LSJ 20080725] [LSJ 20090617]
@@ -718,7 +718,8 @@
   - The vampire will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501] [LSJ 20060908]
   - Cards and effects targeting the vampire (eg. {The Rack}) will resume if and when the vampire comes back into play. [TOM 19960211] [LSJ 20010809-2] [LSJ 20010809-3] [LSJ 20060908]
 100532|Detect Authority:
-  - "[ani] If the action ends, no action modifier or reaction can be played afterwards. [RTR 20180719]"
+  - "[ani] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
+  - "[ani] If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
   - "[ani] Not usable against actions targeting an equipment or retainer, they do not target the minion. [LSJ 20090324]"
 100534|Determine:
   - Cannot be used to cancel an action card after using a reaction to "unlock and attempt to block". [LSJ 20021011]
@@ -887,7 +888,8 @@
   - "[PRE] If the vampire it is on attempts an action and it is canceled (eg. {Direct Intervention}) they do not burn 2 blood. [LSJ 20090208]"
 100648|Ensconced:
   - "[VIS][REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
-  - "[VIS][REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022]"
+  - "[VIS][REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
+  - "[VIS][REACTION] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
 100650|Enticement:
   - Is directed at your prey. [LSJ 20010807]
   - If the edge is lost during the action (eg. {High Priest Angra Mainyu}), the prey takes no damage but you still cannot bleed anymore this turn. [LSJ 20100527]
@@ -943,7 +945,8 @@
   - '[myt] [REFLEX] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 100690|Faerie Wards:
   - '[MYT] The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, its controller can still pay a pool to unlock them. [LSJ 20050114]'
-  - "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
+  - "[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
+  - "[myt], [MYT] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
 100694|Falcon's Eye:
   - "[ani] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Dragos}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
   - "[SPI] Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]"
@@ -992,7 +995,8 @@
 100728|Filchware's Pawn Shop:
   - Cannot be used to replay a card that can be played only once in a game. [LSJ 20040518]
 100730|Final Loosening:
-  - "[for] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
+  - "[for] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
+  - "[for] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
 100733|Fire Dance:
   - The target vampire is chosen when the action is announced. [RTR 19970425]
 "100737|First Tradition: The Masquerade":
@@ -1259,10 +1263,12 @@
   - "[FOR] The press can only be used during the current round. [TOM 19960521]"
 100919|Hide:
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
-  - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
-  - '[ACTION MODIFIER] [1 CONVICTION] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
+  - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
+  - "[REACTION] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
+  - '[ACTION MODIFIER] [1 CONVICTION] Effects that are used "as the action is announced" must be used before playing "regular" action modifier or reaction cards. [ANK 20190425]'
 100920|Hide the Heart:
-  - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]"
+  - "[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
+  - "[val] If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
   - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
   - "[val], [VAL] Sequencing applies. For example, if another Methuselah is targeted by the action, they must declare if they attempt or decline to block before you can play Hide the Heart. [LSJ 20100507] [PIB 20150820] [RBK 20200701-2]"
 100921|Hide the Mind:
@@ -1589,7 +1595,8 @@
   - Does not require control of a ready Malkavian. [RTR 19951124]
   - The loss of control happens at the start of unlock phase, before unlocking. This can not be ordered among other unlock effects, the Malkavian is not unlocked. [ANK 20200129] [LSJ 20091208] [RTR 19951017]
 "101151|Malkavian Derangement: Alternate Personality":
-  - Modifier and reactions that can be used at the end/after an action can still be used after the action fails. [LSJ 20041022]
+  - If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
+  - If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
 101156|Malkavian Rider Clause:
   - During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]
 101158|Malkavian Time Auction:
@@ -1991,6 +1998,9 @@
   - Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]
   - Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS] {Telepathic Tracking}). Can be played before or after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]
   - "A total of two actions must be performed (by whomever) to remove it. Vampires A and B can both take the action, then it is removed. [ANK 20170202-2] "
+101521|Purification:
+  - "[QUI] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
+  - "[QUI] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
 101524|Pushing the Limit:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101525|Putrefaction:
