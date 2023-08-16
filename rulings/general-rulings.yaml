@@ -715,8 +715,26 @@
     - 101677|San Nicolás de los Servitas
     - 102184|Winchester Mansion
     - 102203|Zaire River Ferry
-  ruling: An action targeting it (eg. {Conceal}) is directed at the Methuselah controlling it, not the minion it's on. [LSJ 20090324]"
-
+  ruling: An action targeting it (eg. {Conceal}) is directed at the Methuselah controlling it, not the minion it is on. [LSJ 20090324]"
+- cards:
+    - 100071|The Ankara Citadel, Turkey
+    - 100306|Catacombs
+    - 100499|Dartmoor, England
+    - 100847|Gran Madre di Dio, Italy
+    - 101002|Inveraray, Scotland
+    - 101114|Living Manse
+    - 101117|Local 1111
+    - 101135|Lyndhurst Estate, New York
+    - 101345|Palatial Estate
+    - 101400|Pier 13, Port of Baltimore
+    - 101658|Ruins of Ceoris
+    - 101660|Ruins of Villers Abbey, Belgium
+    - 101670|Sacré-Cœur Cathedral, France
+    - 101676|San Lorenzo de El Escorial, Spain
+    - 101677|San Nicolás de los Servitas
+    - 102184|Winchester Mansion
+    - 102203|Zaire River Ferry
+  ruling: Is an equipment while in hand, library or ash heap, both equipment and location when played (eg. for cost-related effects), and just a location while in play. [LSJ 20080114]
 # ############################################################################################################# aim-like
 
 - cards:
