@@ -2820,7 +2820,7 @@
 102078|Unlicensed Taxicab:
   - Offers the additional stealth on actions to equip it from another friendly minion as well, even with other equipment in the same action. [LSJ 20060222]
 102081|Unseen Hibernation:
-  - "[abo] The action ends immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
+  - "[abo] The action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20220118] [ANK 20221205]."
   - "[abo] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]"
 102082|Unwholesome Bond:
   - Can be used by {Angelo} or {New Blood} on a uncontrolled vampire with no circle designation, even another {Angelo} or {New Blood}. Multiple uncontrolled Angelos or New Bloods are in distinct "circle of one" though, so you have to choose one. [LSJ 20050927] [ANK 20211113]
