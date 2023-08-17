@@ -1726,7 +1726,7 @@
 101224|Mirror's Visage:
   - "[chi] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 101227|Mistaken Identity:
-  - "No reaction or modifier can be played afterwards: the action ends immediately. [RTR 20180719]"
+  - "The action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20220118] [ANK 20221205]."
 101230|Mob Rule:
   - Each Methuselah must decide how much blood to burn for it during the resolution. It does not give an ability for the rest of the political action. However, there can be some give and take during the resolution. For example, Methuselahs can choose to burn one blood at a time and wait to see what the others do. [LSJ 20030602]
 101232|Mokolé Blood:
@@ -2254,8 +2254,8 @@
 101689|Scattershot:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101691|Scobax:
-  - "[STR] If the action ends, no other action modifier or reaction can be played afterwards. [RTR 20180719]"
-  - "[STR] If the action ends, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]"
+  - "[STR] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20220118] [ANK 20221205]."
+  - "[STR] If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]"
   - If another Methuselah is the target, he must declare whether he attempts or declines to block before Scobax can be played. [PIB 20150820] [ANK 20200607]
 101692|Scorn of Adonis:
   - May be played at any time during the voting process, and will retroactively cause the loss of pool to Methuselahs voting 'no' before it is played, as well as to Methuselahs voting 'no' after it is played. [RTR 19951110]
