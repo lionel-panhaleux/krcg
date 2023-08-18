@@ -2562,6 +2562,7 @@
   - "[cel] If another effect also sets the range, the first to resolve has priority (eg. {Asanbonsam Ghoul} and {Neutral Guard} resolve after). [PIB 20120214]"
 101860|Starshell Grenade Launcher:
   - Using the Launcher to reduce stealth does not force the minion to strike with it if he blocks. [LSJ 19971215]
+  - Can be used to reduce stealth multiple times in the same action if the bearer manages to unlock. [LSJ 20011023-2]
 101861|Starvation of Marena:
   - The press can only be used during the current round. [TOM 19960521]
 101862|Static Virtue:
