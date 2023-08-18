@@ -124,7 +124,7 @@
   - "[VAL] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
   - "[VAL] Can prevent 2 damage per round, from any strike, can prevent 2 times 1 damage from two different strikes. [ANK 20180117]"
 100088|Armor of Terra:
-  - "[vic], [VIC] Can be used by a non-slave Gragoyle. [LSJ 20011204-2]"
+  - "[vis], [VIS] Can be used by a non-slave Gragoyle. [LSJ 20011204-2]"
 100089|Armor of Vitality:
   - Prevents up to 3 damage, it can be used to prevent less. [RTR 20041202]
   - Cannot be used if there is no damage to prevent. [LSJ 20001114]
