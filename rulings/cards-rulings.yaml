@@ -66,7 +66,7 @@
   - The press can only be used during the current round. [TOM 19960521]
 100048|Amulet of Temporal Perception:
   - A second copy allows a second use in the same turn. [ANK 20230316]
-100050Anachronism:
+100050|Anachronism:
   - All weapons that provide ranged strikes are considered "ranged weapons" (eg. {Kerrie}). [LSJ 20060825]
 100051|Ananasi Vampirephile:
   - When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
@@ -1219,7 +1219,7 @@
   - Does not burn nor inflict damage if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]
 100858|Grey Thorne:
   - Can play cards requiring [cel] or [pot] but not both. [ANK 20180731-1]
-  - Is not Anarch (eg. does not benefit from {Anarch Manifesto}). [RBK 20200701-6] [ANK 20230417]
+  - Is not Anarch (eg. does not benefit from {Anarch Manifesto, An}). [RBK 20200701-6] [ANK 20230417]
 100861|Groundfighting:
   - The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Salvador Garcia}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]
   - Can cancel cards preventing the use of equipment if the target has a weapon. [LSJ 20050221]
@@ -1945,7 +1945,7 @@
   - The vampire retrieved need only be in your ash heap. It does not have to be a vampire that you had first controlled. [LSJ 20040812]
   - The crypt card on it is out of play and should be face down. [LSJ 20040812]
 101386|Perfect Clarity:
-  - Does prevent bleed redirection (eg. {Deflection}). [LSJ 20000621] [LSJ 20010830]
+  - Does prevent bleed redirection (eg. {Deflection}). [LSJ 20010621] [LSJ 20010830]
 101388|Perfectionist:
   - "No blood can be gained if a reaction card is played and canceled as it is played: it has still been played. [LSJ 20070330]"
   - Cards and effects that can be played "after resolution" can be played after the gain blood effect. [ANK 20190113]
@@ -2961,7 +2961,7 @@
   - If another effect offers an alternative for card replacement (eg. {Steely Tenacity}), you choose which to apply. [ANK 20200905]
 102128|Vivienne Géroux:
   - Can play cards requiring both [for] and [cel]. [ANK 20210719]
-  - Is not Anarch (eg. does not benefit from {Anarch Manifesto}). [RBK 20200701-6] [ANK 20230417]
+  - Is not Anarch (eg. does not benefit from {Anarch Manifesto, An}). [RBK 20200701-6] [ANK 20230417]
 102130|Voices of the Castle:
   - "[tha] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Uta Kovacs}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 102131|Voter Captivation:
