@@ -1140,8 +1140,10 @@
 100817|Ghoul Escort:
   - Cannot be used if blocked when leaving torpor, as no combat would happen. [ANK 20181122-1]
 100819|Ghoul Retainer:
-  - The Ghoul is never the "bearer" of the weapon that it uses. Any side-effect of using the weapon is applied to the employing minion, as normal. [TOM 19951114]
-  - Damage is not inflicted at long range. [ANK 20210929]
+  - The 1 Damage is not inflicted at long range. [ANK 20210929]
+  - The Ghoul is not the bearer of the weapon, the employer is (eg. using {Garrote} does not allow the bearer to burn the opponent, {Zip Gun}'s damage go to the employer). [TOM 19951114] [LSJ 20080210]
+  - The Ghoul uses weapon as if making the strike, including all side-effects (eg. {Zip Gun}'s damage, {Weighted Walking Stick} tokens), and is not limited to damage dealing strikes (eg. {Rowan Ring} sends to torpor, {Flash Grenade} ends combat). It is not a strike and cannot provide a maneuver, press or additional strike to the employer (eg. {Meat Hook}). [LSJ 20080210]
+  - The Ghoul cannot play ammo cards (not even with a {Magazine}), although it can benefit from ammo cards played by the employer in an earlier round (eg. {Scattershot}). [LSJ 20080210]
 100820|Ghouled:
   - The ally is recruited as a mortal and changed to a ghoul afterwards (eg. {Sunset Strip, Hollywood} can be used to reduce its cost). His "starting life" is still the base mortal amount. [LSJ 20030520-2]
   - Goes to the ash heap when played, if it has been removed when the action succeeds, it has no effect. [ANK 20220805]
