@@ -996,6 +996,7 @@
 100705|Fast Reaction:
   - Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]
   - Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]
+  - The opponent cannot play or use the maneuver from a strike (eg. {.44 Magnum}, {Thrown Gate}), since they cannot strike. [LSJ 20001126]
 100706|Fata Amria:
   - '[CHI] [REACTION] Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played before or after it. [LSJ 19981028] [ANK 20190425]'
   - The target can burn it at unlock even if they're already unlocked, but cannot burn it if they do not unlock as normal (eg. {Sensory Deprivation}). [LSJ 20010814-3] [LSJ 20020109]
@@ -1291,6 +1292,7 @@
   - Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]
   - Can only be played by the controller of the acting minion. [LSJ 19990425]
   - Cannot be used to enter combat with a vampire on his way to torpor. [LSJ 20100604-1]
+  - The opponent cannot play or use the maneuver from a strike (eg. {.44 Magnum}, {Thrown Gate}), since they cannot strike. [LSJ 20001126]
 100918|Hidden Strength:
   - The 'X' in card text refers to the cost of the card. [LSJ 19970224]
   - Prevents up to X+1 damage, it can prevent less (X can be higher than strictly needed). [RTR 20041202] [PIB 20121202]
@@ -1508,6 +1510,8 @@
   - "[vic] The press can only be used during the current round. [TOM 19960521]"
   - "[vic] No other effect can be used to reset next round's range, but other pre-range effects can be played. [RTR 19970630] [ANK 20180720]"
   - "[vic] If another effect was already setting next round's range (eg. {Neutral Guard}), that effect has priority. [PIB 20120214]"
+101072|Lapse:
+  - "[TEM] The opponent cannot play or use the maneuver from a strike (eg. {.44 Magnum}, {Thrown Gate}), since they cannot strike. [LSJ 20001126]"
 101074|Last Stand:
   - When an oust occurs, effects (eg. {Perfectionist}) and Action Modifiers (eg. {Freak Drive}) can be played after action resolution, before it ends and the new turn begins. [LSJ 20090731]
   - When an oust occurs, the current minion phase ends (eg. {Tupdog} burns). [LSJ 20090731]
