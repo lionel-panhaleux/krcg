@@ -952,7 +952,7 @@
   - "[PRO] If the action is blocked but continues after combat (eg. with {Form of Mist}) and the reacting vampire blocks again, he gets the maneuver again. [ANK 20191108]"
 100687|Faceless Night:
   - "[OBF] A minion attempting to block before it is played cannot back out. [LSJ 20081202]"
-  - "[OBF] A minion that has attempted to block but failed before it was played is not affected. [ANK 20190509]"
+  - "[OBF] A minion that has attempted to block but failed before it was played is not affected. [ANK 20190509] [LSJ 20020101]"
   - "[OBF] The aspirant blocker is locked at resolution. He can play {Deflection} before that, and even attempt to block again if it is deflected back. He can play {Guard Dogs} before the lock, not after. [ANK 20171017] [ANK 20230305]"
 100689|Fae Contortion:
   - '[myt] [REFLEX] Cards are not replaced during the "as played" window. [LSJ 20061013]'
@@ -1065,6 +1065,7 @@
   - If he fails to block, the vampire only burns a blood when the action begins to resolve (successfully or not). He can pay for reactions after declining to block, before burning a blood. [LSJ 19990421]
   - Can be played after action resolution to use a reaction card (eg. {Fast Reaction} after combat). [LSJ 20091123]
   - The vampire needs not pay a blood if he successfully blocks, even if the action continues as if unblocked after the block (eg. {Form of Mist}). [LSJ 20070417]
+  - Does not consider blocks made before the card was played (if the action has been continued with eg. {Form of Mist}). [ANK 20230319]
 100761|Forced March:
   - '[cel][for] Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played before or after it. [LSJ 19981028] [ANK 20190425]'
   - Can be used to unlock if the action is successful, even if it has no effect due to lack of a suitable target. [LSJ 20070411]
@@ -1479,9 +1480,9 @@
   - The action has not reached resolution, it is effectively canceled. The same vampire can undertake the same action again, but not if it was blocked then continued before (eg. [PRO] {Form of Mist}). [ANK 20211015] [ANK 20210124] [LSJ 20090220] [LSJ 20070709]
   - The action was still taken (eg. counts against {Enkil Cog} of [OBF] {Veil the Legions}). [ANK 20210124]
 101066|Kraken's Kiss:
+  - "Does not count the damage inflicted before the card was played. [LSJ 20010610]"
   - "[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]"
   - "[VIC] The press can only be used during the current round. [TOM 19960521]"
-  - "[VIC] The strike to steal blood is ranged (eg. {The Dracon} steals one more). [PIB 20150603-2]"
 101071|Lam Into:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - "[vic] The press can only be used during the current round. [TOM 19960521]"
@@ -2292,10 +2293,10 @@
   - When burned to make an action fail, the action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]
 101711|Secure Haven:
   - All Methuselahs, including the target vampire's controller, must pay one extra pool when playing Master cards on the target minion. [TOM 19951208-1]
-  - Adds one to the cost of the master card targetting the vampire, cost reductions from other effects do apply. [LSJ 20070829-1]
   - 'Choosing is targeting: cards that "choose" the vampire like {The Rack}, {Toreador Grand Ball}, {Piper} or {Tend the Flock} are considered to target it, their cost is increased. Actions that choose the vampire cannot be played against him (eg. {Propaganda}, {Spirit Marionette}, {Shattering Crescendo}) [LSJ 20031010] [LSJ 20090319] [ANK 20180907]'
   - Actions that target retainers, equipment, or other cards on the minion are allowed, as are actions that target cards not on the minion, even if such cards have "named" or "chosen" that minion. [TOM 19951208-1] [LSJ 19980302-1]
   - There is no additional cost for using the effects of cards already in play (eg. {KRCG News Radio}). [ANK 20221120]
+  - Can be played on a vampire in torpor. [LSJ 20010610]
   - If contested, it will not be burned when the target (vampire) goes to torpor, nor will it be burned if it enters play while the target vampire is in torpor. [RTR 19960124]
 101714|Selective Silence:
   - "[QUI] No other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
@@ -2992,6 +2993,8 @@
   - "[CHI] Replace the action card (if any) before playing it. [ANK 20181208]"
 102188|Withering:
   - Does not apply to the current strike of the opponent. [LSJ 20020211]
+102189|WMRH Talk Radio:
+  - Does not consider blocks made before the effect was used (if the action has been continued with eg. {Form of Mist}). [ANK 20230319]
 102190|Wolf Claws:
   - "[pro] Must be played before strike resolution and damage prevention in order to affect the current strike. Can be played after both strikes have been chosen. [RTR 19960112]"
 102192|Wooden Stake:
