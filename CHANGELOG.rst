@@ -6,6 +6,7 @@ Changelog
 
 - Analyzer: fix cards scores numbers in the candidates() method
 - Decks: Fix VDB URL generation `https://vdb.im/deck?` -> `https://vdb.im/decks/deck?`
+- Lots of new rulings (Thanks to the great community)
 
 3.0 (2023-07-27)
 ----------------
