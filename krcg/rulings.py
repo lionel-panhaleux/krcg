@@ -75,6 +75,10 @@ class RulingReader:
 
 def _card_id_name(text: str) -> Tuple[int, str]:
     """Decode (id, name) from YAML "id|name" format."""
-    card_id, card_name = text.split("|")
+    try:
+        card_id, card_name = text.split("|")
+    except ValueError:
+        warnings.warn(f"Bad card ID: {text}")
+        raise
     card_id = int(card_id)
     return card_id, card_name
