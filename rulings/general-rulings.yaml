@@ -675,7 +675,21 @@
     - 101164|Marijava Ghoul
     - 101165|Marijava Thuggee
   ruling: "Ghouls are monsters, not mortal. [ANK 20200203-2] [LSJ 20060515]"
-
+- cards:
+    - 100246|Brass Knuckles
+    - 100317|Chainsaw
+    - 100811|Gas-Powered Chainsaw
+    - 100964|Improvised Flamethrower
+    - 101685|Sawed-Off Shotgun
+    - 101860|Starshell Grenade Launcher
+  ruling: "A second copy allows a second use in the same combat. [ANK 20230316]"
+- cards:
+    - 101846|Spike-Thrower
+    - 101287|Nightstick
+    - 101191|Meat Hook
+    - 101168|Mark V
+    - 100379|Combat Shotgun
+  ruling: "A second copy allows a second use in the same round. [ANK 20230316]"
 # ######################################################################################################### locquipments
 
 - cards:
