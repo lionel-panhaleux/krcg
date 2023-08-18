@@ -382,7 +382,7 @@ def test_deck_to_vdb():
         TWDA.load_html(f)
     assert len(TWDA) == 1
     assert TWDA["2010tcdbng"].to_vdb() == (
-        "https://vdb.im/decks?name=The+Storage+Procurers&author=Rudolf+Scholz#"
+        "https://vdb.im/decks/deck?name=The+Storage+Procurers&author=Rudolf+Scholz#"
         "200517=1;200929=1;200161=1;200295=1;200343=1;201503=1;200346=1;201027=1;"
         "201065=1;201073=1;201231=1;200173=1;100327=1;100332=2;100444=1;101067=1;"
         "101388=2;101877=6;101896=3;102113=3;100298=1;100855=1;100966=1;101250=1;"
