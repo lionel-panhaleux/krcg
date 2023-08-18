@@ -9,7 +9,7 @@
   - '"Successful resolution" means the action must not be blocked and the vampire must have gained blood. If the vampire cannot gain blood (eg., {Vampiric Disease}, {Ex Nihilo}), the blood hunt is not called even if the action is not blocked. [LSJ 20090411]'
   - This is not a diablerie. Neither {Rebirth} nor {Carlton Van Wyk}'s ability can be used. [LSJ 20090724] [ANK 20180129-1]
   - "The Blood Hunt referendum is still a Blood Hunt: {Lay Low} can be used, {Trophy: Diablerie} would prevent the referendum. [LSJ 20091026] [LSJ 20100112]"
-  - The Blood Hunt referendum is part of the action resolution. Cards that are played "after a successful action" or "after resolution" must be played after the referendum. {Heidelberg Castle, Germany} can not be used before the referendum. [LSJ 20100112] [PIB 20121028]
+  - The Blood Hunt referendum is part of the action resolution. Cards that are played "after a successful action" or "after resolution" must be played after the referendum. {Heidelberg Castle, Germany} cannot be used before the referendum. [LSJ 20100112] [PIB 20121028]
 100005|Abandoning the Flesh:
   - Cannot be played when burned as a result of a Blood Hunt referendum. [LSJ 20070417]
   - Will not trigger the {Soul Gem of Etrius} since the vampire is removed from the game instead of being burned. [LSJ 20021010]
@@ -442,7 +442,7 @@
   - "[PRE] Is a damage dealing strike and can be modified by effects like {Target Vitals} or {Dam the Heart's River}.  [ANK 20170111] [LSJ 20071011]"
 100308|Cats' Guidance:
   - "[ani] Is played after all combats are handled. [RTR 19980623] [LSJ 20040219] [ANK 20221130]"
-  - "[ani] Can not be played if the vampire is in torpor, for example if he went into torpor during the combat resulting from the block. [LSJ 20000103]"
+  - "[ani] Cannot be played if the vampire is in torpor, for example if he went into torpor during the combat resulting from the block. [LSJ 20000103]"
 100309|Cauldron of Blood:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100310|Cavalier:
@@ -669,7 +669,7 @@
   - If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]
   - If used to cancel an action, the action is not performed in respect to section 3 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]
   - If used to cancel a limited effect (bleed, additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]
-  - The card is still considered played. The same reaction or modifier cannot be played again by the same minion. Another Aim card can not be played once one has been canceled, nor any other card which text prohibits to be played more than once. [LSJ 19980212] [ANK 20190104]
+  - The card is still considered played. The same reaction or modifier cannot be played again by the same minion. Another Aim card cannot be played once one has been canceled, nor any other card which text prohibits to be played more than once. [LSJ 19980212] [ANK 20190104]
   - Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]
 100496|Darkling Trickery:
   - '[MYT] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
@@ -755,7 +755,7 @@
   - If the canceled card had a "Do Not Replace Until" clause on it (or alternate replacement like {Steely Tenacity}), that clause is canceled as well and the card is replaced normally. [LSJ 20011023] [LSJ 20080630]
   - If used to cancel an action, the action is not performed in respect to section 3 of the rules and the minion is free to attempt the same action again. [LSJ 19980212]
   - If used to cancel a limited effect (bleed, additional strike), then the limit is not triggered and another limited effect can be used. [LSJ 20030224]
-  - The card is still considered played. The same reaction or modifier cannot be played again by the same minion. Another Aim card can not be played once one has been canceled, nor any other card which text prohibits to be played more than once. [LSJ 19980212] [ANK 20190104]
+  - The card is still considered played. The same reaction or modifier cannot be played again by the same minion. Another Aim card cannot be played once one has been canceled, nor any other card which text prohibits to be played more than once. [LSJ 19980212] [ANK 20190104]
   - Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]
 100547|Dirty Little Secrets:
   - If the Methuselah you are bleeding does not burn any pool due to another effect, then she does not burn any cards from her library either. [LSJ 19970224]
@@ -863,7 +863,7 @@
   - "[MEL] Cannot be used if no political action card was played or if it is not in the ash heap (eg. cannot retrieve a {National Guard Support} when its text is used to burn it). [LSJ 20020911]"
   - "[MEL] The effect is lost if the political action card is not in the ash heap when it resolves (eg. if {Delaying Tactics} is used}). [LSJ 20050804]"
   - "[MEL] When the retained political action is played, requirements must be met, it provides 1 vote and can be canceled as it is played. [LSJ 20100426] [LSJ 20091128] [LSJ 20011205]"
-  - "[MEL] The retained political action can not be played with {Charming Lobby}. [ANK 20201029]"
+  - "[MEL] The retained political action cannot be played with {Charming Lobby}. [ANK 20201029]"
 100610|Ecstasy:
   - '[SER] The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]'
 100615|Edged Illusion:
@@ -1628,7 +1628,7 @@
   - If the target unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]
 101150|Malkavian Dementia:
   - Does not require control of a ready Malkavian. [RTR 19951124]
-  - The loss of control happens at the start of unlock phase, before unlocking. This can not be ordered among other unlock effects, the Malkavian is not unlocked. [ANK 20200129] [LSJ 20091208] [RTR 19951017]
+  - The loss of control happens at the start of unlock phase, before unlocking. This cannot be ordered among other unlock effects, the Malkavian is not unlocked. [ANK 20200129] [LSJ 20091208] [RTR 19951017]
   - It makes no difference if the target changes clan afterwards. [ANK 20221208-2]
 "101151|Malkavian Derangement: Alternate Personality":
   - If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
@@ -1897,7 +1897,7 @@
 101349|Pandora's Whisper:
   - The card to retrieve must be announced when declaring the action. [LSJ 20010627]
 101353|Parity Shift:
-  - Can not be played if there is no legal target (no other Methuselah with more pool than you). [ANK 20191228]
+  - Cannot be played if there is no legal target (no other Methuselah with more pool than you). [ANK 20191228]
   - The pool awarded can be used to play {Life Boon} to save the target from an oust. [LSJ 20100527]
   - If the target has less than 3 pool when referendum passes, the Methuselah calling the referendum chooses how to distribute within the bounds of the terms. [LSJ 20010606]
   - Changes in pool during the referendum (after terms are chosen) do not affect the outcome. [LSJ 20041004]
@@ -2464,7 +2464,7 @@
 101816|Sniper Rifle:
   - When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
   - The bearer is not commited to use it if he or she uses another effect to set the range. [RTR 20020501]
-  - If a new combat occurs due to an effect like {Psyche!}, the Rifle can not be used to set the range. [LSJ 20010814]
+  - If a new combat occurs due to an effect like {Psyche!}, the Rifle cannot be used to set the range. [LSJ 20010814]
   - If a Slave locks to enter combat instead of a blocked minion, the opponent cannot use the Rifle to set the range [ANK 20200115]
   - The ability to set the range can only be used if the weapon was equipped when blocking (eg. not when using {Disguised Weapon} after the block). [LSJ 20021028]
 101817|Soak:
