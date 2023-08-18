@@ -367,6 +367,8 @@
   - You can only target a vampire by position, the target Methuselah can shuffle their crypt. If you have no clue (tokens, cards) about a previously revealed vampire's position, you have to take a bet. In case multiple copies of the same vampire are subject to different effects, the controller must track them, but they can do it secretly (eg. {Banishment} was used on one that would benefit from {The Rack} if controlled again). [LSJ 20040728]
 100250|Breath of the Dragon:
   - Damage done to the striking minion is environmental. [LSJ 19970801]
+100252|Brick by Brick:
+  - "[VIS] No other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 100253|Brick Laying:
   - "[POT] If it burns an ally as a result, this counts as a Ⓓ action burning an ally (eg. Trophies, {Predator's Transformation}). [ANK 20220507]"
 100254|Brigitte Gebauer:
@@ -1116,6 +1118,9 @@
   - If the controller of a Gambit in play withdraws, his or her predator gets a VP from the Gambit (the Methuselah who withdraws still gets a VP for withdrawing, of course). [RTR 20040501]
 100801|Games of Instinct:
   - The gain blood effect is applied after combats ends, no combat card can be played afterwards. The acting player chooses the order of after-combat effects. [LSJ 20100324]
+100802|Gang Tactics:
+  - If blocked, no other effect can be used to reset the range, but other pre-range effects can be played. [RTR 19970630] [ANK 20180720]
+  - If another effect also sets the range, the first to resolve has priority (eg. {Asanbonsam Ghoul} and {Neutral Guard} resolve after). [PIB 20120214]
 100805|Gangrel Conspiracy:
   - Can only be played if a Blood Hunt referendum succeeds, after votes and ballots have been cast. [LSJ 20081203-2]
 100808|Gargoyle Slave:
@@ -1182,6 +1187,8 @@
   - "{Left for Dead} can be used on the vampire. [LSJ 20100527]"
 100850|Grasp of the Python:
   - The press can only be used during the current round. [TOM 19960521]
+  - "[SER] No other effect can be used to reset next round's range, but other pre-range effects can be played. [RTR 19970630] [ANK 20180720]"
+  - "[SER] If another effect was already setting next round's range (eg. {Neutral Guard}), that effect has priority. [PIB 20120214]"
 100851|Grasp the Ghostly:
   - If the equipment is burned before it runs out of pathos counters, it goes to its owner's ash heap and is not removed from the game. [LSJ 20060209]
 100853|Great Symposium:
@@ -1336,9 +1343,11 @@
 100957|Immaculate Vitae:
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
 100959|Immortal Grapple:
-  - If a minion is committed to using a strike other than a hand strike (e.g. used a maneuver from a gun), then he gets no strike. [TOM 19951217]
+  - If a minion is committed to a strike other than a hand strike (e.g. used a maneuver from a gun), then he gets no strike. [TOM 19951217]
   - Is still considered played if it is canceled as it is played (eg. {Charismatic Aura}). A second one cannot be played in the same round as its card text forbids it. [ANK 20200525-2]
   - The press can only be used during the current round. [TOM 19960521]
+  - "[POT] No other effect can be used to reset next round's range, but other pre-range effects can be played. [RTR 19970630] [ANK 20180720]"
+  - "[POT] If another effect was already setting next round's range (eg. {Neutral Guard}), that effect has priority. [PIB 20120214]"
 100962|Imposing Phantasm:
   - The opposing minion get their blood back even if they changed controller. [ANK 20220525]
 100964|Improvised Flamethrower:
@@ -1395,6 +1404,7 @@
 100998|Internal Recursion:
   - Is played before the combat begins. [LSJ 20020204]
   - "[pre] The blocking vampire do not unlock if the vampire uses another effect to end combat as a strike. [RTR 20020501]"
+  - "[tem] No other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 101000|Into the Fire:
   - Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
@@ -1486,6 +1496,8 @@
 101071|Lam Into:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - "[vic] The press can only be used during the current round. [TOM 19960521]"
+  - "[vic] No other effect can be used to reset next round's range, but other pre-range effects can be played. [RTR 19970630] [ANK 20180720]"
+  - "[vic] If another effect was already setting next round's range (eg. {Neutral Guard}), that effect has priority. [PIB 20120214]"
 101074|Last Stand:
   - When an oust occurs, effects (eg. {Perfectionist}) and Action Modifiers (eg. {Freak Drive}) can be played after action resolution, before it ends and the new turn begins. [LSJ 20090731]
   - When an oust occurs, the current minion phase ends (eg. {Tupdog} burns). [LSJ 20090731]
@@ -1787,7 +1799,7 @@
   - "[THN] If the strike is dodged, environmental damage is not applied. [ANK 20200517]"
   - "[THN] The environmental damage is not strike damage (eg. {Target Vitals} does not add to the environmental damage). [ANK 20201228-2]"
 101269|Neebi:
-  - When setting the range for the round, no other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
+  - No other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
 101272|Nephandus:
   - His life total can exceed his starting life capacity (it is the case for all allies). [ANK 20171109]
   - Damage reduction applies to damage done outside of or after combat if it comes from a strike (eg. {Catatonic Fear}). [LSJ 20080630] [ANK 20170111]
@@ -1799,6 +1811,7 @@
   - "[aus] If another Methuselah is the target, he must declare whether he attempts or declines to block before Netwar can be played. [LSJ 20100507] [ANK 20210131-1]"
   - "[chi] Can be used by a vampire who is already attempting to block. [ANK 20181122-2]"
 101276|Neutral Guard:
+  - No other effect can be used to reset the range, but other pre-range effects can be played. [RTR 19970630] [ANK 20180720]
   - If another effect also sets the range, the first to resolve has priority (eg. {Squirrel Balance} and {Asanbonsam Ghoul} resolve before). [PIB 20120214]
 101279|The New Inquisition:
   - When a vampire goes to torpor, the card is replaced before any other effect (eg. before losing pool to {Fame}). [LSJ 20100527]
@@ -2523,7 +2536,8 @@
 101858|Squirrel Balance:
   - '[cel] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[cel] Replace the action card (if any) before playing it. [ANK 20181208]"
-  - If another effect also sets the range, the first to resolve has priority (eg. {Asanbonsam Ghoul} and {Neutral Guard} resolve after). [PIB 20120214]
+  - "[cel] If blocked, no other effect can be used to reset the range, but other pre-range effects can be played. [RTR 19970630] [ANK 20180720]"
+  - "[cel] If another effect also sets the range, the first to resolve has priority (eg. {Asanbonsam Ghoul} and {Neutral Guard} resolve after). [PIB 20120214]"
 101860|Starshell Grenade Launcher:
   - Using the Launcher to reduce stealth does not force the minion to strike with it if he blocks. [LSJ 19971215]
 101861|Starvation of Marena:
@@ -3042,6 +3056,8 @@
 102238|Enhanced Coagulant:
   - The card stays there if the strike is dodged [ANK 20220923]
   - Cannot be used against an ally. [ANK 20221102]
+"102239|Michael Harris, the Incinerator":
+  - If used to set the range, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
 "102242|Mobile HQ, Operation Antigen":
   - The card is locked if used to enter combat, even if that action fails. [ANK 20221102]
 "102244|The Shard, London":
