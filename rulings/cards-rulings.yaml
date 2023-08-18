@@ -58,7 +58,7 @@
 100045|Ambulance:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
   - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
-  - An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]
+  - An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum's Rush}). [RTR 19970630]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100046|Ambush:
   - If the target unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]
@@ -463,7 +463,7 @@
   - "[spi] The optional press can only be used during the current round. [TOM 19960521]"
   - '[SPI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
   - '[SPI] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
-  - '[SPI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
+  - '[SPI] An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum''s Rush}). [RTR 19970630]'
   - '[SPI] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[SPI] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 100322|Champion:
@@ -1044,7 +1044,7 @@
 100751|Flow Within the Mountain:
   - '[VIS] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
   - '[VIS] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
-  - '[VIS] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
+  - '[VIS] An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum''s Rush}). [RTR 19970630]'
   - '[VIS] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[VIS] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 100755|Folderol:
@@ -1078,7 +1078,7 @@
 100764|Foresee:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
   - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
-  - An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]
+  - An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum's Rush}). [RTR 19970630]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
 100765|Foreshadowing Destruction:
   - "[DOM] Can be played against a target with 10 or more pool and does not count against the limit in this case: it will only have a lingering effect (+3 bleed if the target happens to have 9 or less). [PIB 20110817] [ANK 20191031]"
@@ -1090,7 +1090,7 @@
 100771|Form of Mist:
   - '[PRO] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
   - '[PRO] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
-  - '[PRO] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
+  - '[PRO] An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum''s Rush}). [RTR 19970630]'
   - '[PRO] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[PRO] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost and the blood is not paid. [LSJ 19980109] [RTR 20020501] [LSJ 20031123]'
 100778|Foul Blood:
@@ -1734,7 +1734,7 @@
 101222|Mirror Image:
   - '[CHI] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
   - '[CHI] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
-  - '[CHI] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
+  - '[CHI] An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum''s Rush}). [RTR 19970630]'
   - '[CHI] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[CHI] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101223|Mirror Walk:
@@ -1759,18 +1759,20 @@
 101236|Momentary Delay:
   - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
   - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
-  - An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]
+  - An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum's Rush}). [RTR 19970630]
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - Can be used if a Slave locked to enter combat instead of the blocking minion, if the other conditions are met. [ANK 20200114]
   - Is played after resolution, but still during the action. Cards and effects that played "after resolution" (eg. {Freak Drive}) can be played before it, but not after. [LSJ 19981028] [LSJ 20100206-2]
 101241|Monomancy:
   - The card is not put on the target vampire if he or she uses another effect than Monomancy to end combat. [RTR 20020501]
+101242|Monster:
+  - Is used after combat effectively ends and can be order against other cards and effects played after combat (eg. {Provision of the Silsila}). [ANK 20230314]
 101244|Morphean Blow:
   - "[val] If the combat continues or a new combat begins, the card is not put on the opposing minion, he can act and block. [RTR 20020501]"
   - "[val] If the strike is dodged, the card is not put on the opposing minion. [RTR 20041202]"
   - '[VAL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
   - '[VAL] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
-  - '[VAL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
+  - '[VAL] An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum''s Rush}). [RTR 19970630]'
   - '[VAL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[VAL] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101245|Mouthpiece:
@@ -2027,6 +2029,7 @@
   - The additional intercept is gained or lost if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]
 101503|Provision of the Silsila:
   - Can be used even if the target is burned ot if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]
+  - Is used after combat effectively ends and can be order before or after other cards and effects played after combat (eg. {Monster}). [ANK 20230314]
 101504|Proxy Kissed:
   - Can be played on a vampire who already has a Proxy Kissed (and was moved to uncontrolled and re-influenced). [LSJ 20050720-1]
   - Is played during your turn in the influence phase, counts against the master phase of your next turn and prohibits you to play a second out-of-turn master card before your next master phase. [PIB 20150524]
@@ -2355,16 +2358,17 @@
 101735|Shadow Body:
   - '[OBT] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
   - '[OBT] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
-  - '[OBT] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
+  - '[OBT] An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum''s Rush}). [RTR 19970630]'
   - '[OBT] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[OBT] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101736|Shadow Boxing:
-  - If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]
-  - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
-  - An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]
-  - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
+  - '[OBF][POT][ACTION MODIFIER] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
+  - '[OBF][POT][ACTION MODIFIER] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
+  - '[OBF][POT][ACTION MODIFIER] An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum''s Rush}). [RTR 19970630]'
+  - '[OBF][POT][ACTION MODIFIER] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - "[OBF][POT][ACTION MODIFIER] Cannot be used by a Slave that entered combat instead of the acting minion. [ANK 20200114]"
   - "[OBF][POT][ACTION MODIFIER] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Adana de Sforza}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
+  - "[OBF][POT][ACTION MODIFIER] Is used after combat effectively ends and can be order against other cards and effects played after combat (eg. {Provision of the Silsila}). [ANK 20230314]"
 101737|Shadow Court Satyr:
   - Cannot use an effect that requires two or more Disciplines. [LSJ 20021216]
   - Can choose to use any single discipline effect of a split discipline card, each time he uses it. [LSJ 20021210-2]
@@ -2760,7 +2764,7 @@
 101991|Toreador's Bane:
   - '[mel] [MEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
   - '[mel] [MEL] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
-  - '[mel] [MEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
+  - '[mel] [MEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum''s Rush}). [RTR 19970630]'
   - '[mel] [MEL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[mel] [MEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101993|Torn Signpost:
@@ -2769,7 +2773,7 @@
 101995|Torrent:
   - '[CEL] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
   - '[CEL] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
-  - '[CEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action. [RTR 19970630]'
+  - '[CEL] An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum''s Rush}). [RTR 19970630]'
   - '[CEL] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - '[CEL] If the combat continues or a new combat occurs, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101996|Tortured Confession:
