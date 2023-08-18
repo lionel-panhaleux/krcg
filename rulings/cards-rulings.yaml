@@ -1205,6 +1205,7 @@
   - Does not burn nor inflict damage if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]
 100858|Grey Thorne:
   - Can play cards requiring [cel] or [pot] but not both. [ANK 20180731-1]
+  - Is not Anarch (eg. does not benefit from {Anarch Manifesto}). [RBK 20200701-6] [ANK 20230417]
 100861|Groundfighting:
   - The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Salvador Garcia}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]
   - Can cancel cards preventing the use of equipment if the target has a weapon. [LSJ 20050221]
@@ -2931,6 +2932,7 @@
   - If another effect offers an alternative for card replacement (eg. {Steely Tenacity}), you choose which to apply. [ANK 20200905]
 102128|Vivienne Géroux:
   - Can play cards requiring both [for] and [cel]. [ANK 20210719]
+  - Is not Anarch (eg. does not benefit from {Anarch Manifesto}). [RBK 20200701-6] [ANK 20230417]
 102130|Voices of the Castle:
   - "[tha] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Uta Kovacs}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 102131|Voter Captivation:
