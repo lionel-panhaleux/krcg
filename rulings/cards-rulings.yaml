@@ -1881,8 +1881,10 @@
 101330|Orgy of Blood:
   - Can be used by a vampire going to torpor or about to be burned. [LSJ 20100721]
 101331|Orun:
-  - A vampire with multiple Oruns will only burns one Orun if he successfully bleeds for more than 2. [LSJ 20090603]
-  - The cards effects do not apply if the vampire is not Laibon. [ANK 20221208]
+  - A vampire with multiple Oruns will only burn one if he successfully bleeds for more than 2. [LSJ 20090603]
+  - The capacity bonus stacks (2 per Orun), the votes do not (1 per 3 Oruns altogether). [LSJ 20051204] [LSJ 20060407] [LSJ 20090625-2]
+  - The capacity bonus applies to cards played before the Orun was played (eg. {Aranthebes, The Immortal}). [LSJ 20051110]
+  - The effects do not apply if the vampire is not Laibon. [ANK 20221208]
 101333|Ossian:
   - His life total can exceed his starting life capacity (it is the case for all allies). [ANK 20171109]
   - The life is gained after the presses are handled. It is gained if the round ends prematurely. [RTR 20030519]
