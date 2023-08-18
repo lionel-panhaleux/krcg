@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.1 (unreleased)
+3.1 (2023-08-18)
 ----------------
 
 - Analyzer: fix cards scores numbers in the candidates() method
