@@ -244,6 +244,7 @@
   - The contract effect can be used if a minion with a contract leaves the ready region because his controller is ousted. [ANK 20180129-2]
 100174|Blade Clot:
   - Multiple clot counters can be placed on the same vampires if he his hit multiple times. When rescued by an older vampire, all clot counters are burned. [PIB 20150122]
+  - The controller of a vampire with a clot counter in torpor chooses whether they stay there or burn. Allies cannot go to torpor, so they must burn. [LSJ 20080612-3]
 100176|Blade of Enoch:
   - Can be equipped by a vampire with capacity less than 6, although he cannot use it to strike and does not gain immunity to frenzy cards. [LSJ 20030607]
 100177|Blanket of Night:
