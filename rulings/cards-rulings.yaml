@@ -3424,10 +3424,11 @@
 200945|Marty Lechtansi (G1):
   - His ability to get a press can only be used during the press step. [PIB 20150121]
 200955|Mata Hari (G4):
-  - Orun and Aye cards cannot be placed on her as long as she's not a Laibon. [LSJ 20110611]
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
-  - When playing a card requiring a sect and/or a clan, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]
+  - When playing a card requiring a sect and/or a clan, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [RTR 20070707] [LSJ 20070708] [ANK 20190228]
+  - If a contract chooses her when played (eg. {Dirty Contract}), she is "chosen for the contract" for other cards (eg. {Open Dossier}). If the contract choice is an effect of the card in play (eg. {Clandestine Contract}), she's not chosen. [LSJ 20070708] [LSJ 20071109]
   - When playing a card requiring a sect, her title makes her a titled vampire of that sect (eg. she can play {Hand Intervention}). [LSJ 20050526]
+  - Orun and Aye cards cannot be placed on her as long as she's not a Laibon. [LSJ 20110611]
   - If her capacity is above 10 when playing {Call the Great Beast}, she burns and it is put into play. If her capacity is less, the card is put on her with tokens equal to her capacity, but she will not be able to add counters to it later on. [ANK 20180723]
   - You can still use the burn options of cards with a requirement she could meet when you play them, but does not meet while in play. [LSJ 20050225]
   - Her ability do not let her fulfill card requirements if they are not played normally, like when using {Concealed Weapon} for an equipment or {Piper} or {The Summoning} for an ally. [LSJ 20050119]
@@ -3653,16 +3654,16 @@
 201440|Victor Pelletier (G4):
   - His "as he enters play" ability can be used before he enters contest (not after) if there is another one in play. [LSJ 20080526] [LSJ 20100902]
 201446|Vidal Jarbeaux (G5):
-  - When meeting a requirement to play a card, he is treated as such for all the effects of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [ANK 20200703-3] [ANK 20190228] [LSJ 20101013]
-  - If a card he plays is canceled as it is played, he is still considered having used the requirement, if any. [ANK 20200710]
-  - He can meet any title as well as non-requirements (eg. non-Red List), but cannot meet requirements that are not vampire traits (eg. Mortal, unlocked, older, ..) [LSJ 20081120-1]
-  - When meeting a title requirement, he is considered as a vampire of the underlying sect. [LSJ 20050128]
+  - When meeting a requirement to play a card, he is treated as such for all the effects of the card, and only them, including duration effects. He is not treated as meeting the requirements for effects the card has from being in play. [RTR 20070707] [LSJ 20070708] [ANK 20200703-3] [ANK 20190228] [LSJ 20101013]
   - He can meet the requirements for his controller to play any card, including Master cards. [LSJ 20091015] [PIB 20130128]
-  - He cannot fulfill a non-vampire trait requirement (eg. Gehenna), but he can fulfill the "Red List" or "Flight" requirements. [LSJ 20091016]
-  - Striga and Maleficia are not vampire traits. [LSJ 20100226]
-  - When meeting a requirement, the controller can choose how he meets it (eg. he can play {Anarch Secession} as a Prince of any city, even a made-up one). [PIB 20150306] [PIB 20150307]
-  - He can meet a given generic requirement (eg. Prince) only once, however he decides to meet it (eg. city choice). [ANK 20210812]
-  - He must choose a title when playing a card required a "titled" vampire (eg. {Rubicon}), but can only choose each title once. He can choose the non-descript "X votes" title, but only once. [ANK 20211019]
+  - If a card he plays is canceled as it is played, he is still considered having used the requirement, if any. [ANK 20200710]
+  - 'Vampire traits: titles, "Red List", "Flight", non-requirements (eg. non-Red List) are vampire traits. Mortal, unlocked, ready, older, Striga, Maleficia, etc. are not. [LSJ 20081120-1] [LSJ 20091016] [LSJ 20100226]'
+  - 'Titles: When meeting a title requirement, he is considered a member of the underlying sect. He can meet a given generic title (eg. Prince) only once, but the controller chooses how it is met (any city, even a made-up one). He must choose a title when playing a card required a "titled" vampire (eg. {Rubicon}), but can only choose each title once. He can choose the non-descript "X votes" title, but only once. [LSJ 20050128] [PIB 20150306] [PIB 20150307] [ANK 20211019]'
+  - If a contract chooses him when played (eg. {Dirty Contract}), he is "chosen for the contract" for other cards (eg. {Open Dossier}). If the contract choice is an effect of the card in play (eg. {Clandestine Contract}), he's not chosen. [LSJ 20070708] [LSJ 20071109]
+  - Orun and Aye cards cannot be placed on him as long as he's not a Laibon. [LSJ 20110611]
+  - If his capacity is above 10 when playing {Call the Great Beast}, he burns and it is put into play. If his capacity is less, the card is put on him with tokens equal to his capacity, but he will not be able to add counters to it later on. [ANK 20180723]
+  - You can still use the burn options of cards with a requirement he could meet when you play them, but does not meet while in play. [LSJ 20050225]
+  - His ability do not let him fulfill card requirements if they are not played normally, like when using {Concealed Weapon} for an equipment or {Piper} or {The Summoning} for an ally. [LSJ 20050119]
 201456|Vlad Tepes (G3):
   - When playing a card requiring a title or a sect, he is treated as a such for all effects of the card, including duration effects. (eg. he can {Archon} himself and use its effect later) [ANK 20201028] [ANK 20190228] [LSJ 20101013]
   - He can use {No Secrets From the Magaji} to attempt to block a vampire acting with no stealth. REVERSAL from previous rulings. [ANK 20210903]
