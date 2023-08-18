@@ -1941,6 +1941,7 @@
   - "[DEM] The press can only be used during the current round. [TOM 19960521]"
 101398|Phased Motion Detector:
   - Can provide intercept only once during each action. [RBK 20200701-4] [ANK 20230116]
+  - Grants intercept even if the bearer is not blocking yet. [LSJ 20100329]
 101401|Piper:
   - When used to recruit an ally, the ally cannot act this turn. [LSJ 20080630] [RTR 20180303]
   - This is not an action, so cost reductions refering to an action like {Charisma} or {Erichtho} do not apply. [LSJ 20090115-1] [ANK 20170309]
