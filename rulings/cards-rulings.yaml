@@ -73,6 +73,7 @@
   - Can use {Pack Alpha} to put a retainer requiring [ani] in play. [LSJ 20060417]
 100052|The Anarch Free Press:
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
+  - Using it for the hunt bonus does not make the hunt an action "requiring an Anarch". [ANK 20220317]
 100055|Anarch Revolt:
   - The cost is cumulative if they are multiple copies in play. [LSJ 19980225]
   - If a Methuselah controls no ready Anarch by the end of the unlock phase, they must burn 1 pool, even if they had a ready Anarch at some point during the unlock phase. [LSJ 20080106]
@@ -349,6 +350,7 @@
   - '[pre] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
   - "[tha] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
   - "[tha] The opponent cannot play [for] prevention cards (eg. for cycling). [LSJ 20050628]"
+  - "[tha] Does not protect from weapons if played at long range. [ANK 20230823]"
 100233|Bomb:
   - Using the provided action does not force the minion to strike with it if he is blocked. [LSJ 19971215]
   - Damage done to the bearer is environmental. [LSJ 19970801]
@@ -500,6 +502,8 @@
   - "[for] If the target unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]"
   - No other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
+"100331|Charigger, The Axe":
+  - His replacement effect triggers before effects depending on the minion burning (eg. {Soul Gem of Etrius}), but other replacements effect can be played before (eg. {Heaven's Gate}), depending on sequencing. [LSJ 20071003-2] [ANK 20230816]
 100333|Charismatic Aura:
   - '[aus][pre] Cards are not replaced during the "as played" window. [LSJ 20061013]'
   - '[aus][pre] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
@@ -551,6 +555,8 @@
   - "[OBF] Can only be played by the controller of the acting minion. [LSJ 19990425]"
   - "[OBF] Can be played by a locked vampire. [RTR 19941109] [LSJ 19980210]"
   - "[OBF] Multiple copies can be played by different minions on the same action. [ANK 20200515]"
+100366|Club Illusion:
+  - Does not make the action an action "requiring an Anarch". [ANK 20220317]
 100374|Codex of the Edenic Groundskeepers:
   - Allies (including Imbued) cannot use the provided action as they have no blood to pay with. [PIB 20151101]
 100376|Cold Aura:
@@ -1278,7 +1284,8 @@
   - "[OBE] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 100907|Heaven's Gate:
   - "[nec] Cannot be used if there is no damage to prevent. [LSJ 20001114]"
-  - "[obe] / [OBE] Forbids any combat with the ally afterwards. Cards that would start a new combat cannot be played (eg. {Psyche!}, {Bum's Rush}). [ANK 20220429]"
+  - "[obe], [OBE] Forbids any combat with the ally afterwards. Cards that would start a new combat cannot be played (eg. {Psyche!}, {Bum's Rush}). [ANK 20220429]"
+  - "[obe], [OBE] Can be played before another replacement effect triggers (eg. {Charigger, The Axe}), depending on sequencing. [ANK 20230816]"
 "100908|Heidelberg Castle, Germany":
   - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
   - Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]
@@ -1291,6 +1298,7 @@
 100912|Herald of Topheth:
   - Can use {Charming Lobby} to call a referendum "as a vampire". [RTR 20020501]
   - If it uses its last life to pay for an action, the action still resolves fully. If that leads to an oust, the oust is resolved before resolving effects triggered by the fact that the Herald burns. [LSJ 20080512]
+  - Cannot play Anarch cards. [ANK 20230810]
 100913|Heroic Might:
   - The strikes it provides are Potence [pot] strikes (eg. they benefit from {Increased Strength}). [LSJ 20081120-2]
 100916|Hidden Lurker:
@@ -1314,6 +1322,7 @@
   - "[val] If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
   - "[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]"
   - "[val], [VAL] Sequencing applies. For example, if another Methuselah is targeted by the action, they must declare if they attempt or decline to block before you can play Hide the Heart. [LSJ 20100507] [PIB 20150820] [RBK 20200701-2]"
+  - "[VAL] To reduce a bleed against another Methuselah, you need to be unlocked. [RBK 20200701-4] [ANK 20230817]"
 100921|Hide the Mind:
   - Cannot be used to cancel a card that could be played with [aus] but has not been (eg. {Anesthetic Touch} play with [obe]). [PIB 20130704]
 100924|High Aye:
@@ -1406,7 +1415,7 @@
 100981|Infernal Servitor:
   - The "can act the turn it is recruited" text does not let him act during an opponent turn if it was recruited then (eg. using {Madness Network}). [ANK 20200813-3]
 100989|Inscription:
-  - The vampire receiving the card must meet all of the requirements of the card other than the Thaumaturgy requirement. The vampire playing the Inscription need not meet any of the requirements (other than the Thaumaturgy needed to play Inscription in the first place). [LSJ 20031116]
+  - The vampire receiving the card must meet all of the requirements of the card other than the Thaumaturgy requirement. The vampire playing the Inscription need not meet any of the requirements (other than the Thaumaturgy needed to play Inscription in the first place). [LSJ 20031116] [ANK 20230816-2]
   - If the card put on it has any "Do not replace" effect, it is ignored both when Inscription is played and when it is burned to use the card. [ANK 20180627-1]
   - "When burned, the card put on it is not considered to be played normally: if it is a modifier the minion can still use the same modifier himself. [ANK 20180627-1]"
 100992|Inspire Greatness:
@@ -1568,7 +1577,7 @@
   - The additional cost does not apply once the minion has failed to block, so it does not apply to the cost of the action card. [LSJ 20080818]
 101103|Life Boon:
   - If a player is saved more than once by Life Boon, the various Boons reserve a series of victory points, rather than competing with each other for a single victory point. [RTR 19951017]
-  - If a player has gone to negative pool, the Life Boon player must give her enough pool to compensate for that. [RTR 19970630]
+  - If a player has gone to negative pool, or has to pay more than he has, the Life Boon player must give her enough pool to compensate for that. [RTR 19970630] [ANK 20230817-2]
   - If the target receives half of a victory point, then the Methuselah who played the Boon receives that half. The Boon is not burned until a total of one victory point has been awarded. [RTR 19991206]
   - If the effect ousting the target simultaneously ousts the target's prey (eg. {Kine Resources Contested}), the victory point goes to the Mathusalah who played Life Boon and the target gets 6 pool. [LSJ 20021029]
 101109|Lily Prelude:
@@ -1755,7 +1764,7 @@
 101223|Mirror Walk:
   - "[THA] The would be blocker is locked even if he benefits from an effect that prevents him to lock when he blocks. He is not locked from the block, but from Mirror Walk's effect. [ANK 20191204]"
   - "[THA] If the action is blocked, it ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards (eg. {Freak Drive}, slave rule, {Sowing Dissension}). [RTR 20180719] [ANK 20200207] [ANK 20210627]"
-  - "[THA] If the action is blocked, no other effect can be used (eg. {Crypt's Sons}, {Promise of 1528}) before resolving Mirror Walk delayed effect. However, effects that trigger at the same moment (eg. {Banshee Ironwail}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]"
+  - "[THA] If the action is blocked, no other effect can be used (eg. {Crypt's Sons}, {Promise of 1528}, slave rule, {Sowing Dissension}) before resolving Mirror Walk delayed effect. However, effects that trigger at the same moment (eg. {Banshee Ironwail}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]"
   - "[THA] If the action is blocked and it was leaving torpor, the blocker does not get an opportunity to diablerize. [PIB 20121216]"
 101224|Mirror's Visage:
   - "[chi] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
@@ -1817,6 +1826,7 @@
 101264|Nar-Sheptha:
   - If burned in combat, her effect ceases immediately and the acting minion returns to normal for the rest of the combat. [ANK 20211022]
   - Supersedes previous effects that changed the acting minion for the combat (eg. {Deep Song}). [ANK 20211022]
+  - If combat ends and a new combat start (eg. [CEL] {Psyche!}), the opponent redraws and discard again. [LSJ 20030530]
 101268|Necrosis:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - "[THN] If the strike is dodged, environmental damage is not applied. [ANK 20200517]"
@@ -2011,6 +2021,8 @@
   - A card requiring a Baron (eg. {Open War}) is a card requiring an Anarch. [LSJ 20080603] [LSJ 20050128]
 "101440|Powerbase: New York":
   - The action to steal the blood from your powerbase cannot be attempted by your own vampires. [RTR 19980928]
+"101442|Powerbase: Savannah":
+  - Takes into account effects that change who is considered the acting vampire in combat (eg.{Deep Song}). [ANK 20230814]
 101475|Precognition:
   - "[AUS] The damage prevention can only be used if the block is successful, and only in the resulting (block-induced) combat. [LSJ 20010813]"
   - "[AUS] The prevention does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010819-2]"
