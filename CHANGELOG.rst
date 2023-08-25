@@ -4,7 +4,7 @@ Changelog
 3.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- New rulings
 
 
 3.1 (2023-08-18)
