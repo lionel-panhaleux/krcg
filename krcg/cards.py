@@ -22,7 +22,8 @@ from . import utils
 
 
 logger = logging.getLogger("krcg")
-LOCAL_CARDS = os.getenv("LOCAL_CARDS")
+LOCAL_CARDS = os.getenv("LOCAL_CARDS")  # use local CSV (for playtests)
+GITHUB_CSV = os.getenv("GITHUB_CSV")  # use github CSV (to prepare for updates)
 
 
 class Card(utils.i18nMixin, utils.NamedMixin):
@@ -713,6 +714,14 @@ class CardMap(utils.FuzzyDict):
     len() will also return the number of unique cards, not the count of name variations.
     """
 
+    _GITHUB_CSV = [
+        "https://github.com/GiottoVerducci/vtescsv/raw/main/vtescsv_utf8.zip",
+        [
+            "vtessets.csv",
+            "vtescrypt.csv",
+            "vteslib.csv",
+        ],
+    ]
     _VEKN_CSV = [
         "http://www.vekn.net/images/stories/downloads/vtescsv_utf8.zip",
         [
@@ -820,6 +829,8 @@ class CardMap(utils.FuzzyDict):
                     .read_text("utf-8-sig"),
                 ),
             ]
+        elif GITHUB_CSV:
+            main_files = utils.get_zip_csv(self._GITHUB_CSV[0], *self._GITHUB_CSV[1])
         else:
             main_files = utils.get_zip_csv(self._VEKN_CSV[0], *self._VEKN_CSV[1])
         i18n_files = {

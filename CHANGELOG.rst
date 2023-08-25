@@ -5,7 +5,7 @@ Changelog
 ----------------
 
 - New rulings
-
+- Add a GITHUB_CSV mode to test incoming cards CSV before update
 
 3.1 (2023-08-18)
 ----------------
