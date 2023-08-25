@@ -221,6 +221,12 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "PTr": "Tremere",
             "PV": "Ventrue",
         },
+        "NB2": {
+            "PB": "Brujah",
+            "PMi": "Ministry",
+            "PBH": "Banu Haqim",
+            "PG": "Gangrel",
+        },
     }
     _REPRINTS_RELEASE_DATE = {
         ("KoT", "Reprint Bundle 1"): datetime.date(2018, 5, 5),
