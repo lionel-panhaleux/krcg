@@ -1585,6 +1585,7 @@
 101110|The Line:
   - Can be locked to reduce the cost at any point before resolution, from when the action is announced to just before the cost is paid. [ANK 20170605] [ANK 20230620]
   - Can reduce the cost in blood (not in pool) of any action (ally, retainer, equipment, political). [ANK 20181007]
+  - Can reduce the cost of an action card even if it is not played as an action (ie. a retainer played with {Pack Alpha}). [RTR 20070707] [ANK 20230824]
   - Cannot be used by an ally acting "as a vampire". [ANK 20200605]
 101112|Liquidation:
   - Is not playable if you have less than 7 cards in your library. [LSJ 20070901]
@@ -1927,6 +1928,7 @@
   - The damage is applied even if the combat ends prematurely (eg. {Illusions of the Kindred}) [ANK 20180104] [LSJ 19971110]
 101342|Pack Alpha:
   - Requirements (clan, discipline) apply. [LSJ 20051207]
+  - Cost reductions apply. [RTR 20070707] [ANK 20230824]
 101348|Panacea:
   - "[aus] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Helena (ADV)}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 101349|Pandora's Whisper:
