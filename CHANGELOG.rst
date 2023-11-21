@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.3 (unreleased)
+3.3 (2023-11-21)
 ----------------
 
 - Align reprint expansion names with VDB
