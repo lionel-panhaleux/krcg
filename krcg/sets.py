@@ -36,8 +36,8 @@ class SetMap(dict):
     PROMOS = {
         "Promo-20230531": ["2023 Promo", "2023-05-31"],
         "Promo-20221022": ["2022 Promo", "2022-10-22"],
-        "HttB-R": ["Heirs to the Blood Reprint", "2018-07-14"],
-        "KoT-R": ["Keepers of Tradition Reprint", "2018-05-05"],
+        "HttBR": ["Heirs to the Blood Reprint", "2018-07-14"],
+        "KoTR": ["Keepers of Tradition Reprint", "2018-05-05"],
     }
 
     def __init__(self):

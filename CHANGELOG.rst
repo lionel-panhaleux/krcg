@@ -4,7 +4,8 @@ Changelog
 3.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Align reprint expansion names with VDB
+- Improve parsing to handle manually written decklists
 
 
 3.2 (2023-08-26)

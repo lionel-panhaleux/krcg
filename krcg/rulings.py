@@ -13,7 +13,9 @@ class Ruling:
     def __init__(self):
         self.cards = []
         self.text = ""
+        self.clean_text = ""
         self.links = {}
+        self.symbols = []
 
 
 class RulingReader:
@@ -44,6 +46,8 @@ class RulingReader:
                 except KeyError:
                     warnings.warn(f"Ruling: link not found for `{card}`")
                     raise
+                ret.symbols = list(self._get_symbols(ret.text))
+                ret.clean_text = self._clean_text(ret.text)
                 yield ret
         for ruling in yaml.safe_load(
             importlib.resources.files("rulings")
@@ -62,6 +66,8 @@ class RulingReader:
             except KeyError:
                 warnings.warn(f"Ruling: link not found for general ruling `{ret.text}`")
                 raise
+            ret.symbols = list(self._get_symbols(ret.text))
+            ret.clean_text = self._clean_text(ret.text)
             yield ret
 
     def _get_link(self, text: str) -> Generator:
@@ -71,6 +77,17 @@ class RulingReader:
             warnings.warn(f"no reference in ruling: {text}")
         for reference in references:
             yield reference, self.links[reference[1:-1]]
+
+    def _get_symbols(self, text: str) -> Generator:
+        """Yield symbols from ruling text."""
+        symbols = re.findall(r"\[[a-zA-Z ]+\]", text)
+        for symbol in symbols:
+            yield symbol[1:-1]
+
+    def _clean_text(self, text: str) -> None:
+        text = re.subn(r"\[[a-zA-Z]+\s[0-9-]+\]", "", text)[0]
+        text = re.subn(r"\[[a-zA-Z ]+\]", "", text)[0]
+        return text
 
 
 def _card_id_name(text: str) -> Tuple[int, str]:

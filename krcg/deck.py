@@ -50,17 +50,19 @@ class Deck(collections.Counter):
         author: str = None,
         offset: int = 0,
         twda: bool = False,
+        preface: bool = True,
     ):
         """Parse input and generate a Deck instance.
 
         Compatible with most text input formats (TWD, JOL, LackeyCCG, ...)
 
         Set the `twda` arg to True when parsing TWDA entries, or it won't be perfect.
+        Set the `preface` arg to False when parsing pure cards lists (eg. no count)
 
         Provide the offset when parsing a multi-deck stream for meaningful parsing logs.
         """
         p = parser.Parser(cls(id=id, author=author))
-        p.parse(input, offset, twda)
+        p.parse(input, offset, twda, preface)
         return p.deck
 
     @classmethod

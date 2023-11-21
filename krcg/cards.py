@@ -653,6 +653,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     def _decode_rarity(rarity: str, abbrev: str, date: str) -> dict:
         """Decode the rarity tag after expansion abbreviation."""
         match = re.match(
+            # Ebony Kingdom (EK) had "half commons", noted C½: Aye and Orun
             r"^(?P<base>[a-zA-Z]+)?(?P<count>[0-9½]+)?$",
             rarity,
         )

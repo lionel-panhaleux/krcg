@@ -25,8 +25,6 @@ _HEADERS = [
     "actin",
     "action",
     "acton",
-    "allies",
-    "ally",
     "average",
     "burn option",
     "capacity",
@@ -72,6 +70,11 @@ _HEADERS = [
     "vote",
     "and",
 ]
+# headers if first word only (do not match "political ally" as a header)
+_HEADERS_FIRST_WORD = [
+    "allies",
+    "ally",
+]
 _DISCIPLINES = {
     "abombwe",
     "animalism",
@@ -106,8 +109,15 @@ _DISCIPLINES = {
 _HEADERS_RE = (
     "(" + "|".join(re.escape(utils.normalize(h)) + "s?" for h in _HEADERS) + ")"
 )
+_HEADERS_FIRST_RE = (
+    "("
+    + "|".join(
+        re.escape(utils.normalize(h)) + "s?" for h in _HEADERS + _HEADERS_FIRST_WORD
+    )
+    + ")"
+)
 _HEADERS_RE = (
-    r"^(\s|/|-|\d|_)*{0}((\s|/|-)*{0})*".format(_HEADERS_RE)
+    r"^(\s|/|-|\d|_)*{0}((\s|/|-)*{1})*".format(_HEADERS_FIRST_RE, _HEADERS_RE)
     + r"(\s|\d|:|;|\.|\(|\)|\[|\]|/|-|=|,|"
     + r"cards?|carta|cars|total|min|max|avg|masters?|minions?|trifles?)*$"
 )
@@ -481,7 +491,9 @@ class Parser:
     def _previous_line(self):
         return (getattr(self.logger, "extra", {}).get("line") or 1) - 1
 
-    def parse(self, input: TextIO, offset: int = 0, twda: bool = False) -> None:
+    def parse(
+        self, input: TextIO, offset: int = 0, twda: bool = False, preface: bool = True
+    ) -> None:
         """Parse given stream.
 
         Args:
@@ -490,6 +502,7 @@ class Parser:
         """
         if not vtes.VTES:
             vtes.VTES.load()
+        self.preface = preface
         for index, line in enumerate(input, 1):
             self.logger = LineLogAdapter(
                 logger, {"line": index + offset, "deck": self.deck.id}
@@ -674,11 +687,14 @@ class Parser:
                     count = int(match.group("post_count") or 1)
                     if not match.group("count_mark"):
                         # Be wary of disciplines: they are sometimes headers, but
-                        # distinguishing them from actual Master discipline cards
-                        # is not decidable so we log and ignore the line
+                        # indistinguishable from actual Master discipline cards
                         if name.strip(" :()[]-_*=") in _DISCIPLINES:
-                            self.logger.warning('improper discipline "%s"', line)
-                            return None, 0
+                            # if parsing TWDA, ignore the line and warn
+                            if twda:
+                                self.logger.warning('improper discipline "%s"', line)
+                                return None, 0
+                            # otherwise log as debug and count it as a discipline card
+                            self.logger.debug('naked discipline (no count) "%s"', line)
             # for evolutions (eg. Theo Bell (G6)) the name in TWDA
             # might not contain the group, we need to rely on the group in crypt tail
             if name and group and name[-1] != ")":
