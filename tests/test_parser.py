@@ -4,6 +4,8 @@ from krcg import deck
 from krcg import vtes
 from krcg import parser
 
+import pytest
+
 
 def check_comment(p, comment=None, card=None):
     if comment:
@@ -15,7 +17,8 @@ def check_comment(p, comment=None, card=None):
         assert p.current_comment is None
 
 
-def test_get_card(caplog):
+def test_get_card(caplog: pytest.LogCaptureFixture):
+    caplog.set_level(logging.DEBUG)
     p = parser.Parser(deck.Deck())
 
     # basic match
@@ -65,10 +68,18 @@ def test_get_card(caplog):
     assert p.get_card("3x conditioning     dominate") == (vtes.VTES["Conditioning"], 3)
     # disciplines are a particularily difficult case: if properly counted, ok
     assert p.get_card("3x dominate") == (vtes.VTES["Dominate"], 3)
-    # post counts and naked mention should be ignored and logged:
+    # post count and mentions by default are parsed as cards
+    assert p.get_card("dominate") == (vtes.VTES["Dominate"], 1)
+    assert p.get_card("dominate (4)") == (vtes.VTES["Dominate"], 4)
+    assert caplog.record_tuples == [
+        ("krcg", logging.DEBUG, 'naked discipline (no count) "dominate"'),
+        ("krcg", logging.DEBUG, 'naked discipline (no count) "dominate (4)"'),
+    ]
+    # post counts and naked mention should be ignored and logged in TWDA:
     # we can't decide if they're header or actual discipline cards inclusions
-    assert p.get_card("dominate") == (None, 0)
-    assert p.get_card("dominate (4)") == (None, 0)
+    caplog.clear()
+    assert p.get_card("dominate", twda=True) == (None, 0)
+    assert p.get_card("dominate (4)", twda=True) == (None, 0)
     assert caplog.record_tuples == [
         ("krcg", logging.WARNING, 'improper discipline "dominate"'),
         ("krcg", logging.WARNING, 'improper discipline "dominate (4)"'),
@@ -239,9 +250,10 @@ def test_comments(caplog):
     assert p.get_card("3x conditioning     dominate") == (vtes.VTES["Conditioning"], 3)
     check_comment(p)
 
-    # but outside preface, a lonely discipline is undecidable: log a warning
+    # but outside preface, a lonely discipline is undecidable when parsing TWDA:
+    # log a warning
     caplog.clear()
-    assert p.get_card("dominate") == (None, 0)
+    assert p.get_card("dominate", twda=True) == (None, 0)
     check_comment(p)
     assert caplog.record_tuples == [("krcg", 30, 'improper discipline "dominate"')]
 
