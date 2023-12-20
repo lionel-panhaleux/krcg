@@ -4,6 +4,7 @@ graft cards
 graft krcg
 graft rulings
 graft twda_fix
+prune profiling
 prune tests
 prune utils
 exclude Makefile

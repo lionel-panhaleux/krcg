@@ -30,19 +30,6 @@ RULES = [
 ]
 
 
-# A helper to get relative position and position group
-# keys are (table_size, relative position index)
-POSITION_MEASURE = {
-    (4, 0): (0, 0),  # prey, neighbour
-    (4, 1): (4, 1),  # cross-table, non-neighbour
-    (4, 2): (3, 0),  # predator, neighbour
-    (5, 0): (0, 0),  # prey, neighbour
-    (5, 1): (1, 1),  # grand-prey, non-neighbour
-    (5, 2): (2, 1),  # grand-predator, non-neighbour
-    (5, 3): (3, 0),  # predator, neighbour
-}
-
-
 class Round(list):
     """A list of list representing the tables of a round"""
 
@@ -105,6 +92,11 @@ class Round(list):
         """Get the number of players (default len gives the number of tables)"""
         return sum(len(table) for table in self.iter_tables())
 
+    def _global_indexes(self):
+        return dict(
+            enumerate((j, k) for j, table in enumerate(self) for k in range(len(table)))
+        )
+
     def __global_index_to_tuple(self, index: int):
         """Private method to get the underlying index out of a naive global index"""
         table_index = 0
@@ -145,7 +137,7 @@ class Round(list):
 
 
 Measure = collections.namedtuple("Measure", ["position", "opponents"])
-Measure.__add__ = lambda lhs, rhs: Measure(*(a + b for a, b in zip(lhs, rhs)))
+Measure.__add__ = lambda lhs, rhs: Measure(lhs[0] + rhs[0], lhs[1] + rhs[1])
 Measure.__radd__ = lambda rhs, lhs: rhs if lhs == 0 else rhs.__add__(lhs)
 
 PlayerMapping = dict[Hashable, int]
@@ -162,7 +154,48 @@ def player_mapping(rounds: List[Round]) -> PlayerMapping:
     return mapping
 
 
-def measure(pm: PlayerMapping, round_: Round) -> Measure:
+OPPONENTS = {
+    4: numpy.array(
+        [
+            [1, 1, 0, 0, 0, 0, 1, 0],
+            [1, 0, 0, 0, 0, 1, 0, 1],
+            [1, 0, 0, 0, 1, 0, 1, 0],
+        ]
+    ),
+    5: numpy.array(
+        [
+            [1, 1, 0, 0, 0, 0, 1, 0],
+            [1, 0, 1, 0, 0, 0, 0, 1],
+            [1, 0, 0, 1, 0, 0, 0, 1],
+            [1, 0, 0, 0, 1, 0, 1, 0],
+        ]
+    ),
+}
+
+POSITIONS = {
+    4: numpy.array(
+        [
+            [1, 4, 1, 1, 0, 0, 0, 0],
+            [1, 4, 2, 0, 1, 0, 0, 0],
+            [1, 4, 3, 0, 0, 1, 0, 0],
+            [1, 4, 4, 0, 0, 0, 1, 0],
+        ]
+    ),
+    5: numpy.array(
+        [
+            [1, 5, 1, 1, 0, 0, 0, 0],
+            [1, 5, 2, 0, 1, 0, 0, 0],
+            [1, 5, 3, 0, 0, 1, 0, 0],
+            [1, 5, 4, 0, 0, 0, 1, 0],
+            [1, 5, 4, 0, 0, 0, 0, 1],
+        ]
+    ),
+}
+
+
+def measure(
+    pm: PlayerMapping, round_: Round, previous: Measure = None, hints: list = None
+) -> Measure:
     """Measure a round (list of tables), returns two matrices:
     position (players_count x 8):
         for each player:
@@ -176,26 +209,30 @@ def measure(pm: PlayerMapping, round_: Round) -> Measure:
     Simply adding each round measure gives the total measure.
     This allows to re-compute a single round measure when a single round is changed.
     pm must be map the (Hashable) players to consecutive integers 0..players_count
+
+    previous and hint (index of changed tables) are used to speed up measure computation
+    when searching for an optimum (only recomputes the two tables impacted by a switch)
     """
-    position = numpy.zeros((len(pm), 8), int)
-    opponents = numpy.zeros((len(pm), len(pm), 8), int)
-    for table in round_.iter_tables():
+    if previous:
+        position = previous.position.copy()
+        opponents = previous.opponents.copy()
+    else:
+        len_pm = len(pm)
+        position = numpy.zeros((len_pm, 8), int)
+        opponents = numpy.zeros((len_pm, len_pm, 8), int)
+    for table_index, table in enumerate(round_.iter_tables()):
         table_size = len(table)
+        if hints and table_index not in hints:
+            continue
         for seat, player in enumerate(table):
             indice = pm[player]
-            position[indice][0] = 1
-            position[indice][1] = table_size
-            transfers = min(seat + 1, 4)
-            position[indice][2] = transfers
-            position[indice][3 + seat] = 1
+            position[indice] = POSITIONS[table_size][seat]
+            if hints is not None:
+                opponents[indice][:, :] = 0
             for relation, opponent in enumerate(
                 itertools.chain(table[seat + 1 :], table[:seat])
             ):
-                opp_indice = pm[opponent]
-                relation, group = POSITION_MEASURE.get((table_size, relation))
-                opponents[indice][opp_indice][0] = 1
-                opponents[indice][opp_indice][1 + relation] = 1
-                opponents[indice][opp_indice][6 + group] = 1
+                opponents[indice][pm[opponent]] = OPPONENTS[table_size][relation]
     return Measure(position, opponents)
 
 
@@ -262,16 +299,17 @@ class Score:
     def score_measure(
         self, measure: Measure, rounds_count: int, pm: PlayerMapping
     ) -> None:
-        # transfers, starting vps: compute standard deviation
-        with numpy.errstate(divide="ignore", invalid="ignore"):
-            vps = measure.position[:, 1] / measure.position[:, 0]
-            transfers = measure.position[:, 2] / measure.position[:, 0]
+        # transfers, starting vps: compute variance
+        playing = measure.position[:, 0]
+        playing_filter = playing.astype(bool)
+        vps = measure.position[playing_filter][:, 1] / playing
+        transfers = measure.position[playing_filter][:, 2] / playing
         rpm = {v: k for k, v in pm.items()}
-        self.R3 = numpy.std(vps, where=measure.position[:, 0] != 0)
-        self.R8 = numpy.std(transfers, where=measure.position[:, 0] != 0)
         # record details of anomalies for output
         self.mean_vps = numpy.mean(vps)
         self.mean_transfers = numpy.mean(transfers)
+        self.R3 = numpy.sum((vps - self.mean_vps) ** 2) / vps.size
+        self.R8 = numpy.sum((transfers - self.mean_transfers) ** 2) / transfers.size
         self.vps = [
             Deviation(rpm[i], vps[i])
             for i in numpy.flatnonzero(abs(self.mean_vps - vps) > 1 / rounds_count)
@@ -329,25 +367,44 @@ class Score:
 
         This is used to speed up computations when searching for an optimum.
         """
-        with numpy.errstate(divide="ignore", invalid="ignore"):
-            rules = [
-                len(numpy.argwhere(measure.opponents[:, :, 1] > 1)),
-                len(numpy.argwhere(measure.opponents[:, :, 0] > 2)) // 2,
-                numpy.std(
-                    measure.position[:, 1] / measure.position[:, 0],
-                    where=measure.position[:, 0] != 0,
-                ),
-                len(numpy.argwhere(measure.opponents[:, :, 0] > 1)) // 2,
-                len(numpy.argwhere(measure.position[:, 6] > 1)),
-                len(numpy.argwhere(measure.opponents[:, :, 1:6] > 1)) // 2,
-                len(numpy.argwhere(measure.position[:, 3:] > 1)),
-                numpy.std(
-                    measure.position[:, 2] / measure.position[:, 0],
-                    where=measure.position[:, 0] != 0,
-                ),
-                len(numpy.argwhere(measure.opponents[:, :, 6:] > 1)) // 2,
-            ]
-        return sum(x * m for x, m in zip(rules, [R[2] for R in RULES]))
+        playing = measure.position[:, 0]
+        playing_filter = playing.astype(bool)
+        opponents_twice = measure.opponents[measure.opponents[:, :, 0] > 1]
+        collisions = opponents_twice.size > 0
+        vps = measure.position[:, 1][playing_filter] / playing
+        transfers = measure.position[:, 2][playing_filter] / playing
+        rules = [
+            # same predator-prey relationship
+            numpy.count_nonzero(opponents_twice[:, 1] > 1) if collisions else 0,
+            # opponents more than twice
+            numpy.count_nonzero(opponents_twice[:, 0] > 2) // 2 if collisions else 0,
+            # VPs difference
+            numpy.sum((vps - numpy.mean(vps)) ** 2) / vps.size,
+            # opponents more than once
+            numpy.count_nonzero(opponents_twice[:, 0]) // 2,
+            # fifth seat more than once
+            numpy.count_nonzero(measure.position[:, 6] > 1),
+            # same opponent relationship more than once
+            numpy.count_nonzero(opponents_twice[:, 1:6] > 1) // 2 if collisions else 0,
+            # same table seat more than once
+            numpy.count_nonzero(measure.position[:, 3:] > 1),
+            # Transfers difference
+            numpy.sum((transfers - numpy.mean(transfers)) ** 2) / transfers.size,
+            # same position groups for an opponent twice
+            numpy.count_nonzero(opponents_twice[6:] > 1) // 2 if collisions else 0,
+        ]
+        # builtins.sum is expensive
+        return (
+            rules[0] * RULES[0][2]
+            + rules[1] * RULES[1][2]
+            + rules[2] * RULES[2][2]
+            + rules[3] * RULES[3][2]
+            + rules[4] * RULES[4][2]
+            + rules[5] * RULES[5][2]
+            + rules[6] * RULES[6][2]
+            + rules[7] * RULES[7][2]
+            + rules[8] * RULES[8][2]
+        )
 
     def __str__(self):
         return f"{self.total} {self.rules}"
@@ -481,27 +538,30 @@ def optimise(
     for round_ in rounds[fixed:]:
         round_.shuffle()
     trials, accepts, improves = 0, 0, 0
-
+    rounds_global_indexes = [r._global_indexes() for r in rounds]
     # Exploration
     for step in range(iterations):
         temperature = temperature_max * math.exp(temperature_factor * step / iterations)
         round_index = random.randrange(fixed, len(rounds))
         round_ = rounds[round_index]
+        global_indexes = rounds_global_indexes[round_index]
         # note all rounds might not have the same length
         length = round_.players_count()
-        i = random.randrange(length)
-        j = random.randrange(length)
-        round_.swap_players(i, j)
+        i1, i2 = global_indexes[random.randrange(length)]
+        j1, j2 = global_indexes[random.randrange(length)]
+        round_[i1][i2], round_[j1][j2] = round_[j1][j2], round_[i1][i2]
         # only recompute the changed round, other rounds have not varied
         previous_measure = measures[round_index]
-        measures[round_index] = measure(pm, round_)
+        measures[round_index] = measure(
+            pm, round_, previous=previous_measure, hints=(i1, j1)
+        )
         score = Score.fast_total(sum(measures))
         score_diff = score - previous_score
         trials += 1
         # accept or reject the move depending on its score and temperature
         # the higher temperature, the higher the chance to accept a non-improving move
         if score_diff > 0 and math.exp(-score_diff / temperature) < random.random():
-            round_.swap_players(i, j)
+            round_[i1][i2], round_[j1][j2] = round_[j1][j2], round_[i1][i2]
             score = previous_score
             measures[round_index] = previous_measure
         else:
