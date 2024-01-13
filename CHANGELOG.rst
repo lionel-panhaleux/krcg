@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.4 (unreleased)
+3.4 (2024-01-13)
 ----------------
 
 - V5C release
