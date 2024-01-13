@@ -4,8 +4,8 @@ Changelog
 3.4 (unreleased)
 ----------------
 
+- V5C release
 - Seating algorithm: improve performances by a factor of 4
-
 
 3.3 (2023-11-21)
 ----------------
