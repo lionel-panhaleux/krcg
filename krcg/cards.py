@@ -23,7 +23,8 @@ from . import utils
 
 logger = logging.getLogger("krcg")
 LOCAL_CARDS = os.getenv("LOCAL_CARDS")  # use local CSV (for playtests)
-GITHUB_CSV = os.getenv("GITHUB_CSV")  # use github CSV (to prepare for updates)
+GITHUB_CSV = os.getenv("GITHUB_CSV")  # use github master CSV (to prepare for updates)
+GITHUB_BRANCH = os.getenv("GITHUB_BRANCH")  # use github branch (to prepare for updates)
 
 
 class Card(utils.i18nMixin, utils.NamedMixin):
@@ -214,6 +215,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "PBh": "Banu Haqim",
             "PG": "Gangrel",
         },
+        "V5C": {
+            "PSal": "Salubri",
+            "PTz": "Tzimisce",
+            "PR": "Ravnos",
+        },
         "NB": {
             "PM": "Malkavian",
             "PN": "Nosferatu",
@@ -245,9 +251,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         "Ginés Quiñonero": "Ginés Quiñonero-Santiago",
         "Glenn Osterberger": "Glen Osterberger",
         "Heather Kreiter": "Heather V. Kreiter",
-        "Jeff Holt": 'Jeff "el jefe" Holt',
+        'Jeff "el jefe" Holt': "Jeff Holt",
         "L. Snelly": "Lawrence Snelly",
-        "Martín de Diego Sábada": "Martín de Diego",
+        "Martín de Diego": "Martín de Diego Sábada",
         "Mathias Tapia": "Matias Tapia",
         "Mattias Tapia": "Matias Tapia",
         "Matt Mitchell": "Matthew Mitchell",
@@ -473,7 +479,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                 warnings.warn(f"expected an integer for {field}: {data}")
 
         self.id = int(data["Id"])
-        self._name = data["Name"]
+        self._name = data["Name"].replace("@", "")
         self._set = str_or_none("Set") or default_set
         self.aka = split("Aka", ";")
         self.types = [a.replace("@", "") for a in split("Type", "/")]
@@ -721,8 +727,16 @@ class CardMap(utils.FuzzyDict):
     len() will also return the number of unique cards, not the count of name variations.
     """
 
+    _GITHUB_BRANCH = [
+        f"https://github.com/GiottoVerducci/vtescsv/raw/{GITHUB_BRANCH}/",
+        [
+            "vtessets.csv",
+            "vtescrypt.csv",
+            "vteslib.csv",
+        ],
+    ]
     _GITHUB_CSV = [
-        "https://github.com/GiottoVerducci/vtescsv/raw/main/vtescsv_utf8.zip",
+        "https://github.com/GiottoVerducci/vtescsv/raw/master/vtescsv_utf8.zip",
         [
             "vtessets.csv",
             "vtescrypt.csv",
@@ -836,6 +850,10 @@ class CardMap(utils.FuzzyDict):
                     .read_text("utf-8-sig"),
                 ),
             ]
+        elif GITHUB_BRANCH:
+            main_files = utils.get_github_csv(
+                self._GITHUB_BRANCH[0], *self._GITHUB_BRANCH[1]
+            )
         elif GITHUB_CSV:
             main_files = utils.get_zip_csv(self._GITHUB_CSV[0], *self._GITHUB_CSV[1])
         else:
@@ -1392,7 +1410,7 @@ class CardSearch:
                     self.sect[sect].add(card)
 
         city = re.search(
-            r"(?:Prince|Baron|Archbishop) of ((?:[A-Z][A-Za-z\s-]{3,})+)",
+            r"(?:Prince|Baron|Archbishop) of ((?:[A-Z][\w\s-]{3,})+)",
             card.card_text,
         )
         if city:

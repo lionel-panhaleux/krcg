@@ -39,6 +39,15 @@ def get_zip_csv(url: str, *args: str) -> List[Generator[Dict[str, str], None, No
     return [csv.DictReader(io.TextIOWrapper(z.open(arg))) for arg in args]
 
 
+def get_github_csv(url: str, *args: str) -> List[Generator[Dict[str, str], None, None]]:
+    """Given a base URL and list of CSV files under it, returns matching CSV readers."""
+    ret = []
+    for arg in args:
+        local_filename, _headers = urllib.request.urlretrieve(url + arg)
+        ret.append(csv.DictReader(open(local_filename)))
+    return ret
+
+
 class FuzzyDict:
     """A dict providing "fuzzy matching" of its keys.
 

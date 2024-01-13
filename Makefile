@@ -1,5 +1,7 @@
 .PHONY: quality test release update clean
 
+export GITHUB_BRANCH = V5C-20240201
+
 quality:
 	black --check krcg tests
 	flake8

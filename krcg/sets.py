@@ -34,7 +34,15 @@ class SetMap(dict):
     """A dict of all sets, index by Abbreviation and English name."""
 
     PROMOS = {
-        "Promo-20230531": ["2023 Promo", "2023-05-31"],
+        "Promo-20231007": ["2023 Mineiro Promo", "2023-10-07"],
+        "Promo-20230916": ["2023 Zaragosa Promo", "2023-09-16"],
+        "Promo-20230729": ["2023 Ropecon Promo", "2023-07-29"],
+        "Promo-20230603": ["2023 Andalusian Open Promo", "2023-06-03"],
+        "Promo-20230531": ["2023 Chapters Promo", "2023-05-31"],
+        "Promo-20230507": ["2023 Belgian Championship Promo", "2023-05-07"],
+        "Promo-20230325": ["2023 Spanish National Promo", "2023-03-25"],
+        "Promo-20221105": ["2022 EC Promo", "2022-11-05"],
+        "Promo-20221101": ["2022 Fee Stake Promo", "2022-11-01"],
         "Promo-20221022": ["2022 Promo", "2022-10-22"],
         "HttBR": ["Heirs to the Blood Reprint", "2018-07-14"],
         "KoTR": ["Keepers of Tradition Reprint", "2018-05-05"],
