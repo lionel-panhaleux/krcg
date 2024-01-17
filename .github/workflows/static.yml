@@ -28,6 +28,8 @@ jobs:
         run: |
           flake8
       - name: Test
+        env:
+          GITHUB_BRANCH: V5C-20240201
         run: |
           coverage run -m pytest
           coverage xml
