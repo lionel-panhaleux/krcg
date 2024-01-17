@@ -38,6 +38,7 @@ class SetMap(dict):
         "Promo-20230916": ["2023 Zaragosa Promo", "2023-09-16"],
         "Promo-20230729": ["2023 Ropecon Promo", "2023-07-29"],
         "Promo-20230603": ["2023 Andalusian Open Promo", "2023-06-03"],
+        "Promo-20230501": ["2023 War of the Ages Promo", "2023-05-01"],
         "Promo-20230531": ["2023 Chapters Promo", "2023-05-31"],
         "Promo-20230507": ["2023 Belgian Championship Promo", "2023-05-07"],
         "Promo-20230325": ["2023 Spanish National Promo", "2023-03-25"],
