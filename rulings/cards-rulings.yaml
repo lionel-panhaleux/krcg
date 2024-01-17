@@ -1,6 +1,6 @@
 ---
 100001|.44 Magnum:
-  - Provides only ony maneuver each combat, even if the bearer changes. [LSJ 19980302-2]
+  - Provides only only maneuver each combat, even if the bearer changes. [LSJ 19980302-2]
 100002|419 Operation:
   - You can burn the edge to burn the card if it has no counter. [ANK 20221011-3]
 100003|Aaron's Feeding Razor:
@@ -98,7 +98,7 @@
 100067|Angel of Berlin:
   - May be played after a block is successful before combat begins. [LSJ 20060410]
 "100071|The Ankara Citadel, Turkey":
-  - Concerning the cost of the cards, multiplications and divisions are applied first, followed by additions and substractions. [RTR 20070707]
+  - Concerning the cost of the cards, multiplications and divisions are applied first, followed by additions and subtractions. [RTR 20070707]
 100076|Apparition:
   - Can be played at any time in combat, even if there is no damage to prevent yet. [LSJ 20010315]
   - "[CHI] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
@@ -125,7 +125,7 @@
   - "[VAL] Prevents up to 2 damage, it can prevent less. [RTR 20041202]"
   - "[VAL] Can prevent 2 damage per round, from any strike, can prevent 2 times 1 damage from two different strikes. [ANK 20180117]"
 100088|Armor of Terra:
-  - "[vis], [VIS] Can be used by a non-slave Gragoyle. [LSJ 20011204-2]"
+  - "[vis], [VIS] Can be used by a non-slave Gargoyle. [LSJ 20011204-2]"
 100089|Armor of Vitality:
   - Prevents up to 3 damage, it can be used to prevent less. [RTR 20041202]
   - Cannot be used if there is no damage to prevent. [LSJ 20001114]
@@ -138,7 +138,7 @@
   - Effects applied during the discard phase are applied before you return the ally. If you lose control of the ally before that, you do not return it. [ANK 20210313]
 100097|The Art of Memory:
   - The effect is applied after resolving the action, including after all combats. [LSJ 20031112]
-  - Can be used ot retrieve the action card itself (if any). [LSJ 20041115]
+  - Can be used to retrieve the action card itself (if any). [LSJ 20041115]
 100100|Art's Traumatic Essence:
   - The action has no effect if the target is not unlocked anymore when it resolves. It is still considered successful and must be paid. [ANK 20181121]
 100103|Asanbonsam Ghoul:
@@ -192,7 +192,7 @@
   - Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]
   - If a block is successful, the blood is burned before any other effect can be used (eg. {Promise of 1528}). REVERSAL of earlier rulings. [ANK 20210627]
 100134|Barrenness:
-  - "[mal] is unaffected by {Orun}. [MAL] is affected by {Orun} (add and substract before applying the minimum of 1). [ANK 20180719-1]"
+  - "[mal] is unaffected by {Orun}. [MAL] is affected by {Orun} (add and subtract before applying the minimum of 1). [ANK 20180719-1]"
   - The burn option can be used if all your vampires with [mal] are in torpor. [LSJ 20091203]
 100135|The Barrens:
   - Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]
@@ -275,7 +275,7 @@
   - '[dom][pre] [COMBAT][REACTION] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 100190|Blissful Agony:
   - "[val] Damage is environmental. [RTR 19970630]"
-  - '[val] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
+  - '[val] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combatant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
   - "[VAL] If dodged, there is no new combat. [LSJ 20051020]"
   - "[VAL] Cannot be played against an ally. [PIB 20111105]"
   - "[VAL] In the new combat, the opponent goes first. [LSJ 20011214-3] [LSJ 20031212]"
@@ -336,9 +336,9 @@
 100221|Blooding by the Code:
   - Can be played on a vampire with superior Valeren [VAL]. [LSJ 20051012]
 100223|Bloodstone:
-  - It's still an equip action (eg. can benefit from {The British Museum, London} or {Filchware's Pawn Shop}). [LSJ 20050313] [ANK 20230408]
+  - It's still an equip action (eg. It can benefit from {The British Museum, London} or {Filchware's Pawn Shop}). [LSJ 20050313] [ANK 20230408]
 100224|Bloodstorm of Chorazin:
-  - The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
+  - The action ends unsuccessfully immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
 100228|Body Arsenal:
   - Must be played before strike resolution and damage prevention in order to affect the current strike. (can be played after both strikes have been chosen) [RTR 19960112]
 100229|Body Bag:
@@ -375,7 +375,7 @@
   - Can be played against any combat card, even those played at the end of the round. [LSJ 20070214]
   - Is not affected by a {Dark Influences} in play. [LSJ 20081120-2]
 100245|Brainwash:
-  - Only transfers are forbidden, other mouvements are not affected (eg. {Govern the Unaligned} at superior [DOM]). The vampire can become controlled if it reaches capacity, Brainwash stays on it (if {Banishment} is used, the effect resumes). [LSJ 20010211]
+  - Only transfers are forbidden, other movements are not affected (eg. {Govern the Unaligned} at superior [DOM]). The vampire can become controlled if it reaches capacity, Brainwash stays on it (if {Banishment} is used, the effect resumes). [LSJ 20010211]
   - You can only target a vampire by position, the target Methuselah can shuffle their crypt. If you have no clue (tokens, cards) about a previously revealed vampire's position, you have to take a bet. In case multiple copies of the same vampire are subject to different effects, the controller must track them, but they can do it secretly (eg. {Banishment} was used on one that would benefit from {The Rack} if controlled again). [LSJ 20040728]
 100250|Breath of the Dragon:
   - Damage done to the striking minion is environmental. [LSJ 19970801]
@@ -533,7 +533,7 @@
 100347|Church of the Order of St. Blaise:
   - Can put counters on locations that use "blood" or "pool" counters. [PIB 20110712-1] [LSJ 20040518-2]
 100352|Claiming the Body:
-  - The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
+  - The action ends unsuccessfully immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
 100353|Clan Impersonation:
   - Does not remove any slave status. [LSJ 20030511]
   - Does not changes the sect. [RTR 20201130]
@@ -599,7 +599,7 @@
   - "[DEM] Can only be used during a bleed action. [ANK 20171023] [RTR 19941109]"
 100412|Conscripted Statue:
   - "[vis] Damage is environmental. [RTR 19970630]"
-  - '[vis] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
+  - '[vis] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combatant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
   - "[VIS] The vampire playing it is not considered having burned a minion (eg. for {Taking the Skin: Minion}, but the opponent is. [LSJ 20090922] [ANK 20220916]"
 100414|Conservative Agitation:
   - Cannot allocate all X points to a single Methuselah, but you can allocate points to yourself. [LSJ 20000622]
@@ -629,7 +629,7 @@
   - One Courier only lets you look at the top library card once per bleed. [LSJ 20001102-2]
 100435|The Coven:
   - Can be locked during damage resolution, but not while healing damage or preventing destruction (you cannot take 2, lock The Coven, then take the rest). [PIB 20121031]
-  - The predator must take control of it when he gets the the opportunity to play effects. If the controller declares his turn ends, he does not get the opportunity to use The Coven before it is moved to his predator, even retroactively if the mandatory effect was forgotten. [LSJ 20100723] [PIB 20111002]
+  - The predator must take control of it when he gets the opportunity to play effects. If the controller declares his turn ends, he does not get the opportunity to use The Coven before it is moved to his predator, even retroactively if the mandatory effect was forgotten. [LSJ 20100723] [PIB 20111002]
 100439|Crawling Chamber:
   - "[VIS] Damage is environmental. [RTR 19970630]"
 100440|Create Gargoyle:
@@ -689,7 +689,7 @@
   - The card is still considered played. The same reaction or modifier cannot be played again by the same minion. Another Aim card cannot be played once one has been canceled, nor any other card which text prohibits to be played more than once. [LSJ 19980212] [ANK 20190104]
   - Can only cancel minion cards played from the hand in the normal fashion (eg. not weapons played via {Disguised Weapon} or allies from {Piper}). [RTR 20001020]
 100496|Darkling Trickery:
-  - '[MYT] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
+  - '[MYT] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combatant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
 100497|Darkness Within:
   - 'The blood is removed during strike resolution, before mending damage. It is not removed if a "strike: combat ends" resolves. [LSJ 20051123]'
   - The effect is ordered against steal blood effects (eg. {Theft of Vitae}) by the acting minion's controller. [LSJ 20020301]
@@ -737,13 +737,13 @@
   - The clan is set when the card is played, it does not depend on the clan of the vampire that has the card on them. [LSJ 20070707]
   - Does not change the sect of the target. [RTR 20201130]
   - If the target changes clan to a clan inappropriate for his title, he loses its benefit until his clan is appropriate. He immediately yields the title if it is contested or he receives a new one. [RTR 20201130] [LSJ 20060904]
-  - When removed, the vampire goes back ot its underlying clan. [RTR 20201130] [ANK 20200415]
+  - When removed, the vampire goes back to its underlying clan. [RTR 20201130] [ANK 20200415]
   - Only requires one clan or the other (Malkavian or Malkavian antitribu) to be played. [ANK 20190203]
 100528|Descent into Darkness:
   - Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]
   - Damage inflicted after the action resolution (eg. {Daring the Dawn}) are not applied. [LSJ 20040616]
   - If played by an ally, the ally can never come back. [LSJ 20060124]
-  - All cards on the vamipre come back unlocked. [LSJ 20060908]
+  - All cards on the vampire come back unlocked. [LSJ 20060908]
   - The vampire will remember all effects that had been applied to him, just as contested vampires do. This includes gained or lost titles. [RTR 20000501] [LSJ 20060908]
   - Cards and effects targeting the vampire (eg. {The Rack}) will resume if and when the vampire comes back into play. [TOM 19960211] [LSJ 20010809-2] [LSJ 20010809-3] [LSJ 20060908]
 100532|Detect Authority:
@@ -762,7 +762,7 @@
 100541|Día de los Muertos:
   - During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]
 100542|Diabolic Lure:
-  - "[DAI] The opponent burns pool wether or not the pact counters reach capacity. [LSJ 20100205-2] [ANK 20221007]"
+  - "[DAI] The opponent burns pool whether or not the pact counters reach capacity. [LSJ 20100205-2] [ANK 20221007]"
 100543|The Diamond Thunderbolt:
   - If used to cancel a card that has a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]
   - "If used to cancel the change of control of a {Corruption} action, only the control change is prevented: the corruption counters are burned. [LSJ 20070222-2]"
@@ -985,12 +985,12 @@
   - "[SPI] Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 19950413] [LSJ 20020112] [RTR 20020501]"
   - "[SPI] Only applies to one block attempt. If the action later continues as if unblocked (eg.{Form of Mist}), another one is needed. [LSJ 20030227]"
 100695|Fall of the Camarilla:
-  - Cards that change a vampire's sect to Camarilla can still be played, but he becomes Independant until the Fall is removed from play. [LSJ 20040519]
-  - Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Camarilla, it sets it to Independant instead while the Fall is in play. If the Fall leaves play, the vampire retrieves his underlying sect. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]
+  - Cards that change a vampire's sect to Camarilla can still be played, but he becomes Independent until the Fall is removed from play. [LSJ 20040519]
+  - Is a temporary effect that overrides the underlying sect. The most recent override takes precedence, but if a more recent would set the sect to Camarilla, it sets it to Independent instead while the Fall is in play. If the Fall leaves play, the vampire retrieves his underlying sect. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]
   - Vampires with a Camarilla title lose the benefit from it until they becomre Camarilla again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]
 100696|Fall of the Sabbat:
-  - Cards that change a vampire's sect to Sabbat can still be played, but he becomes Independant until the Fall is removed from play. [LSJ 20040519]
-  - Is a temporary effect that overrides the underlying sect. The most recent override takes precendence, but if a more recent would set the sect to Sabbat, it sets it to Independant instead while the Fall is in play. If the Fall leaves play, the vampire retrieves his underlying sect. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]
+  - Cards that change a vampire's sect to Sabbat can still be played, but he becomes Independent until the Fall is removed from play. [LSJ 20040519]
+  - Is a temporary effect that overrides the underlying sect. The most recent override takes precedence, but if a more recent would set the sect to Sabbat, it sets it to Independent instead while the Fall is in play. If the Fall leaves play, the vampire retrieves his underlying sect. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]
   - Vampires with a Sabbat title lose the benefit from it until they becomre Sabbat again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]
 100697|False Resonance:
   - "[CHI] Cannot be used to get stealth then cancel the [aus] card that provided intercept to the blocking minion. [ANK 20180201]"
@@ -1025,7 +1025,7 @@
   - The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
 100725|Field Training:
-  - Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
+  - Is a change of the actual sect. A temporary effect overriding the sect has precedence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
   - The acting vampire must have a superior discipline to choose from. [ANK 20180731-2]
 100728|Filchware's Pawn Shop:
@@ -1132,7 +1132,7 @@
 100794|Frontal Assault:
   - If you play more than one, you gain and loose pool for all of them (they stack). [LSJ 20061018]
 100798|Galaric's Legacy:
-  - Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
+  - Is a change of the actual sect. A temporary effect overriding the sect has precedence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
 100799|Gambit Accepted:
   - If the controller of a Gambit in play withdraws, his or her predator gets a VP from the Gambit (the Methuselah who withdraws still gets a VP for withdrawing, of course). [RTR 20040501]
@@ -1179,7 +1179,7 @@
   - The number of cards to put on it is announced when the action is declared, they must be in hand before drawing the replacement for this card. [PIB 20150428]
   - At action resolution, the number of cards declared must be put on the card. If there are less cards available (eg. {Form of Mist} was played to continue the action), then all of them are put on the Gift. [PIB 20150428]
 100828|Gift of Sleep:
-  - "[obe] [ACTION MODIFIER][REACTION] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
+  - "[obe] [ACTION MODIFIER][REACTION] The action ends unsuccessfully immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 100832|Giulia Giovanni Abruzzina:
   - When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
   - She can lock to use her ability the turn she is recruited. [ANK 20180517]
@@ -1192,7 +1192,7 @@
   - Can be used to unlock a ready Ishtarri with no blood. [LSJ 19970707]
 100840|Go Anarch:
   - Is not the default action, no blood is paid to become Anarch. [ANK 20181017]
-  - Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
+  - Is a change of the actual sect. A temporary effect overriding the sect has precedence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
 100841|Goblinism:
   - "[pot] The action is directed at the Methuselah controlling the location, undirected if you control it. [RBK 20200701-9] [LSJ 20090324]"
@@ -1264,7 +1264,7 @@
 100882|Hand of Conrad:
   - The minion cannot use the discipline provided if some effect prevents him to use the equipment (eg. {Drawing Out the Beast}). [RTR 20010710]
 "100884|Haqim's Law: Judgment":
-  - The provided action is considered as an action that requires an Anarch or an Independant. (eg {CrimethInc.} can be used). [ANK 20180529]
+  - The provided action is considered as an action that requires an Anarch or an Independent. (eg {CrimethInc.} can be used). [ANK 20180529]
 100886|Harass:
   - If the action is not blocked and the target does not meet the requirements anymore, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]
 100887|Hard Case:
@@ -1290,7 +1290,7 @@
   - 'May not be locked "in response" to an effect: all effects are instantaneous except for actions and certain combat effects. [LSJ 20010110] [LSJ 20050111]'
   - Cannot be used to put a card on a vampire who is prohibited to have it (eg. an equipment on {Enkidu, The Noah}). [LSJ 19980831]
   - "Cannot be used before damage is inflicted after action resolution (eg. {Force of Will}, {Daring the Dawn}): this is still during the action. [ANK 20171124]"
-  - "Cannot be used after a diablerie or an {Abactor} resolution and before the Blood Hunt: the Blood Hunt is part of the action although it is independant from it. [LSJ 20090722-2] [LSJ 20030618]"
+  - "Cannot be used after a diablerie or an {Abactor} resolution and before the Blood Hunt: the Blood Hunt is part of the action although it is independent from it. [LSJ 20090722-2] [LSJ 20030618]"
   - "Can be used to move more blood than the target can hold: the excess goes to the blood bank. [ANK 20170804]"
   - Can be used between two actions during another Methuselah's turn. [ANK 20210608]
 100910|Hell-for-Leather:
@@ -1433,7 +1433,7 @@
   - "[pre] The blocking vampire do not unlock if the vampire uses another effect to end combat as a strike. [RTR 20020501]"
   - "[tem] No other effect can be used to reset the range, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]"
 101000|Into the Fire:
-  - Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]
+  - Is a change of the actual sect. A temporary effect overriding the sect has precedence. [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
 101005|Invoke Poison Glands:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
@@ -1651,7 +1651,7 @@
   - Cannot be played in succession. The loss from the play of a Major Boon is due to a card effect, not a bleed. So a second cannot be played to Boon the first. [RTR 19960530]
   - Multiple Major Boons in play cannot be burned on the same bleed action - after the first is burned, "you" are no longer the Methuselah burning pool. [LSJ 19990218]
 101146|Make an Example:
-  - The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
+  - The action ends unsuccessfully immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
   - Can be used by a locked vampire. [PIB 20150720] [RTR 19941109]
   - Cannot be used by a vampire in torpor. [PIB 20150720] [RTR 19970306]
 101147|Make the Misere:
@@ -1725,7 +1725,7 @@
 101200|Memory's Fading Glimpse:
   - Any cards on the target minion are burned. [SFC 19960919]
 101201|Mental Maze:
-  - The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
+  - The action ends unsuccessfully immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
   - Can be played if the requirement was met at the time of block, even if an older slave replaced the acting vampire since. [ANK 20171212]
 101204|Mercy for the Weak:
   - The blood gain takes place after the end of combat. [RTR 19970630]
@@ -1749,7 +1749,7 @@
   - "[DOM] The stolen minion returns to his previous controller even if he is in torpor (but stays in torpor). [LSJ 20010119]"
 101217|Minion Tap:
   - Pay the cost (if any, eg. {Secure Haven} or {Villein} on the target) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]
-  - If the target has less blood at resolution than the amount annouced, you take what you can. [LSJ 20100216]
+  - If the target has less blood at resolution than the amount announced, you take what you can. [LSJ 20100216]
 101218|Ministry:
   - The additional intercept is gained or lost if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]
 101219|Minor Boon:
@@ -1764,11 +1764,11 @@
   - '[CHI] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 101223|Mirror Walk:
   - "[THA] The would be blocker is locked even if he benefits from an effect that prevents him to lock when he blocks. He is not locked from the block, but from Mirror Walk's effect. [ANK 20191204]"
-  - "[THA] If the action is blocked, it ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards (eg. {Freak Drive}, slave rule, {Sowing Dissension}). [RTR 20180719] [ANK 20200207] [ANK 20210627]"
+  - "[THA] If the action is blocked, it ends unsuccessfully immediately, no other action modifier or reaction can be played afterwards (eg. {Freak Drive}, slave rule, {Sowing Dissension}). [RTR 20180719] [ANK 20200207] [ANK 20210627]"
   - "[THA] If the action is blocked, no other effect can be used (eg. {Crypt's Sons}, {Promise of 1528}, slave rule, {Sowing Dissension}) before resolving Mirror Walk delayed effect. However, effects that trigger at the same moment (eg. {Banshee Ironwail}) are still applied and ordered by the acting Methuselah. [ANK 20210627] [ANK 20211207] [ANK 20220116]"
   - "[THA] If the action is blocked and it was leaving torpor, the blocker does not get an opportunity to diablerize. [PIB 20121216]"
 101224|Mirror's Visage:
-  - "[chi] The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
+  - "[chi] The action ends unsuccessfully immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]"
 101227|Mistaken Identity:
   - "The action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20220118] [ANK 20221205]."
 101230|Mob Rule:
@@ -1876,7 +1876,7 @@
   - Can be played by a minion of a Methuselah not involved in the current combat. [ANK 20181101]
 101305|NRA PAC:
   - Does not affect equip actions performed prior to its arrival in play. [LSJ 20061218]
-  - The minions who performed an equip action when it was in play unlock at the end of turn regardless of wether NRA PAC is still in play or not. [LSJ 20080619]
+  - The minions who performed an equip action when it was in play unlock at the end of turn regardless of whether NRA PAC is still in play or not. [LSJ 20080619]
 101306|NSA Trio:
   - Only applies once each turn for the first eligible combat. [LSJ 20050215]
 101309|Obedience:
@@ -1885,7 +1885,7 @@
   - "Actions without card (provided by the rulebook) can be repeated if they have different targets. Equipping from a minion targets the equipments: if one equipment is the same, the action is the same. [RTR 19950509] [LSJ 20080710] [ANK 20200502]"
   - Actions provided by cards in play are not the same if the card is not the same, even if the cards have the same name. [LSJ 20080725]
   - Can be played by an unlocked older vampire to avoid a new combat queued after a preceding combat, if the opponent is still the acting vampire. [LSJ 19991025]
-  - The action ends unsuccessfuly immediately, combat does not happen, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20170105] [ANK 20200207]
+  - The action ends unsuccessfully immediately, combat does not happen, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20170105] [ANK 20200207]
   - Cannot be played if the opponent is not the acting vampire, for example if a slave took his place. [ANK 20171212]
 101315|Of Noble Blood:
   - Is a directed action if a vampire controlled by another Methuselah is chosen. [ANK 20190606]
@@ -1920,7 +1920,7 @@
   - "[OBT] If the strike is dodged, no blood is burned. [LSJ 19980526] [RTR 20041202]"
   - "[OBT] Does not inflict damage (eg. does not benefit from {Target Vitals}). [LSJ 20080226]"
 101336|Out of the Frying Pan:
-  - Is a change of the actual sect. A temporary effect overriding the sect has precendence. [LSJ 20100811]
+  - Is a change of the actual sect. A temporary effect overriding the sect has precedence. [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
 101338|Outside the Hourglass:
   - The damage is inflicted by the minion (not environmental). [PIB 20120426]
@@ -2055,7 +2055,7 @@
   - Cannot be used to strike with a weapon whose strike isn't ranged. [LSJ 20050224-3]
   - Does not prevent the opponent from dodging, the dodge just has no effect. [LSJ 20030902-2] [LSJ 20060808-1]
 101494|Promise of 1528:
-  - The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
+  - The action ends unsuccessfully immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
 101500|Protected Resources:
   - All cards which modify the bleed amount are applied before Protected Resources's effect. [TOM 19960413]
   - "Does not alter the bleed amount: it merely limits the maximum amount of pool the target of the bleed burns for the successful bleed. [LSJ 20030211]"
@@ -2063,7 +2063,7 @@
 101501|Protection Racket:
   - The additional intercept is gained or lost if the acting vampire changes sect during the action (eg. with {The Red Question} or {Mask of a Thousand Faces}). [ANK 20190416]
 101503|Provision of the Silsila:
-  - Can be used even if the target is burned ot if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]
+  - Can be used even if the target is burned of if the contract is burned when the target leaves the ready region (eg. {Priority Contract}). [PIB 20150512]
   - Is used after combat effectively ends and can be order before or after other cards and effects played after combat (eg. {Monster}). [ANK 20230314]
 101504|Proxy Kissed:
   - Can be played on a vampire who already has a Proxy Kissed (and was moved to uncontrolled and re-influenced). [LSJ 20050720-1]
@@ -2118,7 +2118,7 @@
   - The blood may be used in place of pool or blood, as appropriate to the cost of the equipment. [RTR 19960112]
 101553|Ravnos Carnival:
   - A Ravnos can attempt an action that he cannot pay for himself if the cost can be paid with the Carnival's help. [LSJ 20050408]
-  - How many counters are used from the Carnival must be annouced as part of the terms of the action. [RTR 20111202]
+  - How many counters are used from the Carnival must be announced as part of the terms of the action. [RTR 20111202]
   - Cannot be used to pay for the cost of a cardless action or of an action provided by a card in play. [ANK 20180109] [LSJ 20070224]
 101554|Raw Recruit:
   - The created vampire is not unique. [LSJ 20100221]
@@ -2151,7 +2151,7 @@
   - "Actions without card (provided by the rulebook) can be repeated if they have different targets. Equipping from a minion targets the equipments: if one equipment is the same, the action is the same. [RTR 19950509] [LSJ 20080710] [ANK 20200502]"
   - Actions provided by cards in play are not the same if the card is not the same, even if the cards have the same name. [LSJ 20080725]
 101575|The Red Question:
-  - Is a change of the actual sect. A temporary effect overriding the sect has precendence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
+  - Is a change of the actual sect. A temporary effect overriding the sect has precedence and if it does, this card burns (eg. {Writ of Acceptance}). [LSJ 20100811]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
   - Does not make the action an action that "makes this vampire anarch" (eg. {CrimethInc.} cannot be played). [ANK 20180125]
   - The burn option cannot be used if you have a non-titled, non-Anarch vampire in torpor. [LSJ 20091204]
@@ -2294,8 +2294,8 @@
 101671|Sacrifice:
   - "Does not require a specific clan: vampires that can play cards as if they were of a required clan (eg. {Mata Hari}) cannot use their ability to match a target's clan. [LSJ 20100526]"
 101672|Sacrificial Lamb:
-  - If the target has a {Soul Gem of Etrius}, the Gem effect applies and it cannot be transfered. [LSJ 19970516]
-  - If the target does not burn (eg. {Byzar}'s ability) then no blood is gained and no equipment transfered. [LSJ 20100423]
+  - If the target has a {Soul Gem of Etrius}, the Gem effect applies and it cannot be transferred. [LSJ 19970516]
+  - If the target does not burn (eg. {Byzar}'s ability) then no blood is gained and no equipment transferred. [LSJ 20100423]
 101673|Safe Passage:
   - "[obe] The additional cost does not apply to reaction powers [POWER][REACTION]. [ANK 20180805]"
 101675|Samuel Haight:
@@ -2435,7 +2435,7 @@
 101757|Shatter the Gate:
   - The counters stay active after the acting Methuselah is ousted. [LSJ 20100206-2]
 101758|Shattered Mirror:
-  - The action ends unsuccessfuly immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
+  - The action ends unsuccessfully immediately, no other action modifier or reaction can be played afterwards. [RTR 20180719] [ANK 20200207]
 101760|Shattering Blow:
   - Cannot be used if there is no equipment to destroy. [RTR 19980928]
 101761|Shattering Crescendo:
@@ -2529,7 +2529,7 @@
   - If the new vampire is the same as the one who burned, he is still considered a new vampire for all purposes. (eg. he can bleed even if the previous version has already bled this turn) [LSJ 20100213]
   - "Does not trigger if the bearer is removed from the game (eg. {Golconda: Inner Peace}) [LSJ 20000113]"
   - Functions even if the bearer (now burned) was prohibited from using equipments (eg. because of {Drawing Out the Beast}). [LSJ 20010729]
-  - If the drawn vampire (B) is younger and would be put into play with Gem but is burned instead (self-contestinging, for example), then the Gem activates again, drawing a new vampire (C) and comparing his capacity to B's capacity. [RTR 20010710] [LSJ 20030918]
+  - If the drawn vampire (B) is younger and would be put into play with Gem but is burned instead (self-contesting, for example), then the Gem activates again, drawing a new vampire (C) and comparing his capacity to B's capacity. [RTR 20010710] [LSJ 20030918]
   - Can grab an imbued. In that case, the imbued is either placed in the uncontrolled region or placed empty into the incapacitated region with the Gem, as determined by his starting life. [LSJ 20060323]
   - Still produces its full effect if the new younger vampire cannot use equipment (eg. {Beast, The Leatherface of Detroit}). [LSJ 20100527]
 101833|Soul of the Earth:
@@ -2571,7 +2571,7 @@
 101857|Spying Mission:
   - Is played if you know the bleed is successful, after you would normally play reactions and action modifiers. [TOM 19960226-2]
   - No reaction can be played afterwards to make the bleed unsuccessful and "beat" the Spying Mission. [TOM 19960303] [TOM 19960226-2]
-  - Once in play, it must be burned on the next successful bleed against the same Methuselah, it cannot be used to increase an unsuccesful bleed of zero. [TOM 19950620]
+  - Once in play, it must be burned on the next successful bleed against the same Methuselah, it cannot be used to increase an unsuccessful bleed of zero. [TOM 19950620]
   - The bleed it is played on is considered unsuccessful. Previous Spying Missions won't trigger during that action. [RTR 19960530]
   - "{Archon Investigation} cannot be played after a Spying Mission is burned for +2 bleed, since the bleed is about to resolve at that point. [LSJ 19980105]"
   - '{Mask of a Thousand Faces} cannot be played after playing a superior Spying Mission because Spying Mission is played "when the action would resolve". [LSJ 19980105]'
@@ -2654,7 +2654,7 @@
   - '[PRE] The ally card is not "played" by the vampire (eg. {Louhi}''s ability cannot cancel it). [ANK 20201229]'
 "101904|Sunset Strip, Hollywood":
   - The "lock to reduce the cost" effect can be used when the action is announced or when the cost is paid. [LSJ 20090705]
-  - "Allows to play a card that could otherwise not be aforded: in this case it must be locked when the action is announced. [LSJ 20030917] [LSJ 20090705]"
+  - "Allows to play a card that could otherwise not be afforded: in this case it must be locked when the action is announced. [LSJ 20030917] [LSJ 20090705]"
 101906|Supernatural Resistance:
   - If used to cancel the opposing minion's strike, that minion must still choose a strike and could play the same one again. [LSJ 20090818]
 101907|Suppressing Fire:
@@ -2746,7 +2746,7 @@
   - The stolen minion is removed from the game when he should return to a Methuselah who has been ousted. [ANK 20181110]
   - The stolen minion returns to his previous controller even if he is in torpor (but stays in torpor). [LSJ 20010119]
   - If played on one of your own vampires, the action is undirected. Its effect can be used to unlock the vampire. [LSJ 20010828] [ANK 20180917]
-  - "Multiple Temptations on the same minion are handled separately: effects do not stask, stealing the minion only burns the counters on one of them. [LSJ 20010227]"
+  - "Multiple Temptations on the same minion are handled separately: effects do not stack, stealing the minion only burns the counters on one of them. [LSJ 20010227]"
   - "No effect can be used between the decision to burn the counters and the moment the vampire changes control: the effect is resolved at once. (eg. {Shalmath} cannot untap). [PIB 20121028]"
   - If used to steal a minion attempting to block, the block attempt fails. [LSJ 20080326]
   - If used to steal a minion targeted by an action, the action continues with the same target. Methuselahs who declined to block do not get another opportunity. If the target is not legal anymore (eg. [DOM] {Slaughtering the Herd}), the action ends with no effect. [LSJ 20020725]
@@ -2773,7 +2773,7 @@
 101969|Thicker than Blood:
   - The vampire coming out of uncontrolled keeps the cards and blood he has, if any. [LSJ 20100206-2]
 101971|Thin-Blooded Seer:
-  - When computing the cost of a card, multiplications and divisions are applied first, followed by additions and substractions. [PIB 20150917] [RTR 20070707]
+  - When computing the cost of a card, multiplications and divisions are applied first, followed by additions and subtractions. [PIB 20150917] [RTR 20070707]
 "101973|Third Tradition: Progeny":
   - The decision to move blood on the Progeny or not is taken upon resolution. [PIB 20150418]
   - The Progeny is Camarilla Sect. [RTR 20201130]
@@ -2784,7 +2784,7 @@
   - If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]
 101976|Thoughts Betrayed:
   - "[dom] Damage is environmental. [RTR 19970630] [ANK 20200422]"
-  - '[dom] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combattant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
+  - '[dom] Damage is inflicted even against a dodge. A "strike: combat ends" ends combat before damage is applied, as will a combatant going to torpor during first strike. [RTR 19941109] [TOM 19951216] [PIB 20140324] [ANK 20200422]'
   - "[DOM] Cards that merely provide the ability to strike (eg. {.44 Magnum}), are allowed. [ANK 20210928-2]"
   - "[DOM] Strike cards that are played during the Determine Range step because they provide a maneuver (eg. {Aid from Bats}) are not allowed. [ANK 20210928-2]"
 101979|Three's a Crowd:
@@ -2936,7 +2936,7 @@
 102095|Veil of Darkness:
   - The card that has no effect still counts as played, if it was an action, the vampire is not locked and can perform another (or the same) action. [LSJ 20090323]
   - Does not affect allies who play cards requiring a Discipline "as a vampire". [LSJ 20050606]
-  - The effect needs to be applied before anyone has an opportunity to play another cancelation effect (eg. {Direct Intervention}). [LSJ 20100728] [LSJ 20090213]
+  - The effect needs to be applied before anyone has an opportunity to play another cancellation effect (eg. {Direct Intervention}). [LSJ 20100728] [LSJ 20090213]
 102097|Veil the Legions:
   - Can only be played by the controller of the acting minion. [LSJ 19990425]
   - '[OBF] If an action is canceled after it has been played (eg. {Tangle Atropos'' Hand} but not {Direct Intervention}) it still counts as "one of the next X actions". [ANK 20210124]'
@@ -2966,7 +2966,7 @@
 102121|Villein:
   - Pay the cost (if any) at the same time you gain pool from it, you do not get ousted in between. [LSJ 20020620]
   - You must be able to pay the cost to play it (eg. cannot play a third Villein with only 1 pool). [ANK 20210714]
-  - If the target has less blood at resolution than the amount annouced, you take what you can. [LSJ 20100216] [ANK 20180512-2]
+  - If the target has less blood at resolution than the amount announced, you take what you can. [LSJ 20100216] [ANK 20180512-2]
 102124|Virtuosa:
   - '[MEL] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier or reaction cards. [ANK 20190425]'
   - "[MEL] Replace the action card (if any) before playing it. [ANK 20181208]"
@@ -3005,7 +3005,7 @@
 102146|Warding the Beast:
   - "[val] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 102149|Warsaw Station:
-  - "Can be burned after the annoucement of a diablerie action to bring the target Nosferatu out of torpor. The action will still be successful if unblocked, but will have no effect: no diablerie happen. [ANK 20220218] [ANK 20181107]"
+  - "Can be burned after the announcement of a diablerie action to bring the target Nosferatu out of torpor. The action will still be successful if unblocked, but will have no effect: no diablerie happen. [ANK 20220218] [ANK 20181107]"
   - Can be burned during an action to bring back a vampire that was put into torpor during that action, but the action ends and cannot be continued (eg. with {Ambulance}). [ANK 20220218] [LSJ 20090325-2]
   - The unlock effect is applied after the action is resolved and the referendum (if any) concluded. If the acting vampire is not a Nosferatu anymore at that point, he does not unlock. [LSJ 20090216] [ANK 20180922]
 102151|Wash:
@@ -3066,7 +3066,7 @@
   - When a vampire is influenced, the excess blood drains off before entering contest (if any) and before playing "as played/as he enters play" effects. [LSJ 20100902]
 102196|Writ of Acceptance:
   - The effect is not optional. [RTR 19980707]
-  - Is a temporary effect that overrides the underlying sect. The most recent override takes precendence. It stays active if another effect changes the underlying sect, like using the default action to become Anarch. [LSJ 20100811] [ANK 20190619]
+  - Is a temporary effect that overrides the underlying sect. The most recent override takes precedence. It stays active if another effect changes the underlying sect, like using the default action to become Anarch. [LSJ 20100811] [ANK 20190619]
   - If the target changes sect to a sect inappropriate for his title, he loses its benefit until his sect is appropriate. He immediately yields the title if it is contested or he receives a new one. [LSJ 20060904]
 102198|XTC-Laced Blood:
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
@@ -3112,7 +3112,7 @@
   - Can be locked to reduce the cost at any point before resolution, from when the action is announced to just before the cost is paid. [ANK 20230620]
   - Can be used to allow you to play cards which cost you could not pay otherwise (eg. {Procurer}). [ANK 20230621]
 200011|Adana de Sforza (G4):
-  - Card with multiple types (eg. Combat/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
+  - Card with multiple types (eg. Combat/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron (G3):
   - The damage inflicted by his ability is environmental. [RTR 19970630] [LSJ 20070328]
   - His ability to get a press can only be used during the press step. [PIB 20150121]
@@ -3151,7 +3151,7 @@
   - He can use his ability on his own bleed to get (-1 +2) = +1 bleed. [LSJ 20081124-2]
   - His ability cannot be used after {Spying Mission}. If his ability reduces a bleed to zero, it is no longer successful and {Spying Mission} cannot be used afterwards. [PIB 20150612]
 200086|Andrew Stuart (G4):
-  - His ability needs to be applied before anyone has an opportunity to play another cancelation effect (eg. {Direct Intervention}). [LSJ 20100728] [LSJ 20090213]
+  - His ability needs to be applied before anyone has an opportunity to play another cancellation effect (eg. {Direct Intervention}). [LSJ 20100728] [LSJ 20090213]
 200091|Angela Preston (G2):
   - When she is influenced out, her ability to unlock a vampire can be used during the ongoing influence phase. [RTR 20180303]
 "200092|Angelica, The Canonicus (G2)":
@@ -3232,7 +3232,7 @@
 200269|Chaundice (G4):
   - Can use her ability to prevent 4 damage on a single strike. [LSJ 20100708]
 200288|Conrad Adoula (G4):
-  - Card with multiple types (eg. Reaction/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
+  - Card with multiple types (eg. Reaction/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 200297|Count Zaroff (G5):
   - His ability can be used more than once each turn. [RTR 20180511]
 200314|Dancin' Dana (G1 ADV):
@@ -3330,7 +3330,7 @@
   - She cannot attempt an action to equip nor strike to steal an equipment. [LSJ 20050315] [LSJ 20010210]
   - She can equip with an equipment that is a location when in play. [LSJ 20050315]
 200587|Helena (G3 ADV):
-  - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
+  - "[MERGED] Is Independent. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
   - "[MERGED] Immune means damage is not inflicted, even if non-preventable or outside combat. [LSJ 20010627] [LSJ 20010629] [LSJ 20090304-1]"
 200590|Henry Taylor (G3):
   - A card with multiple types (eg. {Swallowed by the Night}) needs to have been played as a combat card to be eligible. [LSJ 20031221]
@@ -3370,9 +3370,9 @@
 200668|Jamal (G5):
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
 200670|Jan Pieterzoon (G2 ADV):
-  - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
+  - "[MERGED] Is Independent. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 200671|Jane Sims (G4):
-  - Card with multiple types (eg. Combat/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
+  - Card with multiple types (eg. Combat/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 200678|Jaroslav Pascek (G3):
   - When using the action provided by his ability, if some minions cannot be targeted because of another effect, the action will simply have no effect on the things it cannot target. [RTR 20080808]
 200688|Jenna Cross (G4):
@@ -3385,12 +3385,12 @@
   - If a second Jimmy Dunn is brought out during an action, the acting vampire is not considered to be "burning" the first Jimmy. [LSJ 19990719] [RTR 19991001]
   - If a non-contesting second copy of Jimmy enters play (via {Illusions of the Kindred}, for example), the first Jimmy won't burn himself. [LSJ 19991110]
 200720|Josef von Bauren (G4):
-  - His ability can be used multiple times if one hase multiple discard phase actions. [ANK 20190725]
+  - His ability can be used multiple times if one has multiple discard phase actions. [ANK 20190725]
 200742|Kahina the Sorceress (G3):
-  - Her ability inflicts a total of one damage to a a minion with one or more corruption counters. [LSJ 20030820]
+  - Her ability inflicts a total of one damage to a minion with one or more corruption counters. [LSJ 20030820]
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
 200753|Karen Suadela (G5):
-  - She keeps her title if {Fall of the Camarilla} is played. She can be chosen for {Recalled to the Founder}, but does not burn. Allies still benefit trom {The Unmasking} intercept when trying to block her. [LSJ 20081120-2]
+  - She keeps her title if {Fall of the Camarilla} is played. She can be chosen for {Recalled to the Founder}, but does not burn. Allies still benefit from {The Unmasking} intercept when trying to block her. [LSJ 20081120-2]
 200754|Karif al Numair (G5):
   - His ability applies when he is in torpor. [LSJ 20011022] [LSJ 20100902-2]
 200758|Karsh (G3 ADV):
@@ -3402,10 +3402,10 @@
   - Her ability to force a vampire to abstain can cancel the votes and ballots of the vampire. [LSJ 20100311]
 200770|Kemintiri (G2 ADV):
   - "[MERGED] Keeps her title and votes if she changes sects. [LSJ 20010714]"
-  - "[MERGED] When playing a card requiring Camarilla, Ventrue and/or justicar, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228] [LSJ 20101013]"
+  - "[MERGED] When playing a card requiring Camarilla, Ventrue and/or Justicar, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228] [LSJ 20101013]"
   - "[MERGED] If she plays a political action requiring a Justicar, she is not seen as such by other cards or effects during the referendum (eg. if another vampire plays {Closed Session} and she's not Camarilla she will not be able to vote. If she plays it, she can vote). [LSJ 20050128-2] [ANK 20221011-4] [RTR 20070707]"
   - "[MERGED] Does not enable you to play master cards, it only enables her to play certain minion cards. [LSJ 20050721]"
-  - "[MERGED] When considered a justicar, she is also implicitly considered Camarilla. [LSJ 20050128]"
+  - "[MERGED] When considered a Justicar, she is also implicitly considered Camarilla. [LSJ 20050128]"
 "200773|Kephamos, High Priest of Marrakech (G2)":
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
 200775|Kestrelle Hayes (G5):
@@ -3425,7 +3425,7 @@
 200811|Lambach (G2 ADV):
   - The provided action is an "equip action" [TOM 19960130]
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
-  - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
+  - "[MERGED] Is Independent. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 200819|Lázár Dobrescu (G2):
   - Cannot use his special ability if his controller has no vampires in her uncontrolled region. [LSJ 19990215]
 200821|Lazarus (G1 ADV):
@@ -3513,7 +3513,7 @@
 200966|Maxwell (G3):
   - Cannot use his ability to become a Prince if he has changed sect and is no longer Camarilla. [LSJ 20030202]
 200976|Menele (G3 ADV):
-  - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
+  - "[MERGED] Is Independent. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 200979|Merrill Molitor (G1):
   - The damage he treats as normal is handled before any aggravated damage that is being treated as aggravated damage. [LSJ 20030213]
   - If an aggravated damage is inflicted with {Target Vitals}, the additional damages are still aggravated. [LSJ 20100527]
@@ -3548,11 +3548,11 @@
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
 201048|Nergal (G5):
   - If he plays a action he can only pay for with his ability, he has to use his ability when the action resolves (even if a {Deflection} was played on a bleed). [LSJ 20091021-2]
-  - If he lost a blood during the course of an action that he could have paid for when announced, he can choose wether or not to use his ability to be able to pay for it. [LSJ 20091021-2]
+  - If he lost a blood during the course of an action that he could have paid for when announced, he can choose whether or not to use his ability to be able to pay for it. [LSJ 20091021-2]
   - If he cannot pay for the action even with his ability, his ability is not considered used for the action (even if it was announced). [LSJ 20091021-2]
   - If a card he plays is cancelled as it played and no cost is paid, his ability is not considered used for the turn. [LSJ 20091021-2]
 201049|Nergal (G5 ADV):
-  - Card with multiple types (eg. Reaction/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
+  - Card with multiple types (eg. Reaction/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 201052|New Blood (ANY):
   - A vampire with no circle designation is in his own "unique circle of one". [LSJ 20020609] [ANK 20211113]
   - New Blood can be in the "unique circle of one" of any vampire, including another copy of himself. Two uncontrolled New Bloods are in different circles (eg. for {Unwholesome Bond}). [ANK 20211113]
@@ -3567,7 +3567,7 @@
   - His ability still applies when in torpor. [LSJ 20011022] [LSJ 20100902-2]
 201095|Parmenides (G2):
   - He comes back as the unlock phase begins and unlocks as normal. [LSJ 20010622]
-  - If two are influenced in the same turn, the second is burned (self-contestinging on the predator's end). [LSJ 20010623-2]
+  - If two are influenced in the same turn, the second is burned (self-contesting on the predator's end). [LSJ 20010623-2]
   - If the owner is ousted before Parmenides comes back, the predator keeps control of him indefinitely. [LSJ 20021111]
 "201098|Patrizia Giovanni, Collector of Secrets (G2)":
   - When using her ability, the card to retrieve must be announced when declaring the action. [LSJ 20010627]
@@ -3582,7 +3582,7 @@
   - You can still use the burn options of cards with a requirement she could meet when you play them, but does not meet while in play. [LSJ 20050225]
   - Her ability do not let her fulfill card requirements if they are not played normally, like when using {Piper}. [LSJ 20050119]
   - Her ability to get a press can only be used during the press step. [PIB 20150121]
-  - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
+  - "[MERGED] Is Independent. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 201121|Philip van Vermeer IV (G2):
   - When playing a card requiring a Ventrue, he is treated as a such for all effects of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play. [ANK 20190228]
   - His ability do not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
@@ -3612,14 +3612,14 @@
 201164|Raphael Catarari (G4):
   - 'Unlocking is the first thing to do in the unlock phase: if he is odd, gaining one blood later in the unlock phase will not let him "unlock as normal" this turn. [LSJ 20060911]'
 201173|Reg Driscoll (G2):
-  - His ability is activated after he equips with the equipment. He cannot use his ability to move the {Eye of Hazimel}, or an equipment that is a locatino while in play. [LSJ 20020211] [LSJ 20060221]
+  - His ability is activated after he equips with the equipment. He cannot use his ability to move the {Eye of Hazimel}, or an equipment that is a location while in play. [LSJ 20020211] [LSJ 20060221]
   - You may move all or none the equipment he gets to just one minion, but you cannot split. [LSJ 20050217] [LSJ 20090622]
 "201175|Regina Giovanni, The Right Hand of Augustus (G2)":
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
 201181|Reverend Adams (G4 ADV):
   - "[MERGED] Is Camarilla. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 "201184|Rex, The Necronomist (G2)":
-  - Card with multiple types (eg. Combat/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
+  - Card with multiple types (eg. Combat/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 201189|Rico Loco (G4):
   - The damage he takes during the master phase from his ability is environmental. [RTR 19970630]
 201214|Ruxandra (G5):
@@ -3636,7 +3636,7 @@
   - When using his ability to draw, discard afterwards. [ANK 20190707]
 201253|Scout Youngwood (G6):
   - Keeps her title and votes if she changes sects. [LSJ 20010714]
-  - Card with multiple types (eg. Reaction/Action Modifer) are considered of the type they are played as, not both. [PIB 20150924-2]
+  - Card with multiple types (eg. Reaction/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 201257|Sébastien Goulet (G3):
   - His ability works on allies recruited in a non-standard way (eg. {Piper}). [ANK 20210913] [LSJ 20090116]
 201260|Sela (G2 ADV):
@@ -3680,7 +3680,7 @@
   - His capacity is reduced immediately when he get controlled, before it can be merged with the advanced version. [ANK 20190522]
 "201345|Tariq, The Silent (G2 ADV)":
   - His capacity is reduced immediately when he get controlled, before it can be merged with the base version. [ANK 20190522]
-  - "[MERGED] When he merges (in whatever way), he becomes independant and any Anarch token is burned. [ANK 20180523]"
+  - "[MERGED] When he merges (in whatever way), he becomes independent and any Anarch token is burned. [ANK 20180523]"
 "201348|Tatiana Stepanova, Alastor (G4)":
   - When playing a card requiring Brujah or Gangrel, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]
   - Her ability do not let her fulfill card requirements if they are not played normally, like when using {Piper} or {The Summoning} to recruit an ally. [LSJ 20050119]
@@ -3695,7 +3695,7 @@
 201359|Terry (G2):
   - Her ability to get a press can only be used during the press step. [PIB 20150121]
 201363|Theo Bell (G2 ADV):
-  - "[MERGED] Is Independant. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
+  - "[MERGED] Is Independent. If the base version was the one in play, it changes sect as it is merged. If it had an anarch token, it is burned. [ANK 20180524]"
 "201365|Thetmes, Caliph of Alamut (G2)":
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
 201370|Thucimia (G4):
@@ -3704,7 +3704,7 @@
   - His ability can be used while locked or in torpor. [ANK 20220705] [LSJ 20100705]
 201382|Topaz (G4):
   - Her ability applies when equipping in a non-normal way (eg. {Concealed Weapon}). [PIB 20150105-2]
-  - When using her abilty, pay only for the original equipment. Neither costs nor requirements apply for the one taken from the prey's hand. [LSJ 20080702-4]
+  - When using her ability, pay only for the original equipment. Neither costs nor requirements apply for the one taken from the prey's hand. [LSJ 20080702-4]
 201383|Tori Longwood (G2):
   - Her ability still applies when in torpor. [LSJ 20011022] [LSJ 20100902-2]
 201386|Travis "Traveler72" Miller (G4):
