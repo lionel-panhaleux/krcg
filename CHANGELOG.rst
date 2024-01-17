@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.5 (unreleased)
+3.5 (2024-01-17)
 ----------------
 
 - Add Tegyrius Promo
