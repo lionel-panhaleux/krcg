@@ -5,7 +5,7 @@ Changelog
 ----------------
 
 - Add Tegyrius Promo
-
+- Fixed typos in rulings
 
 3.4 (2024-01-13)
 ----------------
