@@ -93,16 +93,22 @@ Then you can play around with VTES to access cards, complete card names or searc
     'Gehenna': [{'release_date': '2004-05-17', 'rarity': 'Rare'}],
     'Kindred Most Wanted': [{'release_date': '2005-02-21', 'precon': 'Alastors', 'copies': 1}],
     'Keepers of Tradition': [{'release_date': '2008-11-19', 'rarity': 'Rare'}]},
- 'rulings': {
-   'text': [
-     'If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]',
-      'Requirements do not apply. [ANK 20200901]'
-    ],
-    'links': {
-      '[LSJ 20040518]': 'https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ',
-      '[ANK 20200901]': 'http://www.vekn.net/forum/rules-questions/78830-alastor-and-ankara-citadel#100653'
-    }
-  }
+  'rulings': [
+    {
+      'full_text': 'If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]',
+      'text': 'If the given weapon costs blood, the target Alastor pays the cost.',
+      'links': {
+        '[LSJ 20040518]': 'https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ'
+      }
+    },
+    {
+      'text': 'Requirements do not apply. [ANK 20200901]'
+      'clean_text': 'Requirements do not apply.'
+      'links': {
+        '[ANK 20200901]': 'http://www.vekn.net/forum/rules-questions/78830-alastor-and-ankara-citadel#100653'
+      }
+    },
+  ]
 }
 >>> VTES.complete("pentex")
 ['Pentex™ Loves You!',
@@ -428,20 +434,26 @@ provide a link to an online post by one of the rules directors:
 Feel free to contribute rulings as Pull Requests directly, this is very appreciated.
 
 Add the ruling link to
-[rulings-links.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/rulings-links.yaml),
+[links.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/links.yaml),
 and the ruling itself to
-[cards-rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/cards-rulings.yaml) or
-[general-rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/general-rulings.yaml)
-depending on the case.
+[rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/rulings.yaml).
+You can define groups of cards in
+[groups.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/general-rulings.yaml)
+if it's relevant.
 
 The format is mostly self-explanatory:
 
--   Cards are reference by ID and name in the format `ID|Name`.
+-   Cards and groups are reference by ID and name in the format `ID|Name`.
 
--   Card names inside rulings text should be between bracers, eg. `{.44 Magnum}`
+-   Card names inside rulings text should be between bracers, eg. `{.44 Magnum}`.
+    It needs to be a full card's name (ie. not `{Praxis Seizure}` but `{Praxis Seizure: Dublin}`)
+    to enable online tools to successfully parse for (and display) actual cards.
 
--   Individual rulings in `cards-rulings.yaml` must provide one or more references
+-   Individual rulings in `rulings.yaml` must provide one or more references
     to ruling links at the end of the text, between brackets, eg `[LSJ 20100101]`
+
+-   Cards listed in a group in `groups.yaml` can indicate a list of symbols prefix if
+    only one of their variant (superior, merged, etc.) is to be considered as part of the group 
 
 In doing so, please follow the following guidelines:
 
@@ -452,6 +464,7 @@ In doing so, please follow the following guidelines:
 -   Prefix the ruling with the discipline level and/or type the ruling applies to (if any),
     eg. prefix with `[PRO] [COMBAT]` if the ruling applies only to the card played in combat at superior Protean.
 
--   Adapt the ruling wording to the cards it applies to (ie. use masculine/feminin forms)
+-   Adapt the ruling wording to the cards it applies to (ie. use masculine/feminin forms).
+    For group rulings, ensure the statement's neutrality to make sure it reads well on every card of the group.
 
 -   You can run the tests with the `pytest` command to check everything is OK

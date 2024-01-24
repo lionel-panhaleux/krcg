@@ -104,18 +104,23 @@ def test_card():
             ),
         },
         "types": ["Combat"],
-        "rulings": {
-            "links": {
-                "[TOM 19960521]": (
-                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
-                    "poYD3n0TKGo/xvU5HW7lBxMJ"
+        "rulings": [
+            {
+                "links": {
+                    "[TOM 19960521]": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
+                        "poYD3n0TKGo/xvU5HW7lBxMJ"
+                    ),
+                },
+                "full_text": (
+                    "[ANI] The press can only be used during the current round. "
+                    "[TOM 19960521]"
                 ),
-            },
-            "text": [
-                "[ANI] The press can only be used during the current round. "
-                "[TOM 19960521]"
-            ],
-        },
+                "text": "The press can only be used during the current round.",
+                "symbols_txt": ["[ANI]"],
+                "symbols_ankha": ["I"],
+            }
+        ],
         "url": "https://static.krcg.org/card/aidfrombats.jpg",
     }
 
@@ -173,38 +178,60 @@ def test_multiple_rulings():
             "Fifth Edition",
             "New Blood",
         ],
-        "rulings": {
-            "links": {
-                "[LSJ 19970814]": (
-                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
-                    "/Xd6HOjnqBpw/_wNl-bMoKiAJ"
-                ),
-                "[LSJ 20050114]": (
-                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
-                    "/JWiZmyC2Y6s/q6JHYrE1zKYJ"
-                ),
-                "[TOM 19960528]": (
-                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
-                    "/SNpATL1McBM/yHonNZINkWUJ"
-                ),
-            },
-            "text": [
-                (
+        "rulings": [
+            {
+                "full_text": (
                     'The same vampire can serve as the "second Toreador" for '
                     "multiple Toreador Grand Balls. [TOM 19960528]"
                 ),
-                (
+                "text": (
+                    'The same vampire can serve as the "second Toreador" for '
+                    "multiple Toreador Grand Balls."
+                ),
+                "links": {
+                    "[TOM 19960528]": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
+                        "/SNpATL1McBM/yHonNZINkWUJ"
+                    )
+                },
+            },
+            {
+                "full_text": (
                     "The first Toreador chosen for the Toreador Grand Ball "
                     "is unblockable on all non-bleed actions. This remains "
                     "true even after the vampire attempts a bleed. [LSJ 19970814]"
                 ),
-                (
+                "text": (
+                    "The first Toreador chosen for the Toreador Grand Ball "
+                    "is unblockable on all non-bleed actions. This remains "
+                    "true even after the vampire attempts a bleed."
+                ),
+                "links": {
+                    "[LSJ 19970814]": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
+                        "/Xd6HOjnqBpw/_wNl-bMoKiAJ"
+                    )
+                },
+            },
+            {
+                "full_text": (
                     'The "does not unlock as normal" effect is redundant '
                     "with being infernal. If the minion is infernal, his "
                     "controller can still pay a pool to unlock him. [LSJ 20050114]"
                 ),
-            ],
-        },
+                "text": (
+                    'The "does not unlock as normal" effect is redundant '
+                    "with being infernal. If the minion is infernal, his "
+                    "controller can still pay a pool to unlock him."
+                ),
+                "links": {
+                    "[LSJ 20050114]": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
+                        "/JWiZmyC2Y6s/q6JHYrE1zKYJ"
+                    )
+                },
+            },
+        ],
         "sets": {
             "Camarilla Edition": [{"rarity": "Uncommon", "release_date": "2002-08-19"}],
             "Dark Sovereigns": [{"rarity": "Uncommon", "release_date": "1995-12-15"}],
@@ -239,6 +266,165 @@ def test_multiple_rulings():
         },
         "types": ["Master"],
         "url": "https://static.krcg.org/card/toreadorgrandball.jpg",
+    }
+
+
+def test_groups_rulings():
+    assert vtes.VTES["Taking the Skin: Minion"].to_json() == {
+        "_name": "Taking the Skin: Minion",
+        "_set": "EK:R",
+        "artists": ["Leif Jones"],
+        "card_text": "[abo] [REFLEX] Cancel a frenzy card played on this vampire as "
+        "it is played.\n"
+        "[abo] Skin. Play when this vampire burns a minion. Put this "
+        "card on this vampire and unlock him or her. This vampire may "
+        "bleed an additional time this turn and gets +1 bleed and +1 "
+        "stealth when bleeding. Burn this card during your discard "
+        "phase. A minion can have only one skin.",
+        "disciplines": ["abo"],
+        "id": 101928,
+        "name": "Taking the Skin: Minion",
+        "ordered_sets": ["Ebony Kingdom"],
+        "printed_name": "Taking the Skin: Minion",
+        "rulings": [
+            {
+                "text": (
+                    "If a minion is burned in combat, his opponent is always "
+                    "considered to have burned him."
+                ),
+                "links": {
+                    "[LSJ 20090922]": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
+                        "UdvGbJqOeo4/qFeNdWilXzUJ"
+                    )
+                },
+                "symbols_ankha": ["w", "4"],
+                "symbols_txt": ["[abo]", "[COMBAT]"],
+                "full_text": (
+                    "[abo] [COMBAT] If a minion is burned in combat, his opponent is "
+                    "always considered to have burned him. [LSJ 20090922]"
+                ),
+            },
+            {
+                "text": (
+                    "If the minion is burned because of a referendum or as a "
+                    "side-effect of the action, this does not count as the acting "
+                    "minion burning him. (eg. {War Ghoul} when recruited, "
+                    "{Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s "
+                    "ability, {Blood Brother Ambush})."
+                ),
+                "links": {
+                    "[ANK 20181022]": (
+                        "http://www.vekn.net/forum/rules-questions/"
+                        "77103-kamiri-wa-itherero-blocked-by-a-minion-"
+                        "use-of-taking-the-skin-minion?start=6#91389"
+                    ),
+                    "[ANK 20220916]": (
+                        "https://www.vekn.net/forum/rules-questions/"
+                        "80030-blood-brother-ambush-taking-the-skin-minion#106354"
+                    ),
+                    "[LSJ 20090922]": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
+                        "UdvGbJqOeo4/qFeNdWilXzUJ"
+                    ),
+                    "[RTR 19960124]": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
+                        "wF82VdVPlm0/cSshmBFQs-EJ"
+                    ),
+                },
+                "symbols_ankha": ["w", "1"],
+                "symbols_txt": ["[abo]", "[ACTION MODIFIER]"],
+                "full_text": (
+                    "[abo] [ACTION MODIFIER] If the minion is burned because of a "
+                    "referendum or as a side-effect of the action, this does not count "
+                    "as the acting minion burning him. (eg. {War Ghoul} when recruited,"
+                    " {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s "
+                    "ability, {Blood Brother Ambush}). [RTR 19960124] [LSJ 20090922] "
+                    "[ANK 20181022] [ANK 20220916]"
+                ),
+            },
+            {
+                "text": (
+                    "If played on a diablerie, can be played before or after getting a "
+                    "Discipline card (if any), but must be played "
+                    "before the Blood Hunt."
+                ),
+                "links": {
+                    "[RTR 19991206]": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
+                        "N7iEmqgP9WU/gX80TroOBsUJ"
+                    )
+                },
+                "symbols_ankha": ["w", "1"],
+                "symbols_txt": ["[abo]", "[ACTION MODIFIER]"],
+                "full_text": (
+                    "[abo] [ACTION MODIFIER] If played on a diablerie, can "
+                    "be played before or after getting a Discipline card (if any), "
+                    "but must be played before the Blood Hunt. [RTR 19991206]"
+                ),
+            },
+            {
+                "text": 'Cards are not replaced during the "as played" window.',
+                "links": {
+                    "[LSJ 20061013]": (
+                        "https://groups.google.com/g/rec.games.trading-cards.jyhad/"
+                        "c/6w8K3yDtBH0/m/M_SZH9Id8n8J"
+                    )
+                },
+                "symbols_ankha": ["w", "6"],
+                "symbols_txt": ["[abo]", "[REFLEX]"],
+                "full_text": (
+                    '[abo] [REFLEX] Cards are not replaced during the "as played" '
+                    "window. [LSJ 20061013]"
+                ),
+            },
+            {
+                "text": (
+                    'If the canceled card had a "Do Not Replace Until" clause on it, '
+                    "that clause is canceled as well and the card is replaced normally."
+                ),
+                "links": {
+                    "[LSJ 20011023]": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
+                        "2GOLIrXAF8M/P4T3Dj6UNL0J"
+                    )
+                },
+                "symbols_ankha": ["w", "6"],
+                "symbols_txt": ["[abo]", "[REFLEX]"],
+                "full_text": (
+                    '[abo] [REFLEX] If the canceled card had a "Do Not Replace Until" '
+                    "clause on it, that clause is canceled as well and the "
+                    "card is replaced normally. [LSJ 20011023]"
+                ),
+            },
+            {
+                "text": (
+                    "Any frenzy card that targets/selects/chooses/affects the minion "
+                    "when played, is considered being played on the minion."
+                ),
+                "links": {
+                    "[LSJ 20051113]": (
+                        "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
+                        "L-ctaLucuKU/dG0EKdSd4g0J"
+                    )
+                },
+                "symbols_ankha": ["w", "6"],
+                "symbols_txt": ["[abo]", "[REFLEX]"],
+                "full_text": (
+                    "[abo] [REFLEX] Any frenzy card that "
+                    "targets/selects/chooses/affects the minion when played, "
+                    "is considered being played on the minion. [LSJ 20051113]"
+                ),
+            },
+        ],
+        "scans": {
+            "Ebony Kingdom": (
+                "https://static.krcg.org/card/set/ebony-kingdom/takingtheskinminion.jpg"
+            )
+        },
+        "sets": {"Ebony Kingdom": [{"rarity": "Rare", "release_date": "2009-05-27"}]},
+        "types": ["Action Modifier", "Combat"],
+        "url": "https://static.krcg.org/card/takingtheskinminion.jpg",
     }
 
 

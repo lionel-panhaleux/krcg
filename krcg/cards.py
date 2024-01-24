@@ -3,6 +3,7 @@ import collections
 import collections.abc
 import copy
 import csv
+import dataclasses
 import datetime
 import functools
 import importlib.resources
@@ -306,7 +307,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.is_evolution = None  # same vampire appears in a lower group
         self.variants = {}  # variants of the same vampire (base, adv, evolution)
         self.name_variants = []  # variations you want to match when parsing a decklist
-        self.rulings = {"text": [], "links": {}}
+        self.rulings = []
 
     def diff(self, rhs) -> Dict[str, Tuple[str, str]]:
         res = {}
@@ -992,22 +993,20 @@ class CardMap(utils.FuzzyDict):
 
     def load_rulings(self) -> None:
         """Load card rulings from package YAML files."""
-        for ruling in rulings.RulingReader():
-            for cid, name in ruling.cards:
-                if self[cid].name != name:
-                    warnings.warn(f"Rulings: {name} does not match {self[cid]}")
-                self[cid].rulings["text"].append(ruling.text)
-                for ref, link in ruling.links.items():
-                    self[cid].rulings["links"][ref] = link
+        for card_id, card_name, ruling in rulings.RulingReader():
+            if self[card_id].name != card_name:
+                warnings.warn(f"Rulings: {card_name} does not match {self[card_id]}")
+            self[card_id].rulings.append(dataclasses.asdict(ruling))
             for card_reference in re.findall(r"{[^}]+}", ruling.text):
                 card_reference = card_reference[1:-1]
                 if card_reference not in self:
                     warnings.warn(
-                        f"Rulings: {cid}|{name} mentions unknown card {card_reference}"
+                        f"Ruling on {card_id}|{card_name} "
+                        f"mentions unknown card {card_reference}"
                     )
                 if self[card_reference].usual_name != card_reference:
                     warnings.warn(
-                        f"Rulings: {cid}|{name} mentions {card_reference} "
+                        f"Rulings on {card_id}|{card_name} mentions {card_reference} "
                         f"instead of '{self[card_reference].name}'"
                     )
 

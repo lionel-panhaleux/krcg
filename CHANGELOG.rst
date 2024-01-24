@@ -1,10 +1,10 @@
 Changelog
 =========
 
-3.6 (unreleased)
+4.0 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- New rulings format
 
 
 3.5 (2024-01-17)
