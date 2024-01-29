@@ -112,10 +112,6 @@ def test_card():
                         "poYD3n0TKGo/xvU5HW7lBxMJ"
                     ),
                 },
-                "full_text": (
-                    "[ANI] The press can only be used during the current round. "
-                    "[TOM 19960521]"
-                ),
                 "text": "The press can only be used during the current round.",
                 "symbols_txt": ["[ANI]"],
                 "symbols_ankha": ["I"],
@@ -180,10 +176,6 @@ def test_multiple_rulings():
         ],
         "rulings": [
             {
-                "full_text": (
-                    'The same vampire can serve as the "second Toreador" for '
-                    "multiple Toreador Grand Balls. [TOM 19960528]"
-                ),
                 "text": (
                     'The same vampire can serve as the "second Toreador" for '
                     "multiple Toreador Grand Balls."
@@ -196,11 +188,6 @@ def test_multiple_rulings():
                 },
             },
             {
-                "full_text": (
-                    "The first Toreador chosen for the Toreador Grand Ball "
-                    "is unblockable on all non-bleed actions. This remains "
-                    "true even after the vampire attempts a bleed. [LSJ 19970814]"
-                ),
                 "text": (
                     "The first Toreador chosen for the Toreador Grand Ball "
                     "is unblockable on all non-bleed actions. This remains "
@@ -214,11 +201,6 @@ def test_multiple_rulings():
                 },
             },
             {
-                "full_text": (
-                    'The "does not unlock as normal" effect is redundant '
-                    "with being infernal. If the minion is infernal, his "
-                    "controller can still pay a pool to unlock him. [LSJ 20050114]"
-                ),
                 "text": (
                     'The "does not unlock as normal" effect is redundant '
                     "with being infernal. If the minion is infernal, his "
@@ -300,10 +282,6 @@ def test_groups_rulings():
                 },
                 "symbols_ankha": ["w", "4"],
                 "symbols_txt": ["[abo]", "[COMBAT]"],
-                "full_text": (
-                    "[abo] [COMBAT] If a minion is burned in combat, his opponent is "
-                    "always considered to have burned him. [LSJ 20090922]"
-                ),
             },
             {
                 "text": (
@@ -334,14 +312,6 @@ def test_groups_rulings():
                 },
                 "symbols_ankha": ["w", "1"],
                 "symbols_txt": ["[abo]", "[ACTION MODIFIER]"],
-                "full_text": (
-                    "[abo] [ACTION MODIFIER] If the minion is burned because of a "
-                    "referendum or as a side-effect of the action, this does not count "
-                    "as the acting minion burning him. (eg. {War Ghoul} when recruited,"
-                    " {Brigitte Gebauer} using her last life, {Kamiri wa Itherero}'s "
-                    "ability, {Blood Brother Ambush}). [RTR 19960124] [LSJ 20090922] "
-                    "[ANK 20181022] [ANK 20220916]"
-                ),
             },
             {
                 "text": (
@@ -357,11 +327,6 @@ def test_groups_rulings():
                 },
                 "symbols_ankha": ["w", "1"],
                 "symbols_txt": ["[abo]", "[ACTION MODIFIER]"],
-                "full_text": (
-                    "[abo] [ACTION MODIFIER] If played on a diablerie, can "
-                    "be played before or after getting a Discipline card (if any), "
-                    "but must be played before the Blood Hunt. [RTR 19991206]"
-                ),
             },
             {
                 "text": 'Cards are not replaced during the "as played" window.',
@@ -373,10 +338,6 @@ def test_groups_rulings():
                 },
                 "symbols_ankha": ["w", "6"],
                 "symbols_txt": ["[abo]", "[REFLEX]"],
-                "full_text": (
-                    '[abo] [REFLEX] Cards are not replaced during the "as played" '
-                    "window. [LSJ 20061013]"
-                ),
             },
             {
                 "text": (
@@ -391,11 +352,6 @@ def test_groups_rulings():
                 },
                 "symbols_ankha": ["w", "6"],
                 "symbols_txt": ["[abo]", "[REFLEX]"],
-                "full_text": (
-                    '[abo] [REFLEX] If the canceled card had a "Do Not Replace Until" '
-                    "clause on it, that clause is canceled as well and the "
-                    "card is replaced normally. [LSJ 20011023]"
-                ),
             },
             {
                 "text": (
@@ -410,11 +366,6 @@ def test_groups_rulings():
                 },
                 "symbols_ankha": ["w", "6"],
                 "symbols_txt": ["[abo]", "[REFLEX]"],
-                "full_text": (
-                    "[abo] [REFLEX] Any frenzy card that "
-                    "targets/selects/chooses/affects the minion when played, "
-                    "is considered being played on the minion. [LSJ 20051113]"
-                ),
             },
         ],
         "scans": {

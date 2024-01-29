@@ -13,7 +13,6 @@ class Ruling:
     """Simple class representing a ruling."""
 
     text: str
-    full_text: str
     links: dict[str, str]
     symbols_txt: list[str]
     symbols_ankha: list[str]
@@ -135,29 +134,22 @@ class RulingReader:
             else:
                 cards = {(id_, name): []}
             for ruling in rulings:
-                full_text = ruling
-                clean_text = re.subn(r"\[[a-zA-Z]+\s[0-9-]+\]", "", full_text)[0]
+                clean_text = re.subn(r"\[[a-zA-Z]+\s[0-9-]+\]", "", ruling)[0]
                 clean_text = re.subn(r"\[[a-zA-Z ]+\]", "", clean_text)[0].strip()
-                symbols = re.findall(r"\[[a-zA-Z ]+\]", full_text)
+                symbols = re.findall(r"\[[a-zA-Z ]+\]", ruling)
                 symbols = [symbol[1:-1] for symbol in symbols]
                 if any(s for s in symbols if s not in SYMBOLS_MAP):
-                    warnings.warn(f"invalid symbol in ruling: {full_text}")
-                links = re.findall(r"\[[a-zA-Z]+\s[0-9-]+\]", full_text)
+                    warnings.warn(f"invalid symbol in ruling: {ruling}")
+                links = re.findall(r"\[[a-zA-Z]+\s[0-9-]+\]", ruling)
                 if not links:
-                    warnings.warn(f"no reference in ruling: {full_text}")
+                    warnings.warn(f"no reference in ruling: {ruling}")
                 if any(ref for ref in links if ref[1:-1] not in self.links):
-                    warnings.warn(f"unmatched reference in ruling: {full_text}")
+                    warnings.warn(f"unmatched reference in ruling: {ruling}")
                 links = {ref: self.links[ref[1:-1]] for ref in links}
                 for (id_, name), card_symbols in cards.items():
-                    instance_text = (
-                        " ".join(f"[{s}]" for s in card_symbols)
-                        + (" " if card_symbols else "")
-                        + full_text
-                    )
                     card_symbols = symbols + card_symbols
                     yield id_, name, Ruling(
                         clean_text,
-                        instance_text,
                         links,
                         symbols_txt=[f"[{s}]" for s in card_symbols],
                         symbols_ankha=[SYMBOLS_MAP[s] for s in card_symbols],

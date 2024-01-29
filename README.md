@@ -95,15 +95,13 @@ Then you can play around with VTES to access cards, complete card names or searc
     'Keepers of Tradition': [{'release_date': '2008-11-19', 'rarity': 'Rare'}]},
   'rulings': [
     {
-      'full_text': 'If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]',
       'text': 'If the given weapon costs blood, the target Alastor pays the cost.',
       'links': {
         '[LSJ 20040518]': 'https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ'
       }
     },
     {
-      'text': 'Requirements do not apply. [ANK 20200901]'
-      'clean_text': 'Requirements do not apply.'
+      'text': 'Requirements do not apply.'
       'links': {
         '[ANK 20200901]': 'http://www.vekn.net/forum/rules-questions/78830-alastor-and-ankara-citadel#100653'
       }
