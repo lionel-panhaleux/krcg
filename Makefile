@@ -9,6 +9,10 @@ quality:
 test: quality
 	pytest -vvs
 
+
+test-rulings:
+	pytest -W error::krcg.rulings.RulingsWarning tests/test_rulings.py
+
 release:
 	fullrelease
 	pip install -e ".[dev]"

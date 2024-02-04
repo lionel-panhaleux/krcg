@@ -991,25 +991,6 @@ class CardMap(utils.FuzzyDict):
             if len(name) <= self.threshold:
                 break
 
-    def load_rulings(self) -> None:
-        """Load card rulings from package YAML files."""
-        for card_id, card_name, ruling in rulings.RulingReader():
-            if self[card_id].name != card_name:
-                warnings.warn(f"Rulings: {card_name} does not match {self[card_id]}")
-            self[card_id].rulings.append(dataclasses.asdict(ruling))
-            for card_reference in re.findall(r"{[^}]+}", ruling.text):
-                card_reference = card_reference[1:-1]
-                if card_reference not in self:
-                    warnings.warn(
-                        f"Ruling on {card_id}|{card_name} "
-                        f"mentions unknown card {card_reference}"
-                    )
-                if self[card_reference].usual_name != card_reference:
-                    warnings.warn(
-                        f"Rulings on {card_id}|{card_name} mentions {card_reference} "
-                        f"instead of '{self[card_reference].name}'"
-                    )
-
     def to_json(self) -> Dict:
         """Return a compact list representation for JSON serialization."""
         return [card.to_json() for card in self]
