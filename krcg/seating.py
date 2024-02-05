@@ -607,7 +607,7 @@ def optimise_table(rounds: List[Round], table: int) -> Score:
     rounds_count = len(rounds)
     for permutation in itertools.permutations(rounds[-1].get_table(table)):
         current_round.set_table(table, permutation)
-        measures[-1] = measure(pm, current_round, hint=table)
+        measures[-1] = measure(pm, current_round, hints=[table])
         score = Score.fast_total(sum(measures), rounds_count)
         if score < best_score:
             best_score = score
