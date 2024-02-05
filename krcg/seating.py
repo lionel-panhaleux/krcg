@@ -127,14 +127,6 @@ class Round(list):
         i, j = self.__global_index_to_tuple(index)
         self[i][j] = value
 
-    def swap_players(self, i: int, j: int):
-        """Swap players directly. Useful for round optimisation."""
-        i1, i2 = self.__global_index_to_tuple(i)
-        j1, j2 = self.__global_index_to_tuple(j)
-        self[i1][i2], self[j1][j2] = self[j1][j2], self[i1][i2]
-
-    # NOTE: Do not mess with default iteration to avoid problems with multiprocessing
-
 
 Measure = collections.namedtuple("Measure", ["position", "opponents"])
 Measure.__add__ = lambda lhs, rhs: Measure(lhs[0] + rhs[0], lhs[1] + rhs[1])
@@ -296,28 +288,34 @@ class Score:
         pm = pm or player_mapping(rounds)
         self.score_measure(sum(measure(pm, r) for r in rounds), len(rounds), pm)
 
+    def __repr__(self):
+        points = [f"{s:.2f}" if isinstance(s, float) else f"{s}" for s in self.rules]
+        return f"{self.__class__}: {points}"
+
     def score_measure(
         self, measure: Measure, rounds_count: int, pm: PlayerMapping
     ) -> None:
         # transfers, starting vps: compute variance
         playing = measure.position[:, 0]
-        playing_filter = playing.astype(bool)
-        vps = measure.position[playing_filter][:, 1] / playing
-        transfers = measure.position[playing_filter][:, 2] / playing
+        playing_all = (playing >= rounds_count).astype(bool)
+        vps = measure.position[playing_all][:, 1] / rounds_count
+        transfers = measure.position[playing_all][:, 2] / rounds_count
         rpm = {v: k for k, v in pm.items()}
         # record details of anomalies for output
         self.mean_vps = numpy.mean(vps)
         self.mean_transfers = numpy.mean(transfers)
-        self.R3 = numpy.sum((vps - self.mean_vps) ** 2) / vps.size
-        self.R8 = numpy.sum((transfers - self.mean_transfers) ** 2) / transfers.size
+        self.R3 = math.sqrt(numpy.sum((vps - self.mean_vps) ** 2) / vps.size)
+        self.R8 = math.sqrt(
+            numpy.sum((transfers - self.mean_transfers) ** 2) / transfers.size
+        )
         self.vps = [
             Deviation(rpm[i], vps[i])
-            for i in numpy.flatnonzero(abs(self.mean_vps - vps) > 1 / rounds_count)
+            for i in numpy.flatnonzero(abs(self.mean_vps - vps) > 0.5 / rounds_count)
         ]
         self.transfers = [
             Deviation(rpm[i], transfers[i])
             for i in numpy.flatnonzero(
-                abs(self.mean_transfers - transfers) > 1 / rounds_count
+                abs(self.mean_transfers - transfers) > 0.5 / rounds_count
             )
         ]
         # same seat twice (or more)
@@ -334,10 +332,10 @@ class Score:
             for a, b in (numpy.argwhere(measure.opponents[:, :, 0] > 1))
             if a < b
         ]
-        # opponent thrice (or more)
+        # opponent on all rounds
         self.R2 = [
             PairViolation(rpm[a], rpm[b])
-            for a, b in (numpy.argwhere(measure.opponents[:, :, 0] > 2))
+            for a, b in (numpy.argwhere(measure.opponents[:, :, 0] >= rounds_count))
             if a < b
         ]
         # same position twice (or more)
@@ -362,28 +360,32 @@ class Score:
         self.total = sum(x * m for x, m in zip(self.rules, [R[2] for R in RULES]))
 
     @staticmethod
-    def fast_total(measure: Measure) -> float:
+    def fast_total(measure: Measure, rounds_count: int) -> float:
         """Get just a total score of a seating measure (all rounds).
 
         This is used to speed up computations when searching for an optimum.
         """
         playing = measure.position[:, 0]
-        playing_filter = playing.astype(bool)
+        playing_all = (playing >= rounds_count).astype(bool)
         opponents_twice = measure.opponents[measure.opponents[:, :, 0] > 1]
         collisions = opponents_twice.size > 0
-        vps = measure.position[:, 1][playing_filter] / playing
-        transfers = measure.position[:, 2][playing_filter] / playing
+        vps = measure.position[:, 1][playing_all] / rounds_count
+        transfers = measure.position[:, 2][playing_all] / rounds_count
         rules = [
             # same predator-prey relationship
             numpy.count_nonzero(opponents_twice[:, 1] > 1) if collisions else 0,
             # opponents more than twice
-            numpy.count_nonzero(opponents_twice[:, 0] > 2) // 2 if collisions else 0,
+            (
+                numpy.count_nonzero(opponents_twice[:, 0] >= rounds_count) // 2
+                if collisions
+                else 0
+            ),
             # VPs difference
             numpy.sum((vps - numpy.mean(vps)) ** 2) / vps.size,
             # opponents more than once
             numpy.count_nonzero(opponents_twice[:, 0]) // 2,
             # fifth seat more than once
-            numpy.count_nonzero(measure.position[:, 6] > 1),
+            numpy.count_nonzero(measure.position[:, 7] > 1),
             # same opponent relationship more than once
             numpy.count_nonzero(opponents_twice[:, 1:6] > 1) // 2 if collisions else 0,
             # same table seat more than once
@@ -405,9 +407,6 @@ class Score:
             + rules[7] * RULES[7][2]
             + rules[8] * RULES[8][2]
         )
-
-    def __str__(self):
-        return f"{self.total} {self.rules}"
 
 
 def get_rounds(players: list[Hashable], rounds_count: int) -> List[Round]:
@@ -528,12 +527,14 @@ def optimise(
     temperature_max = RULES[0][2]
     temperature_factor = -math.log(temperature_max / temperature_min)
     pm = player_mapping(rounds)
+    rounds_count = len(rounds)
+    rounds = [Round.copy(r) for r in rounds]
     # initial state
     if fixed is None:
         fixed = len(rounds) - 1
     temperature = temperature_max
     measures = [measure(pm, r) for r in rounds]
-    best_score = previous_score = score = Score.fast_total(sum(measures))
+    best_score = previous_score = score = Score.fast_total(sum(measures), rounds_count)
     best_state = [Round.copy(r) for r in rounds]
     for round_ in rounds[fixed:]:
         round_.shuffle()
@@ -542,7 +543,7 @@ def optimise(
     # Exploration
     for step in range(iterations):
         temperature = temperature_max * math.exp(temperature_factor * step / iterations)
-        round_index = random.randrange(fixed, len(rounds))
+        round_index = random.randrange(fixed, rounds_count)
         round_ = rounds[round_index]
         global_indexes = rounds_global_indexes[round_index]
         # note all rounds might not have the same length
@@ -555,7 +556,7 @@ def optimise(
         measures[round_index] = measure(
             pm, round_, previous=previous_measure, hints=(i1, j1)
         )
-        score = Score.fast_total(sum(measures))
+        score = Score.fast_total(sum(measures), rounds_count)
         score_diff = score - previous_score
         trials += 1
         # accept or reject the move depending on its score and temperature
@@ -603,10 +604,11 @@ def optimise_table(rounds: List[Round], table: int) -> Score:
     best_table = current_round.get_table(table)[:]
     pm = player_mapping(rounds)
     measures = [measure(pm, r) for r in rounds]
+    rounds_count = len(rounds)
     for permutation in itertools.permutations(rounds[-1].get_table(table)):
         current_round.set_table(table, permutation)
-        measures[-1] = measure(pm, current_round)
-        score = Score.fast_total(sum(measures))
+        measures[-1] = measure(pm, current_round, hint=table)
+        score = Score.fast_total(sum(measures), rounds_count)
         if score < best_score:
             best_score = score
             best_table = permutation[:]

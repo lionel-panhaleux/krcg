@@ -4,7 +4,7 @@ Changelog
 3.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Improve seating for the second round (VEKN Rule 2 implementation)
 
 
 3.5 (2024-01-17)
