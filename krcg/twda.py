@@ -3,6 +3,7 @@
 If it has not been initialized, TWDA will evaluate to False.
 TWDA must be configured with `TWDA.configure()` before being used.
 """
+
 from typing import List, TextIO
 import collections
 import html

@@ -3,6 +3,7 @@
 It handles the legacy TWDA: many tricky formats used through this historic document.
 Only modifiy this file if you know what you're doing, and proceed with caution.
 """
+
 from typing import TextIO, Tuple
 import datetime
 import enum

@@ -1,4 +1,5 @@
 """Deck class: serialization and card access under conditions"""
+
 from typing import Callable, Generator, Optional, TextIO
 import arrow
 import collections

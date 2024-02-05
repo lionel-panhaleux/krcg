@@ -3,6 +3,7 @@
 If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
+
 from typing import Dict, Generator, List, Set, Tuple, Union
 import functools
 import io

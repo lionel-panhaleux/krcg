@@ -243,7 +243,7 @@ def test_score():
     assert score.R7 == [(2, 1), (3, 3), (4, 4)]
     assert score.R5 == []
     assert score.R6 == []
-    assert score.R8 == 0.8266666666666668
+    assert score.R8 == 0.9092121131323905
     assert score.R9 == [
         (1, 2, 1),
         (1, 3, 2),
@@ -264,9 +264,10 @@ def test_score():
         (2, 1 + 1 / 3),
         (3, 3 + 1 / 3),
         (4, 4.0),
+        (5, 3.0),
     ]
-    assert score.rules == [0, 10, 0, 10, 0, 0, 3, 0.8266666666666668, 10]
-    assert score.total == 10010003092.666666
+    assert score.rules == [0, 10, 0, 10, 0, 0, 3, 0.9092121131323905, 10]
+    assert score.total == 10010003100.921211
 
 
 def test_optimise():
@@ -292,4 +293,4 @@ def test_optimise_table():
     rounds[1].set_table(0, [2, 5, 3, 1])
     score = seating.optimise_table(rounds, 0)
     assert rounds == [[[1, 2, 3, 4, 5]], [[5, 3, 2, 1]]]
-    assert score == 10000041.0
+    assert score == 6006000005.0

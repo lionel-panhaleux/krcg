@@ -1,4 +1,5 @@
 """Configuration"""
+
 #: static KRCG server
 KRCG_STATIC_SERVER = "https://static.krcg.org"
 SUPPORTED_LANGUAGES = ["fr", "es"]

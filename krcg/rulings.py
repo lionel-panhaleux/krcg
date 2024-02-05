@@ -1,5 +1,6 @@
 """Rulings parsing.
 """
+
 from typing import Generator, Tuple
 import importlib.resources
 import re
