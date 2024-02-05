@@ -1,6 +1,6 @@
 .PHONY: quality test release update clean
 
-export GITHUB_BRANCH = V5C-20240201
+export GITHUB_BRANCH = main
 
 quality:
 	black --check krcg tests
