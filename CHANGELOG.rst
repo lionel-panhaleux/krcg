@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.6 (unreleased)
+3.6 (2024-02-05)
 ----------------
 
 - Improve seating for the second round (VEKN Rule 2 implementation)
