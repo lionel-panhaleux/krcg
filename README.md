@@ -1,7 +1,7 @@
 # KRCG
 
 [![PyPI version](https://badge.fury.io/py/krcg.svg)](https://badge.fury.io/py/krcg)
-[![Validation](https://github.com/lionel-panhaleux/krcg/actions/workflows/validation.yaml/badge.svg)](https://github.com/lionel-panhaleux/krcg/actions)
+[![Validation](https://github.com/lionel-panhaleux/krcg/actions/workflows/validation.yaml/badge.svg)](https://github.com/lionel-panhaleux/krcg/actions/workflows/validation.yml)
 [![Coverage](https://api.codacy.com/project/badge/Grade/32d1b809494e4935967608f13f52004a)](https://app.codacy.com/manual/lionel-panhaleux/krcg?utm_source=github.com&utm_medium=referral&utm_content=lionel-panhaleux/krcg&utm_campaign=Badge_Grade_Dashboard)
 [![Python version](https://img.shields.io/badge/python-3.8-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
