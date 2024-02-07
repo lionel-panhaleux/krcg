@@ -3111,8 +3111,6 @@
   - The cost reduction applies to minion cards, they are also played by the Methuselah. [ANK 20221102]
   - Can be locked to reduce the cost at any point before resolution, from when the action is announced to just before the cost is paid. [ANK 20230620]
   - Can be used to allow you to play cards which cost you could not pay otherwise (eg. {Procurer}). [ANK 20230621]
-201634|Abraham Mellon:
-  - His ability does not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
 200011|Adana de Sforza (G4):
   - Card with multiple types (eg. Combat/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron (G3):
@@ -3806,6 +3804,8 @@
   - Actions from minions of the same controller targeting him are undirected, so they are not affected by his ability. [LSJ 20030214-2]
 201633|Maila (G6):
   - Her ability can only be used once during each of your turns. [RBK 20200701-4] [ANK 20230122]
+201634|Abraham Mellon:
+  - His ability does not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
 201641|The Guardian (G6):
   - When using his ability, the opponent is the acting minion and play their combat effects first. [ANK 20221102]
 201643|Lady Scarlett Churchill (G6):
