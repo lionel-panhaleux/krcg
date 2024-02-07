@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Python 3.9
-        uses: actions/setup-python@v4
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.9"
+          python-version: "3.11"
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -26,10 +26,11 @@ jobs:
           black --check krcg tests
       - name: Lint
         run: |
-          flake8
+          ruff check
+          yamllint rulings
       - name: Test
         env:
-          GITHUB_BRANCH: V5C-20240201
+          VTESCSV_GITHUB_BRANCH: main
         run: |
           coverage run -m pytest
           coverage xml

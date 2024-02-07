@@ -4,8 +4,12 @@ Changelog
 3.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
-
+- Packaging: PEP 517 pyproject.toml
+- Python 3.11 (Debian 12 default)
+- YAML 1.2
+- Add YAML lint validation for rulings
+- Remove spurious GITHUB_CSV variable and mode for cards
+- Cleaner VTESCSV_GITHUB_BRANCH variable and mode for cards
 
 3.6 (2024-02-05)
 ----------------

@@ -20,7 +20,7 @@
     - 101979|Three's a Crowd
     - 102082|Unwholesome Bond
     - 102138|Walk of Caine
-  ruling: "A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]"
+  ruling: A vampire with no circle designation is in his own unique circle. Vampires with the same name (eg. {The Embrace}, non-unique vampires) do not share a circle by default, each has his own circle of one by default. [LSJ 20020609]
 - cards:
     - 100003|Aaron's Feeding Razor
     - 100670|Excellent Thirst
@@ -33,7 +33,7 @@
     - 200064|Amadeo (G2)
     - 200131|Ariadne (G5)
     - 200594|Hesha Ruhadze (G2)
-  ruling: "The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]"
+  ruling: The hunt bonus applies to non-standard hunt actions, blood comes from the target of the hunt. [RTR 20030519] [RTR 20180511]
 - cards:
     - 100339|Children of Osiris
     - 100527|Derange
@@ -55,7 +55,7 @@
     - 101989|Toreador Grand Ball
     - 102125|Visionquest
     - 102192|Wooden Stake
-  ruling: 'The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, his controller can still pay a pool to unlock him. [LSJ 20050114]'
+  ruling: The "does not unlock as normal" effect is redundant with being infernal. If the minion is infernal, his controller can still pay a pool to unlock him. [LSJ 20050114]
 - cards:
     - 100102|As the Crow
     - 100446|CrimethInc.
@@ -69,13 +69,13 @@
     - 101999|Touch of Pain
     - 102131|Voter Captivation
     - 102205|Zephyr
-  ruling: 'Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played before or after it. [LSJ 19981028] [ANK 20190425]'
+  ruling: Is played after resolution, but still during the action. Action modifiers and effects that can be played "after resolution" can be played before or after it. [LSJ 19981028] [ANK 20190425]
 - cards:
     - 102205|Zephyr
     - 101724|Seraph's Second
     - 101236|Momentary Delay
     - 100595|Dusk Work
-  ruling: "Is played after all combats are handled. Can be played from torpor. [LSJ 20030103] [ANK 20181219] [ANK 20180906]"
+  ruling: Is played after all combats are handled. Can be played from torpor. [LSJ 20030103] [ANK 20181219] [ANK 20180906]
 - cards:
     - 101279|The New Inquisition
     - 101614|Restricted Vitae
@@ -86,7 +86,7 @@
     - 100011|Absimiliard's Army
     - 100217|Blood Weakens
     - 100796|Fueled by Heart's Blood
-  ruling: "Is not replaced until the condition is met, even if it is burned. [LSJ 20080805]"
+  ruling: Is not replaced until the condition is met, even if it is burned. [LSJ 20080805]
 - cards:
     - 100695|Fall of the Camarilla
     - 100696|Fall of the Sabbat
@@ -99,7 +99,7 @@
     - 101639|Rise of the Nephtali
     - 101807|The Slow Withering
     - 102194|Wormwood
-  ruling: 'The "other Gehenna cards in play" requirement is only checked when playing the card. [PIB 20121031]'
+  ruling: The "other Gehenna cards in play" requirement is only checked when playing the card. [PIB 20121031]
 - cards:
     - 100298|Carlton Van Wyk
     - 100387|Community Justice
@@ -139,7 +139,7 @@
     - 102047|Tunnel Runner
     - 102128|Vivienne Géroux
     - 101273|Nephren-Ka
-  ruling: "If it uses its last life to play an action modifier, the action fails. If it uses its last life to play a strike, combat ends before strike resolution. [ANK 20180928-1]"
+  ruling: If it uses its last life to play an action modifier, the action fails. If it uses its last life to play a strike, combat ends before strike resolution. [ANK 20180928-1]
 - cards:
     - "102027|Trophy: Chosen"
     - 200038|Al-Muntathir, God's Witness (G5)
@@ -167,7 +167,7 @@
     - 200633|Ingram Frizer (G3)
     - 200650|Izhim abd Azrael (G5)
     - 200667|Jalan-Aajav (G3)
-    - '200710|Joe "Boot" Hill (G4)'
+    - 200710|Joe "Boot" Hill (G4)
     - 200754|Karif al Numair (G5)
     - 200764|Katherine Stoddard (G3)
     - 200766|Kazimir Savostin (G3)
@@ -185,7 +185,7 @@
     - 201062|Nizzam al-Latif (G5)
     - 201066|Nostoket (G4)
     - 201075|Olga Triminov (G3)
-    - '201083|Ondine "Boudicca" Sinclair (G5)'
+    - 201083|Ondine "Boudicca" Sinclair (G5)
     - 201123|Phillipe Rigaud (G4)
     - 201126|Piotr Andreikov (G3)
     - 201166|Rashid Stockton (G5)
@@ -207,7 +207,7 @@
     - 201485|Yazid Tamari (G3)
     - 201486|Yazid Tamari (G3 ADV)
     - 201510|Zubeida (G5)
-  ruling: "Black Hand is not a title, it is a trait unrelated to any sect. The trait is not lost if the vampire changes sect. [LSJ 20070322] [ANK 20180807]"
+  ruling: Black Hand is not a title, it is a trait unrelated to any sect. The trait is not lost if the vampire changes sect. [LSJ 20070322] [ANK 20180807]
 - cards:
     - 100063|The Ancestor's Talisman
     - 100175|Blade of Bellona
@@ -234,7 +234,7 @@
     - 101932|Talith
     - 102015|Treasured Samadji
     - 102170|Weirding Stone
-  ruling: "Once in play, can be equipped from the minion it's on (rulebook action) by another minion that does not meet the requirements. [ANK 20180719-3]"
+  ruling: Once in play, can be equipped from the minion it's on (rulebook action) by another minion that does not meet the requirements. [ANK 20180719-3]
 - cards:
     - 100048|Amulet of Temporal Perception
     - 100051|Ananasi Vampirephile
@@ -282,7 +282,7 @@
     - 101271|Neonate Breach
     - 101567|Reckless Agitation
     - 101591|Reins of Power
-  ruling: "If multiple ousts happen, players whose prey gets ousted get a victory point, even if they are being ousted themselves. Only the surviving ones get 6 pool from the oust of their prey (not of their grand-prey). [LSJ 20000309]"
+  ruling: If multiple ousts happen, players whose prey gets ousted get a victory point, even if they are being ousted themselves. Only the surviving ones get 6 pool from the oust of their prey (not of their grand-prey). [LSJ 20000309]
 - cards:
     - 100593|Duma Rafiki
     - 100626|Elephant Guardian
@@ -294,7 +294,7 @@
     - 102107|Vengeful Spirit
     - 102191|Wolf Companion
     - 102210|Zombie
-  ruling: "The damage is environmental, the retainer is the damage source. Immunity to retainer or retainer type works against it. [ANK 20180612] [ANK 20211127]"
+  ruling: The damage is environmental, the retainer is the damage source. Immunity to retainer or retainer type works against it. [ANK 20180612] [ANK 20211127]
 - cards:
     - 100153|Bestial Vengeance
     - 100301|Carrion Crows
@@ -326,7 +326,7 @@
     - 101550|Raven Spy
     - 101734|Shade
     - 102191|Wolf Companion
-  ruling: "The discipline level used to recruit it decides which version it is (inferior or superior). This does not change once it is in play. [RTR 19941109] [ANK 20180612]"
+  ruling: The discipline level used to recruit it decides which version it is (inferior or superior). This does not change once it is in play. [RTR 19941109] [ANK 20180612]
 - cards:
     - 100568|Dog Pack
     - 100593|Duma Rafiki
@@ -339,7 +339,7 @@
     - 101914|Swarm
     - 102065|Underbridge Stray
     - 102191|Wolf Companion
-  ruling: "It is neither a mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]"
+  ruling: Is neither a mortal nor a monster. [ANK 20200203-2] [LSJ 20060515]
 - cards:
     - 100094|Arson
     - 100137|Baseball Bat
@@ -357,7 +357,7 @@
     - "100717|Fee Stake: Seattle"
     - 100790|Free States Rant
     - 101546|Rastacourere
-  ruling: "The votes provided by the Priscii sub-referendum are not affected. [ANK 20180307-1]"
+  ruling: The votes provided by the Priscii sub-referendum are not affected. [ANK 20180307-1]
 - cards:
     - 100034|Akunanse Kholo
     - 100069|Animal Magnetism
@@ -399,13 +399,13 @@
     - 102064|Under the Skin
     - 102070|Unexpected Coalition
     - 102073|Unholy Radiance
-  ruling: "Cannot be used during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]"
+  ruling: Cannot be used during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]
 - cards:
     - 100135|The Barrens
     - 100785|Fragment of the Book of Nod
     - 100656|The Erciyes Fragments
     - 100588|Dreams of the Sphinx
-  ruling: "Can be used during an action, when the controller has the opportunity to play an effect. [ANK 20200616]"
+  ruling: Can be used during an action, when the controller has the opportunity to play an effect. [ANK 20200616]
 - cards:
     - 101065|Kpist m/45
     - 100107|Assault Rifle
@@ -416,7 +416,7 @@
     - 100152|Beretta 9mm
     - 100032|AK-47
     - 101682|Saturday-Night Special
-  ruling: "The optional maneuver cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]"
+  ruling: The optional maneuver cannot be used if the strike cannot be used (eg. {Hidden Lurker}). [LSJ 20021028]
 - cards:
     - 100668|Evil Eye
     - 100681|Eyes of Blades
@@ -440,24 +440,22 @@
     - 102053|Tye Cooper
     - 200249|Carolina Vález (G5)
     - 200984|Mictlantecuhtli (G5)
-  ruling: "Immune means damage is not inflicted, even if non-preventable or outside combat. [LSJ 20010627] [LSJ 20010629] [LSJ 20090304-1]"
+  ruling: Immune means damage is not inflicted, even if non-preventable or outside combat. [LSJ 20010627] [LSJ 20010629] [LSJ 20090304-1]
 - cards:
+    - 200049|Alexandra (G2)
+    - 200091|Angela Preston (G2)
     - 200486|Fustuk (G5)
     - 200605|The Horde (G6)
     - 200652|Jack (G2)
     - 200962|Matthew Romans (G4)
+    - 200971|Melinda Galbraith (G4 ADV)
     - 200982|Michael Luther (G3)
     - 201061|Nitidas (G6)
-    - 201334|T.J. (G4)
-  ruling: "His ability can be used when in torpor. [LSJ 20011022] [LSJ 20100902-2]"
-- cards:
-    - 200049|Alexandra (G2)
-    - 200091|Angela Preston (G2)
-    - 200971|Melinda Galbraith (G4 ADV)
     - 201214|Ruxandra (G5)
     - 201273|Shahid (G4)
     - 201279|Sheela Na Gig (G5)
-  ruling: "Her ability can be used when in torpor. [LSJ 20011022] [LSJ 20100902-2]"
+    - 201334|T.J. (G4)
+  ruling: The ability can be used when in torpor. [LSJ 20011022] [LSJ 20100902-2]
 - cards:
     - 100343|Chiram's Hold
     - 100375|Cold Amber's Hold
@@ -473,7 +471,7 @@
     - 101584|Regarhagan's Hold
     - 101767|Shilmulo Tarot
     - 101877|Storage Annex
-  ruling: "If it leaves play, the card on it is burned. [LSJ 20021128]"
+  ruling: If it leaves play, the card on it is burned. [LSJ 20021128]
 - cards:
     - 100476|Crypt's Sons
     - 100593|Duma Rafiki
@@ -484,16 +482,16 @@
     - 100626|Elephant Guardian
     - 100891|Hatch the Viper
     - 101734|Shade
-  ruling: "Does not gain additional strikes from its owner. [RTR 19941109]"
+  ruling: Does not gain additional strikes from its owner. [RTR 19941109]
 - cards:
     - 100064|Ancient Influence
     - 101591|Reins of Power
     - 101417|Political Stranglehold
-  ruling: "Burning the card for a vote is not considered playing it. [ANK 20210309-2]"
+  ruling: Burning the card for a vote is not considered playing it. [ANK 20210309-2]
 - cards:
     - 101388|Perfectionist
     - 100425|Corporal Reservoir
-  ruling: "The vampire's controller chooses to use the effect of the card or not. [ANK 20210309-3]"
+  ruling: The vampire's controller chooses to use the effect of the card or not. [ANK 20210309-3]
 - cards:
     - 100119|Awe
     - 100242|Bounty
@@ -518,7 +516,7 @@
     - 101990|Toreador Justicar
     - 102021|Tremere Justicar
     - 102111|Ventrue Justicar
-  ruling: "Only a Camarilla vampire can be chosen, it cannot be played without a valid target. [LSJ 20041026]"
+  ruling: Only a Camarilla vampire can be chosen, it cannot be played without a valid target. [LSJ 20041026]
 - cards:
     - 100042|Amam the Devourer
     - 100084|Archon
@@ -539,7 +537,7 @@
     - 200166|Barbaro Lucchese (G3)
     - 201451|Virgil (G2)
     - 201454|Virstania, The Great Mother (G3)
-  ruling: "The two actions provided are not cross-restrictive. Each can be performed once during the same turn by the same minion. [LSJ 20100909]"
+  ruling: The two actions provided are not cross-restrictive. Each can be performed once during the same turn by the same minion. [LSJ 20100909]
 - cards:
     - 100094|Arson
     - 100233|Bomb
@@ -551,7 +549,7 @@
     - 101632|Rewilding
     - 101809|Smash and Grab
     - 102193|The World's a Canvas
-  ruling: "An action directed at a card controlled by another Methuselah is directed at that Methuselah. [RBK 20200701-9] [LSJ 20090324]"
+  ruling: An action directed at a card controlled by another Methuselah is directed at that Methuselah. [RBK 20200701-9] [LSJ 20090324]
 - cards:
     - 100320|Chameleon
     - 101324|Open War
@@ -652,7 +650,7 @@
     - 201433|Veejay Vinod (G6)
     - 201484|Yavu Matebo (G4)
     - 201510|Zubeida (G5)
-  ruling: "The scarce penalty considers the apparent clan while controlled (in case of {Clan Impersonation} and {Banishment}). [LSJ 20011015]"
+  ruling: The scarce penalty considers the apparent clan while controlled (in case of {Clan Impersonation} and {Banishment}). [LSJ 20011015]
 - cards:
     - 100011|Absimiliard's Army
     - 100080|Arcane Appraiser
@@ -674,7 +672,7 @@
     - 100911|Hellhound
     - 101164|Marijava Ghoul
     - 101165|Marijava Thuggee
-  ruling: "Ghouls are monsters, not mortal. [ANK 20200203-2] [LSJ 20060515]"
+  ruling: Ghouls are monsters, not mortal. [ANK 20200203-2] [LSJ 20060515]
 - cards:
     - 100246|Brass Knuckles
     - 100317|Chainsaw
@@ -682,14 +680,14 @@
     - 100964|Improvised Flamethrower
     - 101685|Sawed-Off Shotgun
     - 101860|Starshell Grenade Launcher
-  ruling: "A second copy allows a second use in the same combat. [ANK 20230316]"
+  ruling: A second copy allows a second use in the same combat. [ANK 20230316]
 - cards:
     - 101846|Spike-Thrower
     - 101287|Nightstick
     - 101191|Meat Hook
     - 101168|Mark V
     - 100379|Combat Shotgun
-  ruling: "A second copy allows a second use in the same round. [ANK 20230316]"
+  ruling: A second copy allows a second use in the same round. [ANK 20230316]
 # ######################################################################################################### locquipments
 
 - cards:
@@ -768,7 +766,7 @@
     - 101885|Strike at the True Flesh
     - 100121|Baal's Bloody Talons
     - 100304|Caseless Rounds
-  ruling: "Cannot be played on an opponent's weapon. [LSJ 20020425]"
+  ruling: Cannot be played on an opponent's weapon. [LSJ 20020425]
 
 # ################################################################################## modifier as the action is announced
 
@@ -802,7 +800,7 @@
     - 101925|Tainted Spring
     - 101975|Those Who Endure Judge
     - 102058|Uncontrollable Rage
-  ruling: 'Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g., {Conditioning}). [ANK 20190425]'
+  ruling: Must be played (as well as other "as the action is announced" action modifiers) before action modifiers that are not explicitly played "as the action is announced" (e.g., {Conditioning}). [ANK 20190425]
 - cards:
     - 102138|Walk of Caine
     - 100097|The Art of Memory
@@ -833,7 +831,7 @@
     - 101925|Tainted Spring
     - 101975|Those Who Endure Judge
     - 102058|Uncontrollable Rage
-  ruling: "Replace the action card (if any) before playing it. [ANK 20181208]"
+  ruling: Replace the action card (if any) before playing it. [ANK 20181208]
 
 # ############################################################################################################## embrace
 
@@ -850,7 +848,7 @@
     - "102035|Trophy: Progeny"
     - 102046|Tumnimos
     - 102159|Waters of Duat
-  ruling: "Is not a vampire in the ash heap (eg. {Possession} cannot be played on it). [LSJ 20020115]"
+  ruling: Is not a vampire in the ash heap (eg. {Possession} cannot be played on it). [LSJ 20020115]
 - cards:
     - 100010|Abomination
     - 100129|Bamba
@@ -863,7 +861,7 @@
     - "102035|Trophy: Progeny"
     - 102046|Tumnimos
     - 102159|Waters of Duat
-  ruling: "If moved to the uncontrolled region (eg. by {Banishment}), it continues to be a vampire and can be influenced. [RTR 19990712]"
+  ruling: If moved to the uncontrolled region (eg. by {Banishment}), it continues to be a vampire and can be influenced. [RTR 19990712]
 
 # ################################################################################################################ mummy
 
@@ -875,7 +873,7 @@
     - 101527|Qetu the Evil Doer
     - 101665|Saatet-ta
     - 102048|Tutu the Doubly Evil One
-  ruling: "If burned and shuffled into the library, other effects that apply when it is burned still apply (eg. {Set's Curse} puts an ally into play). [ANK 20200813]"
+  ruling: If burned and shuffled into the library, other effects that apply when it is burned still apply (eg. {Set's Curse} puts an ally into play). [ANK 20200813]
 - cards:
     - 100033|Akhenaten, The Sun Pharaoh
     - 100042|Amam the Devourer
@@ -884,7 +882,7 @@
     - 101527|Qetu the Evil Doer
     - 101665|Saatet-ta
     - 102048|Tutu the Doubly Evil One
-  ruling: "Is not shuffled into the library when it is discarded. [LSJ 20010710]"
+  ruling: Is not shuffled into the library when it is discarded. [LSJ 20010710]
 
 # ########################################################################################################## cancel card
 
@@ -912,7 +910,7 @@
     - 101998|Touch of Clarity
     - 102008|Tranquility
     - 102151|Wash
-  ruling: 'Cards are not replaced during the "as played" window. [LSJ 20061013]'
+  ruling: Cards are not replaced during the "as played" window. [LSJ 20061013]
 - cards:
     - 100419|Contingency Planning
     - 100493|Dark Influences

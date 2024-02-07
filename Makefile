@@ -1,10 +1,11 @@
 .PHONY: quality test release update clean
 
-export GITHUB_BRANCH = main
+export VTESCSV_GITHUB_BRANCH = main
 
 quality:
 	black --check krcg tests
-	flake8
+	ruff check
+	yamllint rulings
 
 test: quality
 	pytest -vvs
@@ -15,10 +16,6 @@ release:
 
 update:
 	pip install --upgrade --upgrade-strategy eager -e ".[dev]"
-
-prep:
-	python -m cards
-	LOCAL_CARDS=1 pytest -vvs
 
 clean:
 	rm -rf dist

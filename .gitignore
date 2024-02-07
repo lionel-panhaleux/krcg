@@ -7,6 +7,7 @@ venv/
 
 # test
 .pytest_cache/
+.ruff_cache/
 
 # editors & OS
 .vscode/

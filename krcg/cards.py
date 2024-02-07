@@ -23,8 +23,9 @@ from . import utils
 
 logger = logging.getLogger("krcg")
 LOCAL_CARDS = os.getenv("LOCAL_CARDS")  # use local CSV (for playtests)
-GITHUB_CSV = os.getenv("GITHUB_CSV")  # use github master CSV (to prepare for updates)
-GITHUB_BRANCH = os.getenv("GITHUB_BRANCH")  # use github branch (to prepare for updates)
+VTESCSV_GITHUB_BRANCH = os.getenv(
+    "VTESCSV_GITHUB_BRANCH"
+)  # use github branch (to prepare for updates)
 
 
 class Card(utils.i18nMixin, utils.NamedMixin):
@@ -728,15 +729,7 @@ class CardMap(utils.FuzzyDict):
     """
 
     _GITHUB_BRANCH = [
-        f"https://github.com/GiottoVerducci/vtescsv/raw/{GITHUB_BRANCH}/",
-        [
-            "vtessets.csv",
-            "vtescrypt.csv",
-            "vteslib.csv",
-        ],
-    ]
-    _GITHUB_CSV = [
-        "https://github.com/GiottoVerducci/vtescsv/raw/master/vtescsv_utf8.zip",
+        f"https://github.com/GiottoVerducci/vtescsv/raw/{VTESCSV_GITHUB_BRANCH}/",
         [
             "vtessets.csv",
             "vtescrypt.csv",
@@ -850,12 +843,10 @@ class CardMap(utils.FuzzyDict):
                     .read_text("utf-8-sig"),
                 ),
             ]
-        elif GITHUB_BRANCH:
+        elif VTESCSV_GITHUB_BRANCH:
             main_files = utils.get_github_csv(
                 self._GITHUB_BRANCH[0], *self._GITHUB_BRANCH[1]
             )
-        elif GITHUB_CSV:
-            main_files = utils.get_zip_csv(self._GITHUB_CSV[0], *self._GITHUB_CSV[1])
         else:
             main_files = utils.get_zip_csv(self._VEKN_CSV[0], *self._VEKN_CSV[1])
         i18n_files = {
