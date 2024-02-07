@@ -3112,7 +3112,7 @@
   - Can be locked to reduce the cost at any point before resolution, from when the action is announced to just before the cost is paid. [ANK 20230620]
   - Can be used to allow you to play cards which cost you could not pay otherwise (eg. {Procurer}). [ANK 20230621]
 201634|Abraham Mellon:
-  - His ability do not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
+  - His ability does not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
 200011|Adana de Sforza (G4):
   - Card with multiple types (eg. Combat/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron (G3):
