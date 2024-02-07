@@ -3111,6 +3111,8 @@
   - The cost reduction applies to minion cards, they are also played by the Methuselah. [ANK 20221102]
   - Can be locked to reduce the cost at any point before resolution, from when the action is announced to just before the cost is paid. [ANK 20230620]
   - Can be used to allow you to play cards which cost you could not pay otherwise (eg. {Procurer}). [ANK 20230621]
+201634|Abraham Mellon:
+  - His ability does not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
 200011|Adana de Sforza (G4):
   - Card with multiple types (eg. Combat/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron (G3):
@@ -3303,6 +3305,7 @@
   - The cost to rescue from torpor is reduced even if paid by the rescuee. This is not optional. [LSJ 20020304-2] [PIB 20110918]
 200498|Gem Ghastly (G5):
   - When playing a card requiring a Ventrue, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228]
+  - Her ability does not let her fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
 200500|General Perfidio Díos (G3):
   - Can use his ability multiple times during the same action. [LSJ 20030605]
 200501|Genevieve (G2):
@@ -3438,6 +3441,7 @@
 200840|Lisandro Giovanni (G3):
   - When playing a card requiring a Ventrue antitribu or a Samedi, he is treated as a such for all effects of the card, and only them, including duration effects. He is not treated as such for effects the card has from being in play (eg. {Houngan} can be played on him, but he does not get blood and cannot lock to get blood). [ANK 20190228] [PIB 20141006]
   - You can still use the burn options of cards with a requirement he could meet when you play them, but does not meet while in play. [LSJ 20050225]
+  - His ability does not let him fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
   - Cannot be treated as a Ventrue antitribu nor a Samedi while uncontrolled or in the crypt (eg. {Coroner's Contact} cannot fetch him). [PIB 20150530]
 200844|Little Tailor of Prague (G2):
   - His ability works on allies recruited in a non-standard way (eg. {Piper}). [ANK 20210913] [LSJ 20090116]
@@ -3806,5 +3810,6 @@
   - When using his ability, the opponent is the acting minion and play their combat effects first. [ANK 20221102]
 201643|Lady Scarlett Churchill (G6):
   - Can be chosen as a target for {Toreador Grand Ball} to be locked, but unlocks normally in subsequent unlock phases. [ANK 20220816-2]
+  - Her ability does not let her fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
 201648|Regina Blake (G6):
   - She can use her ability to pay for equipments that are locations while in play (eg. {Palatial Estate}). [LSJ 20080107] [LSJ 20080114]
