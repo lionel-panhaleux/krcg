@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.8 (unreleased)
+3.8 (2024-02-08)
 ----------------
 
 - Fix rulings load
