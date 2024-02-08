@@ -11,9 +11,11 @@ authors = [
 description = "Library for VTES cards and TWDA."
 keywords = ["vtes", "Vampire: The Eternal Struggle", "CCG", "TWD", "TWDA"]
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "License :: OSI Approved :: MIT License",
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
