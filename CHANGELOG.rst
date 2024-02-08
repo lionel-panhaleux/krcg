@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.7 (unreleased)
+3.7 (2024-02-08)
 ----------------
 
 - Packaging: PEP 517 pyproject.toml
