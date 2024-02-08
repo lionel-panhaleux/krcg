@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "krcg"
-dynamic = ["version"]
+version = "3.7.dev0"
 authors = [
     { name = "Lionel Panhaleux", email = "lionel.panhaleux+krcg@gmail.com" },
 ]
@@ -50,10 +50,6 @@ Repository = "https://github.com/lionel-panhaleux/krcg"
 
 [tool.setuptools.packages.find]
 include = ["krcg*"]
-
-# required for dynamic version
-[tool.setuptools.dynamic]
-version = { attr = "krcg.__version__" }
 
 [tool.zest-releaser]
 create-wheel = true
