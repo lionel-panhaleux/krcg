@@ -9,7 +9,6 @@ import collections
 import html
 import io
 import logging
-import importlib.resources
 import re
 
 import requests
