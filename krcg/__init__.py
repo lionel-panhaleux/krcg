@@ -1,3 +1,3 @@
 import importlib
 
-version = importlib.metadata.version("krcg")
+__version__ = importlib.metadata.version("krcg")
