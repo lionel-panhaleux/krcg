@@ -3,7 +3,6 @@ include LICENSE README.md CHANGELOG.rst
 graft cards
 graft krcg
 graft rulings
-prune twda_fix
 prune profiling
 prune tests
 prune utils
