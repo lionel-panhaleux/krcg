@@ -1,3 +1,2 @@
-import importlib.metadata
-
-__version__ = importlib.metadata.version("krcg")
+#  Do not touch (zest-releaser)
+__version__ = "3.7.dev0"

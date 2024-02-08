@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68", "setuptools-git-versioning"]
+requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -50,10 +50,6 @@ Repository = "https://github.com/lionel-panhaleux/krcg"
 
 [tool.setuptools.packages.find]
 include = ["krcg*"]
-
-# dynamic version based on git tags
-[tool.setuptools-git-versioning]
-enabled = true
 
 [tool.zest-releaser]
 create-wheel = true
