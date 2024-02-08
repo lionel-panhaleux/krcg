@@ -51,5 +51,9 @@ Repository = "https://github.com/lionel-panhaleux/krcg"
 [tool.setuptools.packages.find]
 include = ["krcg*"]
 
+# required for dynamic version
+[tool.setuptools.dynamic]
+version = { attr = "krcg.__version__" }
+
 [tool.zest-releaser]
 create-wheel = true
