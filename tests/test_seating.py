@@ -264,7 +264,6 @@ def test_score():
         (2, 1 + 1 / 3),
         (3, 3 + 1 / 3),
         (4, 4.0),
-        (5, 3.0),
     ]
     assert score.rules == [0, 10, 0, 10, 0, 0, 3, 0.9092121131323905, 10]
     assert score.total == 10010003100.921211
@@ -286,6 +285,16 @@ def test_optimise():
     assert score.R9 != []
 
 
+def test_optimise_6():
+    rounds, score = seating.optimise(
+        seating.get_rounds(list(range(6)), 2), iterations=1000
+    )
+    assert len(rounds) == 3
+    # mean values don't count the rounds sit out
+    assert round(score.mean_vps, 5) == 4.0
+    assert round(score.mean_transfers, 5) == 2.5
+
+
 def test_optimise_table():
     permutations = [[1, 2, 3, 4, 5], [2, 5, 3, 1, 4]]
     rounds = [seating.Round.from_players(p) for p in permutations]
@@ -293,4 +302,4 @@ def test_optimise_table():
     rounds[1].set_table(0, [2, 5, 3, 1])
     score = seating.optimise_table(rounds, 0)
     assert rounds == [[[1, 2, 3, 4, 5]], [[5, 3, 2, 1]]]
-    assert score == 6006000005.0
+    assert score == 6010000041.0

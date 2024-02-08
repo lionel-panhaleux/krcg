@@ -297,9 +297,9 @@ class Score:
     ) -> None:
         # transfers, starting vps: compute variance
         playing = measure.position[:, 0]
-        playing_all = (playing >= rounds_count).astype(bool)
-        vps = measure.position[playing_all][:, 1] / rounds_count
-        transfers = measure.position[playing_all][:, 2] / rounds_count
+        playing_filter = playing.astype(bool)
+        vps = measure.position[playing_filter][:, 1] / playing
+        transfers = measure.position[playing_filter][:, 2] / playing
         rpm = {v: k for k, v in pm.items()}
         # record details of anomalies for output
         self.mean_vps = numpy.mean(vps)
@@ -310,12 +310,12 @@ class Score:
         )
         self.vps = [
             Deviation(rpm[i], vps[i])
-            for i in numpy.flatnonzero(abs(self.mean_vps - vps) > 0.5 / rounds_count)
+            for i in numpy.flatnonzero(abs(self.mean_vps - vps) > 1 / rounds_count)
         ]
         self.transfers = [
             Deviation(rpm[i], transfers[i])
             for i in numpy.flatnonzero(
-                abs(self.mean_transfers - transfers) > 0.5 / rounds_count
+                abs(self.mean_transfers - transfers) > 1 / rounds_count
             )
         ]
         # same seat twice (or more)
@@ -366,11 +366,11 @@ class Score:
         This is used to speed up computations when searching for an optimum.
         """
         playing = measure.position[:, 0]
-        playing_all = (playing >= rounds_count).astype(bool)
+        playing_filter = playing.astype(bool)
         opponents_twice = measure.opponents[measure.opponents[:, :, 0] > 1]
         collisions = opponents_twice.size > 0
-        vps = measure.position[:, 1][playing_all] / rounds_count
-        transfers = measure.position[:, 2][playing_all] / rounds_count
+        vps = measure.position[:, 1][playing_filter] / playing
+        transfers = measure.position[:, 2][playing_filter] / playing
         rules = [
             # same predator-prey relationship
             numpy.count_nonzero(opponents_twice[:, 1] > 1) if collisions else 0,

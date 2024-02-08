@@ -10,6 +10,7 @@ Changelog
 - Add YAML lint validation for rulings
 - Remove spurious GITHUB_CSV variable and mode for cards
 - Cleaner VTESCSV_GITHUB_BRANCH variable and mode for cards
+- Fix the seating methods for 6, 7, 11 players seatings (averages and deviation computations)
 
 3.6 (2024-02-05)
 ----------------
