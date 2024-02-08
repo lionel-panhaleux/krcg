@@ -49,7 +49,7 @@ dev = [
 Repository = "https://github.com/lionel-panhaleux/krcg"
 
 [tool.setuptools.packages.find]
-include = ["krcg*"]
+include = ["krcg*", "rulings*"]
 
 [tool.zest-releaser]
 create-wheel = true

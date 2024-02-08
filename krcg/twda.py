@@ -76,10 +76,6 @@ class _TWDA(collections.OrderedDict):
             # whole decklist fetched, parse it
             elif re.match(r"^</pre>", line):
                 buffer.seek(0)
-                # replace with a version of our own for the worst cases
-                fix_file = importlib.resources.files("twda_fix").joinpath(f"{id_}.html")
-                if fix_file.is_file():
-                    buffer = io.StringIO(html.unescape(fix_file.read_text("utf-8")))
                 self[id_] = deck.Deck.from_txt(buffer, id=id_, offset=offset, twda=True)
             elif buffer:
                 buffer.write(html.unescape(line))

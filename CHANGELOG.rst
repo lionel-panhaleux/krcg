@@ -4,7 +4,8 @@ Changelog
 3.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix rulings load
+- Fix TWD HTML load
 
 
 3.7 (2024-02-08)
