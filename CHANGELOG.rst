@@ -4,7 +4,7 @@ Changelog
 3.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix scans URLs
 
 
 3.8 (2024-02-08)

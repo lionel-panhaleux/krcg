@@ -1202,5 +1202,83 @@ def test_vekn():
     }
 
 
+def test_promo_scans():
+    assert vtes.VTES["The Dracon"].to_json() == {
+        "_name": "Dracon, The",
+        "_set": "Promo-20150216, Promo-20181004:HB2, Promo-20190408, POD:DTC",
+        "artists": [
+            "Ginés Quiñonero-Santiago",
+        ],
+        "capacity": 11,
+        "card_text": (
+            "Independent: Cards requiring Vicissitude [vic] cost The Dracon -1 blood. "
+            "He inflicts +1 damage or steals 1 additional blood or life with ranged "
+            "strikes (even at close range). Flight [FLIGHT]. +1 bleed. +2 strength."
+        ),
+        "clans": [
+            "Tzimisce",
+        ],
+        "disciplines": [
+            "ANI",
+            "AUS",
+            "POT",
+            "THA",
+            "VIC",
+        ],
+        "group": "5",
+        "id": 200385,
+        "name": "The Dracon (G5)",
+        "name_variants": [
+            "Dracon, The (G5)",
+            "The Dracon",
+            "Dracon, The",
+        ],
+        "ordered_sets": [
+            "2015 Storyline Rewards",
+            "2018 Humble Bundle",
+            "2019 Promo Pack 1",
+        ],
+        "printed_name": "The Dracon",
+        "scans": {
+            "2015 Storyline Rewards": "https://static.krcg.org/card/set/promo/dracontheg5.jpg",
+            "2018 Humble Bundle": "https://static.krcg.org/card/set/humble-bundle/dracontheg5.jpg",
+            "2019 Promo Pack 1": "https://static.krcg.org/card/set/promo-pack-1/dracontheg5.jpg",
+            "Print on Demand": "https://static.krcg.org/card/set/print-on-demand/dracontheg5.jpg",
+        },
+        "sets": {
+            "2015 Storyline Rewards": [
+                {
+                    "copies": 1,
+                    "release_date": "2015-02-16",
+                },
+            ],
+            "2018 Humble Bundle": [
+                {
+                    "copies": 2,
+                    "precon": "Humble Bundle",
+                    "release_date": "2018-10-04",
+                },
+            ],
+            "2019 Promo Pack 1": [
+                {
+                    "copies": 1,
+                    "release_date": "2019-04-08",
+                },
+            ],
+            "Print on Demand": [
+                {
+                    "copies": 1,
+                    "precon": "DriveThruCards",
+                },
+            ],
+        },
+        "text_change": True,
+        "types": [
+            "Vampire",
+        ],
+        "url": "https://static.krcg.org/card/dracontheg5.jpg",
+    }
+
+
 def test_dump():
     json.dumps(vtes.VTES.to_json())

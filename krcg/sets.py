@@ -34,7 +34,7 @@ class Set(utils.i18nMixin, utils.NamedMixin):
 class SetMap(dict):
     """A dict of all sets, index by Abbreviation and English name."""
 
-    PROMOS = {
+    _UNLISTED = {
         "Promo-20231007": ["2023 Mineiro Promo", "2023-10-07"],
         "Promo-20230916": ["2023 Zaragosa Promo", "2023-09-16"],
         "Promo-20230729": ["2023 Ropecon Promo", "2023-07-29"],
@@ -53,7 +53,7 @@ class SetMap(dict):
     def __init__(self):
         super().__init__()
         self.add(Set(abbrev="POD", name="Print on Demand"))
-        for abbrev, (name, release_date) in self.PROMOS.items():
+        for abbrev, (name, release_date) in self._UNLISTED.items():
             self.add(Set(abbrev=abbrev, name=name, release_date=release_date))
 
     def add(self, set_: Set) -> None:

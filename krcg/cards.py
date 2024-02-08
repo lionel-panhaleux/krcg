@@ -269,6 +269,12 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         "Tom Baxa": "Thomas Baxa",
         "zelgaris": 'Tomáš "zelgaris" Zahradníček',
     }
+    _NAMED_PROMOS = {
+        "2019 Promo Pack 1": "promo-pack-1",
+        "2020 Promo Pack 2": "promo-pack-2",
+        "2021 Kickstarter Promo": "kickstarter-promo",
+        "2018 Humble Bundle": "humble-bundle",
+    }
 
     def __init__(self):
         super().__init__()
@@ -576,25 +582,17 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         # some cards have one set, no date, eg. playtest cards
         if self.sets and not self.ordered_sets:
             self.ordered_sets = list(self.sets.keys())
-        self.scans = {
-            name: self._compute_url(
-                expansion=(
-                    {
-                        "2019 Promo Pack 1": "promo-pack-1",
-                        "2020 Promo Pack 2": "promo-pack-2",
-                        "2021 Kickstarter Promo": "kickstarter-promo",
-                        "2018 Humble Bundle": "humble-bundle",
-                    }.get(name, "promo")
-                    if set_dict[name].abbrev in set(sets.SetMap.PROMOS)
-                    else name.lower()
-                    .replace(":", "")
-                    .replace(" ", "-")
-                    .replace("(", "")
-                    .replace(")", "")
-                )
-            )
-            for name in self.sets.keys()
-        }
+        self.scans = {}
+        for name in self.sets.keys():
+            if name in self._NAMED_PROMOS:
+                folder_name = self._NAMED_PROMOS[name]
+            elif re.search(r"(^|\s)((P|p)romo|(R|r)ewards?)(\s|$)", name):
+                folder_name = "promo"
+            else:
+                folder_name = name.lower().replace(":", "")
+                folder_name = folder_name.replace("(", "").replace(")", "")
+                folder_name = folder_name.replace(" ", "-")
+            self.scans[name] = self._compute_url(expansion=folder_name)
         self.url = self._compute_url()
 
     def _compute_url(self, lang: str = None, expansion: str = None) -> str:
