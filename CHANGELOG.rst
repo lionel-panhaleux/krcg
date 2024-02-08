@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.9 (unreleased)
+3.9 (2024-02-08)
 ----------------
 
 - Fix scans URLs
