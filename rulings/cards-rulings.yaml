@@ -1105,9 +1105,6 @@
   - May be used anytime it is unlocked, even if it has been used previously during the same action (it must be unlocked by some method, of course). [TOM 19960109]
 100767|Forger's Hammer:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
-102223|Form of the Bat:
-  - "[pro], [PRO] The maneuver (and the ban on equipments) can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
-  - "[pro], [PRO] The maneuver (and the ban on equipments) is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 100771|Form of Mist:
   - '[PRO] If the action continues "as if unblocked", all action modifiers and reaction cards are still in effect, even those pertaining to a successful block. [RTR 19941109] [ANK 20190116]'
   - '[PRO] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
@@ -1862,9 +1859,6 @@
 101287|Nightstick:
   - Can prevent up to 3 damage, it can prevent less. [RTR 20041202]
   - Both strikes are only effective at close range. [ANK 20220814-2]
-102254|Night Terrors:
-  - "[OBF]+[PRE] The strike: combat ends can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
-  - "[OBF]+[PRE] The strike: combat ends is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 101290|No Confidence:
   - Is not a card requiring an Anarch. [LSJ 20080812]
   - '"loses the benefit" means he gets no vote, is not considered titled, and yields the title immediately if it would contest. [LSJ 20080602] [RBK 20200701-3]'
@@ -1902,9 +1896,6 @@
 101321|On the Qui Vive:
   - "The vampire need not attempt to block nor play further reaction cards: that is merely an option. [TOM 19951129]"
   - Can be played after action resolution to use a reaction card (eg. {Fast Reaction} after combat). [LSJ 20091123]
-102256|One With the Land:
-  - "[PRO] Neither combatants can strike in the first round only if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
-  - "[PRO] Neither combatants can strike again in the first round if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 101322|Open Dossier:
   - Can be used by a vampire who is already attempting to block. [ANK 20181122-2]
 101325|Ophidian Gaze:
@@ -3101,6 +3092,9 @@
 "102226|Haqim's Law: Retribution":
   - "Can only be used once per action (multiple Haqim's Law: Retribution can each be used once). [ANK 20221102-2]"
   - If used by a Banu Haqim and another takes the action over with {Mask of a Thousand Faces}, they cannot use it again. [ANK 20221102-2]
+102223|Form of the Bat:
+  - "[pro], [PRO] The maneuver (and the ban on equipments) can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[pro], [PRO] The maneuver (and the ban on equipments) is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 102227|Hunger of Marduk:
   - The provided strike can be chosen and used more than once during the round. [ANK 20220207]
 102232|The Platinum Protocol:
@@ -3120,6 +3114,12 @@
   - The cost reduction applies to minion cards, they are also played by the Methuselah. [ANK 20221102]
   - Can be locked to reduce the cost at any point before resolution, from when the action is announced to just before the cost is paid. [ANK 20230620]
   - Can be used to allow you to play cards which cost you could not pay otherwise (eg. {Procurer}). [ANK 20230621]
+102254|Night Terrors:
+  - "[OBF]+[PRE] The strike: combat ends can only be used if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[OBF]+[PRE] The strike: combat ends is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
+102256|One With the Land:
+  - "[PRO] Neither combatants can strike in the first round only if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[PRO] Neither combatants can strike again in the first round if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 200011|Adana de Sforza (G4):
   - Card with multiple types (eg. Combat/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron (G3):
