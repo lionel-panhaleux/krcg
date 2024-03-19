@@ -3118,8 +3118,8 @@
   - "[OBF][PRE] The strike: combat ends can only be used in the combat resulting from a successful block. It does not carry over to follow-up combats (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
   - "[OBF][PRE] The strike: combat ends is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 102256|One With the Land:
-  - "[PRO] Neither combatants can strike in the first round only if the block is successful, and only in the resulting (block-induced) combat. It does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
-  - "[PRO] Neither combatants can strike again in the first round if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
+  - "[PRO] The strike restriction only applies in the combat resulting from a successful block. It does not carry over to follow-up combats (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[PRO] The strike restriction applies again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 200011|Adana de Sforza (G4):
   - Card with multiple types (eg. Combat/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron (G3):
