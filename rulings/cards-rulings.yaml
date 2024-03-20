@@ -1133,6 +1133,7 @@
   - '[PRO] If the action continues "as if unblocked", Methuselah that had declined to block before do not get another opportunity to block. [ANK 20190116]'
   - '[PRO] An action cannot continue "as if unblocked" after a combat resulting from a successful action (eg. {Bum''s Rush}). [RTR 19970630]'
   - '[PRO] "continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
+  - '[PRO] If the combat continues or a new combat begins, the "After combat ends" effect cannot be used. [LSJ 19980109] [RTR 20020501] [LSJ 20031123]'
 100778|Foul Blood:
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
 100784|Fractured Armament:
