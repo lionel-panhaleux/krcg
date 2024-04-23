@@ -1152,6 +1152,7 @@
   - Does not count as a "slave" nor as a "Gargoyle" for game purposes. He is just an ally. [LSJ 20011210-4]
 100809|Garibaldi-Meucci Museum:
   - When ending combat, cards that are played at the end of round/combat can still be played (eg. {Taste of Vitae}, {Disarm}). [RTR 20001020] [LSJ 20001024]
+  - A card requiring a Baron (eg. {Open War}) is a card requiring an Anarch. [LSJ 20050128] [LSJ 20080603]
 100810|Garrote:
   - The ability to burn an opponent going to torpor is not part of the strike. It can be used if the opponent dodges the strike but is still going to torpor. [ANK 20210612] [LSJ 20020416-2]
 100812|Gather:
@@ -2028,7 +2029,7 @@
 "101432|Powerbase: Berlin":
   - Blood moved to it by a Ventrue action comes from the Ventrue. [LSJ 19970414]
 "101435|Powerbase: Los Angeles":
-  - A card requiring a Baron (eg. {Open War}) is a card requiring an Anarch. [LSJ 20080603] [LSJ 20050128]
+  - A card requiring a Baron (eg. {Open War}) is a card requiring an Anarch. [LSJ 20050128] [LSJ 20080603]
 "101440|Powerbase: New York":
   - The action to steal the blood from your powerbase cannot be attempted by your own vampires. [RTR 19980928]
 "101442|Powerbase: Savannah":
@@ -3636,6 +3637,8 @@
   - The damage he takes during the master phase from his ability is environmental. [RTR 19970630]
 201214|Ruxandra (G5):
   - The cards must all be discarded at once, then replaced. [LSJ 19981005] [ANK 20230404]
+201226|Salvador Garcia (G4):
+  - A card requiring a Baron (eg. {Open War}) is a card requiring an Anarch. [LSJ 20050128] [LSJ 20080603]
 201235|Santaleous (G5):
   - Can use his ability to cancel a master card multiple times each turn. [ANK 20200420-2]
   - When using his ability, the cost of the canceled card must still be paid. [LSJ 20090601-2]
