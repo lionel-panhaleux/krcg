@@ -1354,7 +1354,7 @@
 100939|Hostile Takeover:
   - The bidding is conducted in an open format, similar to a referendum. The player who played the card conducts the auction. [LSJ 19990104]
 100944|Hunger Moon:
-  - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
+  - If the vampire gains no blood from their hunt, it's not successful, so Hunger Moon's effect does not apply. [LSJ 20050720-2]
 100947|I am Legion:
   - "[DAI][OBF] Can be used to gain a pool after a successful action, without cancelling an [aus] card. [LSJ 20100902-2]"
   - '[dai][obf], [DAI][OBF] Cards are not replaced during the "as played" window. [LSJ 20061013]'
