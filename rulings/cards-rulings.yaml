@@ -1295,6 +1295,8 @@
   - "Cannot be used after a diablerie or an {Abactor} resolution and before the Blood Hunt: the Blood Hunt is part of the action although it is independent from it. [LSJ 20090722-2] [LSJ 20030618]"
   - "Can be used to move more blood than the target can hold: the excess goes to the blood bank. [ANK 20170804]"
   - Can be used between two actions during another Methuselah's turn. [ANK 20210608]
+100909|Helicopter:
+  - If directly put (and not equipped) on the vampire, it is not locked (eg. using {Alastor}). [LSJ 20090415]
 100910|Hell-for-Leather:
   - "[cel] A limited additional strike can be played before or after. [LSJ 20001206] [ANK 20211124]"
 100912|Herald of Topheth:
