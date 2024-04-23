@@ -1296,7 +1296,7 @@
   - "Can be used to move more blood than the target can hold: the excess goes to the blood bank. [ANK 20170804]"
   - Can be used between two actions during another Methuselah's turn. [ANK 20210608]
 100909|Helicopter:
-  - If directly put (and not equipped) on the vampire, it is not locked (eg. using {Alastor}). [LSJ 20090415]
+  - If directly put (and not equipped) on the vampire, it is not locked (eg. using {Alastor}). [LSJ 20090415] [LSJ 20100119]
   - It comes locked if it is equipped, even in an non-standard fashion (eg. {Magic of the Smith}). [LSJ 20100119]
 100910|Hell-for-Leather:
   - "[cel] A limited additional strike can be played before or after. [LSJ 20001206] [ANK 20211124]"
@@ -2224,7 +2224,7 @@
   - Can be played by a vampire going to torpor. Can be played by a vampire who is about to burn. [ANK 20201122] [ANK 20200926]
   - Does not allow to take control of the opponent. [ANK 20200925] [ANK 20211105]
 101627|Revelations:
-  - "[aus] You do not get to see the card drawn as replacement. [PIB 20121031]"
+  - "[aus] You do not get to see the card drawn as replacement. [LSJ 20100119] [PIB 20121031]"
 101631|Revolutionary Council:
   - Unlocked Anarchs are chosen when choosing terms. They still count if they get locked during the vote. [LSJ 20081203]
 101633|Rewind Time:
@@ -2268,7 +2268,7 @@
   - "[vic] Is not the default action, no blood is paid for the rescue. [ANK 20181017]"
 101654|Rötschreck:
   - Is played on the vampire that would receive the aggravated damage. [RTR 19980623]
-  - Can only be played after declaration of a strike, before resolution. It can be played before or after the opponent's strike is announced. [LSJ 19990217] [RTR 20041202]
+  - Can only be played after declaration of a strike, before resolution. It can be played before or after the opponent's strike is announced. [LSJ 19990217] [RTR 20041202] [LSJ 20100119]
   - Cannot be played if a non-strike effect would inflict aggravated damage (eg. {Outside the Hourglass} with {Domain of Evernight}). REVERSAL of a 2011 ruling. [ANK 20220114]
   - Cannot be played if the damage is not effective at the current range [RTR 19980928] [ANK 20211102]
   - "Can be played and is effective even if the opponent has announced a Strike: Dodge or Strike: Combat Ends. [LSJ 20011005] [ANK 20211102]"
@@ -2434,7 +2434,7 @@
   - "[OBT] has no additional effect on a retainer. [LSJ 20010303]"
 101751|Shambling Hordes:
   - The acting vampire's controller can choose not to remove a minion from his or her ash heap and thus burn the Shambling Hordes. [LSJ 20030701-2]
-  - The damage the strike does is determined when the strike resolution begins, before the Hordes loses life from any opposing "burn life" or "steal life" effect. Damage done before strike resolution, e.g. with First Strike, will reduce the damage done by the Hordes. [LSJ 20030307]
+  - The damage the strike does is determined when the strike resolution begins, before the Hordes loses life from any opposing "burn life" or "steal life" effect. Damage done before strike resolution, e.g. with First Strike, will reduce the damage done by the Hordes. [LSJ 20030307] [LSJ 20100119]
 101752|Shame:
   - Damage is environmental. [RTR 19970630]
 101757|Shatter the Gate:
