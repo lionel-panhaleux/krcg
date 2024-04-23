@@ -48,6 +48,8 @@
   - "[OBT] The opponent does not go to torpor, {Undead Persistence} cannot be played. [LSJ 20040608] "
 100029|Aid from Bats:
   - "[ANI] The press can only be used during the current round. [TOM 19960521]"
+100030|The Ailing Spirits:
+  - "[OBE] If one is ousted while having temporary control of a minion, the minion is removed from the game. [LSJ 20081105]"
 100038|Alastor:
   - If the weapon retrieved costs blood, that cost is paid by the vampire chosen by the vote. [LSJ 20040518]
   - Requirements do not apply. If a discipline is required (eg. {Inscription}) and the Alastor vampire does not have it, the inferior version is used. [ANK 20200901] [LSJ 20040518-2]
@@ -1026,6 +1028,8 @@
   - "[dai], [DAI] Affects the range immediately (eg. {Outside the Hourglass} and {Alpha Glint} could be played, but not {Disarm} because the range is long). [LSJ 20100709]"
 100718|Feline Saboteur:
   - "[ANI][OBF] The chosen Methuselah discards, then burn 4 cards, then replace the discarded card. [ANK 20180725]"
+100722|Ferraille:
+  - Do not vote if the cost ousts you. [LSJ 20081105]
 100723|Festivo dello Estinto:
   - The hunt bonus applies to non-standard hunt actions, it comes from the blood bank not from the target of the hunt [RTR 20030519]
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
@@ -3088,6 +3092,8 @@
   - The effect is applied after cards that are played "at the end of the round (eg. {Disarm}) or "when combat would end". If a combat ends and a new combat would begin, the damage is applied between the two combats and the referendum is conducted after all the combats if the acting vampire is still ready. [ANK 20180910-1] [LSJ 20060903]
 102200|Year of Fortune:
   - The bonus disappears if the card is burned (either burned by a referendum or if the controller is ousted). [PIB 20121028]
+102201|Yoruba Shrine:
+  - The acting player has the opportunity to play "as announced" effects first (eg. {Seduction}). [LSJ 20081105]
 102202|Young Bloods:
   - They may use their built-in action against a vampire with only 1 blood. If successful, that vampire burns his 1 blood. [LSJ 20070213]
   - If the target of their ability unlocks and the action is not blocked, it is successful but has no effect. [LSJ 20070411] [LSJ 20090514]
