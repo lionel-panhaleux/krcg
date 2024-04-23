@@ -1297,6 +1297,7 @@
   - Can be used between two actions during another Methuselah's turn. [ANK 20210608]
 100909|Helicopter:
   - If directly put (and not equipped) on the vampire, it is not locked (eg. using {Alastor}). [LSJ 20090415]
+  - It comes locked if it is equipped, even in an non-standard fashion (eg. {Magic of the Smith}). [LSJ 20100119]
 100910|Hell-for-Leather:
   - "[cel] A limited additional strike can be played before or after. [LSJ 20001206] [ANK 20211124]"
 100912|Herald of Topheth:
