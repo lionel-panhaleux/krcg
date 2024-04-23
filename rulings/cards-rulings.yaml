@@ -482,8 +482,10 @@
 100322|Champion:
   - "[REACTION] Can be used only when reactions can be used (unlocked or with a wake effect). It does not count as playing a reaction card. [LSJ 20070403] [LSJ 20070413]"
   - "[REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during the action still applies during combat. [LSJ 20070217]"
+  - "[REACTION] The action fails: it might be continued (eg. {Form of Mist}) but still fails anyway. [LSJ 20070214-2]"
+  - "[REACTION] The action fails but was not blocked. Cards depending on a block (eg. {Mirror Image}, {Freak Drive}) cannot be played. [LSJ 20070219]"
   - "[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
-  - "[REACTION] The action fails has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
+  - "[REACTION] The action fails, so has reached resolution: it is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]"
 100323|Change of Target:
   - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [LSJ 20070709]
   - Actions without card (provided by the rulebook) are not "the same" as actions provided by cards (played or in play). [LSJ 20060522]  [LSJ 20060824] [LSJ 20080725] [LSJ 20090617]
