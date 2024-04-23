@@ -2168,7 +2168,7 @@
 101581|Reform Body:
   - If the vampire saves himself from diablerie, the diablerie is considered unsuccessful. The diablerist gets nothing from the victim, and no Blood Hunt is called. [LSJ 19970224]
   - Cannot be played by vampires who aren't controlled. [LSJ 19970224]
-  - Cannot be played when burned as a result of a Blood Hunt referendum. [LSJ 20070417]
+  - Cannot be played when burned as a result of a Blood Hunt referendum. [LSJ 20010814-4] [LSJ 20070417]
 101582|Reformation:
   - "[chi] Cannot be used if there is no equipment to destroy. [RTR 19980928]"
   - "[dom] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Salvador Garcia}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
@@ -3332,6 +3332,8 @@
   - The "do not replace" effect stacks with whatever "do not replace" clause the card itself has, so that the longest one wins out. [LSJ 20070320-1]
 200578|Hazimel (G4):
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
+200582|Hector Trelane (G4):
+  - The opponent gains pool if he's burned because of a bloodhunt during combat (eg. after {Amaranth}). [LSJ 20091210]
 200585|Helen Fairchild (G6):
   - She cannot attempt an action to equip nor strike to steal an equipment. [LSJ 20050315] [LSJ 20010210]
   - She can equip with an equipment that is a location when in play. [LSJ 20050315]
