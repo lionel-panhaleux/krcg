@@ -1,5 +1,11 @@
 ---
 - cards:
+    - Memory's Fading Glimpse
+    - Kaymakli Nightmares
+    - Chain of Command
+    - Waste Management Operation
+  ruling: "Crypt cards cannot be put in the library and library cards cannot be put in the crypt. [LSJ 20041201]"
+- cards:
     - 100017|Achilles' Heel
     - 100257|Brother's Blood
     - 100283|Camaraderie
