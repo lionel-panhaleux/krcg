@@ -933,6 +933,7 @@
   - Cannot be used when a card is played to draw a card that would cancel it "as it is played". [RTR 20040501]
   - If used to play a political action and {Delaying Tactics} is played, the political action card goes to its owner's hand. [LSJ 20050322]
   - All other players can see which card is selected from the ash heap. [ANK 20200523]
+  - The card on it cannot be discarded or burned to satisfy another effect (eg. {Tension in the Ranks}). [LSJ 20050118]
 100658|Erosion:
   - Erosion resets a minion's base strength. Any modifiers, including inherent modifiers, are applied to the new base. If another effect like {Torn Signpost} later resets the base damage again, then the new amount wins out. [LSJ 19971211-2]
 100661|Escaped Mental Patient:
