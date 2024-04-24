@@ -1717,6 +1717,7 @@
   - Can be used after blocks are declined if the masked minion was benefiting from an effect that made him unblockable, even if the masking minion does not benefit from the same effect (eg. {Toreador Grand Ball}, {Nakhthorheb}). [PIB 20150924-1] [PIB 20150930]
   - Cannot be used to take over an action requiring a locked minion like {Force of Will}, since Mask requires an unlocked vampire. [LSJ 20020927]
   - Cannot be used during the resolution of an action, like during a referendum or during combat. [LSJ 19980825]
+  - Can be used to take over a mandatory action that was not mandatory for the masker, but that he could perform (eg. a hunt). [LSJ 20001113]
   - A minion attempting to block before is still attempting to block after. [LSJ 19990106]
   - The masking vampire can play a modifier already played by the masked minion. He cannot use a limited effect (ie. bleed enhancer) if a limited effect has already been used on the action. [ANK 20190117-1]
   - Multiple copies can be played by different vampires on the same action. [ANK 20200515]
