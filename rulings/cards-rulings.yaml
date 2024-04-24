@@ -516,6 +516,7 @@
   - '[aus][pre] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
   - "[aus][pre] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Adana de Sforza}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
 100334|Charming Lobby:
+  - The target Political Action card is announced when announcing the action. It must be in hand before replacing the Charming Lobby. [RTR 19991001] [LSJ 20101210]
   - During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]
   - The next referendum (passing automatically) can be called by another Methuselah's vampire. [PIB 20110719]
   - Cannot be used on effects that allow to play a political action card "as if from hand" (eg. {Echo of Harmonies}) [ANK 20201029]
@@ -1459,8 +1460,11 @@
 101013|Island of Yiaros:
   - Provides no additional strength to a Priscus for his ballots. [RTR 19970630]
 101016|Jack of Both Sides:
+  - Is an "equip action" when equipping an equipment, an "employ action" when employing an retainer. [TOM 19960130] [LSJ 20091110]
+  - The target card is announced when announcing the action. It must be in hand before replacing the Jack. [RTR 19991001] [LSJ 20101210]
   - Requirements must be met but this does not count as an action "requiring" anything. [LSJ 20100303] [ANK 20180817]
   - Does not prevent the acting vampire to play the equipment or retainer directly this turn if he unlocks (not the same action). [ANK 20180817]
+  - The target must be announced but is not discarded if the action fails. [LSJ 20040519-2]
 101019|Jake Washington:
   - Is not an ally in the ash heap (eg. {Compel the Spirit} cannot be played on him). [LSJ 20071014] [LSJ 20020115] [LSJ 20030128]
   - His "starting life amount" is 1 ({Vagabond Mystic} cannot give hime more life). [LSJ 20030520-2]
