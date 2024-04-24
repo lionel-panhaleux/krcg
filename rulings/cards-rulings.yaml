@@ -3134,7 +3134,8 @@
   - The reduction applies to all valid equipments, even without using the unlock or not equipping from hand. [ANK 20221026]
 102238|Enhanced Coagulant:
   - The card stays there if the strike is dodged [ANK 20220923]
-  - Cannot be used against an ally. [ANK 20221102]
+  - Cannot be used against an ally. [ANK 20220818] [ANK 20221102]
+  - Once used, it becomes a typeless card and cannot be used as a weapon anymore. [ANK 20220818]
 102239|Michael Harris, the Incinerator:
   - If used to set the range, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
 102242|Mobile HQ, Operation Antigen:
