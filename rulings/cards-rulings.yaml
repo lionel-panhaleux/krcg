@@ -547,6 +547,7 @@
   - Does not changes the sect. [RTR 20201130]
   - When removed, the vampire goes back to its underlying clan. [RTR 20201130] [ANK 20200415]
   - If the vampire changes clan to a clan inappropriate for his title, he loses its benefit until his clan is appropriate. He immediately yields the title if it is contested or he receives a new one. [RTR 20201130] [LSJ 20060904]
+  - If another effect also changes the clan (eg. {Derange}), the most recent one takes precedenced. [LSJ 20021209]
 100354|Clan Loyalty:
   - The blocking minion is not locked [ANK 20180321]
 100355|Clandestine Contract:
@@ -750,6 +751,7 @@
   - If the target changes clan to a clan inappropriate for his title, he loses its benefit until his clan is appropriate. He immediately yields the title if it is contested or he receives a new one. [RTR 20201130] [LSJ 20060904]
   - When removed, the vampire goes back to its underlying clan. [RTR 20201130] [ANK 20200415]
   - Only requires one clan or the other (Malkavian or Malkavian antitribu) to be played. [ANK 20190203]
+  - If another effect also changes the clan (eg. {Clan Impersonation}), the most recent one takes precedenced. [LSJ 20021209]
 100528|Descent into Darkness:
   - Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller, with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]
   - Damage inflicted after the action resolution (eg. {Daring the Dawn}) are not applied. [LSJ 20040616]
