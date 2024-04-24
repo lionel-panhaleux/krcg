@@ -3122,6 +3122,8 @@
 "102226|Haqim's Law: Retribution":
   - "Can only be used once per action (multiple Haqim's Law: Retribution can each be used once). [ANK 20221102-2]"
   - If used by a Banu Haqim and another takes the action over with {Mask of a Thousand Faces}, they cannot use it again. [ANK 20221102-2]
+  - Cannot be used during combat. [ANK 20231124]
+  - Can only be used by an acting bleeding minion. [ANK 20220502]
 102227|Hunger of Marduk:
   - The provided strike can be chosen and used more than once during the round. [ANK 20220207]
 102230|Organized Resistance:
@@ -3206,6 +3208,9 @@
   - Her ability only affects the rule restricting who gets to block an action. She must still meet all other requirements to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented. [RTR 20020501] [LSJ 20041203]
 200116|Antonio d'Erlette (G4):
   - "Cost reductions apply (eg. {Powerbase: Tshwane}), except if they require an action (eg. {Charisma}). [LSJ 20090920-2] [RTR 20070707]"
+200119|Anu Diptinatpa (G6):
+  - Her ability cannot be used during combat. [ANK 20231124]
+  - Her ability can only be used on an acting bleeding minion. [ANK 20220502]
 200135|Arika (G2):
   - Arika's prey can use a location during her unlock phase before burning it. [ANK 20200629]
   - Arika's prey cannot end her unlock phase if she controls a location that she hasn't burned a pool for, even if she gained control of that location during that unlock phase. [LSJ 19990405]
