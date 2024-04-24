@@ -2729,6 +2729,7 @@
   - When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step on that round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
   - The additional damage is the same type as the strike's damage. [RTR 19970630]
   - If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]
+  - Can be played on a strike that does no damage, even a dodge or a combat ends, but has no effect in that case. [RTR 19960221] [PIB 20130319]
 101940|Target Leg:
   - Is played during the Strike phase even if you commit to a strike in the Determine Range phase (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]
   - If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]
@@ -2740,7 +2741,7 @@
   - Is played during the Strike phase even if you commit to a strike in the Determine Range phase (eg. {Thrown Gate}). Cannot be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]
   - The additional damage is the same type as the strike's damage. [RTR 19970630]
   - If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]
-  - Can be played on a dodge or a combat ends, but does not add damage in that case. [PIB 20130319]
+  - Can be played on a strike that does no damage, even a dodge or a combat ends, but has no effect in that case. [RTR 19960221] [PIB 20130319]
 101945|Taste of Vitae:
   - Cannot be played against an ally. [PIB 20121028]
   - Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20001020] [LSJ 20001024] [RTR 20030519]
