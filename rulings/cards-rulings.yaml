@@ -1745,7 +1745,8 @@
 101192|The Meddling of Semsith:
   - Stays in play and still reduces your handsize when the target is ousted. [LSJ 20021008]
   - Is removed from play and its effect cancelled if the Methuselah who played it is ousted. [LSJ 20021008]
-  - Cards that are not replaced count against the hand size (eg. successive combats against {Raptor} stack the non-replaced cards). [ANK 20180318]
+  - The "do not replace" effect stacks with whatever "do not replace" clause the card itself has, so that the longest one wins out. [LSJ 20070320-1]
+  - Cards that are not replaced count against the hand size (eg. successive combats against {Raptor} stack the non-replaced cards). [ANK 20180318] [ANK 20231229]
 101195|Melange:
   - Once in play, must be burned when attempting a bleed, before its resolution (eg. {Archon Investigation} can be played afterwards). [ANK 20180531]
   - Goes to the ash heap when played, if it has been removed when the vampire blocks, it has no effect. [ANK 20220805]
@@ -3373,6 +3374,7 @@
   - His ability is not triggered when playing a Unique Location for contest. [LSJ 20080107]
 200560|Hagar Stone (G5):
   - The "do not replace" effect stacks with whatever "do not replace" clause the card itself has, so that the longest one wins out. [LSJ 20070320-1]
+  - 'The "do not replace" effect effectively reduces the hand size: additional draws (eg. {Ashur Tablets}) require a discard. [ANK 20180318] [ANK 20231229]'
 200578|Hazimel (G4):
   - Keeps his title and votes if he changes sects. [LSJ 20010714]
 200582|Hector Trelane (G4):
