@@ -1349,6 +1349,8 @@
   - The discard effect happens after action resolution (and all combats, if any). [LSJ 20060426]
 100925|High Ground:
   - When setting the range for the round, no other effect can be used to reset the range. Skip the determine range step this round, but other pre-range effects can be played afterwards. [RTR 19970630] [ANK 20180720]
+100927|High Orun:
+  - Applies to the current action card, if any. [LSJ 20091002]
 100935|Horrid Reality:
   - If no weapon can be found, the cost is still paid. [TOM 19951212-1]
   - If the weapon retrieved has requirements that the vampire does not meet, then it is burned. [RTR 20010710]
