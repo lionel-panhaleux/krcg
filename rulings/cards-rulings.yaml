@@ -190,6 +190,7 @@
   - Continuous effects targeting the banished vampire (eg. {The Rack}) resume if and when the vampire comes back into play. [TOM 19960210] [LSJ 20010809-2] [LSJ 20010809-3]
   - '"breaking any temporary control effects" means the vampire is placed in his last permanent controller''s uncontrolled region. [RTR 20000501]'
   - If the vampire is permanently controlled by a Methuselah other than his owner, it goes to that Methuselah uncontrolled region and is still controlled by them. It is removed from the game if that Methuselah is ousted and kept in game if his owner is ousted. [ANK 20200408-2]
+  - Cannot be played if there is no legal target. [ANK 2019-12-28]
 100133|Banshee Ironwail:
   - Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]
   - If a block is successful, the blood is burned before any other effect can be used (eg. {Promise of 1528}). REVERSAL of earlier rulings. [ANK 20210627]
