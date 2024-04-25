@@ -742,6 +742,7 @@
   - If played on a referendum called by a {Charming Lobby}, the political action card (if any) is retrieved and other minions are forbidden to perform a {Charming Lobby}. [ANK 20201029-2] [LSJ 20030426]
   - Will only retrieve a political action card played from the hand (eg. it does not retrieve an in-play {Rumors of Gehenna} in the referendum to burn it or the card chosen by {Bujo}). [LSJ 20041130] [LSJ 20100527]
   - It retrieves the political action card before it is burned (eg. if it was played from {The Erciyes Fragments}, it is still returned into its owner's hand). [LSJ 20050324]
+  - The results are not tallied (eg. {Scorn of Adonis} or {Bribes} have no effect). [LSJ 20010209]
 100526|Depravity:
   - The +1 strength is always in effect, not just during diablerie attempts. [RTR 19961113]
 100527|Derange:
@@ -2771,6 +2772,7 @@
   - '[AUS] Can be played before of after effects that are played "at the end of combat". [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]'
 101951|Telepathic Vote Counting:
   - May be played before, during, or after votes and ballots have been cast. [LSJ 19980130]
+  - "[aus] The results are not tallied (eg. {Scorn of Adonis} or {Bribes} have no effect). [LSJ 20010209]"
 101952|Templar:
   - "Each copy of this card provides its own action: if the vampire manage to unlock during the minion phase, he can perform the action more than once (once per copy). [RTR 20030519]"
 101954|Temptation:
