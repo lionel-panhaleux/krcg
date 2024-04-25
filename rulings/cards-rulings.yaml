@@ -1057,6 +1057,7 @@
 100733|Fire Dance:
   - The target vampire is chosen when the action is announced. [RTR 19970425]
 "100737|First Tradition: The Masquerade":
+  - The decision to skip the turn is made before the unlock phase. If the turn is not skipped, other unlock effects (eg. using a {Vessel}) can be ordered by the acting Methuselah before paying for the First Tradition. [ANK 20210110]
   - One or the other condition must be met fully for it to be burned. It is not burned if the controller skips two turns and pay 4 pool to play two other. [LSJ 20031011]
   - The burn pool effect is cumulative with other copies (if there are two of them, you burn 4 pool to play your turn), the controller skipping a turn counts towards all his copies. [RTR 19941222]
 100740|Flames of Insurrection:
