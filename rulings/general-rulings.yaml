@@ -1,5 +1,19 @@
 ---
 - cards:
+    - 101954|Temptation
+    - 101150|Malkavian Dementia
+    - 101215|Mind Rape
+    - 101848|Spirit Marionette
+    - 101519|Puppeteer
+    - 100096|The Art of Love
+  ruling: "If one is ousted while having temporary control of a minion, the minion is removed from the game. [LSJ 20081105]"
+- cards:
+    - 101200|Memory's Fading Glimpse
+    - 101036|Kaymakli Nightmares
+    - 100316|Chain of Command
+    - 102153|Waste Management Operation
+  ruling: "Crypt cards cannot be put in the library and library cards cannot be put in the crypt. [LSJ 20041201]"
+- cards:
     - 100017|Achilles' Heel
     - 100257|Brother's Blood
     - 100283|Camaraderie
@@ -286,6 +300,7 @@
 - cards:
     - 100593|Duma Rafiki
     - 100626|Elephant Guardian
+    - 100819|Ghoul Retainer
     - 100891|Hatch the Viper
     - 101254|Murder of Crows
     - 101556|Razor Bat
@@ -302,6 +317,7 @@
     - 100495|Dark Steel
     - 100593|Duma Rafiki
     - 100626|Elephant Guardian
+    - 100819|Ghoul Retainer
     - 100859|Groaning Corpse
     - 100891|Hatch the Viper
     - 101254|Murder of Crows
