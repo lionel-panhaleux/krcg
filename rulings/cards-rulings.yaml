@@ -3167,6 +3167,11 @@
   - The cost reduction applies to minion cards, they are also played by the Methuselah. [ANK 20221102]
   - Can be locked to reduce the cost at any point before resolution, from when the action is announced to just before the cost is paid. [ANK 20230620]
   - Can be used to allow you to play cards which cost you could not pay otherwise (eg. {Procurer}). [ANK 20230621]
+102254|Night Terrors:
+  - Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Night Terrors at the time it was played. [RTR 20030519]"
+  - Can be played by a minion who is not attempting to block the action. [ANK 20190628]
+  - Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]
+  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Night Terrors can be played. [PIB 20150820] [ANK 20200607]
 102263|Unleashing the Bestial Soul:
   - An opponent can play a reaction to wake as the card is played, before its effects apply. [ANK 20231028]
 200011|Adana de Sforza (G4):
