@@ -1005,10 +1005,12 @@
   - Cards that change a vampire's sect to Camarilla can still be played, but he becomes Independent until the Fall is removed from play. [LSJ 20040519]
   - Is a temporary effect that overrides the underlying sect. The most recent override takes precedence, but if a more recent would set the sect to Camarilla, it sets it to Independent instead while the Fall is in play. If the Fall leaves play, the vampire retrieves his underlying sect. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]
   - Vampires with a Camarilla title lose the benefit from it until they becomre Camarilla again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]
+  - An "impersonator" (eg. {Vlad Tepes}) can still play cards requiring Camarilla or a Camarilla title. [LSJ 20050124] [ANK 20230503]
 100696|Fall of the Sabbat:
   - Cards that change a vampire's sect to Sabbat can still be played, but he becomes Independent until the Fall is removed from play. [LSJ 20040519]
   - Is a temporary effect that overrides the underlying sect. The most recent override takes precedence, but if a more recent would set the sect to Sabbat, it sets it to Independent instead while the Fall is in play. If the Fall leaves play, the vampire retrieves his underlying sect. [LSJ 20080510] [LSJ 20100811] [ANK 20190619]
   - Vampires with a Sabbat title lose the benefit from it until they becomre Sabbat again. They immediately yield the title if it is contested or if they receives a new one. [LSJ 20060904]
+  - An "impersonator" (eg. {Vlad Tepes}) can still play cards requiring Sabbat or a Sabbat title. [LSJ 20050124] [ANK 20230503]
 100697|False Resonance:
   - "[CHI] Cannot be used to get stealth then cancel the [aus] card that provided intercept to the blocking minion. [ANK 20180201]"
 100698|Fame:
@@ -3465,6 +3467,7 @@
 200770|Kemintiri (G2 ADV):
   - "[MERGED] Keeps her title and votes if she changes sects. [LSJ 20010714]"
   - "[MERGED] When playing a card requiring Camarilla, Ventrue and/or Justicar, she is treated as a such for all effects of the card, and only them, including duration effects. She is not treated as such for effects the card has from being in play. [ANK 20190228] [LSJ 20101013]"
+  - "[MERGED] She can play a card requiring Camarilla and/or Justicar even if the sect does not exist anymore (eg. {Fall of the Camarilla}). [LSJ 20050124] [ANK 20230503]"
   - "[MERGED] If she plays a political action requiring a Justicar, she is not seen as such by other cards or effects during the referendum (eg. if another vampire plays {Closed Session} and she's not Camarilla she will not be able to vote. If she plays it, she can vote). [LSJ 20050128-2] [ANK 20221011-4] [RTR 20070707]"
   - "[MERGED] Does not enable you to play master cards, it only enables her to play certain minion cards. [LSJ 20050721]"
   - "[MERGED] When considered a Justicar, she is also implicitly considered Camarilla. [LSJ 20050128]"
@@ -3801,6 +3804,7 @@
   - 'Vampire traits: titles, "Red List", "Flight", non-requirements (eg. non-Red List) are vampire traits. Mortal, unlocked, ready, older, Striga, Maleficia, etc. are not. [LSJ 20081120-1] [LSJ 20091016] [LSJ 20100226]'
   - 'Titles: When meeting a title requirement, he is considered a member of the underlying sect. He can meet a given generic title (eg. Prince) only once, but the controller chooses how it is met (any city, even a made-up one). He must choose a title when playing a card required a "titled" vampire (eg. {Rubicon}), but can only choose each title once. He can choose the non-descript "X votes" title, but only once. [LSJ 20050128] [PIB 20150306] [PIB 20150307] [ANK 20211019]'
   - When meeting a title requirement for a political action, he does not get the title's votes for the subsequent referendum. [ANK 20231221]
+  - He can meet a title requirement even if the sect does not exist anymore (eg. {Fall of the Camarilla}). [LSJ 20050124] [ANK 20230503]
   - If a contract chooses him when played (eg. {Dirty Contract}), he is "chosen for the contract" for other cards (eg. {Open Dossier}). If the contract choice is an effect of the card in play (eg. {Clandestine Contract}), he's not chosen. [LSJ 20070708] [LSJ 20071109]
   - Orun and Aye cards cannot be placed on him as long as he's not a Laibon. [LSJ 20110611]
   - If his capacity is above 10 when playing {Call the Great Beast}, he burns and it is put into play. If his capacity is less, the card is put on him with tokens equal to his capacity, but he will not be able to add counters to it later on. [ANK 20180723]
@@ -3813,6 +3817,7 @@
   - When meeting a title requirement, he is considered as a vampire of the underlying sect. [LSJ 20050128]
   - When meeting a requirement, the controller can choose how he meets it (eg. he can play {Anarch Secession} as a Prince of any city, even a made-up one). [PIB 20150306] [PIB 20150307]
   - When meeting a title requirement for a political action, he does not get the title's votes for the subsequent referendum. [ANK 20231221]
+  - He can meet a title requirement even if the sect does not exist anymore (eg. {Fall of the Camarilla}). [LSJ 20050124] [ANK 20230503]
   - He can use a card requiring a sect or titled to be played (eg. use {Abbot} intercept bonus as a Sabbat vampire, perform {Archon} action to burn it as a Prince or Justicar). [PIB 20150306]
   - "He cannot use a card as a vampire of a sect or with a title if the card does not require the sect or title to be played. (eg. he cannot benefit from {Powerbase: Madrid} as a Sabbat vampire) [PIB 20150304]"
   - 'If Vlad gains a title via a title card (eg. {Fee Stake: Perth}), as long as Vlad is not the correct sect, the title is dormant. He counts as untitled if he has a dormant title. He cannot "use" his title to become titled. [ANK 20190211]'
