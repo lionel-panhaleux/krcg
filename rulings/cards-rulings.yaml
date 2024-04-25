@@ -3166,7 +3166,8 @@
 102244|The Shard, London:
   - The cost reduction applies to minion cards, they are also played by the Methuselah. [ANK 20221102]
   - Can be locked to reduce the cost at any point before resolution, from when the action is announced to just before the cost is paid. [ANK 20230620]
-  - Can be used to allow you to play cards which cost you could not pay otherwise (eg. {Procurer}). [ANK 20230621]
+  - Can be used to allow to play cards which cost could not be paid otherwise. [ANK 20230621]
+  - Can allow allies to play cards that otherwise cost blood (eg. {Procurer}), if they do not otherwise require a vampire (eg. clan or discipline). [ANK 20230621]
 102254|Night Terrors:
   - Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Night Terrors at the time it was played. [RTR 20030519]"
   - Can be played by a minion who is not attempting to block the action. [ANK 20190628]
