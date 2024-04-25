@@ -4,7 +4,7 @@ Changelog
 3.10 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Updated rulings
 
 
 3.9 (2024-02-08)
