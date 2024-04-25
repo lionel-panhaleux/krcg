@@ -840,7 +840,7 @@
   - "[CHI] Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Draba at the time it was played. [RTR 20030519]"
   - "[CHI] Can be played by a minion who is not attempting to block the action. [ANK 20190628]"
   - "[CHI] Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]"
-  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Draba can be used ([chi]) or played ([CHI]). [PIB 20150820] [ANK 20200607]
+  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Draba can be used ([chi]) or played ([CHI]). [ANK 20200607]
 100579|Draeven Softfoot:
   - He can lock to use his ability the turn he is recruited. [ANK 20180517]
 100580|Dragon's Breath Rounds:
@@ -1090,7 +1090,7 @@
   - '[VIS] If the combat continues or a new combat begins, the "action continues as if unblocked" effect is lost. [LSJ 19980109] [RTR 20020501]'
 100755|Folderol:
   - "[aus] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Helena (ADV)}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
-  - "[MYT] If another Methuselah is the target, he must declare whether he attempts or declines to block before Folderol can be played. [PIB 20150820]"
+  - "[MYT] If another Methuselah is the target, he must declare whether he attempts or declines to block before Folderol can be played. [ANK 20200607]"
 100756|Follow the Alpha:
   - Effects that end combat and then do something else after combat (include continuing the action as if unblocked) will be lost, except for unlock effects. [LSJ 19980109] [RTR 20020501]
   - Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]
@@ -1376,7 +1376,7 @@
   - '[dai][obf], [DAI][OBF] Cards are not replaced during the "as played" window. [LSJ 20061013]'
   - '[dai][obf], [DAI][OBF] If the canceled card had a "Do Not Replace Until" clause on it, that clause is canceled as well and the card is replaced normally. [LSJ 20011023]'
 100948|Ignis Fatuus:
-  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Ignis Fatuus can be played. [PIB 20150820] [ANK 20200607]
+  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Ignis Fatuus can be played. [ANK 20200607]
 100949|Ignore the Searing Flames:
   - "[DAI] Immune means damage is not inflicted, even if non-preventable or outside combat. [LSJ 20010627] [LSJ 20010629] [LSJ 20090304-1]"
   - "[DAI] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {The Textbook Damnation}). The card cannot be played if the minion cannot afford to burn the blood. [ANK 20210226]"
@@ -2361,7 +2361,7 @@
 101691|Scobax:
   - "[STR] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022] [RTR 20180719] [ANK 20220118] [ANK 20221205]."
   - "[STR] If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]"
-  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Scobax can be played. [PIB 20150820] [ANK 20200607]
+  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Scobax can be played. [ANK 20200607]
 101692|Scorn of Adonis:
   - May be played at any time during the voting process, and will retroactively cause the loss of pool to Methuselahs voting 'no' before it is played, as well as to Methuselahs voting 'no' after it is played. [RTR 19951110]
   - Each Scorn played may only cause the loss of one pool to a given Methuselah, regardless of how may 'no' votes that Methuselah casts. [RTR 19951110]
@@ -3176,7 +3176,7 @@
   - Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Night Terrors at the time it was played. [RTR 20030519]"
   - Can be played by a minion who is not attempting to block the action. [ANK 20190628]
   - Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]
-  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Night Terrors can be played. [PIB 20150820] [ANK 20200607]
+  - If another Methuselah is the target, he must declare whether he attempts or declines to block before Night Terrors can be played. [ANK 20200607]
   - "[OBF][PRE] The strike: combat ends can only be used in the combat resulting from a successful block. It does not carry over to follow-up combats (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
   - "[OBF][PRE] The strike: combat ends is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 102256|One With the Land:
