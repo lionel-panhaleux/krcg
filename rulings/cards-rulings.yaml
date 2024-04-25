@@ -676,6 +676,8 @@
   - Takes into account all the cards played, even if they are canceled. [ANK 20220411]
 100486|Daemonic Possession:
   - This is not a directed action, even when targeting another Methuselah's ash heap. [LSJ 20010627] [ANK 20181129]
+100487|Dagger:
+  - Still allows to fetch a second Dagger if equipped in a non-standard way (eg. {Gift of Bellona}). [LSJ 20100421]
 100488|Dagon's Call:
   - Both the strike and the environmental damage would get boosted by {Dam the Heart's River}. [PIB 20150520]
   - "[QUI] Additional damage inherits all of the properties of the base damage. [TOM 19960225]"
@@ -1820,6 +1822,12 @@
   - '"continue as if unblocked" moves the action card from the ash heap (where it went when the action was blocked) to limbo (where it should be if the action is not blocked). If the action card is not in the ash heap, then the action cannot be continued. [LSJ 20070808-1]'
   - Can be used if a Slave locked to enter combat instead of the blocking minion, if the other conditions are met. [ANK 20200114]
   - Is played after resolution, but still during the action. Cards and effects that played "after resolution" (eg. {Freak Drive}) can be played before it, but not after. [LSJ 19981028] [LSJ 20100206-2]
+101240|Monocle of Clarity:
+  - The answer must be "yes" or "no", to the best of the player's knowledge. [LSJ 20021122-4]
+  - The owner and target Methuselah have to agree on the meanings of the terms of the question (eg. "bounce" card). In case of doubt, they should discuss to agree on a shared meaning for those terms before answering the question. [LSJ 20030908]
+  - The answer may be inexact when pertaining to an unverifiable element, such as the deck's content. A judge cannot be called to check the deck content. [LSJ 20021121-3] [PIB 20111213]
+  - The owner must indicate that they are using the Monocle to ask the question, by whatever method passes for such an indication. [LSJ 20021121-4]
+  - You can ask a question about multiple things using conjunctions, as long as the question as a whole can be answered by "yes" or "no". [LSJ 20021212]
 101241|Monomancy:
   - The card is not put on the target vampire if he or she uses another effect than Monomancy to end combat. [RTR 20020501]
 101242|Monster:
@@ -3870,9 +3878,3 @@
   - Her ability does not let her fulfill card requirements if they are not played normally, like when using {Piper} to recruit an ally. [LSJ 20050119]
 201648|Regina Blake (G6):
   - She can use her ability to pay for equipments that are locations while in play (eg. {Palatial Estate}). [LSJ 20080107] [LSJ 20080114]
-101240|Monocle of Clarity:
-  - The answer must be "yes" or "no", to the best of the player's knowledge. [LSJ 20021122-4]
-  - The owner and target Methuselah have to agree on the meanings of the terms of the question (eg. "bounce" card). In case of doubt, they should discuss to agree on a shared meaning for those terms before answering the question. [LSJ 20030908]
-  - The answer may be inexact when pertaining to an unverifiable element, such as the deck's content. A judge cannot be called to check the deck content. [LSJ 20021121-3] [PIB 20111213]
-  - The owner must indicate that they are using the Monocle to ask the question, by whatever method passes for such an indication. [LSJ 20021121-4]
-  - You can ask a question about multiple things using conjunctions, as long as the question as a whole can be answered by "yes" or "no". [LSJ 20021212]
