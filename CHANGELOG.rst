@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.10 (unreleased)
+3.10 (2024-04-25)
 -----------------
 
 - Updated rulings
