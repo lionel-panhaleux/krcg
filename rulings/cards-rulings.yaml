@@ -3141,6 +3141,9 @@
 102208|Zip Gun:
   - Damage done to the bearer is environmental. [LSJ 19970801]
   - No damage is done to the bearer if he does not strike with the gun (eg. if it is destroyed with first strike). [LSJ 20100310]
+102223|Form of the Bat:
+  - The maneuver, and equipment restriction, apply only in the combat resulting from a successful block. They do not carry over to follow-up combats (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]
+  - The maneuver, and equipment restriction, apply again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]
 "102226|Haqim's Law: Retribution":
   - "Can only be used once per action (multiple Haqim's Law: Retribution can each be used once). [ANK 20221102-2]"
   - If used by a Banu Haqim and another takes the action over with {Mask of a Thousand Faces}, they cannot use it again. [ANK 20221102-2]
@@ -3174,6 +3177,11 @@
   - Can be played by a minion who is not attempting to block the action. [ANK 20190628]
   - Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]
   - If another Methuselah is the target, he must declare whether he attempts or declines to block before Night Terrors can be played. [PIB 20150820] [ANK 20200607]
+  - "[OBF][PRE] The strike: combat ends can only be used in the combat resulting from a successful block. It does not carry over to follow-up combats (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[OBF][PRE] The strike: combat ends is provided again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
+102256|One With the Land:
+  - "[PRO] The strike restriction only applies in the combat resulting from a successful block. It does not carry over to follow-up combats (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]"
+  - "[PRO] The strike restriction applies again if a second block happens on the same action (eg. after [PRO] {Form of Mist}). [LSJ 20010814-2]"
 102263|Unleashing the Bestial Soul:
   - An opponent can play a reaction to wake as the card is played, before its effects apply. [ANK 20231028]
 200011|Adana de Sforza (G4):
