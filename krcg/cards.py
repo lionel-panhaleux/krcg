@@ -33,11 +33,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     _AKA = {
         101179: ["mask of 1,000 faces"],
     }
-    #: VEKN CSV uses old clan names for retro-compatibility
-    _CLAN_RENAMES = {
-        "Assamite": "Banu Haqim",
-        "Follower of Set": "Ministry",
-    }
+    _CLAN_RENAMES = {}
+    #: VEKN CSV uses old disicpline names for retro-compatibility
     _DISC_RENAMES = {
         "Thaumaturgy": "Blood Sorcery",
     }

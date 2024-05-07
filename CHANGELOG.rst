@@ -4,7 +4,7 @@ Changelog
 3.11 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Remove clan substitutions on cards CSV (Assamite, FoS)
 
 
 3.10 (2024-04-25)
