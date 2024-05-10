@@ -525,8 +525,6 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             self.text_change = True
         else:
             self.text_change = False
-        for old_name, new_name in self._CLAN_RENAMES.items():
-            self.card_text = self.card_text.replace(old_name, new_name)
         for old_name, new_name in self._DISC_RENAMES.items():
             self.card_text = self.card_text.replace(old_name, new_name)
         self.banned = (
@@ -873,8 +871,6 @@ class CardMap(utils.FuzzyDict):
                 if card._name != name:
                     warnings.warn(f"{name} does not match {cid} in {lang} translation")
                 card_text = line["Card Text"].replace("(D)", "Ⓓ")
-                for old_name, new_name in card._CLAN_RENAMES.items():
-                    card_text = card_text.replace(old_name, new_name)
                 trans = {
                     "name": line["Name"],
                     "url": card._compute_url(lang[:2]),
