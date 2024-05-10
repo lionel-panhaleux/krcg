@@ -746,8 +746,6 @@
   - Will only retrieve a political action card played from the hand (eg. it does not retrieve an in-play {Rumors of Gehenna} in the referendum to burn it or the card chosen by {Bujo}). [LSJ 20041130] [LSJ 20100527]
   - It retrieves the political action card before it is burned (eg. if it was played from {The Erciyes Fragments}, it is still returned into its owner's hand). [LSJ 20050324]
   - The results are not tallied (eg. {Scorn of Adonis} or {Bribes} have no effect). [LSJ 20010209]
-100526|Depravity:
-  - The +1 strength is always in effect, not just during diablerie attempts. [RTR 19961113]
 100527|Derange:
   - Cannot be moved to a Malkavian nor to a Malkavian antitribu vampire. [LSJ 19970224]
   - The clan is set when the card is played, it does not depend on the clan of the vampire that has the card on them. [LSJ 20070707]
