@@ -33,8 +33,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     _AKA = {
         101179: ["mask of 1,000 faces"],
     }
-    _CLAN_RENAMES = {}
-    #: VEKN CSV uses old disicpline names for retro-compatibility
+    #: VEKN CSV uses old clan names for retro-compatibility
+    _CLAN_RENAMES = {
+        "Assamite": "Banu Haqim",
+        "Follower of Set": "Ministry",
+    }
     _DISC_RENAMES = {
         "Thaumaturgy": "Blood Sorcery",
     }
@@ -522,8 +525,6 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             self.text_change = True
         else:
             self.text_change = False
-        for old_name, new_name in self._CLAN_RENAMES.items():
-            self.card_text = self.card_text.replace(old_name, new_name)
         for old_name, new_name in self._DISC_RENAMES.items():
             self.card_text = self.card_text.replace(old_name, new_name)
         self.banned = (
@@ -870,8 +871,6 @@ class CardMap(utils.FuzzyDict):
                 if card._name != name:
                     warnings.warn(f"{name} does not match {cid} in {lang} translation")
                 card_text = line["Card Text"].replace("(D)", "Ⓓ")
-                for old_name, new_name in card._CLAN_RENAMES.items():
-                    card_text = card_text.replace(old_name, new_name)
                 trans = {
                     "name": line["Name"],
                     "url": card._compute_url(lang[:2]),
