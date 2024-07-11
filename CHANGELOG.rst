@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.11 (unreleased)
+3.11 (2024-07-11)
 -----------------
 
 - Do not replace updated clan names in card text anymore (keep the replacement in characteristics and search fields)
