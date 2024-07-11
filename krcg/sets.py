@@ -6,6 +6,56 @@ from typing import Hashable
 
 from . import utils
 
+# We might want to rework sets and rarity presentation
+# See https://gamingwithbs.wordpress.com/vtes-set-information/
+# and https://en.wikipedia.org/wiki/Vampire:_The_Eternal_Struggle
+#
+# From Duelist no. #12, p. 71, September 1996
+# Ancient Hearh cards are printed on three types of sheets: common, uncommon/vampire,
+# and uncommon/rare. The projected average distribution for an Ancient Hearts booster is
+# six cards from the common sheet, four cards from the uncommon vampire sheet, and
+# two cards from the uncommon/rare sheet
+# in CSV the unco/rares are listed as U and the unco/vamp are listed as V
+# totals are clean but probably uncos should simply be listed as rares
+# {'Common': 100, 'Vampire': 200, 'Uncommon': 126, 'Rare': 74}
+#
+# Also "The Sabbat" rarities are probably wrong, cf. Duelist #14
+# https://archive.org/details/the-duelist-14/page/n75/mode/2up
+# And the totals don't match sheet size (probably 100)
+# {'Vampire': 110, 'Common': 112, 'Rare': 97, 'Uncommon': 91}
+# eg. "Awe" listed as R in CSV, U in Duelist.
+# Same with Bestial Visage, Bloodbath, Breath of the Dragon...
+#
+# Bloodlines is missing 2 uncos
+# {'Common': 100, 'Rare': 100, 'Uncommon': 98}
+#
+# Black Hand has a crap total, with 8 commons too many, and missing frequency on C
+# {'Common': 39, 'Uncommon': 108, 'Rare': 50}
+#
+# LoB numbers suggeset some "commons" were in fact printed on unco sheets
+# {'Common': 125, 'Rare': 100, 'Uncommon': 75}
+#
+# Ebony Kingdom has Aye and Orun "half common" _on top_ of the printed sheets,
+# which explains the strange totals, but does not explain how we should count:
+# given Aye and Oruns were also included in the box (out of boosters),
+# maybe list them as promo or something.
+# See https://www.vekn.net/card-lists/142-ebony-kingdom
+# {'Uncommon': 20, 'Common': 22, 'Rare': 20}
+#
+# Heirs to the Blood also showcases stupid totals
+# {'Rare': 60, 'Uncommon': 60, 'Common': 56}
+# Maybe check https://web.archive.org/web/20131029173730/http://www.secretlibrary.info/index.php?checklist=HttB
+#
+# Small code snippet for when we want to dig into this:
+# from krcv.vtes import VTES
+# VTES.load()
+# total = {}
+# for card in VTES.search(set=curset):
+#     for rarity in card.sets[curset]:
+#         if "rarity" not in rarity: continue
+#         total.setdefault(rarity["rarity"], 0)
+#         total[rarity["rarity"]] += rarity.get("frequency", 1)
+
 
 class Set(utils.i18nMixin, utils.NamedMixin):
     """A class representing a V:tES Set (expansion)."""
