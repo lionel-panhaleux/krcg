@@ -37,7 +37,10 @@ def get_zip_csv(url: str, *args: str) -> List[Generator[Dict[str, str], None, No
     """Given a zipfile URL and list of CSV files in it, returns matching CSV readers."""
     local_filename, _headers = urllib.request.urlretrieve(url)
     z = zipfile.ZipFile(local_filename)
-    return [csv.DictReader(io.TextIOWrapper(z.open(arg))) for arg in args]
+    return [
+        csv.DictReader(io.TextIOWrapper(z.open(arg), encoding="utf-8-sig"))
+        for arg in args
+    ]
 
 
 def get_github_csv(url: str, *args: str) -> List[Generator[Dict[str, str], None, None]]:
@@ -45,7 +48,7 @@ def get_github_csv(url: str, *args: str) -> List[Generator[Dict[str, str], None,
     ret = []
     for arg in args:
         local_filename, _headers = urllib.request.urlretrieve(url + arg)
-        ret.append(csv.DictReader(open(local_filename)))
+        ret.append(csv.DictReader(open(local_filename, encoding="utf-8-sig")))
     return ret
 
 

@@ -5,7 +5,7 @@ Changelog
 -----------------
 
 - Do not replace updated clan names in card text anymore (keep the replacement in characteristics and search fields)
-
+- Fix encoding errors when loading from VEKN files on Windows
 
 3.10 (2024-04-25)
 -----------------

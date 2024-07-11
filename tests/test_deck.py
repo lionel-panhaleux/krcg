@@ -1,4 +1,5 @@
 import os
+import pytest
 
 from krcg import deck
 from krcg import twda
@@ -283,6 +284,7 @@ def test_from_amaranth():
     }
 
 
+@pytest.mark.skip(reason="Waiting for a VDB api fix - 404 for now")
 def test_from_vdb():
     d = deck.Deck.from_vdb("b798e734fff7404085f7b01ad2ccb479")
     assert d.to_json() == {
