@@ -1,6 +1,6 @@
 .PHONY: quality test release update clean
 
-export VTESCSV_GITHUB_BRANCH = main
+export LOCAL_CARDS = 1
 
 quality:
 	black --check krcg tests

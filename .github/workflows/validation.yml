@@ -30,7 +30,7 @@ jobs:
           yamllint rulings
       - name: Test
         env:
-          VTESCSV_GITHUB_BRANCH: main
+          LOCAL_CARDS: 1
         run: |
           coverage run -m pytest
           coverage xml
