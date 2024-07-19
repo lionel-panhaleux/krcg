@@ -315,6 +315,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.draft = None
         # enriched properties (not directly in original CSV, but convenient)
         self.ordered_sets = []  # sets in release order
+        self.legality = None  # date of legality
         self.has_advanced = None  # same vampire appears as advanced in the same group
         self.has_evolution = None  # same vampire appears in a higher group
         self.is_evolution = None  # same vampire appears in a lower group
@@ -579,6 +580,15 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                 [s for s in self.sets.keys() if set_dict[s].release_date],
                 key=lambda x: set_dict[x].release_date,
             )
+            self.legality = min(
+                (
+                    datetime.date.fromisoformat(v["release_date"])
+                    if v.get("release_date")
+                    else datetime.date.max
+                )
+                for info in self.sets.values()
+                for v in info
+            ).isoformat()
         else:
             warnings.warn(f"no set found for {self}")
         # some cards have one set, no date, eg. playtest cards

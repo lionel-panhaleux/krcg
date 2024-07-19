@@ -52,6 +52,7 @@ def test_card():
             'D.H. Lawrence, "Bat"'
         ),
         "id": 100029,
+        "legality": "1994-08-16",
         "name": "Aid from Bats",
         "printed_name": "Aid from Bats",
         "ordered_sets": [
@@ -163,6 +164,7 @@ def test_multiple_rulings():
         ),
         "clans": ["Toreador"],
         "id": 101989,
+        "legality": "1995-12-15",
         "name": "Toreador Grand Ball",
         "printed_name": "Toreador Grand Ball",
         "pool_cost": "1",

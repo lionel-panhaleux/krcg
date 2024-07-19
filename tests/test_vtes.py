@@ -1150,6 +1150,7 @@ def test_vekn():
         "artists",
         "card_text",
         "id",
+        "legality",
         "name",
         "printed_name",
         "pool_cost",
@@ -1177,6 +1178,7 @@ def test_vekn():
         "has_advanced": True,
         "has_evolution": True,
         "id": 201362,
+        "legality": "2001-06-11",
         "name": "Theo Bell (G2)",
         "name_variants": ["Theo Bell"],
         "printed_name": "Theo Bell",
@@ -1226,6 +1228,7 @@ def test_promo_scans():
         ],
         "group": "5",
         "id": 200385,
+        "legality": "2015-02-16",
         "name": "The Dracon (G5)",
         "name_variants": [
             "Dracon, The (G5)",
