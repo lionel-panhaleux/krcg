@@ -1,3 +1,10 @@
+"""Cards source:
+load(): krcg-static version from https://static.krcg.org/data/vtes.json
+load_from_vekn(): CSV from http://www.vekn.net/images/stories/downloads
+load_from_vekn() with LOCAL_CARDS=1: CSV in `cards` folder/package in this repository
+load_from_vekn() with VTESCSV_GITHUB_BRANCH: https://github.com/GiottoVerducci/vtescsv
+"""
+
 from typing import Counter, Dict, Generator, List, Set, Tuple
 import collections
 import collections.abc
@@ -823,17 +830,17 @@ class CardMap(utils.FuzzyDict):
                 csv.DictReader(
                     importlib.resources.files("cards")
                     .joinpath("vtessets.csv")
-                    .read_text("utf-8-sig"),
+                    .open(encoding="utf-8-sig"),
                 ),
                 csv.DictReader(
                     importlib.resources.files("cards")
                     .joinpath("vtescrypt.csv")
-                    .read_text("utf-8-sig"),
+                    .open(encoding="utf-8-sig"),
                 ),
                 csv.DictReader(
                     importlib.resources.files("cards")
                     .joinpath("vteslib.csv")
-                    .read_text("utf-8-sig"),
+                    .open(encoding="utf-8-sig"),
                 ),
             ]
         elif VTESCSV_GITHUB_BRANCH:
