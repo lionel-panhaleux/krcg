@@ -153,7 +153,7 @@ def test_multiple_rulings():
             },
         },
         "_name": "Toreador Grand Ball",
-        "_set": "DS:U, CE:U, KoT:U, V5:PTo4, NB:PTo4",
+        "_set": "DS:U, CE:U, KoT:U, V5:PTo4, NB:PTo4, 30th:6",
         "artists": ["Richard Kane Ferguson", "Jim Di Bartolo"],
         "card_text": (
             "Choose two ready Toreador you control, put this card in play, "
@@ -174,6 +174,7 @@ def test_multiple_rulings():
             "Keepers of Tradition",
             "Fifth Edition",
             "New Blood",
+            "Thirtieth Anniversary",
         ],
         "rulings": {
             "links": {
@@ -219,6 +220,7 @@ def test_multiple_rulings():
             "New Blood": [
                 {"copies": 4, "precon": "Toreador", "release_date": "2022-04-17"}
             ],
+            "Thirtieth Anniversary": [{"copies": 6, "release_date": "2024-07-20"}],
         },
         "scans": {
             "Camarilla Edition": (
@@ -237,6 +239,10 @@ def test_multiple_rulings():
             ),
             "New Blood": (
                 "https://static.krcg.org/card/set/" "new-blood/toreadorgrandball.jpg"
+            ),
+            "Thirtieth Anniversary": (
+                "https://static.krcg.org/card/set/"
+                "thirtieth-anniversary/toreadorgrandball.jpg"
             ),
         },
         "types": ["Master"],

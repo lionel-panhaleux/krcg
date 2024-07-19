@@ -172,6 +172,7 @@ def test_search_dimensions():
             "Belo Horizonte",
             "Berlin",
             "Birmingham",
+            "Bogota",
             "Boston",
             "Brussels",
             "Budapest",
@@ -191,6 +192,7 @@ def test_search_dimensions():
             "Dublin",
             "Fortaleza",
             "Frankfurt",
+            "Gary",
             "Geneva",
             "Glasgow",
             "Guadalajara",
@@ -370,6 +372,7 @@ def test_search_dimensions():
             "The Unaligned",
             "Third Edition",
             "Third Edition promo",
+            "Thirtieth Anniversary",
             "Twenty-Fifth Anniversary",
             "Twilight Rebellion",
             "V5 Polish Edition promo",
@@ -481,6 +484,7 @@ def test_search_dimensions():
             "Alexander Dunnigan",
             "Amy Weber",
             "Amy Wilkins",
+            "Anastasiia Horbunova",
             "Andre Gates",
             "Andrew Bates",
             "Andrew Hepworth",
@@ -723,6 +727,7 @@ def test_search_dimensions():
             "Quinton Hoover",
             "Randy Asplund",
             "Randy Gallegos",
+            "Raquel Cornejo",
             "Rebecca Guay",
             "Riccardo Fabiani",
             "Richard Kane Ferguson",
@@ -916,6 +921,8 @@ def test_search_basic():
     }
     # title
     assert vtes.VTES.search(title=["imperator"]) == {
+        vtes.VTES["Camarilla's Iron Fist"],
+        vtes.VTES["Confiscation"],
         vtes.VTES["Imperator"],
         vtes.VTES["Karsh (ADV)"],
         vtes.VTES["National Guard Support"],
@@ -932,6 +939,7 @@ def test_search_basic():
     assert vtes.VTES.search(bonus=["stealth", "votes"]) == {
         vtes.VTES["Antonio Veradas"],
         vtes.VTES["Bulscu (ADV)"],
+        vtes.VTES["Camarilla Conclave"],
         vtes.VTES["Dark Selina"],
         vtes.VTES["Jessica (ADV)"],
         vtes.VTES["Joseph Cambridge"],
