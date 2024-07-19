@@ -270,6 +270,8 @@ _PUNCTUATED_TRAIT = "|".join(
         "martyrdom",
         "pander",
         "presence",
+        # appears in name "touch of valeren"
+        "valeren",
         "vengeance",
         "vision",
         "mage",
@@ -280,7 +282,7 @@ _PUNCTUATED_TRAIT = "|".join(
         "giovanni",
         "goblin",
         "changeling",
-        # this one pften appears after double dashes in legacy deck lists:
+        # this one often appears after double dashes in legacy deck lists:
         # Bang Nakh -- Tiger's Claws
         # catch it here to avoid putting it in comments,
         # there's a matching alias in config.ALIASES
@@ -355,7 +357,6 @@ _NAKED_TRAIT = "|".join(
         "temporis",
         "thanatosis",
         "thaumaturgy",
-        "valeren",
         "vicissitude",
         "visceratika",
     ]

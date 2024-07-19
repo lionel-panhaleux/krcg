@@ -2237,3 +2237,314 @@ def test_10211(caplog):
             "count": 90,
         },
     }
+
+
+def test_11435(caplog):
+    """New cards issue with Touch of Valeren"""
+    caplog.set_level(logging.WARNING)
+    TWDA = twda._TWDA()
+    with open(os.path.join(os.path.dirname(__file__), "11435.html")) as f:
+        TWDA.load_html(f)
+    assert len(TWDA) == 1
+    assert TWDA["11435"].to_json() == {
+        "comments": "A brief explanation about the final, from my point of view.\n"
+        "With 1GW4VP I placed second (new salubri powerbleed), so a quite good "
+        "position to pick my seat.\n"
+        "The other finalists were:\n"
+        "Marc Alvarez (1st) Matasuntha rush\n"
+        "Albert Dulcet (3rd)  Marie Faucigny with equipments (strange deck)\n"
+        "Xavier Macias (4th) Ravnos\n"
+        "Germán Sánchez (Gangrel block)\n"
+        "When I got the chance to pick my place the order was already:\n"
+        "Xavier Macias (Ravnos) -> Albert Dulcet (Marie Faucigny) -> Germán "
+        "Sanchez (Gangrel block)\n"
+        "I knew I didn't want to prey the gangrels, my thoughts about the Ravnos "
+        "were that it was a toolboox with bleed reduction, so ideal choice was "
+        "between Ravnos and Marie, but I was sure that Matasuntha would then place "
+        "behind me so I risked it and placed myself between Gangrel and the "
+        "Ravnos, hoping to get out early and put some pressure on my prey. Marc "
+        "placed preying Albert.\n"
+        "Pulled out Seraphina and had a GtU and a SM in hand with a freak drive, "
+        "so was quite confident to get my second vampire early. Played seduction "
+        "on the only Ravnos Xavier had, but unfortunately Kuyén decided to block "
+        "me.\n"
+        "- I know your deck- Were Germán's words, so I knew he wasn't going to let "
+        "me play easily, so decided to bring my second vampire transferring from "
+        "my pool.\n"
+        "Matasuntha start putting quite some pressure on Marie, but I knew Albert "
+        "playstyle, and he is a very resourceful person, and really hard to kill, "
+        "so the Gangrels were free to roam, and a couple more joined Kuyén son "
+        "enough.\n"
+        "A bit later, Xavier discarded a Pentex, so having one in hand I knew "
+        "there was my chance, so with a few tricks from the salubris I manage to "
+        "give is pool quite a big bite, but not enough to oust him.\n"
+        "Germán put some pressure on me, not heavy but steady with 2 or 3 bleeds "
+        "per turn, I was lucky to get almost all my deflections, redirections and "
+        "TM and that prevent me from dyeing and lowering Xavier's pool a bit. Then "
+        "he played a risky move, bringing Club Illusion to the game with some sort "
+        "of agreement with my anarch predator, that if he killed me, he would "
+        "allow a couple of turns of peace so the Ravnos could recover.\n"
+        "Matasuntha's attention suddenly faded from Marie and turned backwards, as "
+        "she had 4 vampires with a potential bleed of 9 and Marc's pool was only "
+        "at 13, so she multirushed backwards, torporizing 3 vampires. Albert "
+        "offered to rescue 1 on order to safe Xavier and keep Matasuntha busy with "
+        "him.\n"
+        "On his turn, German tried to oust me with his full potential, he had "
+        "previously recovered a Monkey Wrench with his Garibaldi, so I was ready "
+        "for it and he failed.\n"
+        "My second chance was right in front of me, and I wasn't going to waste "
+        "it, so I jumped towards Xavier's exposed pool and this time I manage to "
+        "successfully oust him, but even before I could savor my victory I felt "
+        "Matasuntha's eyes upon me, so with my sweetest salubri voice I offered a "
+        "deal, and after a few give and take we manage to get ourselves an "
+        "understanding.\n"
+        "Marc will not rush me, and I will not bleed him, and the first Monkey "
+        "Wrench German played I will directly deflect to Albert, all the other "
+        "bleeds I could deflect them to Marc. I knew it wasn't much of a deal, "
+        "Albert would get heavy pressure again and the Gangrel will be free to "
+        "roam around me, and so he did bringing a 5th vampire to the game, but it "
+        "was too late and the finale concluded a few turns after.\n"
+        "Special mention to Marie and her crew, who suffered repeatedly "
+        "Matasuntha's rushes but manage to come back from torpor more times than "
+        "it seems even possible.\n"
+        "Hope you all like my chronicle and apologize for my limited English.\n"
+        "Miki\n"
+        "P.D. Hope I have reported it correctly, if something is missing let me "
+        "know.\n",
+        "crypt": {
+            "cards": [
+                {
+                    "count": 2,
+                    "id": 201663,
+                    "name": "Abaddon",
+                },
+                {
+                    "count": 2,
+                    "id": 201686,
+                    "name": "Seraphina",
+                },
+                {
+                    "count": 2,
+                    "id": 201666,
+                    "name": "Aniel",
+                },
+                {
+                    "count": 2,
+                    "id": 201676,
+                    "name": "Malachi",
+                },
+                {
+                    "count": 2,
+                    "id": 201680,
+                    "name": "Opikun",
+                },
+                {
+                    "count": 1,
+                    "id": 201673,
+                    "name": "Ilonka",
+                },
+                {
+                    "count": 1,
+                    "id": 201691,
+                    "name": "Yael",
+                },
+            ],
+            "count": 12,
+        },
+        "date": "2024-05-04",
+        "event": "Powerbase Badalona 2024",
+        "event_link": "https://www.vekn.net/event-calendar/event/11435",
+        "id": "11435",
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {
+                            "count": 1,
+                            "id": 100058,
+                            "name": "Anarch Troublemaker",
+                        },
+                        {
+                            "count": 2,
+                            "id": 100199,
+                            "name": "Blood Doll",
+                        },
+                        {
+                            "count": 1,
+                            "id": 100435,
+                            "name": "The Coven",
+                        },
+                        {
+                            "count": 1,
+                            "id": 100545,
+                            "name": "Direct Intervention",
+                        },
+                        {
+                            "count": 1,
+                            "id": 100824,
+                            "name": "Giant's Blood",
+                        },
+                        {
+                            "count": 1,
+                            "id": 102252,
+                            "name": "Meditative Grove",
+                        },
+                        {
+                            "count": 2,
+                            "id": 101384,
+                            "name": "Pentex™ Subversion",
+                        },
+                        {
+                            "count": 4,
+                            "id": 101388,
+                            "name": "Perfectionist",
+                        },
+                        {
+                            "count": 1,
+                            "id": 102259,
+                            "name": "Saulot's Healing Touch",
+                        },
+                    ],
+                    "count": 14,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 6,
+                            "id": 102248,
+                            "name": "Feast of the Soul's Secrets",
+                        },
+                        {
+                            "count": 7,
+                            "id": 100845,
+                            "name": "Govern the Unaligned",
+                        },
+                        {
+                            "count": 6,
+                            "id": 101698,
+                            "name": "Scouting Mission",
+                        },
+                    ],
+                    "count": 19,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 6,
+                            "id": 102262,
+                            "name": "Touch of Valeren",
+                        },
+                    ],
+                    "count": 6,
+                    "type": "Action/Combat",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 1,
+                            "id": 100298,
+                            "name": "Carlton Van Wyk",
+                        },
+                    ],
+                    "count": 1,
+                    "type": "Ally",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 1,
+                            "id": 100903,
+                            "name": "Heart of Nizchetus",
+                        },
+                    ],
+                    "count": 1,
+                    "type": "Equipment",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 4,
+                            "id": 100236,
+                            "name": "Bonding",
+                        },
+                        {
+                            "count": 3,
+                            "id": 100492,
+                            "name": "Daring the Dawn",
+                        },
+                        {
+                            "count": 6,
+                            "id": 102250,
+                            "name": "Forced Confessional",
+                        },
+                        {
+                            "count": 8,
+                            "id": 100788,
+                            "name": "Freak Drive",
+                        },
+                        {
+                            "count": 4,
+                            "id": 101712,
+                            "name": "Seduction",
+                        },
+                        {
+                            "count": 2,
+                            "id": 101978,
+                            "name": "Threats",
+                        },
+                        {
+                            "count": 5,
+                            "id": 102263,
+                            "name": "Unleashing the Bestial Soul",
+                        },
+                    ],
+                    "count": 32,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 5,
+                            "id": 100518,
+                            "name": "Deflection",
+                        },
+                        {
+                            "count": 2,
+                            "id": 100519,
+                            "name": "Delaying Tactics",
+                        },
+                        {
+                            "count": 3,
+                            "id": 100680,
+                            "name": "Eyes of Argus",
+                        },
+                        {
+                            "count": 3,
+                            "id": 101321,
+                            "name": "On the Qui Vive",
+                        },
+                        {
+                            "count": 2,
+                            "id": 101578,
+                            "name": "Redirection",
+                        },
+                        {
+                            "count": 2,
+                            "id": 101949,
+                            "name": "Telepathic Misdirection",
+                        },
+                    ],
+                    "count": 17,
+                    "type": "Reaction",
+                },
+            ],
+            "count": 90,
+        },
+        "name": "Nuevos Salubri (New Salubri)",
+        "place": "Badalona, Spain",
+        "player": "Miquel Jorge Tortajada",
+        "players_count": 25,
+        "tournament_format": "2R+F",
+    }
