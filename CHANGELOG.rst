@@ -4,8 +4,9 @@ Changelog
 3.12 (unreleased)
 -----------------
 
-- Nothing changed yet.
-
+- Added `legality` date to cards
+- 30th anniversary release
+- Fixed disciplines trigrams: use `viz` (not `vin`), `str` (not `striga`), and `mal` (not `maleficia`)
 
 3.11 (2024-07-11)
 -----------------
