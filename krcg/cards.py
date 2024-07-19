@@ -56,10 +56,10 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         # special case for vampires with no discipline (eg. Anarch Convert)
         "-none-": None,
         # these are not disciplines but treat them that way
-        "striga": "striga",
-        "maleficia": "maleficia",
+        "striga": "str",
+        "maleficia": "mal",
         "flight": "flight",
-        "vision": "vin",  # avoid collision with visceratika
+        "vision": "viz",  # avoid collision with visceratika
         # standard list
         "judgment": "jud",
         "innocence": "inn",
@@ -325,10 +325,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             res["types"] = [self.types, rhs.types]
         if set(self.clans) != set(rhs.clans):
             res["clans"] = [self.clans, rhs.clans]
-        if set(self.disciplines) - {"viz", "vin"} != set(rhs.disciplines) - {
-            "viz",
-            "vin",
-        }:
+        if set(self.disciplines) != set(rhs.disciplines):
             res["disciplines"] = [self.disciplines, rhs.disciplines]
         if (self.capacity or 0) != (rhs.capacity or 0):
             res["capacity"] = [self.capacity, rhs.capacity]
@@ -509,7 +506,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             s = s.replace("@", "")
             # distinguish vision (vin) from visceratika (vis)
             if s.lower() == "vis" and "Imbued" in self.types:
-                s = "vin"
+                s = "viz"
             s = Card._DISC_MAP.get(s.lower(), s)
             if s:
                 self.disciplines.append(s)

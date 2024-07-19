@@ -1,5 +1,4 @@
 import os
-import pytest
 
 from krcg import deck
 from krcg import twda
@@ -284,12 +283,11 @@ def test_from_amaranth():
     }
 
 
-@pytest.mark.skip(reason="Waiting for a VDB api fix - 404 for now")
 def test_from_vdb():
-    d = deck.Deck.from_vdb("b798e734fff7404085f7b01ad2ccb479")
+    d = deck.Deck.from_vdb("5b4312a1f")
     assert d.to_json() == {
-        "id": "b798e734fff7404085f7b01ad2ccb479",
-        "date": "2021-01-11",
+        "id": "5b4312a1f",
+        "date": "2024-07-11",
         "name": "First Blood Tremere",
         "author": "BCP",
         "comments": (
