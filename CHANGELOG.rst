@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.12 (unreleased)
+3.12 (2024-07-20)
 -----------------
 
 - Added `legality` date to cards
