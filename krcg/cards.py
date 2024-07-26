@@ -930,7 +930,9 @@ class CardMap(utils.FuzzyDict):
 
             for i, (_group, cards) in enumerate(groups):
                 if len(cards) > 1:
-                    assert sum(bool(c.adv) for c in cards) == 1, "bad advanced mark"
+                    assert (
+                        sum(bool(c.adv) for c in cards) == 1
+                    ), f"bad advanced mark: {cards}"
                 for card in cards:
                     if not card.adv and len(cards) > 1:
                         card.has_advanced = True
