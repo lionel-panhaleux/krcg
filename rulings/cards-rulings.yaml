@@ -99,6 +99,8 @@
   - Does not end combat until after strike resolution, so the damage can be prevented or healed as normal. [LSJ 20011210-3]
 100067|Angel of Berlin:
   - May be played after a block is successful before combat begins. [LSJ 20060410]
+100068|Anima Gathering:
+  - The vampire comes back unlocked. This is not considerd unlocking (i.e. {Anima Gathering}, {Vampiric Disease}). [LSJ 20060213]
 100071|The Ankara Citadel, Turkey:
   - Concerning the cost of the cards, multiplications and divisions are applied first, followed by additions and subtractions. [RTR 20070707]
 100076|Apparition:
@@ -2970,6 +2972,7 @@
   - Unlocking an already unlocked vampire does not trigger the effect. [ANK 20170227] [LSJ 20020408]
   - Any unlock, even one costing blood already, triggers the burning blood effect (eg. {Freak Drive}, {Derange}). [ANK 20221210-2]
   - The counter is placed after range is determined, before strikes are chosen (defensive strikes like dodge or combat ends do not avoid it). [ANK 20210422] [LSJ 20040830]
+  - The vampire comes back unlocked. This is not considerd unlocking (i.e. {Anima Gathering}, {Vampiric Disease}). [LSJ 20060213]
 102089|Vampiric Speed:
   - "[CEL] The press can only be used during the current round. [TOM 19960521]"
 102092|Vast Wealth:
