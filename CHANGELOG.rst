@@ -1,8 +1,8 @@
 Changelog
 =========
 
-4.0 (unreleased)
------------------
+4.0 (2024-09-15)
+----------------
 
 - New rulings format. Now an object list with useful replacement hints.
 - Rulings now sourced from https://github.com/vtes-biased/vtes-rulings
