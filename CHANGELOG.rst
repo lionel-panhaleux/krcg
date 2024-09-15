@@ -1,10 +1,12 @@
 Changelog
 =========
 
-3.13 (unreleased)
+4.0 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- New rulings format. Now an object list with useful replacement hints.
+- Rulings now sourced from https://github.com/vtes-biased/vtes-rulings
+- FLIGHT "discipline" is now always showing as upper-case
 
 
 3.12 (2024-07-20)

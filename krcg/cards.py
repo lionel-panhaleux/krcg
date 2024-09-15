@@ -69,7 +69,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         # these are not disciplines but treat them that way
         "striga": "str",
         "maleficia": "mal",
-        "flight": "flight",
+        "flight": "FLIGHT",
         "vision": "viz",  # avoid collision with visceratika
         # standard list
         "judgment": "jud",
@@ -1372,7 +1372,8 @@ class CardSearch:
         """Helper handling card disciplines."""
         for discipline in card.disciplines:
             self.discipline[discipline].add(card)
-            self.discipline[discipline.lower()].add(card)
+            if discipline != "FLIGHT":
+                self.discipline[discipline.lower()].add(card)
         if not card.disciplines:
             self.discipline["none"].add(card)
         elif card.library and len(card.disciplines) > 1:
@@ -1380,7 +1381,7 @@ class CardSearch:
         else:
             self.discipline["mono"].add(card)
         if "[FLIGHT]" in card.card_text:
-            self.discipline["flight"].add(card)
+            self.discipline["FLIGHT"].add(card)
         if card.combo:
             self.discipline["combo"].add(card)
         if card.multidisc:
