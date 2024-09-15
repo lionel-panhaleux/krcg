@@ -21,6 +21,7 @@ import re
 import requests
 import urllib.request
 import warnings
+import yaml
 
 from . import config
 from . import rulings
@@ -33,6 +34,9 @@ LOCAL_CARDS = os.getenv("LOCAL_CARDS")  # use local CSV (for playtests)
 VTESCSV_GITHUB_BRANCH = os.getenv(
     "VTESCSV_GITHUB_BRANCH"
 )  # use github branch (to prepare for updates)
+RULINGS_GITHUB = (
+    "https://raw.githubusercontent.com/vtes-biased/vtes-rulings/main/rulings/"
+)
 
 
 class Card(utils.i18nMixin, utils.NamedMixin):
@@ -269,6 +273,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         "Mike Weaver": "Michael Weaver",
         "Nicolas Bigot": 'Nicolas "Dimple" Bigot',
         "Pat McEvoy": "Patrick McEvoy",
+        "Randy\xa0Gallegos": "Randy Gallegos",
         "Ron Spenser": "Ron Spencer",
         "Sam Araya": "Samuel Araya",
         "Sandra Chang": "Sandra Chang-Adair",
@@ -321,7 +326,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.is_evolution = None  # same vampire appears in a lower group
         self.variants = {}  # variants of the same vampire (base, adv, evolution)
         self.name_variants = []  # variations you want to match when parsing a decklist
-        self.rulings = {"text": [], "links": {}}
+        self.rulings = []
 
     def diff(self, rhs) -> Dict[str, Tuple[str, str]]:
         res = {}
@@ -992,25 +997,64 @@ class CardMap(utils.FuzzyDict):
                 break
 
     def load_rulings(self) -> None:
-        """Load card rulings from package YAML files."""
-        for ruling in rulings.RulingReader():
-            for cid, name in ruling.cards:
-                if self[cid].name != name:
-                    warnings.warn(f"Rulings: {name} does not match {self[cid]}")
-                self[cid].rulings["text"].append(ruling.text)
-                for ref, link in ruling.links.items():
-                    self[cid].rulings["links"][ref] = link
-            for card_reference in re.findall(r"{[^}]+}", ruling.text):
-                card_reference = card_reference[1:-1]
-                if card_reference not in self:
-                    warnings.warn(
-                        f"Rulings: {cid}|{name} mentions unknown card {card_reference}"
-                    )
-                if self[card_reference].usual_name != card_reference:
-                    warnings.warn(
-                        f"Rulings: {cid}|{name} mentions {card_reference} "
-                        f"instead of '{self[card_reference].name}'"
-                    )
+        try:
+            local_filename, _ = urllib.request.urlretrieve(
+                RULINGS_GITHUB + "groups.yaml"
+            )
+            with open(local_filename, encoding="utf-8") as f:
+                groups = yaml.safe_load(f)
+            local_filename, _ = urllib.request.urlretrieve(
+                RULINGS_GITHUB + "references.yaml"
+            )
+            with open(local_filename, encoding="utf-8") as f:
+                references = yaml.safe_load(f)
+            local_filename, _ = urllib.request.urlretrieve(
+                RULINGS_GITHUB + "rulings.yaml"
+            )
+            with open(local_filename, encoding="utf-8") as f:
+                all_rulings = yaml.safe_load(f)
+        finally:
+            urllib.request.urlcleanup()
+        for nid, rulings_list in all_rulings.items():
+            id_, name = nid.split("|")
+            if id_.startswith("G"):
+                cards = [
+                    (self[int(nid.split("|")[0])], prefix, name)
+                    for nid, prefix in groups[nid].items()
+                ]
+            else:
+                cards = [(self[int(id_)], "", None)]
+            for text in rulings_list:
+                for card, prefix, group_name in cards:
+                    current_text = prefix + text
+                    ruling = self._parse_ruling_text(current_text, references)
+                    if group_name:
+                        ruling["group"] = group_name
+                    card.rulings.append(ruling)
+
+    def _parse_ruling_text(self, text: str, references: dict[str, str]) -> dict:
+        data = {"text": text}
+        for token, ref in rulings.parse_references(text):
+            data.setdefault("references", [])
+            data["references"].append(
+                {"text": token, "label": ref, "url": references[ref]}
+            )
+        for token, name in rulings.parse_cards(text):
+            data.setdefault("cards", [])
+            card = self[name]
+            data["cards"].append(
+                {
+                    "text": token,
+                    "id": card.id,
+                    "name": card.name,
+                    "usual_name": card.usual_name,
+                    "vekn_name": card.vekn_name,
+                }
+            )
+        for token, substitute in rulings.parse_symbols(text):
+            data.setdefault("symbols", [])
+            data["symbols"].append({"text": token, "symbol": substitute})
+        return data
 
     def to_json(self) -> Dict:
         """Return a compact list representation for JSON serialization."""

@@ -40,7 +40,6 @@ dev = [
     "ipython",
     "pytest",
     "ruff",
-    "yamllint",
     "zest.releaser[recommended]",
 ]
 

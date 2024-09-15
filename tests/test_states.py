@@ -105,18 +105,30 @@ def test_card():
             ),
         },
         "types": ["Combat"],
-        "rulings": {
-            "links": {
-                "[TOM 19960521]": (
-                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/"
-                    "poYD3n0TKGo/xvU5HW7lBxMJ"
+        "rulings": [
+            {
+                "references": [
+                    {
+                        "label": "TOM 19960521",
+                        "text": "[TOM 19960521]",
+                        "url": (
+                            "https://groups.google.com/g/rec.games.trading-cards.jyhad/"
+                            "c/poYD3n0TKGo/m/xvU5HW7lBxMJ"
+                        ),
+                    },
+                ],
+                "symbols": [
+                    {
+                        "symbol": "I",
+                        "text": "[ANI]",
+                    },
+                ],
+                "text": (
+                    "[ANI] The press can only be used during the current round. "
+                    "[TOM 19960521]"
                 ),
             },
-            "text": [
-                "[ANI] The press can only be used during the current round. "
-                "[TOM 19960521]"
-            ],
-        },
+        ],
         "url": "https://static.krcg.org/card/aidfrombats.jpg",
     }
 
@@ -176,38 +188,59 @@ def test_multiple_rulings():
             "New Blood",
             "Thirtieth Anniversary",
         ],
-        "rulings": {
-            "links": {
-                "[LSJ 19970814]": (
-                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
-                    "/Xd6HOjnqBpw/_wNl-bMoKiAJ"
-                ),
-                "[LSJ 20050114]": (
-                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
-                    "/JWiZmyC2Y6s/q6JHYrE1zKYJ"
-                ),
-                "[TOM 19960528]": (
-                    "https://groups.google.com/d/msg/rec.games.trading-cards.jyhad"
-                    "/SNpATL1McBM/yHonNZINkWUJ"
+        "rulings": [
+            {
+                "references": [
+                    {
+                        "label": "TOM 19960528",
+                        "text": "[TOM 19960528]",
+                        "url": (
+                            "https://groups.google.com/g/rec.games.trading-cards.jyhad/"
+                            "c/SNpATL1McBM/m/yHonNZINkWUJ"
+                        ),
+                    },
+                ],
+                "text": (
+                    'The same vampire can serve as the "second Toreador" for multiple '
+                    "Toreador Grand Balls. [TOM 19960528]"
                 ),
             },
-            "text": [
-                (
-                    'The same vampire can serve as the "second Toreador" for '
-                    "multiple Toreador Grand Balls. [TOM 19960528]"
+            {
+                "references": [
+                    {
+                        "label": "LSJ 19970814",
+                        "text": "[LSJ 19970814]",
+                        "url": (
+                            "https://groups.google.com/g/rec.games.trading-cards.jyhad/"
+                            "c/Xd6HOjnqBpw/m/_wNl-bMoKiAJ"
+                        ),
+                    },
+                ],
+                "text": (
+                    "The first Toreador chosen for the Toreador Grand Ball is "
+                    "unblockable on all non-bleed actions. This remains true even "
+                    "after the vampire attempts a bleed. [LSJ 19970814]"
                 ),
-                (
-                    "The first Toreador chosen for the Toreador Grand Ball "
-                    "is unblockable on all non-bleed actions. This remains "
-                    "true even after the vampire attempts a bleed. [LSJ 19970814]"
-                ),
-                (
-                    'The "does not unlock as normal" effect is redundant '
-                    "with being infernal. If the minion is infernal, his "
+            },
+            {
+                "group": "Prevent normal unlock",
+                "references": [
+                    {
+                        "label": "LSJ 20050114",
+                        "text": "[LSJ 20050114]",
+                        "url": (
+                            "https://groups.google.com/g/rec.games.trading-cards.jyhad/"
+                            "c/JWiZmyC2Y6s/m/q6JHYrE1zKYJ"
+                        ),
+                    },
+                ],
+                "text": (
+                    'The "does not unlock as normal" effect is '
+                    "redundant with being infernal. If the minion is infernal, his "
                     "controller can still pay a pool to unlock him. [LSJ 20050114]"
                 ),
-            ],
-        },
+            },
+        ],
         "sets": {
             "Camarilla Edition": [{"rarity": "Uncommon", "release_date": "2002-08-19"}],
             "Dark Sovereigns": [{"rarity": "Uncommon", "release_date": "1995-12-15"}],
@@ -405,3 +438,345 @@ ousted pretty fast after that before any real damage to me was done.
     read_back = twda._TWDA()
     read_back.from_json(test_twda.to_json())
     assert len(read_back) == 1
+
+
+def test_complex_rulings():
+    assert vtes.VTES["Spirit's Touch"].to_json() == {
+        "_i18n": {
+            "es": {
+                "card_text": (
+                    "[aus] +1 de intercepción.\n"
+                    "[AUS] Como antes, con 1 maniobra opcional durante el combate "
+                    "resultante si este vampiro bloquea."
+                ),
+                "flavor_text": (
+                    "Somos eternos; y para nosotros, el pasado\n"
+                    "Es, como el futuro, presente.\n"
+                    'Lord Byron, "Manfred", acto I, escena 1'
+                ),
+                "name": "Toque del espíritu",
+                "sets": {
+                    "Fifth Edition": "Quinta Edición",
+                    "First Blood": "Primera Sangre",
+                    "Sabbat Preconstructed": "Preconstruidos Sabbat",
+                },
+                "url": "https://static.krcg.org/card/es/spiritstouch.jpg",
+            },
+            "fr": {
+                "card_text": (
+                    "[aus] +1 en interception.\n"
+                    "[AUS] Comme ci-dessus, avec 1 manœuvre optionnelle durant le "
+                    "combat résultant si ce vampire bloque."
+                ),
+                "flavor_text": (
+                    "Nous sommes éternels, le passé nous est présent aussi bien que "
+                    "l'avenir.\n"
+                    'Lord Byron, "Manfred", acte I, scène 1'
+                ),
+                "name": "Psychométrie",
+                "sets": {
+                    "Fifth Edition": "Cinquième édition",
+                    "First Blood": "Premier Sang",
+                    "Sabbat Preconstructed": "Préconstruits Sabbat",
+                },
+                "url": "https://static.krcg.org/card/fr/spiritstouch.jpg",
+            },
+        },
+        "_name": "Spirit's Touch",
+        "_set": "Jyhad:C, VTES:C, Sabbat:C, SW:C/PT2/PV, CE:C/PTo4/PTr3, Anarchs:PAG, "
+        "BH:PM4/PTr4, Third:PTr5/PTz2/SKTr4/SKTz2, KoT:C/PM3, SP:DoF4, FB:PTr2, "
+        "V5:PTr2, NB:PTr2",
+        "artists": [
+            "Amy Weber",
+            "Hannibal King",
+            "Brian LeBlanc",
+        ],
+        "card_text": (
+            "[aus] +1 intercept.\n"
+            "[AUS] As above, with 1 optional maneuver during the resulting combat if "
+            "this vampire blocks."
+        ),
+        "disciplines": [
+            "aus",
+        ],
+        "flavor_text": (
+            "We are eternal; and to us, the past\n"
+            "Is, as the future, present.\n"
+            'Lord Byron, "Manfred", act I, scene 1'
+        ),
+        "id": 101850,
+        "legality": "1994-08-16",
+        "name": "Spirit's Touch",
+        "ordered_sets": [
+            "Jyhad",
+            "Vampire: The Eternal Struggle",
+            "Sabbat",
+            "Sabbat War",
+            "Camarilla Edition",
+            "Anarchs",
+            "Black Hand",
+            "Third Edition",
+            "Keepers of Tradition",
+            "Sabbat Preconstructed",
+            "First Blood",
+            "Fifth Edition",
+            "New Blood",
+        ],
+        "printed_name": "Spirit's Touch",
+        "rulings": [
+            {
+                "cards": [
+                    {
+                        "id": 101507,
+                        "name": "Psyche!",
+                        "text": "{Psyche!}",
+                        "usual_name": "Psyche!",
+                        "vekn_name": "Psyche!",
+                    },
+                ],
+                "references": [
+                    {
+                        "label": "LSJ 20010813",
+                        "text": "[LSJ 20010813]",
+                        "url": (
+                            "https://groups.google.com/g/rec.games.trading-cards.jyhad/"
+                            "c/8MR4bq0Cxj4/m/f_rAOuj3CboJ"
+                        ),
+                    },
+                    {
+                        "label": "LSJ 20010819-2",
+                        "text": "[LSJ 20010819-2]",
+                        "url": (
+                            "https://groups.google.com/g/rec.games.trading-cards.jyhad/"
+                            "c/8MR4bq0Cxj4/m/YgNsk8nGcREJ"
+                        ),
+                    },
+                ],
+                "symbols": [
+                    {
+                        "symbol": "A",
+                        "text": "[AUS]",
+                    },
+                    {
+                        "symbol": "C",
+                        "text": "[CEL]",
+                    },
+                ],
+                "text": (
+                    "[AUS] The maneuver can only be used if the block is successful, "
+                    "and only in the resulting (block-induced) combat. It does not "
+                    "carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ "
+                    "20010813] [LSJ 20010819-2]"
+                ),
+            },
+            {
+                "cards": [
+                    {
+                        "id": 100771,
+                        "name": "Form of Mist",
+                        "text": "{Form of Mist}",
+                        "usual_name": "Form of Mist",
+                        "vekn_name": "Form of Mist",
+                    },
+                ],
+                "references": [
+                    {
+                        "label": "LSJ 20010814-2",
+                        "text": "[LSJ 20010814-2]",
+                        "url": (
+                            "https://groups.google.com/g/rec.games.trading-cards.jyhad/"
+                            "c/8MR4bq0Cxj4/m/SH4dKuz8qO0J"
+                        ),
+                    },
+                ],
+                "symbols": [
+                    {
+                        "symbol": "A",
+                        "text": "[AUS]",
+                    },
+                    {
+                        "symbol": "J",
+                        "text": "[PRO]",
+                    },
+                ],
+                "text": (
+                    "[AUS] The maneuver is provided again if a second block happens on "
+                    "the same action (eg. after [PRO] {Form of Mist}). [LSJ "
+                    "20010814-2]"
+                ),
+            },
+        ],
+        "scans": {
+            "Anarchs": "https://static.krcg.org/card/set/anarchs/spiritstouch.jpg",
+            "Black Hand": (
+                "https://static.krcg.org/card/set/black-hand/spiritstouch.jpg"
+            ),
+            "Camarilla Edition": (
+                "https://static.krcg.org/card/set/camarilla-edition/spiritstouch.jpg"
+            ),
+            "Fifth Edition": (
+                "https://static.krcg.org/card/set/fifth-edition/spiritstouch.jpg"
+            ),
+            "First Blood": (
+                "https://static.krcg.org/card/set/first-blood/spiritstouch.jpg"
+            ),
+            "Jyhad": "https://static.krcg.org/card/set/jyhad/spiritstouch.jpg",
+            "Keepers of Tradition": (
+                "https://static.krcg.org/card/set/keepers-of-tradition/spiritstouch.jpg"
+            ),
+            "New Blood": (
+                "https://static.krcg.org/card/set/new-blood/spiritstouch.jpg"
+            ),
+            "Sabbat": "https://static.krcg.org/card/set/sabbat/spiritstouch.jpg",
+            "Sabbat Preconstructed": (
+                "https://static.krcg.org/card/set/sabbat-preconstructed/"
+                "spiritstouch.jpg"
+            ),
+            "Sabbat War": (
+                "https://static.krcg.org/card/set/sabbat-war/spiritstouch.jpg"
+            ),
+            "Third Edition": (
+                "https://static.krcg.org/card/set/third-edition/spiritstouch.jpg"
+            ),
+            "Vampire: The Eternal Struggle": (
+                "https://static.krcg.org/card/set/vampire-the-eternal-struggle/"
+                "spiritstouch.jpg"
+            ),
+        },
+        "sets": {
+            "Anarchs": [
+                {
+                    "copies": 1,
+                    "precon": "Anarch Gang",
+                    "release_date": "2003-05-19",
+                },
+            ],
+            "Black Hand": [
+                {
+                    "copies": 4,
+                    "precon": "Malkavian antitribu",
+                    "release_date": "2003-11-17",
+                },
+                {
+                    "copies": 4,
+                    "precon": "Tremere antitribu",
+                    "release_date": "2003-11-17",
+                },
+            ],
+            "Camarilla Edition": [
+                {
+                    "rarity": "Common",
+                    "release_date": "2002-08-19",
+                },
+                {
+                    "copies": 4,
+                    "precon": "Toreador",
+                    "release_date": "2002-08-19",
+                },
+                {
+                    "copies": 3,
+                    "precon": "Tremere",
+                    "release_date": "2002-08-19",
+                },
+            ],
+            "Fifth Edition": [
+                {
+                    "copies": 2,
+                    "precon": "Tremere",
+                    "release_date": "2020-11-30",
+                },
+            ],
+            "First Blood": [
+                {
+                    "copies": 2,
+                    "precon": "Tremere",
+                    "release_date": "2019-10-01",
+                },
+            ],
+            "Jyhad": [
+                {
+                    "rarity": "Common",
+                    "release_date": "1994-08-16",
+                },
+            ],
+            "Keepers of Tradition": [
+                {
+                    "rarity": "Common",
+                    "release_date": "2008-11-19",
+                },
+                {
+                    "copies": 3,
+                    "precon": "Malkavian",
+                    "release_date": "2008-11-19",
+                },
+            ],
+            "New Blood": [
+                {
+                    "copies": 2,
+                    "precon": "Tremere",
+                    "release_date": "2022-04-17",
+                },
+            ],
+            "Sabbat": [
+                {
+                    "rarity": "Common",
+                    "release_date": "1996-10-28",
+                },
+            ],
+            "Sabbat Preconstructed": [
+                {
+                    "copies": 4,
+                    "precon": "Den of Fiends",
+                    "release_date": "2019-02-16",
+                },
+            ],
+            "Sabbat War": [
+                {
+                    "rarity": "Common",
+                    "release_date": "2000-10-31",
+                },
+                {
+                    "copies": 2,
+                    "precon": "Tzimisce",
+                    "release_date": "2000-10-31",
+                },
+                {
+                    "copies": 1,
+                    "precon": "Ventrue antitribu",
+                    "release_date": "2000-10-31",
+                },
+            ],
+            "Third Edition": [
+                {
+                    "copies": 5,
+                    "precon": "Tremere antitribu",
+                    "release_date": "2006-09-04",
+                },
+                {
+                    "copies": 2,
+                    "precon": "Tzimisce",
+                    "release_date": "2006-09-04",
+                },
+                {
+                    "copies": 4,
+                    "precon": "Starter Kit Tremere antitribu",
+                    "release_date": "2006-09-04",
+                },
+                {
+                    "copies": 2,
+                    "precon": "Starter Kit Tzimisce",
+                    "release_date": "2006-09-04",
+                },
+            ],
+            "Vampire: The Eternal Struggle": [
+                {
+                    "rarity": "Common",
+                    "release_date": "1995-09-15",
+                },
+            ],
+        },
+        "types": [
+            "Reaction",
+        ],
+        "url": "https://static.krcg.org/card/spiritstouch.jpg",
+    }
