@@ -2,7 +2,6 @@ include LICENSE README.md CHANGELOG.rst
 
 graft cards
 graft krcg
-graft rulings
 prune profiling
 prune tests
 prune utils
@@ -10,7 +9,6 @@ exclude Makefile
 exclude dark-pack.png
 exclude .coverage
 exclude .markdownlint.json
-exclude .yamllint.yaml
 
 global-exclude */__pycache__/*
 global-exclude *.egg-info/*
