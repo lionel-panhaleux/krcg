@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.1 (unreleased)
+4.1 (2024-09-16)
 ----------------
 
 - Fix a niche case seating score error (players playing twice in rare situations)
