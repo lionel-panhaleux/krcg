@@ -267,6 +267,12 @@ def test_score():
     ]
     assert score.rules == [0, 10, 0, 10, 0, 0, 3, 0.9092121131323905, 10]
     assert score.total == 10010003100.921211
+    # fast total is slightly lower because it does not sqrt the stdevs.
+    # it has no impact in the "ordering" of solutions though, so it's fine
+    pm = seating.player_mapping(rounds)
+    measure = sum(seating.measure(pm, r) for r in rounds)
+    fast_total = seating.Score.fast_total(measure, len(rounds))
+    assert fast_total == 10010003092.666666
 
 
 def test_optimise():

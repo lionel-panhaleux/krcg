@@ -393,7 +393,7 @@ class Score:
             # Transfers difference
             numpy.sum((transfers - numpy.mean(transfers)) ** 2) / transfers.size,
             # same position groups for an opponent twice
-            numpy.count_nonzero(opponents_twice[6:] > 1) // 2 if collisions else 0,
+            numpy.count_nonzero(opponents_twice[:, 6:] > 1) // 2 if collisions else 0,
         ]
         # builtins.sum is expensive
         return (
