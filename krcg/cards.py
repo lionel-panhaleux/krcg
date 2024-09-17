@@ -656,7 +656,20 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         except KeyError:
             warnings.warn(f"unknown set: {abbrev}")
             date = None
-        rarities = (match["rarity"] or "").split("/")
+        # 2024-09: Promos can now have the date as rarity (after column)
+        if abbrev == "Promo" and "rarity" in match:
+            try:
+                date = (
+                    datetime.datetime.strptime(match["rarity"][:8], "%Y%m%d")
+                    .date()
+                    .isoformat()
+                )
+                rarities = [match["rarity"][8:]]
+            except ValueError:
+                warnings.warn(f"Promo with no date: {expansion}")
+                rarities = (match["rarity"] or "").split("/")
+        else:
+            rarities = (match["rarity"] or "").split("/")
         ret = [
             r
             for r in map(lambda a: Card._decode_rarity(a, abbrev, date), rarities)

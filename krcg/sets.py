@@ -85,6 +85,7 @@ class SetMap(dict):
     """A dict of all sets, index by Abbreviation and English name."""
 
     _UNLISTED = {
+        "Promo": ["Promo", ""],
         "Promo-20231007": ["2023 Mineiro Promo", "2023-10-07"],
         "Promo-20230916": ["2023 Zaragosa Promo", "2023-09-16"],
         "Promo-20230729": ["2023 Ropecon Promo", "2023-07-29"],

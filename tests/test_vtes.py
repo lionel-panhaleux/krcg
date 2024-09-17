@@ -359,6 +359,7 @@ def test_search_dimensions():
             "New Blood II",
             "Nights of Reckoning",
             "Print on Demand",
+            "Promo",
             "Prophecies league promo",
             "Sabbat",
             "Sabbat Preconstructed",
