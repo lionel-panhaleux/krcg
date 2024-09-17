@@ -4,7 +4,7 @@ Changelog
 4.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- New Promo format in VEKN CSV
 
 
 4.1 (2024-09-16)
