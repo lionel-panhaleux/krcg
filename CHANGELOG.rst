@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.2 (unreleased)
+4.2 (2024-09-17)
 ----------------
 
 - New Promo format in VEKN CSV
