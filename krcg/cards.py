@@ -154,6 +154,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "PTo": "Toreador",
             "PN": "Nosferatu",
             "PTr": "Tremere",
+            "PL": "Lasombra",
         },
         "FB": {
             "PV": "Ventrue",
@@ -260,6 +261,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         "Dimple": 'Nicolas "Dimple" Bigot',
         "EM Gist": "E.M. Gist",
         "G. Goleash": "Grant Goleash",
+        "Gabriel de Góes": "Gabriel de Góes Figueiredo",
         "Ginés Quiñonero": "Ginés Quiñonero-Santiago",
         "Glenn Osterberger": "Glen Osterberger",
         "Heather Kreiter": "Heather V. Kreiter",
