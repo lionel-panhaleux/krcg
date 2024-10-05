@@ -4,7 +4,7 @@ Changelog
 4.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- V5: Lasombra
 
 
 4.2 (2024-09-17)
