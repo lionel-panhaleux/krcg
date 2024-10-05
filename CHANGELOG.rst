@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.3 (unreleased)
+4.3 (2024-10-05)
 ----------------
 
 - V5: Lasombra
