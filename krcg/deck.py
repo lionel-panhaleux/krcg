@@ -110,6 +110,26 @@ class Deck(collections.Counter):
         return ret
 
     @classmethod
+    def from_vtesdecks(cls, uid: str):
+        """Fetch a deck from VTESDecks."""
+        r = requests.get("https://api.vtesdecks.com/1.0/decks/" + uid)
+        r.raise_for_status()
+        r = r.json()
+        logger.debug("VTESDecks replied: %s", r)
+        ret = cls(id=uid, author=r.get("author", r.get("owner", None)))
+        ret.name = r.get("name", None)
+        ret.comments = r.get("description", "")
+        ret.date = datetime.datetime.fromisoformat(r.get("modifyDate")).date()
+        if not vtes.VTES:
+            vtes.VTES.load()
+        for card in itertools.chain(r["crypt"], r["library"]):
+            count = int(card["number"])
+            if count <= 0:
+                continue
+            ret[vtes.VTES[int(card["id"])]] = count
+        return ret
+
+    @classmethod
     def from_url(cls, url: str):
         """Fetch from any deckbuilding website"""
         result = urllib.parse.urlparse(url)
@@ -140,6 +160,10 @@ class Deck(collections.Counter):
             elif result.path.startswith("/decks/"):
                 return cls.from_vdb(result.path[7:])
             raise ValueError("Unknown VDB URL format")
+        elif result.netloc == "vtesdecks.com":
+            if not result.path.startswith("/deck"):
+                raise ValueError("Unknown VTESDecks URL path")
+            return cls.from_vtesdecks(result.path[5:])
         raise ValueError("Unknown deck URL provider")
 
     def check(self) -> bool:

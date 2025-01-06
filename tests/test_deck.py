@@ -376,6 +376,112 @@ def test_from_vdb():
     }
 
 
+def test_from_vtesdecks():
+    d = deck.Deck.from_vtesdecks("user-lionelpx-bf26e06e078348e8b5852d4e86dbdf6c")
+    assert d.to_json() == {
+        "id": "user-lionelpx-bf26e06e078348e8b5852d4e86dbdf6c",
+        "name": "Test",
+        "author": "lionelpx",
+        "comments": "<p>Here goes my description!</p>",
+        "date": "2025-01-06",
+        "crypt": {
+            "cards": [
+                {
+                    "count": 7,
+                    "id": 200001,
+                    "name": "Aabbt Kindred",
+                },
+                {
+                    "count": 6,
+                    "id": 201520,
+                    "name": "Nefertiti (ADV)",
+                },
+            ],
+            "count": 13,
+        },
+        "library": {
+            "cards": [
+                {
+                    "cards": [
+                        {
+                            "count": 2,
+                            "id": 100588,
+                            "name": "Dreams of the Sphinx",
+                        },
+                        {
+                            "count": 8,
+                            "id": 100667,
+                            "name": "The Eternals of Sirius",
+                        },
+                        {
+                            "count": 6,
+                            "id": 102121,
+                            "name": "Villein",
+                        },
+                    ],
+                    "count": 16,
+                    "type": "Master",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 12,
+                            "id": 100650,
+                            "name": "Enticement",
+                        },
+                    ],
+                    "count": 12,
+                    "type": "Action",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 6,
+                            "id": 100769,
+                            "name": "Forgotten Labyrinth",
+                        },
+                        {
+                            "count": 6,
+                            "id": 101001,
+                            "name": "Into Thin Air",
+                        },
+                    ],
+                    "count": 12,
+                    "type": "Action Modifier",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 6,
+                            "id": 100518,
+                            "name": "Deflection",
+                        },
+                        {
+                            "count": 6,
+                            "id": 101321,
+                            "name": "On the Qui Vive",
+                        },
+                    ],
+                    "count": 12,
+                    "type": "Reaction",
+                },
+                {
+                    "cards": [
+                        {
+                            "count": 12,
+                            "id": 100973,
+                            "name": "Indomitability",
+                        },
+                    ],
+                    "count": 12,
+                    "type": "Combat",
+                },
+            ],
+            "count": 64,
+        },
+    }
+
+
 def test_deck_to_vdb():
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:

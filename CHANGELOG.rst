@@ -4,7 +4,7 @@ Changelog
 4.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add vtesdecks.com as deck provider
 
 
 4.3 (2024-10-05)
