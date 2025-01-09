@@ -5,7 +5,7 @@ Changelog
 ----------------
 
 - Add vtesdecks.com as deck provider
-
+- Fixed parsing of VDB Deck-In urls
 
 4.3 (2024-10-05)
 ----------------

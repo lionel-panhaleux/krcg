@@ -145,9 +145,9 @@ class Deck(collections.Counter):
                 return cls.from_vdb(params["id"][0])
             elif result.fragment:
                 ret = cls()
-                ret.name = params.get("name", None)
-                ret.author = params.get("author", None)
-                ret.comments = params.get("description", "")
+                ret.name = params.get("name", [None])[0]
+                ret.author = params.get("author", [None])[0]
+                ret.comments = params.get("description", [""])[0]
                 if not vtes.VTES:
                     vtes.VTES.load()
                 for item in result.fragment.split(";"):
