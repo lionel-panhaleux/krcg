@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.4 (unreleased)
+4.4 (2025-01-10)
 ----------------
 
 - Add vtesdecks.com as deck provider
