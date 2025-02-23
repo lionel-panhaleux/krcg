@@ -69,11 +69,11 @@ class _TWDA(collections.OrderedDict):
             except AttributeError:
                 pass
             # new decklist
-            if re.match(r"^<hr><pre>\s*$", line):
+            if re.match(r"^(\s*<hr><pre>\s*|\s*<p>\s*)$", line):
                 buffer = io.StringIO()
                 offset = index
             # whole decklist fetched, parse it
-            elif re.match(r"^</pre>", line):
+            elif buffer and re.match(r"^(\s*</pre>|\s*</p>)", line):
                 buffer.seek(0)
                 self[id_] = deck.Deck.from_txt(buffer, id=id_, offset=offset, twda=True)
             elif buffer:
