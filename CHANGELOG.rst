@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.5 (unreleased)
+4.5 (2025-02-23)
 ----------------
 
 - Fix TWDA HTML parsing
