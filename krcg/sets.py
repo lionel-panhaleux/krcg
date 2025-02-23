@@ -1,5 +1,4 @@
-"""Sets (expansions) information
-"""
+"""Sets (expansions) information"""
 
 import datetime
 from typing import Hashable

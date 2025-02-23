@@ -1,5 +1,4 @@
-"""TWDA analyzer: compute cards affinity and build decks based on TWDA.
-"""
+"""TWDA analyzer: compute cards affinity and build decks based on TWDA."""
 
 from typing import Callable, Iterable, List, Tuple
 import collections

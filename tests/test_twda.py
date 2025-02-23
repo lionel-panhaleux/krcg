@@ -1,5 +1,4 @@
-"""Test the parsing of hand-picked examples from the TWDA.
-"""
+"""Test the parsing of hand-picked examples from the TWDA."""
 
 import logging
 import os.path

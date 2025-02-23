@@ -1,5 +1,4 @@
-"""Rulings parsing.
-"""
+"""Rulings parsing."""
 
 from typing import Generator, Tuple
 import datetime
