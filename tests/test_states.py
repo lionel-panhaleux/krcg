@@ -107,6 +107,7 @@ def test_card():
         "types": ["Combat"],
         "rulings": [
             {
+                "group": "Optional press",
                 "references": [
                     {
                         "label": "TOM 19960521",
@@ -124,8 +125,8 @@ def test_card():
                     },
                 ],
                 "text": (
-                    "[ANI] The press can only be used during the current round. "
-                    "[TOM 19960521]"
+                    "[ANI]The optional press can only be used during the current "
+                    "round. [TOM 19960521]"
                 ),
             },
         ],
