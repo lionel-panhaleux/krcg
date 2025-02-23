@@ -515,7 +515,7 @@ class Deck(collections.Counter):
         return "\n".join(lines)
 
     def to_vdb(self) -> str:
-        """Generating vdb.smeaa.casa link to deck"""
+        """Generating vdb.im link to deck"""
         link = "https://vdb.im/decks/deck?"
         link += urllib.parse.urlencode(
             {
