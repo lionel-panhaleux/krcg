@@ -4,7 +4,8 @@ Changelog
 4.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix TWDA HTML parsing
+- Fix tests (ruling change on Aid From Bats)
 
 
 4.4 (2025-01-10)
