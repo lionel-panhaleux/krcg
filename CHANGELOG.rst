@@ -4,7 +4,7 @@ Changelog
 4.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- V5 Hecata
 
 
 4.5 (2025-02-23)

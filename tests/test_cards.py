@@ -1,6 +1,8 @@
+import pytest
 from krcg import cards
 
 
+@pytest.mark.filterwarnings("ignore::UserWarning")
 def test_card_variants():
     sacha_vykos = {
         "Id": "201244",

@@ -1,5 +1,6 @@
 .PHONY: quality test release update clean
 
+export VTESCSV_GITHUB_BRANCH=main
 
 quality:
 	black --check krcg tests

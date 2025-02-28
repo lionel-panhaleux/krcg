@@ -155,6 +155,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "PN": "Nosferatu",
             "PTr": "Tremere",
             "PL": "Lasombra",
+            "PH": "Hecata",
         },
         "FB": {
             "PV": "Ventrue",
@@ -587,15 +588,17 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                 [s for s in self.sets.keys() if set_dict[s].release_date],
                 key=lambda x: set_dict[x].release_date,
             )
-            self.legality = min(
-                (
-                    datetime.date.fromisoformat(v["release_date"])
-                    if v.get("release_date")
-                    else datetime.date.max
-                )
+            release_dates = [
+                datetime.date.fromisoformat(v["release_date"])
                 for info in self.sets.values()
                 for v in info
-            ).isoformat()
+                if v.get("release_date")
+            ]
+            if release_dates:
+                self.legality = min(release_dates).isoformat()
+            else:
+                warnings.warn(f"No legality for {self}")
+                self.legality = "1994-08-16"
         else:
             warnings.warn(f"no set found for {self}")
         # some cards have one set, no date, eg. playtest cards
