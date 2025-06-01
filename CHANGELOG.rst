@@ -4,7 +4,7 @@ Changelog
 4.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- NB3 Release
 
 
 4.6 (2025-02-28)
