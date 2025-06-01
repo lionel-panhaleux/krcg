@@ -383,7 +383,7 @@ def test_from_vtesdecks():
         "name": "Test",
         "author": "lionelpx",
         "comments": "<p>Here goes my description!</p>",
-        "date": "2025-01-06",
+        "date": "2025-03-08",
         "crypt": {
             "cards": [
                 {
