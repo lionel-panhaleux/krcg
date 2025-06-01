@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.7 (unreleased)
+4.7 (2025-06-01)
 ----------------
 
 - NB3 Release
