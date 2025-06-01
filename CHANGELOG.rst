@@ -4,7 +4,7 @@ Changelog
 4.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix twda parsing for cards ending with "oblivion" (eg. "Touch of Oblivion", "Consign to Oblivion")
 
 
 4.7 (2025-06-01)
