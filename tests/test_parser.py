@@ -75,8 +75,9 @@ def test_get_card(caplog: pytest.LogCaptureFixture):
         ("krcg", logging.DEBUG, 'naked discipline (no count) "dominate"'),
         ("krcg", logging.DEBUG, 'naked discipline (no count) "dominate (4)"'),
     ]
-    # but don't mess with Valeren
+    # but don't mess with Valeren or Oblivion
     assert p.get_card("6x touch of valeren") == (vtes.VTES["Touch of Valeren"], 6)
+    assert p.get_card("6x touch of oblivion") == (vtes.VTES["Touch of Oblivion"], 6)
     # post counts and naked mention should be ignored and logged in TWDA:
     # we can't decide if they're header or actual discipline cards inclusions
     caplog.clear()

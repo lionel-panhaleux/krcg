@@ -345,7 +345,6 @@ _NAKED_TRAIT = "|".join(
         "necromancy",
         "obeah",
         "obfuscate",
-        "oblivion",
         "obtenebration",
         "potence",
         "protean",
