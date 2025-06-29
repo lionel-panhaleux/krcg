@@ -517,19 +517,20 @@ class Deck(collections.Counter):
     def to_vdb(self) -> str:
         """Generating vdb.im link to deck"""
         link = "https://vdb.im/decks/deck?"
-        link += urllib.parse.urlencode(
-            {
-                "name": self.name or "New KRCG Deck",
-                "author": self.author or self.player or "KRCG",
-            }
-        )
+        params = {}
+        if self.name:
+            params["name"] = self.name
+        if self.author:
+            params["author"] = self.name
+        if params:
+            link += urllib.parse.urlencode(params)
         link += "#"
         for card, count in self.crypt:
             link += f"{card.id}={count};"
         for _, cards in self._sorted_library():
             for card, count in cards:
                 link += f"{card.id}={count};"
-        return link[:-1]
+        return link[:-1]  # remove trailing semicolumn
 
 
 class DeckScore:
