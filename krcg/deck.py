@@ -483,7 +483,7 @@ class Deck(collections.Counter):
             for card, count in cards:
                 if card in self.cards_comments:
                     comment = self.cards_comments[card].replace("\n", " ").strip()
-                    lines.append(f"{count}x {card.vekn_name:<23}" f" -- {comment}")
+                    lines.append(f"{count}x {card.vekn_name:<23} -- {comment}")
                 else:
                     lines.append(f"{count}x {card.vekn_name}")
         return "\n".join(lines)

@@ -577,7 +577,7 @@ def test_2010tcdbng(caplog):
                         {"count": 1, "id": 101067, "name": "KRCG News Radio"},
                         {"count": 2, "id": 101388, "name": "Perfectionist"},
                         {
-                            "comments": "great card! usually " "underestimated",
+                            "comments": "great card! usually underestimated",
                             "count": 6,
                             "id": 101877,
                             "name": "Storage Annex",
@@ -1661,7 +1661,7 @@ def test_2k2origins1(caplog):
                         {
                             "count": 1,
                             "id": 101120,
-                            "name": "London Evening Star, Tabloid " "Newspaper",
+                            "name": "London Evening Star, Tabloid Newspaper",
                         },
                         {"count": 1, "id": 101439, "name": "Powerbase: Montreal"},
                         {
@@ -2046,21 +2046,20 @@ def test_10211(caplog):
                         {"count": 2, "id": 100588, "name": "Dreams of the Sphinx"},
                         {"count": 1, "id": 100698, "name": "Fame"},
                         {
-                            "comments": "this card just keeps getting " "better.",
+                            "comments": "this card just keeps getting better.",
                             "count": 1,
                             "id": 100809,
                             "name": "Garibaldi-Meucci Museum",
                         },
                         {"count": 1, "id": 100824, "name": "Giant's Blood"},
                         {
-                            "comments": "this version could probably " "drop to 1 copy",
+                            "comments": "this version could probably drop to 1 copy",
                             "count": 2,
                             "id": 101277,
                             "name": "New Carthage",
                         },
                         {
-                            "comments": "more unlocked Barons at the "
-                            "end of my turn.",
+                            "comments": "more unlocked Barons at the end of my turn.",
                             "count": 1,
                             "id": 101435,
                             "name": "Powerbase: Los Angeles",
@@ -2103,7 +2102,7 @@ def test_10211(caplog):
                             "name": "Line Brawl",
                         },
                         {
-                            "comments": "almost overkill with Theo and " "Line Brawls.",
+                            "comments": "almost overkill with Theo and Line Brawls.",
                             "count": 1,
                             "id": 101324,
                             "name": "Open War",
@@ -2156,8 +2155,7 @@ def test_10211(caplog):
                 {
                     "cards": [
                         {
-                            "comments": "this card is shaking up the "
-                            "meta around here.",
+                            "comments": "this card is shaking up the meta around here.",
                             "count": 5,
                             "id": 102218,
                             "name": "Bait and Switch",
@@ -2193,7 +2191,7 @@ def test_10211(caplog):
                             "name": "Diversion",
                         },
                         {
-                            "comments": "underrated as a dual use " "combat tool.",
+                            "comments": "underrated as a dual use combat tool.",
                             "count": 10,
                             "id": 100597,
                             "name": "Dust Up",
@@ -2206,7 +2204,7 @@ def test_10211(caplog):
                             "name": "Immortal Grapple",
                         },
                         {
-                            "comments": "sometimes minions just need to " "stay down",
+                            "comments": "sometimes minions just need to stay down",
                             "count": 2,
                             "id": 101515,
                             "name": "Pulled Fangs",

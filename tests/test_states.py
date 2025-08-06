@@ -272,7 +272,7 @@ def test_multiple_rulings():
                 "keepers-of-tradition/toreadorgrandball.jpg"
             ),
             "New Blood": (
-                "https://static.krcg.org/card/set/" "new-blood/toreadorgrandball.jpg"
+                "https://static.krcg.org/card/set/new-blood/toreadorgrandball.jpg"
             ),
             "Thirtieth Anniversary": (
                 "https://static.krcg.org/card/set/"

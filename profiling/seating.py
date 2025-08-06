@@ -8,6 +8,7 @@ Also useful for line profiling, add the `@profile` decorator on the function to 
 >>> kernprof -lv profiling/seating.py
 
 """
+
 from krcg import seating
 
 rounds = seating.get_rounds(list(range(50)), 3)

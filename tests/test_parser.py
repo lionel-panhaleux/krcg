@@ -105,7 +105,9 @@ def test_get_card(caplog: pytest.LogCaptureFixture):
     )
 
     # crypt needs special handling as we got a number in front and back
-    assert p.get_card("2x anvil		6   cel pot dom pre tha	 primogen  brujah:1") == (
+    assert p.get_card(
+        "2x anvil		6   cel pot dom pre tha	 primogen  brujah:1"
+    ) == (
         vtes.VTES["Anvil"],
         2,
     )
@@ -192,9 +194,7 @@ def test_comments(caplog):
     assert p.get_card("so it's a multiline comment") == (None, 0)
     check_comment(
         p,
-        "/* this is a comment\n"
-        "it spans multiple lines\n"
-        "so it's a multiline comment",
+        "/* this is a comment\nit spans multiple lines\nso it's a multiline comment",
     )
 
     # naked comments in the middle of nowhere happen a lot
@@ -223,7 +223,7 @@ def test_comments(caplog):
     # multiline card comment
     assert p.get_card("2x deny  /* this is a comment ") == (vtes.VTES["Deny"], 2)
     assert p.get_card("        it spans multiple lines") == (None, 0)
-    check_comment(p, "this is a comment\n" "        it spans multiple lines")
+    check_comment(p, "this is a comment\n        it spans multiple lines")
 
     # poorly marked multiline comment
     caplog.clear()
