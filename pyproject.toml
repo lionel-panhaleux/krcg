@@ -52,3 +52,6 @@ dev-dependencies = [
     "pytest",
     "ruff",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
