@@ -3,7 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/krcg.svg)](https://badge.fury.io/py/krcg)
 [![Validation](https://github.com/lionel-panhaleux/krcg/actions/workflows/validation.yml/badge.svg)](https://github.com/lionel-panhaleux/krcg/actions/workflows/validation.yml)
 [![Coverage](https://api.codacy.com/project/badge/Grade/32d1b809494e4935967608f13f52004a)](https://app.codacy.com/manual/lionel-panhaleux/krcg?utm_source=github.com&utm_medium=referral&utm_content=lionel-panhaleux/krcg&utm_campaign=Badge_Grade_Dashboard)
-[![Python version](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/downloads/)
+[![Python version](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Code Style](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
 
@@ -394,6 +394,35 @@ Crypt:
 2	Aidan Lyle
 2	Claus Wegener
 ```
+
+## Development
+
+This project uses [uv](https://github.com/astral-sh/uv) for dependency management and packaging.
+
+### Setup
+
+1. Install `uv` if you haven't already:
+
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+2. Clone the repository and install dependencies:
+
+   ```bash
+   git clone https://github.com/lionel-panhaleux/krcg.git
+   cd krcg
+   uv sync --group dev
+   ```
+
+### Development Commands
+
+- `make quality` - Run code quality checks (ruff format, ruff check)
+- `make test` - Run tests
+- `make update` - Update dependencies
+- `make clean` - Clean build artifacts
+- `make sync-cards` - Sync CSV files from vtescsv repository
+- `make release` - To bump the version, tag and release
 
 ## Contribute
 

@@ -13,30 +13,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v1
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -e .[dev]
-      - name: Format
+          uv sync --group dev
+      - name: Format check
         run: |
-          black --check krcg tests
+          uv run ruff format --check .
       - name: Lint
         run: |
-          ruff check
-          yamllint rulings
+          uv run ruff check
       - name: Test
         env:
           LOCAL_CARDS: 1
         run: |
-          coverage run -m pytest
-          coverage xml
+          uv run coverage run -m pytest
+          uv run coverage xml
       - name: Upload coverage to Codacy
-        if: ${{ github.event_name == 'push' }}
+        if: github.event_name == 'push'
         env:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
         run: |
-          python-codacy-coverage -r coverage.xml
+          uv run python-codacy-coverage -r coverage.xml

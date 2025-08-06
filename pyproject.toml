@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=68"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "krcg"
-version = "4.9.dev0"
+version = "4.8"
 license = "MIT"
 authors = [
     { name = "Lionel Panhaleux", email = "lionel.panhaleux+krcg@gmail.com" },
@@ -15,7 +15,10 @@ readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Natural Language :: English",
@@ -32,22 +35,20 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = [
-    "certifi",
-    "coverage",
-    "codacy-coverage",
-    "black",
-    "ipython",
-    "pytest",
-    "ruff",
-    "zest.releaser[recommended]",
-]
+dev = ["certifi", "coverage", "codacy-coverage", "ipython", "pytest", "ruff"]
 
 [project.urls]
 Repository = "https://github.com/lionel-panhaleux/krcg"
 
-[tool.setuptools.packages.find]
-include = ["krcg*", "cards*"]
+[tool.hatch.build.targets.wheel]
+packages = ["krcg", "cards"]
 
-[tool.zest-releaser]
-create-wheel = true
+[tool.uv]
+dev-dependencies = [
+    "certifi",
+    "coverage",
+    "codacy-coverage",
+    "ipython",
+    "pytest",
+    "ruff",
+]
