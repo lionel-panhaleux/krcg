@@ -41,7 +41,16 @@ Repository = "https://github.com/lionel-panhaleux/krcg"
 packages = ["krcg", "cards"]
 
 [tool.uv]
-dev-dependencies = ["certifi", "coverage", "ipython", "mypy", "pytest", "ruff"]
+dev-dependencies = [
+    "certifi",
+    "coverage",
+    "ipython",
+    "mypy",
+    "pytest",
+    "ruff",
+    "types-PyYAML",
+    "types-requests",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
