@@ -34,9 +34,6 @@ dependencies = [
     "unidecode",
 ]
 
-[project.optional-dependencies]
-dev = ["certifi", "coverage", "codacy-coverage", "ipython", "pytest", "ruff"]
-
 [project.urls]
 Repository = "https://github.com/lionel-panhaleux/krcg"
 
@@ -44,14 +41,7 @@ Repository = "https://github.com/lionel-panhaleux/krcg"
 packages = ["krcg", "cards"]
 
 [tool.uv]
-dev-dependencies = [
-    "certifi",
-    "coverage",
-    "codacy-coverage",
-    "ipython",
-    "pytest",
-    "ruff",
-]
+dev-dependencies = ["certifi", "coverage", "ipython", "pytest", "ruff"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
