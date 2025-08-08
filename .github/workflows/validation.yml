@@ -17,13 +17,16 @@ jobs:
         uses: astral-sh/setup-uv@v1
       - name: Install dependencies
         run: |
-          uv sync --group dev
+          uv sync --dev
       - name: Format check
         run: |
           uv run ruff format --check .
       - name: Lint
         run: |
           uv run ruff check
+      - name: Type check
+        run: |
+          uv run mypy krcg
       - name: Test
         env:
           LOCAL_CARDS: 1

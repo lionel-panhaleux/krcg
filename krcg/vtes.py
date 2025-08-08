@@ -4,12 +4,15 @@ If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
 
-from typing import Dict, Generator, List, Set, Tuple, Union
+from typing import Dict, Generator, List, Optional, Set, Tuple, Union
 import functools
 import io
 import requests
 
 from . import cards
+
+
+CardsDiff = Dict[cards.Card, Union[str, Tuple[str, str]]]
 
 
 class _VTES:
@@ -59,15 +62,17 @@ class _VTES:
         self._cards.load_from_vekn()
         self._cards.load_rulings()
 
-    def load_from_files(self, *files: io.TextIOBase, set_abbrev: str = None) -> None:
+    def load_from_files(
+        self, *files: io.TextIOBase, set_abbrev: Optional[str] = None
+    ) -> None:
         self._cards.load_from_files(*files, set_abbrev=set_abbrev)
 
-    def diff(self, url) -> Dict[cards.Card, Union[str, Tuple[str, str]]]:
+    def diff(self, url) -> CardsDiff:
         """Compute a diff from previous VEKN CSV files."""
         old_cards = cards.CardMap()
-        old_cards._VEKN_CSV[0] = url
+        old_cards._VEKN_CSV = (url, old_cards._VEKN_CSV[1])
         old_cards.load_from_vekn()
-        res = {c: "NEW" for c in self._cards if c.id not in old_cards}
+        res: CardsDiff = {c: "NEW" for c in self._cards if c.id not in old_cards}
         for c in self._cards:
             if c.id in old_cards:
                 diff = old_cards[c.id].diff(c)

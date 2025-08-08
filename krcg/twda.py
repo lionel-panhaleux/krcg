@@ -65,7 +65,7 @@ class _TWDA(collections.OrderedDict):
         id_, buffer, offset = "", None, 0
         for index, line in enumerate(source, 1):
             try:
-                id_ = re.match(r"^<a id=([^\s]*)\s", line).group(1)
+                id_ = re.match(r"^<a id=([^\s]*)\s", line).group(1)  # type: ignore
             except AttributeError:
                 pass
             # new decklist

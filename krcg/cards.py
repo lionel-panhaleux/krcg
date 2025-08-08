@@ -5,7 +5,18 @@ load_from_vekn() with LOCAL_CARDS=1: CSV in `cards` folder/package in this repos
 load_from_vekn() with VTESCSV_GITHUB_BRANCH: https://github.com/GiottoVerducci/vtescsv
 """
 
-from typing import Counter, Dict, Generator, List, Set, Tuple
+from typing import (
+    Any,
+    Counter,
+    Dict,
+    Generator,
+    List,
+    Mapping,
+    Set,
+    Tuple,
+    Optional,
+    BinaryIO,
+)
 import collections
 import collections.abc
 import copy
@@ -335,7 +346,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.name_variants = []  # variations you want to match when parsing a decklist
         self.rulings = []
 
-    def diff(self, rhs) -> Dict[str, Tuple[str, str]]:
+    def diff(self, rhs) -> Dict[str, List[str]]:
         res = {}
         if self.name != rhs.name:
             res["name"] = [self.name, rhs.name]
@@ -448,7 +459,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     @functools.lru_cache(1)
     def crypt(self) -> bool:
         """True if this is a crypt card."""
-        return set(self.types) & {"Imbued", "Vampire"}
+        return bool(set(self.types) & {"Imbued", "Vampire"})
 
     @property
     def library(self) -> bool:
@@ -478,7 +489,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self,
         data: Dict[str, str],
         set_dict: Dict[str, sets.Set] = sets.DEFAULT_SET_MAP,
-        default_set: str = None,
+        default_set: Optional[str] = None,
     ) -> None:
         """Read a card from a dict generated from a VEKN official CSV.
 
@@ -580,7 +591,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                     str.strip,
                     itertools.chain.from_iterable(
                         s.split(";")
-                        for s in data.get("Set", default_set).split(",")
+                        for s in data.get("Set", default_set or "").split(",")
                         if s
                     ),
                 )
@@ -621,7 +632,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             self.scans[name] = self._compute_url(expansion=folder_name)
         self.url = self._compute_url()
 
-    def _compute_url(self, lang: str = None, expansion: str = None) -> str:
+    def _compute_url(
+        self, lang: Optional[str] = None, expansion: Optional[str] = None
+    ) -> str:
         """Compute image URL for given language."""
         return (
             config.KRCG_STATIC_SERVER
@@ -632,7 +645,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             + ".jpg"
         )
 
-    def _compute_legacy_url(self, lang: str = None, expansion: str = None) -> str:
+    def _compute_legacy_url(
+        self, lang: Optional[str] = None, expansion: Optional[str] = None
+    ) -> str:
         """Compute legacy image URL for given language."""
         return (
             config.KRCG_STATIC_SERVER
@@ -646,19 +661,20 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     @staticmethod
     def _decode_set(
         set_dict: Dict[str, sets.Set], expansion: str
-    ) -> Generator[None, None, Tuple[str, List[Dict]]]:
+    ) -> Generator[Tuple[str, List[Dict[str, str | int]]], None, None]:
         """Decode a set string from official CSV.
 
         From Jyhad:R2 to {"Jyhad": {"rarity": "Rare", "frequency": 2}}
         """
-        match = re.match(
+        group_match = re.match(
             r"^(?P<abbrev>[a-zA-Z0-9-]+):?(?P<rarity>[a-zA-Z0-9/½]+)?$",
             expansion,
         )
-        if not match:
+        if not group_match:
             warnings.warn(f"failed to parse set: {expansion}")
             yield expansion, []
-        match = match.groupdict()
+            return
+        match = group_match.groupdict()
         abbrev = match["abbrev"]
         try:
             date = set_dict[abbrev].release_date
@@ -681,7 +697,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             rarities = (match["rarity"] or "").split("/")
         ret = [
             r
-            for r in map(lambda a: Card._decode_rarity(a, abbrev, date), rarities)
+            for r in map(lambda a: Card._decode_rarity(a, abbrev, date or ""), rarities)
             if r
         ]
         reprints, ret = Card._partition(
@@ -694,17 +710,19 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         yield (set_dict[abbrev].name, ret)
 
     @staticmethod
-    def _decode_rarity(rarity: str, abbrev: str, date: str) -> dict:
+    def _decode_rarity(
+        rarity: str, abbrev: str, date: str
+    ) -> Optional[dict[str, str | int]]:
         """Decode the rarity tag after expansion abbreviation."""
         match = re.match(
             # Ebony Kingdom (EK) had "half commons", noted C½: Aye and Orun
             r"^(?P<base>[a-zA-Z]+)?(?P<count>[0-9½]+)?$",
             rarity,
         )
-        ret = {"release_date": date}
+        ret: dict[str, str | int] = {"release_date": date}
         if not match:
             warnings.warn(f"unknown rarity {rarity}")
-            return
+            return None
         base = match.group("base")
         count = match.group("count")
         if not base:
@@ -721,11 +739,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                 # promo "origins" can be there, but it's largely inconsistent
                 # eg. Promo-20230531:Chapters
                 warnings.warn(f"unknown base: {base} in {abbrev}:{rarity}")
-                return
+                return None
         # fix release date for reprints
         if (abbrev, code) in Card._REPRINTS_RELEASE_DATE:
             ret["release_date"] = Card._REPRINTS_RELEASE_DATE[
-                (abbrev, code)
+                (abbrev, code or "")
             ].isoformat()
         count = match["count"]
         if not count and "precon" in ret:
@@ -765,22 +783,22 @@ class CardMap(utils.FuzzyDict):
     len() will also return the number of unique cards, not the count of name variations.
     """
 
-    _GITHUB_BRANCH = [
+    _GITHUB_BRANCH = (
         f"https://github.com/GiottoVerducci/vtescsv/raw/{VTESCSV_GITHUB_BRANCH}/",
         [
             "vtessets.csv",
             "vtescrypt.csv",
             "vteslib.csv",
         ],
-    ]
-    _VEKN_CSV = [
+    )
+    _VEKN_CSV = (
         "http://www.vekn.net/images/stories/downloads/vtescsv_utf8.zip",
         [
             "vtessets.csv",
             "vtescrypt.csv",
             "vteslib.csv",
         ],
-    ]
+    )
     _VEKN_CSV_I18N = {
         "fr-FR": (
             "http://www.vekn.net/images/stories/downloads/"
@@ -802,7 +820,7 @@ class CardMap(utils.FuzzyDict):
         ),
     }
 
-    def __init__(self, aliases: Dict[str, str] = None):
+    def __init__(self, aliases: Optional[Mapping[str, str]] = None):
         """Use config.ALIASES as aliases"""
         super().__init__(aliases=config.ALIASES if aliases is None else aliases)
 
@@ -825,7 +843,7 @@ class CardMap(utils.FuzzyDict):
 
     def _map_names(self) -> None:
         """Add name and variations access for all cards."""
-        cards = list(self)
+        cards: list[Card] = list(self.__iter__())
         for card in cards:
             self[card.name] = card
             for variant in card.name_variants:
@@ -833,7 +851,8 @@ class CardMap(utils.FuzzyDict):
             # to avoid fuzzy matching translated names,
             # they're added as aliases only
             for _lang, name in card.i18n_variants("name"):
-                self.add_alias(name, card.id)
+                if isinstance(name, str):
+                    self.add_alias(name, card.id)
             for _lang, variants in card.i18n_variants("name_variants"):
                 for variant in variants:
                     self.add_alias(variant, card.id)
@@ -841,13 +860,13 @@ class CardMap(utils.FuzzyDict):
                 self[name] = self[card.id]
 
     def load_from_files(
-        self, *files: io.BufferedIOBase, set_abbrev: str = None
+        self, *files: BinaryIO, set_abbrev: Optional[str] = None
     ) -> None:
         """Load from local files. We don't expect a sets file, nor translation files."""
-        files = [
+        readers = [
             csv.DictReader(io.TextIOWrapper(f, encoding="utf-8-sig")) for f in files
         ]
-        for line in itertools.chain.from_iterable(files):
+        for line in itertools.chain.from_iterable(readers):
             card = Card()
             try:
                 card.from_vekn(line, default_set=set_abbrev)
@@ -900,7 +919,7 @@ class CardMap(utils.FuzzyDict):
                 set_dict[line["Abbrev"]].i18n_set(lang, {"name": line["Full Name"]})
         # load cards
         for line in itertools.chain.from_iterable(main_files[1:]):
-            card = Card()
+            card: Card = Card()
             card.from_vekn(line, set_dict)
             self[card.id] = card
         for lang, files in i18n_files.items():
@@ -912,12 +931,12 @@ class CardMap(utils.FuzzyDict):
                 if card._name != name:
                     warnings.warn(f"{name} does not match {cid} in {lang} translation")
                 card_text = line["Card Text"].replace("(D)", "Ⓓ")
-                trans = {
+                trans: dict[str, utils.Trans] = {
                     "name": line["Name"],
                     "url": card._compute_url(lang[:2]),
                     "card_text": card_text,
                     "sets": {
-                        set_name: set_dict[set_name].i18n(lang[:2], "name")
+                        set_name: set_dict[set_name].i18n_field(lang[:2], "name")
                         for set_name in card.sets.keys()
                         if set_name in set_dict
                     },
@@ -943,23 +962,23 @@ class CardMap(utils.FuzzyDict):
         """
         # first compute, for cards with same name (crypt cards only),
         # which were the one to appear first (first_group)
-        same_name = collections.defaultdict(list)
+        same_name: Mapping[str, list[Card]] = collections.defaultdict(list)
         for card in self:
             same_name[card._name].append(card)
         same_name = {k: v for k, v in same_name.items() if len(v) > 1}
         for name, cards in same_name.items():
-            groups = collections.defaultdict(list)
+            groups_dict = collections.defaultdict(list)
             variants = {}
             for card in cards:
-                groups[card.group].append(card)
+                groups_dict[card.group].append(card)
                 variants[card._key] = card.id
-            groups = sorted(groups.items(), key=lambda a: a[0])
+            groups = sorted(groups_dict.items(), key=lambda a: a[0])
 
             for i, (_group, cards) in enumerate(groups):
                 if len(cards) > 1:
-                    assert sum(bool(c.adv) for c in cards) == 1, (
-                        f"bad advanced mark: {cards}"
-                    )
+                    assert (
+                        sum(bool(c.adv) for c in cards) == 1
+                    ), f"bad advanced mark: {cards}"
                 for card in cards:
                     if not card.adv and len(cards) > 1:
                         card.has_advanced = True
@@ -981,8 +1000,8 @@ class CardMap(utils.FuzzyDict):
             for name in card.aka:
                 card.name_variants.extend(self._variants(name, card))
             # translations variants are registered in their respective i18 dict
-            for lang, name in card.i18n_variants("name"):
-                name_variants = list(self._variants(name, card))
+            for lang, variant in card.i18n_variants("name"):
+                name_variants = list(self._variants(variant, card))
                 name_variants = name_variants[1:]  # first name is the actual name
                 card.i18n_set(lang, {"name_variants": name_variants})
 
@@ -1055,7 +1074,7 @@ class CardMap(utils.FuzzyDict):
                     card.rulings.append(ruling)
 
     def _parse_ruling_text(self, text: str, references: dict[str, str]) -> dict:
-        data = {"text": text}
+        data: Dict[str, Any] = {"text": text}
         for token, ref in rulings.parse_references(text):
             data.setdefault("references", [])
             data["references"].append(
@@ -1078,7 +1097,7 @@ class CardMap(utils.FuzzyDict):
             data["symbols"].append({"text": token, "symbol": substitute})
         return data
 
-    def to_json(self) -> Dict:
+    def to_json(self) -> Dict | List:
         """Return a compact list representation for JSON serialization."""
         return [card.to_json() for card in self]
 
@@ -1100,7 +1119,9 @@ class CardTrie:
     def __init__(self, attribute: str):
         """Arg attribute is usually name, card_text, flavor_text or draft."""
         self.attribute = attribute
-        self.tries = collections.defaultdict(utils.Trie)
+        self.tries: collections.defaultdict[str, utils.Trie] = collections.defaultdict(
+            utils.Trie
+        )
 
     def clear(self) -> None:
         """Clear content."""
@@ -1110,9 +1131,10 @@ class CardTrie:
         """Add a card to the tries."""
         self.tries["en"].add(getattr(card, self.attribute, ""), card)
         for lang, trans in card.i18n_variants(self.attribute):
-            self.tries[lang[:2]].add(trans, card)
+            if isinstance(trans, str):
+                self.tries[lang[:2]].add(trans, card)
 
-    def search(self, text: str, lang: str = None) -> Dict[str, Counter[Card]]:
+    def search(self, text: str, lang: Optional[str] = None) -> Dict[str, Counter[Card]]:
         """Search for `text`, in english and optional `lang`.
 
         Returns:
@@ -1121,8 +1143,9 @@ class CardTrie:
             prefer the `lang` version.
         """
         base_search = self.tries["en"].search(text)
-        lang_search = collections.Counter()
+        lang_search = collections.Counter[Card]()
         if lang in self.tries:
+            assert isinstance(lang, str)
             lang_search = self.tries[lang].search(text)
         for k in base_search & lang_search:
             del base_search[k]
@@ -1215,11 +1238,21 @@ class CardSearch:
     # in other dimensions, any value can match.
     intersect_set_dimensions = ["trait", "discipline", "bonus"]
 
+    def __getattr__(self, name: str) -> Any:
+        """Handle dynamic attributes created in __init__."""
+        if name in self.trie_dimensions:
+            return getattr(self, f"_{name}", None)
+        if name in self.set_dimensions:
+            return getattr(self, f"_{name}", None)
+        raise AttributeError(
+            f"'{self.__class__.__name__}' object has no attribute '{name}'"
+        )
+
     def __init__(self):
         for attr in self.trie_dimensions:
-            setattr(self, attr, CardTrie(attr))
+            setattr(self, f"_{attr}", CardTrie(attr))
         for attr in self.set_dimensions:
-            setattr(self, attr, collections.defaultdict(set))
+            setattr(self, f"_{attr}", collections.defaultdict(set))
         # caches
         self._all = set()
         self._set_dimensions_enums = None
@@ -1322,7 +1355,8 @@ class CardSearch:
             result = copy.copy(self._all)
         for dim in self.trie_dimensions:
             if kwargs.get(dim):
-                result &= self._text_search(dim, kwargs.get(dim), lang)
+                value: str = kwargs[dim]
+                result &= self._text_search(dim, value, lang)
         for dim in self.set_dimensions:
             values = kwargs.get(dim, None)
             if not values:
@@ -1332,20 +1366,23 @@ class CardSearch:
                 values = [values]
             if not isinstance(values, collections.abc.Iterable):
                 values = [values]
-            dim_result = None
+            dim_result: Optional[set] = None
             for value in values:
                 # normalize value if it is not a discipline: those are case sensitive
+                normalized: str | None = value
                 if dim != "discipline":
-                    value = self._normalized_map.get(dim, {}).get(
+                    normalized = self._normalized_map.get(dim, {}).get(
                         utils.normalize(value)
                     )
                 if dim_result is None:
-                    dim_result = copy.copy(getattr(self, dim, {}).get(value, set()))
+                    dim_result = copy.copy(
+                        getattr(self, dim, {}).get(normalized, set())
+                    )
                 elif dim in self.intersect_set_dimensions:
-                    dim_result &= getattr(self, dim, {}).get(value, set())
+                    dim_result &= getattr(self, dim, {}).get(normalized, set())
                 else:
-                    dim_result |= getattr(self, dim, {}).get(value, set())
-            result &= dim_result
+                    dim_result |= getattr(self, dim, {}).get(normalized, set())
+            result &= dim_result or set()
         return result
 
     def _text_search(self, dim: str, text: str, lang: str = "en") -> Set[Card]:
@@ -1477,12 +1514,12 @@ class CardSearch:
                 if title in titles:
                     self.sect[sect].add(card)
 
-        city = re.search(
+        match = re.search(
             r"(?:Prince|Baron|Archbishop) of ((?:[A-Z][\w\s-]{3,})+)",
             card.card_text,
         )
-        if city:
-            city = city.group(1)
+        if match:
+            city = match.group(1)
             if city[-6:] == " as a ":
                 city = city[:-6]
             if city == "Washington":

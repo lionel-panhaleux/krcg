@@ -1,14 +1,15 @@
 """TWDA analyzer: compute cards affinity and build decks based on TWDA."""
 
-from typing import Callable, Iterable, List, Tuple
+from typing import Callable, Iterable, List, Optional, Tuple
 import collections
 import itertools
 import random
 
+from . import cards
 from . import deck
 import logging
 
-Candidates = List[Tuple[str, float]]
+Candidates = List[Tuple[cards.Card, int]]
 
 logger = logging.getLogger("krcg")
 
@@ -32,8 +33,8 @@ class Analyzer(object):
         deck (deck.Deck): Deck being built
     """
 
-    def __init__(self, decks: Iterable, spoilers: bool = True):
-        self.decks = decks
+    def __init__(self, decks: Iterable[deck.Deck], spoilers: bool = True):
+        self.decks = list(decks)
         if spoilers and len(self.decks) > 50:
             self.spoilers = {
                 name: count / len(self.decks)
@@ -45,15 +46,17 @@ class Analyzer(object):
             logger.debug("Spoilers: %s", self.spoilers)
         else:
             self.spoilers = {}
-        self.examples = None
-        self.played = None
-        self.average = None
-        self.variance = None
-        self.affinity = None
+        self.examples = list[deck.Deck]()
+        self.played = collections.Counter[cards.Card]()
+        self.average = collections.Counter[cards.Card]()
+        self.variance = collections.Counter[cards.Card]()
+        self.affinity: collections.defaultdict[
+            cards.Card, collections.Counter[cards.Card]
+        ] = collections.defaultdict(collections.Counter)
         self.refresh_cursor = 0
-        self.deck = None
+        self.deck: Optional[deck.Deck] = None
 
-    def build_deck(self, *args: str) -> deck.Deck:
+    def build_deck(self, *args: cards.Card) -> deck.Deck:
         """Build a deck, using optional card names as reference.
 
         The analyzer samples the TWDA and builds a deck similar to TWDs.
@@ -72,11 +75,11 @@ class Analyzer(object):
         # if no seed is given, choose one of the 100 most played cards,
         # but do not pick a spoiler (card played in more than 25% decks).
         if not args:
-            args = [
+            args = (
                 [c for c, _ in self.played.most_common() if c not in self.spoilers][
                     random.randrange(100)
-                ]
-            ]
+                ],
+            )
             logger.info("Randomly selected %s", args[0])
         # build crypt first, then library
         self.build_deck_part(*args, condition=Analyzer.is_crypt)
@@ -98,7 +101,10 @@ class Analyzer(object):
         return card.library
 
     def refresh(
-        self, *args, similarity: float = 0.6, condition: Callable = None
+        self,
+        *args: cards.Card,
+        similarity: float = 0.6,
+        condition: Optional[Callable] = None,
     ) -> None:
         """Sample TWDA. This is the core method of the Analyzer.
 
@@ -205,7 +211,9 @@ class Analyzer(object):
                 self.cards_left = max(self.cards_left, 12)
             self.cards_left -= self.deck.cards_count(condition)
 
-    def refresh_affinity(self, card: str, condition: Callable = None) -> None:
+    def refresh_affinity(
+        self, card: cards.Card, condition: Optional[Callable] = None
+    ) -> None:
         """Add a card to `self.affinity` using current examples.
 
         Args:
@@ -223,7 +231,9 @@ class Analyzer(object):
                 }
             )
 
-    def candidates(self, *args: str, spoiler_multiplier: float = 0) -> Candidates:
+    def candidates(
+        self, *args: cards.Card, spoiler_multiplier: float = 0
+    ) -> Candidates:
         """Select candidates using `self.affinity`. Filter banned cards out.
 
         Args:
@@ -234,7 +244,7 @@ class Analyzer(object):
             List of (card, affinity_score) candidates by decreasing affinity
         """
         # score candidates by affinity
-        candidates = collections.Counter()
+        candidates = collections.Counter[cards.Card]()
         for card in args:
             candidates.update(
                 {
@@ -249,7 +259,9 @@ class Analyzer(object):
             )
         return candidates.most_common()
 
-    def build_deck_part(self, *args: str, condition: Callable = None) -> None:
+    def build_deck_part(
+        self, *args: cards.Card, condition: Optional[Callable] = None
+    ) -> None:
         """Build a deck part using given condition
 
         Condition is usually `VTES.is_crypt` or `VTES.is_library` but any
@@ -259,6 +271,7 @@ class Analyzer(object):
             *args: cards already selected for the deck
             condition: condition on the next card to select
         """
+        assert self.deck is not None
         while self.cards_left > 0:
             if len(self.deck) >= self.refresh_cursor:
                 self.refresh(*args, condition=condition)

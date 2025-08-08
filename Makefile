@@ -9,6 +9,7 @@ quality:
 
 test: quality
 	uv run pytest -vvs
+	uv run mypy krcg
 
 update:
 	uv sync --upgrade --dev

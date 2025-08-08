@@ -1,6 +1,6 @@
 """Deck class: serialization and card access under conditions"""
 
-from typing import Callable, Generator, Optional, TextIO
+from typing import Any, Callable, Dict, Generator, Optional, TextIO
 import arrow
 import collections
 import datetime
@@ -47,8 +47,8 @@ class Deck(collections.Counter):
     def from_txt(
         cls,
         input: TextIO,
-        id: str = None,
-        author: str = None,
+        id: Optional[str] = None,
+        author: Optional[str] = None,
         offset: int = 0,
         twda: bool = False,
         preface: bool = True,
@@ -69,16 +69,18 @@ class Deck(collections.Counter):
     @classmethod
     def from_amaranth(cls, uid: str):
         """Fetch a deck from Amaranth."""
-        r = requests.post("https://amaranth.vtes.co.nz/api/deck", data={"id": uid})
-        r.raise_for_status()
-        r = r.json()["result"]
-        ret = cls(id=uid, author=r.get("author", None))
-        ret.name = r.get("title", None)
-        ret.comments = r.get("description", "")
-        ret.date = arrow.get(r["modified"]).date()
+        response = requests.post(
+            "https://amaranth.vtes.co.nz/api/deck", data={"id": uid}
+        )
+        response.raise_for_status()
+        result: Dict[str, Any] = response.json()["result"]
+        ret = cls(id=uid, author=result.get("author", None))
+        ret.name = result.get("title", None)
+        ret.comments = result.get("description", "")
+        ret.date = arrow.get(result["modified"]).date()
         if not vtes.VTES:
             vtes.VTES.load()
-        for cid, count in r["cards"].items():
+        for cid, count in result["cards"].items():
             count = int(count)
             if count <= 0:
                 continue
@@ -88,21 +90,21 @@ class Deck(collections.Counter):
     @classmethod
     def from_vdb(cls, uid: str):
         """Fetch a deck from VDB."""
-        r = requests.get("https://vdb.im/api/deck/" + uid)
-        r.raise_for_status()
-        r = r.json()
-        logger.debug("VDB replied: %s", r)
-        ret = cls(id=uid, author=r.get("author", r.get("owner", None)))
-        ret.name = r.get("name", None)
-        ret.comments = r.get("description", "")
+        response = requests.get("https://vdb.im/api/deck/" + uid)
+        response.raise_for_status()
+        data: Dict[str, Any] = response.json()
+        logger.debug("VDB replied: %s", data)
+        ret = cls(id=uid, author=data.get("author", data.get("owner", None)))
+        ret.name = data.get("name", None)
+        ret.comments = data.get("description", "")
         ret.date = (
-            email.utils.parsedate_to_datetime(r["timestamp"]).date()
-            if ("timestamp" in r)
+            email.utils.parsedate_to_datetime(data["timestamp"]).date()
+            if ("timestamp" in data)
             else None
         )
         if not vtes.VTES:
             vtes.VTES.load()
-        for cid, count in r["cards"].items():
+        for cid, count in data["cards"].items():
             count = int(count)
             if count <= 0:
                 continue
@@ -112,17 +114,19 @@ class Deck(collections.Counter):
     @classmethod
     def from_vtesdecks(cls, uid: str):
         """Fetch a deck from VTESDecks."""
-        r = requests.get("https://api.vtesdecks.com/1.0/decks/" + uid)
-        r.raise_for_status()
-        r = r.json()
-        logger.debug("VTESDecks replied: %s", r)
-        ret = cls(id=uid, author=r.get("author", r.get("owner", None)))
-        ret.name = r.get("name", None)
-        ret.comments = r.get("description", "")
-        ret.date = datetime.datetime.fromisoformat(r.get("modifyDate")).date()
+        response = requests.get("https://api.vtesdecks.com/1.0/decks/" + uid)
+        response.raise_for_status()
+        data: Dict[str, Any] = response.json()
+        logger.debug("VTESDecks replied: %s", data)
+        ret = cls(id=uid, author=data.get("author", data.get("owner", None)))
+        ret.name = data.get("name", None)
+        ret.comments = data.get("description", "")
+        date = data.get("modifyDate")
+        assert isinstance(date, str)
+        ret.date = datetime.datetime.fromisoformat(date).date()
         if not vtes.VTES:
             vtes.VTES.load()
-        for card in itertools.chain(r["crypt"], r["library"]):
+        for card in itertools.chain(data["crypt"], data["library"]):
             count = int(card["number"])
             if count <= 0:
                 continue
@@ -151,8 +155,8 @@ class Deck(collections.Counter):
                 if not vtes.VTES:
                     vtes.VTES.load()
                 for item in result.fragment.split(";"):
-                    card, count = item.split("=", 1)
-                    count = int(count)
+                    card, count_str = item.split("=", 1)
+                    count = int(count_str)
                     if count <= 0:
                         continue
                     ret[vtes.VTES[int(card)]] = count
@@ -547,7 +551,7 @@ class DeckScore:
             r"(?(plus_mark).?|vp))?",
             s.lower(),
         )
-        if score.end() < 1:
+        if score is None or score.end() < 1:
             raise ValueError("No score information")
         self.game_wins = score.group("game_wins")
         self.round_vps = score.group("round_vps")

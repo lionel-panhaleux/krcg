@@ -4,7 +4,7 @@ It handles the legacy TWDA: many tricky formats used through this historic docum
 Only modifiy this file if you know what you're doing, and proceed with caution.
 """
 
-from typing import TextIO, Tuple
+from typing import TextIO, Tuple, Optional
 import datetime
 import enum
 import logging
@@ -411,7 +411,9 @@ class Mark(enum.Enum):
 class Comment:
     """Helper for comments parsing."""
 
-    def __init__(self, comment: str = "", card: object = None, mark: Mark = None):
+    def __init__(
+        self, comment: str = "", card: object = None, mark: Optional[Mark] = None
+    ):
         self.card = card
         self.mark = mark
         self.string = comment
@@ -566,13 +568,13 @@ class Parser:
             return True
         if not self.deck.tournament_format:
             try:
-                self.deck.tournament_format = re.match(r"\s*(\d+R\+F)", line).group(1)
+                self.deck.tournament_format = re.match(r"\s*(\d+R\+F)", line).group(1)  # type: ignore
                 return True
             except AttributeError:
                 pass
         if not self.deck.players_count:
             try:
-                players_count = re.match(r"\s*(\d+|\?+)\s*player", line).group(1)
+                players_count = re.match(r"\s*(\d+|\?+)\s*player", line).group(1)  # type: ignore
                 self.deck.players_count = int(players_count)
                 return True
             except AttributeError:
@@ -588,7 +590,7 @@ class Parser:
         # Newer lists provide an event link
         if not self.deck.event_link:
             try:
-                self.deck.event_link = re.match(r"^\s*(https?://.*)$", line).group(1)
+                self.deck.event_link = re.match(r"^\s*(https?://.*)$", line).group(1)  # type: ignore
                 return True
             except AttributeError:
                 pass
@@ -615,7 +617,7 @@ class Parser:
         if not self.deck.name:
             try:
                 self.deck.name = (
-                    re.match(r"^\s*((d|D)eck)?\s?(n|N)ame\s*:\s*(?P<name>.*)$", line)
+                    re.match(r"^\s*((d|D)eck)?\s?(n|N)ame\s*:\s*(?P<name>.*)$", line)  # type: ignore
                     .group("name")
                     .strip()
                 )
@@ -630,7 +632,7 @@ class Parser:
                         r"(a|A)uthors?|(c|C)reators?)\s*(:|\s)\s*(?P<author>.*)$",
                         line,
                     )
-                    .group("author")
+                    .group("author")  # type: ignore
                     .strip()
                 )
                 return True
@@ -644,7 +646,7 @@ class Parser:
                         r"(?P<player>.*)$",
                         line,
                     )
-                    .group("player")
+                    .group("player")  # type: ignore
                     .strip()
                 )
                 return True
@@ -685,8 +687,8 @@ class Parser:
                 if self.preface:
                     name = None
                 else:
-                    count = int(match.group("post_count") or 1)
-                    if not match.group("count_mark"):
+                    count = int(match.group("post_count") or 1)  # type: ignore
+                    if not match.group("count_mark"):  # type: ignore
                         # Be wary of disciplines: they are sometimes headers, but
                         # indistinguishable from actual Master discipline cards
                         if name.strip(" :()[]-_*=") in _DISCIPLINES:
@@ -720,10 +722,10 @@ class Parser:
             self.logger.warning('discarded match "%s" inside comment "%s"', name, line)
             card, count = None, 0
         # do not match crypt tail expression on a library card
-        if card and match.group("crypt_tail") and not card.crypt:
+        if card and match.group("crypt_tail") and not card.crypt:  # type: ignore
             card, count = None, 0
         # do not match post count on a crypt card
-        if card and match.group("post_count") and card.crypt:
+        if card and match.group("post_count") and card.crypt:  # type: ignore
             card, count = None, 0
         # too many preface comments parse like cards in the TWDA
         if twda and name and not self.separator:
@@ -731,18 +733,18 @@ class Parser:
         # if no card was found, the whole line is a comment
         # if a card was found, a comment might still be present as a suffix
         if card:
-            comment = max(
-                match.span("parenthesis_comment"),
-                match.span("bracket_comment"),
-                match.span("line_comment"),
+            comment_span = max(
+                match.span("parenthesis_comment"),  # type: ignore
+                match.span("bracket_comment"),  # type: ignore
+                match.span("line_comment"),  # type: ignore
             )
             # extract the original comment, not the "normalized" parsed version
-            if comment > (-1, -1):
-                comment = line[comment[0] : comment[1]]
+            if comment_span > (-1, -1):
+                comment = line[comment_span[0] : comment_span[1]]
             else:
                 comment = ""
-            mark = match.group("comment_mark") or ""
-            if mark[:2] == "/*":
+            mark_match = match.group("comment_mark") or ""  # type: ignore
+            if mark_match[:2] == "/*":
                 if "*/" in line:
                     mark = Mark.LINE
                 else:
@@ -773,7 +775,9 @@ class Parser:
         self.preface = self.preface and not card
         return card, count
 
-    def comment(self, comment: str, card: object = None, mark: Mark = None) -> None:
+    def comment(
+        self, comment: str, card: object = None, mark: Optional[Mark] = None
+    ) -> None:
         """Handle a comment.
 
         Log if we suspect the potential comment to be a parsing error
@@ -841,7 +845,7 @@ class Parser:
         ):
             if mark == Mark.END:
                 self.current_comment += comment
-                comment = None
+                comment = ""
             self.current_comment.finalize()
             if self.current_comment:
                 current_card = self.current_comment.card

@@ -4,12 +4,15 @@ from typing import (
     Any,
     Dict,
     Generator,
+    Generic,
     Hashable,
     ItemsView,
     List,
     Optional,
     Sequence,
     Tuple,
+    TypeVar,
+    Mapping,
 )
 import collections
 import csv
@@ -32,7 +35,7 @@ def normalize(s: Any):
     return unidecode.unidecode(s).lower().strip()
 
 
-def get_zip_csv(url: str, *args: str) -> List[Generator[Dict[str, str], None, None]]:
+def get_zip_csv(url: str, *args: str) -> List[csv.DictReader[str]]:
     """Given a zipfile URL and list of CSV files in it, returns matching CSV readers."""
     local_filename, _headers = urllib.request.urlretrieve(url)
     z = zipfile.ZipFile(local_filename)
@@ -42,7 +45,7 @@ def get_zip_csv(url: str, *args: str) -> List[Generator[Dict[str, str], None, No
     ]
 
 
-def get_github_csv(url: str, *args: str) -> List[Generator[Dict[str, str], None, None]]:
+def get_github_csv(url: str, *args: str) -> List[csv.DictReader[str]]:
     """Given a base URL and list of CSV files under it, returns matching CSV readers."""
     ret = []
     for arg in args:
@@ -51,7 +54,10 @@ def get_github_csv(url: str, *args: str) -> List[Generator[Dict[str, str], None,
     return ret
 
 
-class FuzzyDict:
+T = TypeVar("T")
+
+
+class FuzzyDict(Mapping[Hashable, T], Generic[T]):
     """A dict providing "fuzzy matching" of its keys.
 
     It matches keys that are "close enough" if there are no exact match,
@@ -69,28 +75,28 @@ class FuzzyDict:
         self,
         threshold: int = 6,
         cutoff: float = 0.85,
-        aliases: dict = None,
+        aliases: Optional[Mapping[Any, Any]] = None,
         *args,
         **kwargs,
     ):
         super().__init__(*args, **kwargs)
         self.threshold = threshold
         self.cutoff = cutoff
-        self.aliases = aliases
-        self._dict = dict()
-        self._keys_cache = None
+        self.aliases: dict[Hashable, T] = dict(aliases) if aliases else {}
+        self._dict: dict[Hashable, T] = dict()
+        self._keys_cache: Optional[List[Sequence]] = None
 
-    def _fuzzy_match(self, key: Hashable) -> Any:
+    def _fuzzy_match(self, key: Hashable) -> Hashable:
         """Use difflib to match incomplete or misspelled keys"""
         if not isinstance(key, collections.abc.Sequence):
             return None
         if len(key) < self.threshold:
             return None
-        result = difflib.get_close_matches(
+        matches = difflib.get_close_matches(
             key, self._sequence_keys(), n=1, cutoff=self.cutoff
         )
-        if result:
-            result = result[0]
+        if matches:
+            result = matches[0]
             logger.info('"%s" matched "%s"', key, result)
             return result
         return None
@@ -98,12 +104,10 @@ class FuzzyDict:
     def _sequence_keys(self) -> List[Sequence]:
         """Return all keys that are sequences and can be fuzzy matched."""
         if not self._keys_cache:
-            self._keys_cache = [
-                k for k in self._dict.keys() if isinstance(k, collections.abc.Sequence)
-            ]
+            self._keys_cache = [k for k in self._dict.keys() if isinstance(k, Sequence)]
         return self._keys_cache
 
-    def add_alias(self, alias: Hashable, value: Hashable) -> None:
+    def add_alias(self, alias: Hashable, value: T) -> None:
         """Add an alias to the dict.
 
         The value must be a key in the dict.
@@ -214,10 +218,11 @@ class Trie(collections.defaultdict):
             for i in range(1, len(part) + 1):
                 self[part[:i]][reference] += (
                     # double score for matching name start
-                    i * (2 if e == 0 else 1)
+                    i
+                    * (2 if e == 0 else 1)
                 )
 
-    def search(self, text: str) -> Optional[collections.Counter]:
+    def search(self, text: str) -> collections.Counter:
         """Search text into the Trie
 
         The match is case-insensitive and use unidecode, but is otherwise exact.
@@ -229,11 +234,11 @@ class Trie(collections.defaultdict):
         Returns:
             Scored references
         """
-        ret = None
+        ret: Optional[collections.Counter] = None
         for part in Trie._split(text):
             # a word can match multiple parts of a key to one reference
             # take the highest score
-            matches = {}
+            matches: dict[str, int] = {}
             for reference, score in self.get(part, {}).items():
                 matches[reference] = max(matches.get(reference, 0), score)
             # match all words of given text
@@ -243,6 +248,8 @@ class Trie(collections.defaultdict):
                 )
             else:
                 ret = collections.Counter(matches)
+        if ret is None:
+            ret = collections.Counter()
         return ret
 
 
@@ -270,6 +277,9 @@ def json_pack(obj: Any) -> Any:
     return obj
 
 
+Trans = str | dict[str, str] | list[str]
+
+
 class i18nMixin:
     """A mixin for translations.
 
@@ -281,27 +291,27 @@ class i18nMixin:
         super().__init__()
         self._i18n = collections.defaultdict(dict)
 
-    def i18n_set(self, lang: str, trans: Dict[str, str]) -> None:
+    def i18n_set(self, lang: str, trans: Dict[str, Trans]) -> None:
         for field, value in trans.items():
             if value and not hasattr(self, field):
                 raise ValueError(f'i18n: "{field}" not present on instance')
         self._i18n[lang[:2]].update(trans)
 
-    def i18n_variants(self, field: str) -> Generator[Tuple[str, Any], None, None]:
+    def i18n_variants(self, field: str) -> Generator[Tuple[str, Trans], None, None]:
         for lang, trans in self._i18n.items():
             if field in trans:
                 yield lang, trans[field]
 
-    def i18n(self, lang: str, field: str = None) -> Any:
+    def i18n(self, lang: str) -> Dict[str, Trans]:
         if lang[:2] == "en":
-            if field:
-                return getattr(self, field)
-            else:
-                return self
+            return self.__dict__
+        return self._i18n.get(lang[:2], {})
+
+    def i18n_field(self, lang: str, field: str) -> str:
+        if lang[:2] == "en":
+            return getattr(self, field)
         ret = self._i18n.get(lang[:2], {})
-        if not field:
-            return ret
-        return ret.get(field)
+        return ret.get(field) or ""
 
 
 class NamedMixin:
@@ -311,23 +321,23 @@ class NamedMixin:
     as well as hash and comparison operations so that the object can be indexed.
     """
 
-    def __bool__(self):
-        return bool(self.id)
+    def __bool__(self) -> bool:
+        return bool(self.id)  # type: ignore
 
-    def __index__(self):
-        return self.id
+    def __index__(self) -> int:
+        return self.id  # type: ignore
 
-    def __str__(self):
-        return self.name
+    def __str__(self) -> str:
+        return self.name  # type: ignore
 
-    def __repr__(self):
-        return f"<{self.__class__.__name__} #{self.id} {self.name}>"
+    def __repr__(self) -> str:
+        return f"<{self.__class__.__name__} #{self.id} {self.name}>"  # type: ignore
 
-    def __hash__(self):
-        return self.id
+    def __hash__(self) -> int:
+        return self.id  # type: ignore
 
-    def __eq__(self, rhs: Any):
-        return rhs and self.id == getattr(rhs, "id", None)
+    def __eq__(self, rhs: Any) -> bool:
+        return rhs and self.id == getattr(rhs, "id", None)  # type: ignore
 
-    def __lt__(self, rhs: Any):
-        return rhs and hasattr(rhs, "name") and self.name < rhs.name
+    def __lt__(self, rhs: Any) -> bool:
+        return rhs and hasattr(rhs, "name") and self.name < rhs.name  # type: ignore

@@ -5,7 +5,7 @@
 # Original criteria:
 # https://groups.google.com/g/rec.games.trading-cards.jyhad/c/4YivYLDVYQc/m/CCH-ZBU5UiUJ
 
-from typing import Callable, Hashable, Iterable, List, Tuple
+from typing import Callable, Dict, Hashable, Iterable, List, Optional, Tuple
 import collections
 import concurrent.futures
 import math
@@ -17,16 +17,16 @@ import random
 # The seating rules: code, label, weight
 # weights are devised so that major rules always prevail over minor rules.
 # stddev rules (R3, R8) need a factor of 100 over the next one to prevail.
-RULES = [
-    ["R1", "predator-prey", 10**10],
-    ["R2", "opponent thrice", 10**9],
-    ["R3", "available vps", 10**8],
-    ["R4", "opponent twice", 10**6],
-    ["R5", "fifth seat", 10**5],
-    ["R6", "position", 10**4],
-    ["R7", "same seat", 10**3],
-    ["R8", "starting transfers", 10**2],
-    ["R9", "position group", 1],
+RULES: List[Tuple[str, str, int]] = [
+    ("R1", "predator-prey", 10**10),
+    ("R2", "opponent thrice", 10**9),
+    ("R3", "available vps", 10**8),
+    ("R4", "opponent twice", 10**6),
+    ("R5", "fifth seat", 10**5),
+    ("R6", "position", 10**4),
+    ("R7", "same seat", 10**3),
+    ("R8", "starting transfers", 10**2),
+    ("R9", "position group", 1),
 ]
 
 
@@ -34,7 +34,7 @@ class Round(list):
     """A list of list representing the tables of a round"""
 
     @classmethod
-    def from_players(cls, players: Iterable[Hashable]):
+    def from_players(cls, players: List[Hashable]):
         """Build a round structure from a simple list of players"""
         length = len(players)
         if length in {6, 7, 11}:
@@ -92,7 +92,7 @@ class Round(list):
         """Get the number of players (default len gives the number of tables)"""
         return sum(len(table) for table in self.iter_tables())
 
-    def _global_indexes(self):
+    def _global_indexes(self) -> Dict[int, Tuple[int, int]]:
         return dict(
             enumerate((j, k) for j, table in enumerate(self) for k in range(len(table)))
         )
@@ -129,8 +129,8 @@ class Round(list):
 
 
 Measure = collections.namedtuple("Measure", ["position", "opponents"])
-Measure.__add__ = lambda lhs, rhs: Measure(lhs[0] + rhs[0], lhs[1] + rhs[1])
-Measure.__radd__ = lambda rhs, lhs: rhs if lhs == 0 else rhs.__add__(lhs)
+Measure.__add__ = lambda lhs, rhs: Measure(lhs[0] + rhs[0], lhs[1] + rhs[1])  # type: ignore
+Measure.__radd__ = lambda rhs, lhs: rhs if lhs == 0 else rhs.__add__(lhs)  # type: ignore
 
 PlayerMapping = dict[Hashable, int]
 
@@ -186,7 +186,10 @@ POSITIONS = {
 
 
 def measure(
-    pm: PlayerMapping, round_: Round, previous: Measure = None, hints: list = None
+    pm: PlayerMapping,
+    round_: Round,
+    previous: Optional[Measure] = None,
+    hints: Optional[List[int]] = None,
 ) -> Measure:
     """Measure a round (list of tables), returns two matrices:
     position (players_count x 8):
@@ -270,7 +273,7 @@ class Score:
     `mean_tranfers`.
     """
 
-    __slots__ = dict(
+    __slots__ = dict(  # type: ignore
         itertools.chain(
             ((R[0], R[1]) for R in RULES),
             (
@@ -284,9 +287,9 @@ class Score:
         )
     )
 
-    def __init__(self, rounds: List[Round], pm: PlayerMapping = None):
+    def __init__(self, rounds: List[Round], pm: Optional[PlayerMapping] = None):
         pm = pm or player_mapping(rounds)
-        self.score_measure(sum(measure(pm, r) for r in rounds), len(rounds), pm)
+        self.score_measure(sum(measure(pm, r) for r in rounds), len(rounds), pm)  # type: ignore
 
     def __repr__(self):
         points = [f"{s:.2f}" if isinstance(s, float) else f"{s}" for s in self.rules]
@@ -354,7 +357,7 @@ class Score:
         ]
         # individual score for each rule
         self.rules = [
-            getattr(self, R[0]) if R[0] in ["R3", "R8"] else len(getattr(self, R[0]))
+            self.__getattribute__(R[0]) if R[0] in ["R3", "R8"] else len(self.__getattribute__(R[0]))  # type: ignore
             for R in RULES
         ]
         self.total = sum(x * m for x, m in zip(self.rules, [R[2] for R in RULES]))
@@ -431,7 +434,7 @@ def get_rounds(players: list[Hashable], rounds_count: int) -> List[Round]:
         raise RuntimeError("At least 2 rounds by player are required")
 
     # number of players you can remove to be able to play
-    possible_outs = []
+    possible_outs: List[int] = []
     for i in [4, 5, 4 + 4, 4 + 5, 5 + 5]:
         if players_count <= i:
             break
@@ -454,7 +457,7 @@ def get_rounds(players: list[Hashable], rounds_count: int) -> List[Round]:
         additional_rounds += 1
     rounds_count = rounds_count + additional_rounds
     excludes = players_count * additional_rounds
-    out = []
+    out: list[int] = []
     # compute how many players you exclude for each round:
     # for each round you must exclude a "possible outs" number,
     # the total must match exactly  #players * #additional_rounds:
@@ -490,8 +493,8 @@ def get_rounds(players: list[Hashable], rounds_count: int) -> List[Round]:
 def optimise(
     rounds: List[Round],
     iterations: int,
-    fixed: int = None,
-    callback: Callable = None,
+    fixed: Optional[int] = None,
+    callback: Optional[Callable] = None,
 ) -> Tuple[List[Round], Score]:
     """Given a list of players for each round, compute an optimal seating.
 
@@ -532,9 +535,9 @@ def optimise(
     # initial state
     if fixed is None:
         fixed = len(rounds) - 1
-    temperature = temperature_max
+    temperature = float(temperature_max)
     measures = [measure(pm, r) for r in rounds]
-    best_score = previous_score = score = Score.fast_total(sum(measures), rounds_count)
+    best_score = previous_score = score = Score.fast_total(sum(measures), rounds_count)  # type: ignore
     best_state = [Round.copy(r) for r in rounds]
     for round_ in rounds[fixed:]:
         round_.shuffle()
@@ -554,9 +557,9 @@ def optimise(
         # only recompute the changed round, other rounds have not varied
         previous_measure = measures[round_index]
         measures[round_index] = measure(
-            pm, round_, previous=previous_measure, hints=(i1, j1)
+            pm, round_, previous=previous_measure, hints=[i1, j1]
         )
-        score = Score.fast_total(sum(measures), rounds_count)
+        score = Score.fast_total(sum(measures), rounds_count)  # type: ignore
         score_diff = score - previous_score
         trials += 1
         # accept or reject the move depending on its score and temperature
@@ -593,7 +596,7 @@ def optimise(
     return best_state, Score(best_state, pm=pm)
 
 
-def optimise_table(rounds: List[Round], table: int) -> Score:
+def optimise_table(rounds: List[Round], table: int) -> float:
     """Optimise a single table in the last round.
 
     Modifies the list of round in place.
@@ -608,7 +611,7 @@ def optimise_table(rounds: List[Round], table: int) -> Score:
     for permutation in itertools.permutations(rounds[-1].get_table(table)):
         current_round.set_table(table, permutation)
         measures[-1] = measure(pm, current_round, hints=[table])
-        score = Score.fast_total(sum(measures), rounds_count)
+        score = Score.fast_total(sum(measures), rounds_count)  # type: ignore
         if score < best_score:
             best_score = score
             best_table = permutation[:]
@@ -618,7 +621,7 @@ def optimise_table(rounds: List[Round], table: int) -> Score:
 
 def archon_seating(players_count: int, rounds_per_player: int):
     """Convenience function to compute a full multiround seating"""
-    rounds = get_rounds(players_count, rounds_per_player)
+    rounds = get_rounds(list(range(players_count)), rounds_per_player)
     try:
         cpus = multiprocessing.cpu_count()
     except NotImplementedError:
@@ -627,5 +630,5 @@ def archon_seating(players_count: int, rounds_per_player: int):
     with concurrent.futures.ProcessPoolExecutor() as executor:
         for _ in range(cpus):
             results.append(executor.submit(optimise, rounds, 80000, 1))
-        results = [r.result() for r in results]
-        return min(results, key=lambda x: x[1].total)
+        real_results = [r.result() for r in results]
+        return min(real_results, key=lambda x: x[1].total)

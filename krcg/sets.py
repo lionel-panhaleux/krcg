@@ -1,7 +1,6 @@
 """Sets (expansions) information"""
 
 import datetime
-from typing import Hashable
 
 from . import utils
 
@@ -59,13 +58,13 @@ from . import utils
 class Set(utils.i18nMixin, utils.NamedMixin):
     """A class representing a V:tES Set (expansion)."""
 
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs: str):
         super().__init__()
-        self.id = 0
-        self.abbrev = kwargs.get("abbrev", None)
-        self.release_date = kwargs.get("release_date", None)
-        self.name = kwargs.get("name", None)
-        self.company = kwargs.get("abbrev", None)
+        self.id: int = 0
+        self.abbrev: str = kwargs.get("abbrev", "")
+        self.release_date: str = kwargs.get("release_date", "")
+        self.name: str = kwargs.get("name", "")
+        self.company: str = kwargs.get("abbrev", "")
 
     def from_vekn(self, data: dict):
         """Load info from VEKN CSV dict."""
@@ -80,7 +79,7 @@ class Set(utils.i18nMixin, utils.NamedMixin):
         self.company = data["Company"]
 
 
-class SetMap(dict):
+class SetMap(dict[str, Set]):
     """A dict of all sets, index by Abbreviation and English name."""
 
     _UNLISTED = {
@@ -111,10 +110,6 @@ class SetMap(dict):
         self[set_.abbrev] = set_
         self[set_.name] = set_
 
-    def i18n_set(self, set_: Set) -> None:
-        """Add a translation for a set."""
-        self[set_.abbrev].i18n_set()
-
 
 class DefaultSetMap(dict):
     """A default map with no information other than the set abbreviation.
@@ -122,8 +117,8 @@ class DefaultSetMap(dict):
     Can be used to enable card information parsing when no set info is available.
     """
 
-    def __getitem__(self, k: Hashable) -> Set:
-        return Set(id=1, abbrev=k, name=k)
+    def __getitem__(self, k: str) -> Set:
+        return Set(id="1", abbrev=k, name=k)
 
 
 #: Use the default set map to parse cards information with no set information available
