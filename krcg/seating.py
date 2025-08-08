@@ -357,7 +357,9 @@ class Score:
         ]
         # individual score for each rule
         self.rules = [
-            self.__getattribute__(R[0]) if R[0] in ["R3", "R8"] else len(self.__getattribute__(R[0]))  # type: ignore
+            self.__getattribute__(R[0])
+            if R[0] in ["R3", "R8"]
+            else len(self.__getattribute__(R[0]))  # type: ignore
             for R in RULES
         ]
         self.total = sum(x * m for x, m in zip(self.rules, [R[2] for R in RULES]))

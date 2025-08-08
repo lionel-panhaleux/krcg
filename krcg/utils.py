@@ -218,8 +218,7 @@ class Trie(collections.defaultdict):
             for i in range(1, len(part) + 1):
                 self[part[:i]][reference] += (
                     # double score for matching name start
-                    i
-                    * (2 if e == 0 else 1)
+                    i * (2 if e == 0 else 1)
                 )
 
     def search(self, text: str) -> collections.Counter:
