@@ -16,7 +16,19 @@ quality:
     echo "🔍 Running quality checks..."
     uv run ruff check
     uv run ruff format --check .
+    echo "📄 Running pydoclint..."
+    # Generate an ephemeral baseline capturing current violations and fail if any
+    tmpfile="$(mktemp)"
+    uv run pydoclint --style google --generate-baseline 1 --baseline "${tmpfile}" krcg
+    if [[ -s "${tmpfile}" ]]; then
+        cat "${tmpfile}"
+        rm -f "${tmpfile}"
+        echo "❌ pydoclint found issues"
+        exit 1
+    fi
+    rm -f "${tmpfile}"
     echo "✅ Quality checks passed!"
+
 
 # Run tests (includes quality checks)
 test: quality

@@ -1,7 +1,7 @@
 """Deck list parser.
 
-It handles the legacy TWDA: many tricky formats used through this historic document.
-Only modifiy this file if you know what you're doing, and proceed with caution.
+Handles legacy TWDA formats and other deck list idiosyncrasies.
+Only modify this file if you know what you're doing, and proceed with caution.
 """
 
 from typing import TextIO, Tuple, Optional
@@ -392,7 +392,7 @@ _RE = (
 
 
 class LineLogAdapter(logging.LoggerAdapter):
-    """Log line and deck"""
+    """Logger adapter that prefixes messages with line and deck IDs."""
 
     def process(self, msg, kwargs):
         self.extra.update(kwargs.get("extra", {}))
@@ -400,7 +400,7 @@ class LineLogAdapter(logging.LoggerAdapter):
 
 
 class Mark(enum.Enum):
-    """A comment Mark."""
+    """A comment mark type."""
 
     LINE = enum.auto()
     MULTILINE = enum.auto()
@@ -409,7 +409,7 @@ class Mark(enum.Enum):
 
 
 class Comment:
-    """Helper for comments parsing."""
+    """Helper class for comment parsing."""
 
     def __init__(
         self, comment: str = "", card: object = None, mark: Optional[Mark] = None
@@ -419,7 +419,7 @@ class Comment:
         self.string = comment
 
     def __iadd__(self, comment: str):
-        """Add a comment line to self"""
+        """Add a comment line to the current comment string."""
         comment = comment.rstrip()
         if self.string:
             self.string += "\n"
@@ -462,7 +462,7 @@ class Comment:
 
     @property
     def log(self) -> str:
-        """Log-friendly version of the comment (cropped at 83 chars)"""
+        """Return a log-friendly version of the comment (cropped at 83 chars)."""
         res = self.string.replace("\n", " ").strip()
         if len(res) > 83:
             res = res[:80] + "..."
@@ -470,7 +470,7 @@ class Comment:
 
     @property
     def multiline(self) -> bool:
-        """True if the comment is multiline"""
+        """Return True if the comment is multiline."""
         return len(self.string.split("\n")) > 1
 
 
@@ -497,11 +497,13 @@ class Parser:
     def parse(
         self, input: TextIO, offset: int = 0, twda: bool = False, preface: bool = True
     ) -> None:
-        """Parse given stream.
+        """Parse a deck list stream.
 
         Args:
-            offset: offset to add when parsing part of a bigger stream (for logs)
-            twda: if true, parse for TWDA headers
+            input: Text stream to parse.
+            offset: Offset to add when parsing part of a bigger stream (for logs).
+            twda: If True, parse TWDA headers.
+            preface: If True, expect a preface section before the cards.
         """
         if not vtes.VTES:
             vtes.VTES.load()
@@ -605,6 +607,7 @@ class Parser:
         return False
 
     def parse_headers(self, index: int, line: str):
+        """Parse non-TWDA headers (name, author, score, etc.)."""
         description = re.match(r"^\s*(D|d)escription\s*:?\s*", line)
         if description:
             line = line[description.end() :]
@@ -660,7 +663,7 @@ class Parser:
                 pass
 
     def get_card(self, line: str, twda: bool = False) -> Tuple[object, int]:
-        """Try to find a card and count, register possible comment."""
+        """Try to find a card and count; register possible comment."""
         if re.match(_HEADERS_RE, utils.normalize(line)):
             return None, 0
         card, name, count, comment, mark = None, None, 0, "", None
@@ -778,10 +781,7 @@ class Parser:
     def comment(
         self, comment: str, card: object = None, mark: Optional[Mark] = None
     ) -> None:
-        """Handle a comment.
-
-        Log if we suspect the potential comment to be a parsing error
-        """
+        """Handle a comment and possibly log suspected parsing errors."""
         if not (comment or self.current_comment):
             return
         if comment:

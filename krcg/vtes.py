@@ -16,7 +16,7 @@ CardsDiff = Dict[cards.Card, Union[str, Tuple[str, str]]]
 
 
 class _VTES:
-    """VTES cards database"""
+    """VTES cards database."""
 
     def __init__(self):
         self._cards = cards.CardMap()
@@ -52,7 +52,7 @@ class _VTES:
         self._search.clear()
 
     def load(self) -> None:
-        """Load from KRCG static"""
+        """Load from KRCG static."""
         self.clear()
         self._cards.load()
 
@@ -119,7 +119,7 @@ class _VTES:
         return self._search(**kwargs)
 
     def _init_search(self) -> None:
-        """Initialize search and completion"""
+        """Initialize search and completion."""
         if not self._search:
             for c in self._cards:
                 self._search.add(c)

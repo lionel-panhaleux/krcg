@@ -44,13 +44,13 @@ class _TWDA(collections.OrderedDict):
         self._init()
 
     def load_from_vekn(self) -> None:
-        """Load from vekn.net"""
+        """Load from `vekn.net`."""
         r = requests.request("GET", config.VEKN_TWDA_URL)
         r.raise_for_status()
         self.load_html(io.StringIO(r.content.decode("utf-8")))
 
     def load(self) -> None:
-        """Load from KRCG static"""
+        """Load from KRCG static."""
         if not vtes.VTES:
             vtes.VTES.load()
         r = requests.request("GET", config.KRCG_STATIC_SERVER + "/data/twda.json")
@@ -60,7 +60,7 @@ class _TWDA(collections.OrderedDict):
         self._init()
 
     def load_html(self, source: TextIO) -> None:
-        """Load from TWDA.html"""
+        """Load from a TWDA.html stream."""
         self.clear()
         id_, buffer, offset = "", None, 0
         for index, line in enumerate(source, 1):
@@ -82,7 +82,7 @@ class _TWDA(collections.OrderedDict):
         logger.info("TWDA loaded")
 
     def _init(self) -> None:
-        """Prepare the TWDA."""
+        """Prepare in-memory indices for the TWDA."""
         self.by_author.clear()
         for id, d in self.items():
             if d.author:

@@ -31,11 +31,11 @@ RULES: List[Tuple[str, str, int]] = [
 
 
 class Round(list):
-    """A list of list representing the tables of a round"""
+    """A list of lists representing the tables of a round."""
 
     @classmethod
     def from_players(cls, players: List[Hashable]):
-        """Build a round structure from a simple list of players"""
+        """Build a round structure from a simple list of players."""
         length = len(players)
         if length in {6, 7, 11}:
             raise ValueError(
@@ -55,7 +55,7 @@ class Round(list):
 
     @classmethod
     def copy(cls, round_):
-        """Copy another Round"""
+        """Copy another round."""
         return cls(t[:] for t in round_.iter_tables())
 
     def shuffle(self):
@@ -65,9 +65,10 @@ class Round(list):
             self.set_player(i, players[i])
 
     def iter_table_players(self) -> Iterable[Tuple[int, int, int, Hashable]]:
-        """Full information players iteration
+        """Iterate players with full table information.
 
-        Yields: table number, position, table size, player number
+        Yields:
+            Tuples of (table_number, position, table_size, player).
         """
         for table_number, players in enumerate(self, 1):
             table_size = len(players)
@@ -75,21 +76,21 @@ class Round(list):
                 yield table_number, position, table_size, player
 
     def iter_tables(self):
-        """Convenience method for symmetry with `iter_players`"""
+        """Convenience method mirroring `iter_players()`."""
         yield from super().__iter__()
 
     def iter_players(self):
-        """Iterate on the players, not the tables (default)"""
+        """Iterate over players, not tables (default)."""
         for table in super().__iter__():
             for player in table:
                 yield player
 
     def tables_count(self):
-        """Convenience function for symmetry with `players_count`"""
+        """Convenience function mirroring `players_count()`."""
         return super().__len__()
 
     def players_count(self):
-        """Get the number of players (default len gives the number of tables)"""
+        """Return the number of players (len() returns number of tables)."""
         return sum(len(table) for table in self.iter_tables())
 
     def _global_indexes(self) -> Dict[int, Tuple[int, int]]:
@@ -98,7 +99,7 @@ class Round(list):
         )
 
     def __global_index_to_tuple(self, index: int):
-        """Private method to get the underlying index out of a naive global index"""
+        """Map a flattened player index to (table_index, seat_index)."""
         table_index = 0
         for table in self.iter_tables():
             if index >= len(table):
@@ -110,20 +111,20 @@ class Round(list):
             raise IndexError("Out of bounds")
 
     def get_table(self, index: int):
-        """Access tables directly (for symmetry with players)"""
+        """Access tables directly (mirrors player access)."""
         return self[index]
 
     def set_table(self, index: int, value):
-        """Modify tables directly (for symmetry with players)"""
+        """Modify tables directly (mirrors player access)."""
         self[index] = value
 
     def get_player(self, index: int):
-        """Access players directly"""
+        """Access players directly."""
         i, j = self.__global_index_to_tuple(index)
         return self[i][j]
 
     def set_player(self, index: int, value):
-        """Modify players directly"""
+        """Modify players directly."""
         i, j = self.__global_index_to_tuple(index)
         self[i][j] = value
 
@@ -136,7 +137,7 @@ PlayerMapping = dict[Hashable, int]
 
 
 def player_mapping(rounds: List[Round]) -> PlayerMapping:
-    """Internal function used to get the matrix dimension required for measures."""
+    """Build a mapping of players to consecutive indices for matrices."""
     number = 0
     mapping = {}
     for player in itertools.chain.from_iterable(r.iter_players() for r in rounds):
@@ -191,7 +192,8 @@ def measure(
     previous: Optional[Measure] = None,
     hints: Optional[List[int]] = None,
 ) -> Measure:
-    """Measure a round (list of tables), returns two matrices:
+    """Measure a round (list of tables).
+
     position (players_count x 8):
         for each player:
             played, vps, transfers (integer),
@@ -202,11 +204,16 @@ def measure(
             cross-table, neighbour, non-neighbour
 
     Simply adding each round measure gives the total measure.
-    This allows to re-compute a single round measure when a single round is changed.
-    pm must be map the (Hashable) players to consecutive integers 0..players_count
+    This allows recomputing a single round measure when only one round changed.
 
-    previous and hint (index of changed tables) are used to speed up measure computation
-    when searching for an optimum (only recomputes the two tables impacted by a switch)
+    Args:
+        pm: Player mapping (Hashable player -> consecutive index).
+        round_: Round to measure.
+        previous: Optional previous Measure to update in place.
+        hints: Optional list of table indices that changed.
+
+    Returns:
+        A Measure with position and opponents matrices.
     """
     if previous:
         position = previous.position.copy()
@@ -366,7 +373,7 @@ class Score:
 
     @staticmethod
     def fast_total(measure: Measure, rounds_count: int) -> float:
-        """Get just a total score of a seating measure (all rounds).
+        """Compute the total score of a seating measure (all rounds).
 
         This is used to speed up computations when searching for an optimum.
         """
@@ -415,7 +422,7 @@ class Score:
 
 
 def get_rounds(players: list[Hashable], rounds_count: int) -> List[Round]:
-    """Return the base rounds for given parameters
+    """Return the base rounds for given parameters.
 
     This gets complicated only if you got 6, 7 or 11 players, otherwise it's simply
     the list of all players for each round.
@@ -520,8 +527,8 @@ def optimise(
         - change of players in the middle of a tournament
 
     Iterations:
-        empyrism shows that the best results are achieved calling
-        this 4x with around 20k iterations each for a full 3R+F round structure
+        Empiricism shows that the best results are achieved calling this 4× with
+        around 20k iterations each for a full 3R+F round structure.
 
         For successive calls to build each round as they come,
         players going in and out of them, a simple 20k iteration is sufficient.
@@ -622,7 +629,7 @@ def optimise_table(rounds: List[Round], table: int) -> float:
 
 
 def archon_seating(players_count: int, rounds_per_player: int):
-    """Convenience function to compute a full multiround seating"""
+    """Compute a full multi-round seating using multiple processes."""
     rounds = get_rounds(list(range(players_count)), rounds_per_player)
     try:
         cpus = multiprocessing.cpu_count()

@@ -472,7 +472,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         return not self.crypt
 
     def to_json(self) -> Dict:
-        """Return a compact dict representation of the card, for JSON serialization."""
+        """Return a compact dict representation of the card.
+
+        Returns:
+            A dictionary ready for JSON serialization.
+        """
         return utils.json_pack(
             {
                 k: v
@@ -484,7 +488,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         )
 
     def from_json(self, state: Dict) -> None:
-        """Get the card form a dict."""
+        """Load the card from a dictionary.
+
+        Args:
+            state: Dictionary produced by `to_json()`.
+        """
         # remove convenience names to avoid overriding the properties
         state.pop("name", None)
         state.pop("printed_name", None)
@@ -496,11 +504,12 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         set_dict: Dict[str, sets.Set] = sets.DEFAULT_SET_MAP,
         default_set: Optional[str] = None,
     ) -> None:
-        """Read a card from a dict generated from a VEKN official CSV.
+        """Load a card from a VEKN official CSV row.
 
         Args:
-            set_dict: A map of the sets, indexed by abbreviation
-            data: Dict of the CSV line
+            data: CSV row as a dict.
+            set_dict: Map of sets, indexed by abbreviation.
+            default_set: Default set abbreviation if missing from the row.
         """
 
         def split(field, sep):
@@ -718,7 +727,16 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     def _decode_rarity(
         rarity: str, abbrev: str, date: str
     ) -> Optional[dict[str, str | int]]:
-        """Decode the rarity tag after expansion abbreviation."""
+        """Decode the rarity tag after the expansion abbreviation.
+
+        Args:
+            rarity: Rarity code fragment (e.g., "R2", "U", "PTr").
+            abbrev: Set abbreviation.
+            date: Release date in ISO format.
+
+        Returns:
+            Parsed rarity information or None if unrecognized.
+        """
         match = re.match(
             # Ebony Kingdom (EK) had "half commons", noted C½: Aye and Orun
             r"^(?P<base>[a-zA-Z]+)?(?P<count>[0-9½]+)?$",
@@ -769,7 +787,10 @@ class Card(utils.i18nMixin, utils.NamedMixin):
 
     @staticmethod
     def _partition(iterable, condition):
-        """Partition iterable given a condition: returns matching, not matching"""
+        """Partition an iterable given a condition.
+
+        Returns the pair (matching, not_matching).
+        """
         lhs = []
         rhs = []
         for it in iterable:
@@ -830,13 +851,13 @@ class CardMap(utils.FuzzyDict):
         super().__init__(aliases=config.ALIASES if aliases is None else aliases)
 
     def __iter__(self) -> Generator[Card, None, None]:
-        """When iterating only, return each card once."""
+        """Iterate over cards (values) once each."""
         for key, card in self.items():
             if isinstance(key, int):
                 yield card
 
     def __len__(self):
-        """Count the number of different cards in Map."""
+        """Return the number of distinct cards in the map."""
         return len([c for c in self])
 
     def load(self) -> None:
@@ -849,7 +870,7 @@ class CardMap(utils.FuzzyDict):
         self.from_json(r.json())
 
     def _map_names(self) -> None:
-        """Add name and variations access for all cards."""
+        """Index all cards by name and known variants."""
         cards: list[Card] = list(self.__iter__())
         for card in cards:
             self[card.name] = card
@@ -869,7 +890,10 @@ class CardMap(utils.FuzzyDict):
     def load_from_files(
         self, *files: BinaryIO, set_abbrev: Optional[str] = None
     ) -> None:
-        """Load from local files. We don't expect a sets file, nor translation files."""
+        """Load cards from local CSV files.
+
+        This does not expect a sets file nor translation files.
+        """
         readers = [
             csv.DictReader(io.TextIOWrapper(f, encoding="utf-8-sig")) for f in files
         ]
@@ -885,7 +909,7 @@ class CardMap(utils.FuzzyDict):
         self._map_names()
 
     def load_from_vekn(self) -> None:
-        """Load from official VEKN CSV files."""
+        """Load cards from official VEKN CSV files (and optional translations)."""
         set_dict = sets.SetMap()
         # download the zip files containing the official CSV
         if LOCAL_CARDS:
@@ -977,10 +1001,9 @@ class CardMap(utils.FuzzyDict):
         self._map_names()
 
     def _set_enriched_properties(self) -> None:
-        """Set enriched properties on cards.
+        """Compute and set enriched properties on cards.
 
-        This method sets addition information related to the cards
-        that are not in the original CSV:
+        This augments the base CSV data with:
         - card.name_variants
         - card.has_advanced
         - card.has_evolution
@@ -1146,11 +1169,19 @@ class CardMap(utils.FuzzyDict):
         return data
 
     def to_json(self) -> Dict | List:
-        """Return a compact list representation for JSON serialization."""
+        """Return a compact list representation.
+
+        Returns:
+            A JSON-serializable list of cards.
+        """
         return [card.to_json() for card in self]
 
     def from_json(self, state: Dict) -> None:
-        """Initialize from a JSON list."""
+        """Initialize from a JSON list.
+
+        Args:
+            state: List produced by `to_json()`.
+        """
         for dict_ in state:
             card = Card()
             card.from_json(dict_)
@@ -1165,14 +1196,18 @@ class CardTrie:
     """
 
     def __init__(self, attribute: str):
-        """Arg attribute is usually name, card_text, flavor_text or draft."""
+        """Initialize a trie for a given card attribute.
+
+        Args:
+            attribute: Text attribute - "name", "card_text", "flavor_text", or "draft".
+        """
         self.attribute = attribute
         self.tries: collections.defaultdict[str, utils.Trie] = collections.defaultdict(
             utils.Trie
         )
 
     def clear(self) -> None:
-        """Clear content."""
+        """Clear the trie content."""
         self.tries.clear()
 
     def add(self, card: Card) -> None:
@@ -1183,12 +1218,15 @@ class CardTrie:
                 self.tries[lang[:2]].add(trans, card)
 
     def search(self, text: str, lang: Optional[str] = None) -> Dict[str, Counter[Card]]:
-        """Search for `text`, in english and optional `lang`.
+        """Search for text in English and optionally another language.
+
+        Args:
+            text: Query text.
+            lang: Optional language code for secondary search.
 
         Returns:
-            A dict of scored results as {lang: Counter}, with no duplicates.
-            If the same card is matched in multiple both `lang` and english,
-            prefer the `lang` version.
+            A dict of scored results as {lang: Counter}, with no duplicates. If the
+            same card is matched in both `lang` and English, prefer the `lang` version.
         """
         base_search = self.tries["en"].search(text)
         lang_search = collections.Counter[Card]()
@@ -1287,7 +1325,7 @@ class CardSearch:
     intersect_set_dimensions = ["trait", "discipline", "bonus"]
 
     def __getattr__(self, name: str) -> Any:
-        """Handle dynamic attributes created in __init__."""
+        """Access dynamic attributes created in __init__."""
         if name in self.trie_dimensions:
             return getattr(self, f"_{name}", None)
         if name in self.set_dimensions:
@@ -1310,7 +1348,7 @@ class CardSearch:
         return bool(self._all)
 
     def clear(self) -> None:
-        """Clear content."""
+        """Clear all indexed content."""
         for attr in self.set_dimensions + self.trie_dimensions:
             try:
                 getattr(self, attr).clear()
@@ -1318,7 +1356,7 @@ class CardSearch:
                 pass
 
     def add(self, card: Card) -> None:
-        """Add a card to the engine."""
+        """Add a card to the search index."""
         self._set_dimensions_enums = None
         self._normalized_set_enum_map = None
         self._all.add(card)
@@ -1373,6 +1411,7 @@ class CardSearch:
 
     @property
     def dimensions(self) -> List[str]:
+        """List supported search dimensions (including "text")."""
         return self.trie_dimensions + self.set_dimensions + ["text"]
 
     @property
@@ -1385,7 +1424,11 @@ class CardSearch:
         return self._set_dimensions_enums
 
     def __call__(self, **kwargs) -> Set[Card]:
-        """Actual search."""
+        """Execute a search.
+
+        Raises:
+            ValueError: If an unknown search dimension is provided.
+        """
         lang = kwargs.pop("lang", "en")[:2]
         keys = set(kwargs.keys())
         invalid_keys = keys - set(self.dimensions)
@@ -1434,7 +1477,7 @@ class CardSearch:
         return result
 
     def _text_search(self, dim: str, text: str, lang: str = "en") -> Set[Card]:
-        """Helper that combines english and provided language results."""
+        """Combine English and optional-language text search results."""
         result = set()
         result |= set(
             itertools.chain.from_iterable(
@@ -1452,13 +1495,10 @@ class CardSearch:
 
     @property
     def _normalized_map(self) -> Dict[str, Dict[str, str]]:
-        """Used by __call__ (the search itself) to match set dimensions values
+        """Case-insensitive mapping for set-dimension values.
 
-        This allows to match values case insensitively
-        but still return the value with the original case.
-
-        This way, self.set_dimensions_enums has proper casing and can be displayed
-        to a user without additional processing.
+        Allows case-insensitive matching while preserving original casing in
+        `set_dimensions_enums`.
         """
         if not self._normalized_set_enum_map:
             self._normalized_set_enum_map = {
@@ -1468,7 +1508,7 @@ class CardSearch:
         return self._normalized_set_enum_map
 
     def _handle_text(self, card) -> None:
-        """Helper handling card text."""
+        """Index text fields for a card."""
         self.card_text.add(card)
         if card.flavor_text:
             self.flavor_text.add(card)
@@ -1476,7 +1516,7 @@ class CardSearch:
             self.bonus["draft"].add(card.draft, card)
 
     def _handle_disciplines(self, card) -> None:
-        """Helper handling card disciplines."""
+        """Index disciplines for a card."""
         for discipline in card.disciplines:
             self.discipline[discipline].add(card)
             if discipline != "FLIGHT":
@@ -1495,7 +1535,7 @@ class CardSearch:
             self.discipline["choice"].add(card)
 
     def _handle_sect(self, card) -> None:
-        """Helper handling sects."""
+        """Index sect information for a card."""
         if card.crypt:
             if re.search(r"^(\[MERGED\] )?Sabbat", card.card_text):
                 self.sect["Sabbat"].add(card)
@@ -1523,7 +1563,7 @@ class CardSearch:
                 self.sect["Independent"].add(card)
 
     def _handle_stealth_intercept(self, card) -> None:
-        """Helper handling stealth and intercept."""
+        """Index stealth and intercept bonuses for a card."""
         if re.search(r"\+(\d|X)\s+(i|I)ntercept", card.card_text):
             self.bonus["Intercept"].add(card)
         # do not include stealthed actions as stealth cards
@@ -1547,7 +1587,7 @@ class CardSearch:
             self.bonus["Stealth"].add(card)
 
     def _handle_titles(self, card) -> None:
-        """Helper handling titles, votes and city."""
+        """Index titles, votes, and city information for a card."""
         if card.title:
             self.title[card.title].add(card)
             self.bonus["Votes"].add(card)
@@ -1591,7 +1631,7 @@ class CardSearch:
                 self.sect["Laibon"].add(card)
 
     def _handle_exceptions(self, card) -> None:
-        """Search exceptions not handled automatically."""
+        """Handle exceptions not covered by automatic indexing."""
         # The Baron has his name in card text, but is not an Anarch Baron.
         if card.id == 200167:  # "The Baron"
             self.sect["Anarch"].remove(card)

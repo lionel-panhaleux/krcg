@@ -56,7 +56,7 @@ from . import utils
 
 
 class Set(utils.i18nMixin, utils.NamedMixin):
-    """A class representing a V:tES Set (expansion)."""
+    """A class representing a V:tES set (expansion)."""
 
     def __init__(self, **kwargs: str):
         super().__init__()
@@ -67,7 +67,7 @@ class Set(utils.i18nMixin, utils.NamedMixin):
         self.company: str = kwargs.get("abbrev", "")
 
     def from_vekn(self, data: dict):
-        """Load info from VEKN CSV dict."""
+        """Load info from a VEKN CSV row."""
         self.id = int(data["Id"])
         self.abbrev = data["Abbrev"]
         self.release_date = (
@@ -80,7 +80,7 @@ class Set(utils.i18nMixin, utils.NamedMixin):
 
 
 class SetMap(dict[str, Set]):
-    """A dict of all sets, index by Abbreviation and English name."""
+    """A dict of all sets, indexed by abbreviation and English name."""
 
     _UNLISTED = {
         "Promo": ["Promo", ""],

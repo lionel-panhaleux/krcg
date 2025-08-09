@@ -65,7 +65,7 @@ class Analyzer(object):
         If no card name is given, a random first-tier card is chosen for seed.
 
         Args:
-            *args: card names as reference for deck building
+            args: Card names used as references for deck building.
 
         Returns:
             The deck built
@@ -237,8 +237,9 @@ class Analyzer(object):
         """Select candidates using `self.affinity`. Filter banned cards out.
 
         Args:
-            *args: Reference cards
-            limit: Maximum number of candidates to return
+            args: Reference cards.
+            spoiler_multiplier: Multiplier applied to spoiler frequency to
+                downweight overly common cards.
 
         Returns:
             List of (card, affinity_score) candidates by decreasing affinity
@@ -268,8 +269,8 @@ class Analyzer(object):
         condition on cards will work.
 
         Args:
-            *args: cards already selected for the deck
-            condition: condition on the next card to select
+            args: Cards already selected for the deck.
+            condition: Condition on the next card to select.
         """
         assert self.deck is not None
         while self.cards_left > 0:

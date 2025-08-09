@@ -36,7 +36,7 @@ def normalize(s: Any):
 
 
 def get_zip_csv(url: str, *args: str) -> List[csv.DictReader[str]]:
-    """Given a zipfile URL and list of CSV files in it, returns matching CSV readers.
+    """Return CSV readers for files inside a remote ZIP archive.
 
     Files are fully read into memory to ensure underlying file descriptors are
     closed immediately.
@@ -51,7 +51,7 @@ def get_zip_csv(url: str, *args: str) -> List[csv.DictReader[str]]:
 
 
 def get_github_csv(url: str, *args: str) -> List[csv.DictReader[str]]:
-    """Given a base URL and list of CSV files under it, returns matching CSV readers.
+    """Return CSV readers for files hosted under a base URL (e.g., GitHub).
 
     Files are fully read into memory to ensure underlying file descriptors are
     closed immediately.
@@ -72,7 +72,7 @@ class FuzzyDict(Mapping[Hashable, T], Generic[T]):
     """A dict providing "fuzzy matching" of its keys.
 
     It matches keys that are "close enough" if there are no exact match,
-    and provides athe ability to specify aliases for certain keys.
+    and provides the ability to specify aliases for certain keys.
 
     Aliases are only matched exactly (not closely like normal keys).
 
@@ -98,7 +98,7 @@ class FuzzyDict(Mapping[Hashable, T], Generic[T]):
         self._keys_cache: Optional[List[Sequence]] = None
 
     def _fuzzy_match(self, key: Hashable) -> Hashable:
-        """Use difflib to match incomplete or misspelled keys"""
+        """Use difflib to match incomplete or misspelled keys."""
         if not isinstance(key, collections.abc.Sequence):
             return None
         if len(key) < self.threshold:
@@ -144,7 +144,7 @@ class FuzzyDict(Mapping[Hashable, T], Generic[T]):
         return self._dict.items()
 
     def __getitem__(self, key: Hashable) -> Any:
-        """Get a key, try to find a good matching.
+        """Get a key, trying to find a good match.
 
         It uses lowercase only, plus the provided aliases,
         and uses difflib to fuzzy match incomplete or misspelled keys
@@ -210,18 +210,18 @@ class Trie(collections.defaultdict):
 
     @staticmethod
     def _split(text: str) -> List[str]:
-        """Normalize the input text, split words"""
+        """Normalize input text and split into words."""
         text = normalize(text)
         if not text:
             return []
         return re.sub(r"[/:,\(\)'\"]", " ", text).split()
 
     def add(self, text: str, reference: Any = None) -> None:
-        """Add text to the Trie
+        """Add text to the trie.
 
         Args:
             text: The text to add.
-            reference: The reference to return on a match
+            reference: The reference to return on a match.
         """
         if reference is None:
             reference = text
@@ -233,16 +233,16 @@ class Trie(collections.defaultdict):
                 )
 
     def search(self, text: str) -> collections.Counter:
-        """Search text into the Trie
+        """Search text in the trie.
 
-        The match is case-insensitive and use unidecode, but is otherwise exact.
-        Matching on the first word of a key scores double.
-        Only candidates matching all words are returned.
+        The match is case-insensitive and uses unidecode, but is otherwise exact.
+        Matching on the first word of a key scores double. Only candidates matching
+        all words are returned.
 
         Args:
-            text: The text to search
+            text: The text to search.
         Returns:
-            Scored references
+            Scored references.
         """
         ret: Optional[collections.Counter] = None
         for part in Trie._split(text):
@@ -264,7 +264,7 @@ class Trie(collections.defaultdict):
 
 
 def json_pack(obj: Any) -> Any:
-    """Remove empty values in depth.
+    """Remove empty values recursively.
 
     Used to prepare dicts or lists for a compact JSON serialization.
     """
@@ -293,7 +293,7 @@ Trans = str | dict[str, str] | list[str]
 class i18nMixin:
     """A mixin for translations.
 
-    It add an `_i18n` attribute to the object,
+    It adds an `_i18n` attribute to the object,
     and provides simple methods to manipulate it.
     """
 
