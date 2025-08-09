@@ -36,6 +36,11 @@ sync-cards:
     curl -f -s -o cards/vteslib.csv "${VTESCSV_GITHUB}/vteslib.csv"
     curl -f -s -o cards/vteslibmeta.csv "${VTESCSV_GITHUB}/vteslibmeta.csv"
     curl -f -s -o cards/vtessets.csv "${VTESCSV_GITHUB}/vtessets.csv"
+    echo "📥 Syncing rulings YAML files from vtes-biased/vtes-rulings..."
+    RULINGS_GITHUB="https://raw.githubusercontent.com/vtes-biased/vtes-rulings/main/rulings"
+    curl -f -s -o cards/groups.yaml "${RULINGS_GITHUB}/groups.yaml"
+    curl -f -s -o cards/references.yaml "${RULINGS_GITHUB}/references.yaml"
+    curl -f -s -o cards/rulings.yaml "${RULINGS_GITHUB}/rulings.yaml"
     echo "✅ CSV files synced successfully!"
 
 # Upgrade all dependencies (including dev dependencies)

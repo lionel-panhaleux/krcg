@@ -237,7 +237,7 @@ def test_load_from_vekn_github_default(monkeypatch):
         warnings.simplefilter("always")
         cm = cards.CardMap()
         cm.load_from_vekn()
-    assert not wrec
+    assert not [w.message for w in wrec]
     assert 200076 in cm  # Anarch Convert
 
 
@@ -249,7 +249,7 @@ def test_load_from_vekn_vekn_net(monkeypatch):
         warnings.simplefilter("always")
         cm = cards.CardMap()
         cm.load_from_vekn()
-    assert not wrec
+    assert not [w.message for w in wrec]
     assert 200076 in cm  # Anarch Convert
 
 
@@ -261,5 +261,5 @@ def test_load_from_vekn_local(monkeypatch):
         warnings.simplefilter("always")
         cm = cards.CardMap()
         cm.load_from_vekn()
-    assert not wrec
+    assert not [w.message for w in wrec]
     assert 200076 in cm  # Anarch Convert

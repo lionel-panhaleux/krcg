@@ -893,22 +893,20 @@ class CardMap(utils.FuzzyDict):
                 "Loading cards from local CSV package 'cards' "
                 "(vtessets.csv, vtescrypt.csv, vteslib.csv)"
             )
+
+            def _local_csv_reader(name: str) -> csv.DictReader:
+                with (
+                    importlib.resources.files("cards")
+                    .joinpath(name)
+                    .open(encoding="utf-8-sig") as f
+                ):
+                    data = f.read()
+                return csv.DictReader(io.StringIO(data))
+
             main_files = [
-                csv.DictReader(
-                    importlib.resources.files("cards")
-                    .joinpath("vtessets.csv")
-                    .open(encoding="utf-8-sig"),
-                ),
-                csv.DictReader(
-                    importlib.resources.files("cards")
-                    .joinpath("vtescrypt.csv")
-                    .open(encoding="utf-8-sig"),
-                ),
-                csv.DictReader(
-                    importlib.resources.files("cards")
-                    .joinpath("vteslib.csv")
-                    .open(encoding="utf-8-sig"),
-                ),
+                _local_csv_reader("vtessets.csv"),
+                _local_csv_reader("vtescrypt.csv"),
+                _local_csv_reader("vteslib.csv"),
             ]
         elif VEKN_NET_CSV:
             # Explicitly load from the official VEKN zip (override GitHub default)
@@ -924,14 +922,20 @@ class CardMap(utils.FuzzyDict):
             main_files = utils.get_github_csv(
                 self._GITHUB_BRANCH[0], *self._GITHUB_BRANCH[1]
             )
-        logger.info(
-            "Loading translations from VEKN.net for languages: %s",
-            ", ".join(self._VEKN_CSV_I18N.keys()),
-        )
-        i18n_files = {
-            lang: utils.get_zip_csv(url, *filenames)
-            for lang, (url, filenames) in self._VEKN_CSV_I18N.items()
-        }
+        if LOCAL_CARDS:
+            logger.info(
+                "Skipping translations (LOCAL_CARDS=1): not downloading VEKN i18n CSV"
+            )
+            i18n_files = {}
+        else:
+            logger.info(
+                "Loading translations from VEKN.net for languages: %s",
+                ", ".join(self._VEKN_CSV_I18N.keys()),
+            )
+            i18n_files = {
+                lang: utils.get_zip_csv(url, *filenames)
+                for lang, (url, filenames) in self._VEKN_CSV_I18N.items()
+            }
         # load sets
         for line in main_files[0]:
             set_ = sets.Set()
@@ -1061,24 +1065,45 @@ class CardMap(utils.FuzzyDict):
                 break
 
     def load_rulings(self) -> None:
-        try:
-            local_filename, _ = urllib.request.urlretrieve(
-                RULINGS_GITHUB + "groups.yaml"
-            )
-            with open(local_filename, encoding="utf-8") as f:
+        if LOCAL_CARDS:
+            # Load rulings from local package data (synced via just sync-cards)
+            with (
+                importlib.resources.files("cards")
+                .joinpath("groups.yaml")
+                .open(encoding="utf-8") as f
+            ):
                 groups = yaml.safe_load(f)
-            local_filename, _ = urllib.request.urlretrieve(
-                RULINGS_GITHUB + "references.yaml"
-            )
-            with open(local_filename, encoding="utf-8") as f:
+            with (
+                importlib.resources.files("cards")
+                .joinpath("references.yaml")
+                .open(encoding="utf-8") as f
+            ):
                 references = yaml.safe_load(f)
-            local_filename, _ = urllib.request.urlretrieve(
-                RULINGS_GITHUB + "rulings.yaml"
-            )
-            with open(local_filename, encoding="utf-8") as f:
+            with (
+                importlib.resources.files("cards")
+                .joinpath("rulings.yaml")
+                .open(encoding="utf-8") as f
+            ):
                 all_rulings = yaml.safe_load(f)
-        finally:
-            urllib.request.urlcleanup()
+        else:
+            try:
+                local_filename, _ = urllib.request.urlretrieve(
+                    RULINGS_GITHUB + "groups.yaml"
+                )
+                with open(local_filename, encoding="utf-8") as f:
+                    groups = yaml.safe_load(f)
+                local_filename, _ = urllib.request.urlretrieve(
+                    RULINGS_GITHUB + "references.yaml"
+                )
+                with open(local_filename, encoding="utf-8") as f:
+                    references = yaml.safe_load(f)
+                local_filename, _ = urllib.request.urlretrieve(
+                    RULINGS_GITHUB + "rulings.yaml"
+                )
+                with open(local_filename, encoding="utf-8") as f:
+                    all_rulings = yaml.safe_load(f)
+            finally:
+                urllib.request.urlcleanup()
         for nid, rulings_list in all_rulings.items():
             id_, name = nid.split("|")
             if id_.startswith("G"):

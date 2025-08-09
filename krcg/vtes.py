@@ -57,7 +57,7 @@ class _VTES:
         self._cards.load()
 
     def load_from_vekn(self) -> None:
-        """Load the card database from vekn.net, with translations and rulings"""
+        """Load the card database from VEKN CSVs or local CSVs (LOCAL_CARDS=1)."""
         self.clear()
         self._cards.load_from_vekn()
         self._cards.load_rulings()
