@@ -26,8 +26,20 @@ test: quality
     uv run mypy krcg
     echo "✅ Tests passed!"
 
+# Sync CSV files from vtescsv repository
+sync-cards:
+    #!/usr/bin/env bash
+    echo "📥 Syncing CSV files from vtescsv repository..."
+    mkdir -p cards
+    VTESCSV_GITHUB="https://raw.githubusercontent.com/GiottoVerducci/vtescsv/main"
+    curl -f -s -o cards/vtescrypt.csv "${VTESCSV_GITHUB}/vtescrypt.csv"
+    curl -f -s -o cards/vteslib.csv "${VTESCSV_GITHUB}/vteslib.csv"
+    curl -f -s -o cards/vteslibmeta.csv "${VTESCSV_GITHUB}/vteslibmeta.csv"
+    curl -f -s -o cards/vtessets.csv "${VTESCSV_GITHUB}/vtessets.csv"
+    echo "✅ CSV files synced successfully!"
+
 # Upgrade all dependencies (including dev dependencies)
-update:
+update: sync-cards
     #!/usr/bin/env bash
     echo "📦 Updating dependencies..."
     uv sync --upgrade --dev
@@ -53,18 +65,6 @@ check:
         exit 1; 
     fi
     echo "✅ Release checks passed!"
-
-# Sync CSV files from vtescsv repository
-sync-cards:
-    #!/usr/bin/env bash
-    echo "📥 Syncing CSV files from vtescsv repository..."
-    mkdir -p cards
-    VTESCSV_GITHUB="https://raw.githubusercontent.com/GiottoVerducci/vtescsv/main"
-    curl -f -s -o cards/vtescrypt.csv "${VTESCSV_GITHUB}/vtescrypt.csv"
-    curl -f -s -o cards/vteslib.csv "${VTESCSV_GITHUB}/vteslib.csv"
-    curl -f -s -o cards/vteslibmeta.csv "${VTESCSV_GITHUB}/vteslibmeta.csv"
-    curl -f -s -o cards/vtessets.csv "${VTESCSV_GITHUB}/vtessets.csv"
-    echo "✅ CSV files synced successfully!"
 
 # Build the package
 build:
