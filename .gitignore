@@ -16,3 +16,6 @@ uv.lock
 .vscode/
 *.DS_Store
 .idea/
+
+# secrets
+.pypi_token

@@ -102,5 +102,5 @@ release: sync-cards check test
     echo "📤 Pushing to remote..."
     git push origin master --tags
     echo "📦 Publishing to PyPI..."
-    uv publish --build
+    UV_PUBLISH_TOKEN="$(tr -d '\n' < .pypi_token)" uv publish
     echo "✅ Release ${VERSION} completed!"
