@@ -63,10 +63,17 @@ update: sync-cards
     echo "✅ Dependencies updated!"
 
 # Clean build and cache artifacts
-clean:
+# Clean build and cache artifacts
+clean-build:
     #!/usr/bin/env bash
     echo "🧹 Cleaning build artifacts..."
-    rm -rf build dist .pytest_cache .mypy_cache .ruff_cache
+    rm -rf build dist
+    echo "✅ Cleaned!"
+
+clean: clean-build
+    #!/usr/bin/env bash
+    echo "🧹 Cleaning cache..."
+    rm -rf .pytest_cache .mypy_cache .ruff_cache
     echo "✅ Cleaned!"
 
 # Ensure we're on master branch and working tree is clean
@@ -90,8 +97,8 @@ build:
     uv build
     echo "✅ Package built!"
 
-# Release flow: sync data, check state, test, bump version, tag, push, publish
-release: sync-cards check test
+# Release flow: clean, sync data, check state, test, version, tag, push, build, publish
+release: clean-build sync-cards check test
     #!/usr/bin/env bash
     echo "🚀 Starting release process..."
     uv version --bump minor
@@ -101,6 +108,7 @@ release: sync-cards check test
     git commit -m "Release ${VERSION}" && git tag "v${VERSION}"
     echo "📤 Pushing to remote..."
     git push origin master --tags
+    uv build
     echo "📦 Publishing to PyPI..."
     UV_PUBLISH_TOKEN="$(tr -d '\n' < .pypi_token)" uv publish
     echo "✅ Release ${VERSION} completed!"
