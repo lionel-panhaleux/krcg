@@ -61,8 +61,7 @@ testpaths = ["tests"]
 
 [tool.pydoclint]
 style = "google"
-# Use type hints + mypy; avoid requiring types in docstrings or checking
-# return/yield types against annotations
+# Use type hints + mypy; avoid requiring types in docstrings
 arg-type-hints-in-docstring = false
 arg-type-hints-in-signature = true
 check-return-types = false
