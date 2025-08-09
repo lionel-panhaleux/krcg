@@ -2,8 +2,6 @@
 set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
 
 # Configuration variables
-export VTESCSV_GITHUB := "https://raw.githubusercontent.com/GiottoVerducci/vtescsv"
-export VTESCSV_GITHUB_BRANCH := "main"
 
 # Default recipe - show available commands
 default:
@@ -61,10 +59,11 @@ sync-cards:
     #!/usr/bin/env bash
     echo "📥 Syncing CSV files from vtescsv repository..."
     mkdir -p cards
-    curl -f -s -o cards/vtescrypt.csv {{VTESCSV_GITHUB}}/{{VTESCSV_GITHUB_BRANCH}}/vtescrypt.csv
-    curl -f -s -o cards/vteslib.csv {{VTESCSV_GITHUB}}/{{VTESCSV_GITHUB_BRANCH}}/vteslib.csv
-    curl -f -s -o cards/vteslibmeta.csv {{VTESCSV_GITHUB}}/{{VTESCSV_GITHUB_BRANCH}}/vteslibmeta.csv
-    curl -f -s -o cards/vtessets.csv {{VTESCSV_GITHUB}}/{{VTESCSV_GITHUB_BRANCH}}/vtessets.csv
+    VTESCSV_GITHUB="https://raw.githubusercontent.com/GiottoVerducci/vtescsv/main"
+    curl -f -s -o cards/vtescrypt.csv "${VTESCSV_GITHUB}/vtescrypt.csv"
+    curl -f -s -o cards/vteslib.csv "${VTESCSV_GITHUB}/vteslib.csv"
+    curl -f -s -o cards/vteslibmeta.csv "${VTESCSV_GITHUB}/vteslibmeta.csv"
+    curl -f -s -o cards/vtessets.csv "${VTESCSV_GITHUB}/vtessets.csv"
     echo "✅ CSV files synced successfully!"
 
 # Build the package

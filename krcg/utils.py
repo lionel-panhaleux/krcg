@@ -36,22 +36,33 @@ def normalize(s: Any):
 
 
 def get_zip_csv(url: str, *args: str) -> List[csv.DictReader[str]]:
-    """Given a zipfile URL and list of CSV files in it, returns matching CSV readers."""
+    """Given a zipfile URL and list of CSV files in it, returns matching CSV readers.
+
+    Files are fully read into memory to ensure underlying file descriptors are
+    closed immediately.
+    """
     local_filename, _headers = urllib.request.urlretrieve(url)
-    z = zipfile.ZipFile(local_filename)
-    return [
-        csv.DictReader(io.TextIOWrapper(z.open(arg), encoding="utf-8-sig"))
-        for arg in args
-    ]
+    readers: List[csv.DictReader[str]] = []
+    with zipfile.ZipFile(local_filename) as z:
+        for arg in args:
+            data = z.read(arg).decode("utf-8-sig")
+            readers.append(csv.DictReader(io.StringIO(data)))
+    return readers
 
 
 def get_github_csv(url: str, *args: str) -> List[csv.DictReader[str]]:
-    """Given a base URL and list of CSV files under it, returns matching CSV readers."""
-    ret = []
+    """Given a base URL and list of CSV files under it, returns matching CSV readers.
+
+    Files are fully read into memory to ensure underlying file descriptors are
+    closed immediately.
+    """
+    readers: List[csv.DictReader[str]] = []
     for arg in args:
         local_filename, _headers = urllib.request.urlretrieve(url + arg)
-        ret.append(csv.DictReader(open(local_filename, encoding="utf-8-sig")))
-    return ret
+        with open(local_filename, encoding="utf-8-sig") as f:
+            data = f.read()
+        readers.append(csv.DictReader(io.StringIO(data)))
+    return readers
 
 
 T = TypeVar("T")

@@ -1,8 +1,9 @@
 """Cards source:
 load(): krcg-static version from https://static.krcg.org/data/vtes.json
-load_from_vekn(): CSV from http://www.vekn.net/images/stories/downloads
+load_from_vekn() default: CSV from https://github.com/GiottoVerducci/vtescsv (branch "main")
+load_from_vekn() with VEKN_NET_CSV=1: CSV from http://www.vekn.net/images/stories/downloads instead of GitHub
 load_from_vekn() with LOCAL_CARDS=1: CSV in `cards` folder/package in this repository
-load_from_vekn() with VTESCSV_GITHUB_BRANCH: https://github.com/GiottoVerducci/vtescsv
+load_from_vekn() with VTESCSV_GITHUB_BRANCH: override GitHub branch/commit/ref for vtescsv
 """
 
 from typing import (
@@ -31,6 +32,7 @@ import os
 import re
 import requests
 import urllib.request
+import urllib.parse
 import warnings
 import yaml
 
@@ -41,10 +43,13 @@ from . import utils
 
 
 logger = logging.getLogger("krcg")
-LOCAL_CARDS = os.getenv("LOCAL_CARDS")  # use local CSV (for playtests)
 VTESCSV_GITHUB_BRANCH = os.getenv(
-    "VTESCSV_GITHUB_BRANCH"
-)  # use github branch (to prepare for updates)
+    "VTESCSV_GITHUB_BRANCH", "main"
+)  # use github version (default mode, change branch to test incoming changes)
+LOCAL_CARDS = os.getenv("LOCAL_CARDS")  # use local CSV (offline mode)
+VEKN_NET_CSV = os.getenv(
+    "VEKN_NET_CSV"
+)  # force using official VEKN CSV zip from vekn.net instead of GitHub
 RULINGS_GITHUB = (
     "https://raw.githubusercontent.com/vtes-biased/vtes-rulings/main/rulings/"
 )
@@ -836,7 +841,9 @@ class CardMap(utils.FuzzyDict):
 
     def load(self) -> None:
         """Load VTES cards from KRCG static."""
-        r = requests.request("GET", config.KRCG_STATIC_SERVER + "/data/vtes.json")
+        json_url = urllib.parse.urljoin(config.KRCG_STATIC_SERVER, "data/vtes.json")
+        logger.info("Loading cards from KRCG static: %s", json_url)
+        r = requests.request("GET", json_url)
         r.raise_for_status()
         self.clear()
         self.from_json(r.json())
@@ -882,6 +889,10 @@ class CardMap(utils.FuzzyDict):
         set_dict = sets.SetMap()
         # download the zip files containing the official CSV
         if LOCAL_CARDS:
+            logger.info(
+                "Loading cards from local CSV package 'cards' "
+                "(vtessets.csv, vtescrypt.csv, vteslib.csv)"
+            )
             main_files = [
                 csv.DictReader(
                     importlib.resources.files("cards")
@@ -899,12 +910,24 @@ class CardMap(utils.FuzzyDict):
                     .open(encoding="utf-8-sig"),
                 ),
             ]
-        elif VTESCSV_GITHUB_BRANCH:
+        elif VEKN_NET_CSV:
+            # Explicitly load from the official VEKN zip (override GitHub default)
+            logger.info("Loading cards from VEKN.net zip: %s", self._VEKN_CSV[0])
+            main_files = utils.get_zip_csv(self._VEKN_CSV[0], *self._VEKN_CSV[1])
+        else:
+            # Default: load CSV directly from vtescsv GitHub repository
+            logger.info(
+                "Loading cards from GitHub vtescsv (branch '%s'): %s",
+                VTESCSV_GITHUB_BRANCH,
+                self._GITHUB_BRANCH[0],
+            )
             main_files = utils.get_github_csv(
                 self._GITHUB_BRANCH[0], *self._GITHUB_BRANCH[1]
             )
-        else:
-            main_files = utils.get_zip_csv(self._VEKN_CSV[0], *self._VEKN_CSV[1])
+        logger.info(
+            "Loading translations from VEKN.net for languages: %s",
+            ", ".join(self._VEKN_CSV_I18N.keys()),
+        )
         i18n_files = {
             lang: utils.get_zip_csv(url, *filenames)
             for lang, (url, filenames) in self._VEKN_CSV_I18N.items()

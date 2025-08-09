@@ -1,4 +1,5 @@
 import pytest
+import warnings
 from krcg import cards
 
 
@@ -215,3 +216,50 @@ def test_card_variants():
         "the ankara citadel",
         "the ankara citadel, turkey",
     ]
+
+
+def test_load_from_static_server():
+    with warnings.catch_warnings(record=True) as wrec:
+        warnings.simplefilter("always")
+        cm = cards.CardMap()
+        cm.load()
+    assert not wrec
+    # Ensure we have at least one well-known card present
+    assert 200076 in cm  # Anarch Convert
+    assert cm[200076].name.lower().startswith("anarch convert")
+
+
+def test_load_from_vekn_github_default(monkeypatch):
+    # Default path should use GitHub when neither LOCAL_CARDS nor VEKN_NET_CSV is set
+    monkeypatch.delenv("LOCAL_CARDS", raising=False)
+    monkeypatch.delenv("VEKN_NET_CSV", raising=False)
+    with warnings.catch_warnings(record=True) as wrec:
+        warnings.simplefilter("always")
+        cm = cards.CardMap()
+        cm.load_from_vekn()
+    assert not wrec
+    assert 200076 in cm  # Anarch Convert
+
+
+def test_load_from_vekn_vekn_net(monkeypatch):
+    # Force using official VEKN.net zip
+    monkeypatch.delenv("LOCAL_CARDS", raising=False)
+    monkeypatch.setenv("VEKN_NET_CSV", "1")
+    with warnings.catch_warnings(record=True) as wrec:
+        warnings.simplefilter("always")
+        cm = cards.CardMap()
+        cm.load_from_vekn()
+    assert not wrec
+    assert 200076 in cm  # Anarch Convert
+
+
+def test_load_from_vekn_local(monkeypatch):
+    # Use local packaged CSVs under the `cards` package
+    monkeypatch.setenv("LOCAL_CARDS", "1")
+    monkeypatch.delenv("VEKN_NET_CSV", raising=False)
+    with warnings.catch_warnings(record=True) as wrec:
+        warnings.simplefilter("always")
+        cm = cards.CardMap()
+        cm.load_from_vekn()
+    assert not wrec
+    assert 200076 in cm  # Anarch Convert
