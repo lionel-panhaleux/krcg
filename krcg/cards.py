@@ -847,7 +847,6 @@ class CardMap(utils.FuzzyDict):
     }
 
     def __init__(self, aliases: Optional[Mapping[str, str]] = None):
-        """Use config.ALIASES as aliases"""
         super().__init__(aliases=config.ALIASES if aliases is None else aliases)
 
     def __iter__(self) -> Generator[Card, None, None]:
@@ -1192,15 +1191,13 @@ class CardMap(utils.FuzzyDict):
 class CardTrie:
     """A helper class for text search inside a card.
 
-    Combines results from multiple languages
+    Combines results from multiple languages.
+
+    Args:
+        attribute: Card attribute to index (e.g., "name", "card_text", "flavor_text", or "draft").
     """
 
     def __init__(self, attribute: str):
-        """Initialize a trie for a given card attribute.
-
-        Args:
-            attribute: Text attribute - "name", "card_text", "flavor_text", or "draft".
-        """
         self.attribute = attribute
         self.tries: collections.defaultdict[str, utils.Trie] = collections.defaultdict(
             utils.Trie
@@ -1225,8 +1222,8 @@ class CardTrie:
             lang: Optional language code for secondary search.
 
         Returns:
-            A dict of scored results as {lang: Counter}, with no duplicates. If the
-            same card is matched in both `lang` and English, prefer the `lang` version.
+            Scored results as {lang: Counter}, with no duplicates. If the same card is matched in both
+            `lang` and English, prefer the `lang` version.
         """
         base_search = self.tries["en"].search(text)
         lang_search = collections.Counter[Card]()
@@ -1423,13 +1420,20 @@ class CardSearch:
             }
         return self._set_dimensions_enums
 
-    def __call__(self, **kwargs) -> Set[Card]:
+    def __call__(self, **kwargs: str | list[str]) -> Set[Card]:
         """Execute a search.
+
+        Args:
+            **kwargs: Filter criteria matching the available dimensions.
+
+        Returns:
+            Matching cards (set).
 
         Raises:
             ValueError: If an unknown search dimension is provided.
         """
         lang = kwargs.pop("lang", "en")[:2]
+        assert isinstance(lang, str)
         keys = set(kwargs.keys())
         invalid_keys = keys - set(self.dimensions)
         if invalid_keys:
@@ -1441,12 +1445,21 @@ class CardSearch:
         if "text" in keys:
             result = set()
             for dim in self.trie_dimensions:
-                result |= self._text_search(dim, kwargs["text"], lang)
+                value = kwargs["text"]
+                if not isinstance(value, str):
+                    raise ValueError(
+                        'bad argument for "text": expected str, got: %s', value
+                    )
+                result |= self._text_search(dim, value, lang)
         else:
             result = copy.copy(self._all)
         for dim in self.trie_dimensions:
             if kwargs.get(dim):
-                value: str = kwargs[dim]
+                value = kwargs[dim]
+                if not isinstance(value, str):
+                    raise ValueError(
+                        "bad argument for %s: expected str, got: %s", dim, value
+                    )
                 result &= self._text_search(dim, value, lang)
         for dim in self.set_dimensions:
             values = kwargs.get(dim, None)

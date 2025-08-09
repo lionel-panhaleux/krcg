@@ -475,13 +475,7 @@ class Comment:
 
 
 class Parser:
-    """Deck list parser. Holds the parsing context.
-
-    Attributes:
-        deck (deck.Deck): the result, filled by the parsing operation
-        preface (bool): stays True until the beginning of the actual cards list
-        current_comment (Comment|None): current comment if any
-    """
+    """Deck list parser. Holds the parsing context."""
 
     def __init__(self, deck):
         self.current_comment = None

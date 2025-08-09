@@ -95,10 +95,11 @@ class _VTES:
         other matches are returned alphabetically.
 
         Args:
-            text: Parts of the name (can contain spaces)
+            text: Parts of the name (can contain spaces).
+            lang: Preferred language code (defaults to English).
 
         Returns:
-            A sorted list of results, from most likely to less likely
+            Sorted from most likely to less likely.
         """
         self._init_search()
         ret = self._search.name.search(text, lang)

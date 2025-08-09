@@ -22,11 +22,7 @@ logger = logging.getLogger("krcg")
 
 
 class _TWDA(collections.OrderedDict):
-    """An OrderedDict of the TWDA. Parsing TWDA.html is the hard part.
-
-    Attributes:
-        by_author (dict): Decks indexed by author
-    """
+    """An OrderedDict of the TWDA. Parsing TWDA.html is the hard part."""
 
     def __init__(self):
         super().__init__()

@@ -69,6 +69,9 @@ class Deck(collections.Counter):
             offset: Line offset used for logging.
             twda: Parse with TWDA-specific headers enabled.
             preface: Expect a preface header section before cards.
+
+        Returns:
+            The parsed deck.
         """
         p = parser.Parser(cls(id=id, author=author))
         p.parse(input, offset, twda, preface)
@@ -320,13 +323,13 @@ class Deck(collections.Counter):
         return list(self.cards(lambda c: c.library))
 
     def cards(self, condition: Optional[Callable] = None) -> Generator:
-        """Generator yielding (card_name, count), with an optional filter.
+        """Generator yielding (card, count), with an optional filter.
 
         Args:
             condition: Condition each card must validate to be selected.
 
         Yields:
-            Tuple of (card, count).
+            Pairs of (card, count).
         """
         for card, count in self.items():
             if condition and not condition(card):

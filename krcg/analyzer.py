@@ -19,18 +19,13 @@ class AnalysisError(Exception):
 
 
 class Analyzer(object):
-    """Used to analyze TWDA, find affinity between cards and build decks.
+    """Analyze TWDA, compute card affinities, and build decks.
 
     The "affinity" is the number of decks where two cards are played together.
 
-    Attributes:
-        examples (dict): Selected example decks from TWDA
-        played (dict): For each card, number of decks playing it at least once
-        average (dict): For each card, average number of copies played
-        variance (dict): For each card, variance of the number of copies played
-        affinity (dict): For each card, dict of cards and their affinity (int)
-        refresh_cursor (int): Card count for next refresh (when building deck)
-        deck (deck.Deck): Deck being built
+    Args:
+        decks: An iterable of decks to use as the TWDA sample.
+        spoilers: If True, downweight overly common cards when sampling.
     """
 
     def __init__(self, decks: Iterable[deck.Deck], spoilers: bool = True):
@@ -65,7 +60,7 @@ class Analyzer(object):
         If no card name is given, a random first-tier card is chosen for seed.
 
         Args:
-            args: Card names used as references for deck building.
+            *args: Card names used as references for deck building.
 
         Returns:
             The deck built
@@ -126,9 +121,12 @@ class Analyzer(object):
         in O(log) of cards count.
 
         Args:
-            args: card names, choose decks containing them
-            similarity: matching cards proportion for selection
-            condition: filter on card types, clans, etc.
+            *args: Card names to use as references when selecting examples.
+            similarity: Matching cards proportion for selection.
+            condition: Optional filter on card types, clans, etc.
+
+        Raises:
+            AnalysisError: If no example deck is available.
         """
         if args:
             reference = set(args)
@@ -217,8 +215,8 @@ class Analyzer(object):
         """Add a card to `self.affinity` using current examples.
 
         Args:
-            card: The card for which to refresh affinity
-            condition: The conditional function candidates have to validate
+            card: The card for which to refresh affinity.
+            condition: The conditional function candidates have to validate.
         """
         self.affinity[card] = collections.Counter()
         for example in self.examples:
@@ -237,7 +235,7 @@ class Analyzer(object):
         """Select candidates using `self.affinity`. Filter banned cards out.
 
         Args:
-            args: Reference cards.
+            *args: Reference cards.
             spoiler_multiplier: Multiplier applied to spoiler frequency to
                 downweight overly common cards.
 
@@ -269,7 +267,7 @@ class Analyzer(object):
         condition on cards will work.
 
         Args:
-            args: Cards already selected for the deck.
+            *args: Cards already selected for the deck.
             condition: Condition on the next card to select.
         """
         assert self.deck is not None

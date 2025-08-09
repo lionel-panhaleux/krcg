@@ -13,6 +13,7 @@ from typing import (
     Tuple,
     TypeVar,
     Mapping,
+    MutableMapping,
 )
 import collections
 import csv
@@ -68,18 +69,19 @@ def get_github_csv(url: str, *args: str) -> List[csv.DictReader[str]]:
 T = TypeVar("T")
 
 
-class FuzzyDict(Mapping[Hashable, T], Generic[T]):
+class FuzzyDict(MutableMapping[Hashable, T], Generic[T]):
     """A dict providing "fuzzy matching" of its keys.
 
-    It matches keys that are "close enough" if there are no exact match,
-    and provides the ability to specify aliases for certain keys.
+    It matches keys that are "close enough" if there is no exact match, and
+    provides the ability to specify aliases for certain keys. Aliases are only
+    matched exactly (not closely like normal keys).
 
-    Aliases are only matched exactly (not closely like normal keys).
-
-    Attributes:
-        threshold: minimum string length for fuzzy matching
-        cutoff: minimum similarity to consider a close candidate an actual match
-        aliases: {alias_key: actual_key} adding not-so-closes aliases
+    Args:
+        threshold: Minimum string length for fuzzy matching.
+        cutoff: Minimum similarity to consider a close candidate a match.
+        aliases: Optional mapping of alias keys to canonical keys.
+        *args: Additional mapping args passed to ``Mapping``.
+        **kwargs: Additional mapping kwargs passed to ``Mapping``.
     """
 
     def __init__(
@@ -90,11 +92,10 @@ class FuzzyDict(Mapping[Hashable, T], Generic[T]):
         *args,
         **kwargs,
     ):
-        super().__init__(*args, **kwargs)
         self.threshold = threshold
         self.cutoff = cutoff
         self.aliases: dict[Hashable, T] = dict(aliases) if aliases else {}
-        self._dict: dict[Hashable, T] = dict()
+        self._dict: dict[Hashable, T] = dict(*args, **kwargs)
         self._keys_cache: Optional[List[Sequence]] = None
 
     def _fuzzy_match(self, key: Hashable) -> Hashable:
@@ -133,7 +134,7 @@ class FuzzyDict(Mapping[Hashable, T], Generic[T]):
         self._dict.clear()
         self._clear_cache()
 
-    def items(self) -> ItemsView:
+    def items(self) -> ItemsView[Hashable, T]:
         """Return the dict items.
 
         The keys have been normalized (unidecode lowercase), so they may not match
@@ -189,6 +190,13 @@ class FuzzyDict(Mapping[Hashable, T], Generic[T]):
     def _clear_cache(self) -> None:
         """Clear the keys cache."""
         self._keys_cache = None
+
+    # Required by MutableMapping
+    def __len__(self) -> int:  # type: ignore[override]
+        return len(self._dict)
+
+    def __iter__(self):  # type: ignore[override]
+        return iter(self._dict)
 
 
 class Trie(collections.defaultdict):
