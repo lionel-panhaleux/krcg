@@ -17,6 +17,9 @@ from typing import (
     Tuple,
     Optional,
     BinaryIO,
+    TypeVar,
+    Callable,
+    Iterable,
 )
 import collections
 import collections.abc
@@ -53,6 +56,12 @@ VEKN_NET_CSV = os.getenv(
 RULINGS_GITHUB = (
     "https://raw.githubusercontent.com/vtes-biased/vtes-rulings/main/rulings/"
 )
+
+T = TypeVar("T")
+CardDiff = Dict[
+    str,
+    list[str] | list[str | None] | list[int | None] | list[bool] | list[list[str]],
+]
 
 
 class Card(utils.i18nMixin, utils.NamedMixin):
@@ -311,48 +320,48 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         "2018 Humble Bundle": "humble-bundle",
     }
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.id = 0
         #: use `vekn_name` or `name` properties instead
         self._name = ""
         self.url = ""
-        self.aka = []
-        self.types = []
-        self.clans = []
-        self.capacity = None
-        self.capacity_change = None
-        self.disciplines = []
-        self.combo = None
-        self.multidisc = None
-        self.card_text = ""
+        self.aka: list[str] = []
+        self.types: list[str] = []
+        self.clans: list[str] = []
+        self.capacity: Optional[int] = None
+        self.capacity_change: Optional[str] = None
+        self.disciplines: list[str] = []
+        self.combo: bool = False
+        self.multidisc: bool = False
+        self.card_text: str = ""
         # original VEKN value: use `sets` instead for more accessible info
-        self._set = ""
-        self.sets = {}
-        self.scans = {}
-        self.banned = None
-        self.artists = []
-        self.adv = None
-        self.group = None
-        self.title = None
-        self.pool_cost = None
-        self.blood_cost = None
-        self.conviction_cost = None
-        self.burn_option = None
-        self.flavor_text = None
-        self.draft = None
+        self._set: Optional[str] = None
+        self.sets: dict[str, list[dict[str, str | int]]] = {}
+        self.scans: dict[str, str] = {}
+        self.banned: Optional[str] = None
+        self.artists: list[str] = []
+        self.adv: bool = False
+        self.group: Optional[str] = None
+        self.title: Optional[str] = None
+        self.pool_cost: Optional[str] = None
+        self.blood_cost: Optional[str] = None
+        self.conviction_cost: Optional[str] = None
+        self.burn_option: bool = False
+        self.flavor_text: Optional[str] = None
+        self.draft: Optional[str] = None
         # enriched properties (not directly in original CSV, but convenient)
-        self.ordered_sets = []  # sets in release order
-        self.legality = None  # date of legality
-        self.has_advanced = None  # same vampire appears as advanced in the same group
-        self.has_evolution = None  # same vampire appears in a higher group
-        self.is_evolution = None  # same vampire appears in a lower group
-        self.variants = {}  # variants of the same vampire (base, adv, evolution)
-        self.name_variants = []  # variations you want to match when parsing a decklist
-        self.rulings = []
+        self.ordered_sets: list[str] = []  # sets in release order
+        self.legality: Optional[str] = None  # date of legality
+        self.has_advanced: bool = False  # advanced version exists in the same group
+        self.has_evolution: bool = False  # same vampire appears in a higher group
+        self.is_evolution: bool = False  # same vampire appears in a lower group
+        self.variants: dict[str, int] = {}  # variants (base, adv, evolution) - card IDs
+        self.name_variants: list[str] = []  # variations to match when parsing
+        self.rulings: list[dict] = []
 
-    def diff(self, rhs) -> Dict[str, List[str]]:
-        res = {}
+    def diff(self, rhs: "Card") -> CardDiff:
+        res: CardDiff = {}
         if self.name != rhs.name:
             res["name"] = [self.name, rhs.name]
         if self.card_text != rhs.card_text:
@@ -448,8 +457,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             key += " ADV"
         return key
 
-    def get_suffix(self, minimal=False) -> str:
-        suffixes = []
+    def get_suffix(self, minimal: bool = False) -> str:
+        suffixes: list[str] = []
         if self.group and (self.is_evolution or not minimal):
             if self.group == "ANY":
                 prefix = ""
@@ -512,20 +521,21 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             default_set: Default set abbreviation if missing from the row.
         """
 
-        def split(field, sep):
+        def split(field: str, sep: str) -> list[str]:
             return [s for s in map(str.strip, data.get(field, "").split(sep)) if s]
 
-        def str_or_none(field):
+        def str_or_none(field: str) -> Optional[str]:
             return data[field].replace("@", "") or None if field in data else None
 
-        def bool_or_none(field):
-            return bool(data[field]) if field in data else None
+        def bool_or_false(field: str) -> bool:
+            return bool(data[field]) if field in data else False
 
-        def int_or_none(field):
+        def int_or_none(field: str) -> Optional[int]:
             try:
                 return int(data[field]) if data.get(field) else None
             except ValueError:
                 warnings.warn(f"expected an integer for {field}: {data}")
+                return None
 
         self.id = int(data["Id"])
         self._name = data["Name"].replace("@", "")
@@ -583,7 +593,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                 if s
             ).keys()
         )
-        self.adv = bool_or_none("Adv")
+        self.adv = bool_or_false("Adv")
         # group can be "any"
         self.group = str_or_none("Group")
         self.title = str_or_none("Title")
@@ -592,7 +602,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.pool_cost = str_or_none("Pool Cost")  # can be X
         self.blood_cost = str_or_none("Blood Cost")  # can be X
         self.conviction_cost = str_or_none("Conviction Cost")  # str for consistency
-        self.burn_option = bool_or_none("Burn Option")
+        self.burn_option = bool_or_false("Burn Option")
         self.flavor_text = data["Flavor Text"] if "Flavor Text" in data else None
         self.draft = data["Draft"] if "Draft" in data else None
 
@@ -618,7 +628,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
                 key=lambda x: set_dict[x].release_date,
             )
             release_dates = [
-                datetime.date.fromisoformat(v["release_date"])
+                datetime.date.fromisoformat(v["release_date"])  # type: ignore
                 for info in self.sets.values()
                 for v in info
                 if v.get("release_date")
@@ -715,10 +725,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             if r
         ]
         reprints, ret = Card._partition(
-            ret, lambda r: r.get("precon", "").startswith("Reprint ")
+            ret,
+            lambda r: r.get("precon", "").startswith("Reprint "),  # type: ignore
         )
         for r in reprints:
-            r["precon"] = r["precon"][8:]
+            r["precon"] = r["precon"][8:]  # type: ignore
         if reprints:
             yield (set_dict[abbrev].name + " Reprint", reprints)
         yield (set_dict[abbrev].name, ret)
@@ -786,7 +797,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         return ret
 
     @staticmethod
-    def _partition(iterable, condition):
+    def _partition(
+        iterable: Iterable[T], condition: Callable[[T], bool]
+    ) -> tuple[list[T], list[T]]:
         """Partition an iterable given a condition.
 
         Returns the pair (matching, not_matching).
@@ -801,7 +814,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         return lhs, rhs
 
 
-class CardMap(utils.FuzzyDict):
+class CardMap(utils.FuzzyDict[int | str, Card]):
     """A fuzzy dict specialized for cards.
 
     Cards are index both by ID (int) and a number of name variations (str).
@@ -849,13 +862,13 @@ class CardMap(utils.FuzzyDict):
     def __init__(self, aliases: Optional[Mapping[str, str]] = None):
         super().__init__(aliases=config.ALIASES if aliases is None else aliases)
 
-    def __iter__(self) -> Generator[Card, None, None]:
+    def __iter__(self) -> Generator[Card, None, None]:  # type: ignore
         """Iterate over cards (values) once each."""
         for key, card in self.items():
             if isinstance(key, int):
                 yield card
 
-    def __len__(self):
+    def __len__(self) -> int:
         """Return the number of distinct cards in the map."""
         return len([c for c in self])
 
@@ -986,7 +999,7 @@ class CardMap(utils.FuzzyDict):
                     "url": card._compute_url(lang[:2]),
                     "card_text": card_text,
                     "sets": {
-                        set_name: set_dict[set_name].i18n_field(lang[:2], "name")
+                        set_name: set_dict[set_name].i18n_field(lang[:2], "name")  # type: ignore
                         for set_name in card.sets.keys()
                         if set_name in set_dict
                     },
@@ -1021,7 +1034,7 @@ class CardMap(utils.FuzzyDict):
             for card in cards:
                 groups_dict[card.group].append(card)
                 variants[card._key] = card.id
-            groups = sorted(groups_dict.items(), key=lambda a: a[0])
+            groups = sorted(groups_dict.items(), key=lambda a: a[0])  # type: ignore
 
             for i, (_group, cards) in enumerate(groups):
                 if len(cards) > 1:
@@ -1050,11 +1063,12 @@ class CardMap(utils.FuzzyDict):
                 card.name_variants.extend(self._variants(name, card))
             # translations variants are registered in their respective i18 dict
             for lang, variant in card.i18n_variants("name"):
+                assert isinstance(variant, str)
                 name_variants = list(self._variants(variant, card))
                 name_variants = name_variants[1:]  # first name is the actual name
                 card.i18n_set(lang, {"name_variants": name_variants})
 
-    def _variants(self, name, card) -> Generator[str, None, None]:
+    def _variants(self, name: str, card: "Card") -> Generator[str, None, None]:
         suffix = card.get_suffix()
         if suffix:
             suffix = f" ({suffix})"
@@ -1067,7 +1081,7 @@ class CardMap(utils.FuzzyDict):
             else:
                 yield from self._word_variants(name, "")
 
-    def _word_variants(self, name, suffix) -> Generator[str, None, None]:
+    def _word_variants(self, name: str, suffix: str) -> Generator[str, None, None]:
         if "(TM)" in name:
             yield from self._word_variants(name.replace("(TM)", "™"), suffix)
         if name[-5:] == ", The":
@@ -1076,13 +1090,13 @@ class CardMap(utils.FuzzyDict):
         if name[:4] == "The ":
             yield from self._comma_splits(name[4:] + ", The", suffix)
 
-    def _comma_splits(self, name, suffix) -> Generator[str, None, None]:
+    def _comma_splits(self, name: str, suffix: str) -> Generator[str, None, None]:
         while True:
             yield name + suffix
-            name = name.rsplit(",", 1)
-            if len(name) < 2:
+            name_parts = name.rsplit(",", 1)
+            if len(name_parts) < 2:
                 break
-            name = name[0]
+            name = name_parts[0]
             if len(name) <= self.threshold:
                 break
 
@@ -1167,7 +1181,7 @@ class CardMap(utils.FuzzyDict):
             data["symbols"].append({"text": token, "symbol": substitute})
         return data
 
-    def to_json(self) -> Dict | List:
+    def to_json(self) -> List:
         """Return a compact list representation.
 
         Returns:
@@ -1175,7 +1189,7 @@ class CardMap(utils.FuzzyDict):
         """
         return [card.to_json() for card in self]
 
-    def from_json(self, state: Dict) -> None:
+    def from_json(self, state: List[Dict]) -> None:
         """Initialize from a JSON list.
 
         Args:
@@ -1331,15 +1345,15 @@ class CardSearch:
             f"'{self.__class__.__name__}' object has no attribute '{name}'"
         )
 
-    def __init__(self):
+    def __init__(self) -> None:
         for attr in self.trie_dimensions:
             setattr(self, f"_{attr}", CardTrie(attr))
         for attr in self.set_dimensions:
             setattr(self, f"_{attr}", collections.defaultdict(set))
         # caches
-        self._all = set()
-        self._set_dimensions_enums = None
-        self._normalized_set_enum_map = None
+        self._all: set[Card] = set()
+        self._set_dimensions_enums: Optional[dict[str, list[str]]] = None
+        self._normalized_set_enum_map: Optional[dict[str, dict[str, str]]] = None
 
     def __bool__(self) -> bool:
         return bool(self._all)
@@ -1366,7 +1380,7 @@ class CardSearch:
             self.set[set_].add(card)
             for rarity in rarities:
                 if "precon" in rarity:
-                    self.precon[": ".join([set_, rarity["precon"]])].add(card)
+                    self.precon[": ".join([set_, rarity["precon"]])].add(card)  # type: ignore
                 if "rarity" in rarity:
                     self.rarity[rarity["rarity"]].add(card)
         if "Master" in card.types and re.search(r"(t|T)rifle", card.card_text):
@@ -1520,7 +1534,7 @@ class CardSearch:
             }
         return self._normalized_set_enum_map
 
-    def _handle_text(self, card) -> None:
+    def _handle_text(self, card: Card) -> None:
         """Index text fields for a card."""
         self.card_text.add(card)
         if card.flavor_text:
@@ -1528,7 +1542,7 @@ class CardSearch:
         if card.draft:
             self.bonus["draft"].add(card.draft, card)
 
-    def _handle_disciplines(self, card) -> None:
+    def _handle_disciplines(self, card: Card) -> None:
         """Index disciplines for a card."""
         for discipline in card.disciplines:
             self.discipline[discipline].add(card)
@@ -1547,7 +1561,7 @@ class CardSearch:
         if card.multidisc:
             self.discipline["choice"].add(card)
 
-    def _handle_sect(self, card) -> None:
+    def _handle_sect(self, card: Card) -> None:
         """Index sect information for a card."""
         if card.crypt:
             if re.search(r"^(\[MERGED\] )?Sabbat", card.card_text):
@@ -1575,7 +1589,7 @@ class CardSearch:
             if re.search(r"Requires a( ready|n) (I|i)ndependent", card.card_text):
                 self.sect["Independent"].add(card)
 
-    def _handle_stealth_intercept(self, card) -> None:
+    def _handle_stealth_intercept(self, card: Card) -> None:
         """Index stealth and intercept bonuses for a card."""
         if re.search(r"\+(\d|X)\s+(i|I)ntercept", card.card_text):
             self.bonus["Intercept"].add(card)
@@ -1599,7 +1613,7 @@ class CardSearch:
         if re.search(r"attempt fails", card.card_text):
             self.bonus["Stealth"].add(card)
 
-    def _handle_titles(self, card) -> None:
+    def _handle_titles(self, card: Card) -> None:
         """Index titles, votes, and city information for a card."""
         if card.title:
             self.title[card.title].add(card)
@@ -1643,7 +1657,7 @@ class CardSearch:
                 self.title["Magaji"].add(card)
                 self.sect["Laibon"].add(card)
 
-    def _handle_exceptions(self, card) -> None:
+    def _handle_exceptions(self, card: Card) -> None:
         """Handle exceptions not covered by automatic indexing."""
         # The Baron has his name in card text, but is not an Anarch Baron.
         if card.id == 200167:  # "The Baron"

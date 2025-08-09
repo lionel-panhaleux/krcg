@@ -88,11 +88,13 @@ class Analyzer(object):
         return self.deck
 
     @staticmethod
-    def is_crypt(card):
+    def is_crypt(card: cards.Card) -> bool:
+        """Return True if the card is a crypt card."""
         return card.crypt
 
     @staticmethod
-    def is_library(card):
+    def is_library(card: cards.Card) -> bool:
+        """Return True if the card is a library card."""
         return card.library
 
     def refresh(

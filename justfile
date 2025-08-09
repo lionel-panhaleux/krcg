@@ -16,6 +16,7 @@ quality:
     echo "🔍 Running quality checks..."
     uv run ruff check
     uv run ruff format --check .
+    uv run mypy krcg
     echo "📄 Running pydoclint..."
     # Generate an ephemeral baseline capturing current violations and fail if any
     tmpfile="$(mktemp)"
@@ -35,7 +36,6 @@ test: quality
     #!/usr/bin/env bash
     echo "🧪 Running tests..."
     uv run pytest -vvs
-    uv run mypy krcg
     echo "✅ Tests passed!"
 
 # Sync CSV files from vtescsv repository

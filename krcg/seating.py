@@ -30,11 +30,11 @@ RULES: List[Tuple[str, str, int]] = [
 ]
 
 
-class Round(list):
+class Round(list[list[Hashable]]):
     """A list of lists representing the tables of a round."""
 
     @classmethod
-    def from_players(cls, players: List[Hashable]):
+    def from_players(cls, players: List[Hashable]) -> "Round":
         """Build a round structure from a simple list of players."""
         length = len(players)
         if length in {6, 7, 11}:
@@ -54,11 +54,11 @@ class Round(list):
         )
 
     @classmethod
-    def copy(cls, round_):
+    def copy(cls, round_: "Round") -> "Round":  # type: ignore
         """Copy another round."""
         return cls(t[:] for t in round_.iter_tables())
 
-    def shuffle(self):
+    def shuffle(self) -> None:
         players = list(self.iter_players())
         random.shuffle(players)
         for i in range(self.players_count()):
@@ -75,21 +75,21 @@ class Round(list):
             for position, player in enumerate(players, 1):
                 yield table_number, position, table_size, player
 
-    def iter_tables(self):
+    def iter_tables(self) -> Iterable[List[Hashable]]:
         """Convenience method mirroring `iter_players()`."""
         yield from super().__iter__()
 
-    def iter_players(self):
+    def iter_players(self) -> Iterable[Hashable]:
         """Iterate over players, not tables (default)."""
         for table in super().__iter__():
             for player in table:
                 yield player
 
-    def tables_count(self):
+    def tables_count(self) -> int:
         """Convenience function mirroring `players_count()`."""
         return super().__len__()
 
-    def players_count(self):
+    def players_count(self) -> int:
         """Return the number of players (len() returns number of tables)."""
         return sum(len(table) for table in self.iter_tables())
 
@@ -98,7 +98,7 @@ class Round(list):
             enumerate((j, k) for j, table in enumerate(self) for k in range(len(table)))
         )
 
-    def __global_index_to_tuple(self, index: int):
+    def __global_index_to_tuple(self, index: int) -> Tuple[int, int]:
         """Map a flattened player index to (table_index, seat_index)."""
         table_index = 0
         for table in self.iter_tables():
@@ -110,20 +110,20 @@ class Round(list):
         else:
             raise IndexError("Out of bounds")
 
-    def get_table(self, index: int):
+    def get_table(self, index: int) -> List[Hashable]:
         """Access tables directly (mirrors player access)."""
         return self[index]
 
-    def set_table(self, index: int, value):
+    def set_table(self, index: int, value: List[Hashable]) -> None:
         """Modify tables directly (mirrors player access)."""
         self[index] = value
 
-    def get_player(self, index: int):
+    def get_player(self, index: int) -> Hashable:
         """Access players directly."""
         i, j = self.__global_index_to_tuple(index)
         return self[i][j]
 
-    def set_player(self, index: int, value):
+    def set_player(self, index: int, value: Hashable) -> None:
         """Modify players directly."""
         i, j = self.__global_index_to_tuple(index)
         self[i][j] = value
@@ -280,7 +280,7 @@ class Score:
     `mean_tranfers`.
     """
 
-    __slots__ = dict(  # type: ignore
+    __slots__ = dict(
         itertools.chain(
             ((R[0], R[1]) for R in RULES),
             (
@@ -298,7 +298,7 @@ class Score:
         pm = pm or player_mapping(rounds)
         self.score_measure(sum(measure(pm, r) for r in rounds), len(rounds), pm)  # type: ignore
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         points = [f"{s:.2f}" if isinstance(s, float) else f"{s}" for s in self.rules]
         return f"{self.__class__}: {points}"
 
@@ -366,7 +366,7 @@ class Score:
         self.rules = [
             self.__getattribute__(R[0])
             if R[0] in ["R3", "R8"]
-            else len(self.__getattribute__(R[0]))  # type: ignore
+            else len(self.__getattribute__(R[0]))
             for R in RULES
         ]
         self.total = sum(x * m for x, m in zip(self.rules, [R[2] for R in RULES]))
@@ -383,29 +383,33 @@ class Score:
         collisions = opponents_twice.size > 0
         vps = measure.position[:, 1][playing_filter] / playing
         transfers = measure.position[:, 2][playing_filter] / playing
-        rules = [
+        rules: list[float] = [
             # same predator-prey relationship
-            numpy.count_nonzero(opponents_twice[:, 1] > 1) if collisions else 0,
+            float(numpy.count_nonzero(opponents_twice[:, 1] > 1)) if collisions else 0,
             # opponents more than twice
             (
-                numpy.count_nonzero(opponents_twice[:, 0] >= rounds_count) // 2
+                float(numpy.count_nonzero(opponents_twice[:, 0] >= rounds_count)) // 2
                 if collisions
                 else 0
             ),
             # VPs difference
             numpy.sum((vps - numpy.mean(vps)) ** 2) / vps.size,
             # opponents more than once
-            numpy.count_nonzero(opponents_twice[:, 0]) // 2,
+            float(numpy.count_nonzero(opponents_twice[:, 0])) // 2,
             # fifth seat more than once
-            numpy.count_nonzero(measure.position[:, 7] > 1),
+            float(numpy.count_nonzero(measure.position[:, 7] > 1)),
             # same opponent relationship more than once
-            numpy.count_nonzero(opponents_twice[:, 1:6] > 1) // 2 if collisions else 0,
+            float(numpy.count_nonzero(opponents_twice[:, 1:6] > 1) // 2)
+            if collisions
+            else 0,
             # same table seat more than once
-            numpy.count_nonzero(measure.position[:, 3:] > 1),
+            float(numpy.count_nonzero(measure.position[:, 3:] > 1)),
             # Transfers difference
             numpy.sum((transfers - numpy.mean(transfers)) ** 2) / transfers.size,
             # same position groups for an opponent twice
-            numpy.count_nonzero(opponents_twice[:, 6:] > 1) // 2 if collisions else 0,
+            float(numpy.count_nonzero(opponents_twice[:, 6:] > 1)) // 2
+            if collisions
+            else 0,
         ]
         # builtins.sum is expensive
         return (
@@ -618,17 +622,19 @@ def optimise_table(rounds: List[Round], table: int) -> float:
     measures = [measure(pm, r) for r in rounds]
     rounds_count = len(rounds)
     for permutation in itertools.permutations(rounds[-1].get_table(table)):
-        current_round.set_table(table, permutation)
+        current_round.set_table(table, list(permutation))
         measures[-1] = measure(pm, current_round, hints=[table])
         score = Score.fast_total(sum(measures), rounds_count)  # type: ignore
         if score < best_score:
             best_score = score
-            best_table = permutation[:]
+            best_table = list(permutation)
     rounds[-1].set_table(table, list(best_table))
     return best_score
 
 
-def archon_seating(players_count: int, rounds_per_player: int):
+def archon_seating(
+    players_count: int, rounds_per_player: int
+) -> Tuple[List[Round], Score]:
     """Compute a full multi-round seating using multiple processes."""
     rounds = get_rounds(list(range(players_count)), rounds_per_player)
     try:

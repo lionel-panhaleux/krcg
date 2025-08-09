@@ -4,31 +4,30 @@ If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
 
-from typing import Dict, Generator, List, Optional, Set, Tuple, Union
+from typing import Dict, Generator, List, Optional, Set, BinaryIO, Literal
 import functools
-import io
 import requests
 
 from . import cards
 
 
-CardsDiff = Dict[cards.Card, Union[str, Tuple[str, str]]]
+CardsDiff = Dict[cards.Card, cards.CardDiff | Literal["NEW"]]
 
 
 class _VTES:
     """VTES cards database."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._cards = cards.CardMap()
         self._search = cards.CardSearch()
 
-    def __bool__(self):
+    def __bool__(self) -> bool:
         return bool(self._cards)
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: int | str) -> cards.Card:
         return self._cards[key]
 
-    def __contains__(self, key):
+    def __contains__(self, key: int | str) -> bool:
         return key in self._cards
 
     def __len__(self) -> int:
@@ -37,15 +36,17 @@ class _VTES:
     def __iter__(self) -> Generator[cards.Card, None, None]:
         return self._cards.__iter__()
 
-    def to_json(self) -> dict:
+    def to_json(self) -> list:
         return self._cards.to_json()
 
-    def from_json(self, state) -> None:
+    def from_json(self, state: list) -> None:
         self.clear()
         self._cards.from_json(state)
 
-    def get(self, key, default=None) -> cards.Card:
-        return self._cards.get(key)
+    def get(
+        self, key: int | str, default: Optional[cards.Card] = None
+    ) -> Optional[cards.Card]:
+        return self._cards.get(key) or default
 
     def clear(self) -> None:
         self._cards.clear()
@@ -63,11 +64,11 @@ class _VTES:
         self._cards.load_rulings()
 
     def load_from_files(
-        self, *files: io.TextIOBase, set_abbrev: Optional[str] = None
+        self, *files: BinaryIO, set_abbrev: Optional[str] = None
     ) -> None:
         self._cards.load_from_files(*files, set_abbrev=set_abbrev)
 
-    def diff(self, url) -> CardsDiff:
+    def diff(self, url: str) -> CardsDiff:
         """Compute a diff from previous VEKN CSV files."""
         old_cards = cards.CardMap()
         old_cards._VEKN_CSV = (url, old_cards._VEKN_CSV[1])
@@ -115,7 +116,7 @@ class _VTES:
         self._init_search()
         return self._search.set_dimensions_enums
 
-    def search(self, **kwargs) -> Dict[str, Set[cards.Card]]:
+    def search(self, **kwargs: str | list[str]) -> Set[cards.Card]:
         self._init_search()
         return self._search(**kwargs)
 

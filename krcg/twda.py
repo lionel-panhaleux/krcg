@@ -24,14 +24,14 @@ logger = logging.getLogger("krcg")
 class _TWDA(collections.OrderedDict):
     """An OrderedDict of the TWDA. Parsing TWDA.html is the hard part."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
-        self.by_author = collections.defaultdict(list)
+        self.by_author: dict[str, list[str]] = collections.defaultdict(list)
 
     def to_json(self) -> List:
         return [d.to_json() for d in self.values()]
 
-    def from_json(self, state) -> None:
+    def from_json(self, state: list[dict]) -> None:
         self.clear()
         for data in state:
             d = deck.Deck()

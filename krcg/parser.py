@@ -4,7 +4,7 @@ Handles legacy TWDA formats and other deck list idiosyncrasies.
 Only modify this file if you know what you're doing, and proceed with caution.
 """
 
-from typing import TextIO, Tuple, Optional
+from typing import TextIO, Optional, MutableMapping, Any
 import datetime
 import enum
 import logging
@@ -14,6 +14,7 @@ import re
 import arrow
 
 from . import config
+from . import cards
 from . import deck
 from . import vtes
 from . import utils
@@ -394,7 +395,12 @@ _RE = (
 class LineLogAdapter(logging.LoggerAdapter):
     """Logger adapter that prefixes messages with line and deck IDs."""
 
-    def process(self, msg, kwargs):
+    def process(
+        self, msg: str, kwargs: MutableMapping[str, Any]
+    ) -> tuple[str, MutableMapping[str, Any]]:
+        if not self.extra:
+            self.extra = {}
+        assert isinstance(self.extra, dict)
         self.extra.update(kwargs.get("extra", {}))
         return "[%6s][%s] %s" % (self.extra["line"], self.extra["deck"], msg), kwargs
 
@@ -412,13 +418,16 @@ class Comment:
     """Helper class for comment parsing."""
 
     def __init__(
-        self, comment: str = "", card: object = None, mark: Optional[Mark] = None
+        self,
+        comment: str = "",
+        card: Optional[Any] = None,
+        mark: Optional[Mark] = None,
     ):
         self.card = card
         self.mark = mark
         self.string = comment
 
-    def __iadd__(self, comment: str):
+    def __iadd__(self, comment: str) -> "Comment":
         """Add a comment line to the current comment string."""
         comment = comment.rstrip()
         if self.string:
@@ -430,10 +439,10 @@ class Comment:
         self.string += comment
         return self
 
-    def __bool__(self):
+    def __bool__(self) -> bool:
         return bool(self.string)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.string
 
     def finalize(self) -> None:
@@ -477,15 +486,15 @@ class Comment:
 class Parser:
     """Deck list parser. Holds the parsing context."""
 
-    def __init__(self, deck):
-        self.current_comment = None
+    def __init__(self, d: deck.Deck) -> None:
+        self.current_comment: Optional[Comment] = None
         self.preface = True
         self.separator = False  # used only for additional checks on the TWDA
-        self.deck = deck
-        self.logger = logger
+        self.deck: deck.Deck = d
+        self.logger: logging.Logger | logging.LoggerAdapter = logger
 
     @property
-    def _previous_line(self):
+    def _previous_line(self) -> int:
         return (getattr(self.logger, "extra", {}).get("line") or 1) - 1
 
     def parse(
@@ -514,7 +523,7 @@ class Parser:
         if not twda or self.deck.id not in config.TWDA_CHECK_DECK_FAILS:
             self.deck.check()
 
-    def parse_line(self, index: int, line: str, twda: bool):
+    def parse_line(self, index: int, line: str, twda: bool) -> None:
         """Parse a line of text."""
         # remove head/tail and misplaced spaces around punctuation for easy parsing
         line = line.rstrip()
@@ -543,7 +552,7 @@ class Parser:
         if card and count:
             self.deck.update({card: count})
 
-    def parse_twda_headers(self, index: int, line: str):
+    def parse_twda_headers(self, index: int, line: str) -> bool:
         """Parse a line of text for TWDA headers."""
         if index == 1:
             self.deck.event = line
@@ -600,7 +609,7 @@ class Parser:
             return True
         return False
 
-    def parse_headers(self, index: int, line: str):
+    def parse_headers(self, index: int, line: str) -> bool:
         """Parse non-TWDA headers (name, author, score, etc.)."""
         description = re.match(r"^\s*(D|d)escription\s*:?\s*", line)
         if description:
@@ -655,8 +664,11 @@ class Parser:
                 return True
             except arrow.parser.ParserMatchError:
                 pass
+        return False
 
-    def get_card(self, line: str, twda: bool = False) -> Tuple[object, int]:
+    def get_card(
+        self, line: str, twda: bool = False
+    ) -> tuple[Optional[cards.Card], int]:
         """Try to find a card and count; register possible comment."""
         if re.match(_HEADERS_RE, utils.normalize(line)):
             return None, 0
@@ -700,7 +712,7 @@ class Parser:
             if name and group and name[-1] != ")":
                 name += f" (g{group})"
             try:
-                card = vtes.VTES[name]
+                card = vtes.VTES[name]  # type: ignore
                 # special case for Camille / Raven to keep them distinct if the decklist
                 # predates the merge of the two crypt cards
                 if (
@@ -773,7 +785,10 @@ class Parser:
         return card, count
 
     def comment(
-        self, comment: str, card: object = None, mark: Optional[Mark] = None
+        self,
+        comment: str,
+        card: Optional[cards.Card] = None,
+        mark: Optional[Mark] = None,
     ) -> None:
         """Handle a comment and possibly log suspected parsing errors."""
         if not (comment or self.current_comment):
@@ -856,5 +871,5 @@ class Parser:
             self.current_comment = Comment(card=card, mark=mark)
         # append the parsed comment, even if it is a blank line
         if comment or self.current_comment:
-            self.current_comment += comment
+            self.current_comment += comment  # type: ignore
         # do nothing on a blank line if we don't have a current comment

@@ -7,6 +7,7 @@ from typing import (
     Generic,
     Hashable,
     ItemsView,
+    Iterator,
     List,
     Optional,
     Sequence,
@@ -29,7 +30,7 @@ import zipfile
 logger = logging.getLogger("krcg")
 
 
-def normalize(s: Any):
+def normalize(s: Any) -> Any:
     """Normalize a string for indexing: unidecode and lowercase."""
     if not isinstance(s, str):
         return s
@@ -67,9 +68,10 @@ def get_github_csv(url: str, *args: str) -> List[csv.DictReader[str]]:
 
 
 T = TypeVar("T")
+H = TypeVar("H", bound=Hashable)
 
 
-class FuzzyDict(MutableMapping[Hashable, T], Generic[T]):
+class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
     """A dict providing "fuzzy matching" of its keys.
 
     It matches keys that are "close enough" if there is no exact match, and
@@ -89,16 +91,16 @@ class FuzzyDict(MutableMapping[Hashable, T], Generic[T]):
         threshold: int = 6,
         cutoff: float = 0.85,
         aliases: Optional[Mapping[Any, Any]] = None,
-        *args,
-        **kwargs,
-    ):
+        *args: Any,
+        **kwargs: Any,
+    ) -> None:
         self.threshold = threshold
         self.cutoff = cutoff
-        self.aliases: dict[Hashable, T] = dict(aliases) if aliases else {}
-        self._dict: dict[Hashable, T] = dict(*args, **kwargs)
+        self.aliases: dict[Hashable, H] = dict(aliases) if aliases else {}
+        self._dict: dict[H, T] = dict(*args, **kwargs)
         self._keys_cache: Optional[List[Sequence]] = None
 
-    def _fuzzy_match(self, key: Hashable) -> Hashable:
+    def _fuzzy_match(self, key: Hashable) -> Optional[H]:
         """Use difflib to match incomplete or misspelled keys."""
         if not isinstance(key, collections.abc.Sequence):
             return None
@@ -110,7 +112,7 @@ class FuzzyDict(MutableMapping[Hashable, T], Generic[T]):
         if matches:
             result = matches[0]
             logger.info('"%s" matched "%s"', key, result)
-            return result
+            return result  # type: ignore
         return None
 
     def _sequence_keys(self) -> List[Sequence]:
@@ -119,7 +121,7 @@ class FuzzyDict(MutableMapping[Hashable, T], Generic[T]):
             self._keys_cache = [k for k in self._dict.keys() if isinstance(k, Sequence)]
         return self._keys_cache
 
-    def add_alias(self, alias: Hashable, value: T) -> None:
+    def add_alias(self, alias: Hashable, value: H) -> None:
         """Add an alias to the dict.
 
         The value must be a key in the dict.
@@ -134,7 +136,7 @@ class FuzzyDict(MutableMapping[Hashable, T], Generic[T]):
         self._dict.clear()
         self._clear_cache()
 
-    def items(self) -> ItemsView[Hashable, T]:
+    def items(self) -> ItemsView[H, T]:
         """Return the dict items.
 
         The keys have been normalized (unidecode lowercase), so they may not match
@@ -144,7 +146,7 @@ class FuzzyDict(MutableMapping[Hashable, T], Generic[T]):
         """
         return self._dict.items()
 
-    def __getitem__(self, key: Hashable) -> Any:
+    def __getitem__(self, key: H) -> T:
         """Get a key, trying to find a good match.
 
         It uses lowercase only, plus the provided aliases,
@@ -162,28 +164,28 @@ class FuzzyDict(MutableMapping[Hashable, T], Generic[T]):
                 return self._dict[fuzzy_match]
             raise
 
-    def get(self, key: Hashable, default=None) -> Any:
+    def get(self, key: H, default: Any = None) -> Any:
         """Get a key, or default."""
         try:
             return self[key]
         except KeyError:
             return default
 
-    def __contains__(self, key: Hashable) -> bool:
+    def __contains__(self, key: object) -> bool:
         try:
-            self.__getitem__(key)
+            self.__getitem__(key)  # type: ignore
             return True
         except KeyError:
             return False
 
-    def __setitem__(self, key: Hashable, value: Any) -> None:
+    def __setitem__(self, key: H, value: Any) -> None:
         # testing for cache validity to avoid clearing it is premature optimization
         # doing a fuzzy match at each insertion is costly
         # the FuzzyDict is more likely to be filled once then used
         self._clear_cache()
         self._dict[normalize(key)] = value
 
-    def __delitem__(self, key: Hashable) -> None:
+    def __delitem__(self, key: H) -> None:
         self._clear_cache()
         del self._dict[normalize(key)]
 
@@ -192,10 +194,10 @@ class FuzzyDict(MutableMapping[Hashable, T], Generic[T]):
         self._keys_cache = None
 
     # Required by MutableMapping
-    def __len__(self) -> int:  # type: ignore[override]
+    def __len__(self) -> int:
         return len(self._dict)
 
-    def __iter__(self):  # type: ignore[override]
+    def __iter__(self) -> Iterator[H]:
         return iter(self._dict)
 
 
@@ -213,7 +215,7 @@ class Trie(collections.defaultdict):
     The matches are case-insensitive and use unidecode to handle unicode characters.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__(lambda: collections.defaultdict(int))
 
     @staticmethod
@@ -271,7 +273,7 @@ class Trie(collections.defaultdict):
         return ret
 
 
-def json_pack(obj: Any) -> Any:
+def json_pack(obj: T) -> T:
     """Remove empty values recursively.
 
     Used to prepare dicts or lists for a compact JSON serialization.
@@ -305,9 +307,9 @@ class i18nMixin:
     and provides simple methods to manipulate it.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
-        self._i18n = collections.defaultdict(dict)
+        self._i18n: dict[str, dict[str, Trans]] = collections.defaultdict(dict)
 
     def i18n_set(self, lang: str, trans: Dict[str, Trans]) -> None:
         for field, value in trans.items():
@@ -325,9 +327,9 @@ class i18nMixin:
             return self.__dict__
         return self._i18n.get(lang[:2], {})
 
-    def i18n_field(self, lang: str, field: str) -> str:
+    def i18n_field(self, lang: str, field: str) -> Trans:
         if lang[:2] == "en":
-            return getattr(self, field)
+            return getattr(self, field)  # type: ignore[no-any-return]
         ret = self._i18n.get(lang[:2], {})
         return ret.get(field) or ""
 

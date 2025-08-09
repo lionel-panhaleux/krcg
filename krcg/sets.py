@@ -58,7 +58,7 @@ from . import utils
 class Set(utils.i18nMixin, utils.NamedMixin):
     """A class representing a V:tES set (expansion)."""
 
-    def __init__(self, **kwargs: str):
+    def __init__(self, **kwargs: str) -> None:
         super().__init__()
         self.id: int = 0
         self.abbrev: str = kwargs.get("abbrev", "")
@@ -66,7 +66,7 @@ class Set(utils.i18nMixin, utils.NamedMixin):
         self.name: str = kwargs.get("name", "")
         self.company: str = kwargs.get("abbrev", "")
 
-    def from_vekn(self, data: dict):
+    def from_vekn(self, data: dict) -> None:
         """Load info from a VEKN CSV row."""
         self.id = int(data["Id"])
         self.abbrev = data["Abbrev"]
@@ -99,7 +99,7 @@ class SetMap(dict[str, Set]):
         "KoTR": ["Keepers of Tradition Reprint", "2018-05-05"],
     }
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.add(Set(abbrev="POD", name="Print on Demand"))
         for abbrev, (name, release_date) in self._UNLISTED.items():
