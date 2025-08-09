@@ -5,7 +5,7 @@
 [![Coverage](https://api.codacy.com/project/badge/Grade/32d1b809494e4935967608f13f52004a)](https://app.codacy.com/manual/lionel-panhaleux/krcg?utm_source=github.com&utm_medium=referral&utm_content=lionel-panhaleux/krcg&utm_campaign=Badge_Grade_Dashboard)
 [![Python version](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
-[![Code Style](https://img.shields.io/badge/code%20style-black-black)](https://github.com/psf/black)
+[![Code Quality](https://img.shields.io/badge/style-ruff-46aef7?logo=ruff&logoColor=white)](https://docs.astral.sh/ruff/)
 
 A Python package build to serve as an interface for
 the VEKN [official card texts](http://www.vekn.net/card-lists)
@@ -32,16 +32,19 @@ The KRCG library has been used in multiple _offpsring_ projects:
     It is available online at [static.krcg.org](https://static.krcg.org)
 
 -   [krcg-api](https://github.com/lionel-panhaleux/krcg-api)
-    is a free RESTful web API exposing to get the most out of the library for web project.
+    is a free RESTful web API to get the most out of the library for web projects.
     It is available online at [v2.api.krcg.org](https://v2.api.krcg.org)
 
 -   [krcg-bot](https://github.com/lionel-panhaleux/krcg-bot) is a friendly Discord bot
     that provides official card text and rulings for free.
     It is [available for free](https://discordapp.com/oauth2/authorize?client_id=703921850270613505&scope=bot).
 
+Rulings have been outsourced to a separated, community-maintained project:
+[`vtes-rulings`](https://github.com/vtes-biased/vtes-rulings)
+
 ## Installation
 
-[Python 3](https://www.python.org/downloads/) is required.
+[Python 3](https://www.python.org/downloads/) (>=3.10) is required.
 
 Use pip to install the `krcg` tool:
 
@@ -58,52 +61,23 @@ Here are a few quickstart examples to showcase how the library can be used:
 
 ### VTES
 
-`krcg.vtes.VTES` is the cards library. It needs to be loaded using the `VTES.load()`
-method. Note that this loads the data from the
-[KRCG static](https://static.krcg.org) server, where it's already available
-in JSON format for free, for anyone who would want to play with it.
+`krcg.vtes.VTES` is the cards library. Load it with `VTES.load()`.
+This pulls data from the [KRCG static](https://static.krcg.org) server, where
+it's already published in JSON.
 
-Alternatively, you can use `VTES.load_from_vekn()` if you want to load directly
-from the official [VEKN CSV files](https://www.vekn.net/card-lists),
-although that's a bit slower. That's actually the way [krcg-static] does it to generate
-the static JSON files used for the standard load.
+Alternatively, use `VTES.load_from_vekn()` to load directly from the official
+[VEKN CSV files](https://www.vekn.net/card-lists). This is slower and mainly
+used for generating the static JSON.
 
-Then you can play around with VTES to access cards, complete card names or search.
+Then you can access cards, complete card names, or search.
 
 ```python
 >>> from krcg.vtes import VTES
 >>> VTES.load()
->>> VTES["Alastor"].to_json()
-{
-  'id': 100038,
-  'name': 'Alastor'
-  '_name': 'Alastor',
-  'url': 'https://static.krcg.org/card/alastor.jpg',
-  'types': ['Political Action'],
-  'card_text': (
-    'Requires a justicar or Inner Circle member.\n'
-    'Choose a ready Camarilla vampire. If this referendum is successful, '
-    'search your library for an equipment card and place this card and the equipment '
-    'on the chosen vampire. Pay half the cost (round down) of the equipment. '
-    'This vampire may enter combat with any vampire controlled by another Methuselah '
-    'as a +1 stealth Ⓓ action. This vampire cannot commit diablerie. '
-    'A vampire may have only one Alastor.'),
-  'artists': ['Monte Moore'],
-  'sets': {
-    'Gehenna': [{'release_date': '2004-05-17', 'rarity': 'Rare'}],
-    'Kindred Most Wanted': [{'release_date': '2005-02-21', 'precon': 'Alastors', 'copies': 1}],
-    'Keepers of Tradition': [{'release_date': '2008-11-19', 'rarity': 'Rare'}]},
- 'rulings': {
-   'text': [
-     'If the given weapon costs blood, the target Alastor pays the cost. [LSJ 20040518]',
-      'Requirements do not apply. [ANK 20200901]'
-    ],
-    'links': {
-      '[LSJ 20040518]': 'https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/4emymfUPwAM/B2SCC7L6kuMJ',
-      '[ANK 20200901]': 'http://www.vekn.net/forum/rules-questions/78830-alastor-and-ankara-citadel#100653'
-    }
-  }
-}
+>>> VTES["Alastor"].name
+'Alastor'
+>>> VTES["Alastor"].url
+'https://static.krcg.org/card/alastor.jpg'
 >>> VTES.complete("pentex")
 ['Pentex™ Loves You!',
  'Pentex™ Subversion',
@@ -171,11 +145,42 @@ Then you can play around with VTES to access cards, complete card names or searc
  <#102158 Watchtower: The Wolves Feed>}
 ```
 
+### Offline mode (LOCAL_CARDS=1)
+
+You can use the library fully offline for cards and rulings by leveraging the
+packaged CSV/YAML data.
+
+- Set the environment variable `LOCAL_CARDS=1`.
+- Load cards with `VTES.load_from_vekn()` (not `VTES.load()`).
+- Cards and rulings will be loaded from the packaged YAML automatically.
+
+Notes:
+
+- The PyPI package includes a snapshot of CSV/YAML files at release time. For
+  development from source, run `just sync-cards` to refresh them before packaging.
+- Translations from VEKN are skipped in offline mode; only English text is
+  available.
+- TWDA still requires a local source: use a previously saved JSON via
+  `TWDA.from_json(...)` or parse a downloaded `TWDA.html` with
+  `TWDA.load_html(open("TWDA.html", encoding="utf-8"))`.
+- Network-dependent helpers like `Deck.from_amaranth`, `Deck.from_vdb`,
+  and `Deck.from_vtesdecks` are not available offline.
+
+Example:
+
+```python
+>>> import os
+>>> os.environ["LOCAL_CARDS"] = "1"
+>>> from krcg.vtes import VTES
+>>> VTES.load_from_vekn()
+>>> VTES["Villein"].name
+'Villein'
+```
+
 ### TWDA, Analyzer and Deck
 
-`krcg.twda.TWDA` is the interface to the TWDA. It needs to be loaded in the same way
-as the `VTES` instance, using the `TWDA.load()` method. That time, using
-`TWDA.load_from_vekn()` instead is considerably slower.
+`krcg.twda.TWDA` interfaces the TWDA. Load it with `TWDA.load()` (from KRCG static).
+`TWDA.load_from_vekn()` loads directly from VEKN and is considerably slower.
 
 Once loaded, it can be used to browse the decks in it.
 
@@ -192,7 +197,7 @@ August 18th 2019
 50 players
 Otso Saariluoma
 
--- 2gw8.5 + 1.5vp in the final
+-- 2GW3+1
 
 Deck Name: Finnish Politics
 
@@ -256,7 +261,7 @@ Event (1)
 27
 ```
 
-The `krcg.analyzer` can provide some statistics over a collection of decks:
+The `krcg.analyzer` can provide statistics over a collection of decks:
 
 ```python
 >>> from krcg.analyzer import Analyzer
@@ -274,10 +279,10 @@ The `krcg.analyzer` can provide some statistics over a collection of decks:
 4.409638554216869
 >>> A.variance[VTES["Villein"]]
 3.6876179416461032
->>> # Refreshing with a list of cards will compute cards affinity using similar decks
->>> # similarity=1 tells the engine to select decks that contains all provided cards
+>>> # Refreshing with a list of cards computes card affinity using similar decks.
+>>> # similarity=1 selects only decks that contain all provided cards.
 >>> A.refresh(VTES["Aid from Bats"], similarity=1)
->>> # now the candidates method can be used
+>>> # Now the candidates method can be used
 >>> A.candidates(VTES["Aid from Bats"])[:5]
 [(<#100515 Deep Song>, 1.0000000000000002),
  (<#100301 Carrion Crows>, 1.0000000000000002),
@@ -317,15 +322,13 @@ The `krcg.seating` module provides functions to compute optimal seatings:
 >>> # score.rules gives a score over the nine official rules for optimal seating
 >>> score.rules
 [0, 0, 0.0, 9, 0, 0, 0, 1.118033988749895, 2]
->>> # you can inspect violations individualy
->>> # for example rule #4 (players are opponents twice) has 9 violations, to see them:
->>> score.R4
-[[1, 5], [2, 3], [2, 9], [3, 4], [4, 7], [5, 8], [6, 7], [9, 10], [10, 11]]
+>>> # you can inspect violations individually, e.g. pairs of players for R4:
+>>> score.R4  # list of PairViolation(player_1=..., player_2=...)
 >>> # for more details about the Score structure, check the docstring
 >>> help(seating.Score)
 ```
 
-And finally, the `krcg.deck.Deck` class can be useful to parse and manipulate any deck.
+And finally, the `krcg.deck.Deck` class can parse and manipulate decks.
 
 ```python
 >>> from krcg.deck import Deck
@@ -397,7 +400,8 @@ Crypt:
 
 ## Development
 
-This project uses [uv](https://github.com/astral-sh/uv) for dependency management and packaging.
+This project uses [uv](https://github.com/astral-sh/uv) for dependency management and packaging, with
+`just` recipes for common tasks.
 
 ### Setup
 
@@ -417,12 +421,15 @@ This project uses [uv](https://github.com/astral-sh/uv) for dependency managemen
 
 ### Development Commands
 
-- `make quality` - Run code quality checks (ruff format, ruff check)
-- `make test` - Run tests
-- `make update` - Update dependencies
-- `make clean` - Clean build artifacts
-- `make sync-cards` - Sync CSV files from vtescsv repository
-- `make release` - To bump the version, tag and release
+- `just quality` - Run code quality checks (ruff check, ruff format --check, mypy, pydoclint)
+- `just test` - Run tests (includes quality)
+- `just update` - Update dependencies and sync external CSV/YAML data
+- `just clean` - Clean build artifacts
+- `just sync-cards` - Sync CSV files from vtescsv and rulings from vtes-biased/vtes-rulings
+- `just build` - Build the package
+- `just release` - Bump version (minor), tag, push, and publish to PyPI
+
+Publishing uses `uv publish` and reads the token from a `.pypi_token` file at the repository root.
 
 ## Contribute
 
@@ -439,48 +446,9 @@ The package uses external data sources for card list, so that it needs not be up
 when new sets are released or official VEKN CSV files are changed: it can use
 new data sets as soon as they're available.
 
-### Contribute Rulings (non-developers)
+### Rulings
 
-Please do not hestitate to contribute rulings: all help is welcome.
-
-Open an [issue](https://github.com/lionel-panhaleux/krcg/issues)
-with a ruling you think should be added,
-provide a link to an online post by one of the rules directors:
-
--   From 2016-12-04 onward, [Vincent Ripoll (ANK)](http://www.vekn.net/forum/news-and-announcements/75402-new-inner-circle-vekn-board-of-directors#79470)
--   From 2011-07-06 onward, [Pascal Bertrand (PIB)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/VzRGZO_Iuto/BjJGRVvJ5Z8J)
--   From 1998-06-22 onward, [L. Scott Johnson (LSJ)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/RIX1tLgOFjg/xKikfSarfd8J)
--   From 1994-12-15 onward, [Thomas R Wylie (TOM)](https://groups.google.com/d/msg/rec.games.trading-cards.jyhad/Dm_gIP3YvUs/qTyKyq2NWv4J)
-
-### Contribute Rulings (developers)
-
-Feel free to contribute rulings as Pull Requests directly, this is very appreciated.
-
-Add the ruling link to
-[rulings-links.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/rulings-links.yaml),
-and the ruling itself to
-[cards-rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/cards-rulings.yaml) or
-[general-rulings.yaml](https://github.com/lionel-panhaleux/krcg/blob/master/rulings/general-rulings.yaml)
-depending on the case.
-
-The format is mostly self-explanatory:
-
--   Cards are reference by ID and name in the format `ID|Name`.
-
--   Card names inside rulings text should be between bracers, eg. `{.44 Magnum}`
-
--   Individual rulings in `cards-rulings.yaml` must provide one or more references
-    to ruling links at the end of the text, between brackets, eg `[LSJ 20100101]`
-
-In doing so, please follow the following guidelines:
-
--   Keep the YAML files clean and alphabetically sorted (you can use a YAML formatter)
-
--   Make the rulings as concise as possible
-
--   Prefix the ruling with the discipline level and/or type the ruling applies to (if any),
-    eg. prefix with `[PRO] [COMBAT]` if the ruling applies only to the card played in combat at superior Protean.
-
--   Adapt the ruling wording to the cards it applies to (ie. use masculine/feminin forms)
-
--   You can run the tests with the `pytest` command to check everything is OK
+Rulings are sourced from the community-maintained repository
+[`vtes-biased/vtes-rulings`](https://github.com/vtes-biased/vtes-rulings).
+Please submit changes there. This library consumes those YAML files directly
+(a current copy is synced upon each release under the `cards/` package).
