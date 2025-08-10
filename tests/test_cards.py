@@ -1,10 +1,13 @@
+"""Test the cards."""
+
 import pytest
 import warnings
 from krcg import cards
 
 
 @pytest.mark.filterwarnings("ignore::UserWarning")
-def test_card_variants():
+def test_card_variants() -> None:
+    """Test the card name variants."""
     sacha_vykos = {
         "Id": "201244",
         "Name": "Sascha Vykos, The Angel of Caine",
@@ -87,7 +90,8 @@ def test_card_variants():
     }
     card_map = cards.CardMap()
 
-    def add_card(card_map, data):
+    def add_card(card_map: cards.CardMap, data: dict[str, str]) -> None:
+        """Add a default/mocked card to the card map."""
         data.setdefault("Aka", "")
         data.setdefault("Clan", "")
         data.setdefault("Type", "")
@@ -119,7 +123,8 @@ def test_card_variants():
     card_map._set_enriched_properties()
     card_map._map_names()
 
-    def sorted_variant(data):
+    def sorted_variant(data: dict[str, str]) -> list[str]:
+        """Sort the variants of a card (for stable tests)."""
         return sorted(
             k
             for k, v in card_map._dict.items()
@@ -218,7 +223,8 @@ def test_card_variants():
     ]
 
 
-def test_load_from_static_server():
+def test_load_from_static_server() -> None:
+    """Test loading cards from the static server."""
     with warnings.catch_warnings(record=True) as wrec:
         warnings.simplefilter("always")
         cm = cards.CardMap()
@@ -229,8 +235,8 @@ def test_load_from_static_server():
     assert cm[200076].name.lower().startswith("anarch convert")
 
 
-def test_load_from_vekn_github_default(monkeypatch):
-    # Default path should use GitHub when neither LOCAL_CARDS nor VEKN_NET_CSV is set
+def test_load_from_vekn_github_default(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Default path uses GitHub when neither LOCAL_CARDS nor VEKN_NET_CSV is set."""
     monkeypatch.delenv("LOCAL_CARDS", raising=False)
     monkeypatch.delenv("VEKN_NET_CSV", raising=False)
     with warnings.catch_warnings(record=True) as wrec:
@@ -241,7 +247,8 @@ def test_load_from_vekn_github_default(monkeypatch):
     assert 200076 in cm  # Anarch Convert
 
 
-def test_load_from_vekn_vekn_net(monkeypatch):
+def test_load_from_vekn_vekn_net(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Force using official VEKN.net zip."""
     # Force using official VEKN.net zip
     monkeypatch.delenv("LOCAL_CARDS", raising=False)
     monkeypatch.setenv("VEKN_NET_CSV", "1")
@@ -253,7 +260,8 @@ def test_load_from_vekn_vekn_net(monkeypatch):
     assert 200076 in cm  # Anarch Convert
 
 
-def test_load_from_vekn_local(monkeypatch):
+def test_load_from_vekn_local(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Use local packaged CSVs under the `cards` package."""
     # Use local packaged CSVs under the `cards` package
     monkeypatch.setenv("LOCAL_CARDS", "1")
     monkeypatch.delenv("VEKN_NET_CSV", raising=False)

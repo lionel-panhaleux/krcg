@@ -1,12 +1,15 @@
+"""Test tournament archive."""
+
 import datetime
 import logging
 import os
+import pytest
 
 from krcg import deck
 
 
-def test_202207_EC_Day1_1(caplog):
-    """The reference format for tournament extended archive decks"""
+def test_202207_EC_Day1_1(caplog: pytest.LogCaptureFixture) -> None:
+    """The reference format for tournament extended archive decks."""
     caplog.set_level(logging.WARNING)
     with open(os.path.join(os.path.dirname(__file__), "202207_EC_Day1_1.txt")) as f:
         dek = deck.Deck.from_txt(f)

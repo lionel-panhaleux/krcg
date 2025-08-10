@@ -1,3 +1,5 @@
+"""Configuration for pytest."""
+
 import os
 import requests
 import pytest
@@ -7,7 +9,7 @@ from krcg import config
 
 
 def _internet_available() -> bool:
-    # Allow forcing offline mode via environment for CI/local testing
+    """Check if the internet is available."""
     if os.getenv("FORCE_OFFLINE"):
         return False
     try:
@@ -18,7 +20,7 @@ def _internet_available() -> bool:
         return False
 
 
-def pytest_sessionstart(session):
+def pytest_sessionstart(session: pytest.Session) -> None:
     """Initialize VTES from local packaged CSVs; avoid network in tests."""
     # Prefer local CSVs packaged under the `cards` package only when offline
     if _internet_available():
@@ -32,7 +34,7 @@ def pytest_sessionstart(session):
 
 
 @pytest.fixture(scope="session")
-def TWDA():
+def TWDA():  # type: ignore
     """Use to initialize the twda to the 20 decks test snapshot."""
     from krcg import twda  # delayed import to avoid early vtes import
 
@@ -41,7 +43,9 @@ def TWDA():
         return twda.TWDA
 
 
-def pytest_collection_modifyitems(config, items):
+def pytest_collection_modifyitems(
+    config: pytest.Config, items: list[pytest.Item]
+) -> None:
     """Skip only internet-dependent tests when offline."""
     if _internet_available():
         return

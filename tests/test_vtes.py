@@ -1,23 +1,28 @@
+"""Test VTES cards list & search."""
+
 import json
 import pytest
 
 from krcg import vtes
 
 
-def test_fuzzy_match():
+def test_fuzzy_match() -> None:
+    """Test fuzzy match."""
     assert "enchant kidnred" in vtes.VTES
     assert vtes.VTES["enchant kidnred"].name == "Enchant Kindred"
 
 
-def test_i18n():
+def test_i18n() -> None:
+    """Test translations."""
     assert "Corneilles noires" in vtes.VTES
     assert vtes.VTES["Corneilles noires"].name == "Carrion Crows"
 
 
-def test_search_dimensions():
+def test_search_dimensions() -> None:
+    """Test search dimensions."""
     assert vtes.VTES.search_dimensions == {
         "bonus": ["Bleed", "Capacity", "Intercept", "Stealth", "Trifle", "Votes"],
-        "capacity": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        "capacity": ["1", "10", "11", "2", "3", "4", "5", "6", "7", "8", "9"],
         "clan": [
             "Abomination",
             "Ahrimane",
@@ -145,7 +150,7 @@ def test_search_dimensions():
             "vis",
             "viz",
         ],
-        "group": [1, 2, 3, 4, 5, 6, 7],
+        "group": ["1", "2", "3", "4", "5", "6", "7"],
         "sect": ["Anarch", "Camarilla", "Independent", "Laibon", "Sabbat"],
         "title": [
             "1 vote",
@@ -813,7 +818,8 @@ def test_search_dimensions():
     }
 
 
-def test_search_basic():
+def test_search_basic() -> None:
+    """Test basic search."""
     # no parameter returns everything
     assert len(vtes.VTES.search()) >= 3788
     # non-existing dimension raises
@@ -977,7 +983,7 @@ def test_search_basic():
         vtes.VTES["The Black Throne"],
     }
     # votes provided by titles - legacy clan names still work
-    assert vtes.VTES.search(bonus=["Votes"], clan=["Assamite"], group=[3]) == {
+    assert vtes.VTES.search(bonus=["Votes"], clan=["Assamite"], group=["3"]) == {
         vtes.VTES["Rebekah"],
         vtes.VTES["Enam"],
     }
@@ -995,7 +1001,7 @@ def test_search_basic():
         vtes.VTES["Tariq, The Silent (ADV)"],
     }
     # sect
-    assert vtes.VTES.search(clan=["Banu Haqim"], sect=["Camarilla"], group=[2]) == {
+    assert vtes.VTES.search(clan=["Banu Haqim"], sect=["Camarilla"], group=["2"]) == {
         vtes.VTES["Al-Ashrad, Amr of Alamut (ADV)"],
         vtes.VTES["Tegyrius, Vizier"],
         vtes.VTES["Tegyrius, Vizier (ADV)"],
@@ -1091,7 +1097,7 @@ def test_search_basic():
         vtes.VTES["Read the Winds"],
     }
     # superior disciplines (vampires only)
-    assert vtes.VTES.search(discipline=["OBE"], group=[2]) == {
+    assert vtes.VTES.search(discipline=["OBE"], group=["2"]) == {
         vtes.VTES["Blanche Hill"],
         vtes.VTES["Matthias"],
     }
@@ -1105,7 +1111,8 @@ def test_search_basic():
     }
 
 
-def test_search_i18n():
+def test_search_i18n() -> None:
+    """Test i18n search."""
     # i18n - match the given language in addition to english
     assert vtes.VTES.search(
         text="cette carte d'équipement représente un lieu", lang="fr"
@@ -1140,8 +1147,9 @@ def test_search_i18n():
     }
 
 
-def test_search_ranges():
-    assert vtes.VTES.search(group=[1, 2, 3], clan=["kiasyd"]) == {
+def test_search_ranges() -> None:
+    """Test search ranges."""
+    assert vtes.VTES.search(group=["1", "2", "3"], clan=["kiasyd"]) == {
         vtes.VTES["Bartholomew"],
         vtes.VTES["Béatrice L'Angou"],
         vtes.VTES["Julia Prima"],
@@ -1151,7 +1159,8 @@ def test_search_ranges():
     }
 
 
-def test_search_cornercases():
+def test_search_cornercases() -> None:
+    """Test search cornercases."""
     # some tricky cards test (add cards for NR tests)
     # providing a stealth action does not register as "stealth" bonus
     assert vtes.VTES["Tracker's Mark"] in vtes.VTES.search(bonus=["intercept"])
@@ -1159,13 +1168,17 @@ def test_search_cornercases():
     assert vtes.VTES["Brainwash"] not in vtes.VTES.search(bonus=["stealth"])
     # Gwen Brand whould show up with superior disciplines
     assert vtes.VTES["Gwen Brand"] in vtes.VTES.search(
-        discipline=["AUS", "CHI", "FOR", "ANI"], clan=["Ravnos"], group=[5]
+        discipline=["AUS", "CHI", "FOR", "ANI"], clan=["Ravnos"], group=["5"]
     )
     # The Baron is not Anarch
     assert vtes.VTES["The Baron"] not in vtes.VTES.search(sect=["Anarch"])
 
 
-def test_vekn():
+def test_vekn() -> None:
+    """Test VEKN load.
+
+    Skipped if there is no internet connection.
+    """
     test_vtes = vtes._VTES()
     test_vtes.load_from_vekn()
     assert len(test_vtes) >= 3788
@@ -1229,7 +1242,8 @@ def test_vekn():
     }
 
 
-def test_promo_scans():
+def test_promo_scans() -> None:
+    """Test promo scans."""
     assert vtes.VTES["The Dracon"].to_json() == {
         "_name": "Dracon, The",
         "_set": "Promo-20150216, Promo-20181004:HB2, Promo-20190408, POD:DTC",
@@ -1268,10 +1282,18 @@ def test_promo_scans():
         ],
         "printed_name": "The Dracon",
         "scans": {
-            "2015 Storyline Rewards": "https://static.krcg.org/card/set/promo/dracontheg5.jpg",
-            "2018 Humble Bundle": "https://static.krcg.org/card/set/humble-bundle/dracontheg5.jpg",
-            "2019 Promo Pack 1": "https://static.krcg.org/card/set/promo-pack-1/dracontheg5.jpg",
-            "Print on Demand": "https://static.krcg.org/card/set/print-on-demand/dracontheg5.jpg",
+            "2015 Storyline Rewards": (
+                "https://static.krcg.org/card/set/promo/dracontheg5.jpg"
+            ),
+            "2018 Humble Bundle": (
+                "https://static.krcg.org/card/set/humble-bundle/dracontheg5.jpg"
+            ),
+            "2019 Promo Pack 1": (
+                "https://static.krcg.org/card/set/promo-pack-1/dracontheg5.jpg"
+            ),
+            "Print on Demand": (
+                "https://static.krcg.org/card/set/print-on-demand/dracontheg5.jpg"
+            ),
         },
         "sets": {
             "2015 Storyline Rewards": [
@@ -1308,5 +1330,6 @@ def test_promo_scans():
     }
 
 
-def test_dump():
+def test_dump() -> None:
+    """Test dump."""
     json.dumps(vtes.VTES.to_json())

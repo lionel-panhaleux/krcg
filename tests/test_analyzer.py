@@ -1,8 +1,11 @@
+"""Test the analyzer."""
+
 from krcg import analyzer
 from krcg import vtes
 
 
-def test_base(TWDA):
+def test_base(TWDA):  # type: ignore
+    """Test the base features of the analyzer."""
     A = analyzer.Analyzer(TWDA.values())
     A.refresh()
     nana = vtes.VTES["Nana Buruku"]

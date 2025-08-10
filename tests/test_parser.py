@@ -1,5 +1,8 @@
-import logging
+"""Test decklist parser."""
 
+from typing import Optional
+import logging
+from krcg import cards
 from krcg import deck
 from krcg import vtes
 from krcg import parser
@@ -7,17 +10,23 @@ from krcg import parser
 import pytest
 
 
-def check_comment(p, comment=None, card=None):
+def check_comment(
+    p: parser.Parser, comment: Optional[str] = None, card: Optional[cards.Card] = None
+) -> None:
+    """Check the comment."""
     if comment:
+        assert p.current_comment
         assert p.current_comment.string == comment
         if card:
+            assert p.current_comment
             assert p.current_comment.card == card
         p.current_comment = None
     else:
         assert p.current_comment is None
 
 
-def test_get_card(caplog: pytest.LogCaptureFixture):
+def test_get_card(caplog: pytest.LogCaptureFixture) -> None:
+    """Test card name & count parsing."""
     caplog.set_level(logging.DEBUG)
     p = parser.Parser(deck.Deck())
 
@@ -177,7 +186,8 @@ def test_get_card(caplog: pytest.LogCaptureFixture):
     ]
 
 
-def test_comments(caplog):
+def test_comments(caplog: pytest.LogCaptureFixture) -> None:
+    """Test comments parsing."""
     p = parser.Parser(deck.Deck())
 
     # proper line comments
@@ -261,7 +271,8 @@ def test_comments(caplog):
     assert caplog.record_tuples == [("krcg", 30, 'improper discipline "dominate"')]
 
 
-def test_preface(caplog):
+def test_preface(caplog: pytest.LogCaptureFixture) -> None:
+    """Test preface parsing (comments, description, etc.)."""
     # common TWDA headers that should be ignored (reset parser for preface)
     p = parser.Parser(deck.Deck())
     assert p.get_card("Comment:") == (None, 0)

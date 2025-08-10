@@ -1,11 +1,12 @@
-# Optimal seating computation
-#
-# When organising a tournament, it's important to devise an equitable seating
-# which also ensures a maximum of diversity over rounds and tables.
-# Original criteria:
-# https://groups.google.com/g/rec.games.trading-cards.jyhad/c/4YivYLDVYQc/m/CCH-ZBU5UiUJ
+"""Optimal seating computation.
 
-from typing import Callable, Dict, Hashable, Iterable, List, Optional, Tuple
+When organising a tournament, it's important to devise an equitable seating
+which also ensures a maximum of diversity over rounds and tables.
+Original criteria:
+https://groups.google.com/g/rec.games.trading-cards.jyhad/c/4YivYLDVYQc/m/CCH-ZBU5UiUJ
+"""
+
+from typing import Callable, Dict, Hashable, Iterable, List, Optional, Tuple, Sequence
 import collections
 import concurrent.futures
 import math
@@ -34,9 +35,10 @@ class Round(list[list[Hashable]]):
     """A list of lists representing the tables of a round."""
 
     @classmethod
-    def from_players(cls, players: List[Hashable]) -> "Round":
+    def from_players(cls, players: Sequence[Hashable]) -> "Round":
         """Build a round structure from a simple list of players."""
-        length = len(players)
+        players_list = list(players)
+        length = len(players_list)
         if length in {6, 7, 11}:
             raise ValueError(
                 f"A staggered round structure is required for {length} players"
@@ -45,9 +47,9 @@ class Round(list[list[Hashable]]):
         fives = (length - 4 * fours) // 5
         return cls(
             itertools.chain(
-                (players[i : i + 5] for i in range(0, fives * 5, 5)),
+                (players_list[i : i + 5] for i in range(0, fives * 5, 5)),
                 (
-                    players[i : i + 4]
+                    players_list[i : i + 4]
                     for i in range(fives * 5, fives * 5 + fours * 4, 4)
                 ),
             )
@@ -59,6 +61,7 @@ class Round(list[list[Hashable]]):
         return cls(t[:] for t in round_.iter_tables())
 
     def shuffle(self) -> None:
+        """Shuffle the round."""
         players = list(self.iter_players())
         random.shuffle(players)
         for i in range(self.players_count()):
@@ -295,16 +298,34 @@ class Score:
     )
 
     def __init__(self, rounds: List[Round], pm: Optional[PlayerMapping] = None):
+        """Constructor.
+
+        Args:
+            rounds: The rounds to score.
+            pm: The player mapping.
+        """
         pm = pm or player_mapping(rounds)
-        self.score_measure(sum(measure(pm, r) for r in rounds), len(rounds), pm)  # type: ignore
+        self.score_measure(
+            sum(measure(pm, r) for r in rounds),  # type: ignore
+            len(rounds),
+            pm,
+        )
 
     def __repr__(self) -> str:
+        """Return the representation of the score."""
         points = [f"{s:.2f}" if isinstance(s, float) else f"{s}" for s in self.rules]
         return f"{self.__class__}: {points}"
 
     def score_measure(
         self, measure: Measure, rounds_count: int, pm: PlayerMapping
     ) -> None:
+        """Score a measure.
+
+        Args:
+            measure: The measure to score.
+            rounds_count: The number of rounds.
+            pm: The player mapping.
+        """
         # transfers, starting vps: compute variance
         playing = measure.position[:, 0]
         playing_filter = playing.astype(bool)

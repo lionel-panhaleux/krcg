@@ -2,6 +2,7 @@
 
 import logging
 import os.path
+import pytest
 import textwrap
 
 import json
@@ -9,7 +10,8 @@ import json
 from krcg import twda
 
 
-def test_load_and_dump():
+def test_load_and_dump() -> None:
+    """Test load and dump."""
     test_twda = twda._TWDA()
     test_twda.load()
     assert len(test_twda) >= 3125
@@ -17,12 +19,13 @@ def test_load_and_dump():
     json.dumps(test_twda.to_json())
 
 
-def test_ampersand(TWDA):
+def test_ampersand(TWDA: twda._TWDA) -> None:
+    """Test ampersand."""
     assert TWDA["2020afb"].name == "Robbing & Rapeing"
 
 
-def test_2019grdojf(caplog):
-    """Recent classic layout, we must get everything seamlessly"""
+def test_2019grdojf(caplog: pytest.LogCaptureFixture) -> None:
+    """Recent classic layout, we must get everything seamlessly."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2019grdojf.html")) as f:
         TWDA.load_html(f)
@@ -140,8 +143,8 @@ def test_2019grdojf(caplog):
     assert caplog.record_tuples == []
 
 
-def test_2016ggs(caplog):
-    """Pretty straightforward, we must get everything seamlessly"""
+def test_2016ggs(caplog: pytest.LogCaptureFixture) -> None:
+    """Pretty straightforward, we must get everything seamlessly."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2016ggs.html")) as f:
         TWDA.load_html(f)
@@ -251,7 +254,7 @@ def test_2016ggs(caplog):
     assert caplog.record_tuples == []
 
 
-def test_2k5alboraya(caplog):
+def test_2k5alboraya(caplog: pytest.LogCaptureFixture) -> None:
     """Card name abbreviation (fetish club) with tailing point."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k5alboraya.html")) as f:
@@ -359,8 +362,8 @@ def test_2k5alboraya(caplog):
     assert caplog.record_tuples == []
 
 
-def test_2k4dcqualifier(caplog):
-    """A lot of comments (description, end) plus inline C-style card comment"""
+def test_2k4dcqualifier(caplog: pytest.LogCaptureFixture) -> None:
+    """A lot of comments (description, end) plus inline C-style card comment."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k4dcqualifier.html")) as f:
         TWDA.load_html(f)
@@ -534,8 +537,8 @@ def test_2k4dcqualifier(caplog):
     assert caplog.record_tuples == []
 
 
-def test_2010tcdbng(caplog):
-    """Card-level parenthesised commends (common)"""
+def test_2010tcdbng(caplog: pytest.LogCaptureFixture) -> None:
+    """Card-level parenthesised commends (common)."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
         TWDA.load_html(f)
@@ -674,8 +677,8 @@ def test_2010tcdbng(caplog):
     assert caplog.record_tuples == []
 
 
-def test_2012pslp(caplog):
-    """Discipline included after card names (common)"""
+def test_2012pslp(caplog: pytest.LogCaptureFixture) -> None:
+    """Discipline included after card names (common)."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2012pslp.html")) as f:
         TWDA.load_html(f)
@@ -767,10 +770,11 @@ def test_2012pslp(caplog):
     assert caplog.record_tuples == []
 
 
-def test_2k5sharednun(caplog):
-    """Discipline name as header must not be mistaken for the Master card
-    Note "2 Animalism" was changed to "Animalism x2" in decklist
-    This serves as a test for post-name counts decklists like 2k9linkopingmay
+def test_2k5sharednun(caplog: pytest.LogCaptureFixture) -> None:
+    """Discipline name as header must not be mistaken for the Master card.
+
+    Note "2 Animalism" was changed to "Animalism x2" in decklist.
+    This serves as a test for post-name counts decklists like 2k9linkopingmay.
     """
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
@@ -899,8 +903,9 @@ def test_2k5sharednun(caplog):
     ]
 
 
-def test_2020pihc(caplog):
-    """Discipline name as header must not be mistaken for the Master card
+def test_2020pihc(caplog: pytest.LogCaptureFixture) -> None:
+    """Discipline name as header must not be mistaken for the Master card.
+
     Long preface with formatted comment (keep spaces and carriage returns)
     Using long vampire name with comma and (ADV)
     """
@@ -1095,7 +1100,7 @@ for the day.
     ]
 
 
-def test_2011ptwolss(caplog):
+def test_2011ptwolss(caplog: pytest.LogCaptureFixture) -> None:
     """Card cited in the preface can lead to parsing errors."""
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
@@ -1215,7 +1220,7 @@ def test_2011ptwolss(caplog):
     assert caplog.record_tuples == []
 
 
-def test_2k8tfnwesterville(caplog):
+def test_2k8tfnwesterville(caplog: pytest.LogCaptureFixture) -> None:
     """A dubious "Reactions" header that has once been wrongly parsed as a card."""
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
@@ -1371,7 +1376,7 @@ def test_2k8tfnwesterville(caplog):
     ]
 
 
-def test_2k7fsmc(caplog):
+def test_2k7fsmc(caplog: pytest.LogCaptureFixture) -> None:
     """Cards listed in the preface is a common thing in the TWDA."""
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
@@ -1484,8 +1489,8 @@ def test_2k7fsmc(caplog):
     assert caplog.record_tuples == []
 
 
-def test_2k2stranger(caplog):
-    """Wrong card, short name and post count: "Jack 5" """
+def test_2k2stranger(caplog: pytest.LogCaptureFixture) -> None:
+    """Wrong card, short name and post count: "Jack 5"."""
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2k2stranger.html")) as f:
@@ -1606,8 +1611,8 @@ def test_2k2stranger(caplog):
     ]
 
 
-def test_2k2origins1(caplog):
-    """Camille Devereux / Raven discirimination
+def test_2k2origins1(caplog: pytest.LogCaptureFixture) -> None:
+    """Camille Devereux / Raven discirimination.
 
     Before the release of the 10th anniversary edition in 2004,
     Camille Devereux and Raven were two distinct vampires, so they should be kept
@@ -1804,8 +1809,8 @@ Combat (34)
     assert caplog.record_tuples == []
 
 
-def test_2k8TempleConcordance(caplog):
-    """Multiline comments with card names inside decklist"""
+def test_2k8TempleConcordance(caplog: pytest.LogCaptureFixture) -> None:
+    """Multiline comments with card names inside decklist."""
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(
@@ -1979,8 +1984,8 @@ def test_2k8TempleConcordance(caplog):
     ]
 
 
-def test_10211(caplog):
-    """Evolution where group is not indicated in the name (but at end of line)"""
+def test_10211(caplog: pytest.LogCaptureFixture) -> None:
+    """Evolution where group is not indicated in the name (but at end of line)."""
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "10211.html")) as f:
@@ -2236,8 +2241,8 @@ def test_10211(caplog):
     }
 
 
-def test_11435(caplog):
-    """New cards issue with Touch of Valeren"""
+def test_11435(caplog: pytest.LogCaptureFixture) -> None:
+    """New cards issue with Touch of Valeren."""
     caplog.set_level(logging.WARNING)
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "11435.html")) as f:

@@ -1,7 +1,10 @@
+"""Test seating."""
+
 from krcg import seating
 
 
-def test_rounds():
+def test_rounds() -> None:
+    """Test default rounds generation."""
     len(seating.get_rounds(list(range(5)), 2)) == 2
     len(seating.get_rounds(list(range(6)), 2)) == 3
     len(seating.get_rounds(list(range(7)), 2)) == 3
@@ -23,7 +26,8 @@ def test_rounds():
     len(seating.get_rounds(list(range(6)), 7)) == 9
 
 
-def test_round():
+def test_round() -> None:
+    """Test round generation."""
     assert seating.Round.from_players([1, 2, 3, 4]) == [[1, 2, 3, 4]]
     assert seating.Round.from_players([1, 2, 3, 4, 5]) == [[1, 2, 3, 4, 5]]
     assert seating.Round.from_players([1, 2, 3, 4, 5, 6, 7, 8]) == [
@@ -42,7 +46,8 @@ def test_round():
     ]
 
 
-def test_measure():
+def test_measure() -> None:
+    """Test measure."""
     M = seating.measure(
         {1: 0, 2: 1, 3: 2, 4: 3}, seating.Round.from_players([1, 2, 3, 4])
     )
@@ -78,7 +83,7 @@ def test_measure():
             [0, 0, 0, 0, 0, 0, 0, 0],
         ],
     ]
-    MM = sum((M, M))
+    MM: seating.Measure = sum((M, M))  # type: ignore
     assert MM.position.tolist() == [
         [2, 8, 2, 2, 0, 0, 0, 0],
         [2, 8, 4, 0, 2, 0, 0, 0],
@@ -210,7 +215,8 @@ def test_measure():
     ]
 
 
-def test_score():
+def test_score() -> None:
+    """Test score."""
     permutations = [[1, 2, 3, 4, 5], [2, 5, 3, 1, 4], [2, 1, 5, 4, 3]]
     rounds = [seating.Round.from_players(p) for p in permutations]
     score = seating.Score(rounds)
@@ -270,12 +276,16 @@ def test_score():
     # fast total is slightly lower because it does not sqrt the stdevs.
     # it has no impact in the "ordering" of solutions though, so it's fine
     pm = seating.player_mapping(rounds)
-    measure = sum(seating.measure(pm, r) for r in rounds)
+    measure: seating.Measure = sum(
+        seating.measure(pm, r)  # type: ignore
+        for r in rounds
+    )
     fast_total = seating.Score.fast_total(measure, len(rounds))
     assert fast_total == 10010003092.666666
 
 
-def test_optimise():
+def test_optimise() -> None:
+    """Test optimisation."""
     # mainly check the function executes, results are not stable
     rounds, score = seating.optimise(
         seating.get_rounds(list(range(13)), 3), iterations=1000
@@ -291,7 +301,8 @@ def test_optimise():
     assert score.R9 != []
 
 
-def test_optimise_6():
+def test_optimise_6() -> None:
+    """Test optimisation for 6 players."""
     rounds, score = seating.optimise(
         seating.get_rounds(list(range(6)), 2), iterations=1000
     )
@@ -301,7 +312,8 @@ def test_optimise_6():
     assert round(score.mean_transfers, 5) == 2.5
 
 
-def test_optimise_table():
+def test_optimise_table() -> None:
+    """Test optimisation for table."""
     permutations = [[1, 2, 3, 4, 5], [2, 5, 3, 1, 4]]
     rounds = [seating.Round.from_players(p) for p in permutations]
     # on second round, player 4 leaves. Table needs to be re-optimised

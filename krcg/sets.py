@@ -1,4 +1,4 @@
-"""Sets (expansions) information"""
+"""Sets (expansions) information."""
 
 import datetime
 
@@ -56,9 +56,10 @@ from . import utils
 
 
 class Set(utils.i18nMixin, utils.NamedMixin):
-    """A class representing a V:tES set (expansion)."""
+    """A class representing a VTES set (expansion)."""
 
     def __init__(self, **kwargs: str) -> None:
+        """Constructor."""
         super().__init__()
         self.id: int = 0
         self.abbrev: str = kwargs.get("abbrev", "")
@@ -100,6 +101,7 @@ class SetMap(dict[str, Set]):
     }
 
     def __init__(self) -> None:
+        """Constructor."""
         super().__init__()
         self.add(Set(abbrev="POD", name="Print on Demand"))
         for abbrev, (name, release_date) in self._UNLISTED.items():
@@ -118,6 +120,7 @@ class DefaultSetMap(dict):
     """
 
     def __getitem__(self, k: str) -> Set:
+        """Get a set from the map."""
         return Set(id="1", abbrev=k, name=k)
 
 

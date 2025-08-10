@@ -1,4 +1,4 @@
-"""Used for profiling the seating algorithm
+"""Used for profiling the seating algorithm.
 
 >>> python -m cProfile -o seating.stats profiling/seating.py
 >>> python -m pstats seating.stats

@@ -1,4 +1,4 @@
-"""Configuration"""
+"""Configuration."""
 
 #: static KRCG server
 KRCG_STATIC_SERVER = "https://static.krcg.org"

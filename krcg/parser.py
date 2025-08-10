@@ -398,6 +398,15 @@ class LineLogAdapter(logging.LoggerAdapter):
     def process(
         self, msg: str, kwargs: MutableMapping[str, Any]
     ) -> tuple[str, MutableMapping[str, Any]]:
+        """Process a message.
+
+        Args:
+            msg: The message to process.
+            kwargs: Additional keyword arguments.
+
+        Returns:
+            A tuple containing the processed message and the keyword arguments.
+        """
         if not self.extra:
             self.extra = {}
         assert isinstance(self.extra, dict)
@@ -423,6 +432,13 @@ class Comment:
         card: Optional[Any] = None,
         mark: Optional[Mark] = None,
     ):
+        """Constructor.
+
+        Args:
+            comment: The comment string.
+            card: The card associated with the comment.
+            mark: The mark type.
+        """
         self.card = card
         self.mark = mark
         self.string = comment
@@ -440,9 +456,11 @@ class Comment:
         return self
 
     def __bool__(self) -> bool:
+        """Return True if the comment is not empty."""
         return bool(self.string)
 
     def __str__(self) -> str:
+        """Return the comment string."""
         return self.string
 
     def finalize(self) -> None:
@@ -487,6 +505,11 @@ class Parser:
     """Deck list parser. Holds the parsing context."""
 
     def __init__(self, d: deck.Deck) -> None:
+        """Constructor.
+
+        Args:
+            d: The deck to parse.
+        """
         self.current_comment: Optional[Comment] = None
         self.preface = True
         self.separator = False  # used only for additional checks on the TWDA

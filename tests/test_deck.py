@@ -1,22 +1,30 @@
+"""Test deck."""
+
 import os
 
+from krcg import cards
 from krcg import deck
 from krcg import twda
 
 
-def test_cards():
+def test_cards() -> None:
+    """Test the deck cards."""
     d = deck.Deck()
-    d.update({"Fame": 3})
-    assert list(d.cards()) == [("Fame", 3)]
+    c = cards.Card()
+    c._name = "Fame"
+    d.update({c: 3})
+    assert list(d.cards()) == [(c, 3)]
 
 
-def test_cards_count():
+def test_cards_count() -> None:
+    """Test the deck cards count."""
     d = deck.Deck()
-    d.update({"Fame": 3, "Bum's Rush": 10, "Crusher": 4})
+    d.update({"Fame": 3, "Bum's Rush": 10, "Crusher": 4})  # type: ignore
     assert d.cards_count() == 17
 
 
-def test_deck_display():
+def test_deck_display() -> None:
+    """Test the deck display."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
         TWDA.load_html(f)
@@ -190,7 +198,11 @@ Crypt:
     )
 
 
-def test_from_amaranth():
+def test_from_amaranth() -> None:
+    """Test from amaranth.
+
+    Skip the test if offline (cf. conftest).
+    """
     d = deck.Deck.from_amaranth("4d3aa426-70da-44b7-8cb7-92377a1a0dbd")
     assert d.to_json() == {
         "id": "4d3aa426-70da-44b7-8cb7-92377a1a0dbd",
@@ -283,7 +295,11 @@ def test_from_amaranth():
     }
 
 
-def test_from_vdb():
+def test_from_vdb() -> None:
+    """Test from vdb.
+
+    Skip the test if offline (cf. conftest).
+    """
     d = deck.Deck.from_vdb("5b4312a1f")
     assert d.to_json() == {
         "id": "5b4312a1f",
@@ -376,7 +392,11 @@ def test_from_vdb():
     }
 
 
-def test_from_vtesdecks():
+def test_from_vtesdecks() -> None:
+    """Test from vtesdecks.
+
+    Skip the test if offline (cf. conftest).
+    """
     d = deck.Deck.from_vtesdecks("user-lionelpx-bf26e06e078348e8b5852d4e86dbdf6c")
     assert d.to_json() == {
         "id": "user-lionelpx-bf26e06e078348e8b5852d4e86dbdf6c",
@@ -482,7 +502,11 @@ def test_from_vtesdecks():
     }
 
 
-def test_deck_to_vdb():
+def test_deck_to_vdb() -> None:
+    """Test the deck to vdb.
+
+    Skip the test if offline (cf. conftest).
+    """
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
         TWDA.load_html(f)
@@ -498,7 +522,8 @@ def test_deck_to_vdb():
     )
 
 
-def test_deck_to_minimal_json():
+def test_deck_to_minimal_json() -> None:
+    """Test the deck to minimal json."""
     TWDA = twda._TWDA()
     with open(os.path.join(os.path.dirname(__file__), "2010tcdbng.html")) as f:
         TWDA.load_html(f)

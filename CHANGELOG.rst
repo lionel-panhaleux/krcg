@@ -1,10 +1,23 @@
 Changelog
 =========
 
-4.9 (unreleased)
+4.11 (2025-08-10)
 ----------------
 
-- Nothing changed yet.
+- Improved packaging & documentation.
+- Group and capacity should always be strings in search methods.
+
+
+4.10 (2025-08-09)
+----------------
+
+- Improved documentation.
+
+
+4.9 (2025-08-09)
+----------------
+
+- Improved packaging.
 
 
 4.8 (2025-06-01)

@@ -1,10 +1,13 @@
+"""Test intricate JSON states."""
+
 import textwrap
 
 from krcg import twda
 from krcg import vtes
 
 
-def test_card():
+def test_card() -> None:
+    """Test card real JSON."""
     assert vtes.VTES["Aid from Bats"].to_json() == {
         "_i18n": {
             "es": {
@@ -134,7 +137,8 @@ def test_card():
     }
 
 
-def test_multiple_rulings():
+def test_multiple_rulings() -> None:
+    """Test multiple rulings."""
     assert vtes.VTES["Toreador Grand Ball"].to_json() == {
         "_i18n": {
             "es": {
@@ -284,7 +288,8 @@ def test_multiple_rulings():
     }
 
 
-def test_twda(TWDA):
+def test_twda(TWDA: twda._TWDA) -> None:
+    """Test TWDA."""
     deck = TWDA["2020bf3hf"]
     test_twda = twda._TWDA()
     test_twda[deck.id] = deck
@@ -441,7 +446,8 @@ ousted pretty fast after that before any real damage to me was done.
     assert len(read_back) == 1
 
 
-def test_complex_rulings():
+def test_complex_rulings() -> None:
+    """Test complex rulings."""
     assert vtes.VTES["Spirit's Touch"].to_json() == {
         "_i18n": {
             "es": {

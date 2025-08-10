@@ -1,10 +1,4 @@
-"""Cards source:
-load(): krcg-static version from https://static.krcg.org/data/vtes.json
-load_from_vekn() default: CSV from https://github.com/GiottoVerducci/vtescsv (branch "main")
-load_from_vekn() with VEKN_NET_CSV=1: CSV from http://www.vekn.net/images/stories/downloads instead of GitHub
-load_from_vekn() with LOCAL_CARDS=1: CSV in `cards` folder/package in this repository
-load_from_vekn() with VTESCSV_GITHUB_BRANCH: override GitHub branch/commit/ref for vtescsv
-"""
+"""Cards and rulings."""
 
 from typing import (
     Any,
@@ -65,6 +59,8 @@ CardDiff = Dict[
 
 
 class Card(utils.i18nMixin, utils.NamedMixin):
+    """A VTES card."""
+
     #: official cards renaming not registered in cards "Aka" field
     _AKA = {
         101179: ["mask of 1,000 faces"],
@@ -321,6 +317,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     }
 
     def __init__(self) -> None:
+        """Constructor."""
         super().__init__()
         self.id = 0
         #: use `vekn_name` or `name` properties instead
@@ -361,6 +358,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.rulings: list[dict] = []
 
     def diff(self, rhs: "Card") -> CardDiff:
+        """Compute the differences between two cards."""
         res: CardDiff = {}
         if self.name != rhs.name:
             res["name"] = [self.name, rhs.name]
@@ -448,7 +446,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     @property
     @functools.lru_cache(1)
     def _key(self) -> str:
-        """Used internally for advanced / evolutions / variants computations"""
+        """Used internally for advanced / evolutions / variants computations."""
         if self.group == "ANY":
             key = "ANY"
         else:
@@ -458,6 +456,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         return key
 
     def get_suffix(self, minimal: bool = False) -> str:
+        """Get the suffix for the card (ADV, group, etc.)."""
         suffixes: list[str] = []
         if self.group and (self.is_evolution or not minimal):
             if self.group == "ANY":
@@ -860,6 +859,11 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
     }
 
     def __init__(self, aliases: Optional[Mapping[str, str]] = None):
+        """Constructor.
+
+        Args:
+            aliases: Optional aliases for card names.
+        """
         super().__init__(aliases=config.ALIASES if aliases is None else aliases)
 
     def __iter__(self) -> Generator[Card, None, None]:  # type: ignore
@@ -873,7 +877,10 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
         return len([c for c in self])
 
     def load(self) -> None:
-        """Load VTES cards from KRCG static."""
+        """Load VTES cards from KRCG static.
+
+        https://static.krcg.org/data/vtes.json
+        """
         json_url = urllib.parse.urljoin(config.KRCG_STATIC_SERVER, "data/vtes.json")
         logger.info("Loading cards from KRCG static: %s", json_url)
         r = requests.request("GET", json_url)
@@ -921,7 +928,13 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
         self._map_names()
 
     def load_from_vekn(self) -> None:
-        """Load cards from official VEKN CSV files (and optional translations)."""
+        """Load cards from official VEKN CSV files (and optional translations).
+
+        - default: CSV from https://github.com/GiottoVerducci/vtescsv
+        - with VEKN_NET_CSV=1: CSV from http://www.vekn.net instead of GitHub
+        - with LOCAL_CARDS=1: CSV in `cards` folder/package in this repository
+        - with VTESCSV_GITHUB_BRANCH: override GitHub branch for vtescsv
+        """
         set_dict = sets.SetMap()
         # download the zip files containing the official CSV
         if LOCAL_CARDS:
@@ -1101,6 +1114,11 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
                 break
 
     def load_rulings(self) -> None:
+        """Load rulings.
+
+        - default: from GitHub https://github.com/vtes-biased/vtes-rulings
+        - LOCAL_CARDS=1: from local package data.
+        """
         if LOCAL_CARDS:
             # Load rulings from local package data (synced via just sync-cards)
             with (
@@ -1206,12 +1224,14 @@ class CardTrie:
     """A helper class for text search inside a card.
 
     Combines results from multiple languages.
-
-    Args:
-        attribute: Card attribute to index (e.g., "name", "card_text", "flavor_text", or "draft").
     """
 
     def __init__(self, attribute: str):
+        """Constructor.
+
+        Args:
+            attribute: Card attribute to index (e.g., "name", "card_text").
+        """
         self.attribute = attribute
         self.tries: collections.defaultdict[str, utils.Trie] = collections.defaultdict(
             utils.Trie
@@ -1236,8 +1256,8 @@ class CardTrie:
             lang: Optional language code for secondary search.
 
         Returns:
-            Scored results as {lang: Counter}, with no duplicates. If the same card is matched in both
-            `lang` and English, prefer the `lang` version.
+            Scored results as {lang: Counter}, with no duplicates.
+            If a card is matched in both `lang` and English, prefer the `lang` version.
         """
         base_search = self.tries["en"].search(text)
         lang_search = collections.Counter[Card]()
@@ -1346,6 +1366,7 @@ class CardSearch:
         )
 
     def __init__(self) -> None:
+        """Constructor."""
         for attr in self.trie_dimensions:
             setattr(self, f"_{attr}", CardTrie(attr))
         for attr in self.set_dimensions:
@@ -1356,6 +1377,7 @@ class CardSearch:
         self._normalized_set_enum_map: Optional[dict[str, dict[str, str]]] = None
 
     def __bool__(self) -> bool:
+        """Check if the search index is not empty."""
         return bool(self._all)
 
     def clear(self) -> None:
@@ -1397,12 +1419,13 @@ class CardSearch:
             self.clan["none"].add(card)
         if card.group:
             try:
-                self.group[int(card.group)].add(card)
+                int(card.group)
+                self.group[card.group].add(card)
             except ValueError:  # group "any"
                 for i in range(1, self._MAX_GROUP + 1):
-                    self.group[i].add(card)
+                    self.group[str(i)].add(card)
         if card.capacity:
-            self.capacity[card.capacity].add(card)
+            self.capacity[str(card.capacity)].add(card)
         if card.capacity_change:
             self.bonus["Capacity"].add(card)
         if re.search(r"\+(\d|X)\s+(b|B)leed", card.card_text):
@@ -1427,6 +1450,11 @@ class CardSearch:
 
     @property
     def set_dimensions_enums(self) -> Dict[str, List[str]]:
+        """List allowed values for each set dimensions.
+
+        Returns:
+            Dictionary mapping set dimensions to their allowed values.
+        """
         if not self._set_dimensions_enums:
             self._set_dimensions_enums = {
                 attr: sorted(set(getattr(self, attr).keys()))
@@ -1483,11 +1511,16 @@ class CardSearch:
             if isinstance(values, str):
                 values = [values]
             if not isinstance(values, collections.abc.Iterable):
-                values = [values]
+                values = [str(values)]
             dim_result: Optional[set] = None
             for value in values:
                 # normalize value if it is not a discipline: those are case sensitive
                 normalized: str | None = value
+                # group and capacity are ints in the database, but strings in search
+                # this can be misleading for users, so we convert to string just in case
+                # also, this was how the library worked before 4.11
+                if isinstance(value, int):
+                    value = str(value)
                 if dim != "discipline":
                     normalized = self._normalized_map.get(dim, {}).get(
                         utils.normalize(value)

@@ -77,13 +77,6 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
     It matches keys that are "close enough" if there is no exact match, and
     provides the ability to specify aliases for certain keys. Aliases are only
     matched exactly (not closely like normal keys).
-
-    Args:
-        threshold: Minimum string length for fuzzy matching.
-        cutoff: Minimum similarity to consider a close candidate a match.
-        aliases: Optional mapping of alias keys to canonical keys.
-        *args: Additional mapping args passed to ``Mapping``.
-        **kwargs: Additional mapping kwargs passed to ``Mapping``.
     """
 
     def __init__(
@@ -94,6 +87,15 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
         *args: Any,
         **kwargs: Any,
     ) -> None:
+        """Constructor.
+
+        Args:
+            threshold: Minimum string length for fuzzy matching.
+            cutoff: Minimum similarity to consider a close candidate a match.
+            aliases: Optional mapping of alias keys to canonical keys.
+            *args: Additional mapping args passed to internal _dict.
+            **kwargs: Additional mapping kwargs passed to internal _dict.
+        """
         self.threshold = threshold
         self.cutoff = cutoff
         self.aliases: dict[Hashable, H] = dict(aliases) if aliases else {}
@@ -172,6 +174,7 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
             return default
 
     def __contains__(self, key: object) -> bool:
+        """Check if a key is in the dict (does fuzzy match)."""
         try:
             self.__getitem__(key)  # type: ignore
             return True
@@ -179,6 +182,7 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
             return False
 
     def __setitem__(self, key: H, value: Any) -> None:
+        """Set a key."""
         # testing for cache validity to avoid clearing it is premature optimization
         # doing a fuzzy match at each insertion is costly
         # the FuzzyDict is more likely to be filled once then used
@@ -186,6 +190,7 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
         self._dict[normalize(key)] = value
 
     def __delitem__(self, key: H) -> None:
+        """Delete a key."""
         self._clear_cache()
         del self._dict[normalize(key)]
 
@@ -195,9 +200,11 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
 
     # Required by MutableMapping
     def __len__(self) -> int:
+        """Return the number of real keys (no aliases) in the dict."""
         return len(self._dict)
 
     def __iter__(self) -> Iterator[H]:
+        """Iterate over the real keys in the dict (no duplicates from aliases)."""
         return iter(self._dict)
 
 
@@ -216,6 +223,7 @@ class Trie(collections.defaultdict):
     """
 
     def __init__(self) -> None:
+        """Constructor."""
         super().__init__(lambda: collections.defaultdict(int))
 
     @staticmethod
@@ -251,6 +259,7 @@ class Trie(collections.defaultdict):
 
         Args:
             text: The text to search.
+
         Returns:
             Scored references.
         """
@@ -308,26 +317,31 @@ class i18nMixin:
     """
 
     def __init__(self) -> None:
+        """Constructor."""
         super().__init__()
         self._i18n: dict[str, dict[str, Trans]] = collections.defaultdict(dict)
 
     def i18n_set(self, lang: str, trans: Dict[str, Trans]) -> None:
+        """Set the translations for a language."""
         for field, value in trans.items():
             if value and not hasattr(self, field):
                 raise ValueError(f'i18n: "{field}" not present on instance')
         self._i18n[lang[:2]].update(trans)
 
     def i18n_variants(self, field: str) -> Generator[Tuple[str, Trans], None, None]:
+        """Return the variants for a field."""
         for lang, trans in self._i18n.items():
             if field in trans:
                 yield lang, trans[field]
 
     def i18n(self, lang: str) -> Dict[str, Trans]:
+        """Return the translations for a language."""
         if lang[:2] == "en":
             return self.__dict__
         return self._i18n.get(lang[:2], {})
 
     def i18n_field(self, lang: str, field: str) -> Trans:
+        """Return the translation for a field."""
         if lang[:2] == "en":
             return getattr(self, field)  # type: ignore[no-any-return]
         ret = self._i18n.get(lang[:2], {})
@@ -342,22 +356,29 @@ class NamedMixin:
     """
 
     def __bool__(self) -> bool:
+        """Return True if the object has an ID."""
         return bool(self.id)  # type: ignore
 
     def __index__(self) -> int:
+        """Return the ID as an integer."""
         return self.id  # type: ignore
 
     def __str__(self) -> str:
+        """Return the name as a string."""
         return self.name  # type: ignore
 
     def __repr__(self) -> str:
+        """Return the representation of the object."""
         return f"<{self.__class__.__name__} #{self.id} {self.name}>"  # type: ignore
 
     def __hash__(self) -> int:
+        """Return the hash of the object."""
         return self.id  # type: ignore
 
     def __eq__(self, rhs: Any) -> bool:
+        """Return True if the object is equal to another object."""
         return rhs and self.id == getattr(rhs, "id", None)  # type: ignore
 
     def __lt__(self, rhs: Any) -> bool:
+        """Return True if the object is less than another object."""
         return rhs and hasattr(rhs, "name") and self.name < rhs.name  # type: ignore

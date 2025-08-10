@@ -1,4 +1,4 @@
-"""Deck class: serialization and card access under conditions"""
+"""Deck class: serialization and card access under conditions."""
 
 from typing import Any, Callable, Dict, Generator, Optional, TextIO
 import arrow
@@ -25,6 +25,7 @@ class Deck(collections.Counter[cards.Card]):
     """A VTES deck, including meta information such as date, author and comments."""
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
+        """Constructor."""
         self.id: Optional[str] = kwargs.pop("id", None)
         self.author: Optional[str] = kwargs.pop("author", None)
         super().__init__(*args, **kwargs)
@@ -308,9 +309,11 @@ class Deck(collections.Counter[cards.Card]):
                     self.cards_comments[c] = card["comments"]
 
     def __str__(self) -> str:
+        """Return the name of the deck, or "(No Name)" if it has no name."""
         return self.name or "(No Name)"
 
     def __repr__(self) -> str:
+        """Return the representation of the deck."""
         return f"<Deck #{self.id}: {self.name}>"
 
     @property
@@ -390,7 +393,7 @@ class Deck(collections.Counter[cards.Card]):
         }.get(format, self._to_txt_twd)()
 
     def _to_txt_twd(self) -> str:
-        """A consistent deck display matching the most recent format used in TWDA.html
+        """A consistent deck display matching the most recent format used in TWDA.html.
 
         Cards are displayed in the order given by the config.TYPE_ORDER list.
         The output matches the newest TWDA entries format exactly.
@@ -551,7 +554,13 @@ class Deck(collections.Counter[cards.Card]):
 
 
 class DeckScore:
+    """Score: number of game wins (GW), round VP (VP), and finals VP (+X).
+
+    The score is a string like "2GW3+1", "1GW", "3VP", "1GW3", etc.
+    """
+
     def __init__(self, s: Optional[str] = None):
+        """Constructor."""
         self.game_wins = None
         self.round_vps = None
         self.finals_vps = None

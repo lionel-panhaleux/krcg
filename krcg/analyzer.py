@@ -15,6 +15,8 @@ logger = logging.getLogger("krcg")
 
 
 class AnalysisError(Exception):
+    """Exception raised when the analysis fails."""
+
     pass
 
 
@@ -22,13 +24,15 @@ class Analyzer(object):
     """Analyze TWDA, compute card affinities, and build decks.
 
     The "affinity" is the number of decks where two cards are played together.
-
-    Args:
-        decks: An iterable of decks to use as the TWDA sample.
-        spoilers: If True, downweight overly common cards when sampling.
     """
 
     def __init__(self, decks: Iterable[deck.Deck], spoilers: bool = True):
+        """Constructor.
+
+        Args:
+            decks: An iterable of decks to use as the TWDA sample.
+            spoilers: If True, downweight overly common cards when sampling.
+        """
         self.decks = list(decks)
         if spoilers and len(self.decks) > 50:
             self.spoilers = {
@@ -263,7 +267,7 @@ class Analyzer(object):
     def build_deck_part(
         self, *args: cards.Card, condition: Optional[Callable] = None
     ) -> None:
-        """Build a deck part using given condition
+        """Build a deck part using given condition.
 
         Condition is usually `VTES.is_crypt` or `VTES.is_library` but any
         condition on cards will work.

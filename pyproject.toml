@@ -40,6 +40,9 @@ Repository = "https://github.com/lionel-panhaleux/krcg"
 [tool.hatch.build.targets.wheel]
 packages = ["krcg", "cards"]
 
+[tool.ruff.lint]
+select = ["E", "D", "F", "W"]
+
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
@@ -49,7 +52,6 @@ dev-dependencies = [
     "coverage",
     "ipython",
     "mypy",
-    "pydoclint",
     "pytest",
     "ruff",
     "types-PyYAML",
@@ -58,14 +60,6 @@ dev-dependencies = [
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-
-[tool.pydoclint]
-style = "google"
-# Use type hints + mypy; avoid requiring types in docstrings
-arg-type-hints-in-docstring = false
-arg-type-hints-in-signature = true
-check-return-types = false
-check-yield-types = false
 
 [tool.mypy]
 disallow_untyped_defs = true
