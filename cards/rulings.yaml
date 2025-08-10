@@ -721,9 +721,9 @@
     [RTR 19980623]
   - Strength or other bonus from the minion or other cards in play are not counted for the damage limit. [LSJ 20020821] [LSJ
     20020904]
-  - Cost modifications that are not limited to cards "played" apply before checking for card cost (eg. {Black Cat} can equip
-    with a {Combat Shotgun}, {Centralized Background Check} makes {.44 Magnum} too costly). [LSJ 20040701] [LSJ 20080125]
-    [ANK 20181216]
+  - Cost modifications that are not limited to cards "played" are considered before checking for card cost (eg. {Black Cat}
+    can equip with a {Combat Shotgun}, {Centralized Background Check} makes {.44 Magnum} too costly). [LSJ 20040701] [LSJ
+    20080125] [ANK 20181216]
   - Paying from another source (eg. {Alan Sovereign (ADV)}) does not reduce the cost as seen by Concealed Weapon. [LSJ 20080125]
   - Conditional damage effects (e.g. {Poker}'s aggravated damage against Kiasyd) are not considered when checking {Concealed
     Weapon}'s "with a regular strike" qualification. [LSJ 20020729]
