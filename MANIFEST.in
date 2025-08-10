@@ -5,7 +5,7 @@ graft krcg
 prune profiling
 prune tests
 prune utils
-exclude Makefile
+exclude justfile
 exclude dark-pack.png
 exclude .coverage
 exclude .markdownlint.json
