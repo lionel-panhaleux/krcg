@@ -4769,7 +4769,7 @@ G00131|Equip/employ/recruit outside of an action:
     20080815]
   - This is not an action, so cost reductions referring to an action do not apply.  (e.g. {Charisma}, {Erichtho}) [LSJ 20090115-1]
     [ANK 20170309]
-  - The ally card is not "played" by the minion (e.g. {Louhi}'s ability cannot cancel it). [ANK 20201229]
+  - The card is not "played" by the minion (e.g. {Louhi}'s ability cannot cancel it). [ANK 20201229]
   - Cost reductions that are not referring to an action apply . [ANK 20230824] [RTR 20070707]
 G00132|Equip/Employ/Recruit action:
   - Does not prevent the acting vampire from playing the equipment/retainer/ally directly this turn if he unlocks (not the
