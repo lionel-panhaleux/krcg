@@ -87,9 +87,13 @@ class _TWDA(collections.OrderedDict):
                 author = author.split(",")[0]
                 author = author.split("&")[0]
                 author = author.split(" and ")[0]
-                self.by_author[utils.normalize(author)].append(id)
+                normalized_author = utils.normalize(author)
+                if normalized_author:
+                    self.by_author[normalized_author].append(id)
             if d.player:
-                self.by_author[utils.normalize(d.player)].append(id)
+                normalized_player = utils.normalize(d.player)
+                if normalized_player:
+                    self.by_author[normalized_player].append(id)
 
 
 TWDA = _TWDA()

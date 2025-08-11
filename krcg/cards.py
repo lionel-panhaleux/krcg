@@ -1373,8 +1373,8 @@ class CardSearch:
             setattr(self, f"_{attr}", collections.defaultdict(set))
         # caches
         self._all: set[Card] = set()
-        self._set_dimensions_enums: Optional[dict[str, list[str]]] = None
-        self._normalized_set_enum_map: Optional[dict[str, dict[str, str]]] = None
+        self._set_dimensions_enums: dict[str, list[str]] = {}
+        self._normalized_set_enum_map: dict[str, dict[str, str]] = {}
 
     def __bool__(self) -> bool:
         """Check if the search index is not empty."""
@@ -1387,11 +1387,15 @@ class CardSearch:
                 getattr(self, attr).clear()
             except TypeError:
                 pass
+        # clear caches
+        self._all.clear()
+        self._set_dimensions_enums.clear()
+        self._normalized_set_enum_map.clear()
 
     def add(self, card: Card) -> None:
         """Add a card to the search index."""
-        self._set_dimensions_enums = None
-        self._normalized_set_enum_map = None
+        self._set_dimensions_enums.clear()
+        self._normalized_set_enum_map.clear()
         self._all.add(card)
         self.name.add(card)
         for type_ in card.types:

@@ -577,7 +577,11 @@ class DeckScore:
             raise ValueError("No score information")
         self.game_wins = score.group("game_wins")
         self.round_vps = score.group("round_vps")
+        if self.round_vps:
+            self.round_vps = self.round_vps.replace(",", ".")
         self.finals_vps = score.group("finals_vps")
+        if self.finals_vps:
+            self.finals_vps = self.finals_vps.replace(",", ".")
 
     def __str__(self) -> str:
         """Return the compact string representation (e.g., 2GW3+1)."""
