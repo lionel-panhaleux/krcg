@@ -110,6 +110,32 @@ def test_card() -> None:
         "types": ["Combat"],
         "rulings": [
             {
+                "cards": [
+                    {
+                        "id": 100916,
+                        "name": "Hidden Lurker",
+                        "text": "{Hidden Lurker}",
+                        "usual_name": "Hidden Lurker",
+                        "vekn_name": "Hidden Lurker",
+                    },
+                ],
+                "group": "Strikes with optional maneuver",
+                "references": [
+                    {
+                        "label": "LSJ 20021028",
+                        "text": "[LSJ 20021028]",
+                        "url": (
+                            "https://groups.google.com/g/rec.games.trading-cards.jyhad/"
+                            "c/g0GGiVIxyis/m/35WA-O9XrroJ"
+                        ),
+                    },
+                ],
+                "text": (
+                    "The optional maneuver cannot be used if the strike cannot be used "
+                    "(eg. {Hidden Lurker}). [LSJ 20021028]"
+                ),
+            },
+            {
                 "group": "Optional press",
                 "references": [
                     {
