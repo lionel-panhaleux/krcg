@@ -88,6 +88,7 @@ ALIASES = {
     "acad. hg": "Academic Hunting Ground",
     "univ. hg": "University Hunting Ground",
     "univ hg": "University Hunting Ground",
+    "vozhd of sofia, the": "Vozhd of Sofia",
     # powerbases
     "pb: barranquilla": "Powerbase: Barranquilla",
     "pb: berlin": "Powerbase: Berlin",

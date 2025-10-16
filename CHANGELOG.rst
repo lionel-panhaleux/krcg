@@ -1,6 +1,18 @@
 Changelog
 =========
 
+4.15 (2025-10-16)
+----------------
+
+- Fix parsing common typo on Vozhd of Sofia
+
+
+4.14 (2025-10-09)
+----------------
+
+- Fix non-english search.
+
+
 4.13 (2025-08-11)
 ----------------
 

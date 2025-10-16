@@ -185,6 +185,11 @@ def test_get_card(caplog: pytest.LogCaptureFixture) -> None:
         ("krcg", logging.WARNING, 'failed to parse "deny x2, confusion x4"')
     ]
 
+    # new NR cases
+    caplog.clear()
+    assert p.get_card("1x Vozhd of Sofia, The") == (vtes.VTES["Vozhd of Sofia"], 1)
+    check_comment(p)
+
 
 def test_comments(caplog: pytest.LogCaptureFixture) -> None:
     """Test comments parsing."""
