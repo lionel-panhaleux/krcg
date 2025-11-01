@@ -86,7 +86,7 @@ bump level="minor": check
 # Publish package to PyPI
 publish:
     @echo "📦 Publishing to PyPI..."
-    @UV_PUBLISH_TOKEN="$(tr -d '\n' < .pypi_token)" uv publish
+    @UV_PUBLISH_TOKEN="$(tr -d '\n' < ~/.pypi_token)" uv publish
     @echo "✅ Release completed!"
 
 release: sync-cards clean-build check test
