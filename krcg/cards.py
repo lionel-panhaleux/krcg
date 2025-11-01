@@ -272,6 +272,12 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "PL": "Lasombra",
             "PH": "Hecata",
         },
+        "SV5": {
+            "PPower": "Path of Power and the Inner Voice",
+            "PDeath": "Path of Death",
+            "PCathari": "Path of Cathari",
+            "PCaine": "Path of Caine",
+        },
     }
     _REPRINTS_RELEASE_DATE = {
         ("KoT", "Reprint Bundle 1"): datetime.date(2018, 5, 5),
