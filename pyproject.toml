@@ -46,8 +46,8 @@ select = ["E", "D", "F", "W"]
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "certifi",
     "coverage",
     "ipython",
