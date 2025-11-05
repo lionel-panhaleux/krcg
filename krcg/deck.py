@@ -131,7 +131,7 @@ class Deck(collections.Counter[cards.Card]):
         response.raise_for_status()
         data: Dict[str, Any] = response.json()
         logger.debug("VTESDecks replied: %s", data)
-        ret = cls(id=uid, author=data.get("author", data.get("owner", None)))
+        ret = cls(id=uid, author=data.get("author", None))
         ret.name = data.get("name", None)
         ret.comments = data.get("description", "")
         date = data.get("modifyDate")
@@ -180,7 +180,7 @@ class Deck(collections.Counter[cards.Card]):
         elif result.netloc == "vtesdecks.com":
             if not result.path.startswith("/deck"):
                 raise ValueError("Unknown VTESDecks URL path")
-            return cls.from_vtesdecks(result.path[5:])
+            return cls.from_vtesdecks(result.path[6:])
         raise ValueError("Unknown deck URL provider")
 
     def check(self) -> bool:
