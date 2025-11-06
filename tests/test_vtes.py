@@ -258,6 +258,7 @@ def test_search_dimensions() -> None:
             "Venice",
             "Versailles",
             "Washington, D.C.",
+            "York",
         ],
         "trait": [
             "Black Hand",
@@ -331,6 +332,7 @@ def test_search_dimensions() -> None:
             "2023 Spanish National Promo",
             "2023 War of the Ages Promo",
             "2023 Zaragosa Promo",
+            "2025 CC Promo",
             "2025 European GP Promo",
             "Anarch Unbound",
             "Anarchs",
