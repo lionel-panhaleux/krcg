@@ -178,7 +178,7 @@ class Deck(collections.Counter[cards.Card]):
                 return cls.from_vdb(result.path[7:])
             raise ValueError("Unknown VDB URL format")
         elif result.netloc == "vtesdecks.com":
-            if not result.path.startswith("/deck"):
+            if not result.path.startswith("/deck/"):
                 raise ValueError("Unknown VTESDecks URL path")
             return cls.from_vtesdecks(result.path[6:])
         raise ValueError("Unknown deck URL provider")
