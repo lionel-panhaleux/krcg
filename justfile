@@ -46,13 +46,13 @@ update: sync-cards
     uv sync --upgrade --dev
     @echo "✅ Dependencies updated!"
 
-# Clean build and cache artifacts
-# Clean build and cache artifacts
+# Clean build artifacts
 clean-build:
     @echo "🧹 Cleaning build artifacts..."
     rm -rf build dist
     @echo "✅ Cleaned!"
 
+# Clean build and cache artifacts
 clean: clean-build
     @echo "🧹 Cleaning cache..."
     rm -rf .pytest_cache .mypy_cache .ruff_cache
@@ -71,7 +71,7 @@ build:
     uv build
     @echo "✅ Package built!"
 
-# Bump the version (levle: minor | major)
+# Bump the version (level: minor | major)
 bump level="minor": check
     #!/usr/bin/env bash
     set -euo pipefail
