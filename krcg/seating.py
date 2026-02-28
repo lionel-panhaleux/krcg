@@ -340,11 +340,11 @@ class Score:
             numpy.sum((transfers - self.mean_transfers) ** 2) / transfers.size
         )
         self.vps = [
-            Deviation(rpm[i], vps[i])
+            Deviation(rpm[int(i)], vps[int(i)])
             for i in numpy.flatnonzero(abs(self.mean_vps - vps) > 1 / rounds_count)
         ]
         self.transfers = [
-            Deviation(rpm[i], transfers[i])
+            Deviation(rpm[int(i)], transfers[int(i)])
             for i in numpy.flatnonzero(
                 abs(self.mean_transfers - transfers) > 1 / rounds_count
             )
