@@ -256,10 +256,18 @@ _CLAN = "|".join(
         "redeemer",
     ]
 )
+_PATH = "|".join(
+    [
+        "caine",
+        "cathari",
+        "death",
+        "power",
+    ]
+)
 _CRYPT_TAIL = r"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{})\s+".format(
     _DISCIPLINE_TRIGRAM
-) + r"({}|{}|{}|\s|:|g?\d{{1,2}}|any|g\*)*)|%NOMATCH%)?".format(
-    _DISCIPLINE_TRIGRAM, _TITLE, _CLAN
+) + r"({}|{}|{}|{}|\s|:|g?\d{{1,2}}|any|g\*)*)|%NOMATCH%)?".format(
+    _DISCIPLINE_TRIGRAM, _TITLE, _CLAN, _PATH
 )
 _PUNCTUATED_TRAIT = "|".join(
     [
