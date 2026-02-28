@@ -44,6 +44,7 @@ VTESCSV_GITHUB_BRANCH = os.getenv(
     "VTESCSV_GITHUB_BRANCH", "main"
 )  # use github version (default mode, change branch to test incoming changes)
 LOCAL_CARDS = os.getenv("LOCAL_CARDS")  # use local CSV (offline mode)
+NO_TRANSLATIONS = os.getenv("NO_TRANSLATIONS")  # no translations from vekn.net
 VEKN_NET_CSV = os.getenv(
     "VEKN_NET_CSV"
 )  # force using official VEKN CSV zip from vekn.net instead of GitHub
@@ -277,6 +278,11 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             "PDeath": "Path of Death",
             "PCathari": "Path of Cathari",
             "PCaine": "Path of Caine",
+        },
+        "NB3C": {
+            "PR": "Ravnos",
+            "PS": "Salubri",
+            "PT": "Tzimisce",
         },
     }
     _REPRINTS_RELEASE_DATE = {
@@ -977,7 +983,7 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
             main_files = utils.get_github_csv(
                 self._GITHUB_BRANCH[0], *self._GITHUB_BRANCH[1]
             )
-        if LOCAL_CARDS:
+        if NO_TRANSLATIONS:
             logger.info(
                 "Skipping translations (LOCAL_CARDS=1): not downloading VEKN i18n CSV"
             )
