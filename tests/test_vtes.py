@@ -1265,7 +1265,9 @@ def test_vekn() -> None:
 
 def test_promo_scans() -> None:
     """Test promo scans."""
-    assert vtes.VTES["The Dracon"].to_json() == {
+    test_card = vtes.VTES["The Dracon"].to_json()
+    test_card.pop("rulings", None)  # rulings can change, prevent flakiness here
+    assert test_card == {
         "_name": "Dracon, The",
         "_set": "Promo-20150216, Promo-20181004:HB2, Promo-20190408, POD:DTC",
         "artists": [
