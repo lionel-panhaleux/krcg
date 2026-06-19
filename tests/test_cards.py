@@ -271,3 +271,79 @@ def test_load_from_vekn_local(monkeypatch: pytest.MonkeyPatch) -> None:
         cm.load_from_vekn()
     assert not [w.message for w in wrec]
     assert 200076 in cm  # Anarch Convert
+
+
+# Bundled i18n CSV filenames for Spanish (matches CardMap._VEKN_CSV_I18N["es-ES"]).
+_ES_I18N_FILES = ("vtessets.es-ES.csv", "vtescrypt.es-ES.csv", "vteslib.es-ES.csv")
+_ES_I18N_CONTENT = {
+    "vtessets.es-ES.csv": '"Abbrev","Full Name"\n',
+    "vtescrypt.es-ES.csv": '"Id","Name","Name es-ES","Card Text"\n',
+    "vteslib.es-ES.csv": (
+        '"Id","Name","Name es-ES","Card Text"\n'
+        '"100588","Dreams of the Sphinx","Sueños de la Esfinge","Unica."\n'
+    ),
+}
+
+
+def test_load_local_i18n_resolves_translated_name(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Offline mode loads bundled i18n CSVs so a localized name resolves to English.
+
+    Network-free: the Spanish translation trio is injected via the local-CSV
+    accessors rather than downloaded from vekn.net.
+    """
+    import csv as _csv
+    import io as _io
+
+    monkeypatch.setattr(cards, "LOCAL_CARDS", "1")
+    monkeypatch.setattr(cards, "NO_TRANSLATIONS", None)
+    monkeypatch.setattr(cards, "VEKN_NET_CSV", None)
+
+    real_reader = cards._local_csv_reader
+    real_exists = cards._local_csv_exists
+
+    def fake_exists(name: str) -> bool:
+        if name in _ES_I18N_CONTENT:
+            return True
+        if name in cards.CardMap._VEKN_CSV_I18N["fr-FR"][1]:
+            return False  # French not bundled — must be skipped, not fetched
+        return real_exists(name)
+
+    def fake_reader(name: str) -> "_csv.DictReader":
+        if name in _ES_I18N_CONTENT:
+            return _csv.DictReader(_io.StringIO(_ES_I18N_CONTENT[name]))
+        return real_reader(name)
+
+    monkeypatch.setattr(cards, "_local_csv_exists", fake_exists)
+    monkeypatch.setattr(cards, "_local_csv_reader", fake_reader)
+
+    cm = cards.CardMap()
+    cm.load_from_vekn()
+
+    # English card still present, and the Spanish alias resolves to it.
+    assert 100588 in cm
+    assert cm["Sueños de la Esfinge"].name == "Dreams of the Sphinx"
+
+
+def test_load_local_skips_missing_i18n(monkeypatch: pytest.MonkeyPatch) -> None:
+    """When no i18n CSV is bundled, offline load stays English-only (no network)."""
+    monkeypatch.setattr(cards, "LOCAL_CARDS", "1")
+    monkeypatch.setattr(cards, "NO_TRANSLATIONS", None)
+    monkeypatch.setattr(cards, "VEKN_NET_CSV", None)
+    monkeypatch.setattr(
+        cards,
+        "_local_csv_exists",
+        lambda name: (
+            name
+            in (
+                "vtessets.csv",
+                "vtescrypt.csv",
+                "vteslib.csv",
+            )
+        ),
+    )
+
+    cm = cards.CardMap()
+    cm.load_from_vekn()
+    assert 100588 in cm  # Dreams of the Sphinx (English) still loads

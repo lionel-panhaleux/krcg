@@ -4,6 +4,10 @@ set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
 # Configuration variables
 VTESCSV_GITHUB := "https://raw.githubusercontent.com/GiottoVerducci/vtescsv/main"
 RULINGS_GITHUB := "https://raw.githubusercontent.com/vtes-biased/vtes-rulings/main/rulings"
+# Official VEKN translation (i18n) bundles — extracted into the `cards` package so
+# localized card names resolve offline (LOCAL_CARDS=1).
+VEKN_I18N_ES := "http://www.vekn.net/images/stories/downloads/spanish/vtescsv_utf8.es-ES.zip"
+VEKN_I18N_FR := "http://www.vekn.net/images/stories/downloads/french/vtescsv_utf8.fr-FR.zip"
 
 # Default recipe - show available commands
 default:
@@ -38,6 +42,13 @@ sync-cards:
     @curl -f -s -o cards/groups.yaml "{{ RULINGS_GITHUB }}/groups.yaml"
     @curl -f -s -o cards/references.yaml "{{ RULINGS_GITHUB }}/references.yaml"
     @curl -f -s -o cards/rulings.yaml "{{ RULINGS_GITHUB }}/rulings.yaml"
+    @echo "📥 Syncing translation (i18n) CSV files from VEKN.net..."
+    @tmp=$(mktemp -d); \
+      curl -f -s -o "$tmp/es.zip" "{{ VEKN_I18N_ES }}" && \
+      unzip -o -q "$tmp/es.zip" vtessets.es-ES.csv vtescrypt.es-ES.csv vteslib.es-ES.csv -d cards && \
+      curl -f -s -o "$tmp/fr.zip" "{{ VEKN_I18N_FR }}" && \
+      unzip -o -q "$tmp/fr.zip" vtessets.fr-FR.csv vtescrypt.fr-FR.csv vteslib.fr-FR.csv -d cards; \
+      rm -rf "$tmp"
     @echo "✅ CSV files synced successfully!"
 
 # Upgrade all dependencies (including dev dependencies)

@@ -52,6 +52,23 @@ RULINGS_GITHUB = (
     "https://raw.githubusercontent.com/vtes-biased/vtes-rulings/main/rulings/"
 )
 
+
+def _local_csv_reader(name: str) -> csv.DictReader:
+    """Return a CSV reader for a file bundled in the ``cards`` package."""
+    with (
+        importlib.resources.files("cards")
+        .joinpath(name)
+        .open(encoding="utf-8-sig") as f
+    ):
+        data = f.read()
+    return csv.DictReader(io.StringIO(data))
+
+
+def _local_csv_exists(name: str) -> bool:
+    """Return True if *name* is bundled in the ``cards`` package."""
+    return importlib.resources.files("cards").joinpath(name).is_file()
+
+
 T = TypeVar("T")
 CardDiff = Dict[
     str,
@@ -956,16 +973,6 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
                 "Loading cards from local CSV package 'cards' "
                 "(vtessets.csv, vtescrypt.csv, vteslib.csv)"
             )
-
-            def _local_csv_reader(name: str) -> csv.DictReader:
-                with (
-                    importlib.resources.files("cards")
-                    .joinpath(name)
-                    .open(encoding="utf-8-sig") as f
-                ):
-                    data = f.read()
-                return csv.DictReader(io.StringIO(data))
-
             main_files = [
                 _local_csv_reader("vtessets.csv"),
                 _local_csv_reader("vtescrypt.csv"),
@@ -985,11 +992,26 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
             main_files = utils.get_github_csv(
                 self._GITHUB_BRANCH[0], *self._GITHUB_BRANCH[1]
             )
+        i18n_files: Dict[str, List[csv.DictReader]] = {}
         if NO_TRANSLATIONS:
-            logger.info(
-                "Skipping translations (LOCAL_CARDS=1): not downloading VEKN i18n CSV"
-            )
-            i18n_files = {}
+            logger.info("Skipping translations (NO_TRANSLATIONS=1)")
+        elif LOCAL_CARDS:
+            # Offline mode: load bundled i18n CSVs from the local `cards` package
+            # when present. Never reach out to the network here — a krcg install
+            # without bundled translations simply resolves English names only.
+            for lang, (_url, filenames) in self._VEKN_CSV_I18N.items():
+                if all(_local_csv_exists(name) for name in filenames):
+                    i18n_files[lang] = [_local_csv_reader(name) for name in filenames]
+            if i18n_files:
+                logger.info(
+                    "Loading bundled translations for languages: %s",
+                    ", ".join(i18n_files.keys()),
+                )
+            else:
+                logger.info(
+                    "No bundled i18n CSV found in 'cards' package — "
+                    "English-only resolution (run `just sync-cards` to add them)"
+                )
         else:
             logger.info(
                 "Loading translations from VEKN.net for languages: %s",

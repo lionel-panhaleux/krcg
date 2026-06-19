@@ -1,6 +1,17 @@
 Changelog
 =========
 
+Unreleased
+----------
+
+- Add path attribute to Card class and corresponding test case
+- Offline mode (``LOCAL_CARDS=1``) now loads bundled i18n translation CSVs from
+  the ``cards`` package when present, so localized card names resolve to the
+  English card without any network access. Missing translations are skipped
+  cleanly (English-only) instead of attempting a download. ``just sync-cards``
+  fetches the official es-ES and fr-FR bundles.
+
+
 4.16 (2025-11-01)
 ----------------
 
