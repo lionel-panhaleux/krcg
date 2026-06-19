@@ -336,6 +336,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self._name = ""
         self.url = ""
         self.aka: list[str] = []
+        self.path: Optional[str] = None
         self.types: list[str] = []
         self.clans: list[str] = []
         self.capacity: Optional[int] = None
@@ -607,6 +608,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.adv = bool_or_false("Adv")
         # group can be "any"
         self.group = str_or_none("Group")
+        self.path = str_or_none("Path")
         self.title = str_or_none("Title")
         if self.title and self.title[0] not in ["1", "2", "3", "4", "5"]:
             self.title = self.title.title()

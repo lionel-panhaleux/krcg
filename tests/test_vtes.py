@@ -18,6 +18,14 @@ def test_i18n() -> None:
     assert vtes.VTES["Corneilles noires"].name == "Carrion Crows"
 
 
+def test_path() -> None:
+    """V5 Sabbat path is exposed on crypt cards (None when not applicable)."""
+    # Aaradhya, The Callous Tyrant follows a V5 path.
+    assert vtes.VTES[201733].path == "Power and the Inner Voice"
+    # Theo Bell has no path.
+    assert vtes.VTES[201362].path is None
+
+
 def test_search_dimensions() -> None:
     """Test search dimensions."""
     assert vtes.VTES.search_dimensions == {
