@@ -43,12 +43,8 @@ sync-cards:
     @curl -f -s -o cards/references.yaml "{{ RULINGS_GITHUB }}/references.yaml"
     @curl -f -s -o cards/rulings.yaml "{{ RULINGS_GITHUB }}/rulings.yaml"
     @echo "📥 Syncing translation (i18n) CSV files from VEKN.net..."
-    @tmp=$(mktemp -d); \
-      curl -f -s -o "$tmp/es.zip" "{{ VEKN_I18N_ES }}" && \
-      unzip -o -q "$tmp/es.zip" vtessets.es-ES.csv vtescrypt.es-ES.csv vteslib.es-ES.csv -d cards && \
-      curl -f -s -o "$tmp/fr.zip" "{{ VEKN_I18N_FR }}" && \
-      unzip -o -q "$tmp/fr.zip" vtessets.fr-FR.csv vtescrypt.fr-FR.csv vteslib.fr-FR.csv -d cards; \
-      rm -rf "$tmp"
+    @curl -f -s "{{ VEKN_I18N_ES }}" | unzip -o -q - vtessets.es-ES.csv vtescrypt.es-ES.csv vteslib.es-ES.csv -d cards
+    @curl -f -s "{{ VEKN_I18N_FR }}" | unzip -o -q - vtessets.fr-FR.csv vtescrypt.fr-FR.csv vteslib.fr-FR.csv -d cards
     @echo "✅ CSV files synced successfully!"
 
 # Upgrade all dependencies (including dev dependencies)
