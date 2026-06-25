@@ -2,10 +2,13 @@
 
 import textwrap
 
+import pytest
+
 from krcg import twda
 from krcg import vtes
 
 
+@pytest.mark.usefixtures("vtes_with_translations")
 def test_card() -> None:
     """Test card real JSON."""
     assert vtes.VTES["Aid from Bats"].to_json() == {
@@ -42,7 +45,9 @@ def test_card() -> None:
             },
         },
         "_name": "Aid from Bats",
-        "_set": "Jyhad:C, VTES:C, CE:C/PN3, Anarchs:PG2, Third:C, KoT:C, FB:PN6",
+        "_set": (
+            "Jyhad:C, VTES:C, CE:C/PN3, Anarchs:PG2, Third:C, KoT:C, FB:PN6, NB3C:PR3"
+        ),
         "artists": ["Melissa Benson", "Eric Lofgren"],
         "card_text": (
             "[ani] Strike: 1R damage, with 1 optional maneuver.\n"
@@ -66,6 +71,7 @@ def test_card() -> None:
             "Third Edition",
             "Keepers of Tradition",
             "First Blood",
+            "New Blood III",
         ],
         "sets": {
             "Anarchs": [
@@ -81,6 +87,9 @@ def test_card() -> None:
             "Jyhad": [{"rarity": "Common", "release_date": "1994-08-16"}],
             "Keepers of Tradition": [
                 {"rarity": "Common", "release_date": "2008-11-19"}
+            ],
+            "New Blood III": [
+                {"copies": 3, "precon": "Ravnos", "release_date": "2026-02-28"}
             ],
             "Third Edition": [{"rarity": "Common", "release_date": "2006-09-04"}],
             "Vampire: The Eternal Struggle": [
@@ -98,6 +107,9 @@ def test_card() -> None:
             "Jyhad": "https://static.krcg.org/card/set/jyhad/aidfrombats.jpg",
             "Keepers of Tradition": (
                 "https://static.krcg.org/card/set/keepers-of-tradition/aidfrombats.jpg"
+            ),
+            "New Blood III": (
+                "https://static.krcg.org/card/set/new-blood-iii/aidfrombats.jpg"
             ),
             "Third Edition": (
                 "https://static.krcg.org/card/set/third-edition/aidfrombats.jpg"
@@ -163,6 +175,7 @@ def test_card() -> None:
     }
 
 
+@pytest.mark.usefixtures("vtes_with_translations")
 def test_multiple_rulings() -> None:
     """Test multiple rulings."""
     assert vtes.VTES["Toreador Grand Ball"].to_json() == {
@@ -472,6 +485,7 @@ ousted pretty fast after that before any real damage to me was done.
     assert len(read_back) == 1
 
 
+@pytest.mark.usefixtures("vtes_with_translations")
 def test_complex_rulings() -> None:
     """Test complex rulings."""
     assert vtes.VTES["Spirit's Touch"].to_json() == {
