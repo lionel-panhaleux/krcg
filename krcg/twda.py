@@ -1,12 +1,15 @@
-"""This module provides the `TWDA` singleton: Tournament Wining Decks Archive.
+"""TWDA: the Tournament Winning Decks Archive.
 
-If it has not been initialized, TWDA will evaluate to False.
-TWDA must be configured with `TWDA.configure()` before being used.
+The archive is a ``dict[str, models.Deck]`` keyed by deck id. A compressed
+snapshot ships with the package, so ``load_local()`` works offline; online
+tools can use ``load_online()`` to fetch the latest archive from KRCG static.
 """
 
 import importlib.resources
-import json
 import logging
+import lzma
+
+import aiohttp
 import msgspec.json
 
 from . import models
@@ -17,10 +20,22 @@ logger = logging.getLogger("krcg")
 DecksArchive = dict[str, models.Deck]
 
 
-def load_twda() -> DecksArchive:
-    """Load the TWDA from local data."""
-    with importlib.resources.files("krcg.cards").joinpath("twda.json").open("rb") as f:
-        return msgspec.json.decode(f.read(), type=DecksArchive)
+def load_local() -> DecksArchive:
+    """Load the TWDA from the bundled (compressed) snapshot."""
+    path = importlib.resources.files("krcg.cards").joinpath("twda.json.xz")
+    with path.open("rb") as f:
+        return msgspec.json.decode(lzma.decompress(f.read()), type=DecksArchive)
 
 
-TWDA = load_twda()
+async def load_online(session: aiohttp.ClientSession) -> DecksArchive:
+    """Load the TWDA from KRCG static, falling back to the bundled snapshot.
+
+    https://static.krcg.org/data/twda.json
+    """
+    try:
+        async with session.get("https://static.krcg.org/data/twda.json") as response:
+            data = await response.read()
+        return msgspec.json.decode(data, type=DecksArchive)
+    except Exception:
+        logger.warning("Failed to load TWDA from KRCG static", exc_info=True)
+        return load_local()

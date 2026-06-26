@@ -46,7 +46,7 @@ sync-cards:
     @echo "📥 Fixing CSV files..."
     @python krcg/scripts/fix_csv.py
     @echo "📥 Syncing TWDA..."
-    @python krcg/scripts/fetch_twda.py --output krcg/cards/twda.json
+    @python krcg/scripts/fetch_twda.py --output krcg/cards/twda.json.xz
     @echo "✅ CSV files synced successfully!"
 
 # Upgrade all dependencies (including dev dependencies)
