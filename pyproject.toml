@@ -41,7 +41,7 @@ Repository = "https://github.com/lionel-panhaleux/krcg"
 packages = ["krcg", "cards"]
 
 [tool.ruff.lint]
-select = ["E", "D", "F", "W"]
+select = ["E", "D", "F", "W", "UP"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"

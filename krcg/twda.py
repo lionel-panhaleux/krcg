@@ -4,7 +4,7 @@ If it has not been initialized, TWDA will evaluate to False.
 TWDA must be configured with `TWDA.configure()` before being used.
 """
 
-from typing import List, TextIO
+from typing import TextIO
 import collections
 import html
 import io
@@ -28,7 +28,7 @@ class _TWDA(collections.OrderedDict):
         super().__init__()
         self.by_author: dict[str, list[str]] = collections.defaultdict(list)
 
-    def to_json(self) -> List:
+    def to_json(self) -> list:
         return [d.to_json() for d in self.values()]
 
     def from_json(self, state: list[dict]) -> None:

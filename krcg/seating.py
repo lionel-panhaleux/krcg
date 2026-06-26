@@ -6,7 +6,7 @@ Original criteria:
 https://groups.google.com/g/rec.games.trading-cards.jyhad/c/4YivYLDVYQc/m/CCH-ZBU5UiUJ
 """
 
-from typing import Callable, Dict, Hashable, Iterable, List, Optional, Tuple, Sequence
+from collections.abc import Callable, Hashable, Iterable, Sequence
 import collections
 import concurrent.futures
 import math
@@ -18,7 +18,7 @@ import random
 # The seating rules: code, label, weight
 # weights are devised so that major rules always prevail over minor rules.
 # stddev rules (R3, R8) need a factor of 100 over the next one to prevail.
-RULES: List[Tuple[str, str, int]] = [
+RULES: list[tuple[str, str, int]] = [
     ("R1", "predator-prey", 10**10),
     ("R2", "opponent thrice", 10**9),
     ("R3", "available vps", 10**8),
@@ -67,7 +67,7 @@ class Round(list[list[Hashable]]):
         for i in range(self.players_count()):
             self.set_player(i, players[i])
 
-    def iter_table_players(self) -> Iterable[Tuple[int, int, int, Hashable]]:
+    def iter_table_players(self) -> Iterable[tuple[int, int, int, Hashable]]:
         """Iterate players with full table information.
 
         Yields:
@@ -78,15 +78,14 @@ class Round(list[list[Hashable]]):
             for position, player in enumerate(players, 1):
                 yield table_number, position, table_size, player
 
-    def iter_tables(self) -> Iterable[List[Hashable]]:
+    def iter_tables(self) -> Iterable[list[Hashable]]:
         """Convenience method mirroring `iter_players()`."""
         yield from super().__iter__()
 
     def iter_players(self) -> Iterable[Hashable]:
         """Iterate over players, not tables (default)."""
         for table in super().__iter__():
-            for player in table:
-                yield player
+            yield from table
 
     def tables_count(self) -> int:
         """Convenience function mirroring `players_count()`."""
@@ -96,12 +95,12 @@ class Round(list[list[Hashable]]):
         """Return the number of players (len() returns number of tables)."""
         return sum(len(table) for table in self.iter_tables())
 
-    def _global_indexes(self) -> Dict[int, Tuple[int, int]]:
+    def _global_indexes(self) -> dict[int, tuple[int, int]]:
         return dict(
             enumerate((j, k) for j, table in enumerate(self) for k in range(len(table)))
         )
 
-    def __global_index_to_tuple(self, index: int) -> Tuple[int, int]:
+    def __global_index_to_tuple(self, index: int) -> tuple[int, int]:
         """Map a flattened player index to (table_index, seat_index)."""
         table_index = 0
         for table in self.iter_tables():
@@ -113,11 +112,11 @@ class Round(list[list[Hashable]]):
         else:
             raise IndexError("Out of bounds")
 
-    def get_table(self, index: int) -> List[Hashable]:
+    def get_table(self, index: int) -> list[Hashable]:
         """Access tables directly (mirrors player access)."""
         return self[index]
 
-    def set_table(self, index: int, value: List[Hashable]) -> None:
+    def set_table(self, index: int, value: list[Hashable]) -> None:
         """Modify tables directly (mirrors player access)."""
         self[index] = value
 
@@ -139,7 +138,7 @@ Measure.__radd__ = lambda rhs, lhs: rhs if lhs == 0 else rhs.__add__(lhs)  # typ
 PlayerMapping = dict[Hashable, int]
 
 
-def player_mapping(rounds: List[Round]) -> PlayerMapping:
+def player_mapping(rounds: list[Round]) -> PlayerMapping:
     """Build a mapping of players to consecutive indices for matrices."""
     number = 0
     mapping = {}
@@ -192,8 +191,8 @@ POSITIONS = {
 def measure(
     pm: PlayerMapping,
     round_: Round,
-    previous: Optional[Measure] = None,
-    hints: Optional[List[int]] = None,
+    previous: Measure | None = None,
+    hints: list[int] | None = None,
 ) -> Measure:
     """Measure a round (list of tables).
 
@@ -297,7 +296,7 @@ class Score:
         )
     )
 
-    def __init__(self, rounds: List[Round], pm: Optional[PlayerMapping] = None):
+    def __init__(self, rounds: list[Round], pm: PlayerMapping | None = None):
         """Constructor.
 
         Args:
@@ -446,7 +445,7 @@ class Score:
         )
 
 
-def get_rounds(players: list[Hashable], rounds_count: int) -> List[Round]:
+def get_rounds(players: list[Hashable], rounds_count: int) -> list[Round]:
     """Return the base rounds for given parameters.
 
     This gets complicated only if you got 6, 7 or 11 players, otherwise it's simply
@@ -468,7 +467,7 @@ def get_rounds(players: list[Hashable], rounds_count: int) -> List[Round]:
         raise RuntimeError("At least 2 rounds by player are required")
 
     # number of players you can remove to be able to play
-    possible_outs: List[int] = []
+    possible_outs: list[int] = []
     for i in [4, 5, 4 + 4, 4 + 5, 5 + 5]:
         if players_count <= i:
             break
@@ -525,11 +524,11 @@ def get_rounds(players: list[Hashable], rounds_count: int) -> List[Round]:
 
 
 def optimise(
-    rounds: List[Round],
+    rounds: list[Round],
     iterations: int,
-    fixed: Optional[int] = None,
-    callback: Optional[Callable] = None,
-) -> Tuple[List[Round], Score]:
+    fixed: int | None = None,
+    callback: Callable | None = None,
+) -> tuple[list[Round], Score]:
     """Given a list of players for each round, compute an optimal seating.
 
     - callback is called every 100th of the way with the following keyword arguments:
@@ -630,7 +629,7 @@ def optimise(
     return best_state, Score(best_state, pm=pm)
 
 
-def optimise_table(rounds: List[Round], table: int) -> float:
+def optimise_table(rounds: list[Round], table: int) -> float:
     """Optimise a single table in the last round.
 
     Modifies the list of round in place.
@@ -655,7 +654,7 @@ def optimise_table(rounds: List[Round], table: int) -> float:
 
 def archon_seating(
     players_count: int, rounds_per_player: int
-) -> Tuple[List[Round], Score]:
+) -> tuple[list[Round], Score]:
     """Compute a full multi-round seating using multiple processes."""
     rounds = get_rounds(list(range(players_count)), rounds_per_player)
     try:

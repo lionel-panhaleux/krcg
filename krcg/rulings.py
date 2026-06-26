@@ -1,6 +1,6 @@
 """Rulings parsing."""
 
-from typing import Generator, Tuple
+from collections.abc import Generator
 import datetime
 import re
 
@@ -130,19 +130,19 @@ RE_SYMBOL = re.compile(r"\[(?:" + r"|".join(ANKHA_SYMBOLS) + r")\]")
 RE_CARD = re.compile(r"{[^}]+}")
 
 
-def parse_symbols(text: str) -> Generator[Tuple[str, str], None, None]:
+def parse_symbols(text: str) -> Generator[tuple[str, str], None, None]:
     """Yield all symbols in the given text."""
     for symbol in RE_SYMBOL.findall(text):
         yield symbol, ANKHA_SYMBOLS[symbol[1:-1]]
 
 
-def parse_cards(text: str) -> Generator[Tuple[str, str], None, None]:
+def parse_cards(text: str) -> Generator[tuple[str, str], None, None]:
     """Yield all cards in the given text."""
     for token in RE_CARD.findall(text):
         yield token, token[1:-1]
 
 
-def parse_references(text: str) -> Generator[Tuple[str, str], None, None]:
+def parse_references(text: str) -> Generator[tuple[str, str], None, None]:
     """Yield all references in the given text."""
     for reference in RE_RULING_REFERENCE.findall(text):
         yield reference, reference[1:-1]

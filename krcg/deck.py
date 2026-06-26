@@ -1,6 +1,7 @@
 """Deck class: serialization and card access under conditions."""
 
-from typing import Any, Callable, Dict, Generator, Optional, TextIO
+from typing import Any, TextIO
+from collections.abc import Callable, Generator
 import arrow
 import collections
 import datetime
@@ -26,19 +27,19 @@ class Deck(collections.Counter[cards.Card]):
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         """Constructor."""
-        self.id: Optional[str] = kwargs.pop("id", None)
-        self.author: Optional[str] = kwargs.pop("author", None)
+        self.id: str | None = kwargs.pop("id", None)
+        self.author: str | None = kwargs.pop("author", None)
         super().__init__(*args, **kwargs)
-        self.event: Optional[str] = None
-        self.place: Optional[str] = None
-        self.date: Optional[datetime.date] = None
-        self.tournament_format: Optional[str] = None
+        self.event: str | None = None
+        self.place: str | None = None
+        self.date: datetime.date | None = None
+        self.tournament_format: str | None = None
         self.players_count: int = 0
-        self.player: Optional[str] = None
-        self.event_link: Optional[str] = None
-        self.score: Optional[DeckScore] = None
-        self.name: Optional[str] = None
-        self.cards_comments: Dict[cards.Card, str] = {}
+        self.player: str | None = None
+        self.event_link: str | None = None
+        self.score: DeckScore | None = None
+        self.name: str | None = None
+        self.cards_comments: dict[cards.Card, str] = {}
         self.comments: str = ""
         # corner case: counting the number of "Raven" in "Camille Devereux" copies
         self.raven: int = 0
@@ -47,8 +48,8 @@ class Deck(collections.Counter[cards.Card]):
     def from_txt(
         cls,
         input: TextIO,
-        id: Optional[str] = None,
-        author: Optional[str] = None,
+        id: str | None = None,
+        author: str | None = None,
         offset: int = 0,
         twda: bool = False,
         preface: bool = True,
@@ -86,7 +87,7 @@ class Deck(collections.Counter[cards.Card]):
             "https://amaranth.vtes.co.nz/api/deck", data={"id": uid}
         )
         response.raise_for_status()
-        result: Dict[str, Any] = response.json()["result"]
+        result: dict[str, Any] = response.json()["result"]
         ret = cls(id=uid, author=result.get("author", None))
         ret.name = result.get("title", None)
         ret.comments = result.get("description", "")
@@ -105,7 +106,7 @@ class Deck(collections.Counter[cards.Card]):
         """Fetch a deck from VDB."""
         response = requests.get("https://vdb.im/api/deck/" + uid)
         response.raise_for_status()
-        data: Dict[str, Any] = response.json()
+        data: dict[str, Any] = response.json()
         logger.debug("VDB replied: %s", data)
         ret = cls(id=uid, author=data.get("author", data.get("owner", None)))
         ret.name = data.get("name", None)
@@ -129,7 +130,7 @@ class Deck(collections.Counter[cards.Card]):
         """Fetch a deck from VTESDecks."""
         response = requests.get("https://api.vtesdecks.com/1.0/decks/" + uid)
         response.raise_for_status()
-        data: Dict[str, Any] = response.json()
+        data: dict[str, Any] = response.json()
         logger.debug("VTESDecks replied: %s", data)
         ret = cls(id=uid, author=data.get("author", None))
         ret.name = data.get("name", None)
@@ -326,7 +327,7 @@ class Deck(collections.Counter[cards.Card]):
         """For convenience, list of library (card, count)."""
         return list(self.cards(lambda c: c.library))
 
-    def cards(self, condition: Optional[Callable] = None) -> Generator:
+    def cards(self, condition: Callable | None = None) -> Generator:
         """Generator yielding (card, count), with an optional filter.
 
         Args:
@@ -340,7 +341,7 @@ class Deck(collections.Counter[cards.Card]):
                 continue
             yield card, count
 
-    def card_names(self, condition: Optional[Callable] = None) -> Generator:
+    def card_names(self, condition: Callable | None = None) -> Generator:
         """Generator yielding card names with an optional filter.
 
         Args:
@@ -352,7 +353,7 @@ class Deck(collections.Counter[cards.Card]):
         for card, _count in self.cards(condition):
             yield card
 
-    def cards_count(self, condition: Optional[Callable] = None) -> int:
+    def cards_count(self, condition: Callable | None = None) -> int:
         """Card counts with an optional filter.
 
         Args:
@@ -559,7 +560,7 @@ class DeckScore:
     The score is a string like "2GW3+1", "1GW", "3VP", "1GW3", etc.
     """
 
-    def __init__(self, s: Optional[str] = None):
+    def __init__(self, s: str | None = None):
         """Constructor."""
         self.game_wins = None
         self.round_vps = None

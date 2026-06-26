@@ -1,6 +1,5 @@
 """Test decklist parser."""
 
-from typing import Optional
 import logging
 from krcg import cards
 from krcg import deck
@@ -11,7 +10,7 @@ import pytest
 
 
 def check_comment(
-    p: parser.Parser, comment: Optional[str] = None, card: Optional[cards.Card] = None
+    p: parser.Parser, comment: str | None = None, card: cards.Card | None = None
 ) -> None:
     """Check the comment."""
     if comment:

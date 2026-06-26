@@ -1,6 +1,6 @@
 """TWDA analyzer: compute cards affinity and build decks based on TWDA."""
 
-from typing import Callable, Iterable, List, Optional, Tuple
+from collections.abc import Callable, Iterable
 import collections
 import itertools
 import random
@@ -9,7 +9,7 @@ from . import cards
 from . import deck
 import logging
 
-Candidates = List[Tuple[cards.Card, int]]
+Candidates = list[tuple[cards.Card, int]]
 
 logger = logging.getLogger("krcg")
 
@@ -20,7 +20,7 @@ class AnalysisError(Exception):
     pass
 
 
-class Analyzer(object):
+class Analyzer:
     """Analyze TWDA, compute card affinities, and build decks.
 
     The "affinity" is the number of decks where two cards are played together.
@@ -53,7 +53,7 @@ class Analyzer(object):
             cards.Card, collections.Counter[cards.Card]
         ] = collections.defaultdict(collections.Counter)
         self.refresh_cursor = 0
-        self.deck: Optional[deck.Deck] = None
+        self.deck: deck.Deck | None = None
 
     def build_deck(self, *args: cards.Card) -> deck.Deck:
         """Build a deck, using optional card names as reference.
@@ -105,7 +105,7 @@ class Analyzer(object):
         self,
         *args: cards.Card,
         similarity: float = 0.6,
-        condition: Optional[Callable] = None,
+        condition: Callable | None = None,
     ) -> None:
         """Sample TWDA. This is the core method of the Analyzer.
 
@@ -216,7 +216,7 @@ class Analyzer(object):
             self.cards_left -= self.deck.cards_count(condition)
 
     def refresh_affinity(
-        self, card: cards.Card, condition: Optional[Callable] = None
+        self, card: cards.Card, condition: Callable | None = None
     ) -> None:
         """Add a card to `self.affinity` using current examples.
 
@@ -265,7 +265,7 @@ class Analyzer(object):
         return candidates.most_common()
 
     def build_deck_part(
-        self, *args: cards.Card, condition: Optional[Callable] = None
+        self, *args: cards.Card, condition: Callable | None = None
     ) -> None:
         """Build a deck part using given condition.
 

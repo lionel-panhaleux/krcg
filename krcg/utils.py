@@ -2,17 +2,15 @@
 
 from typing import (
     Any,
-    Dict,
-    Generator,
     Generic,
+    TypeVar,
+)
+from collections.abc import (
+    Generator,
     Hashable,
     ItemsView,
     Iterator,
-    List,
-    Optional,
     Sequence,
-    Tuple,
-    TypeVar,
     Mapping,
     MutableMapping,
 )
@@ -37,14 +35,14 @@ def normalize(s: Any) -> Any:
     return unidecode.unidecode(s).lower().strip()
 
 
-def get_zip_csv(url: str, *args: str) -> List[csv.DictReader]:
+def get_zip_csv(url: str, *args: str) -> list[csv.DictReader]:
     """Return CSV readers for files inside a remote ZIP archive.
 
     Files are fully read into memory to ensure underlying file descriptors are
     closed immediately.
     """
     local_filename, _headers = urllib.request.urlretrieve(url)
-    readers: List[csv.DictReader] = []
+    readers: list[csv.DictReader] = []
     with zipfile.ZipFile(local_filename) as z:
         for arg in args:
             data = z.read(arg).decode("utf-8-sig")
@@ -52,13 +50,13 @@ def get_zip_csv(url: str, *args: str) -> List[csv.DictReader]:
     return readers
 
 
-def get_github_csv(url: str, *args: str) -> List[csv.DictReader]:
+def get_github_csv(url: str, *args: str) -> list[csv.DictReader]:
     """Return CSV readers for files hosted under a base URL (e.g., GitHub).
 
     Files are fully read into memory to ensure underlying file descriptors are
     closed immediately.
     """
-    readers: List[csv.DictReader] = []
+    readers: list[csv.DictReader] = []
     for arg in args:
         local_filename, _headers = urllib.request.urlretrieve(url + arg)
         with open(local_filename, encoding="utf-8-sig") as f:
@@ -83,7 +81,7 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
         self,
         threshold: int = 6,
         cutoff: float = 0.85,
-        aliases: Optional[Mapping[Any, Any]] = None,
+        aliases: Mapping[Any, Any] | None = None,
         *args: Any,
         **kwargs: Any,
     ) -> None:
@@ -100,9 +98,9 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
         self.cutoff = cutoff
         self.aliases: dict[Hashable, H] = dict(aliases) if aliases else {}
         self._dict: dict[H, T] = dict(*args, **kwargs)
-        self._keys_cache: Optional[List[Sequence]] = None
+        self._keys_cache: list[Sequence] | None = None
 
-    def _fuzzy_match(self, key: Hashable) -> Optional[H]:
+    def _fuzzy_match(self, key: Hashable) -> H | None:
         """Use difflib to match incomplete or misspelled keys."""
         if not isinstance(key, collections.abc.Sequence):
             return None
@@ -117,7 +115,7 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
             return result  # type: ignore
         return None
 
-    def _sequence_keys(self) -> List[Sequence]:
+    def _sequence_keys(self) -> list[Sequence]:
         """Return all keys that are sequences and can be fuzzy matched."""
         if not self._keys_cache:
             self._keys_cache = [k for k in self._dict.keys() if isinstance(k, Sequence)]
@@ -227,7 +225,7 @@ class Trie(collections.defaultdict):
         super().__init__(lambda: collections.defaultdict(int))
 
     @staticmethod
-    def _split(text: str) -> List[str]:
+    def _split(text: str) -> list[str]:
         """Normalize input text and split into words."""
         text = normalize(text)
         if not text:
@@ -263,7 +261,7 @@ class Trie(collections.defaultdict):
         Returns:
             Scored references.
         """
-        ret: Optional[collections.Counter] = None
+        ret: collections.Counter | None = None
         for part in Trie._split(text):
             # a word can match multiple parts of a key to one reference
             # take the highest score
@@ -321,20 +319,20 @@ class i18nMixin:
         super().__init__()
         self._i18n: dict[str, dict[str, Trans]] = collections.defaultdict(dict)
 
-    def i18n_set(self, lang: str, trans: Dict[str, Trans]) -> None:
+    def i18n_set(self, lang: str, trans: dict[str, Trans]) -> None:
         """Set the translations for a language."""
         for field, value in trans.items():
             if value and not hasattr(self, field):
                 raise ValueError(f'i18n: "{field}" not present on instance')
         self._i18n[lang[:2]].update(trans)
 
-    def i18n_variants(self, field: str) -> Generator[Tuple[str, Trans], None, None]:
+    def i18n_variants(self, field: str) -> Generator[tuple[str, Trans], None, None]:
         """Return the variants for a field."""
         for lang, trans in self._i18n.items():
             if field in trans:
                 yield lang, trans[field]
 
-    def i18n(self, lang: str) -> Dict[str, Trans]:
+    def i18n(self, lang: str) -> dict[str, Trans]:
         """Return the translations for a language."""
         if lang[:2] == "en":
             return self.__dict__

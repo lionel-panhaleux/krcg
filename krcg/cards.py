@@ -2,19 +2,11 @@
 
 from typing import (
     Any,
-    Counter,
-    Dict,
-    Generator,
-    List,
-    Mapping,
-    Set,
-    Tuple,
-    Optional,
     BinaryIO,
     TypeVar,
-    Callable,
-    Iterable,
 )
+from collections import Counter
+from collections.abc import Generator, Mapping, Callable, Iterable
 import collections
 import collections.abc
 import copy
@@ -53,7 +45,7 @@ RULINGS_GITHUB = (
 )
 
 T = TypeVar("T")
-CardDiff = Dict[
+CardDiff = dict[
     str,
     list[str] | list[str | None] | list[int | None] | list[bool] | list[list[str]],
 ]
@@ -338,30 +330,30 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.aka: list[str] = []
         self.types: list[str] = []
         self.clans: list[str] = []
-        self.capacity: Optional[int] = None
-        self.capacity_change: Optional[str] = None
+        self.capacity: int | None = None
+        self.capacity_change: str | None = None
         self.disciplines: list[str] = []
         self.combo: bool = False
         self.multidisc: bool = False
         self.card_text: str = ""
         # original VEKN value: use `sets` instead for more accessible info
-        self._set: Optional[str] = None
+        self._set: str | None = None
         self.sets: dict[str, list[dict[str, str | int]]] = {}
         self.scans: dict[str, str] = {}
-        self.banned: Optional[str] = None
+        self.banned: str | None = None
         self.artists: list[str] = []
         self.adv: bool = False
-        self.group: Optional[str] = None
-        self.title: Optional[str] = None
-        self.pool_cost: Optional[str] = None
-        self.blood_cost: Optional[str] = None
-        self.conviction_cost: Optional[str] = None
+        self.group: str | None = None
+        self.title: str | None = None
+        self.pool_cost: str | None = None
+        self.blood_cost: str | None = None
+        self.conviction_cost: str | None = None
         self.burn_option: bool = False
-        self.flavor_text: Optional[str] = None
-        self.draft: Optional[str] = None
+        self.flavor_text: str | None = None
+        self.draft: str | None = None
         # enriched properties (not directly in original CSV, but convenient)
         self.ordered_sets: list[str] = []  # sets in release order
-        self.legality: Optional[str] = None  # date of legality
+        self.legality: str | None = None  # date of legality
         self.has_advanced: bool = False  # advanced version exists in the same group
         self.has_evolution: bool = False  # same vampire appears in a higher group
         self.is_evolution: bool = False  # same vampire appears in a lower group
@@ -491,7 +483,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         """True if this is a library card."""
         return not self.crypt
 
-    def to_json(self) -> Dict:
+    def to_json(self) -> dict:
         """Return a compact dict representation of the card.
 
         Returns:
@@ -507,7 +499,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             }
         )
 
-    def from_json(self, state: Dict) -> None:
+    def from_json(self, state: dict) -> None:
         """Load the card from a dictionary.
 
         Args:
@@ -520,9 +512,9 @@ class Card(utils.i18nMixin, utils.NamedMixin):
 
     def from_vekn(
         self,
-        data: Dict[str, str],
-        set_dict: Dict[str, sets.Set] = sets.DEFAULT_SET_MAP,
-        default_set: Optional[str] = None,
+        data: dict[str, str],
+        set_dict: dict[str, sets.Set] = sets.DEFAULT_SET_MAP,
+        default_set: str | None = None,
     ) -> None:
         """Load a card from a VEKN official CSV row.
 
@@ -535,13 +527,13 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         def split(field: str, sep: str) -> list[str]:
             return [s for s in map(str.strip, data.get(field, "").split(sep)) if s]
 
-        def str_or_none(field: str) -> Optional[str]:
+        def str_or_none(field: str) -> str | None:
             return data[field].replace("@", "") or None if field in data else None
 
         def bool_or_false(field: str) -> bool:
             return bool(data[field]) if field in data else False
 
-        def int_or_none(field: str) -> Optional[int]:
+        def int_or_none(field: str) -> int | None:
             try:
                 return int(data[field]) if data.get(field) else None
             except ValueError:
@@ -668,7 +660,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.url = self._compute_url()
 
     def _compute_url(
-        self, lang: Optional[str] = None, expansion: Optional[str] = None
+        self, lang: str | None = None, expansion: str | None = None
     ) -> str:
         """Compute image URL for given language."""
         return (
@@ -681,7 +673,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         )
 
     def _compute_legacy_url(
-        self, lang: Optional[str] = None, expansion: Optional[str] = None
+        self, lang: str | None = None, expansion: str | None = None
     ) -> str:
         """Compute legacy image URL for given language."""
         return (
@@ -695,8 +687,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
 
     @staticmethod
     def _decode_set(
-        set_dict: Dict[str, sets.Set], expansion: str
-    ) -> Generator[Tuple[str, List[Dict[str, str | int]]], None, None]:
+        set_dict: dict[str, sets.Set], expansion: str
+    ) -> Generator[tuple[str, list[dict[str, str | int]]], None, None]:
         """Decode a set string from official CSV.
 
         From Jyhad:R2 to {"Jyhad": {"rarity": "Rare", "frequency": 2}}
@@ -748,7 +740,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
     @staticmethod
     def _decode_rarity(
         rarity: str, abbrev: str, date: str
-    ) -> Optional[dict[str, str | int]]:
+    ) -> dict[str, str | int] | None:
         """Decode the rarity tag after the expansion abbreviation.
 
         Args:
@@ -870,7 +862,7 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
         ),
     }
 
-    def __init__(self, aliases: Optional[Mapping[str, str]] = None):
+    def __init__(self, aliases: Mapping[str, str] | None = None):
         """Constructor.
 
         Args:
@@ -918,9 +910,7 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
             for name in Card._AKA.get(card.id, []):
                 self[name] = self[card.id]
 
-    def load_from_files(
-        self, *files: BinaryIO, set_abbrev: Optional[str] = None
-    ) -> None:
+    def load_from_files(self, *files: BinaryIO, set_abbrev: str | None = None) -> None:
         """Load cards from local CSV files.
 
         This does not expect a sets file nor translation files.
@@ -1188,7 +1178,7 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
                     card.rulings.append(ruling)
 
     def _parse_ruling_text(self, text: str, references: dict[str, str]) -> dict:
-        data: Dict[str, Any] = {"text": text}
+        data: dict[str, Any] = {"text": text}
         for token, ref in rulings.parse_references(text):
             data.setdefault("references", [])
             data["references"].append(
@@ -1211,7 +1201,7 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
             data["symbols"].append({"text": token, "symbol": substitute})
         return data
 
-    def to_json(self) -> List:
+    def to_json(self) -> list:
         """Return a compact list representation.
 
         Returns:
@@ -1219,7 +1209,7 @@ class CardMap(utils.FuzzyDict[int | str, Card]):
         """
         return [card.to_json() for card in self]
 
-    def from_json(self, state: List[Dict]) -> None:
+    def from_json(self, state: list[dict]) -> None:
         """Initialize from a JSON list.
 
         Args:
@@ -1260,7 +1250,7 @@ class CardTrie:
             if isinstance(trans, str):
                 self.tries[lang[:2]].add(trans, card)
 
-    def search(self, text: str, lang: Optional[str] = None) -> Dict[str, Counter[Card]]:
+    def search(self, text: str, lang: str | None = None) -> dict[str, Counter[Card]]:
         """Search for text in English and optionally another language.
 
         Args:
@@ -1460,12 +1450,12 @@ class CardSearch:
         self._handle_exceptions(card)
 
     @property
-    def dimensions(self) -> List[str]:
+    def dimensions(self) -> list[str]:
         """List supported search dimensions (including "text")."""
         return self.trie_dimensions + self.set_dimensions + ["text"]
 
     @property
-    def set_dimensions_enums(self) -> Dict[str, List[str]]:
+    def set_dimensions_enums(self) -> dict[str, list[str]]:
         """List allowed values for each set dimensions.
 
         Returns:
@@ -1478,7 +1468,7 @@ class CardSearch:
             }
         return self._set_dimensions_enums
 
-    def __call__(self, **kwargs: str | list[str]) -> Set[Card]:
+    def __call__(self, **kwargs: str | list[str]) -> set[Card]:
         """Execute a search.
 
         Args:
@@ -1528,7 +1518,7 @@ class CardSearch:
                 values = [values]
             if not isinstance(values, collections.abc.Iterable):
                 values = [str(values)]
-            dim_result: Optional[set] = None
+            dim_result: set | None = None
             for value in values:
                 # normalize value if it is not a discipline: those are case sensitive
                 normalized: str | None = value
@@ -1552,7 +1542,7 @@ class CardSearch:
             result &= dim_result or set()
         return result
 
-    def _text_search(self, dim: str, text: str, lang: str = "en") -> Set[Card]:
+    def _text_search(self, dim: str, text: str, lang: str = "en") -> set[Card]:
         """Combine English and optional-language text search results."""
         result = set()
         result |= set(
@@ -1570,7 +1560,7 @@ class CardSearch:
         return result
 
     @property
-    def _normalized_map(self) -> Dict[str, Dict[str, str]]:
+    def _normalized_map(self) -> dict[str, dict[str, str]]:
         """Case-insensitive mapping for set-dimension values.
 
         Allows case-insensitive matching while preserving original casing in

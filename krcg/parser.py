@@ -4,7 +4,8 @@ Handles legacy TWDA formats and other deck list idiosyncrasies.
 Only modify this file if you know what you're doing, and proceed with caution.
 """
 
-from typing import TextIO, Optional, MutableMapping, Any
+from typing import TextIO, Any
+from collections.abc import MutableMapping
 import datetime
 import enum
 import logging
@@ -119,7 +120,7 @@ _HEADERS_FIRST_RE = (
     + ")"
 )
 _HEADERS_RE = (
-    r"^(\s|/|-|\d|_)*{0}((\s|/|-)*{1})*".format(_HEADERS_FIRST_RE, _HEADERS_RE)
+    rf"^(\s|/|-|\d|_)*{_HEADERS_FIRST_RE}((\s|/|-)*{_HEADERS_RE})*"
     + r"(\s|\d|:|;|\.|\(|\)|\[|\]|/|-|=|,|"
     + r"cards?|carta|cars|total|min|max|avg|masters?|minions?|trifles?)*$"
 )
@@ -264,10 +265,10 @@ _PATH = "|".join(
         "power",
     ]
 )
-_CRYPT_TAIL = r"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{})\s+".format(
-    _DISCIPLINE_TRIGRAM
-) + r"({}|{}|{}|{}|\s|:|g?\d{{1,2}}|any|g\*)*)|%NOMATCH%)?".format(
-    _DISCIPLINE_TRIGRAM, _TITLE, _CLAN, _PATH
+_CRYPT_TAIL = (
+    rf"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{_DISCIPLINE_TRIGRAM})\s+"
+    + rf"({_DISCIPLINE_TRIGRAM}|{_TITLE}|{_CLAN}|{_PATH}"
+    + r"|\s|:|g?\d{1,2}|any|g\*)*)|%NOMATCH%)?"
 )
 _PUNCTUATED_TRAIT = "|".join(
     [
@@ -370,9 +371,8 @@ _NAKED_TRAIT = "|".join(
     ]
 )
 _TRAIT = (
-    r"\s+((\s|-|\(|\[|/|\*)+({0})|(\s|-|\(|\[|/|\*)*({1}))(\s|\)|\]|/|\*)*$".format(
-        _PUNCTUATED_TRAIT, _NAKED_TRAIT
-    )
+    rf"\s+((\s|-|\(|\[|/|\*)+({_PUNCTUATED_TRAIT})"
+    + rf"|(\s|-|\(|\[|/|\*)*({_NAKED_TRAIT}))(\s|\)|\]|/|\*)*$"
 )
 _POST_COUNT = (
     # mandatory punctuation (beware of "AK-47", "Kpist m/45", ...)
@@ -419,7 +419,7 @@ class LineLogAdapter(logging.LoggerAdapter):
             self.extra = {}
         assert isinstance(self.extra, dict)
         self.extra.update(kwargs.get("extra", {}))
-        return "[%6s][%s] %s" % (self.extra["line"], self.extra["deck"], msg), kwargs
+        return f"[{self.extra['line']:>6}][{self.extra['deck']}] {msg}", kwargs
 
 
 class Mark(enum.Enum):
@@ -437,8 +437,8 @@ class Comment:
     def __init__(
         self,
         comment: str = "",
-        card: Optional[Any] = None,
-        mark: Optional[Mark] = None,
+        card: Any | None = None,
+        mark: Mark | None = None,
     ):
         """Constructor.
 
@@ -518,7 +518,7 @@ class Parser:
         Args:
             d: The deck to parse.
         """
-        self.current_comment: Optional[Comment] = None
+        self.current_comment: Comment | None = None
         self.preface = True
         self.separator = False  # used only for additional checks on the TWDA
         self.deck: deck.Deck = d
@@ -697,9 +697,7 @@ class Parser:
                 pass
         return False
 
-    def get_card(
-        self, line: str, twda: bool = False
-    ) -> tuple[Optional[cards.Card], int]:
+    def get_card(self, line: str, twda: bool = False) -> tuple[cards.Card | None, int]:
         """Try to find a card and count; register possible comment."""
         if re.match(_HEADERS_RE, utils.normalize(line)):
             return None, 0
@@ -818,8 +816,8 @@ class Parser:
     def comment(
         self,
         comment: str,
-        card: Optional[cards.Card] = None,
-        mark: Optional[Mark] = None,
+        card: cards.Card | None = None,
+        mark: Mark | None = None,
     ) -> None:
         """Handle a comment and possibly log suspected parsing errors."""
         if not (comment or self.current_comment):

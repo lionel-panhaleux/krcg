@@ -4,14 +4,15 @@ If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
 
-from typing import Dict, Generator, List, Optional, Set, BinaryIO, Literal
+from typing import BinaryIO, Literal
+from collections.abc import Generator
 import functools
 import requests
 
 from . import cards
 
 
-CardsDiff = Dict[cards.Card, cards.CardDiff | Literal["NEW"]]
+CardsDiff = dict[cards.Card, cards.CardDiff | Literal["NEW"]]
 
 
 class _VTES:
@@ -44,8 +45,8 @@ class _VTES:
         self._cards.from_json(state)
 
     def get(
-        self, key: int | str, default: Optional[cards.Card] = None
-    ) -> Optional[cards.Card]:
+        self, key: int | str, default: cards.Card | None = None
+    ) -> cards.Card | None:
         return self._cards.get(key) or default
 
     def clear(self) -> None:
@@ -63,9 +64,7 @@ class _VTES:
         self._cards.load_from_vekn()
         self._cards.load_rulings()
 
-    def load_from_files(
-        self, *files: BinaryIO, set_abbrev: Optional[str] = None
-    ) -> None:
+    def load_from_files(self, *files: BinaryIO, set_abbrev: str | None = None) -> None:
         self._cards.load_from_files(*files, set_abbrev=set_abbrev)
 
     def diff(self, url: str) -> CardsDiff:
@@ -83,13 +82,13 @@ class _VTES:
 
     @property
     @functools.lru_cache(1)
-    def amaranth(self) -> Dict[int, cards.Card]:
+    def amaranth(self) -> dict[int, cards.Card]:
         """Amaranth IDs card map."""
         r = requests.get("http://static.krcg.org/data/amaranth_ids.json")
         r.raise_for_status()
         return {k: self[v] for k, v in r.json().items()}
 
-    def complete(self, text: str, lang: str = "en") -> List[str]:
+    def complete(self, text: str, lang: str = "en") -> list[str]:
         """Card name completion.
 
         Matches on the start of the name are returned first,
@@ -112,11 +111,11 @@ class _VTES:
         return [x[0] for x in sorted(ret, key=lambda x: (-x[1], x[0]))]
 
     @property
-    def search_dimensions(self) -> Dict[str, List[str]]:
+    def search_dimensions(self) -> dict[str, list[str]]:
         self._init_search()
         return self._search.set_dimensions_enums
 
-    def search(self, **kwargs: str | list[str]) -> Set[cards.Card]:
+    def search(self, **kwargs: str | list[str]) -> set[cards.Card]:
         self._init_search()
         return self._search(**kwargs)
 
