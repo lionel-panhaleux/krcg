@@ -5,14 +5,14 @@ import logging
 import os
 import pytest
 
-from krcg import deck
+from krcg import parser
 
 
 def test_202207_EC_Day1_1(caplog: pytest.LogCaptureFixture) -> None:
     """The reference format for tournament extended archive decks."""
     caplog.set_level(logging.WARNING)
     with open(os.path.join(os.path.dirname(__file__), "202207_EC_Day1_1.txt")) as f:
-        dek = deck.Deck.from_txt(f)
+        dek = parser.deck_from_txt(f)
     assert dek
     assert dek.to_json() == {
         "name": "202207_EC_Day1_1",

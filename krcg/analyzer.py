@@ -1,15 +1,14 @@
 """TWDA analyzer: compute cards affinity and build decks based on TWDA."""
 
-from collections.abc import Callable, Iterable
+from typing import Callable, Iterable, List, Optional, Tuple
 import collections
 import itertools
 import random
 
-from . import cards
-from . import deck
+from . import models
 import logging
 
-Candidates = list[tuple[cards.Card, int]]
+Candidates = List[Tuple[models.Card, int]]
 
 logger = logging.getLogger("krcg")
 
@@ -20,13 +19,13 @@ class AnalysisError(Exception):
     pass
 
 
-class Analyzer:
+class Analyzer(object):
     """Analyze TWDA, compute card affinities, and build decks.
 
     The "affinity" is the number of decks where two cards are played together.
     """
 
-    def __init__(self, decks: Iterable[deck.Deck], spoilers: bool = True):
+    def __init__(self, decks: Iterable[models.Deck], spoilers: bool = True):
         """Constructor.
 
         Args:
@@ -45,17 +44,17 @@ class Analyzer:
             logger.debug("Spoilers: %s", self.spoilers)
         else:
             self.spoilers = {}
-        self.examples = list[deck.Deck]()
-        self.played = collections.Counter[cards.Card]()
-        self.average = collections.Counter[cards.Card]()
-        self.variance = collections.Counter[cards.Card]()
+        self.examples = list[models.Deck]()
+        self.played = collections.Counter[models.Card]()
+        self.average = collections.Counter[models.Card]()
+        self.variance = collections.Counter[models.Card]()
         self.affinity: collections.defaultdict[
-            cards.Card, collections.Counter[cards.Card]
+            models.Card, collections.Counter[models.Card]
         ] = collections.defaultdict(collections.Counter)
         self.refresh_cursor = 0
-        self.deck: deck.Deck | None = None
+        self.deck: Optional[models.Deck] = None
 
-    def build_deck(self, *args: cards.Card) -> deck.Deck:
+    def build_deck(self, *args: models.Card) -> models.Deck:
         """Build a deck, using optional card names as reference.
 
         The analyzer samples the TWDA and builds a deck similar to TWDs.
@@ -69,7 +68,7 @@ class Analyzer:
         Returns:
             The deck built
         """
-        self.deck = deck.Deck(author="KRCG")
+        self.deck = models.Deck(author="KRCG")
         self.refresh(*args, condition=Analyzer.is_crypt)
         # if no seed is given, choose one of the 100 most played cards,
         # but do not pick a spoiler (card played in more than 25% decks).
@@ -92,20 +91,20 @@ class Analyzer:
         return self.deck
 
     @staticmethod
-    def is_crypt(card: cards.Card) -> bool:
+    def is_crypt(card: models.Card) -> bool:
         """Return True if the card is a crypt card."""
         return card.crypt
 
     @staticmethod
-    def is_library(card: cards.Card) -> bool:
+    def is_library(card: models.Card) -> bool:
         """Return True if the card is a library card."""
         return card.library
 
     def refresh(
         self,
-        *args: cards.Card,
+        *args: models.Card,
         similarity: float = 0.6,
-        condition: Callable | None = None,
+        condition: Optional[Callable] = None,
     ) -> None:
         """Sample TWDA. This is the core method of the Analyzer.
 
@@ -216,7 +215,7 @@ class Analyzer:
             self.cards_left -= self.deck.cards_count(condition)
 
     def refresh_affinity(
-        self, card: cards.Card, condition: Callable | None = None
+        self, card: models.Card, condition: Optional[Callable] = None
     ) -> None:
         """Add a card to `self.affinity` using current examples.
 
@@ -236,7 +235,7 @@ class Analyzer:
             )
 
     def candidates(
-        self, *args: cards.Card, spoiler_multiplier: float = 0
+        self, *args: models.Card, spoiler_multiplier: float = 0
     ) -> Candidates:
         """Select candidates using `self.affinity`. Filter banned cards out.
 
@@ -249,7 +248,7 @@ class Analyzer:
             List of (card, affinity_score) candidates by decreasing affinity
         """
         # score candidates by affinity
-        candidates = collections.Counter[cards.Card]()
+        candidates = collections.Counter[models.Card]()
         for card in args:
             candidates.update(
                 {
@@ -265,7 +264,7 @@ class Analyzer:
         return candidates.most_common()
 
     def build_deck_part(
-        self, *args: cards.Card, condition: Callable | None = None
+        self, *args: models.Card, condition: Optional[Callable] = None
     ) -> None:
         """Build a deck part using given condition.
 

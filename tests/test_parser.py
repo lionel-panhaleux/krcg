@@ -1,8 +1,9 @@
 """Test decklist parser."""
 
+from typing import Optional
 import logging
 from krcg import cards
-from krcg import deck
+from krcg import models
 from krcg import vtes
 from krcg import parser
 
@@ -10,7 +11,7 @@ import pytest
 
 
 def check_comment(
-    p: parser.Parser, comment: str | None = None, card: cards.Card | None = None
+    p: parser.Parser, comment: Optional[str] = None, card: Optional[models.Card] = None
 ) -> None:
     """Check the comment."""
     if comment:
@@ -27,7 +28,7 @@ def check_comment(
 def test_get_card(caplog: pytest.LogCaptureFixture) -> None:
     """Test card name & count parsing."""
     caplog.set_level(logging.DEBUG)
-    p = parser.Parser(deck.Deck())
+    p = parser.Parser()
 
     # basic match
     assert p.get_card("2x deny") == (vtes.VTES["Deny"], 2)
@@ -192,7 +193,7 @@ def test_get_card(caplog: pytest.LogCaptureFixture) -> None:
 
 def test_comments(caplog: pytest.LogCaptureFixture) -> None:
     """Test comments parsing."""
-    p = parser.Parser(deck.Deck())
+    p = parser.Parser()
 
     # proper line comments
     assert p.get_card("// this is a comment") == (None, 0)
@@ -278,7 +279,7 @@ def test_comments(caplog: pytest.LogCaptureFixture) -> None:
 def test_preface(caplog: pytest.LogCaptureFixture) -> None:
     """Test preface parsing (comments, description, etc.)."""
     # common TWDA headers that should be ignored (reset parser for preface)
-    p = parser.Parser(deck.Deck())
+    p = parser.Parser()
     assert p.get_card("Comment:") == (None, 0)
     assert p.get_card("Description:") == (None, 0)
     assert p.get_card("Crypt:") == (None, 0)
