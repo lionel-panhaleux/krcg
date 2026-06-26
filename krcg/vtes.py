@@ -5,6 +5,7 @@ VTES must be configured with `VTES.configure()` before being used.
 """
 
 from typing import Dict, Generator, List, Optional, Set, Self
+from collections.abc import Iterable
 import aiohttp
 import importlib.metadata
 import logging
@@ -15,6 +16,8 @@ import tempfile
 
 from . import collections
 from . import models
+from . import parser
+from . import providers
 from . import rulings
 from . import vekn_csv
 
@@ -181,3 +184,19 @@ class VTES:
         return self._search.search(
             {models.SearchDimension(k): v for k, v in kwargs.items()}, n, lang
         )
+
+    def parse(
+        self, source: Iterable[str], *, id: str = "", twda: bool = False
+    ) -> models.Deck:
+        """Parse a deck list, resolving card names against this database.
+
+        Args:
+            source: The deck list lines.
+            id: The deck id.
+            twda: If True, parse the positional TWDA tournament headers.
+        """
+        return parser.deck_from_txt(source, self._cards, id=id, twda=twda)
+
+    def to_twd(self, deck: models.Deck) -> str:
+        """Serialize a deck to TWD (Tournament Winning Deck) text format."""
+        return providers.serialize_twd(deck, self._cards)
