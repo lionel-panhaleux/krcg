@@ -54,54 +54,51 @@ Consequence: **`twda.py` must stop building `TWDA` at import time.** Replace the
 
 ## 4. Remaining work
 
-### 4.1 Entry points & loading
-- [ ] `twda.py`: remove the import-time global; add `load_online(session)` fetching `static.krcg.org/data/twda.json`, plus an optional `load_local(path)` for dev/tests. Stop bundling `twda.json`.
-- [ ] `vtes.VTES.load_online`: fix error handling — on exception, `return ret` can hit `UnboundLocalError` and the `cls.load()` fallback result is discarded.
-- [ ] **Pickle cache policy:** `load_online` always rebuilds and overwrites `krcg_vtes_<version>.pkl` (systematic invalidation — fresh online data becomes the cache). `load()` reads that cache, else builds from bundled CSVs via `load_local()`. Version-keyed filename already covers new package releases.
-- [ ] Update `__init__.py` docstring to describe the explicit-load API.
+### Done so far (commits on `lip/v3`)
+- ✅ **models**: dataclass model + msgspec round-trip; `CardMinimal.from_card`, `CardInDeck.of`, `Deck.raven`; `datetime.date` (no field/type shadow); `Lang` trimmed to en/fr/es.
+- ✅ **rulings** wired into `VTES.load_local()`; `_parse_text` uses `CardMinimal.from_card`; group rulings carry `Ruling.group`. `load_online` does not double-load (static JSON embeds rulings).
+- ✅ **vtes.py**: `load()` / `load_local()` / `load_online(session)`; `load_online` control-flow + `kind` dispatch fixed; `VTES.parse()` / `VTES.to_twd()` convenience.
+- ✅ **twda.py**: ported to a **bundled compressed snapshot** (`krcg/cards/twda.json.xz`, 1.35 MB lzma, ~0.28 s decode) — **decision reversed from §5.2**: bundled, not network-only. `load_local()` (offline default) + `load_online(session)` (static, falls back to bundled). No import-time global; 52 MB `twda.json` removed. `DecksArchive = dict[str, models.Deck]`.
+- ✅ **parser.py**: `deck_from_txt(source: Iterable[str], cards: CardDict, *, id="", twda=False)`; dropped `offset`/`preface` param/`**kwargs`; `vtes` import removed (broke the cycle).
+- ✅ **TWD serialization fidelity** (`providers.serialize_twd`): crypt comments, exact columns, accents kept / symbols folded, library sort by VEKN name, date ranges. Validated by round-trip vs GiottoVerducci/TWD: **100% cards, 99.8% semantic, 100% card comments**; ~33% byte-exact ignoring score (rest are justifiable canonicalizations — score uses our format, will PR the archive to realign).
+- ✅ **deleted** `sets.py` and the dead legacy `__cards/__deck/__utils/__config`.
+- ✅ **lint/types**: ruff fully clean; mypy clean on every module **except `analyzer.py`**.
 
-### 4.2 Rulings (the `# TODO: add rulings` in `vekn_csv.from_files`)
-- [ ] Wire `rulings.load_local(cards)` into `VTES.load_local()` (and decide online behaviour: KRCG static JSON already embeds rulings; `load_online` should not double-load).
-- [ ] Fix `rulings._parse_text`: `models.CardMinimal(**dataclasses.asdict(card))` passes full-`Card` fields into `CardMinimal` → `TypeError`. Copy only minimal fields.
-- [ ] Verify group-ruling handling in `load_from_files` (inner comprehension rebinds `nid`).
+### 4.A analyzer.py port (clears the last 22 mypy errors → `just quality` green)
+- [ ] Rewrite for `models.Deck` (`.cards` list of `CardInDeck`) instead of `Counter` semantics (`d.keys()`, `d[card]`). Key counters by `models.Card`; thread a cards DB through for `candidates()`. Has `tests/test_analyzer.py`.
 
-### 4.3 analyzer.py (port — in scope)
-- [ ] Rewrite for `models.Deck` (`.cards` list of `CardInDeck`) instead of `Counter` semantics (`d.keys()`, `d[card]`). Key counters by `models.Card`; thread a cards DB through for `candidates()` output.
+### 4.B seating.py port
+- [ ] Imports clean and mypy-clean already, but **not verified to run** against the new `models.Deck`. Confirm end-to-end and restore `tests/test_seating.py`.
 
-### 4.4 seating.py (port — in scope)
-- [ ] Confirm it imports/builds under the new package (only 4 lines changed) and restore `tests/test_seating.py` to green.
+### 4.C Test migration (tests are NOT yet truth-bearing)
+- [ ] `conftest.py`: session-scoped `VTES` (via `load_local()`) and TWDA fixture. TWDA is now bundled (xz) → tests can use `twda.load_local()`; no network needed.
+- [ ] `test_parser.py`: old `Parser()` no-arg + `deck_from_txt(f)` (no cards) signatures → new API.
+- [ ] `test_twda.py` / `test_states.py` / `test_deck.py`: fail at fixture setup on removed `twda.TWDA` / `_TWDA` singleton → migrate to `twda.load_local()` + `providers.*` serializers.
+- [ ] `test_vtes.py`: `vtes.VTES` is now a class; `search()` is keyword-only, returns a **sorted list** (not set), `n` default 100; `complete()` returns `list[Card]`; `search_dimensions` values are `list[str | None]`.
+- [ ] `test_analyzer.py`: after the analyzer port.
 
-### 4.5 parser.py
-- [ ] `Parser.__init__` signature changed; ensure `deck_from_txt(...)` is the supported entry and update callers/tests. Confirm it emits `models.Deck` end-to-end.
+### 4.D Latent bugs & robustness follow-ups (found during the round-trip work)
+- [ ] **`Translation.url`** — `vekn_csv` sets `translation.url = ...` but `models.Translation` has no `url` field (one surviving `# type: ignore[attr-defined]` in `vekn_csv.py`). The value is dropped by msgspec and never read. **Decide:** add `url: str = ""` to `models.Translation` (likely intended — per-language card URL) **or** delete the assignment.
+- [ ] **Non-standard TWD headers** (~1–2% of decks misparse) — parser's strict patterns miss free-form headers: rounds `\s*(\d+R\+F)` doesn't match `"3R (no final)"`; players `\s*(\d+|\?+)\s*player` misses `"7 players only"` (extra word); free-form scores. Fragments then land in the wrong field (e.g. deck 10842: `"3R"` → player). Location: `parser.py::parse_twda_headers`. Broaden patterns / add fallbacks. **Cards are unaffected — header metadata only.**
+- [ ] **`serialize_txt` date ranges** — `serialize_twd` now emits `start -- end`, but `serialize_txt` (cards-DB-free format, `providers.py` ~line 333) still emits only `event.date`. Mirror the range logic.
+- [ ] **`parser.py` remaining `# type: ignore`** — one at the `self.current_comment += comment` line (`Comment.__iadd__` on a possibly-`None`); pre-existing, low priority.
 
-### 4.6 Tests (currently 13 passed / 37 failed / 3 errors)
-- [ ] Add a **session-scoped fixture** in `conftest.py` providing a loaded `VTES` and `TWDA` (each test calling `load_local()` is slow and inconsistent). Since the TWDA is no longer bundled, commit a small `twda.json` sample under `tests/` and load it via `twda.load_local(path)` (don't hit the network in unit tests).
-- [ ] `test_vtes.py`: migrate tests that use `vtes.VTES` as an instance; update `search()` expectations (now keyword-only filters, returns a sorted list, `n` default 100) and `search_dimensions`.
-- [ ] `test_twda.py`, `test_states.py`, `test_tournament_archive.py`, `test_analyzer.py`: update to new TWDA loader / analyzer / serialization.
-- [ ] `test_deck.py`: align with `providers.*` serializers (`serialize_vdb`, `serialize_json_minimal` mismatches).
-- [ ] `test_parser.py`: update to new `Parser`/`deck_from_txt` signature.
+### 4.E Tooling & build
+- [ ] Reconcile type checker: dev deps mention **`ty`** but `just quality` runs `mypy krcg` (and `pyproject` has `[tool.mypy]`). Pick one; update `justfile` + config; `clean` references `.mypy_cache`.
+- [ ] Confirm `pytest-asyncio` config (explicit `@pytest.mark.asyncio`; no `asyncio_mode`).
+- [ ] **Packaging**: verify the wheel ships `krcg/cards/**` **including** the new `twda.json.xz` (decision changed — TWDA is bundled now); hatch uses `packages = ["krcg"]`. Confirm `twda.json.xz` (not a stray `twda.json`) is what's included.
+- [ ] `pydoclint` / `types-requests` removed — ensure nothing in CI/docs calls them.
 
-### 4.7 Cleanup
-- [ ] Delete leftover `krcg/__cards.py`, `__config.py`, `__deck.py`, `__utils.py` once fully ported (confirm nothing imports them; old `config.ALIASES` now lives in `vekn_csv.ALIASES`).
-- [ ] Decide the fate of `sets.py` (legacy; much of it is commentary) now that `models.Set` + `vtessets.csv` exist — trim or remove.
-- [ ] Trim `models.Lang` to `EN`/`FR`/`ES` (the only synced data); drop `DE`/`IT`/`PT` until their data exists.
-
-### 4.8 Tooling & build
-- [ ] Reconcile type checker: dev deps use **`ty`**, but `justfile quality` runs `mypy krcg` and `pyproject` still has `[tool.mypy]`. Pick one (likely `ty`), update `justfile` + remove stale config; `clean` still references `.mypy_cache`.
-- [ ] Confirm `pytest-asyncio` config (tests use explicit `@pytest.mark.asyncio`; no `asyncio_mode` set — fine, but make it intentional).
-- [ ] Confirm the wheel ships `krcg/cards/**` (CSV/YAML + translation dirs) and **excludes** `twda.json` (it's downloaded at runtime). `MANIFEST.in` uses `graft krcg`; verify hatch includes the data and that any locally-synced `twda.json` is kept out of the build.
-- [ ] `pydoclint` and `types-requests` removed — make sure nothing in CI/docs still calls them.
-
-### 4.9 Docs
-- [ ] Rewrite README usage for the new API (explicit loaders, async, `providers`, no module singleton).
-- [ ] CHANGELOG entry under **5.0**; bump `pyproject` version from 4.x to 5.0.
-- [ ] Migration notes for offspring projects (krcg-cli, krcg-api, krcg-static, krcg-bot) — they all consume the old singleton/`Deck`-as-`Counter` API.
+### 4.F Docs
+- [ ] Rewrite README for the new API (explicit loaders, async, `providers`, no module singleton, `VTES.parse`/`to_twd`).
+- [ ] CHANGELOG under **5.0**; bump `pyproject` version 4.x → 5.0.
+- [ ] Migration notes for offspring (krcg-cli, krcg-api, krcg-static, krcg-bot) — they consume the old singleton / `Deck`-as-`Counter` API. Note the **TWD score format change** (we emit our canonical form) and that a PR to GiottoVerducci/TWD will realign the archive.
 
 ## 5. Decisions (resolved)
 
 1. **Version** — V3 ships as **`5.0`** (major break). Update `pyproject` + CHANGELOG.
-2. **TWDA distribution** — **not** bundled. Lazily downloaded from **static.krcg.org** (the reference source); `fetch_twda.py` generates the json that gets published there.
-3. **Pickle cache** — `load_online` invalidates systematically (always rebuilds/overwrites the version-keyed pickle); `load()` reads cache → falls back to bundled CSVs. See §4.1.
+2. **TWDA distribution** — **bundled, compressed** (`krcg/cards/twda.json.xz`, lzma, 1.35 MB) — *reversed from the original "not bundled" plan* once compression made it package-sized; gives offline parity with the cards/rulings data. `load_local()` is the offline default; `load_online(session)` fetches static.krcg.org and falls back to the bundled snapshot. `fetch_twda.py` regenerates the `.xz` (and still publishes to static for online tools). No pickle cache for TWDA (one ~0.28 s decode).
+3. **Pickle cache (VTES only)** — `load_online` invalidates systematically (always rebuilds/overwrites the version-keyed pickle); `load()` reads cache → falls back to bundled CSVs via `load_local()`.
 4. **Languages** — trim `models.Lang` to **en/fr/es** (only synced data).
 5. **Back-compat** — **clean break**, documented in a migration guide. A thin deprecated shim (e.g., a lazy module-level `VTES`/`TWDA`) is a *nice-to-have* only if low-effort; not required.
 
