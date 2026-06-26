@@ -15,6 +15,7 @@ import tempfile
 
 from . import collections
 from . import models
+from . import rulings
 from . import vekn_csv
 
 
@@ -49,6 +50,7 @@ class VTES:
         ret._search = collections.CardSearch()
         cards, ret._sets = vekn_csv.from_files()
         ret._cards = collections.CardDict(cards)
+        rulings.load_local(ret._cards)
         ret._setup()
         return ret
 
