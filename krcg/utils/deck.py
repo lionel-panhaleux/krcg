@@ -1,6 +1,6 @@
 """Deck utilities."""
 
-from typing import Generator
+from collections.abc import Generator
 import arrow
 import itertools
 import msgspec
@@ -39,7 +39,7 @@ def _type_index(card: models.CardInDeck) -> int:
 
 def sorted_library(
     deck: models.Deck,
-) -> Generator[tuple[str, list[models.CardInDeck]], None, None]:
+) -> Generator[tuple[str, list[models.CardInDeck]]]:
     """A generator that yields library cards sorted by type and name.
 
     Yields:
@@ -129,7 +129,7 @@ def to_txt(deck: models.Deck) -> str:
     lines.append(f"Crypt ({sum(c.count for c in crypt)} cards)")
     lines.append("-" * len(lines[-1]))
     max_name = max(len(card.unique_name) for card in crypt) + 1
-    for card, count in crypt:
+    for card in crypt:
         lines.append(f"{card.count}x {card.unique_name:<{max_name}}")
     library_count = sum(
         c.count for c in deck.cards if c.kind == models.Card.Kind.LIBRARY
@@ -138,13 +138,13 @@ def to_txt(deck: models.Deck) -> str:
     # form a section for each type with a header displaying the total
     for i, (type_, cards_) in enumerate(sorted_library(deck)):
         cr = "\n" if i > 0 else ""
-        lines.append(f"{cr}{type_} ({sum(count for _, count in cards_)})")
+        lines.append(f"{cr}{type_} ({sum(c.count for c in cards_)})")
         for card in cards_:
             if card.comment:
                 comment = card.comment.replace("\n", " ").strip()
-                lines.append(f"{count}x {card.unique_name:<23} -- {comment}")
+                lines.append(f"{card.count}x {card.unique_name:<23} -- {comment}")
             else:
-                lines.append(f"{count}x {card.unique_name}")
+                lines.append(f"{card.count}x {card.unique_name}")
     return "\n".join(lines)
 
 

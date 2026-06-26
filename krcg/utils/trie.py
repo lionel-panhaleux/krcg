@@ -1,29 +1,22 @@
 """Trie."""
 
-from typing import (
-    Generic,
-    Hashable,
-    List,
-    TypeVar,
-    Mapping,
-)
+from typing import Any, SupportsIndex, cast
+from collections.abc import Hashable, Mapping
 import collections
 import logging
 import re
 
 from .string import normalize
 
-T = TypeVar("T")
-H = TypeVar("H", bound=Hashable)
 LOG = logging.getLogger("krcg")
 
 
-def _default_trie_factory():
+def _default_trie_factory() -> "collections.defaultdict[Any, int]":
     """Factory function for Trie default values."""
     return collections.defaultdict(int)
 
 
-class Trie(collections.defaultdict[str, dict[H, int]], Generic[H]):
+class Trie[H: Hashable](collections.defaultdict[str, dict[H, int]]):
     """A Trie structure for text search.
 
     It relies on a Python dict with following structure:
@@ -44,7 +37,7 @@ class Trie(collections.defaultdict[str, dict[H, int]], Generic[H]):
         if data:
             self.update(data)
 
-    def __reduce_ex__(self, protocol):
+    def __reduce_ex__(self, protocol: SupportsIndex) -> tuple[Any, ...]:
         """Custom pickle support to avoid issues with defaultdict."""
         # Return a tuple: (callable, args) where callable(*args) recreates the object
         return (
@@ -56,7 +49,7 @@ class Trie(collections.defaultdict[str, dict[H, int]], Generic[H]):
         )
 
     @staticmethod
-    def _split(text: str) -> List[str]:
+    def _split(text: str) -> list[str]:
         """Normalize input text and split into words."""
         text = normalize(text)
         if not text:
@@ -71,7 +64,7 @@ class Trie(collections.defaultdict[str, dict[H, int]], Generic[H]):
             reference: The reference to return on a match.
         """
         if reference is None:
-            reference = text
+            reference = cast(H, text)
         for e, part in enumerate(Trie._split(text)):
             for i in range(1, len(part) + 1):
                 self[part[:i]][reference] += (
@@ -96,7 +89,7 @@ class Trie(collections.defaultdict[str, dict[H, int]], Generic[H]):
         for part in Trie._split(text):
             # a word can match multiple parts of a key to one reference
             # take the highest score
-            matches: dict[str, int] = {}
+            matches: dict[H, int] = {}
             for reference, score in self.get(part, {}).items():
                 matches[reference] = max(matches.get(reference, 0), score)
             # match all words of given text
