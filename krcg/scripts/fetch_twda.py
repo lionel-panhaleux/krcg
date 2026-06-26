@@ -34,9 +34,7 @@ def fetch_twda(path: pathlib.Path, cards: vtes.VTES) -> None:
                 file_name = os.path.basename(file_info).split(".")[0]
                 with zip_file.open(file_info) as source:
                     text_source = io.TextIOWrapper(source, encoding="utf-8")
-                    deck = parser.deck_from_txt(
-                        text_source, cards, id=file_name, twda=True
-                    )
+                    deck = cards.parse(text_source, id=file_name, twda=True)
                     if deck.score:
                         deck.score.win = True
                     twd[deck.id] = deck

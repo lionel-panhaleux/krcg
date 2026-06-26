@@ -1,13 +1,15 @@
 """Collections of cards."""
 
-from typing import TypeVar, Generic
-from collections.abc import Generator, Iterable, Hashable
+from collections.abc import Generator, Hashable
 import collections
 import msgspec
 import re
 
 from . import models
 from . import utils
+
+#: a set-dimension index: value (or None) -> matching cards
+type SetIndex = collections.defaultdict[str | None, set[models.Card]]
 
 
 class CardDict(utils.FuzzyDict[int | str, models.Card]):
@@ -19,7 +21,7 @@ class CardDict(utils.FuzzyDict[int | str, models.Card]):
 
     _cards: dict[str, models.Card] = {}
 
-    def __init__(self, cards: dict[int | str, models.Card] | None = None) -> None:
+    def __init__(self, cards: dict[int, models.Card] | None = None) -> None:
         """Constructor."""
         super().__init__()
         if not cards:
@@ -28,7 +30,8 @@ class CardDict(utils.FuzzyDict[int | str, models.Card]):
         for card in cards.values():
             self.add(card)
 
-    def __iter__(self) -> Generator[models.Card]:
+    # CardDict deliberately iterates values (cards), not keys, unlike a dict
+    def __iter__(self) -> Generator[models.Card]:  # type: ignore[override]
         """Iterate over cards (values) once each."""
         for key, card in self.items():
             if isinstance(key, int):
@@ -64,10 +67,7 @@ class CardDict(utils.FuzzyDict[int | str, models.Card]):
         )
 
 
-H = TypeVar("H", bound=Hashable)
-
-
-class i18nTrie(dict[models.Lang, utils.Trie[H]], Generic[H]):
+class i18nTrie[H: Hashable](dict[str, utils.Trie[H]]):
     """A Trie structure for text search with i18n support."""
 
     def add(self, text: str, item: H, lang: str = models.Lang.EN) -> None:
@@ -133,44 +133,48 @@ class CardSearch:
         self.name = i18nTrie[models.Card]()
         self.card_text = i18nTrie[models.Card]()
         self.flavor_text = i18nTrie[models.Card]()
-        self.kind = collections.defaultdict(set)
-        self.type = collections.defaultdict(set)
-        self.sect = collections.defaultdict(set)
-        self.clan = collections.defaultdict(set)
-        self.path = collections.defaultdict(set)
-        self.title = collections.defaultdict(set)
-        self.city = collections.defaultdict(set)
-        self.trait = collections.defaultdict(set)
-        self.group = collections.defaultdict(set)
-        self.capacity = collections.defaultdict(set)
-        self.discipline = collections.defaultdict(set)
-        self.artist = collections.defaultdict(set)
-        self.set = collections.defaultdict(set)
-        self.rarity = collections.defaultdict(set)
-        self.precon = collections.defaultdict(set)
-        self.bonus = collections.defaultdict(set)
+        self.kind: SetIndex = collections.defaultdict(set)
+        self.type: SetIndex = collections.defaultdict(set)
+        self.sect: SetIndex = collections.defaultdict(set)
+        self.clan: SetIndex = collections.defaultdict(set)
+        self.path: SetIndex = collections.defaultdict(set)
+        self.title: SetIndex = collections.defaultdict(set)
+        self.city: SetIndex = collections.defaultdict(set)
+        self.trait: SetIndex = collections.defaultdict(set)
+        self.group: SetIndex = collections.defaultdict(set)
+        self.capacity: SetIndex = collections.defaultdict(set)
+        self.discipline: SetIndex = collections.defaultdict(set)
+        self.artist: SetIndex = collections.defaultdict(set)
+        self.set: SetIndex = collections.defaultdict(set)
+        self.rarity: SetIndex = collections.defaultdict(set)
+        self.precon: SetIndex = collections.defaultdict(set)
+        self.bonus: SetIndex = collections.defaultdict(set)
 
     def add(self, card: models.Card) -> None:
         """Add a card to the right search indexes."""
         for dimension in models.SearchDimension:
             values = get_dimension_values(card, dimension)
             if dimension in self._TRIE_DIMENSIONS:
+                assert isinstance(values, dict)
                 for lang, values_list in values.items():
                     for value in values_list:
                         getattr(self, dimension.value).add(value, card, lang)
             else:
+                assert isinstance(values, list)
                 if not values:
                     getattr(self, dimension.value)[None].add(card)
                 else:
                     for value in values:
                         getattr(self, dimension.value)[value].add(card)
 
-    def choices(self, dimension: models.SearchDimension) -> list[str]:
-        """Get the choices for a dimension."""
+    def choices(self, dimension: models.SearchDimension) -> list[str | None]:
+        """Get the choices for a dimension (None marks cards with no value)."""
         if dimension in self._TRIE_DIMENSIONS:
             raise ValueError(f"{dimension.value} is a trie dimension")
         else:
-            res = [None] if None in getattr(self, dimension.value) else []
+            res: list[str | None] = (
+                [None] if None in getattr(self, dimension.value) else []
+            )
             res.extend(
                 sorted(
                     k for k in getattr(self, dimension.value).keys() if k is not None
@@ -233,8 +237,12 @@ class CardSearch:
 
 def get_dimension_values(
     card: models.Card, dimension: models.SearchDimension
-) -> Iterable[str]:
-    """Get the values of a dimension for a card."""
+) -> dict[models.Lang, list[str]] | list[str]:
+    """Get the values of a dimension for a card.
+
+    Trie dimensions (name, card/flavor text) return a per-language dict;
+    set dimensions return a flat list.
+    """
     match dimension:
         case models.SearchDimension.NAME:
             ret = {
@@ -261,12 +269,17 @@ def get_dimension_values(
         case models.SearchDimension.TYPE:
             return [t.value for t in card.types]
         case models.SearchDimension.CLAN:
-            if card.kind == models.Card.Kind.LIBRARY:
+            if isinstance(card, models.LibraryCard):
                 return card.clan_requirement
-            return [card.clan]
+            if isinstance(card, models.CryptCard):
+                return [card.clan]
+            return []
         case models.SearchDimension.DISCIPLINE:
-            if card.kind == models.Card.Kind.LIBRARY:
-                return card.discipline_requirement.disciplines
+            if isinstance(card, models.LibraryCard):
+                req = card.discipline_requirement
+                return req.disciplines if req else []
+            if not isinstance(card, models.CryptCard):
+                return []
             disciplines = set(card.disciplines)
             if card.id == 200553:  # Gwen Brand: superior disciplines from merged forms
                 disciplines |= {"ANI", "AUS", "CHI", "FOR"}
@@ -274,15 +287,17 @@ def get_dimension_values(
             # so a search for "ani" matches superior-only "ANI" too
             return sorted(disciplines | {d.lower() for d in disciplines})
         case models.SearchDimension.GROUP:
-            if card.kind == models.Card.Kind.CRYPT:
+            if isinstance(card, models.CryptCard) and card.group:
                 return [card.group.value]
             return []
         case models.SearchDimension.SECT:
             return [s.value for s in _get_sects(card)]
         case models.SearchDimension.PATH:
-            if card.kind == models.Card.Kind.LIBRARY:
+            if isinstance(card, models.LibraryCard):
                 return card.path_requirement
-            return [card.path] if card.path else []
+            if isinstance(card, models.CryptCard) and card.path:
+                return [card.path]
+            return []
         case models.SearchDimension.BONUS:
             return [b.value for b in _get_bonus(card)]
         case models.SearchDimension.TITLE:
@@ -301,7 +316,7 @@ def get_dimension_values(
                 o.frequency.value
                 for p in card.prints
                 for o in p.occurrences
-                if o.type == models.Occurrence.Type.RARITY
+                if o.type == models.Occurrence.Type.RARITY and o.frequency
             ]
         case models.SearchDimension.PRECON:
             return [
@@ -311,11 +326,9 @@ def get_dimension_values(
                 if o.type == models.Occurrence.Type.PRECON and o.bundle
             ]
         case models.SearchDimension.CAPACITY:
-            return (
-                [str(card.capacity)]
-                if card.kind == models.Card.Kind.CRYPT and card.capacity
-                else []
-            )
+            if isinstance(card, models.CryptCard) and card.capacity:
+                return [str(card.capacity)]
+            return []
 
 
 TITLES_RE = r"({})".format("|".join(t.value.lower() for t in models.Title))
@@ -381,7 +394,7 @@ def _get_sects(card: models.Card) -> list[models.Sect]:
             ret.add(models.Sect.INDEPENDENT)
         match = re.search(LIBRARY_TITLES_RE, card.text.lower())
         if match:
-            ret.add(TITLES_SECT[match.group(1).title()])
+            ret.add(TITLES_SECT[models.Title(match.group(1).title())])
     return sorted(ret)
 
 
@@ -437,7 +450,7 @@ def _get_bonus(card: models.Card) -> list[models.Bonus]:
     if re.search(r"\+(\d|X)\s+(h|H)unt", card.text):
         ret.add(models.Bonus.HUNT)
     # trifle
-    if card.kind == models.Card.Kind.LIBRARY and card.trifle:
+    if isinstance(card, models.LibraryCard) and card.trifle:
         ret.add(models.Bonus.TRIFLE)
     return sorted(ret)
 
@@ -487,7 +500,7 @@ def _get_traits(card: models.Card) -> list[models.Trait]:
     ret = set[models.Trait]()
     for match in re.findall(TRAITS_RE, card.text.lower()):
         ret.add(models.Trait(match.title()))
-    if card.kind == models.Card.Kind.LIBRARY:
+    if isinstance(card, models.LibraryCard) and card.discipline_requirement:
         if card.discipline_requirement.type == models.DisciplineRequirement.Type.COMBO:
             ret.add(models.Trait.COMBO)
         if card.discipline_requirement.type == models.DisciplineRequirement.Type.CHOICE:

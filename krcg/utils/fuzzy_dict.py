@@ -1,10 +1,6 @@
 """Fuzzy dictionary."""
 
-from typing import (
-    Any,
-    Generic,
-    TypeVar,
-)
+from typing import Any, cast
 from collections.abc import (
     Hashable,
     ItemsView,
@@ -21,12 +17,10 @@ import logging
 from .string import normalize
 
 
-T = TypeVar("T")
-H = TypeVar("H", bound=Hashable)
 LOG = logging.getLogger("krcg")
 
 
-class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
+class FuzzyDict[H: Hashable, T](MutableMapping[H, T]):
     """A dict providing "fuzzy matching" of its keys.
 
     It matches keys that are "close enough" if there is no exact match, and
@@ -69,10 +63,10 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
             cutoff=self._cutoff,
         )
         if matches:
-            result = matches[0]
+            result = cast(H, matches[0])
             LOG.debug('"%s" matched "%s"', key, result)
             self.add_alias(key, result)
-            return result  # type: ignore
+            return result
         return None
 
     def add_alias(self, alias: Hashable, value: H) -> None:

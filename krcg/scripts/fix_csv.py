@@ -9,16 +9,16 @@ import re
 import warnings
 
 
-def fix_sets_csv(path: os.PathLike):
+def fix_sets_csv(path: str | os.PathLike[str]) -> None:
     """Fix the sets csv file."""
-    fieldnames, result = [], []
+    result: list[dict[str, str]] = []
     with open(path, encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        fieldnames = reader.fieldnames
+        fieldnames = list(reader.fieldnames or [])
         for row in reader:
-            row = fix_set_row(row)
-            if row:
-                result.append(row)
+            fixed = fix_set_row(row)
+            if fixed:
+                result.append(fixed)
     result.extend(MISSING_SETS)
     with open(path, "w", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames, quoting=csv.QUOTE_ALL)
@@ -27,21 +27,21 @@ def fix_sets_csv(path: os.PathLike):
             writer.writerow(row)
 
 
-def fix_library_csv(path: os.PathLike, lang: str = None):
+def fix_library_csv(path: str | os.PathLike[str], lang: str | None = None) -> None:
     """Fix the library csv file."""
-    fieldnames, result = [], []
+    result: list[dict[str, str]] = []
     with open(path, encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        fieldnames = reader.fieldnames
+        fieldnames = list(reader.fieldnames or [])
         if "Format" not in fieldnames:
             fieldnames.append("Format")
         for row in reader:
-            row = fix_card_text(row, name_2=f"Name {lang}" if lang else None)
+            fixed = fix_card_text(row, name_2=f"Name {lang}" if lang else None)
             if not lang:
-                row = fix_lib_row(row)
-                row = fix_card_row(row)
-            if row:
-                result.append(row)
+                fixed = fix_lib_row(fixed)
+                fixed = fix_card_row(fixed)
+            if fixed:
+                result.append(fixed)
     with open(path, "w", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames, quoting=csv.QUOTE_ALL)
         writer.writeheader()
@@ -49,21 +49,21 @@ def fix_library_csv(path: os.PathLike, lang: str = None):
             writer.writerow(row)
 
 
-def fix_crypt_csv(path: os.PathLike, lang: str = None):
+def fix_crypt_csv(path: str | os.PathLike[str], lang: str | None = None) -> None:
     """Fix the crypt csv file."""
-    fieldnames, result = [], []
+    result: list[dict[str, str]] = []
     with open(path, encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
-        fieldnames = reader.fieldnames
+        fieldnames = list(reader.fieldnames or [])
         if "Format" not in fieldnames:
             fieldnames.append("Format")
         for row in reader:
-            row = fix_card_text(row, name_2=f"Name {lang}" if lang else None)
+            fixed = fix_card_text(row, name_2=f"Name {lang}" if lang else None)
             if not lang:
-                row = fix_crypt_row(row)
-                row = fix_card_row(row)
-            if row:
-                result.append(row)
+                fixed = fix_crypt_row(fixed)
+                fixed = fix_card_row(fixed)
+            if fixed:
+                result.append(fixed)
     with open(path, "w", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames, quoting=csv.QUOTE_ALL)
         writer.writeheader()
@@ -71,7 +71,7 @@ def fix_crypt_csv(path: os.PathLike, lang: str = None):
             writer.writerow(row)
 
 
-def fix_set_row(row: dict[str, str]) -> dict[str, str]:
+def fix_set_row(row: dict[str, str]) -> dict[str, str] | None:
     """Fix a set row."""
     if row["Abbrev"].startswith("Promo"):
         return None
@@ -155,15 +155,15 @@ def fix_set_field(row: dict[str, str]) -> str:
         except ValueError:
             warnings.warn(f"failed to parse set ({card_id}): {tag}")
             exit(1)
-        rarities = re_split(r"/", rarities)
-        if not rarities:
+        rarity_list = re_split(r"/", rarities)
+        if not rarity_list:
             if set_ == "POD":
                 bundle = get_pod_release_date(row)
                 ret.append(f"{set_}:{bundle}")
             else:
                 ret.append(set_)
             continue
-        for rarity in rarities:
+        for rarity in rarity_list:
             match = re.match(r"^([a-zA-Z]*)([\d½]*)$", rarity)
             if not match:
                 warnings.warn(f"failed to parse rarity ({card_id}): {rarity}")
@@ -197,7 +197,7 @@ def fix_set_field(row: dict[str, str]) -> str:
     return ", ".join(ret)
 
 
-def get_pod_release_date(row) -> str:
+def get_pod_release_date(row: dict[str, str]) -> str:
     """Get the release date for a POD card."""
     card_id = int(row["Id"])
     if card_id in POD_RELEASES_CARDS:
@@ -206,7 +206,7 @@ def get_pod_release_date(row) -> str:
     if match:
         clan = match.group(0)
         return POD_RELEASES_WORDS[clan]
-    match = RE_POD_DISC.search(row.get("Disciplines", row.get("Discipline")))
+    match = RE_POD_DISC.search(row.get("Disciplines", row.get("Discipline")) or "")
     if match:
         discipline = match.group(0)
         return POD_RELEASES_DISC[discipline]

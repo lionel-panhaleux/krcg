@@ -21,7 +21,7 @@ from . import utils
 LOG = logging.getLogger("krcg")
 
 
-def setup_parser_logging(include_deck_id: bool = True):
+def setup_parser_logging(include_deck_id: bool = True) -> None:
     """Configure logging for the parser module.
 
     This displays line number and optionally deck ID in the log messages.
@@ -287,7 +287,8 @@ _CLAN = "|".join(
 )
 _CRYPT_TAIL = (
     rf"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{_DISCIPLINE_TRIGRAM})\s+"
-    + rf"({_DISCIPLINE_TRIGRAM}|{_TITLE}|{_CLAN}|\s|:|g?\d{{1,2}}|any|g\*)*)|%NOMATCH%)?"
+    rf"({_DISCIPLINE_TRIGRAM}|{_TITLE}|{_CLAN}|\s|:|g?\d{{1,2}}|any|g\*)*)"
+    r"|%NOMATCH%)?"
 )
 _PUNCTUATED_TRAIT = "|".join(
     [
@@ -389,7 +390,10 @@ _NAKED_TRAIT = "|".join(
         "visceratika",
     ]
 )
-_TRAIT = rf"\s+((\s|-|\(|\[|/|\*)+({_PUNCTUATED_TRAIT})|(\s|-|\(|\[|/|\*)*({_NAKED_TRAIT}))(\s|\)|\]|/|\*)*$"
+_TRAIT = (
+    rf"\s+((\s|-|\(|\[|/|\*)+({_PUNCTUATED_TRAIT})"
+    rf"|(\s|-|\(|\[|/|\*)*({_NAKED_TRAIT}))(\s|\)|\]|/|\*)*$"
+)
 _POST_COUNT = (
     # mandatory punctuation (beware of "AK-47", "Kpist m/45", ...)
     r"(\s|\(|\[|:|cards?|total|,)+"
@@ -435,7 +439,7 @@ class LineLogAdapter(logging.LoggerAdapter):
             self.extra = {}
         assert isinstance(self.extra, dict)
         self.extra.update(kwargs.get("extra", {}))
-        return "[%6s][%s] %s" % (self.extra["line"], self.extra["deck"], msg), kwargs
+        return f"[{self.extra['line']:>6}][{self.extra['deck']}] {msg}", kwargs
 
 
 class Mark(enum.Enum):
@@ -616,21 +620,18 @@ class Parser:
             self.deck.event.place = line
             return True
         if self.deck.event.rounds == models.RoundFormat.NA:
-            try:
-                self.deck.event.rounds = models.RoundFormat(
-                    re.match(r"\s*(\d+R\+F)", line).group(1)
-                )
-                return True
-            except (AttributeError, ValueError):
-                pass
+            if m := re.match(r"\s*(\d+R\+F)", line):
+                try:
+                    self.deck.event.rounds = models.RoundFormat(m.group(1))
+                    return True
+                except ValueError:
+                    pass
         if not self.deck.event.players_count:
-            try:
-                players_count = re.match(r"\s*(\d+|\?+)\s*player", line).group(1)
-                self.deck.event.players_count = int(players_count)
-                return True
-            except AttributeError:
-                pass
-            except ValueError:
+            if m := re.match(r"\s*(\d+|\?+)\s*player", line):
+                try:
+                    self.deck.event.players_count = int(m.group(1))
+                except ValueError:
+                    pass
                 return True
         # Ignore Organizer line (rare inclusion)
         try:
@@ -640,11 +641,9 @@ class Parser:
             pass
         # Newer lists provide an event link
         if not self.deck.event.url:
-            try:
-                self.deck.event.url = re.match(r"^\s*(https?://.*)$", line).group(1)
+            if m := re.match(r"^\s*(https?://.*)$", line):
+                self.deck.event.url = m.group(1)
                 return True
-            except AttributeError:
-                pass
         # Player is always indicated, last entry before score
         # remove comments on player's name
         if not self.deck.player:
@@ -667,43 +666,25 @@ class Parser:
             except (AttributeError, ValueError):
                 pass
         if not self.deck.name:
-            try:
-                self.deck.name = (
-                    re.match(r"^\s*((d|D)eck)?\s?(n|N)ame\s*:\s*(?P<name>.*)$", line)
-                    .group("name")
-                    .strip()
-                )
+            if m := re.match(r"^\s*((d|D)eck)?\s?(n|N)ame\s*:\s*(?P<name>.*)$", line):
+                self.deck.name = m.group("name").strip()
                 return True
-            except (AttributeError, ValueError):
-                pass
         if not self.deck.author:
-            try:
-                self.deck.author = (
-                    re.match(
-                        r"\s*(((c|C)reated|(d|D)eck)\s*(b|B)y|"
-                        r"(a|A)uthors?|(c|C)reators?)\s*(:|\s)\s*(?P<author>.*)$",
-                        line,
-                    )
-                    .group("author")
-                    .strip()
-                )
+            if m := re.match(
+                r"\s*(((c|C)reated|(d|D)eck)\s*(b|B)y|"
+                r"(a|A)uthors?|(c|C)reators?)\s*(:|\s)\s*(?P<author>.*)$",
+                line,
+            ):
+                self.deck.author = m.group("author").strip()
                 return True
-            except AttributeError:
-                pass
         if not self.deck.player:
-            try:
-                self.deck.player = (
-                    re.match(
-                        r"\s*((p|P)layed\s*(b|B)y)|((p|P)layer)\s*(:|\s)\s*"
-                        r"(?P<player>.*)$",
-                        line,
-                    )
-                    .group("player")
-                    .strip()
-                )
+            if m := re.match(
+                r"\s*((p|P)layed\s*(b|B)y)|((p|P)layer)\s*(:|\s)\s*"
+                r"(?P<player>.*)$",
+                line,
+            ):
+                self.deck.player = m.group("player").strip()
                 return True
-            except AttributeError:
-                pass
         if not self.deck.event or not self.deck.event.date:
             try:
                 date = arrow.get(line, "MMMM Do YYYY").date()
@@ -749,6 +730,14 @@ class Parser:
         if match:
             name = match.group("name")
             count = int(match.group("ante_count") or 0)
+            post_count = match.group("post_count")
+            count_mark = match.group("count_mark")
+            comment_mark = match.group("comment_mark") or ""
+            comment_span = max(
+                match.span("parenthesis_comment"),
+                match.span("bracket_comment"),
+                match.span("line_comment"),
+            )
             # get the group from the crypt tail
             group = None
             tail = match.group("crypt_tail")
@@ -767,8 +756,8 @@ class Parser:
                 if self.preface:
                     name = None
                 else:
-                    count = int(match.group("post_count") or 1)  # type: ignore
-                    if not match.group("count_mark"):  # type: ignore
+                    count = int(post_count or 1)
+                    if not count_mark:
                         # Be wary of disciplines: they are sometimes headers, but
                         # indistinguishable from actual Master discipline cards
                         if name.strip(" :()[]-_*=") in _DISCIPLINES:
@@ -782,17 +771,18 @@ class Parser:
             # might not contain the group, we need to rely on the group in crypt tail
             if name and group and name[-1] != ")":
                 name += f" (g{group})"
-            try:
-                card = self.cards_db[name]  # type: ignore
-                # special case for Camille / Raven to keep them distinct if the decklist
-                # predates the merge of the two crypt cards
-                if (
-                    name in ["raven", "raven (g1)"]
-                    and card.full_name == "Camille Devereux, The Raven (G1)"
-                ):
-                    self.deck.raven = count
-            except KeyError:
-                card, count = None, 0
+            if name:
+                try:
+                    card = self.cards_db[name]
+                    # keep Camille / Raven distinct if the decklist predates the
+                    # merge of the two crypt cards
+                    if (
+                        name in ["raven", "raven (g1)"]
+                        and card.full_name == "Camille Devereux, The Raven (G1)"
+                    ):
+                        self.deck.raven = count
+                except KeyError:
+                    card, count = None, 0
         # do not match a card inside a marked multiline comment
         if (
             card
@@ -802,14 +792,10 @@ class Parser:
             self.logger.warning('discarded match "%s" inside comment "%s"', name, line)
             card, count = None, 0
         # do not match crypt tail expression on a library card
-        if (
-            card
-            and match.group("crypt_tail")
-            and not card.kind == models.Card.Kind.CRYPT
-        ):
+        if card and tail and not card.kind == models.Card.Kind.CRYPT:
             card, count = None, 0
         # do not match post count on a crypt card
-        if card and match.group("post_count") and card.kind == models.Card.Kind.CRYPT:
+        if card and post_count and card.kind == models.Card.Kind.CRYPT:
             card, count = None, 0
         # too many preface comments parse like cards in the TWDA
         if self.twda and name and not self.separator:
@@ -818,18 +804,12 @@ class Parser:
         # if a card was found, a comment might still be present as a suffix
         if card:
             card_in_deck = models.CardInDeck.of(card, count)
-            comment_span = max(
-                match.span("parenthesis_comment"),  # type: ignore
-                match.span("bracket_comment"),  # type: ignore
-                match.span("line_comment"),  # type: ignore
-            )
             # extract the original comment, not the "normalized" parsed version
             if comment_span > (-1, -1):
                 comment = line[comment_span[0] : comment_span[1]]
             else:
                 comment = ""
-            mark_match = match.group("comment_mark") or ""  # type: ignore
-            if mark_match[:2] == "/*":
+            if comment_mark[:2] == "/*":
                 if "*/" in line:
                     mark = Mark.LINE
                 else:

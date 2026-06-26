@@ -116,16 +116,16 @@ def from_files() -> tuple[DictOfCards, DictofSets]:
             add_bundle(sets, line)
     with local_dir.joinpath(BASE_CRYPT).open(encoding="utf-8-sig") as f:
         for line in csv.DictReader(f):
-            card = crypt_card_from_vekn(sets, line)
-            cards[card.id] = card
+            crypt = crypt_card_from_vekn(sets, line)
+            cards[crypt.id] = crypt
     with local_dir.joinpath(BASE_LIB).open(encoding="utf-8-sig") as f:
         for line in csv.DictReader(f):
-            card = lib_card_from_vekn(sets, line)
-            cards[card.id] = card
+            lib = lib_card_from_vekn(sets, line)
+            cards[lib.id] = lib
     for lang, path in TRANSLATIONS:
         with local_dir.joinpath(path).open(encoding="utf-8-sig") as f:
             for line in csv.DictReader(f):
-                card = add_translation(cards, line, lang)
+                add_translation(cards, line, lang)
     compute_variants(cards)
     compute_urls(cards, sets)
     return cards, sets
@@ -169,18 +169,21 @@ GROUP_MAP = {
 LEGAL_ON_RELEASE = datetime.date(2025, 9, 21)
 
 
-def parse_enum_list(
-    value: str, cls: type[enum.Enum], sep: str = "/"
-) -> list[enum.Enum]:
+def parse_enum_list[E: enum.Enum](value: str, cls: type[E], sep: str = "/") -> list[E]:
     """Parse a list of enum members from a string."""
     return [cls(v.strip()) for v in value.split(sep) if v.strip()]
 
 
-def card_from_vekn(
-    sets: dict[int | str, models.Set], line: dict[str, str], cls: type[models.Card]
-) -> models.Card:
+def card_from_vekn[T: models.Card](
+    sets: dict[int | str, models.Set], line: dict[str, str], cls: type[T]
+) -> T:
     """Create a card from a VEKN CSV line."""
     card = cls(
+        kind=(
+            models.Card.Kind.CRYPT
+            if issubclass(cls, models.CryptCard)
+            else models.Card.Kind.LIBRARY
+        ),
         id=int(line["Id"]),
         printed_name=prefix_name(line["Name"]),
         types=parse_enum_list(line["Type"], models.Card.Type, "/"),
@@ -279,7 +282,7 @@ def lib_card_from_vekn(
         if line[column]:
             value = line[column]
             card.cost = models.Cost(
-                type=cost_type, value=int(value) if value.isdigit() else value
+                type=cost_type, value=int(value) if value.isdigit() else "X"
             )
             break
     return card
@@ -297,7 +300,7 @@ def prints_from_vekn(
     sets: dict[int | str, models.Set], sets_field: str
 ) -> list[models.Print]:
     """Create prints from a VEKN CSV line."""
-    prints = {}
+    prints: dict[str, list[models.Occurrence]] = {}
     tags = sets_field.split(", ")
     for tag in tags:
         match = re.match(r"^([a-zA-Z0-9-]+):?([a-zA-Z0-9/½]+)?$", tag)
@@ -358,14 +361,17 @@ def prints_from_vekn(
             for expansion, occurences in prints.items()
         ],
         key=lambda p: (
-            sets[p.set.id].release_date
-            if p.set.id and sets[p.set.id].release_date
-            else p.occurrences[0].date
+            (
+                sets[p.set.id].release_date
+                if p.set.id and sets[p.set.id].release_date
+                else p.occurrences[0].date
+            )
+            or datetime.date.min
         ),
     )
 
 
-def compute_urls(cards: DictOfCards, sets: DictofSets):
+def compute_urls(cards: DictOfCards, sets: DictofSets) -> None:
     """Compute the URLs for a card.
 
     WARNING: compute_variants must be called before this function.
@@ -375,7 +381,8 @@ def compute_urls(cards: DictOfCards, sets: DictofSets):
         card_name = re.sub(r"[^\w\d]", "", utils.normalize(card.full_name)) + ".jpg"
         card.url = urllib.parse.urljoin(base_url, card_name)
         for lang, translation in card.i18n.items():
-            translation.url = urllib.parse.urljoin(
+            # url is set dynamically; not a declared Translation field
+            translation.url = urllib.parse.urljoin(  # type: ignore[attr-defined]
                 base_url, f"{lang.value}/{card_name}"
             )
         for print_ in card.prints:
@@ -390,7 +397,9 @@ def compute_urls(cards: DictOfCards, sets: DictofSets):
             print_.url = urllib.parse.urljoin(base_url, f"set/{set_name}/{card_name}")
 
 
-def add_translation(cards: DictOfCards, line: dict[str, str], lang: str) -> models.Card:
+def add_translation(
+    cards: DictOfCards, line: dict[str, str], lang: models.Lang
+) -> None:
     """Add a translation to a card."""
     card = cards[int(line["Id"])]
     card.i18n[lang] = models.Translation(
@@ -402,12 +411,15 @@ def add_translation(cards: DictOfCards, line: dict[str, str], lang: str) -> mode
 
 def compute_variants(cards: DictOfCards) -> None:
     """Compute variants and unicity_suffix for cards."""
-    same_name = {}
+    # variants (group/advanced) are a crypt-only concept
+    same_name: dict[str, list[models.CryptCard]] = {}
     for card in cards.values():
-        same_name.setdefault(card.printed_name, []).append(card)
+        if isinstance(card, models.CryptCard):
+            same_name.setdefault(card.printed_name, []).append(card)
     same_name = {k: v for k, v in same_name.items() if len(v) > 1}
     for name_group in same_name.values():
         for card, variant in itertools.permutations(name_group, 2):
+            assert card.group is not None and variant.group is not None
             if card.group < variant.group:
                 type_ = models.Variant.Type.EVOLUTION
             elif card.group > variant.group:
@@ -428,7 +440,8 @@ def compute_variants(cards: DictOfCards) -> None:
             )
     # compute minimum suffix for unicity
     for card in cards.values():
-        if card.kind == models.Card.Kind.CRYPT:
+        if isinstance(card, models.CryptCard):
+            assert card.group is not None
             has_other_group = any(
                 v.type in {models.Variant.Type.PREVIOUS, models.Variant.Type.EVOLUTION}
                 for v in card.variants
@@ -447,8 +460,10 @@ def compute_variants(cards: DictOfCards) -> None:
     for card in cards.values():
         previous_variants = card.name_variants
         card.name_variants = []
-        for variant in previous_variants:
-            for name, variant_type in _variants(variant.name, card, variant.type):
+        for name_variant in previous_variants:
+            for name, variant_type in _variants(
+                name_variant.name, card, name_variant.type
+            ):
                 card.name_variants.append(
                     models.NameVariant(
                         name=name,
@@ -471,7 +486,7 @@ def compute_variants(cards: DictOfCards) -> None:
     # lexicographical and vernacularname variants
     for card in cards.values():
         if (
-            card.kind == models.Card.Kind.CRYPT
+            isinstance(card, models.CryptCard)
             and card.group == models.Group.Any
             and not card.unicity_suffix
         ):

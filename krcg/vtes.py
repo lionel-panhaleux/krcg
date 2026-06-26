@@ -4,7 +4,7 @@ If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
 
-from typing import Self
+from typing import Self, cast
 from collections.abc import Generator
 from collections.abc import Iterable
 import aiohttp
@@ -63,7 +63,7 @@ class VTES:
         """Default load: fast and local."""
         try:
             with open(PICKLE_FILE, "rb") as f:
-                return pickle.load(f)
+                return cast(Self, pickle.load(f))
         except (pickle.UnpicklingError, EOFError, FileNotFoundError):
             LOG.warning("Failed to load pickled VTES data", exc_info=True)
             return cls.load_local()
@@ -139,7 +139,7 @@ class VTES:
         """Get a card by ID or name, or a default value if not found."""
         return self._cards.get(key) or default
 
-    def complete(self, text: str, lang: str = "en") -> list[str]:
+    def complete(self, text: str, lang: str = "en") -> list[models.Card]:
         """Card name completion.
 
         Matches on the start of the name are returned first,
@@ -150,12 +150,12 @@ class VTES:
             lang: Preferred language code (defaults to English).
 
         Returns:
-            Sorted from most likely to less likely.
+            Matching cards, sorted from most likely to less likely.
         """
         return self._search.name.search_flat(text, 10, lang)
 
     @property
-    def search_dimensions(self) -> dict[str, list[str]]:
+    def search_dimensions(self) -> dict[str, list[str | None]]:
         """Get the search dimensions.
 
         Returns:
@@ -173,8 +173,8 @@ class VTES:
         *,
         n: int | None = 100,
         lang: models.Lang = models.Lang.EN,
-        **kwargs,
-    ) -> set[models.Card]:
+        **kwargs: list[str],
+    ) -> list[models.Card]:
         """Search for cards.
 
         Args:

@@ -59,8 +59,8 @@ async def fetch_vdb(
     elif url.fragment:
         ret = models.Deck(
             id="",
-            name=params.get("name", [None])[0],
-            author=params.get("author", [None])[0],
+            name=params.get("name", [None])[0] or "",
+            author=params.get("author", [None])[0] or "",
             comment=params.get("description", [""])[0],
         )
         for item in url.fragment.split(";"):
@@ -243,16 +243,16 @@ def serialize_twd(deck: models.Deck, cards_dict: collections.CardDict) -> str:
         lines.append(deck.comment)
     elif lines and lines[-1] != "":
         lines.append("")
-    crypt = sorted(
-        [
-            (cards_dict[c.id], c.count, c.comment)
-            for c in deck.cards
-            if c.kind == models.Card.Kind.CRYPT
-        ],
-        key=lambda c: (-c[1], -c[0].capacity, utils.vekn_name(c[0])),
-    )
+    crypt: list[tuple[models.CryptCard, int, str]] = []
+    for c in deck.cards:
+        if c.kind != models.Card.Kind.CRYPT:
+            continue
+        card = cards_dict[c.id]
+        assert isinstance(card, models.CryptCard)
+        crypt.append((card, c.count, c.comment))
+    crypt.sort(key=lambda t: (-t[1], -(t[0].capacity or 0), utils.vekn_name(t[0])))
     cap = sorted(
-        itertools.chain.from_iterable([card.capacity] * n for card, n, _ in crypt)
+        itertools.chain.from_iterable([card.capacity or 0] * n for card, n, _ in crypt)
     )
     cap_min = sum(cap[:4])
     cap_max = sum(cap[-4:])
@@ -273,14 +273,18 @@ def serialize_twd(deck: models.Deck, cards_dict: collections.CardDict) -> str:
             or "-none-"
         )
         title = card.title.lower() if card.title else ""
-        group = "ANY" if card.group == models.Group.Any else card.group.value[1:]
+        group = (
+            "ANY"
+            if not card.group or card.group == models.Group.Any
+            else card.group.value[1:]
+        )
         clan = f"{card.clan}:{group}"
         if name == "Camille Devereux, The Raven" and raven:
             rows.append(
                 (count - raven, "Camille Devereux", 5, "FOR PRO ani", "", clan, "")
             )
             name, count = "Raven", raven
-        rows.append((count, name, card.capacity, disc, title, clan, comment))
+        rows.append((count, name, card.capacity or 0, disc, title, clan, comment))
     max_cnt = max(len(f"{r[0]}x") for r in rows)
     max_name = max(len(r[1]) for r in rows)
     cap_w = max(len(str(r[2])) for r in rows)
@@ -308,17 +312,22 @@ def serialize_twd(deck: models.Deck, cards_dict: collections.CardDict) -> str:
     for i, (type_, cards_) in enumerate(utils.sorted_library(deck)):
         trifle_count = ""
         if type_ == "Master":
-            trifle_count = sum(c.count for c in cards_ if cards_dict[c.id].trifle)
-            trifle_count = f"; {trifle_count} trifle" if trifle_count else ""
+            n_trifle = sum(
+                c.count
+                for c in cards_
+                if isinstance((lib := cards_dict[c.id]), models.LibraryCard)
+                and lib.trifle
+            )
+            trifle_count = f"; {n_trifle} trifle" if n_trifle else ""
         cr = "\n" if i > 0 else ""
         lines.append(f"{cr}{type_} ({sum(c.count for c in cards_)}{trifle_count})")
-        for card in cards_:
-            name = utils.vekn_name(card, ascii=False)
-            if card.comment:
-                comment = card.comment.replace("\n", " ").strip()
-                lines.append(f"{card.count}x {name:<23} -- {comment}")
+        for c in cards_:
+            name = utils.vekn_name(c, ascii=False)
+            if c.comment:
+                comment = c.comment.replace("\n", " ").strip()
+                lines.append(f"{c.count}x {name:<23} -- {comment}")
             else:
-                lines.append(f"{card.count}x {name}")
+                lines.append(f"{c.count}x {name}")
     return "\n".join(lines)
 
 
