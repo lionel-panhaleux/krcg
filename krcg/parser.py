@@ -603,8 +603,15 @@ class Parser:
         # submissions lack this field, misformat it,
         # or omit the location (2nd line) for online events
         if not self.deck.event.date:
+            # multi-day events are written "<start> -- <end>"
+            start, _, end = line.partition(" -- ")
             try:
-                self.deck.event.date = arrow.get(line, "MMMM Do YYYY").date()
+                self.deck.event.date = arrow.get(start, "MMMM Do YYYY").date()
+                if end:
+                    try:
+                        self.deck.event.end_date = arrow.get(end, "MMMM Do YYYY").date()
+                    except arrow.parser.ParserMatchError:
+                        pass
                 return True
             except arrow.parser.ParserMatchError:
                 if index == 3:
