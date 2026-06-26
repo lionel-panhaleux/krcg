@@ -1,14 +1,11 @@
 """Fuzzy dictionary."""
 
-from typing import (
-    Any,
-    Generic,
+from typing import Any, cast
+from collections.abc import (
     Hashable,
     ItemsView,
     Iterator,
-    Optional,
     Sequence,
-    TypeVar,
     Mapping,
     MutableMapping,
 )
@@ -20,12 +17,10 @@ import logging
 from .string import normalize
 
 
-T = TypeVar("T")
-H = TypeVar("H", bound=Hashable)
 LOG = logging.getLogger("krcg")
 
 
-class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
+class FuzzyDict[H: Hashable, T](MutableMapping[H, T]):
     """A dict providing "fuzzy matching" of its keys.
 
     It matches keys that are "close enough" if there is no exact match, and
@@ -38,7 +33,7 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
         *args: Any,
         threshold: int = 6,
         cutoff: float = 0.85,
-        aliases: Optional[Mapping[Any, Any]] = None,
+        aliases: Mapping[Any, Any] | None = None,
         **kwargs: Any,
     ) -> None:
         """Constructor.
@@ -55,7 +50,7 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
         self._aliases: dict[Hashable, H] = dict(aliases) if aliases else {}
         self._dict: dict[H, T] = dict(*args, **kwargs)
 
-    def _fuzzy_match(self, key: Hashable) -> Optional[H]:
+    def _fuzzy_match(self, key: Hashable) -> H | None:
         """Use difflib to match incomplete or misspelled keys."""
         if not isinstance(key, collections.abc.Sequence):
             return None
@@ -68,10 +63,10 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
             cutoff=self._cutoff,
         )
         if matches:
-            result = matches[0]
+            result = cast(H, matches[0])
             LOG.debug('"%s" matched "%s"', key, result)
             self.add_alias(key, result)
-            return result  # type: ignore
+            return result
         return None
 
     def add_alias(self, alias: Hashable, value: H) -> None:

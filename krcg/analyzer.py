@@ -1,6 +1,6 @@
 """TWDA analyzer: compute cards affinity and build decks based on TWDA."""
 
-from typing import Callable, Iterable, List, Optional, Tuple
+from collections.abc import Callable, Iterable
 import collections
 import itertools
 import random
@@ -8,7 +8,7 @@ import random
 from . import models
 import logging
 
-Candidates = List[Tuple[models.Card, int]]
+Candidates = list[tuple[models.Card, int]]
 
 logger = logging.getLogger("krcg")
 
@@ -19,7 +19,7 @@ class AnalysisError(Exception):
     pass
 
 
-class Analyzer(object):
+class Analyzer:
     """Analyze TWDA, compute card affinities, and build decks.
 
     The "affinity" is the number of decks where two cards are played together.
@@ -52,7 +52,7 @@ class Analyzer(object):
             models.Card, collections.Counter[models.Card]
         ] = collections.defaultdict(collections.Counter)
         self.refresh_cursor = 0
-        self.deck: Optional[models.Deck] = None
+        self.deck: models.Deck | None = None
 
     def build_deck(self, *args: models.Card) -> models.Deck:
         """Build a deck, using optional card names as reference.
@@ -104,7 +104,7 @@ class Analyzer(object):
         self,
         *args: models.Card,
         similarity: float = 0.6,
-        condition: Optional[Callable] = None,
+        condition: Callable | None = None,
     ) -> None:
         """Sample TWDA. This is the core method of the Analyzer.
 
@@ -215,7 +215,7 @@ class Analyzer(object):
             self.cards_left -= self.deck.cards_count(condition)
 
     def refresh_affinity(
-        self, card: models.Card, condition: Optional[Callable] = None
+        self, card: models.Card, condition: Callable | None = None
     ) -> None:
         """Add a card to `self.affinity` using current examples.
 
@@ -264,7 +264,7 @@ class Analyzer(object):
         return candidates.most_common()
 
     def build_deck_part(
-        self, *args: models.Card, condition: Optional[Callable] = None
+        self, *args: models.Card, condition: Callable | None = None
     ) -> None:
         """Build a deck part using given condition.
 
