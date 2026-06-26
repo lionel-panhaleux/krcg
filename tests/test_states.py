@@ -42,7 +42,9 @@ def test_card() -> None:
             },
         },
         "_name": "Aid from Bats",
-        "_set": "Jyhad:C, VTES:C, CE:C/PN3, Anarchs:PG2, Third:C, KoT:C, FB:PN6",
+        "_set": (
+            "Jyhad:C, VTES:C, CE:C/PN3, Anarchs:PG2, Third:C, KoT:C, FB:PN6, NB3:PR3"
+        ),
         "artists": ["Melissa Benson", "Eric Lofgren"],
         "card_text": (
             "[ani] Strike: 1R damage, with 1 optional maneuver.\n"
@@ -66,6 +68,7 @@ def test_card() -> None:
             "Third Edition",
             "Keepers of Tradition",
             "First Blood",
+            "New Blood III",
         ],
         "sets": {
             "Anarchs": [
@@ -81,6 +84,9 @@ def test_card() -> None:
             "Jyhad": [{"rarity": "Common", "release_date": "1994-08-16"}],
             "Keepers of Tradition": [
                 {"rarity": "Common", "release_date": "2008-11-19"}
+            ],
+            "New Blood III": [
+                {"copies": 3, "precon": "Ravnos", "release_date": "2025-05-31"}
             ],
             "Third Edition": [{"rarity": "Common", "release_date": "2006-09-04"}],
             "Vampire: The Eternal Struggle": [
@@ -98,6 +104,9 @@ def test_card() -> None:
             "Jyhad": "https://static.krcg.org/card/set/jyhad/aidfrombats.jpg",
             "Keepers of Tradition": (
                 "https://static.krcg.org/card/set/keepers-of-tradition/aidfrombats.jpg"
+            ),
+            "New Blood III": (
+                "https://static.krcg.org/card/set/new-blood-iii/aidfrombats.jpg"
             ),
             "Third Edition": (
                 "https://static.krcg.org/card/set/third-edition/aidfrombats.jpg"

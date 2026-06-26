@@ -264,17 +264,15 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         "NB3": {
             "PL": "Lasombra",
             "PH": "Hecata",
+            "PR": "Ravnos",
+            "PS": "Salubri",
+            "PT": "Tzimisce",
         },
         "SV5": {
             "PPower": "Path of Power and the Inner Voice",
             "PDeath": "Path of Death",
             "PCathari": "Path of Cathari",
             "PCaine": "Path of Caine",
-        },
-        "NB3C": {
-            "PR": "Ravnos",
-            "PS": "Salubri",
-            "PT": "Tzimisce",
         },
     }
     _REPRINTS_RELEASE_DATE = {
