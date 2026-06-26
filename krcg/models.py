@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from datetime import date
+from dataclasses import dataclass, field, fields
+import datetime
 from enum import StrEnum
 from typing import Literal
 
@@ -54,7 +54,7 @@ class Occurrence:
     multiplier: float = 0  # RARITY
     bundle: str = ""  # PRECON
     copies: int = 0  # PRECON
-    date: date | None = None  # SINGLE
+    date: datetime.date | None = None  # SINGLE
 
 
 @dataclass(kw_only=True)
@@ -80,7 +80,7 @@ class Set(SetMinimal):
 
     name: str
     company: str = ""
-    release_date: date | None = None
+    release_date: datetime.date | None = None
     bundles: dict[str, Bundle] = field(default_factory=dict)
 
 
@@ -179,6 +179,11 @@ class CardMinimal:
         """Concise repr (don't dump every field)."""
         return str(self)
 
+    @classmethod
+    def from_card(cls, card: CardMinimal) -> CardMinimal:
+        """Project a fuller card down to a minimal one, dropping extra fields."""
+        return cls(**{f.name: getattr(card, f.name) for f in fields(cls)})
+
 
 @dataclass(kw_only=True)
 class Ruling:
@@ -200,6 +205,7 @@ class Ruling:
         symbol: str
 
     text: str
+    group: str = ""
     references: list[Reference] = field(default_factory=list)
     cards: list[CardMinimal] = field(default_factory=list)
     symbols: list[Symbol] = field(default_factory=list)
@@ -318,8 +324,8 @@ class Card(CardMinimal):
     text: str = ""
     draft: str = ""
     flavor: str = ""
-    legal: date | None = None
-    banned: date | None = None
+    legal: datetime.date | None = None
+    banned: datetime.date | None = None
 
     def __post_init__(self) -> None:
         """Convert string types to Type enum members."""
@@ -408,8 +414,8 @@ class Event:
     """An event."""
 
     name: str = ""
-    date: date | None = None
-    end_date: date | None = None
+    date: datetime.date | None = None
+    end_date: datetime.date | None = None
     online: bool = False
     format: Format = Format.STANDARD
     players_count: int = 0
