@@ -4,9 +4,7 @@ Handles legacy TWDA formats and other deck list idiosyncrasies.
 Only modify this file if you know what you're doing, and proceed with caution.
 """
 
-from typing import TextIO, Any
-from collections.abc import MutableMapping
-import datetime
+from typing import TextIO, Optional, MutableMapping, Any
 import enum
 import logging
 import math
@@ -14,14 +12,46 @@ import re
 
 import arrow
 
-from . import config
-from . import cards
-from . import deck
-from . import vtes
+from .collections import CardDict
+from . import models
 from . import utils
+from . import vtes
 
 
-logger = logging.getLogger("krcg")
+LOG = logging.getLogger("krcg")
+
+
+def setup_parser_logging(include_deck_id: bool = True):
+    """Configure logging for the parser module.
+
+    This displays line number and optionally deck ID in the log messages.
+    """
+    if include_deck_id:
+        formatter = logging.Formatter(
+            "[%(levelname)s][%(deck_id)s][%(line)s] %(message)s"
+        )
+    else:
+        formatter = logging.Formatter("[%(levelname)s][%(line)s] %(message)s")
+    for handler in LOG.handlers:
+        handler.setFormatter(formatter)
+
+
+def deck_from_txt(
+    input: TextIO,
+    cards_db: vtes.VTES | CardDict,
+    /,
+    *,
+    offset: int = 0,
+    twda: bool = False,
+    preface: bool = True,
+    **kwargs,
+) -> models.Deck:
+    """Parse a deck list stream and return a Deck instance.
+
+    Use setup_parser_logging() first to get line# logging.
+    """
+    return Parser(cards_db, offset, twda, preface, **kwargs).parse(input)
+
 
 #: classic headers in deck lists
 _HEADERS = [
@@ -120,7 +150,7 @@ _HEADERS_FIRST_RE = (
     + ")"
 )
 _HEADERS_RE = (
-    rf"^(\s|/|-|\d|_)*{_HEADERS_FIRST_RE}((\s|/|-)*{_HEADERS_RE})*"
+    r"^(\s|/|-|\d|_)*{0}((\s|/|-)*{1})*".format(_HEADERS_FIRST_RE, _HEADERS_RE)
     + r"(\s|\d|:|;|\.|\(|\)|\[|\]|/|-|=|,|"
     + r"cards?|carta|cars|total|min|max|avg|masters?|minions?|trifles?)*$"
 )
@@ -257,18 +287,10 @@ _CLAN = "|".join(
         "redeemer",
     ]
 )
-_PATH = "|".join(
-    [
-        "caine",
-        "cathari",
-        "death",
-        "power",
-    ]
-)
-_CRYPT_TAIL = (
-    rf"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{_DISCIPLINE_TRIGRAM})\s+"
-    + rf"({_DISCIPLINE_TRIGRAM}|{_TITLE}|{_CLAN}|{_PATH}"
-    + r"|\s|:|g?\d{1,2}|any|g\*)*)|%NOMATCH%)?"
+_CRYPT_TAIL = r"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{})\s+".format(
+    _DISCIPLINE_TRIGRAM
+) + r"({}|{}|{}|\s|:|g?\d{{1,2}}|any|g\*)*)|%NOMATCH%)?".format(
+    _DISCIPLINE_TRIGRAM, _TITLE, _CLAN
 )
 _PUNCTUATED_TRAIT = "|".join(
     [
@@ -371,8 +393,9 @@ _NAKED_TRAIT = "|".join(
     ]
 )
 _TRAIT = (
-    rf"\s+((\s|-|\(|\[|/|\*)+({_PUNCTUATED_TRAIT})"
-    + rf"|(\s|-|\(|\[|/|\*)*({_NAKED_TRAIT}))(\s|\)|\]|/|\*)*$"
+    r"\s+((\s|-|\(|\[|/|\*)+({0})|(\s|-|\(|\[|/|\*)*({1}))(\s|\)|\]|/|\*)*$".format(
+        _PUNCTUATED_TRAIT, _NAKED_TRAIT
+    )
 )
 _POST_COUNT = (
     # mandatory punctuation (beware of "AK-47", "Kpist m/45", ...)
@@ -419,7 +442,7 @@ class LineLogAdapter(logging.LoggerAdapter):
             self.extra = {}
         assert isinstance(self.extra, dict)
         self.extra.update(kwargs.get("extra", {}))
-        return f"[{self.extra['line']:>6}][{self.extra['deck']}] {msg}", kwargs
+        return "[%6s][%s] %s" % (self.extra["line"], self.extra["deck"], msg), kwargs
 
 
 class Mark(enum.Enum):
@@ -437,8 +460,8 @@ class Comment:
     def __init__(
         self,
         comment: str = "",
-        card: Any | None = None,
-        mark: Mark | None = None,
+        card: Optional[Any] = None,
+        mark: Optional[Mark] = None,
     ):
         """Constructor.
 
@@ -485,14 +508,14 @@ class Comment:
                 if self.string[:size] == lhs and self.string[-size:] == rhs:
                     self.string = self.string[size:-size]
         # if comment begin with a count and has a prenthesis
-        # if may be a parsing error
+        # it may be a parsing error
         if not self.mark:
             match = re.match(
                 f"{_PUNCTUATION}{_ANTE_COUNT}(x|X|\\*|-|_|\\s)+(\\w|\\d|\\s|:|'|,)+\\(",
                 self.string.split("\n", 1)[0],
             )
             if match:
-                logger.warning('failed to parse "%s"', self.log)
+                LOG.warning('failed to parse "%s"', self.log)
                 self.string = ""
 
     @property
@@ -512,25 +535,40 @@ class Comment:
 class Parser:
     """Deck list parser. Holds the parsing context."""
 
-    def __init__(self, d: deck.Deck) -> None:
+    def __init__(
+        self,
+        cards_db: vtes.VTES,
+        offset: int = 0,
+        twda: bool = False,
+        preface: bool = True,
+        **kwargs: Any,
+    ) -> None:
         """Constructor.
 
         Args:
-            d: The deck to parse.
+            cards_db: The cards database.
+            offset: Offset to add when parsing part of a bigger stream (for logs).
+            twda: If True, parse TWDA headers. Defaults to False.
+            preface: If True (default), expect a preface section before the cards.
+            kwargs: Arguments passed to the Deck constructor.
         """
-        self.current_comment: Comment | None = None
-        self.preface = True
-        self.separator = False  # used only for additional checks on the TWDA
-        self.deck: deck.Deck = d
-        self.logger: logging.Logger | logging.LoggerAdapter = logger
+        self.cards_db: vtes.VTES = cards_db
+        self.offset: int = offset
+        self.twda: bool = twda
+        self.preface: bool = preface
+        self.current_comment: Optional[Comment] = None
+        self.separator: bool = False  # used only for additional checks on the TWDA
+        self.cards: set[models.CardInDeck] = set()
+        self.logger: logging.Logger | logging.LoggerAdapter = LOG
+        kwargs.setdefault("id", "")
+        kwargs.setdefault("name", "")
+        self.deck: models.Deck = models.Deck(**kwargs)
 
     @property
     def _previous_line(self) -> int:
         return (getattr(self.logger, "extra", {}).get("line") or 1) - 1
 
-    def parse(
-        self, input: TextIO, offset: int = 0, twda: bool = False, preface: bool = True
-    ) -> None:
+    def parse(self, input: TextIO) -> models.Deck:
         """Parse a deck list stream.
 
         Args:
@@ -539,22 +577,17 @@ class Parser:
             twda: If True, parse TWDA headers.
             preface: If True, expect a preface section before the cards.
         """
-        if not vtes.VTES:
-            vtes.VTES.load()
-        self.preface = preface
         for index, line in enumerate(input, 1):
             self.logger = LineLogAdapter(
-                logger, {"line": index + offset, "deck": self.deck.id}
+                LOG, {"line": index + self.offset, "deck": self.deck.id}
             )
-            self.parse_line(index, line, twda)
+            self.parse_line(index, line)
         # finalize current_comment if any
         self.comment("", mark=Mark.END)
+        self.deck.cards = list(self.cards)
+        return self.deck
 
-        # a wrong card count can be a good indication of a parsing error
-        if not twda or self.deck.id not in config.TWDA_CHECK_DECK_FAILS:
-            self.deck.check()
-
-    def parse_line(self, index: int, line: str, twda: bool) -> None:
+    def parse_line(self, index: int, line: str) -> None:
         """Parse a line of text."""
         # remove head/tail and misplaced spaces around punctuation for easy parsing
         line = line.rstrip()
@@ -562,56 +595,53 @@ class Parser:
         line = line.replace("( ", "(")
         line = line.replace(" )", ")")
         if self.preface:
-            if twda and self.parse_twda_headers(index, line):
+            if self.twda and self.parse_twda_headers(index, line):
                 return
             if self.parse_headers(index, line):
                 return
         else:
-            # Always put a date, so if no date was parsed in headers,
-            # just put today as the date
-            if not self.deck.date:
-                self.deck.date = datetime.date.today()
-                if twda:
-                    self.logger.warning("No date found, using today")
             # author is only set if different than player
             if self.deck.author and not self.deck.player:
                 self.deck.player = self.deck.author
-                self.deck.author = None
+                self.deck.author = ""
             if self.deck.author == self.deck.player:
-                self.deck.author = None
-        card, count = self.get_card(line, twda)
-        if card and count:
-            self.deck.update({card: count})
+                self.deck.author = ""
+        card = self.get_card(line)
+        if card:
+            self.cards.add(card)
 
     def parse_twda_headers(self, index: int, line: str) -> bool:
         """Parse a line of text for TWDA headers."""
+        self.deck.event = self.deck.event or models.Event()
         if index == 1:
-            self.deck.event = line
+            self.deck.event.name = line
             return True
         # third line should always be the date, but it has happened that some
         # submissions lack this field, misformat it,
         # or omit the location (2nd line) for online events
-        if not self.deck.date:
+        if not self.deck.event.date:
             try:
-                self.deck.date = arrow.get(line, "MMMM Do YYYY").date()
+                self.deck.event.date = arrow.get(line, "MMMM Do YYYY").date()
                 return True
             except arrow.parser.ParserMatchError:
                 if index == 3:
                     self.logger.warning("Unable to parse date header: %s", line)
                 pass
         if index == 2:
-            self.deck.place = line
+            self.deck.event.place = line
             return True
-        if not self.deck.tournament_format:
+        if self.deck.event.rounds == models.RoundFormat.NA:
             try:
-                self.deck.tournament_format = re.match(r"\s*(\d+R\+F)", line).group(1)  # type: ignore
+                self.deck.event.rounds = models.RoundFormat(
+                    re.match(r"\s*(\d+R\+F)", line).group(1)
+                )
                 return True
-            except AttributeError:
+            except (AttributeError, ValueError):
                 pass
-        if not self.deck.players_count:
+        if not self.deck.event.players_count:
             try:
-                players_count = re.match(r"\s*(\d+|\?+)\s*player", line).group(1)  # type: ignore
-                self.deck.players_count = int(players_count)
+                players_count = re.match(r"\s*(\d+|\?+)\s*player", line).group(1)
+                self.deck.event.players_count = int(players_count)
                 return True
             except AttributeError:
                 pass
@@ -624,9 +654,9 @@ class Parser:
         except AttributeError:
             pass
         # Newer lists provide an event link
-        if not self.deck.event_link:
+        if not self.deck.event.url:
             try:
-                self.deck.event_link = re.match(r"^\s*(https?://.*)$", line).group(1)  # type: ignore
+                self.deck.event.url = re.match(r"^\s*(https?://.*)$", line).group(1)
                 return True
             except AttributeError:
                 pass
@@ -647,14 +677,14 @@ class Parser:
             line = line[description.end() :]
         if not self.deck.score:
             try:
-                self.deck.score = deck.DeckScore(line)
+                self.deck.score = self.parse_score(index, line)
                 return True
             except (AttributeError, ValueError):
                 pass
         if not self.deck.name:
             try:
                 self.deck.name = (
-                    re.match(r"^\s*((d|D)eck)?\s?(n|N)ame\s*:\s*(?P<name>.*)$", line)  # type: ignore
+                    re.match(r"^\s*((d|D)eck)?\s?(n|N)ame\s*:\s*(?P<name>.*)$", line)
                     .group("name")
                     .strip()
                 )
@@ -669,7 +699,7 @@ class Parser:
                         r"(a|A)uthors?|(c|C)reators?)\s*(:|\s)\s*(?P<author>.*)$",
                         line,
                     )
-                    .group("author")  # type: ignore
+                    .group("author")
                     .strip()
                 )
                 return True
@@ -683,24 +713,51 @@ class Parser:
                         r"(?P<player>.*)$",
                         line,
                     )
-                    .group("player")  # type: ignore
+                    .group("player")
                     .strip()
                 )
                 return True
             except AttributeError:
                 pass
-        if not self.deck.date:
+        if not self.deck.event or not self.deck.event.date:
             try:
-                self.deck.date = arrow.get(line, "MMMM Do YYYY").date()
+                date = arrow.get(line, "MMMM Do YYYY").date()
+                # only add an Event if we manage to parse a date
+                self.deck.event = self.deck.event or models.Event()
+                self.deck.event.date = date
                 return True
             except arrow.parser.ParserMatchError:
                 pass
         return False
 
-    def get_card(self, line: str, twda: bool = False) -> tuple[cards.Card | None, int]:
+    def parse_score(self, index: int, line: str) -> models.Score:
+        """Parse a line of text for a score."""
+        score = re.match(
+            r"(\s*-?-?\s*(?P<game_wins>\d)\s*gw\s*"
+            r"(?P<round_vps>\d+(\.|,)?\d?)\s*(vp)?\s*)?"
+            r"(\s*-?-?\s*(?P<plus_mark>\+)?\s*(?P<finals_vps>\d(\.|,)?\d?)\s*"
+            r"(?(plus_mark).?|vp))?",
+            line.lower(),
+        )
+        if score is None or score.end() < 1:
+            raise ValueError("No score information")
+        game_wins = score.group("game_wins")
+        round_vps = score.group("round_vps")
+        if round_vps:
+            round_vps = round_vps.replace(",", ".")
+        finals_vps = score.group("finals_vps")
+        if finals_vps:
+            finals_vps = finals_vps.replace(",", ".")
+        return models.Score(
+            round_gw=int(game_wins) if game_wins else 0,
+            round_vp=float(round_vps) if round_vps else 0.0,
+            finals_vp=float(finals_vps) if finals_vps else 0.0,
+        )
+
+    def get_card(self, line: str) -> models.CardInDeck | None:
         """Try to find a card and count; register possible comment."""
         if re.match(_HEADERS_RE, utils.normalize(line)):
-            return None, 0
+            return None
         card, name, count, comment, mark = None, None, 0, "", None
         match = re.match(_RE, utils.normalize(line))
         # count before a card name is most common and easier to parse
@@ -731,9 +788,9 @@ class Parser:
                         # indistinguishable from actual Master discipline cards
                         if name.strip(" :()[]-_*=") in _DISCIPLINES:
                             # if parsing TWDA, ignore the line and warn
-                            if twda:
+                            if self.twda:
                                 self.logger.warning('improper discipline "%s"', line)
-                                return None, 0
+                                return None
                             # otherwise log as debug and count it as a discipline card
                             self.logger.debug('naked discipline (no count) "%s"', line)
             # for evolutions (eg. Theo Bell (G6)) the name in TWDA
@@ -741,16 +798,16 @@ class Parser:
             if name and group and name[-1] != ")":
                 name += f" (g{group})"
             try:
-                card = vtes.VTES[name]  # type: ignore
+                card = self.cards_db[name]  # type: ignore
                 # special case for Camille / Raven to keep them distinct if the decklist
                 # predates the merge of the two crypt cards
                 if (
                     name in ["raven", "raven (g1)"]
-                    and card.name == "Camille Devereux, The Raven (G1)"
+                    and card.full_name == "Camille Devereux, The Raven (G1)"
                 ):
                     self.deck.raven = count
             except KeyError:
-                count = 0
+                card, count = None, 0
         # do not match a card inside a marked multiline comment
         if (
             card
@@ -760,17 +817,22 @@ class Parser:
             self.logger.warning('discarded match "%s" inside comment "%s"', name, line)
             card, count = None, 0
         # do not match crypt tail expression on a library card
-        if card and match.group("crypt_tail") and not card.crypt:  # type: ignore
+        if (
+            card
+            and match.group("crypt_tail")
+            and not card.kind == models.Card.Kind.CRYPT
+        ):
             card, count = None, 0
         # do not match post count on a crypt card
-        if card and match.group("post_count") and card.crypt:  # type: ignore
+        if card and match.group("post_count") and card.kind == models.Card.Kind.CRYPT:
             card, count = None, 0
         # too many preface comments parse like cards in the TWDA
-        if twda and name and not self.separator:
+        if self.twda and name and not self.separator:
             card, count = None, 0
         # if no card was found, the whole line is a comment
         # if a card was found, a comment might still be present as a suffix
         if card:
+            card_in_deck = self.cards_db.card_in_deck(card.id, count)
             comment_span = max(
                 match.span("parenthesis_comment"),  # type: ignore
                 match.span("bracket_comment"),  # type: ignore
@@ -790,9 +852,10 @@ class Parser:
             else:
                 mark = Mark.LINE
         else:
+            card_in_deck = None
             if not line or set(line).issubset(set("-=_0123456789")):
                 comment = ""
-                if twda and line and set(line).issubset(set("-=_")):
+                if len(line) > 1 and set(line).issubset(set("-=_")):
                     self.separator = True
             else:
                 comment = line
@@ -809,15 +872,15 @@ class Parser:
                     mark = Mark.MULTILINE
                 if line.rstrip()[-2:] == "*/":
                     mark = Mark.END
-        self.comment(comment, card=card or None, mark=mark)
+        self.comment(comment, card=card_in_deck, mark=mark)
         self.preface = self.preface and not card
-        return card, count
+        return card_in_deck
 
     def comment(
         self,
         comment: str,
-        card: cards.Card | None = None,
-        mark: Mark | None = None,
+        card: Optional[models.CardInDeck] = None,
+        mark: Optional[Mark] = None,
     ) -> None:
         """Handle a comment and possibly log suspected parsing errors."""
         if not (comment or self.current_comment):
@@ -858,7 +921,7 @@ class Parser:
             and self.current_comment.mark != Mark.MULTILINE
             and not self.preface
         ):
-            logger.debug(
+            self.logger.debug(
                 'unexpected multiline comment "%s"',
                 self.current_comment.log,
                 extra={"line": self._previous_line},
@@ -886,14 +949,13 @@ class Parser:
                 comment = ""
             self.current_comment.finalize()
             if self.current_comment:
-                current_card = self.current_comment.card
-                if current_card:
-                    self.deck.cards_comments[current_card] = str(self.current_comment)
+                if self.current_comment.card:
+                    self.current_comment.card.comment = str(self.current_comment)
                 else:
                     # leave a blank line between separated comments
-                    if self.deck.comments:
-                        self.deck.comments += "\n"
-                    self.deck.comments += str(self.current_comment) + "\n"
+                    if self.deck.comment:
+                        self.deck.comment += "\n"
+                    self.deck.comment += str(self.current_comment) + "\n"
             self.current_comment = None
         # start a new comment if we have a non-blank line
         if comment and not self.current_comment:

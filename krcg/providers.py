@@ -1,0 +1,377 @@
+"""External tools providers: Deck building, archive, online play."""
+
+from typing import Any
+import aiohttp
+import arrow
+import itertools
+import logging
+import urllib.parse
+
+from . import models
+from . import utils
+from . import collections
+
+
+LOG = logging.getLogger("krcg")
+
+
+async def get_amaranth_cards_map(
+    session: aiohttp.ClientSession, cards_dict: collections.CardDict
+) -> dict[str, models.Card]:
+    """Get the Amaranth cards map."""
+    async with session.get("http://static.krcg.org/data/amaranth_ids.json") as response:
+        data = await response.json()
+        return {k: cards_dict[v] for k, v in data.items()}
+
+
+async def fetch(
+    session: aiohttp.ClientSession,
+    url: str,
+    cards_dict: collections.CardDict,
+) -> models.Deck:
+    """Fetch a deck from a supported deckbuilding website."""
+    result = urllib.parse.urlparse(url)
+    match result.netloc:
+        case "amaranth.vtes.co.nz":
+            return await fetch_amaranth(session, result, cards_dict)
+        case "vdb.im":
+            return await fetch_vdb(session, result, cards_dict)
+        case "vtesdecks.com":
+            return await fetch_vtesdecks(session, result, cards_dict)
+        case _:
+            raise ValueError("Unknown deck URL provider")
+
+
+async def fetch_vdb(
+    session: aiohttp.ClientSession,
+    url: urllib.parse.ParseResult,
+    cards_dict: collections.CardDict,
+) -> models.Deck:
+    """Fetch a deck from VDB."""
+    if not url.path.startswith("/decks"):
+        raise ValueError("Unknown VDB URL path")
+    params = urllib.parse.parse_qs(url.query)
+    if "id" in params:
+        uid = params["id"][0]
+    elif url.path.startswith("/decks/"):
+        uid = url.path[7:]
+    # no ID in paramse, try to parse "deck in URL" format
+    elif url.fragment:
+        ret = models.Deck(
+            id="",
+            name=params.get("name", [None])[0],
+            author=params.get("author", [None])[0],
+            comment=params.get("description", [""])[0],
+        )
+        for item in url.fragment.split(";"):
+            cid, count_str = item.split("=", 1)
+            count = int(count_str)
+            if count <= 0:
+                continue
+            utils.add_card(ret, cards_dict[int(cid)], count)
+        return ret
+    fetch_url = "https://vdb.im/api/deck/" + uid
+    async with session.get(fetch_url) as response:
+        data = await response.json()
+        LOG.debug("VDB replied: %s", data, extra={"url": fetch_url})
+    ret = models.Deck(
+        id=uid,
+        author=data.get("author", data.get("owner", None)),
+        name=data.get("name", None),
+        comment=data.get("description", ""),
+    )
+    for cid, count in data["cards"].items():
+        count = int(count)
+        if count <= 0:
+            continue
+        utils.add_card(ret, cards_dict[int(cid)], count)
+    utils.sort_cards(ret)
+    return ret
+
+
+async def fetch_amaranth(
+    session: aiohttp.ClientSession,
+    url: urllib.parse.ParseResult,
+    cards_dict: collections.CardDict,
+) -> models.Deck:
+    """Fetch a deck from Amaranth."""
+    async with session.get("http://static.krcg.org/data/amaranth_ids.json") as response:
+        amaranth_map = await response.json()
+    if not url.path.startswith("/deck/"):
+        raise ValueError("Invalid URL")
+    uid = url.path[6:]
+    fetch_url = "https://amaranth.vtes.co.nz/api/deck?id=" + uid
+    async with session.get(fetch_url) as response:
+        response.raise_for_status()
+        data = await response.json()
+        LOG.debug("Amaranth replied: %s", data, extra={"url": fetch_url})
+    result = data["result"]
+    ret = models.Deck(
+        id=uid,
+        author=result.get("author", None),
+        name=result.get("title", None),
+        comment=result.get("description", ""),
+    )
+    for cid, count in result["cards"].items():
+        count = int(count)
+        if count <= 0:
+            continue
+        utils.add_card(ret, cards_dict[amaranth_map[cid]], count)
+    utils.sort_cards(ret)
+    return ret
+
+
+async def fetch_vtesdecks(
+    session: aiohttp.ClientSession,
+    url: urllib.parse.ParseResult,
+    cards_dict: collections.CardDict,
+) -> models.Deck:
+    """Fetch a deck from VTESDecks."""
+    if not url.path.startswith("/deck/"):
+        raise ValueError("Invalid URL")
+    uid = url.path[6:]
+    fetch_url = "https://api.vtesdecks.com/1.0/decks/" + uid
+    async with session.get(fetch_url) as response:
+        response.raise_for_status()
+        data = await response.json()
+        LOG.debug("VTESDecks replied: %s", data, extra={"url": fetch_url})
+        ret = models.Deck(
+            id=uid,
+            author=data.get("author", None),
+            name=data.get("name", None),
+            comment=data.get("description", ""),
+        )
+        for card in itertools.chain(data["crypt"], data["library"]):
+            count = int(card["number"])
+            if count <= 0:
+                continue
+            utils.add_card(ret, cards_dict[int(card["id"])], count)
+        utils.sort_cards(ret)
+        return ret
+
+
+def serialize_lackey(deck: models.Deck) -> str:
+    """Serialize a deck to LackeyCCG format."""
+    lines = []
+    for _, cards_ in utils.sorted_library(deck):
+        for card in cards_:
+            lines.append(f"{card.count}\t{utils.vekn_name(card)}")
+    lines.append("Crypt:")
+    for card in utils.sorted_crypt(deck):
+        lines.append(f"{card.count}\t{utils.vekn_name(card)}")
+    return "\n".join(lines)
+
+
+def serialize_jol(deck: models.Deck) -> str:
+    """Serialize a deck to JOL format."""
+    lines = []
+    for card in utils.sorted_crypt(deck):
+        lines.append(f"{card.count}x {utils.vekn_name(card)}")
+    lines.append("")
+    for _, cards_ in utils.sorted_library(deck):
+        for card in cards_:
+            lines.append(f"{card.count}x {utils.vekn_name(card)}")
+    return "\n".join(lines)
+
+
+def serialize_vdb(deck: models.Deck) -> str:
+    """Serialize a deck to VDB "deck in URL" format."""
+    ret = "https://vdb.im/decks/deck"
+    params = {}
+    if deck.name:
+        params["name"] = deck.name
+    if deck.author:
+        params["author"] = deck.author
+    if params:
+        ret += "?" + urllib.parse.urlencode(params)
+    ret += "#"
+    ret += ";".join(f"{card.id}={card.count}" for card in deck.cards)
+    return ret
+
+
+def serialize_json_minimal(deck: models.Deck) -> dict[str, Any]:
+    """Serialize a deck to a minimal JSON format."""
+    return utils.json_pack(
+        {
+            "id": deck.id,
+            "name": deck.name,
+            "author": deck.author,
+            "cards": {str(card.id): card.count for card in deck.cards},
+        }
+    )
+
+
+def serialize_twd(
+    deck: models.Deck, cards_dict: collections.CardDict, raven: int = 0
+) -> str:
+    """Serialize a deck to TWD format.
+
+    Args:
+        deck: The deck to serialize.
+        cards_dict: The cards database.
+        raven: The number of Raven (distinct from Camille Devereux in legacy decks).
+    """
+    lines = []
+    if deck.event and deck.event.name:
+        lines.append(deck.event.name)
+    if deck.event and deck.event.place:
+        lines.append(deck.event.place)
+    if deck.event and deck.event.date:
+        lines.append(arrow.get(deck.event.date).format("MMMM Do YYYY"))
+    if deck.event and deck.event.rounds:
+        lines.append(deck.event.rounds.value)
+    if deck.event and deck.event.players_count:
+        lines.append(f"{deck.event.players_count} players")
+    if deck.player:
+        lines.append(deck.player)
+    if deck.event and deck.event.url:
+        lines.append(deck.event.url)
+    if lines:
+        lines.append("")
+    if deck.score:
+        lines.append(f"-- {deck.score}")
+        lines.append("")
+    if deck.name:
+        lines.append(f"Deck Name: {deck.name}")
+    if deck.author:
+        lines.append(f"Created by: {deck.author}")
+    if deck.comment:
+        if deck.name or deck.author:
+            lines.append("")
+        lines.append(deck.comment)
+    elif lines and lines[-1] != "":
+        lines.append("")
+    crypt = sorted(
+        [
+            (cards_dict[c.id], c.count)
+            for c in deck.cards
+            if c.kind == models.Card.Kind.CRYPT
+        ],
+        key=lambda c: (-c[1], -c[0].capacity, utils.vekn_name(c[0])),
+    )
+    cap = sorted(
+        itertools.chain.from_iterable([card.capacity] * count for card, count in crypt)
+    )
+    cap_min = sum(cap[:4])
+    cap_max = sum(cap[-4:])
+    cap_avg = sum(cap) / len(cap)
+    lines.append(
+        f"Crypt ({sum(c[1] for c in crypt)} cards, "
+        f"min={cap_min}, max={cap_max}, avg={round(cap_avg, 2):g})"
+    )
+    lines.append("-" * len(lines[-1]))
+    max_name = max(len(utils.vekn_name(card)) for card, _ in crypt) + 1
+    max_disc = max(len(" ".join(card.disciplines)) for card, _ in crypt) + 1
+    max_title = max(len(card.title or "") for card, _ in crypt) + 1
+    CRYPT_FMT = (
+        f"{{count}}x {{name:<{max_name}}} {{capacity:>2}} "
+        f"{{disciplines:<{max_disc}}} {{title:<{max_title}}} {{clan}}:{{group}}"
+    )
+    for card, count in crypt:
+        official_name = utils.vekn_name(card)
+        if official_name == "Camille Devereux, The Raven" and raven:
+            lines.append(
+                CRYPT_FMT.format(
+                    count=count - raven,
+                    name="Camille Devereux",
+                    capacity=5,
+                    disciplines="FOR PRO ani",
+                    title="",
+                    clan="Gangrel",
+                    group="1",
+                )
+            )
+            official_name = "Raven"
+            count = raven
+        lines.append(
+            CRYPT_FMT.format(
+                count=count,
+                name=official_name,
+                capacity=card.capacity,
+                # use legacy vis trigram for vision
+                disciplines=(
+                    " ".join(sorted({"vin": "vis"}.get(d, d) for d in card.disciplines))
+                    or "-none-"
+                ),
+                title=card.title.lower() if card.title else "",
+                clan=card.clan,
+                group="ANY" if card.group == models.Group.Any else card.group.value[1:],
+            )
+        )
+    library_count = sum(
+        c.count for c in deck.cards if c.kind == models.Card.Kind.LIBRARY
+    )
+    lines.append(f"\nLibrary ({library_count} cards)")
+    # form a section for each type with a header displaying the total
+    for i, (type_, cards_) in enumerate(utils.sorted_library(deck)):
+        trifle_count = ""
+        if type_ == "Master":
+            trifle_count = sum(c.count for c in cards_ if cards_dict[c.id].trifle)
+            trifle_count = f"; {trifle_count} trifle" if trifle_count else ""
+        cr = "\n" if i > 0 else ""
+        lines.append(f"{cr}{type_} ({sum(c.count for c in cards_)}{trifle_count})")
+        for card in cards_:
+            if card.comment:
+                comment = card.comment.replace("\n", " ").strip()
+                lines.append(f"{card.count}x {utils.vekn_name(card):<23} -- {comment}")
+            else:
+                lines.append(f"{card.count}x {utils.vekn_name(card)}")
+    return "\n".join(lines)
+
+
+def serialize_txt(deck: models.Deck) -> str:
+    """Serialize a deck to text. TWD-inspired, but no cards database is required.
+
+    Args:
+        deck: The deck to serialize.
+    """
+    lines = []
+    if deck.event and deck.event.name:
+        lines.append(deck.event.name)
+    if deck.event and deck.event.place:
+        lines.append(deck.event.place)
+    if deck.event and deck.event.date:
+        lines.append(arrow.get(deck.event.date).format("MMMM Do YYYY"))
+    if deck.event and deck.event.format:
+        lines.append(deck.event.format)
+        if deck.event.rounds != models.RoundFormat.NA:
+            lines[-1] += f" {deck.event.rounds}"
+    if deck.event and deck.event.players_count:
+        lines.append(f"{deck.event.players_count} players")
+    if deck.player:
+        lines.append(deck.player)
+    if deck.event and deck.event.url:
+        lines.append(deck.event.url)
+    if lines:
+        lines.append("")
+    if deck.score:
+        lines.append(f"-- {deck.score}")
+        lines.append("")
+    if deck.name:
+        lines.append(f"Deck Name: {deck.name}")
+    if deck.author:
+        lines.append(f"Created by: {deck.author}")
+    if deck.comment:
+        if deck.name or deck.author:
+            lines.append("")
+        lines.append(deck.comment)
+    elif lines and lines[-1] != "":
+        lines.append("")
+    crypt = utils.sorted_crypt(deck)
+    lines.append(f"Crypt ({sum(card.count for card in crypt)} cards)")
+    lines.append("-" * len(lines[-1]))
+    for card in crypt:
+        lines.append(f"{card.count}x {card.unique_name}")
+    library = list(utils.sorted_library(deck))
+    lines.append(
+        f"\nLibrary ({sum(card.count for _, cards in library for card in cards)} cards)"
+    )
+    lines.append("-" * (len(lines[-1]) - 1))
+    for type, cards in library:
+        lines.append(f"\n--{type} ({sum(card.count for card in cards)})--")
+        for card in cards:
+            lines.append(f"{card.count}x {card.unique_name}")
+            if card.comment:
+                comment = card.comment.replace("\n", " ").strip()
+                lines[-1] += f" -- {comment}"
+    return "\n".join(lines)

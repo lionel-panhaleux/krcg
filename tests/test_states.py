@@ -323,10 +323,10 @@ def test_multiple_rulings() -> None:
     }
 
 
-def test_twda(TWDA: twda._TWDA) -> None:
+def test_twda(TWDA: twda.DecksArchive) -> None:
     """Test TWDA."""
     deck = TWDA["2020bf3hf"]
-    test_twda = twda._TWDA()
+    test_twda = twda.TWDA
     test_twda[deck.id] = deck
     assert test_twda.to_json() == [
         {

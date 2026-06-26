@@ -4,6 +4,8 @@ set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
 # Configuration variables
 VTESCSV_GITHUB := "https://raw.githubusercontent.com/GiottoVerducci/vtescsv/main"
 RULINGS_GITHUB := "https://raw.githubusercontent.com/vtes-biased/vtes-rulings/main/rulings"
+VTESCSV_VEKN_NET_FR := "https://www.vekn.net/images/stories/downloads/french/vtescsv_utf8.fr-FR.zip"
+VTESCSV_VEKN_NET_ES := "https://www.vekn.net/images/stories/downloads/spanish/vtescsv_utf8.es-ES.zip"
 
 # Default recipe - show available commands
 default:
@@ -29,15 +31,22 @@ test: quality
 # Sync CSV files from vtescsv repository
 sync-cards:
     @echo "📥 Syncing CSV files from vtescsv repository..."
-    @mkdir -p cards
-    @curl -f -s -o cards/vtescrypt.csv "{{ VTESCSV_GITHUB }}/vtescrypt.csv"
-    @curl -f -s -o cards/vteslib.csv "{{ VTESCSV_GITHUB }}/vteslib.csv"
-    @curl -f -s -o cards/vteslibmeta.csv "{{ VTESCSV_GITHUB }}/vteslibmeta.csv"
-    @curl -f -s -o cards/vtessets.csv "{{ VTESCSV_GITHUB }}/vtessets.csv"
+    @mkdir -p krcg/cards
+    @curl -f -s -o krcg/cards/vtescrypt.csv "{{ VTESCSV_GITHUB }}/vtescrypt.csv"
+    @curl -f -s -o krcg/cards/vteslib.csv "{{ VTESCSV_GITHUB }}/vteslib.csv"
+    @curl -f -s -o krcg/cards/vteslibmeta.csv "{{ VTESCSV_GITHUB }}/vteslibmeta.csv"
+    @curl -f -s -o krcg/cards/vtessets.csv "{{ VTESCSV_GITHUB }}/vtessets.csv"
     @echo "📥 Syncing rulings YAML files from vtes-biased/vtes-rulings..."
-    @curl -f -s -o cards/groups.yaml "{{ RULINGS_GITHUB }}/groups.yaml"
-    @curl -f -s -o cards/references.yaml "{{ RULINGS_GITHUB }}/references.yaml"
-    @curl -f -s -o cards/rulings.yaml "{{ RULINGS_GITHUB }}/rulings.yaml"
+    @curl -f -s -o krcg/cards/groups.yaml "{{ RULINGS_GITHUB }}/groups.yaml"
+    @curl -f -s -o krcg/cards/references.yaml "{{ RULINGS_GITHUB }}/references.yaml"
+    @curl -f -s -o krcg/cards/rulings.yaml "{{ RULINGS_GITHUB }}/rulings.yaml"
+    @echo "📥 Fetching translations from vekn.net..."
+    @mkdir -p krcg/cards/vtescsv-fr && curl -f -s "{{ VTESCSV_VEKN_NET_FR }}" | bsdtar -xf - -C krcg/cards/vtescsv-fr
+    @mkdir -p krcg/cards/vtescsv-es && curl -f -s "{{ VTESCSV_VEKN_NET_ES }}" | bsdtar -xf - -C krcg/cards/vtescsv-es
+    @echo "📥 Fixing CSV files..."
+    @python krcg/scripts/fix_csv.py
+    @echo "📥 Syncing TWDA..."
+    @python krcg/scripts/fetch_twda.py --output krcg/cards/twda.json
     @echo "✅ CSV files synced successfully!"
 
 # Upgrade all dependencies (including dev dependencies)

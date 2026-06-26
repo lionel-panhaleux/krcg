@@ -24,13 +24,14 @@ from . import utils
 # eg. "Awe" listed as R in CSV, U in Duelist.
 # Same with Bestial Visage, Bloodbath, Breath of the Dragon...
 #
-# Bloodlines is missing 2 uncos
+# Bloodlines is missing 2 uncos (or two were printed twice on sheet)
 # {'Common': 100, 'Rare': 100, 'Uncommon': 98}
 #
-# Black Hand has a crap total, with 8 commons too many, and missing frequency on C
+# Black Hand has a crap total, with 8 uncommons too many, and missing frequency on C
+# This suggest some "uncos" were maybe on the common sheet listed once or something.
 # {'Common': 39, 'Uncommon': 108, 'Rare': 50}
 #
-# LoB numbers suggeset some "commons" were in fact printed on unco sheets
+# LoB numbers suggeset some "commons" might have been in fact printed on unco sheets
 # {'Common': 125, 'Rare': 100, 'Uncommon': 75}
 #
 # Ebony Kingdom has Aye and Orun "half common" _on top_ of the printed sheets,
@@ -40,7 +41,8 @@ from . import utils
 # See https://www.vekn.net/card-lists/142-ebony-kingdom
 # {'Uncommon': 20, 'Common': 22, 'Rare': 20}
 #
-# Heirs to the Blood also showcases stupid totals
+# Heirs to the Blood also showcases incomplete totals,
+# maybe some commons were printed twice
 # {'Rare': 60, 'Uncommon': 60, 'Common': 56}
 # Maybe check https://web.archive.org/web/20131029173730/http://www.secretlibrary.info/index.php?checklist=HttB
 #
