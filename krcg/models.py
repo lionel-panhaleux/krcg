@@ -378,6 +378,20 @@ class CardInDeck(CardMinimal):
         """Concise repr including the count."""
         return f"{self.count}x {self.id}|{self.unique_name}"
 
+    @classmethod
+    def of(cls, card: Card, count: int, comment: str = "") -> CardInDeck:
+        """Build a deck entry from a card, a count, and an optional comment."""
+        return cls(
+            id=card.id,
+            printed_name=card.printed_name,
+            unicity_suffix=card.unicity_suffix,
+            suffix=card.suffix,
+            count=count,
+            kind=card.kind,
+            types=card.types,
+            comment=comment,
+        )
+
 
 class Continent(StrEnum):
     """A continent."""
@@ -460,6 +474,9 @@ class Deck:
     event: Event | None = None
     player: str = ""
     score: Score | None = None
+    # copies written as the pre-merge "Raven" crypt card (now Camille Devereux,
+    # The Raven); kept so historical TWD lists re-serialize to their original form
+    raven: int = 0
 
 
 class Trait(StrEnum):

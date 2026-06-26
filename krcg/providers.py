@@ -202,16 +202,14 @@ def serialize_json_minimal(deck: models.Deck) -> dict[str, Any]:
     return ret
 
 
-def serialize_twd(
-    deck: models.Deck, cards_dict: collections.CardDict, raven: int = 0
-) -> str:
+def serialize_twd(deck: models.Deck, cards_dict: collections.CardDict) -> str:
     """Serialize a deck to TWD format.
 
     Args:
         deck: The deck to serialize.
         cards_dict: The cards database.
-        raven: The number of Raven (distinct from Camille Devereux in legacy decks).
     """
+    raven = deck.raven
     lines = []
     if deck.event and deck.event.name:
         lines.append(deck.event.name)

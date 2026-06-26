@@ -4,7 +4,8 @@ Handles legacy TWDA formats and other deck list idiosyncrasies.
 Only modify this file if you know what you're doing, and proceed with caution.
 """
 
-from typing import TextIO, Optional, MutableMapping, Any
+from typing import Any
+import collections.abc
 import enum
 import logging
 import math
@@ -15,7 +16,6 @@ import arrow
 from .collections import CardDict
 from . import models
 from . import utils
-from . import vtes
 
 
 LOG = logging.getLogger("krcg")
@@ -37,20 +37,18 @@ def setup_parser_logging(include_deck_id: bool = True):
 
 
 def deck_from_txt(
-    input: TextIO,
-    cards_db: vtes.VTES | CardDict,
+    source: collections.abc.Iterable[str],
+    cards: CardDict,
     /,
     *,
-    offset: int = 0,
+    id: str = "",
     twda: bool = False,
-    preface: bool = True,
-    **kwargs,
 ) -> models.Deck:
-    """Parse a deck list stream and return a Deck instance.
+    """Parse a deck list and return a Deck instance.
 
     Use setup_parser_logging() first to get line# logging.
     """
-    return Parser(cards_db, offset, twda, preface, **kwargs).parse(input)
+    return Parser(cards, twda=twda, id=id).parse(source)
 
 
 #: classic headers in deck lists
@@ -427,8 +425,8 @@ class LineLogAdapter(logging.LoggerAdapter):
     """Logger adapter that prefixes messages with line and deck IDs."""
 
     def process(
-        self, msg: str, kwargs: MutableMapping[str, Any]
-    ) -> tuple[str, MutableMapping[str, Any]]:
+        self, msg: str, kwargs: collections.abc.MutableMapping[str, Any]
+    ) -> tuple[str, collections.abc.MutableMapping[str, Any]]:
         """Process a message.
 
         Args:
@@ -460,8 +458,8 @@ class Comment:
     def __init__(
         self,
         comment: str = "",
-        card: Optional[Any] = None,
-        mark: Optional[Mark] = None,
+        card: Any | None = None,
+        mark: Mark | None = None,
     ):
         """Constructor.
 
@@ -537,50 +535,35 @@ class Parser:
 
     def __init__(
         self,
-        cards_db: vtes.VTES,
-        offset: int = 0,
+        cards: CardDict,
+        *,
         twda: bool = False,
-        preface: bool = True,
-        **kwargs: Any,
+        id: str = "",
     ) -> None:
         """Constructor.
 
         Args:
-            cards_db: The cards database.
-            offset: Offset to add when parsing part of a bigger stream (for logs).
-            twda: If True, parse TWDA headers. Defaults to False.
-            preface: If True (default), expect a preface section before the cards.
-            kwargs: Arguments passed to the Deck constructor.
+            cards: The cards database (name -> Card lookup).
+            twda: If True, parse the positional TWDA tournament headers.
+            id: The deck id.
         """
-        self.cards_db: vtes.VTES = cards_db
-        self.offset: int = offset
+        self.cards_db: CardDict = cards
         self.twda: bool = twda
-        self.preface: bool = preface
-        self.current_comment: Optional[Comment] = None
+        self.preface: bool = True  # internal state: still in the preface region
+        self.current_comment: Comment | None = None
         self.separator: bool = False  # used only for additional checks on the TWDA
         self.cards: set[models.CardInDeck] = set()
         self.logger: logging.Logger | logging.LoggerAdapter = LOG
-        kwargs.setdefault("id", "")
-        kwargs.setdefault("name", "")
-        self.deck: models.Deck = models.Deck(**kwargs)
+        self.deck: models.Deck = models.Deck(id=id)
 
     @property
     def _previous_line(self) -> int:
         return (getattr(self.logger, "extra", {}).get("line") or 1) - 1
 
-    def parse(self, input: TextIO) -> models.Deck:
-        """Parse a deck list stream.
-
-        Args:
-            input: Text stream to parse.
-            offset: Offset to add when parsing part of a bigger stream (for logs).
-            twda: If True, parse TWDA headers.
-            preface: If True, expect a preface section before the cards.
-        """
-        for index, line in enumerate(input, 1):
-            self.logger = LineLogAdapter(
-                LOG, {"line": index + self.offset, "deck": self.deck.id}
-            )
+    def parse(self, source: collections.abc.Iterable[str]) -> models.Deck:
+        """Parse a deck list and return the Deck."""
+        for index, line in enumerate(source, 1):
+            self.logger = LineLogAdapter(LOG, {"line": index, "deck": self.deck.id})
             self.parse_line(index, line)
         # finalize current_comment if any
         self.comment("", mark=Mark.END)
@@ -832,7 +815,7 @@ class Parser:
         # if no card was found, the whole line is a comment
         # if a card was found, a comment might still be present as a suffix
         if card:
-            card_in_deck = self.cards_db.card_in_deck(card.id, count)
+            card_in_deck = models.CardInDeck.of(card, count)
             comment_span = max(
                 match.span("parenthesis_comment"),  # type: ignore
                 match.span("bracket_comment"),  # type: ignore
@@ -879,8 +862,8 @@ class Parser:
     def comment(
         self,
         comment: str,
-        card: Optional[models.CardInDeck] = None,
-        mark: Optional[Mark] = None,
+        card: models.CardInDeck | None = None,
+        mark: Mark | None = None,
     ) -> None:
         """Handle a comment and possibly log suspected parsing errors."""
         if not (comment or self.current_comment):
