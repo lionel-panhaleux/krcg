@@ -3,7 +3,7 @@
 
 import argparse
 import io
-import json
+import lzma
 import msgspec.json
 import os.path
 import pathlib
@@ -13,7 +13,6 @@ import zipfile
 
 from krcg import models
 from krcg import parser
-from krcg import utils
 from krcg import vtes
 
 
@@ -42,7 +41,7 @@ def fetch_twda(path: pathlib.Path, cards: vtes.VTES) -> None:
                         deck.score.win = True
                     twd[deck.id] = deck
     with path.open("wb") as target:
-        target.write(msgspec.json.encode(twd))
+        target.write(lzma.compress(msgspec.json.encode(twd), preset=9))
 
 
 def main() -> None:
