@@ -217,6 +217,10 @@ def get_pod_release_date(row) -> str:
 def fix_crypt_row(row: dict[str, str]) -> dict[str, str]:
     """Fix a card row."""
     row["Clan"] = CLAN_RENAMES.get(row["Clan"], row["Clan"])
+    if row["Disciplines"] != "-none-":
+        for trigram in row["Disciplines"].split():
+            if trigram.lower() not in KNOWN_DISCIPLINES:
+                warnings.warn(f"unknown crypt discipline ({row['Id']}): {trigram}")
     return row
 
 
@@ -224,6 +228,9 @@ def fix_lib_row(row: dict[str, str]) -> dict[str, str]:
     """Fix a card row."""
     disciplines = re_split(r"/|\s*&\s*", row["Discipline"])
     disciplines = [DISCIPLINE_MAP.get(d, d) for d in disciplines]
+    for trigram in disciplines:
+        if trigram not in KNOWN_DISCIPLINES:
+            warnings.warn(f"unknown library discipline ({row['Id']}): {trigram}")
     if "&" in row["Discipline"]:
         sep = "&"
     else:
@@ -290,6 +297,9 @@ DISCIPLINE_MAP = {
     "Vision": "viz",
     "-none-": "",
 }
+
+#: Known discipline trigrams, to flag typos in the source CSVs at sync time
+KNOWN_DISCIPLINES = {trigram for trigram in DISCIPLINE_MAP.values() if trigram}
 
 # missing from aka field
 AKA = {

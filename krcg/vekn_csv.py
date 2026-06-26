@@ -227,9 +227,8 @@ def crypt_card_from_vekn(
     card.group = GROUP_MAP[line["Group"].lower()]
     card.capacity = int(line["Capacity"])
     if line["Disciplines"] != "-none-":
-        card.disciplines = parse_enum_list(
-            line["Disciplines"], models.DisciplineLevel, " "
-        )
+        # crypt disciplines encode level by case (lower=inferior, UPPER=superior)
+        card.disciplines = line["Disciplines"].split()
     if line["Title"]:
         card.title = models.Title(line["Title"].title())
     match card.group, card.advanced:
@@ -257,10 +256,11 @@ def lib_card_from_vekn(
     if "&" in line["Discipline"]:
         card.discipline_requirement = models.DisciplineRequirement(
             type=models.DisciplineRequirement.Type.COMBO,
-            disciplines=parse_enum_list(line["Discipline"], models.Discipline, "&"),
+            disciplines=[d.strip() for d in line["Discipline"].split("&") if d.strip()],
         )
     else:
-        disciplines = parse_enum_list(line["Discipline"], models.Discipline, "/")
+        # library requirements are level-agnostic (lowercase trigrams)
+        disciplines = [d.strip() for d in line["Discipline"].split("/") if d.strip()]
         card.discipline_requirement = models.DisciplineRequirement(
             type=(
                 models.DisciplineRequirement.Type.CHOICE
@@ -272,21 +272,17 @@ def lib_card_from_vekn(
     card.path_requirement = [p.strip() for p in line["Path"].split("/") if p.strip()]
     card.clan_requirement = [c.strip() for c in line["Clan"].split("/") if c.strip()]
     card.flavor = line["Flavor Text"]
-    if line["Pool Cost"]:
-        card.cost = models.Cost(
-            type=models.Cost.Type.POOL,
-            value=line["Pool Cost"],
-        )
-    elif line["Blood Cost"]:
-        card.cost = models.Cost(
-            type=models.Cost.Type.BLOOD,
-            value=line["Blood Cost"],
-        )
-    elif line["Conviction Cost"]:
-        card.cost = models.Cost(
-            type=models.Cost.Type.CONVICTION,
-            value=line["Conviction Cost"],
-        )
+    for cost_type, column in (
+        (models.Cost.Type.POOL, "Pool Cost"),
+        (models.Cost.Type.BLOOD, "Blood Cost"),
+        (models.Cost.Type.CONVICTION, "Conviction Cost"),
+    ):
+        if line[column]:
+            value = line[column]
+            card.cost = models.Cost(
+                type=cost_type, value=int(value) if value.isdigit() else value
+            )
+            break
     return card
 
 
@@ -327,17 +323,26 @@ def prints_from_vekn(
                 if count == "½":
                     count = 0.5
                 prints[expansion].append(
-                    models.Rarity(
-                        frequency=models.Rarity.Frequency(base), multiplier=float(count)
+                    models.Occurrence(
+                        type=models.Occurrence.Type.RARITY,
+                        frequency=models.Occurrence.Frequency(base),
+                        multiplier=float(count),
                     )
                 )
             elif count:
-                prints[expansion].append(models.Precon(bundle=base, copies=int(count)))
+                prints[expansion].append(
+                    models.Occurrence(
+                        type=models.Occurrence.Type.PRECON,
+                        bundle=base,
+                        copies=int(count),
+                    )
+                )
             elif base:
                 try:
                     prints[expansion].append(
-                        models.Single(
-                            date=datetime.datetime.strptime(base, "%Y%m%d").date()
+                        models.Occurrence(
+                            type=models.Occurrence.Type.SINGLE,
+                            date=datetime.datetime.strptime(base, "%Y%m%d").date(),
                         )
                     )
                 except ValueError:

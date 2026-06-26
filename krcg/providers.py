@@ -191,14 +191,15 @@ def serialize_vdb(deck: models.Deck) -> str:
 
 def serialize_json_minimal(deck: models.Deck) -> dict[str, Any]:
     """Serialize a deck to a minimal JSON format."""
-    return utils.json_pack(
-        {
-            "id": deck.id,
-            "name": deck.name,
-            "author": deck.author,
-            "cards": {str(card.id): card.count for card in deck.cards},
-        }
-    )
+    ret: dict[str, Any] = {}
+    if deck.id:
+        ret["id"] = deck.id
+    if deck.name:
+        ret["name"] = deck.name
+    if deck.author:
+        ret["author"] = deck.author
+    ret["cards"] = {str(card.id): card.count for card in deck.cards}
+    return ret
 
 
 def serialize_twd(
