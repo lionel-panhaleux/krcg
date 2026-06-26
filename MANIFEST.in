@@ -1,6 +1,5 @@
 include LICENSE README.md CHANGELOG.rst
 
-graft cards
 graft krcg
 prune profiling
 prune tests

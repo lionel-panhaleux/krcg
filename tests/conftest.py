@@ -1,11 +1,9 @@
 """Configuration for pytest."""
 
 import os
-import requests
+import urllib.request
+import urllib.error
 import pytest
-
-
-from krcg import config
 
 
 def _internet_available() -> bool:
@@ -13,34 +11,10 @@ def _internet_available() -> bool:
     if os.getenv("FORCE_OFFLINE"):
         return False
     try:
-        requests.get("http://www.google.com", timeout=1)
-        requests.get(config.KRCG_STATIC_SERVER, timeout=1)
+        urllib.request.urlopen("http://www.google.com", timeout=1)
         return True
-    except requests.exceptions.RequestException:
+    except (urllib.error.URLError, OSError):
         return False
-
-
-def pytest_sessionstart(session: pytest.Session) -> None:
-    """Initialize VTES from local packaged CSVs; avoid network in tests."""
-    # Prefer local CSVs packaged under the `cards` package only when offline
-    if _internet_available():
-        os.environ.pop("LOCAL_CARDS", None)
-    else:
-        os.environ["LOCAL_CARDS"] = "1"
-    # Build VTES from local CSVs (includes sets from local vtessets.csv)
-    from krcg import vtes  # delayed import so env is set before module init
-
-    vtes.VTES.load_from_vekn()
-
-
-@pytest.fixture(scope="session")
-def TWDA():  # type: ignore
-    """Use to initialize the twda to the 20 decks test snapshot."""
-    from krcg import twda  # delayed import to avoid early vtes import
-
-    with open(os.path.join(os.path.dirname(__file__), "TWDA.html")) as f:
-        twda.TWDA.load_html(f)
-        return twda.TWDA
 
 
 def pytest_collection_modifyitems(

@@ -12,13 +12,12 @@ authors = [
 description = "Library for VTES cards and TWDA."
 keywords = ["vtes", "Vampire: The Eternal Struggle", "CCG", "TWD", "TWDA"]
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.13"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Natural Language :: English",
@@ -26,10 +25,11 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
+    "aiohttp",
     "arrow",
-    "pyyaml",
+    "msgspec",
     "numpy",
-    "requests",
+    "pyyaml",
     "setuptools",
     "unidecode",
 ]
@@ -38,7 +38,7 @@ dependencies = [
 Repository = "https://github.com/lionel-panhaleux/krcg"
 
 [tool.hatch.build.targets.wheel]
-packages = ["krcg", "cards"]
+packages = ["krcg"]
 
 [tool.ruff.lint]
 select = ["E", "D", "F", "W", "UP"]
@@ -50,12 +50,13 @@ convention = "google"
 dev = [
     "certifi",
     "coverage",
+    "ipdb",
     "ipython",
-    "mypy",
     "pytest",
+    "pytest-asyncio",
     "ruff",
+    "ty",
     "types-PyYAML",
-    "types-requests",
 ]
 
 [tool.pytest.ini_options]

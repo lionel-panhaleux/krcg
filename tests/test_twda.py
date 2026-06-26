@@ -12,14 +12,13 @@ from krcg import twda
 
 def test_load_and_dump() -> None:
     """Test load and dump."""
-    test_twda = twda._TWDA()
-    test_twda.load()
+    test_twda = twda.TWDA
     assert len(test_twda) >= 3125
     # test dump
     json.dumps(test_twda.to_json())
 
 
-def test_ampersand(TWDA: twda._TWDA) -> None:
+def test_ampersand(TWDA: twda.DecksArchive) -> None:
     """Test ampersand."""
     assert TWDA["2020afb"].name == "Robbing & Rapeing"
 
@@ -145,7 +144,7 @@ def test_2019grdojf(caplog: pytest.LogCaptureFixture) -> None:
 
 def test_2016ggs(caplog: pytest.LogCaptureFixture) -> None:
     """Pretty straightforward, we must get everything seamlessly."""
-    TWDA = twda._TWDA()
+    TWDA = twda.TWDA
     with open(os.path.join(os.path.dirname(__file__), "2016ggs.html")) as f:
         TWDA.load_html(f)
     assert len(TWDA) == 1

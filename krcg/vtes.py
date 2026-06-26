@@ -4,91 +4,130 @@ If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
 
-from typing import BinaryIO, Literal
-from collections.abc import Generator
-import functools
-import requests
+from typing import Dict, Generator, List, Optional, Set, Self
+import aiohttp
+import importlib.metadata
+import logging
+import msgspec
+import os
+import pickle
+import tempfile
 
-from . import cards
+from . import collections
+from . import models
+from . import vekn_csv
 
 
-CardsDiff = dict[cards.Card, cards.CardDiff | Literal["NEW"]]
+VERSION = importlib.metadata.version("krcg")
+PICKLE_FILE = pickle_file = os.path.join(
+    tempfile.gettempdir(), f"krcg_vtes_{VERSION}.pkl"
+)
+LOG = logging.getLogger("krcg")
 
 
-class _VTES:
+class VTES:
     """VTES cards database."""
 
     def __init__(self) -> None:
-        self._cards = cards.CardMap()
-        self._search = cards.CardSearch()
+        """Cards database.
+
+        Use the classmethods to load the database:
+
+            - VTES.load(): default load, fast and local
+            - VTES.load_local(): load from local CSV files
+            - VTES.load_online(): load from KRCG static, advised for online tools,
+            to keep up to date without having to use the latest krcg patch version.
+        """
+        self._cards = collections.CardDict()
+        self._sets = dict[int | str, models.Set]()
+        self._search = collections.CardSearch()
+
+    @classmethod
+    def load_local(cls) -> Self:
+        """Load VTES cards from local CSV files."""
+        ret = cls()
+        ret._search = collections.CardSearch()
+        cards, ret._sets = vekn_csv.from_files()
+        ret._cards = collections.CardDict(cards)
+        ret._setup()
+        return ret
+
+    @classmethod
+    def load(cls) -> Self:
+        """Default load: fast and local."""
+        try:
+            with open(PICKLE_FILE, "rb") as f:
+                return pickle.load(f)
+        except (pickle.UnpicklingError, EOFError, FileNotFoundError):
+            LOG.warning("Failed to load pickled VTES data", exc_info=True)
+            return cls.load_local()
+
+    @classmethod
+    async def load_online(cls, session: aiohttp.ClientSession) -> Self:
+        """Load VTES cards from KRCG static.
+
+        https://static.krcg.org/data/vtes.json
+        https://static.krcg.org/data/expansions.json
+        """
+        try:
+            async with session.get(
+                "https://static.krcg.org/data/vtes.json"
+            ) as response:
+                data = await response.json()
+            ret = cls()
+            for card in data:
+                ret._cards.add(msgspec.convert(card, type=models.Card))
+            async with session.get(
+                "https://static.krcg.org/data/expansions.json"
+            ) as response:
+                data = await response.json()
+            for item in data:
+                expansion = msgspec.convert(item, type=models.Set)
+                if expansion.id:
+                    ret._sets[expansion.id] = expansion
+                if expansion.code:
+                    ret._sets[expansion.code] = expansion
+                if expansion.name:
+                    ret._sets[expansion.name] = expansion
+            ret._setup()
+        except Exception:
+            LOG.warning("Failed to load VTES from KRCG static", exc_info=True)
+            cls.load()
+        return ret
+
+    def _setup(self) -> None:
+        for card in self._cards:
+            self._search.add(card)
+        with open(PICKLE_FILE, "wb") as f:
+            pickle.dump(self, f)
 
     def __bool__(self) -> bool:
+        """Check if the database is not empty."""
         return bool(self._cards)
 
-    def __getitem__(self, key: int | str) -> cards.Card:
+    def __getitem__(self, key: int | str) -> models.Card:
+        """Get a card by ID or name."""
         return self._cards[key]
 
     def __contains__(self, key: int | str) -> bool:
+        """Check if a card is in the database."""
         return key in self._cards
 
     def __len__(self) -> int:
+        """Get the number of cards in the database."""
         return len(self._cards)
 
-    def __iter__(self) -> Generator[cards.Card, None, None]:
+    def __iter__(self) -> Generator[models.Card, None, None]:
+        """Iterate over the cards in the database."""
         return self._cards.__iter__()
 
-    def to_json(self) -> list:
-        return self._cards.to_json()
-
-    def from_json(self, state: list) -> None:
-        self.clear()
-        self._cards.from_json(state)
-
     def get(
-        self, key: int | str, default: cards.Card | None = None
-    ) -> cards.Card | None:
+        self, key: int | str, default: Optional[models.Card] = None
+    ) -> Optional[models.Card]:
+        """Get a card by ID or name, or a default value if not found."""
         return self._cards.get(key) or default
 
-    def clear(self) -> None:
-        self._cards.clear()
-        self._search.clear()
-
-    def load(self) -> None:
-        """Load from KRCG static."""
-        self.clear()
-        self._cards.load()
-
-    def load_from_vekn(self) -> None:
-        """Load the card database from VEKN CSVs or local CSVs (LOCAL_CARDS=1)."""
-        self.clear()
-        self._cards.load_from_vekn()
-        self._cards.load_rulings()
-
-    def load_from_files(self, *files: BinaryIO, set_abbrev: str | None = None) -> None:
-        self._cards.load_from_files(*files, set_abbrev=set_abbrev)
-
-    def diff(self, url: str) -> CardsDiff:
-        """Compute a diff from previous VEKN CSV files."""
-        old_cards = cards.CardMap()
-        old_cards._VEKN_CSV = (url, old_cards._VEKN_CSV[1])
-        old_cards.load_from_vekn()
-        res: CardsDiff = {c: "NEW" for c in self._cards if c.id not in old_cards}
-        for c in self._cards:
-            if c.id in old_cards:
-                diff = old_cards[c.id].diff(c)
-                if diff:
-                    res[c] = diff
-        return res
-
-    @property
-    @functools.lru_cache(1)
-    def amaranth(self) -> dict[int, cards.Card]:
-        """Amaranth IDs card map."""
-        r = requests.get("http://static.krcg.org/data/amaranth_ids.json")
-        r.raise_for_status()
-        return {k: self[v] for k, v in r.json().items()}
-
-    def complete(self, text: str, lang: str = "en") -> list[str]:
+    def complete(self, text: str, lang: str = "en") -> List[str]:
         """Card name completion.
 
         Matches on the start of the name are returned first,
@@ -101,29 +140,36 @@ class _VTES:
         Returns:
             Sorted from most likely to less likely.
         """
-        self._init_search()
-        ret = self._search.name.search(text, lang)
-        ret = [
-            (card.usual_name if lang == "en" else card.i18n_field(lang, "name"), score)
-            for lang, card_score in ret.items()
-            for card, score in card_score.items()
-        ]
-        return [x[0] for x in sorted(ret, key=lambda x: (-x[1], x[0]))]
+        return self._search.name.search_flat(text, 10, lang)
 
     @property
-    def search_dimensions(self) -> dict[str, list[str]]:
-        self._init_search()
-        return self._search.set_dimensions_enums
+    def search_dimensions(self) -> Dict[str, List[str]]:
+        """Get the search dimensions.
 
-    def search(self, **kwargs: str | list[str]) -> set[cards.Card]:
-        self._init_search()
-        return self._search(**kwargs)
+        Returns:
+            A dictionary of search dimensions and their choices.
+            It does not include trie dimensions (text, flavor text, etc.)
+        """
+        return {
+            dimension.value: self._search.choices(dimension)
+            for dimension in models.SearchDimension
+            if dimension not in self._search._TRIE_DIMENSIONS
+        }
 
-    def _init_search(self) -> None:
-        """Initialize search and completion."""
-        if not self._search:
-            for c in self._cards:
-                self._search.add(c)
+    def search(
+        self,
+        *,
+        n: int | None = 100,
+        lang: models.Lang = models.Lang.EN,
+        **kwargs,
+    ) -> Set[models.Card]:
+        """Search for cards.
 
-
-VTES = _VTES()
+        Args:
+            n: The number of cards to return, defaults to 100.
+            lang: The language to search in (defaults to English).
+            **kwargs: Filter criteria matching the available dimensions.
+        """
+        return self._search.search(
+            {models.SearchDimension(k): v for k, v in kwargs.items()}, n, lang
+        )
