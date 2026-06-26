@@ -265,17 +265,13 @@ def get_dimension_values(
             return [card.clan]
         case models.SearchDimension.DISCIPLINE:
             if card.kind == models.Card.Kind.LIBRARY:
-                return [d.value for d in card.discipline_requirement.disciplines]
-            ret = [d.value for d in card.disciplines]
-            for disc in ret:
-                if disc not in models.Discipline:
-                    ret.append(models.DisciplineLevel(disc.lower()).value)
-            if card.id == 200553:  # "Gwen Brand"
-                ret.append(models.DisciplineLevel.ANIMALISM.value)
-                ret.append(models.DisciplineLevel.AUSPEX.value)
-                ret.append(models.DisciplineLevel.CHIMERSTRY.value)
-                ret.append(models.DisciplineLevel.FORTITUDE.value)
-            return ret
+                return card.discipline_requirement.disciplines
+            disciplines = set(card.disciplines)
+            if card.id == 200553:  # Gwen Brand: superior disciplines from merged forms
+                disciplines |= {"ANI", "AUS", "CHI", "FOR"}
+            # also index the inferior base of each (maybe superior) discipline,
+            # so a search for "ani" matches superior-only "ANI" too
+            return sorted(disciplines | {d.lower() for d in disciplines})
         case models.SearchDimension.GROUP:
             if card.kind == models.Card.Kind.CRYPT:
                 return [card.group.value]
@@ -304,14 +300,14 @@ def get_dimension_values(
                 o.frequency.value
                 for p in card.prints
                 for o in p.occurrences
-                if o.type == models.Occurence.Type.RARITY
+                if o.type == models.Occurrence.Type.RARITY
             ]
         case models.SearchDimension.PRECON:
             return [
                 f"{p.set.code}:{o.bundle}"
                 for p in card.prints
                 for o in p.occurrences
-                if o.type == models.Occurence.Type.PRECON and o.bundle
+                if o.type == models.Occurrence.Type.PRECON and o.bundle
             ]
         case models.SearchDimension.CAPACITY:
             return (
@@ -385,7 +381,7 @@ def _get_sects(card: models.Card) -> list[models.Sect]:
         match = re.search(LIBRARY_TITLES_RE, card.text.lower())
         if match:
             ret.add(TITLES_SECT[match.group(1).title()])
-    return list(ret)
+    return sorted(ret)
 
 
 def _get_bonus(card: models.Card) -> list[models.Bonus]:
@@ -442,7 +438,7 @@ def _get_bonus(card: models.Card) -> list[models.Bonus]:
     # trifle
     if card.kind == models.Card.Kind.LIBRARY and card.trifle:
         ret.add(models.Bonus.TRIFLE)
-    return list(ret)
+    return sorted(ret)
 
 
 def _get_titles(card: models.Card) -> list[models.Title]:
@@ -466,7 +462,7 @@ def _get_titles(card: models.Card) -> list[models.Title]:
             ret.update(models.Title)
         if re.search(r"Requires a( ready)? (M|m)agaji", card.text):
             ret.update(SECT_TITLES[models.Sect.LAIBON])
-    return list(ret)
+    return sorted(ret)
 
 
 def _get_city(card: models.Card) -> str | None:
@@ -495,4 +491,4 @@ def _get_traits(card: models.Card) -> list[models.Trait]:
             ret.add(models.Trait.COMBO)
         if card.discipline_requirement.type == models.DisciplineRequirement.Type.CHOICE:
             ret.add(models.Trait.CHOICE)
-    return list(ret)
+    return sorted(ret)
