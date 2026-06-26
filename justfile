@@ -58,10 +58,10 @@ clean: clean-build
     rm -rf .pytest_cache .mypy_cache .ruff_cache
     @echo "✅ Cleaned!"
 
-# Ensure we're on master branch and working tree is clean
+# Ensure we're on main branch and working tree is clean
 check:
     @echo "🔍 Checking release prerequisites..."
-    @if [[ "$(git branch --show-current)" != "master" ]]; then echo "❌ Not on master branch"; exit 1; fi
+    @if [[ "$(git branch --show-current)" != "main" ]]; then echo "❌ Not on main branch"; exit 1; fi
     @if [[ -n "$(git status --porcelain)" ]]; then echo "❌ Working directory is dirty"; exit 1; fi
     @echo "✅ Release checks passed!"
 
@@ -81,7 +81,7 @@ bump level="minor": check
     git add pyproject.toml
     git commit -m "Release ${VERSION}" && git tag "v${VERSION}"
     echo "📤 Pushing to remote..."
-    git push origin master --tags
+    git push origin main --tags
 
 # Publish package to PyPI
 publish:
