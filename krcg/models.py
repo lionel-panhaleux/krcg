@@ -26,9 +26,13 @@ class NameVariant:
     name: str
 
 
-@dataclass
-class Occurence:
-    """The occurrence of a print."""
+@dataclass(kw_only=True)
+class Occurrence:
+    """How a card appears in a print.
+
+    A single flat type discriminated by `type` (so it round-trips through
+    msgspec natively); the trailing comments mark which kind uses each field.
+    """
 
     class Type(StrEnum):
         """The type of occurrence."""
@@ -36,13 +40,6 @@ class Occurence:
         RARITY = "Rarity"
         SINGLE = "Single"
         PRECON = "Precon"
-
-    type: Type
-
-
-@dataclass(kw_only=True)
-class Rarity(Occurence):
-    """The rarity of a print."""
 
     class Frequency(StrEnum):
         """The frequency of a rarity."""
@@ -52,26 +49,12 @@ class Rarity(Occurence):
         RARE = "R"
         VAMPIRE = "V"
 
-    type: Occurence.Type = Occurence.Type.RARITY
-    frequency: Frequency
-    multiplier: float
-
-
-@dataclass(kw_only=True)
-class Precon(Occurence):
-    """Card included in a fixed bundle."""
-
-    type: Occurence.Type = Occurence.Type.PRECON
-    bundle: str = ""
-    copies: int
-
-
-@dataclass(kw_only=True)
-class Single(Occurence):
-    """Card available as a single (promo, POD)."""
-
-    type: Occurence.Type = Occurence.Type.SINGLE
-    date: date
+    type: Type
+    frequency: Frequency | None = None  # RARITY
+    multiplier: float = 0  # RARITY
+    bundle: str = ""  # PRECON
+    copies: int = 0  # PRECON
+    date: date | None = None  # SINGLE
 
 
 @dataclass(kw_only=True)
@@ -106,19 +89,16 @@ class Print:
     """A specific print of a card."""
 
     set: SetMinimal
-    occurrences: list[Occurence] = field(default_factory=list)
+    occurrences: list[Occurrence] = field(default_factory=list)
     url: str
 
 
 class Lang(StrEnum):
-    """A language."""
+    """A language (only those with synced data)."""
 
     EN = "en"
     FR = "fr"
-    DE = "de"
-    IT = "it"
     ES = "es"
-    PT = "pt"
 
 
 @dataclass(kw_only=True)
@@ -148,7 +128,7 @@ class Variant:
     suffix: str
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, eq=False)
 class CardMinimal:
     """A minimal card."""
 
@@ -195,6 +175,10 @@ class CardMinimal:
         """String representation of a card."""
         return f"{self.id}|{self.unique_name}"
 
+    def __repr__(self) -> str:
+        """Concise repr (don't dump every field)."""
+        return str(self)
+
 
 @dataclass(kw_only=True)
 class Ruling:
@@ -219,127 +203,6 @@ class Ruling:
     references: list[Reference] = field(default_factory=list)
     cards: list[CardMinimal] = field(default_factory=list)
     symbols: list[Symbol] = field(default_factory=list)
-
-
-# TODO: maybe remove and just trust the source content
-# same as for clans and paths
-class Discipline(StrEnum):
-    """A discipline."""
-
-    abombwe = "abo"
-    animalism = "ani"
-    auspex = "aus"
-    celerity = "cel"
-    chimerstry = "chi"
-    daimoinon = "dai"
-    dementation = "dem"
-    dominate = "dom"
-    flight = "fli"
-    fortitude = "for"
-    maleficia = "mal"
-    melpominee = "mel"
-    mytherceria = "myt"
-    necromancy = "nec"
-    obeah = "obe"
-    obfuscate = "obf"
-    oblivion = "obl"
-    obtenebration = "obt"
-    potence = "pot"
-    presence = "pre"
-    protean = "pro"
-    quietus = "qui"
-    sanguinus = "san"
-    serpentis = "ser"
-    spiritus = "spi"
-    striga = "str"
-    temporis = "tem"
-    thanatosis = "thn"
-    blood_sorcery = "tha"
-    valeren = "val"
-    vicissitude = "vic"
-    visceratika = "vis"
-    vengeance = "ven"
-    defense = "def"
-    innocence = "inn"
-    judgment = "jud"
-    martyrdom = "mar"
-    redemption = "red"
-    vision = "viz"
-
-
-class DisciplineLevel(StrEnum):
-    """A discipline, with level distinction."""
-
-    abombwe = "abo"
-    animalism = "ani"
-    auspex = "aus"
-    celerity = "cel"
-    chimerstry = "chi"
-    daimoinon = "dai"
-    dementation = "dem"
-    dominate = "dom"
-    flight = "fli"
-    fortitude = "for"
-    maleficia = "mal"
-    melpominee = "mel"
-    mytherceria = "myt"
-    necromancy = "nec"
-    obeah = "obe"
-    obfuscate = "obf"
-    oblivion = "obl"
-    obtenebration = "obt"
-    potence = "pot"
-    presence = "pre"
-    protean = "pro"
-    quietus = "qui"
-    sanguinus = "san"
-    serpentis = "ser"
-    spiritus = "spi"
-    striga = "str"
-    temporis = "tem"
-    thanatosis = "thn"
-    blood_sorcery = "tha"
-    valeren = "val"
-    vicissitude = "vic"
-    visceratika = "vis"
-    vengeance = "ven"
-    defense = "def"
-    innocence = "inn"
-    judgment = "jud"
-    martyrdom = "mar"
-    redemption = "red"
-    vision = "viz"
-    ABOMBWE = "ABO"
-    ANIMALISM = "ANI"
-    AUSPEX = "AUS"
-    CELERITY = "CEL"
-    CHIMERSTRY = "CHI"
-    DAIMOINON = "DAI"
-    DEMENTATION = "DEM"
-    DOMINATE = "DOM"
-    FORTITUDE = "FOR"
-    MALFICIA = "MAL"
-    MELPOMINEE = "MEL"
-    MYTHERCERIA = "MYT"
-    NECROMANCY = "NEC"
-    OBEAH = "OBE"
-    OBFUSCATE = "OBF"
-    OBLIVION = "OBL"
-    OBTENEBRATION = "OBT"
-    POTENCE = "POT"
-    PRESENCE = "PRE"
-    PROTEAN = "PRO"
-    QUIETUS = "QUI"
-    SANGINUS = "SAN"
-    SERPENTIS = "SER"
-    SPIRITUS = "SPI"
-    STRIGA = "STR"
-    TEMPORIS = "TEM"
-    THANATOSIS = "THN"
-    BLOOD_SORCERY = "THA"
-    VALEREN = "VAL"
-    VICISSITUDE = "VIC"
-    VISCERATIKA = "VIS"
 
 
 class Group(StrEnum):
@@ -375,7 +238,8 @@ class DisciplineRequirement:
         MONO = "Mono"
 
     type: Type
-    disciplines: list[Discipline] = field(default_factory=list)
+    # library requirements are level-agnostic: lowercase trigrams (e.g. "dom")
+    disciplines: list[str] = field(default_factory=list)
 
 
 class Title(StrEnum):
@@ -413,7 +277,7 @@ class Cost:
     value: int | Literal["X"]
 
 
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, eq=False, repr=False)
 class Card(CardMinimal):
     """A VTES card."""
 
@@ -466,20 +330,8 @@ class Card(CardMinimal):
                 if t  # Filter out empty strings
             ]
 
-    def __hash__(self) -> int:
-        """Hash (so the card can be used as a key in a dictionary)."""
-        return super().__hash__()
 
-    def __eq__(self, other: object) -> bool:
-        """Equality (so the card can be used as a key in a dictionary)."""
-        return super().__eq__(other)
-
-    def __str__(self) -> str:
-        """String representation of a card."""
-        return f"{self.id}|{self.unique_name}"
-
-
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, eq=False, repr=False)
 class CryptCard(Card):
     """A VTES crypt card."""
 
@@ -489,27 +341,12 @@ class CryptCard(Card):
     advanced: bool = False
     capacity: int | None = None
     group: Group | None = None
-    disciplines: list[DisciplineLevel] = field(default_factory=list)
+    # crypt disciplines encode level by case: lower=inferior, UPPER=superior
+    disciplines: list[str] = field(default_factory=list)
     title: Title | None = None
 
-    def __hash__(self) -> int:
-        """Hash (so the card can be used as a key in a dictionary)."""
-        return super().__hash__()
 
-    def __eq__(self, other: object) -> bool:
-        """Equality (so the card can be used as a key in a dictionary)."""
-        return super().__eq__(other)
-
-    def __str__(self) -> str:
-        """String representation of a card."""
-        return f"{self.id}|{self.unique_name}"
-
-    def __repr__(self) -> str:
-        """Don't go verbose on repr."""
-        return str(self)
-
-
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, eq=False, repr=False)
 class LibraryCard(Card):
     """A VTES library card."""
 
@@ -521,24 +358,8 @@ class LibraryCard(Card):
     path_requirement: list[str] = field(default_factory=list)
     discipline_requirement: DisciplineRequirement | None = None
 
-    def __hash__(self) -> int:
-        """Hash (so the card can be used as a key in a dictionary)."""
-        return super().__hash__()
 
-    def __eq__(self, other: object) -> bool:
-        """Equality (so the card can be used as a key in a dictionary)."""
-        return super().__eq__(other)
-
-    def __str__(self) -> str:
-        """String representation of a card."""
-        return f"{self.id}|{self.unique_name}"
-
-    def __repr__(self) -> str:
-        """Don't go verbose on repr."""
-        return str(self)
-
-
-@dataclass(kw_only=True)
+@dataclass(kw_only=True, eq=False)
 class CardInDeck(CardMinimal):
     """A card in a deck."""
 
@@ -547,13 +368,9 @@ class CardInDeck(CardMinimal):
     types: list[Card.Type]
     comment: str = field(default="")
 
-    def __hash__(self) -> int:
-        """Hash (so the card can be used as a key in a dictionary)."""
-        return super().__hash__()
-
-    def __eq__(self, other: object) -> bool:
-        """Equality (so the card can be used as a key in a dictionary)."""
-        return super().__eq__(other)
+    def __repr__(self) -> str:
+        """Concise repr including the count."""
+        return f"{self.count}x {self.id}|{self.unique_name}"
 
 
 class Continent(StrEnum):

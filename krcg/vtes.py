@@ -70,13 +70,19 @@ class VTES:
         https://static.krcg.org/data/expansions.json
         """
         try:
+            ret = cls()
             async with session.get(
                 "https://static.krcg.org/data/vtes.json"
             ) as response:
                 data = await response.json()
-            ret = cls()
             for card in data:
-                ret._cards.add(msgspec.convert(card, type=models.Card))
+                # dispatch on kind: a bare Card silently drops crypt/library fields
+                cls_ = (
+                    models.CryptCard
+                    if card["kind"] == models.Card.Kind.CRYPT
+                    else models.LibraryCard
+                )
+                ret._cards.add(msgspec.convert(card, type=cls_))
             async with session.get(
                 "https://static.krcg.org/data/expansions.json"
             ) as response:
@@ -90,10 +96,10 @@ class VTES:
                 if expansion.name:
                     ret._sets[expansion.name] = expansion
             ret._setup()
+            return ret
         except Exception:
             LOG.warning("Failed to load VTES from KRCG static", exc_info=True)
-            cls.load()
-        return ret
+            return cls.load()
 
     def _setup(self) -> None:
         for card in self._cards:
