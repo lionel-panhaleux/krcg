@@ -151,6 +151,7 @@ def test_search_dimensions() -> None:
             "viz",
         ],
         "group": ["1", "2", "3", "4", "5", "6", "7"],
+        "path": ["Caine", "Cathari", "Death and the Soul", "Power and the Inner Voice"],
         "sect": ["Anarch", "Camarilla", "Independent", "Laibon", "Sabbat"],
         "title": [
             "1 vote",

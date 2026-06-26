@@ -328,6 +328,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         self.aka: list[str] = []
         self.types: list[str] = []
         self.clans: list[str] = []
+        self.path: str | None = None
         self.capacity: int | None = None
         self.capacity_change: str | None = None
         self.disciplines: list[str] = []
@@ -370,6 +371,8 @@ class Card(utils.i18nMixin, utils.NamedMixin):
             res["types"] = [self.types, rhs.types]
         if set(self.clans) != set(rhs.clans):
             res["clans"] = [self.clans, rhs.clans]
+        if self.path != rhs.path:
+            res["path"] = [self.path, rhs.path]
         if set(self.disciplines) != set(rhs.disciplines):
             res["disciplines"] = [self.disciplines, rhs.disciplines]
         if (self.capacity or 0) != (rhs.capacity or 0):
@@ -547,6 +550,7 @@ class Card(utils.i18nMixin, utils.NamedMixin):
         for i in range(len(self.clans)):
             if self.clans[i] in self._CLAN_RENAMES:
                 self.clans[i] = self._CLAN_RENAMES[self.clans[i]]
+        self.path = str_or_none("Path")
         capacity = data.get("Capacity")
         if capacity and re.search(r"^[^\d]", capacity):
             self.capacity_change = capacity
@@ -1339,6 +1343,7 @@ class CardSearch:
         "type",
         "sect",
         "clan",
+        "path",
         "title",
         "city",
         "trait",
@@ -1421,6 +1426,8 @@ class CardSearch:
                 self.clan[self._LEGACY_CLANS[clan]].add(card)
         if not card.clans:
             self.clan["none"].add(card)
+        if card.path:
+            self.path[card.path].add(card)
         if card.group:
             try:
                 int(card.group)
