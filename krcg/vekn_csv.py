@@ -128,7 +128,6 @@ def from_files() -> tuple[DictOfCards, DictofSets]:
                 card = add_translation(cards, line, lang)
     compute_variants(cards)
     compute_urls(cards, sets)
-    # TODO: add rulings
     return cards, sets
 
 
