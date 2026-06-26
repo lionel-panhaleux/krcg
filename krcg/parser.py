@@ -148,7 +148,7 @@ _HEADERS_FIRST_RE = (
     + ")"
 )
 _HEADERS_RE = (
-    r"^(\s|/|-|\d|_)*{0}((\s|/|-)*{1})*".format(_HEADERS_FIRST_RE, _HEADERS_RE)
+    rf"^(\s|/|-|\d|_)*{_HEADERS_FIRST_RE}((\s|/|-)*{_HEADERS_RE})*"
     + r"(\s|\d|:|;|\.|\(|\)|\[|\]|/|-|=|,|"
     + r"cards?|carta|cars|total|min|max|avg|masters?|minions?|trifles?)*$"
 )
@@ -285,10 +285,9 @@ _CLAN = "|".join(
         "redeemer",
     ]
 )
-_CRYPT_TAIL = r"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{})\s+".format(
-    _DISCIPLINE_TRIGRAM
-) + r"({}|{}|{}|\s|:|g?\d{{1,2}}|any|g\*)*)|%NOMATCH%)?".format(
-    _DISCIPLINE_TRIGRAM, _TITLE, _CLAN
+_CRYPT_TAIL = (
+    rf"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{_DISCIPLINE_TRIGRAM})\s+"
+    + rf"({_DISCIPLINE_TRIGRAM}|{_TITLE}|{_CLAN}|\s|:|g?\d{{1,2}}|any|g\*)*)|%NOMATCH%)?"
 )
 _PUNCTUATED_TRAIT = "|".join(
     [
@@ -390,11 +389,7 @@ _NAKED_TRAIT = "|".join(
         "visceratika",
     ]
 )
-_TRAIT = (
-    r"\s+((\s|-|\(|\[|/|\*)+({0})|(\s|-|\(|\[|/|\*)*({1}))(\s|\)|\]|/|\*)*$".format(
-        _PUNCTUATED_TRAIT, _NAKED_TRAIT
-    )
-)
+_TRAIT = rf"\s+((\s|-|\(|\[|/|\*)+({_PUNCTUATED_TRAIT})|(\s|-|\(|\[|/|\*)*({_NAKED_TRAIT}))(\s|\)|\]|/|\*)*$"
 _POST_COUNT = (
     # mandatory punctuation (beware of "AK-47", "Kpist m/45", ...)
     r"(\s|\(|\[|:|cards?|total|,)+"

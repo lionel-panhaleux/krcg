@@ -12,7 +12,7 @@ import warnings
 def fix_sets_csv(path: os.PathLike):
     """Fix the sets csv file."""
     fieldnames, result = [], []
-    with open(path, "r", encoding="utf-8-sig") as f:
+    with open(path, encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames
         for row in reader:
@@ -30,7 +30,7 @@ def fix_sets_csv(path: os.PathLike):
 def fix_library_csv(path: os.PathLike, lang: str = None):
     """Fix the library csv file."""
     fieldnames, result = [], []
-    with open(path, "r", encoding="utf-8-sig") as f:
+    with open(path, encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames
         if "Format" not in fieldnames:
@@ -52,7 +52,7 @@ def fix_library_csv(path: os.PathLike, lang: str = None):
 def fix_crypt_csv(path: os.PathLike, lang: str = None):
     """Fix the crypt csv file."""
     fieldnames, result = [], []
-    with open(path, "r", encoding="utf-8-sig") as f:
+    with open(path, encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames
         if "Format" not in fieldnames:

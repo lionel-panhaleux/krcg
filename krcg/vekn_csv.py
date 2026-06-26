@@ -1,6 +1,6 @@
 """VEKN CSV parser."""
 
-from typing import Generator
+from collections.abc import Generator
 import csv
 import enum
 import datetime
@@ -553,7 +553,7 @@ def compute_variants(cards: DictOfCards) -> None:
 
 def _variants(
     name: str, card: models.CardMinimal, variant_type: models.NameVariant.Type
-) -> Generator[tuple[str, models.NameVariant.Type], None, None]:
+) -> Generator[tuple[str, models.NameVariant.Type]]:
     if card.unicity_suffix:
         yield from _word_variants(name, f" ({card.unicity_suffix})", variant_type)
     else:
@@ -564,7 +564,7 @@ def _variants(
 
 def _word_variants(
     name: str, suffix: str, variant_type: models.NameVariant.Type
-) -> Generator[tuple[str, models.NameVariant.Type], None, None]:
+) -> Generator[tuple[str, models.NameVariant.Type]]:
     yield from _comma_splits(name, suffix, variant_type)
     for prefix in models.FILING_PREFIXES:
         if name.startswith(prefix + " "):
@@ -575,7 +575,7 @@ def _word_variants(
 
 def _comma_splits(
     name: str, suffix: str, variant_type: models.NameVariant.Type
-) -> Generator[tuple[str, models.NameVariant.Type], None, None]:
+) -> Generator[tuple[str, models.NameVariant.Type]]:
     while True:
         yield name + suffix, variant_type
         name_parts = name.rsplit(",", 1)

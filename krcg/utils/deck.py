@@ -1,6 +1,6 @@
 """Deck utilities."""
 
-from typing import Generator
+from collections.abc import Generator
 import arrow
 import itertools
 import msgspec
@@ -39,7 +39,7 @@ def _type_index(card: models.CardInDeck) -> int:
 
 def sorted_library(
     deck: models.Deck,
-) -> Generator[tuple[str, list[models.CardInDeck]], None, None]:
+) -> Generator[tuple[str, list[models.CardInDeck]]]:
     """A generator that yields library cards sorted by type and name.
 
     Yields:

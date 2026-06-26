@@ -1,6 +1,7 @@
 """Collections of cards."""
 
-from typing import Generator, Iterable, TypeVar, Generic, Hashable
+from typing import TypeVar, Generic
+from collections.abc import Generator, Iterable, Hashable
 import collections
 import msgspec
 import re

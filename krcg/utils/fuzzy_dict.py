@@ -3,12 +3,13 @@
 from typing import (
     Any,
     Generic,
+    TypeVar,
+)
+from collections.abc import (
     Hashable,
     ItemsView,
     Iterator,
-    Optional,
     Sequence,
-    TypeVar,
     Mapping,
     MutableMapping,
 )
@@ -38,7 +39,7 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
         *args: Any,
         threshold: int = 6,
         cutoff: float = 0.85,
-        aliases: Optional[Mapping[Any, Any]] = None,
+        aliases: Mapping[Any, Any] | None = None,
         **kwargs: Any,
     ) -> None:
         """Constructor.
@@ -55,7 +56,7 @@ class FuzzyDict(MutableMapping[H, T], Generic[H, T]):
         self._aliases: dict[Hashable, H] = dict(aliases) if aliases else {}
         self._dict: dict[H, T] = dict(*args, **kwargs)
 
-    def _fuzzy_match(self, key: Hashable) -> Optional[H]:
+    def _fuzzy_match(self, key: Hashable) -> H | None:
         """Use difflib to match incomplete or misspelled keys."""
         if not isinstance(key, collections.abc.Sequence):
             return None

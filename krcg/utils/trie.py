@@ -2,11 +2,9 @@
 
 from typing import (
     Generic,
-    Hashable,
-    List,
     TypeVar,
-    Mapping,
 )
+from collections.abc import Hashable, Mapping
 import collections
 import logging
 import re
@@ -56,7 +54,7 @@ class Trie(collections.defaultdict[str, dict[H, int]], Generic[H]):
         )
 
     @staticmethod
-    def _split(text: str) -> List[str]:
+    def _split(text: str) -> list[str]:
         """Normalize input text and split into words."""
         text = normalize(text)
         if not text:

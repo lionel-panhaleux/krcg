@@ -4,7 +4,8 @@ If it has not been initialized, VTES will evaluate to False.
 VTES must be configured with `VTES.configure()` before being used.
 """
 
-from typing import Dict, Generator, List, Optional, Set, Self
+from typing import Self
+from collections.abc import Generator
 from collections.abc import Iterable
 import aiohttp
 import importlib.metadata
@@ -128,17 +129,17 @@ class VTES:
         """Get the number of cards in the database."""
         return len(self._cards)
 
-    def __iter__(self) -> Generator[models.Card, None, None]:
+    def __iter__(self) -> Generator[models.Card]:
         """Iterate over the cards in the database."""
         return self._cards.__iter__()
 
     def get(
-        self, key: int | str, default: Optional[models.Card] = None
-    ) -> Optional[models.Card]:
+        self, key: int | str, default: models.Card | None = None
+    ) -> models.Card | None:
         """Get a card by ID or name, or a default value if not found."""
         return self._cards.get(key) or default
 
-    def complete(self, text: str, lang: str = "en") -> List[str]:
+    def complete(self, text: str, lang: str = "en") -> list[str]:
         """Card name completion.
 
         Matches on the start of the name are returned first,
@@ -154,7 +155,7 @@ class VTES:
         return self._search.name.search_flat(text, 10, lang)
 
     @property
-    def search_dimensions(self) -> Dict[str, List[str]]:
+    def search_dimensions(self) -> dict[str, list[str]]:
         """Get the search dimensions.
 
         Returns:
@@ -173,7 +174,7 @@ class VTES:
         n: int | None = 100,
         lang: models.Lang = models.Lang.EN,
         **kwargs,
-    ) -> Set[models.Card]:
+    ) -> set[models.Card]:
         """Search for cards.
 
         Args:
