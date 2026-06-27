@@ -221,7 +221,11 @@ def serialize_twd(deck: models.Deck, cards_dict: collections.CardDict) -> str:
             date_str += " -- " + arrow.get(deck.event.end_date).format("MMMM Do YYYY")
         lines.append(date_str)
     if deck.event and deck.event.rounds:
-        lines.append(deck.event.rounds.value)
+        lines.append(
+            f"{deck.event.rounds}R+F"
+            if deck.event.finals
+            else f"{deck.event.rounds}R (no final)"
+        )
     if deck.event and deck.event.players_count:
         lines.append(f"{deck.event.players_count} players")
     if deck.player:
@@ -273,6 +277,8 @@ def serialize_twd(deck: models.Deck, cards_dict: collections.CardDict) -> str:
             or "-none-"
         )
         title = card.title.lower() if card.title else ""
+        # Sabbat path shown by its first word (e.g. "Death", "Power")
+        path = card.path.split()[0] if card.path else ""
         group = (
             "ANY"
             if not card.group or card.group == models.Group.Any
@@ -281,22 +287,25 @@ def serialize_twd(deck: models.Deck, cards_dict: collections.CardDict) -> str:
         clan = f"{card.clan}:{group}"
         if name == "Camille Devereux, The Raven" and raven:
             rows.append(
-                (count - raven, "Camille Devereux", 5, "FOR PRO ani", "", clan, "")
+                (count - raven, "Camille Devereux", 5, "FOR PRO ani", "", "", clan, "")
             )
             name, count = "Raven", raven
-        rows.append((count, name, card.capacity or 0, disc, title, clan, comment))
+        rows.append((count, name, card.capacity or 0, disc, path, title, clan, comment))
     max_cnt = max(len(f"{r[0]}x") for r in rows)
     max_name = max(len(r[1]) for r in rows)
     cap_w = max(len(str(r[2])) for r in rows)
     max_disc = max(len(r[3]) for r in rows)
-    max_title = max(len(r[4]) for r in rows)
-    max_clan = max(len(r[5]) for r in rows)
-    for count, name, capacity, disc, title, clan, comment in rows:
+    max_path = max(len(r[4]) for r in rows)
+    max_title = max(len(r[5]) for r in rows)
+    max_clan = max(len(r[6]) for r in rows)
+    for count, name, capacity, disc, path, title, clan, comment in rows:
         cnt = f"{count}x"
         line = (
             f"{cnt:<{max_cnt}} {name:<{max_name}}  "
             f"{capacity:>{cap_w}}  {disc:<{max_disc}}  "
         )
+        if max_path:
+            line += f"{path:<{max_path}}  "
         if max_title:
             line += f"{title:<{max_title}}  "
         if comment:
@@ -343,11 +352,18 @@ def serialize_txt(deck: models.Deck) -> str:
     if deck.event and deck.event.place:
         lines.append(deck.event.place)
     if deck.event and deck.event.date:
-        lines.append(arrow.get(deck.event.date).format("MMMM Do YYYY"))
+        date_str = arrow.get(deck.event.date).format("MMMM Do YYYY")
+        if deck.event.end_date:
+            date_str += " -- " + arrow.get(deck.event.end_date).format("MMMM Do YYYY")
+        lines.append(date_str)
     if deck.event and deck.event.format:
         lines.append(deck.event.format)
-        if deck.event.rounds != models.RoundFormat.NA:
-            lines[-1] += f" {deck.event.rounds}"
+        if deck.event.rounds:
+            lines[-1] += (
+                f" {deck.event.rounds}R+F"
+                if deck.event.finals
+                else f" {deck.event.rounds}R (no final)"
+            )
     if deck.event and deck.event.players_count:
         lines.append(f"{deck.event.players_count} players")
     if deck.player:

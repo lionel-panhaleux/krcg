@@ -109,6 +109,7 @@ class Translation:
     text: str
     flavor: str = ""
     draft: str = ""
+    url: str = ""
 
 
 @dataclass
@@ -415,14 +416,6 @@ class Country:
     continent: Continent
 
 
-class RoundFormat(StrEnum):
-    """A round format."""
-
-    NA = "N/A"
-    R2F = "2R+F"
-    R3F = "3R+F"
-
-
 @dataclass(kw_only=True)
 class Event:
     """An event."""
@@ -433,7 +426,8 @@ class Event:
     online: bool = False
     format: Format = Format.STANDARD
     players_count: int = 0
-    rounds: RoundFormat = RoundFormat.NA
+    rounds: int = 0  # number of preliminary rounds (0 if unknown)
+    finals: bool = True  # whether a final round was played
     place: str = ""
     country: Country | None = None
     url: str = ""
