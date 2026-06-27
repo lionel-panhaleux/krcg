@@ -538,8 +538,13 @@ def optimise(
         * trials (since last callback call)
         * accepts (since last callback call)
         * improves (since last callback call)
-    - fixed is the number of rounds that are left untouched by the optimisation
-      (default is all except the last one)
+    - fixed is the number of leading rounds left untouched by the optimisation.
+      The default (all rounds except the last) only re-seats the last round: use
+      it to build rounds one at a time as attendance changes round to round. To
+      pre-compute a full seating for a fixed attendance, pass ``fixed=1`` — the
+      first round is arbitrary by symmetry, so fixing it just saves work. Calling
+      with the default on a fresh ``get_rounds(...)`` leaves the identical earlier
+      rounds untouched and so cannot satisfy R1 (predator-prey).
 
     Use a simulated annealing algorithm:
         - exponential cooldown strategy
