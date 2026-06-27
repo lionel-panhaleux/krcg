@@ -19,14 +19,16 @@ class CardDict(utils.FuzzyDict[int | str, models.Card]):
     str keys are card names and variants (old name, translation, nickname)
     """
 
-    _cards: dict[str, models.Card] = {}
-
     def __init__(self, cards: dict[int, models.Card] | None = None) -> None:
-        """Constructor."""
+        """Index the given cards by id and by every name variant.
+
+        The search index stays empty until `index()` runs; the loaders call it
+        once cards and rulings are in place.
+        """
         super().__init__()
-        if not cards:
-            return
-        for card in cards.values():
+        self.sets: dict[int | str, models.Set] = {}
+        self.search_index = CardSearch()
+        for card in (cards or {}).values():
             self.add(card)
 
     def cards(self) -> Generator[models.Card]:
@@ -63,6 +65,67 @@ class CardDict(utils.FuzzyDict[int | str, models.Card]):
             msgspec.to_builtins(self[int(card_id)]) | {"count": count},
             models.CardInDeck,
         )
+
+    def index(self) -> None:
+        """Build the search index over the current cards.
+
+        Call this after loading (or mutating) the cards; the loaders do it for
+        you. `complete` and `search` return nothing until it has run.
+        """
+        self.search_index = CardSearch()
+        for card in self.cards():
+            self.search_index.add(card)
+
+    def complete(self, text: str, lang: str = models.Lang.EN) -> list[models.Card]:
+        """Complete a card name.
+
+        Matches on the start of the name come first, the rest alphabetically.
+
+        Args:
+            text: Part of the name (may contain spaces).
+            lang: Preferred language code (defaults to English).
+
+        Returns:
+            Matching cards, most likely first.
+        """
+        return self.search_index.name.search_flat(text, 10, lang)
+
+    def search(
+        self,
+        *,
+        n: int | None = 100,
+        lang: models.Lang = models.Lang.EN,
+        **criteria: list[str],
+    ) -> list[models.Card]:
+        """Search cards across the available dimensions.
+
+        Args:
+            n: Maximum number of cards to return (defaults to 100).
+            lang: Language to search text dimensions in (defaults to English).
+            **criteria: Dimension filters, e.g. `clan=["Brujah"], sect=["Sabbat"]`.
+                See `search_dimensions` for the valid keys and their values.
+
+        Returns:
+            The matching cards, sorted by name.
+        """
+        return self.search_index.search(
+            {models.SearchDimension(k): v for k, v in criteria.items()}, n, lang
+        )
+
+    @property
+    def search_dimensions(self) -> dict[str, list[str | None]]:
+        """The set dimensions and their possible values.
+
+        Text (trie) dimensions are excluded as they have no enumerable choices.
+
+        Returns:
+            A mapping of dimension name to its choices (None marks "no value").
+        """
+        return {
+            dimension.value: self.search_index.choices(dimension)
+            for dimension in models.SearchDimension
+            if dimension not in self.search_index._TRIE_DIMENSIONS
+        }
 
 
 class i18nTrie[H: Hashable](dict[str, utils.Trie[H]]):
@@ -199,13 +262,13 @@ class CardSearch:
         ret = set[models.Card]()
         first = True
         for dimension, values in filters.items():
+            # allow dim="value" as shorthand for dim=["value"]
+            if isinstance(values, str):
+                values = [values]
             sub_result = set[models.Card]()
             # for trie dimensions, multiple values is an OR
             # Trie does intersection when multiple words are in a single value
             if dimension in self._TRIE_DIMENSIONS:
-                # allow providing dim=value instead of dim=[value]
-                if isinstance(values, str):
-                    values = [values]
                 for value in values:
                     if not value:
                         continue

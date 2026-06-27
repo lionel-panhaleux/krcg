@@ -2,8 +2,8 @@
 
 A deck collection is treated as a statistical sample. ``played``, ``stats`` and
 ``affinity`` are read-only summaries; ``build_deck`` synthesizes a new TWDA-like
-decklist from the sample. Cards are resolved through a loaded ``vtes.VTES`` and
-results are keyed by ``models.Card`` (``played(decks, VTES)[VTES["Villein"]]``).
+decklist from the sample. Cards are resolved through a loaded ``CardDict`` and
+results are keyed by ``models.Card`` (``played(decks, cards)[cards["Villein"]]``).
 """
 
 from collections.abc import Iterable, Iterator
@@ -12,7 +12,7 @@ import logging
 import random
 
 from . import models
-from . import vtes
+from .collections import CardDict
 
 logger = logging.getLogger("krcg")
 
@@ -29,7 +29,7 @@ def _ranked(scores: dict[models.Card, float]) -> Candidates:
 
 
 def _cards_in(
-    deck: models.Deck, cards: vtes.VTES, kind: models.Card.Kind | None = None
+    deck: models.Deck, cards: CardDict, kind: models.Card.Kind | None = None
 ) -> Iterator[tuple[models.Card, int]]:
     """Yield (resolved card, count) for each deck entry of the given kind."""
     for entry in deck.cards:
@@ -41,7 +41,7 @@ def _cards_in(
 
 
 def _spoilers(
-    decks: list[models.Deck], cards: vtes.VTES, threshold: float = 0.25
+    decks: list[models.Deck], cards: CardDict, threshold: float = 0.25
 ) -> dict[models.Card, float]:
     """Cards present in more than ``threshold`` of the decks, by frequency.
 
@@ -63,7 +63,7 @@ def _spoilers(
 
 def _similar(
     decks: list[models.Deck],
-    cards: vtes.VTES,
+    cards: CardDict,
     reference: set[models.Card],
     similarity: float,
     spoilers: dict[models.Card, float],
@@ -93,7 +93,7 @@ def _similar(
 def _affinity(
     examples: list[models.Deck],
     card: models.Card,
-    cards: vtes.VTES,
+    cards: CardDict,
     kind: models.Card.Kind | None = None,
 ) -> dict[models.Card, float]:
     """Fraction of ``examples`` playing ``card`` that also play each other card."""
@@ -123,7 +123,7 @@ def _candidates(
 
 def played(
     decks: Iterable[models.Deck],
-    cards: vtes.VTES,
+    cards: CardDict,
     kind: models.Card.Kind | None = None,
 ) -> collections.Counter[models.Card]:
     """Count how many of the decks play each card.
@@ -144,7 +144,7 @@ def played(
 
 def stats(
     decks: Iterable[models.Deck],
-    cards: vtes.VTES,
+    cards: CardDict,
     kind: models.Card.Kind | None = None,
 ) -> dict[models.Card, tuple[float, float]]:
     """Average and variance of the count played, per card.
@@ -175,7 +175,7 @@ def stats(
 
 def affinity(
     decks: Iterable[models.Deck],
-    cards: vtes.VTES,
+    cards: CardDict,
     *reference: models.Card,
     similarity: float = 1.0,
     kind: models.Card.Kind | None = None,
@@ -211,7 +211,7 @@ def affinity(
 
 def build_deck(
     decks: Iterable[models.Deck],
-    cards: vtes.VTES,
+    cards: CardDict,
     *seeds: models.Card,
     similarity: float = 0.6,
 ) -> models.Deck:

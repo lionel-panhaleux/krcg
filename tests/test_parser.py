@@ -4,20 +4,22 @@ import logging
 
 import pytest
 
+from krcg import collections
 from krcg import models
 from krcg import parser
-from krcg import vtes
 
 
-def gc(p: parser.Parser, VTES: vtes.VTES, line: str) -> tuple[models.Card | None, int]:
+def gc(
+    p: parser.Parser, cards: collections.CardDict, line: str
+) -> tuple[models.Card | None, int]:
     """Parse a line and return it as a (resolved card | None, count) pair."""
     entry = p.get_card(line)
-    return (VTES[entry.id], entry.count) if entry else (None, 0)
+    return (cards[entry.id], entry.count) if entry else (None, 0)
 
 
 def check_comment(
     p: parser.Parser,
-    VTES: vtes.VTES,
+    cards: collections.CardDict,
     comment: str | None = None,
     card: models.Card | None = None,
 ) -> None:
@@ -27,153 +29,155 @@ def check_comment(
         assert p.current_comment.string == comment
         if card:
             assert p.current_comment.card is not None
-            assert VTES[p.current_comment.card.id] is card
+            assert cards[p.current_comment.card.id] is card
         p.current_comment = None
     else:
         assert p.current_comment is None
 
 
-def test_get_card(VTES: vtes.VTES, caplog: pytest.LogCaptureFixture) -> None:
+def test_get_card(
+    cards: collections.CardDict, caplog: pytest.LogCaptureFixture
+) -> None:
     """Card name & count parsing across the many real-world spellings."""
     caplog.set_level(logging.DEBUG)
-    p = parser.Parser(VTES._cards)
+    p = parser.Parser(cards)
 
     # ante count, with assorted markers
-    assert gc(p, VTES, "2x deny") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "2xx deny") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "x2 deny") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "xx2 deny") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "2* deny") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "2*deny") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "2 deny") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "*2 deny") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny") == (VTES["Deny"], 1)
+    assert gc(p, cards, "2x deny") == (cards["Deny"], 2)
+    assert gc(p, cards, "2xx deny") == (cards["Deny"], 2)
+    assert gc(p, cards, "x2 deny") == (cards["Deny"], 2)
+    assert gc(p, cards, "xx2 deny") == (cards["Deny"], 2)
+    assert gc(p, cards, "2* deny") == (cards["Deny"], 2)
+    assert gc(p, cards, "2*deny") == (cards["Deny"], 2)
+    assert gc(p, cards, "2 deny") == (cards["Deny"], 2)
+    assert gc(p, cards, "*2 deny") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny") == (cards["Deny"], 1)
     # post count
-    assert gc(p, VTES, "deny 2") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny *2") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny x2") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny x2,") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny x 2") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny - 2") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny -- 2") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny (2)") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny (x2)") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny [2]") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny =2") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny / 2") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "deny // 2") == (VTES["Deny"], 2)
+    assert gc(p, cards, "deny 2") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny *2") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny x2") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny x2,") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny x 2") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny - 2") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny -- 2") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny (2)") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny (x2)") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny [2]") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny =2") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny / 2") == (cards["Deny"], 2)
+    assert gc(p, cards, "deny // 2") == (cards["Deny"], 2)
     # headers are ignored
     caplog.clear()
-    assert gc(p, VTES, "library (90)") == (None, 0)
-    assert gc(p, VTES, "combat [15]") == (None, 0)
-    assert gc(p, VTES, "combo [7]") == (None, 0)
-    assert gc(p, VTES, "action (9):") == (None, 0)
-    assert gc(p, VTES, "mod/combat (9)") == (None, 0)
-    assert gc(p, VTES, "misc 12") == (None, 0)
-    assert gc(p, VTES, "total: 90") == (None, 0)
+    assert gc(p, cards, "library (90)") == (None, 0)
+    assert gc(p, cards, "combat [15]") == (None, 0)
+    assert gc(p, cards, "combo [7]") == (None, 0)
+    assert gc(p, cards, "action (9):") == (None, 0)
+    assert gc(p, cards, "mod/combat (9)") == (None, 0)
+    assert gc(p, cards, "misc 12") == (None, 0)
+    assert gc(p, cards, "total: 90") == (None, 0)
     assert caplog.record_tuples == []
     # old-style trait in allies name are not comments
-    assert gc(p, VTES, "carlton van wyk (hunter)") == (VTES["Carlton Van Wyk"], 1)
-    assert gc(p, VTES, "ohoyo hopoksia (bastet)") == (
-        VTES["Ohoyo Hopoksia (Bastet)"],
+    assert gc(p, cards, "carlton van wyk (hunter)") == (cards["Carlton Van Wyk"], 1)
+    assert gc(p, cards, "ohoyo hopoksia (bastet)") == (
+        cards["Ohoyo Hopoksia (Bastet)"],
         1,
     )
     # clan, discipline and trifle are often found
     caplog.clear()
-    assert gc(p, VTES, "art museum     toreador") == (VTES["Art Museum"], 1)
-    assert gc(p, VTES, "villein     trifle") == (VTES["Villein"], 1)
-    assert gc(p, VTES, "3x conditioning     dominate") == (VTES["Conditioning"], 3)
+    assert gc(p, cards, "art museum     toreador") == (cards["Art Museum"], 1)
+    assert gc(p, cards, "villein     trifle") == (cards["Villein"], 1)
+    assert gc(p, cards, "3x conditioning     dominate") == (cards["Conditioning"], 3)
     # disciplines are a particularily difficult case: if properly counted, ok
-    assert gc(p, VTES, "3x dominate") == (VTES["Dominate"], 3)
+    assert gc(p, cards, "3x dominate") == (cards["Dominate"], 3)
     # post count and mentions by default are parsed as cards
-    assert gc(p, VTES, "dominate") == (VTES["Dominate"], 1)
-    assert gc(p, VTES, "dominate (4)") == (VTES["Dominate"], 4)
+    assert gc(p, cards, "dominate") == (cards["Dominate"], 1)
+    assert gc(p, cards, "dominate (4)") == (cards["Dominate"], 4)
     assert caplog.record_tuples == [
         ("krcg", logging.DEBUG, 'naked discipline (no count) "dominate"'),
         ("krcg", logging.DEBUG, 'naked discipline (no count) "dominate (4)"'),
     ]
     # but don't mess with Valeren or Oblivion
-    assert gc(p, VTES, "6x touch of valeren") == (VTES["Touch of Valeren"], 6)
-    assert gc(p, VTES, "6x touch of oblivion") == (VTES["Touch of Oblivion"], 6)
+    assert gc(p, cards, "6x touch of valeren") == (cards["Touch of Valeren"], 6)
+    assert gc(p, cards, "6x touch of oblivion") == (cards["Touch of Oblivion"], 6)
     # specific card names containing numbers
-    assert gc(p, VTES, "ak-47") == (VTES["AK-47"], 1)
-    assert gc(p, VTES, "kpist m/45") == (VTES["Kpist m/45"], 1)
-    assert gc(p, VTES, "pier 13, port of baltimore") == (
-        VTES["Pier 13, Port of Baltimore"],
+    assert gc(p, cards, "ak-47") == (cards["AK-47"], 1)
+    assert gc(p, cards, "kpist m/45") == (cards["Kpist m/45"], 1)
+    assert gc(p, cards, "pier 13, port of baltimore") == (
+        cards["Pier 13, Port of Baltimore"],
         1,
     )
-    assert gc(p, VTES, "pier 13 port of baltimore") == (
-        VTES["Pier 13, Port of Baltimore"],
+    assert gc(p, cards, "pier 13 port of baltimore") == (
+        cards["Pier 13, Port of Baltimore"],
         1,
     )
-    assert gc(p, VTES, "419 operation") == (VTES["419 Operation"], 1)
+    assert gc(p, cards, "419 operation") == (cards["419 Operation"], 1)
 
     # crypt needs special handling as we got a number in front and back
     assert gc(
-        p, VTES, "2x anvil		6   cel pot dom pre tha	 primogen  brujah:1"
+        p, cards, "2x anvil		6   cel pot dom pre tha	 primogen  brujah:1"
     ) == (
-        VTES["Anvil"],
+        cards["Anvil"],
         2,
     )
     # names beginning with an 'x' and parenthesied '(adv)' must be matched
     assert gc(
-        p, VTES, "2x xaviar (adv)		10  abo ani for pro aus cel pot	 gangrel:3"
-    ) == (VTES["Xaviar (ADV)"], 2)
+        p, cards, "2x xaviar (adv)		10  abo ani for pro aus cel pot	 gangrel:3"
+    ) == (cards["Xaviar (ADV)"], 2)
     # names with a comma and parenthesied '(adv)' must be matched
     assert gc(
         p,
-        VTES,
+        cards,
         "5x sascha vykos, the angel of caine (adv) 8   "
         "aus tha vic ani dom  archbishop	tzimisce:2",
-    ) == (VTES["Sascha Vykos, The Angel of Caine (ADV)"], 5)
+    ) == (cards["Sascha Vykos, The Angel of Caine (ADV)"], 5)
 
     caplog.clear()
     # names beginning with a number are hard
-    assert gc(p, VTES, "2nd tradition") == (VTES["Second Tradition: Domain"], 1)
-    check_comment(p, VTES)
+    assert gc(p, cards, "2nd tradition") == (cards["Second Tradition: Domain"], 1)
+    check_comment(p, cards)
     # name ending with a number even harder
-    assert gc(p, VTES, "ak-47") == (VTES["AK-47"], 1)
-    check_comment(p, VTES)
+    assert gc(p, cards, "ak-47") == (cards["AK-47"], 1)
+    check_comment(p, cards)
     # channel 10 is unique: other cards will match 10 as the count
-    assert gc(p, VTES, "channel 10") == (VTES["Channel 10"], 1)
-    check_comment(p, VTES)
+    assert gc(p, cards, "channel 10") == (cards["Channel 10"], 1)
+    check_comment(p, cards)
     # card names with numbers are tricky
-    assert gc(p, VTES, "pier 13, port of baltimore") == (
-        VTES["Pier 13, Port of Baltimore"],
+    assert gc(p, cards, "pier 13, port of baltimore") == (
+        cards["Pier 13, Port of Baltimore"],
         1,
     )
-    check_comment(p, VTES)
-    assert gc(p, VTES, "local 1111 2") == (VTES["Local 1111"], 2)
-    check_comment(p, VTES)
-    assert gc(p, VTES, "419 operation") == (VTES["419 Operation"], 1)
-    check_comment(p, VTES)
-    assert gc(p, VTES, "bang nakh -- tiger's claws") == (
-        VTES["Bang Nakh — Tiger's Claws"],
+    check_comment(p, cards)
+    assert gc(p, cards, "local 1111 2") == (cards["Local 1111"], 2)
+    check_comment(p, cards)
+    assert gc(p, cards, "419 operation") == (cards["419 Operation"], 1)
+    check_comment(p, cards)
+    assert gc(p, cards, "bang nakh -- tiger's claws") == (
+        cards["Bang Nakh — Tiger's Claws"],
         1,
     )
-    check_comment(p, VTES)
+    check_comment(p, cards)
     # quote encoding may be an issue
-    assert gc(p, VTES, "1x alia, god=92s messenger") == (
-        VTES["Alia, God's Messenger"],
+    assert gc(p, cards, "1x alia, god=92s messenger") == (
+        cards["Alia, God's Messenger"],
         1,
     )
-    check_comment(p, VTES)
+    check_comment(p, cards)
 
     # cards with a clan / virtue / discipline in the name
-    assert gc(p, VTES, "create gargoyle") == (VTES["Create Gargoyle"], 1)
-    check_comment(p, VTES)
-    assert gc(p, VTES, "shepherd's innocence") == (VTES["Shepherd's Innocence"], 1)
-    check_comment(p, VTES)
-    assert gc(p, VTES, "return to innocence") == (VTES["The Return to Innocence"], 1)
-    check_comment(p, VTES)
-    assert gc(p, VTES, "joseph pander") == (VTES["Joseph Pander"], 1)
-    check_comment(p, VTES)
+    assert gc(p, cards, "create gargoyle") == (cards["Create Gargoyle"], 1)
+    check_comment(p, cards)
+    assert gc(p, cards, "shepherd's innocence") == (cards["Shepherd's Innocence"], 1)
+    check_comment(p, cards)
+    assert gc(p, cards, "return to innocence") == (cards["The Return to Innocence"], 1)
+    check_comment(p, cards)
+    assert gc(p, cards, "joseph pander") == (cards["Joseph Pander"], 1)
+    check_comment(p, cards)
     # player shorthand resolves via the ALIASES map
-    assert gc(p, VTES, "1x Mask of 1000 Faces") == (
-        VTES["Mask of a Thousand Faces"],
+    assert gc(p, cards, "1x Mask of 1000 Faces") == (
+        cards["Mask of a Thousand Faces"],
         1,
     )
-    check_comment(p, VTES)
+    check_comment(p, cards)
     # only fuzzy-match debug noise here, no parse warnings
     assert [r for r in caplog.record_tuples if r[1] >= logging.WARNING] == []
 
@@ -188,64 +192,66 @@ def test_get_card(VTES: vtes.VTES, caplog: pytest.LogCaptureFixture) -> None:
 
     # name ending with ", The"
     caplog.clear()
-    assert gc(p, VTES, "1x Vozhd of Sofia, The") == (VTES["Vozhd of Sofia"], 1)
-    check_comment(p, VTES)
+    assert gc(p, cards, "1x Vozhd of Sofia, The") == (cards["Vozhd of Sofia"], 1)
+    check_comment(p, cards)
 
 
-def test_comments(VTES: vtes.VTES, caplog: pytest.LogCaptureFixture) -> None:
+def test_comments(
+    cards: collections.CardDict, caplog: pytest.LogCaptureFixture
+) -> None:
     """Comment parsing: line, multiline, card-attached, parenthesised."""
-    p = parser.Parser(VTES._cards)
+    p = parser.Parser(cards)
 
     # proper line comments
-    assert gc(p, VTES, "// this is a comment") == (None, 0)
-    check_comment(p, VTES, "// this is a comment")
-    assert gc(p, VTES, "-- this is a comment") == (None, 0)
-    check_comment(p, VTES, "-- this is a comment")
-    assert gc(p, VTES, "/* this is a comment */") == (None, 0)
-    check_comment(p, VTES, "/* this is a comment */")
+    assert gc(p, cards, "// this is a comment") == (None, 0)
+    check_comment(p, cards, "// this is a comment")
+    assert gc(p, cards, "-- this is a comment") == (None, 0)
+    check_comment(p, cards, "-- this is a comment")
+    assert gc(p, cards, "/* this is a comment */") == (None, 0)
+    check_comment(p, cards, "/* this is a comment */")
 
     # multiline comment
-    assert gc(p, VTES, "/* this is a comment") == (None, 0)
-    assert gc(p, VTES, "it spans multiple lines") == (None, 0)
-    assert gc(p, VTES, "so it's a multiline comment") == (None, 0)
+    assert gc(p, cards, "/* this is a comment") == (None, 0)
+    assert gc(p, cards, "it spans multiple lines") == (None, 0)
+    assert gc(p, cards, "so it's a multiline comment") == (None, 0)
     check_comment(
         p,
-        VTES,
+        cards,
         "/* this is a comment\nit spans multiple lines\nso it's a multiline comment",
     )
 
     # naked comments in the middle of nowhere happen a lot
-    assert gc(p, VTES, "this is a comment") == (None, 0)
-    check_comment(p, VTES, "this is a comment")
+    assert gc(p, cards, "this is a comment") == (None, 0)
+    check_comment(p, cards, "this is a comment")
     # sometimes they refer to a card
-    assert gc(p, VTES, "deny is a good card") == (None, 0)
-    check_comment(p, VTES, "deny is a good card")
+    assert gc(p, cards, "deny is a good card") == (None, 0)
+    check_comment(p, cards, "deny is a good card")
     # sometimes even with count
-    assert gc(p, VTES, "2x deny is probably not enough") == (None, 0)
-    check_comment(p, VTES, "2x deny is probably not enough")
+    assert gc(p, cards, "2x deny is probably not enough") == (None, 0)
+    check_comment(p, cards, "2x deny is probably not enough")
 
     # basic card comment
-    assert gc(p, VTES, "2x deny  -- this is a comment") == (VTES["Deny"], 2)
-    check_comment(p, VTES, "this is a comment", VTES["Deny"])
-    assert gc(p, VTES, "2x deny  // this is a comment") == (VTES["Deny"], 2)
-    check_comment(p, VTES, "this is a comment", VTES["Deny"])
-    assert gc(p, VTES, "2x deny  /* this is a comment */") == (VTES["Deny"], 2)
-    check_comment(p, VTES, "this is a comment", VTES["Deny"])
+    assert gc(p, cards, "2x deny  -- this is a comment") == (cards["Deny"], 2)
+    check_comment(p, cards, "this is a comment", cards["Deny"])
+    assert gc(p, cards, "2x deny  // this is a comment") == (cards["Deny"], 2)
+    check_comment(p, cards, "this is a comment", cards["Deny"])
+    assert gc(p, cards, "2x deny  /* this is a comment */") == (cards["Deny"], 2)
+    check_comment(p, cards, "this is a comment", cards["Deny"])
 
     # parenthesised comments are common, and can start with a number
     # (not to be confused with a count)
-    assert gc(p, VTES, "deny (2 would have been better)") == (VTES["Deny"], 1)
-    check_comment(p, VTES, "2 would have been better")
+    assert gc(p, cards, "deny (2 would have been better)") == (cards["Deny"], 1)
+    check_comment(p, cards, "2 would have been better")
 
     # multiline card comment
-    assert gc(p, VTES, "2x deny  /* this is a comment ") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "        it spans multiple lines") == (None, 0)
-    check_comment(p, VTES, "this is a comment\n        it spans multiple lines")
+    assert gc(p, cards, "2x deny  /* this is a comment ") == (cards["Deny"], 2)
+    assert gc(p, cards, "        it spans multiple lines") == (None, 0)
+    check_comment(p, cards, "this is a comment\n        it spans multiple lines")
 
     # poorly marked multiline comment
     caplog.clear()
-    assert gc(p, VTES, "2x deny  -- this is a comment ") == (VTES["Deny"], 2)
-    assert gc(p, VTES, "        it spans multiple lines") == (None, 0)
+    assert gc(p, cards, "2x deny  -- this is a comment ") == (cards["Deny"], 2)
+    assert gc(p, cards, "        it spans multiple lines") == (None, 0)
     p.get_card("")
     assert caplog.record_tuples == [
         ("krcg", logging.WARNING, 'failed to parse "it spans multiple lines"')
@@ -253,52 +259,52 @@ def test_comments(VTES: vtes.VTES, caplog: pytest.LogCaptureFixture) -> None:
 
     # properly marked single line comments close cleanly
     caplog.clear()
-    assert gc(p, VTES, "/* this is a comment */") == (None, 0)
+    assert gc(p, cards, "/* this is a comment */") == (None, 0)
     p.get_card("")
     assert caplog.record_tuples == []
-    assert gc(p, VTES, "-- this is a comment") == (None, 0)
+    assert gc(p, cards, "-- this is a comment") == (None, 0)
     p.get_card("")
     assert caplog.record_tuples == []
-    assert gc(p, VTES, "1x deny") == (VTES["Deny"], 1)
-    assert gc(p, VTES, "(this is a comment)") == (None, 0)
-    assert gc(p, VTES, "1x deny") == (VTES["Deny"], 1)
+    assert gc(p, cards, "1x deny") == (cards["Deny"], 1)
+    assert gc(p, cards, "(this is a comment)") == (None, 0)
+    assert gc(p, cards, "1x deny") == (cards["Deny"], 1)
     assert caplog.record_tuples == []
 
     # clan, discipline and trifle are not comments
-    assert gc(p, VTES, "art museum     toreador") == (VTES["Art Museum"], 1)
-    assert gc(p, VTES, "villein     trifle") == (VTES["Villein"], 1)
-    assert gc(p, VTES, "3x conditioning     dominate") == (VTES["Conditioning"], 3)
-    check_comment(p, VTES)
+    assert gc(p, cards, "art museum     toreador") == (cards["Art Museum"], 1)
+    assert gc(p, cards, "villein     trifle") == (cards["Villein"], 1)
+    assert gc(p, cards, "3x conditioning     dominate") == (cards["Conditioning"], 3)
+    check_comment(p, cards)
 
 
-def test_preface(VTES: vtes.VTES, caplog: pytest.LogCaptureFixture) -> None:
+def test_preface(cards: collections.CardDict, caplog: pytest.LogCaptureFixture) -> None:
     """Preface parsing: headers ignored, naked names are comments not cards."""
-    p = parser.Parser(VTES._cards)
-    assert gc(p, VTES, "Comment:") == (None, 0)
-    assert gc(p, VTES, "Description:") == (None, 0)
-    assert gc(p, VTES, "Crypt:") == (None, 0)
-    assert gc(p, VTES, "---------------------------") == (None, 0)
-    assert gc(p, VTES, "===========================") == (None, 0)
-    check_comment(p, VTES)
+    p = parser.Parser(cards)
+    assert gc(p, cards, "Comment:") == (None, 0)
+    assert gc(p, cards, "Description:") == (None, 0)
+    assert gc(p, cards, "Crypt:") == (None, 0)
+    assert gc(p, cards, "---------------------------") == (None, 0)
+    assert gc(p, cards, "===========================") == (None, 0)
+    check_comment(p, cards)
 
     # in the preface, card names without a count should not be matched:
     # a naked name before the decklist is part of a preface comment
-    assert gc(p, VTES, "deny") == (None, 0)
-    check_comment(p, VTES, "deny")
+    assert gc(p, cards, "deny") == (None, 0)
+    check_comment(p, cards, "deny")
     # even discipline names
     caplog.clear()
-    assert gc(p, VTES, "dominate") == (None, 0)
-    check_comment(p, VTES, "dominate")
+    assert gc(p, cards, "dominate") == (None, 0)
+    check_comment(p, cards, "dominate")
     assert caplog.record_tuples == []
 
 
 def test_twda_improper_discipline(
-    VTES: vtes.VTES, caplog: pytest.LogCaptureFixture
+    cards: collections.CardDict, caplog: pytest.LogCaptureFixture
 ) -> None:
     """In TWDA mode, a naked discipline line is ambiguous and warns (vs. counted)."""
-    p = parser.Parser(VTES._cards, twda=True)
+    p = parser.Parser(cards, twda=True)
     p.get_card("------------")  # a separator lets the deck list begin
-    gc(p, VTES, "2x deny")  # a prefixed card ends the preface
+    gc(p, cards, "2x deny")  # a prefixed card ends the preface
     caplog.clear()
     caplog.set_level(logging.WARNING)
     assert p.get_card("dominate") is None
