@@ -89,8 +89,9 @@
   - Putting the top card of your library in play as a ghoul does not count as playing the card. [LSJ 20040531]
   - The card used to represent the ally is face up, but the name on that card is ignored if something goes looking for a card
     by name. They do not contest. [LSJ 20040623] [LSJ 20071003]
-  - A burned ghoul is removed from the game but is still burned first, triggering cards such as {Tension in the Ranks}. [LSJ
-    20090920]
+  - A burned ghoul is removed from the game, but it is still burned (e.g. it triggers {Tension in the Ranks}). However, when
+    Absimillard's Army is removed from the game, the ghouls are removed without burning (will not trigger {Tension in the
+    Ranks}). [LSJ 20090920]
 100013|Absorb the Mind:
   - Can be played against a vampire with no blood. [RTR 20010711]
   - '[MYT] cannot be used to steal a discipline that could not be played on the stealing vampire (e.g. Dominate is ineligible
@@ -124,9 +125,6 @@
 100040|Alpha Glint:
   - Cards that are played at the end of round/combat can still be played (eg. {Taste of Vitae}, {Disarm}). [RTR 20001020]
     [LSJ 20001024]
-100043|Amaranth:
-  - If both minions want to play a card "when a vampire should go into torpor", the acting minion goes first. If played first,
-    {Undead Persistence} would prevent the opponent to play {Amaranth} and vice-versa. [RTR 20010710]
 100048|Amulet of Temporal Perception:
   - A second copy allows a second use in the same turn. [ANK 20230316]
 100050|Anachronism:
@@ -163,13 +161,14 @@
   - Does not end combat until after strike resolution, so the damage can be prevented or healed as normal. [LSJ 20011210-3]
 100067|Angel of Berlin:
   - May be played after a block is successful before combat begins. [LSJ 20060410]
+100068|Anima Gathering:
+  - Anima Gathering does not burn if the vampire moves through the uncontrolled region (via {Banishment}, etc.) and returns
+    to play unlocked. [LSJ 20060808-2] [LSJ 20060213]
 100071|Ankara Citadel, Turkey, The:
   - Concerning the cost of the cards, multiplications and divisions are applied first, followed by additions and subtractions.
     [RTR 20070707]
 100076|Apparition:
   - Can be played at any time in combat, even if there is no damage to prevent yet. [LSJ 20010315]
-  - '[CHI] Prevents up to 2 damage, it can prevent less. [RTR 20041202]'
-  - '[CHI] Can prevent 1 damage twice on separated strikes in the same round. [ANK 20200318]'
 100078|Approximation of Loyalty:
   - '[pre] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier
     or reaction cards. [ANK 20190425]'
@@ -186,16 +185,8 @@
     played (eg. cannot be played after a {Spying Mission} on the vampire triggers). [LSJ 19980105]
   - Targets the bleeding vampire (eg. costs one more against {Secure Haven}, cannot be played on {Mimir}). [LSJ 20010817]
     [PIB 20131013]
-100087|Armor of Caine's Fury:
-  - '[VAL] Prevents up to 2 damage, it can prevent less. [RTR 20041202]'
-  - '[VAL] Can prevent 2 damage per round, from any strike, can prevent 2 times 1 damage from two different strikes. [ANK
-    20180117]'
 100088|Armor of Terra:
   - '[vis], [VIS] Can be used by a non-slave Gargoyle. [LSJ 20011204-2]'
-100089|Armor of Vitality:
-  - Prevents up to 3 damage, it can be used to prevent less. [RTR 20041202]
-  - Cannot be used if there is no damage to prevent. [LSJ 20001114]
-  - Unused prevention does not carry over. [LSJ 20001114]
 100096|Art of Love, The:
   - Requirements do not apply when taking control of a card already in play. [TOM 19960226-1]
   - Effects applied during the discard phase are applied before you return the ally. If you lose control of the ally before
@@ -256,7 +247,6 @@
     [LSJ 20060213] [LSJ 20060908]
   - "The vampire is placed in their last permanent controller's uncontrolled region: it might not be the card owner. It is\
     \ removed from the game when the controller is ousted. [ANK 20200408-2] [RTR 20000501]"
-  - Cannot be played if there is no legal target. [ANK 20191228]
 100133|Banshee Ironwail:
   - Triggering the burn blood effect does not force the minion to strike with the weapon. [LSJ 19971215]
   - If a block is successful, the blood is burned before any other effect can be used (eg. {Promise of 1528}). REVERSAL of
@@ -347,7 +337,6 @@
   - '[OBT] Can only be played by the controller of the acting minion. [LSJ 19990425]'
   - '[OBT] Multiple copies can be played by different minions on the same action. [ANK 20200515]'
 100180|Blessed Blade:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - A minion who maneuvers with a weapon (eg. {Blade of Bellona}) may still use Blessed Blade to strike with that weapon as
     his initial strike that round. [ANK 20180704] [LSJ 20050304]
 100181|Blessed Resilience:
@@ -360,8 +349,6 @@
 100184|Blessing of the Beast:
   - The number of cards to put on it is announced when the card is played, they must be in hand before drawing the replacement
     for this card. [PIB 20150428] [LSJ 20100206-2]
-100185|Blessing of the Name:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100189|Bliss:
   - '[dom][pre] [COMBAT] Can be used during a combat by a vampire in torpor. [LSJ 20020416]'
   - '[dom][pre] [COMBAT][REACTION] Can be played by a minion of a Methuselah not involved in the current combat. [ANK 20181101]'
@@ -419,10 +406,6 @@
   - The blood is burned by the opponent when the owner prevents damage, immediately, before loosing blood to heal strike damage.
     Depending on the sequencing order, it can be before or after he has the opportunity to play damage prevention themselves.
     [LSJ 20090528-1]
-100212|Blood Tears of Kephran:
-  - Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]
-100213|Blood Tempering:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100214|Blood to Water:
   - Must be played after range is chosen, can be played before or after strikes are chosen. [ANK 20200703] [LSJ 20031008]
 100215|Blood Trade:
@@ -511,7 +494,6 @@
   - "You may lock Orun cards the vampire has even if they're not Laibon: in this case none burns because of the bleed. [ANK\
     \ 20221208]"
 100264|Brute Force:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - The "make a melee strike" option can be used with {Bundi} while {Immortal Grapple} is in effect. [LSJ 20090114]
 100265|Bujo:
   - The chosen action card does not provide its +1 Vote, since it was not played to call the Referendum. Another Political
@@ -564,9 +546,6 @@
     20190113]
 100293|Car Bomb:
   - Is to be used when the action is announced. [PIB 20150820]
-  - If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards.
-    [LSJ 20041022] [RTR 20180719] [ANK 20220118] [ANK 20221205].
-  - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]
 100298|Carlton Van Wyk:
   - He can use his ability to burn a vampire who has committed diablerie the turn he is recruited. [ANK 20180517]
 100303|Carver's Meat Packing and Storage:
@@ -598,12 +577,6 @@
   - '[REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied during
     the action still applies during combat. [LSJ 20070217]'
   - '[REACTION] The action fails: it might be continued (eg. {Form of Mist}) but still fails anyway. [LSJ 20070214-2]'
-  - '[REACTION] The action fails but was not blocked. Cards depending on a block (eg. {Mirror Image}, {Freak Drive}) cannot
-    be played. [LSJ 20070219]'
-  - '[REACTION] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]
-    [RTR 20180719] [ANK 20221205]'
-  - '[REACTION] The action fails, so has reached resolution: it is subject to NRA (Non Repeatable Action) rules. [RTR 20180719]
-    [ANK 20211015]'
 100323|Change of Target:
   - The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [LSJ 20070709]
   - Actions without card (provided by the rulebook) are not "the same" as actions provided by cards (played or in play). [LSJ
@@ -622,8 +595,9 @@
   - The superior Obfuscate is not optional. [RTR 19980707] [LSJ 19980722]
 100326|Chanjelin Ward:
   - Applies to an action if any one of its targets would be enough to enable his effect. [LSJ 20080809-2] [RTR 20081119]
-100328|Channeling the Beast:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
+100327|Channel 10:
+  - Cannot be used if the first action was cancelled "as played" ({Direct Intervention}) but can be used when the first action
+    was cancelled after it was played ({Tangle Atropos' Hand}). [LSJ 20100505] [ANK 20210124]
 100330|Charge of the Buffalo:
   - '[spi]/[SPI] Additional damage inherits all of the properties of the base damage. [TOM 19960225]'
 100331|Charigger, The Axe:
@@ -754,10 +728,9 @@
   - Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]
 100428|Corpse Minion:
   - May be used any number of times during a single action. [TOM 19960109]
-100429|Corrupt Construction:
-  - If recruited in the normal fashion, the card will have been replaced by the time the ally enters play. In other cases
-    however, it won't have been and the Methuselah will have to work with only the cards in hand (or ash heap) to add life
-    to it before replacing. [LSJ 20070707]
+100432|Coterie Tactics:
+  - The vampire who ceases to block is still considered to have blocked the action (e.g. they can play {Cats' Guidance}).
+    [LSJ 20090509]
 100433|Council of Seraphim:
   - The burn option cannot be used if all your Seraph are in torpor. [LSJ 20091204]
 100434|Courier:
@@ -810,12 +783,8 @@
   - '[QUI] Additional damage inherits all of the properties of the base damage. [TOM 19960225]'
 100489|Dam the Heart's River:
   - The opponent is the one affected by frenzy (eg. for {Blade of Enoch}). [ANK 20220409]
-  - Adding damage to strikes which are not damage dealing strikes will not deal damage [RTR 19960221]
-  - The additional damage is the same type as the strike's damage. [RTR 19970630]
   - Applies to environmental damage inflicted to the opposing minion. [ANK 20181128]
   - Applies to damage played in combat that are resolved after combat (eg. {Catatonic Fear}). [ANK 20170111] [LSJ 20071011]
-  - '[QUI] The opponent must pay 1 blood to use a strike that provides a maneuver if he plays it when choosing range. [ANK
-    20181026]'
 100490|Damned, The:
   - The acting player decides the order of (and can play other) "after resolving the action" effects. [ANK 20180206]
 100492|Daring the Dawn:
@@ -846,11 +815,6 @@
   - If used to cancel a strike, another strike is chosen. [RBK cancel-a-card] [LSJ 20100206]
   - 'Can be used to cancel a card played at the end of a round (eg. {Disarm}) or "when combat would end" (eg. {Psyche!}):
     it then counts as having been played during that ending round. [ANK 20180910-2] [ANK 20191221]'
-100511|Decapitate:
-  - '[pot] Additional damage inherits all of the properties of the base damage. [TOM 19960225]'
-  - '"when a vampire is going into torpor" and "when a vampire should go into torpor" are the same window. If both minions
-    want to play a card, acting minion goes first. If played first, {Undead Persistence} would prevent the opponent to play
-    {Decapitate} and vice-versa. [RTR 20010710]'
 100513|Deed the Heart's Desire:
   - '[QUI] An opponent can play a reaction to wake as the card is played, before its effects apply. [ANK 20231028]'
 100514|Deep Cover Agent:
@@ -879,15 +843,16 @@
   - If played on a referendum provided by a card in play (eg. {Anarch Revolt}), does not prevent referendums provided by another
     copy of the same card in play. [LSJ 20020201]
 100527|Derange:
-  - The clan is set when the card is played, it does not depend on the clan of the vampire that has the card on them. [LSJ
-    20070707]
-  - If the target changes clan to a clan inappropriate for his title, he loses its benefit until his clan is appropriate.
-    He immediately yields the title if it is contested or he receives a new one. [RTR 20201130] [LSJ 20060904]
-  - When removed, the vampire goes back to its underlying clan. [RTR 20201130] [ANK 20200415]
+  - The clan and sect assigned to Derange is set when the card is played and does not change when it is moved. [LSJ 20070707]
+  - If the target changes clan or sect to a clan or sect inappropriate for their title, they lose its benefit until their
+    clan or sect is appropriate. They immediately yield the title if it is contested or they receives a new one. [RTR 20201130]
+    [LSJ 20060904]
+  - When removed, the vampire goes back to its underlying clan and sect. [RTR 20201130] [ANK 20200415]
   - Only requires one clan or the other (Malkavian or Malkavian antitribu) to be played. [ANK 20190203]
-  - If another effect also changes the clan (eg. {Clan Impersonation}), the most recent one takes precedenced. [LSJ 20021209]
-  - Does not change the sect of the target. [As of now the RTR takes precedent over the Cards text in the Card List] [RTR
-    20201130]
+  - If another effect also changes the clan or sect (eg. {Clan Impersonation}, {Into the Fire}), the most recent one takes
+    precedence. [LSJ 20021209]
+  - Is a temporary effect that overrides the underlying sect. The most recent override takes precedence. It stays active if
+    another effect changes the underlying sect, like using the default action to become Anarch. [LSJ 20100811] [ANK 20190619]
 100528|Descent into Darkness:
   - Breaks any temporary control effects, so the vampire is given, face down and out of play, to his current permanent controller,
     with the Descent into Darkness card which, as a minion card, is then controlled by that permanent controller. [LSJ 20040526]
@@ -900,10 +865,6 @@
     19960211] [LSJ 20010809-2] [LSJ 20010809-3] [LSJ 20060908]
   - If any card on the vampire was contested, it goes out of the contest until the vampire comes back. [LSJ 20080816]
 100532|Detect Authority:
-  - '[ani] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards.
-    [LSJ 20041022] [RTR 20180719] [ANK 20221205]'
-  - '[ani] If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719]
-    [ANK 20211015]'
   - '[ani] Not usable against actions targeting an equipment or retainer, they do not target the minion. [LSJ 20090324]'
 100536|Deviki Prasanta:
   - Cannot put a Discipline card on a vampire if it could normally not be put on him (eg. because he already has the superior
@@ -1055,6 +1016,7 @@
 100615|Edged Illusion:
   - '[CHI] If some minions cannot be targeted because of another effect, the action will simply have no effect on the things
     it cannot target. [RTR 20080808]'
+  - '[CHI] Targets each ready minion(s) of the chosen methuselah [LSJ 20071024]'
 100618|Elder Intervention:
   - Can be used during any bleed attempt made against you, not just ones declared against you. [RTR 19960530]
 100620|Elder Library:
@@ -1062,8 +1024,6 @@
 100623|Eldest Command Undeath, The:
   - If you play {Voter Captivation} on the referendum, you can move up to 2 counters to your pool, and 0 to your vampire.
     [LSJ 20081002]
-100625|Elemental Stoicism:
-  - '[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]'
 100627|Elixir of Distillation:
   - Does not burn if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]
 '100631|Elysium: The Arboretum':
@@ -1093,10 +1053,7 @@
 100648|Ensconced:
   - '[VIS][REACTION] The action still continues until the end of combat. The acting minion stays the same, effects applied
     during the action still applies during combat. [LSJ 20070217]'
-  - '[VIS][REACTION] Modifiers and reactions that can be used at the end/after an action can still be used after combat. [LSJ
-    20041022] [RTR 20180719] [ANK 20221205]'
-  - '[VIS][REACTION] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719]
-    [ANK 20211015]'
+  - 'The action fails: it might be continued (eg. Form of Mist) but still fails anyway. [LSJ 20070214-2]'
 100650|Enticement:
   - Is directed at your prey. [LSJ 20010807]
   - If the edge is lost during the action (eg. {High Priest Angra Mainyu}), the prey takes no damage but you still cannot
@@ -1153,11 +1110,6 @@
   - '[OBF] A minion that has attempted to block but failed before it was played is not affected. [ANK 20190509] [LSJ 20020101]'
   - '[OBF] The aspirant blocker is locked at resolution. He can play {Deflection} before that, and even attempt to block again
     if it is deflected back. He can play {Guard Dogs} before the lock, not after. [ANK 20171017] [ANK 20230305]'
-100690|Faerie Wards:
-  - '[myt], [MYT] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]
-    [RTR 20180719] [ANK 20221205]'
-  - '[myt], [MYT] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK
-    20211015]'
 100694|Falcon's Eye:
   - '[SPI] Only affects the rule restricting who gets to block an action. The vampire must still meet all other requirements
     to block. In particular, {Blood Bond}, {Day Operation}, {Seduction} and prior decision not to block are not circumvented.
@@ -1225,10 +1177,6 @@
   - The acting vampire must have a superior discipline to choose from. [ANK 20180731-2]
 100728|Filchware's Pawn Shop:
   - Cannot be used to replay a card that can be played only once in a game. [LSJ 20040518]
-100730|Final Loosening:
-  - '[for] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]
-    [RTR 20180719] [ANK 20221205]'
-  - '[for] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]'
 100733|Fire Dance:
   - The target vampire is chosen when the action is announced. [RTR 19970425]
 '100737|First Tradition: The Masquerade':
@@ -1288,8 +1236,6 @@
   - '[cel][for] Is played after resolution, but still during the action. Action modifiers and effects that can be played "after
     resolution" can be played before or after it. [LSJ 19981028] [ANK 20190425]'
   - Can be used to unlock if the action is successful, even if it has no effect due to lack of a suitable target. [LSJ 20070411]
-100763|Forearm Block:
-  - Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]
 100765|Foreshadowing Destruction:
   - '[DOM] Can be played against a target with 10 or more pool and does not count against the limit in this case: it will
     only have a lingering effect (+3 bleed if the target happens to have 9 or less). [PIB 20110817] [RTR 20191031]'
@@ -1298,8 +1244,6 @@
 100766|Forest of Shadows:
   - May be used anytime it is unlocked, even if it has been used previously during the same action (it must be unlocked by
     some method, of course). [TOM 19960109]
-100767|Forger's Hammer:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100778|Foul Blood:
   - A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]
 100784|Fractured Armament:
@@ -1389,8 +1333,6 @@
 100828|Gift of Sleep:
   - '[obe] [ACTION MODIFIER][REACTION] The action ends unsuccessfully immediately, no other action modifier or reaction can
     be played afterwards. [RTR 20180719] [ANK 20200207]'
-100834|Glancing Blow:
-  - Cannot be used if there is no damage to prevent. [LSJ 20001114]
 100836|Glaser Rounds:
   - Must wait until the second time a given gun is used in a given combat to play it. [RTR 19941109]
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
@@ -1443,8 +1385,6 @@
   - Can cancel superior {Thoughts Betrayed} and {Shape Mastery} (when the latter is used to cancel a strike). [LSJ 20050224-2]
   - Cannot cancel a card that destroys or steals an equipment or weapon. [LSJ 20050221]
   - Cannot cancel a card restricting the use of disciplines. [LSJ 20050221]
-100862|Growing Fury:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 100863|Guard Dogs:
   - '[ANI] The maneuver can only be used if the block is successful, and only in the resulting (block-induced) combat. It
     does not carry over to a follow-up combat (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]'
@@ -1496,7 +1436,6 @@
 100901|Healing Touch:
   - '[OBE] Is not the default action, no blood is paid for the rescue. [ANK 20181017]'
 100907|Heaven's Gate:
-  - '[nec] Cannot be used if there is no damage to prevent. [LSJ 20001114]'
   - "[obe], [OBE] Forbids any combat with the ally afterwards. Cards that would start a new combat cannot be played (eg. {Psyche!},\
     \ {Bum's Rush}). [ANK 20220429]"
   - '[obe], [OBE] Can be played before another replacement effect triggers (eg. {Charigger, The Axe}), depending on sequencing.
@@ -1541,10 +1480,6 @@
   - '[ACTION MODIFIER] [1 CONVICTION] Effects that are used "as the action is announced" must be used before playing "regular"
     action modifier or reaction cards. [ANK 20190425]'
 100920|Hide the Heart:
-  - '[val] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards.
-    [LSJ 20041022] [RTR 20180719] [ANK 20221205]'
-  - '[val] If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719]
-    [ANK 20211015]'
   - '[val] An ally has life, not blood, he cannot pay. [LSJ 20050216] [ANK 20190701]'
   - '[VAL] To reduce a bleed against another Methuselah, you need to be unlocked. [RBK wording-templates] [ANK 20230817]'
 100921|Hide the Mind:
@@ -1641,8 +1576,6 @@
     new possessor (and can now block whoever used to have it). [TOM 19960114] [LSJ 20020514]
   - If it is not equipped but merely put into play (eg. {Alastor}), no minion is chosen. One is if it is equipped (eg. {Magic
     of the Smith}). [LSJ 20090506]
-100973|Indomitability:
-  - '[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]'
 100975|Infamous Insurgent:
   - It does not require an anarch so it cannot be played on vampires that can fake requirements for you (eg. {Mata Hari}).
     [ANK 20220718]
@@ -1731,7 +1664,6 @@
   - The damage done from the ranged strike is damage from the weapon, so it can be modified by effects that modify melee weapon
     damage. [LSJ 20051220]
 101040|Kevlar Vest:
-  - Prevents up to 2 damage from gun strikes, it can be used to prevent less. [RTR 20041202]
   - Can be used to prevent the damage from two separated gun strikes doing one damage each. [LSJ 20081210]
 101041|Keystone Kine:
   - '[obf] The ally is chosen at action resolution (not declaration). [ANK 20240706] [LSJ 20080608]'
@@ -1781,8 +1713,6 @@
 101066|Kraken's Kiss:
   - Does not count the damage inflicted before the card was played. [LSJ 20010610]
   - '[VIC] The strike to steal 2 blood can be used on a minion with less than 2 blood or life. [RTR 20010711]'
-101071|Lam Into:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101072|Lapse:
   - '[TEM] The opponent cannot play or use the maneuver from a strike (eg. {.44 Magnum}, {Thrown Gate}), since they cannot
     strike. [LSJ 20001126]'
@@ -1807,8 +1737,8 @@
 101077|Lead Fist:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101078|Leadership Vacuum:
-  - The votes include bonus votes from cards or ability (eg. {Eze, The Demon Prince}, {Firebrand}) but not conditional votes
-    (eg. {Sundown}, {Aura of Invincibility}). [ANK 20211009] [LSJ 20040518-2]
+  - The votes include bonus votes from cards or ability (eg. {Eze, The Demon Prince}, {Legendary Vampire}) but not conditional
+    votes (eg. {Sundown}, {Aura of Invincibility}). [ANK 20211009] [LSJ 20040518-2]
   - Priscus ballots are not taken into account. [ANK 20211009] [LSJ 20041025]
   - Changing the numbers on counters on the card does not change the X value (eg. {Goth Band}). [ANK 20221024]
 101080|Learjet:
@@ -1827,7 +1757,7 @@
 101088|Legacy of Power:
   - May be used if one of your vampires is in combat with an ally. In this case, your vampire goes into torpor and the ally
     is unaffected. [RTR 19960112]
-  - Is played during combat. Combat cards can be played to continue combat or begin a new combat. [ANK 20200109]
+  - Is played during combat. [ANK 20200109]
   - If the combat continues or a new combat begins (eg. {Psyche!}), the vampires do not go into torpor. [RTR 20020501] [LSJ
     20021126]
 101090|Legend of the Leopard:
@@ -1886,12 +1816,7 @@
   - '[val] [VAL] If the strike is dodged, no damage is done. [LSJ 19980526] [RTR 20041202] [PIB 20130319]'
   - '[VAL] The blood to unlock can be paid until the end of combat, including after other effects that are played at the end
     of round. [ANK 20180618]'
-101130|Loyalist:
-  - If the Loyalist vampire's votes are changed to be in favor, the votes granted by Loyalist are silenced (not cast). [LSJ
-    20031115]
 101131|Lucky Blow:
-  - Adding damage to strikes which are not damage dealing strikes will not deal damage [RTR 19960221]
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - You cannot use another strike card as the hand strike for Lucky Blow. [LSJ 20010627]
 101132|Lunatic Eruption:
   - The mandatory attack action must be taken before any non-mandatory actions. [LSJ 20001127]
@@ -1945,11 +1870,6 @@
   - The effect ends at the start of the next unlock phase, before unlocking or deciding on contests. This cannot be ordered
     among other unlock effects, the Malkavian is not unlocked. [ANK 20200129] [LSJ 20091208] [RTR 19951017]
   - It makes no difference if the target changes clan afterwards. [ANK 20221208-2]
-'101151|Malkavian Derangement: Alternate Personality':
-  - If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards.
-    [LSJ 20041022] [RTR 20180719] [ANK 20221205]"
-  - If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK
-    20211015]"
 101156|Malkavian Rider Clause:
   - During the referendum that passes automatically, no "during a political action" and "during a referendum" effect can be
     played and effects that operate on the number of votes that the referendum passed by have no effect. [LSJ 19980107]
@@ -1972,9 +1892,6 @@
 101175|Martyr's Resilience:
   - Can be used by a vampire in torpor. [LSJ 20020416]
   - Can be played by a minion of a Methuselah not involved in the current combat. [ANK 20181101]
-  - Cannot be used if there is no damage to prevent. [LSJ 20001114]
-  - '[AUS][FOR] Prevents up to X+1 damage, it can prevent less. [RTR 20041202]'
-  - '[AUS][FOR] Unused prevention does not carry over. [LSJ 20001114]'
   - '[AUS][FOR] The burn blood effect is not reduced by effects that reduce the cost of the card (eg. {Una}). The card cannot
     be played if the minion cannot afford to burn the blood. [ANK 20210226]'
 101179|Mask of a Thousand Faces:
@@ -2011,7 +1928,6 @@
 101184|Masquerade Enforcement:
   - Does not affect merging (base with advanced vampire cards). [LSJ 20030527]
 101185|Mass Reality:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - Multiple copies stack their bonuses. [LSJ 20020904]
 101192|Meddling of Semsith, The:
   - Stays in play and still reduces your handsize when the target is ousted. [LSJ 20021008]
@@ -2039,8 +1955,6 @@
   - The blood is not gained if an effect continues the combat or begins a new combat. [RTR 20020501]
 101205|Mesmerize:
   - Cannot be used if there is no equipment to steal. [RTR 19980928]
-101209|Mighty Grapple:
-  - '[POT] Additional damage inherits all of the properties of the base damage. [TOM 19960225]'
 101214|Mind of the Wilds:
   - 'The blocking minion is prohibited to strike: combat ends for the duration of the action (during any round of any combat).
     [LSJ 20100308]'
@@ -2055,6 +1969,7 @@
     or {Mask of a Thousand Faces}). [ANK 20190416]
 101219|Minor Boon:
   - A bleed from this vampire cannot be redirected to you either. [PIB 20130711]
+  - Is played after the combat ends, keeping the vampire out of torpor. [RTR 19950509-2]
 101220|Minor Curse:
   - The burn option can be used if all your vampires with [mal] are in torpor. [LSJ 20091203]
 101223|Mirror Walk:
@@ -2067,9 +1982,6 @@
 101224|Mirror's Visage:
   - '[chi] The action ends unsuccessfully immediately, no other action modifier or reaction can be played afterwards. [RTR
     20180719] [ANK 20200207]'
-101227|Mistaken Identity:
-  - The action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ
-    20041022] [RTR 20180719] [ANK 20220118] [ANK 20221205].
 101230|Mob Rule:
   - Each Methuselah must decide how much blood to burn for it during the resolution. It does not give an ability for the rest
     of the political action. However, there can be some give and take during the resolution. For example, Methuselahs can
@@ -2161,8 +2073,7 @@
   - The effect only triggers once each unlock phase. Any minions put into play after the effect is resolved are unaffected
     until their Methuselah's next unlock phase. [REVERSAL] [ANK 20250121]
 101287|Nightstick:
-  - Can prevent up to 3 damage, it can prevent less. [RTR 20041202]
-  - Both strikes are only effective at close range. [ANK 20220814-2]
+  - The prevent is effective at long range <REVERSAL> [ANK 20260522]
 101290|No Confidence:
   - Is not a card requiring an Anarch. [LSJ 20080812]
   - '"loses the benefit" means he gets no vote, is not considered titled, and yields the title immediately if it would contest.
@@ -2247,7 +2158,6 @@
 101349|Pandora's Whisper:
   - The card to retrieve must be announced when declaring the action. [LSJ 20010627]
 101353|Parity Shift:
-  - Cannot be played if there is no legal target (no other Methuselah with more pool than you). [ANK 20191228]
   - The pool awarded can be used to play {Life Boon} to save the target from an oust. [LSJ 20100527]
   - If the target has less than 3 pool when referendum passes, the Methuselah calling the referendum chooses how to distribute
     within the bounds of the terms. [LSJ 20010606]
@@ -2273,6 +2183,9 @@
   - Cards and effects that can be played "after resolution" can be played after the gain blood effect. [ANK 20190113]
   - The blood can be gained if the action is unblocked even if it has no effect (due to lack of a suitable target, for example).
     [LSJ 20070411]
+101392|Persistent Echo:
+  - A vampire can use any effect on the stored card, if they otherwise fulfill its requirements (e.g. [chi] on {Phantom Speaker},
+    if they have [chi]) [LSJ 20051114]
 101395|Personal Scourge:
   - If the opponent dodges this strike, his weapons are unaffected and do damage this round. [LSJ 20040928]
   - Does not protect the target from self-inflicted damage from a weapon. [LSJ 19980216]
@@ -2287,17 +2200,17 @@
   - '[TEM] Cannot be used to start a new combat if there is already a pending combat queued. [RTR 20020501]'
   - '[TEM] Cannot be used to start a new combat if the opponent is not ready. [ANK 20220429]'
 101406|Poison Pill:
-  - Any decrease in pool (burning, paying, ...) is considered "loosing pool". [ANK 20180719-2]
-  - Gaining pool does not count as a negative loss. If a vote entails both a gain and a loss (eg. {Ancient Influence}), only
-    the loss is counted, not the difference. [ANK 20180813] [LSJ 20041025]
+  - Any decrease in pool (burning, paying, ...) is considered "losing pool". [ANK 20180719-2]
+  - Gaining pool does not count as a negative loss. If the effects of the referendum results in both gain and loss (eg. {Ancient
+    Influence}), only the loss is counted, not the difference. [ANK 20180813] [LSJ 20041025]
 101416|Political Seizure:
   - If you yield the Political Seizure, the location it was contesting does not come into play under your control. [LSJ 19980223]
 101418|Political Struggle:
   - The acting vampire gains X votes if the vampire with this card is burned, no matter how that vampire is burned. [LSJ 19990119]
   - If the victim is burned by diablerie, the votes gained from Political Struggle are gained before the blood hunt referendum.
     [LSJ 20050707]
-  - The votes include bonus votes from cards or ability (eg. {Eze, The Demon Prince}, {Firebrand}) but not conditional votes
-    (eg. {Sundown}, {Aura of Invincibility}). [ANK 20211009] [LSJ 20040518-2]
+  - The votes include bonus votes from cards or ability (eg. {Eze, The Demon Prince}, {Legendary Vampire}) but not conditional
+    votes (eg. {Sundown}, {Aura of Invincibility}). [ANK 20211009] [LSJ 20040518-2]
   - Priscus ballots are not taken into account. [ANK 20211009] [LSJ 20041025]
 101420|Port Authority:
   - 'The cards are replaced before unlocking cards: other unlock effects cannot be ordered before. [ANK 20200129] [LSJ 20091208]'
@@ -2415,12 +2328,6 @@
     {Telepathic Tracking}). Can be played before or after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]
   - 'A total of two actions must be performed (by whomever) to remove it. Vampires A and B can both take the action, then
     it is removed. [ANK 20170202-2] '
-101521|Purification:
-  - '[QUI] Modifiers and reactions that can be used at the end/after an action can still be used afterwards. [LSJ 20041022]
-    [RTR 20180719] [ANK 20221205]'
-  - '[QUI] The action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [RTR 20180719] [ANK 20211015]'
-101524|Pushing the Limit:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101525|Putrefaction:
   - '[THN] Damage is environmental. [RTR 19970630]'
   - '[thn] [THN] It can still be burned if the vampire is already prevented from unlocking as normal by another effect. [RTR
@@ -2512,17 +2419,11 @@
   - Cannot be played when burned as a result of a Blood Hunt referendum. [LSJ 20010814-4] [LSJ 20070417]
 101582|Reformation:
   - '[chi] Cannot be used if there is no equipment to destroy. [RTR 19980928]'
-101588|Rego Motum:
-  - Prevents up to 2 or 4 damage, it can be used to prevent less. [RTR 20041202]
-  - Cannot be used if there is no damage to prevent. [LSJ 20001114]
-  - Unused prevention does not carry over. [LSJ 20001114]
 101589|Reindoctrination:
   - Only requires one clan or the other (Tremere or Tremere antitribu) to be played. [ANK 20190203]
 101591|Reins of Power:
   - Applies a pool gain then a pool loss. {Poison Pill} ignores the gain and only takes the loss into account, a Methuselah
     cannot withdraw even if the total was positive. [ANK 20180813]
-101595|Relentless Reaper:
-  - '[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]'
 101603|Renewed Vigor:
   - '[obe], [OBE]: Is undirected if you control the target, directed at the controller of the target otherwise. [PIB 20121210]'
 101605|Repo Man:
@@ -2533,10 +2434,6 @@
   - '[pre] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier
     or reaction cards. [ANK 20190425]'
   - '[pre] Replace the action card (if any) before playing it. [ANK 20181208]'
-101608|Resilience:
-  - Cannot be used if there is no damage to prevent. [LSJ 20001114]
-  - Prevents up to 3 non-aggravated damage, it can be used to prevent less. [RTR 20041202]
-  - Unused prevention does not carry over. [LSJ 20001114]
 101609|Resilient Mind:
   - Can be used when a {Form of Corruption} is put into play to protect that vampire from that {Form of Corruption}. [LSJ
     20031223]
@@ -2592,8 +2489,6 @@
   - Can be played after a diablerie, before the blood hunt. [ANK 20201228]
 101646|Rockheart:
   - '[VIS] Superior still prevents only half of the current strike. [PIB 20120116]'
-101649|Rolling with the Punches:
-  - '[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]'
 101652|Root of Vitality:
   - '[vic] Is not the default action, no blood is paid for the rescue. [ANK 20181017]'
 101654|Rötschreck:
@@ -2660,10 +2555,6 @@
   - '[nec] The card to retrieve must be announced when declaring the action. [LSJ 20010627]'
 101689|Scattershot:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
-101691|Scobax:
-  - '[STR] If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards.
-    [LSJ 20041022] [RTR 20180719] [ANK 20220118] [ANK 20221205].'
-  - '[STR] If the action fails, it has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]'
 101692|Scorn of Adonis:
   - May be played at any time during the voting process and, when votes are tallied, will cause the loss of pool to Methuselahs
     voting 'no' before it is played, as well as to Methuselahs voting 'no' after it is played. [RTR 19951110]
@@ -2792,8 +2683,6 @@
   - '[NEC] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier
     or reaction cards. [ANK 20190425]'
   - '[NEC] Replace the action card (if any) before playing it. [ANK 20181208]'
-101779|Sideslip:
-  - '[CEL] Cannot be used if there is no damage to prevent. [LSJ 20001114]'
 101781|Signet of King Saul, The:
   - "{Unleash Hell's Fury} cannot block the bearer. [ANK 20190501]"
 101783|Sins of the Cauchemar:
@@ -2812,11 +2701,6 @@
   - '[mel]/[MEL] Combat does not occur if the action ends prematurely. [LSJ 20090826]'
   - '[mel]/[MEL] The new combat is still part of the action (eg. {Heidelberg Castle, Germany} cannot be used between combats).
     [ANK 20170918-2]'
-101790|Skin of Night:
-  - '[FOR] Cannot be used if there is no damage to prevent. [LSJ 20001114]'
-101791|Skin of Rock:
-  - Cannot be used if there is no damage to prevent. [LSJ 20001114]
-  - Unused prevention does not carry over. [LSJ 20001114]
 101794|Skin of the Chameleon:
   - '[tha] Cards and effects that are played "as the action is announced" must be played before playing "regular" action modifier
     or reaction cards. [ANK 20190425]'
@@ -2867,10 +2751,6 @@
     Weapon} after the block). [LSJ 20021028]
   - When used to set range, you may choose not to strike if another card gives the option not to strike (e.g. {Lucian, the
     Perfect}, {Dam the Heart's River}) was played after Sniper Rifle was used to set range [LSJ 20071017]
-101817|Soak:
-  - Cannot be used if there is no damage to prevent. [LSJ 20001114]
-  - Prevents up to 2 or 4 non-aggravated damage, it can prevent less. [RTR 20041202]
-  - Unused prevention does not carry over. [LSJ 20001114]
 101820|Social Ladder:
   - Can be played with no older vampire in the uncontrolled region, though the ready vampire would be removed and his blood
     lost. [LSJ 20041015]
@@ -2955,11 +2835,6 @@
 101862|Static Virtue:
   - 'For a Laibon moved into the ready region in the last influence phase, you must retrieve Aye and Orun in pairs: the same
     number of Aye as Orun. [LSJ 20051127]'
-101869|Steely Tenacity:
-  - '[ani] [COMBAT] Additional damage inherits all of the properties of the base damage. [TOM 19960225]'
-101876|Stonestrength:
-  - Unused prevention does not carry over. [LSJ 20001114]
-  - '[VIS] Cannot be used if there is no damage to prevent. [LSJ 20001114]'
 101877|Storage Annex:
   - If it is stolen, the card on it goes with it and the new controller will be able to take it in hand. The card is returned
     to the owner's ash heap or library if it would be moved to an ash heap or library. [LSJ 20001031] [PIB 20121220]
@@ -2976,16 +2851,12 @@
   - Must be played after the presses are handled and can be played if the round ends prematurely. [RTR 20030519]
   - Can be played before or after effects that are played at the end of the round or "when the combat would end" (eg. [AUS]
     {Telepathic Tracking}). Can be played after [CEL] {Psyche!} [LSJ 20021113] [ANK 20191219] [ANK 20180910-1]
-101885|Strike at the True Flesh:
-  - "[QUI] The additional damage is the same type as the strike's damage. [TOM 19960225] [RTR 19970630]"
 101886|Strike with Conviction:
   - If the action to bleed is blocked or canceled, Strike with Conviction is not burned. [LSJ 20060421] [RTR 20111202]
 101887|Strix:
   - '[STR] The bleed is considered successful and the Edge gained. The action is resolved before entering combat, effects
     happening "after action resolution" happen after combat. [ANK 20200221]'
   - The burn option can be used if all your vampires with [str] are in torpor. [LSJ 20091203]
-101888|Stunt Cycle:
-  - '[POT] Prevents up to 2 damage, it can prevent less. [RTR 20041202]'
 101889|Stutter-Step:
   - It is both a hand strike and a dodge. It cannot be used if only hand strikes or only dodges are allowed. [LSJ 20010919]
   - The dodge part protects from the opponent's strike (even if done with First Strike), the hand strike part inflicts damage
@@ -3037,8 +2908,6 @@
   - Aggravated damage are not healed by default, so they are not doubled. If the target can heal them (eg. {Repair the Undead
     Flesh}), he must pay double. [LSJ 20031219] [LSJ 20100527]
   - If the wielder uses {Taste of Vitae}, he gains as much blood as the opponent has lost. [PIB 20130415]
-101921|Sword of the Righteous:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101925|Tainted Spring:
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 101926|Tainted Vitae:
@@ -3074,7 +2943,6 @@
 101939|Target Head:
   - Is played during the Strike phase even if you commit to a strike in the Determine Range phase (eg. {Thrown Gate}). Cannot
     be played if the strike cannot be chosen anymore during the Strike phase (eg. {Immortal Grapple}). [LSJ 20080409]
-  - The additional damage is the same type as the strike's damage. [RTR 19970630]
   - If it is canceled, any blood cost (eg. {Terror Frenzy}) has to be paid. [PIB 20121031]
   - Can be played on a strike that does no damage, even a dodge or a combat ends, but has no effect in that case. [RTR 19960221]
     [PIB 20130319]
@@ -3223,31 +3091,21 @@
   - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
   - All the damage is aggravated. [LSJ 20011204]
 102060|Undead Persistence:
-  - '[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]'
   - '[for] Cannot be used twice by the same vampire during the same combat: because of the first, the vampire is not going
     into torpor and does not meet the requirement to play it anymore. [LSJ 20030214]'
   - '[for] If an effect causes a new combat to occur at the end of combat, then the "go to torpor" effect will be delayed
     until after that new combat. However, the vampire will no longer benefit from Undead Persistence in the new combat, so
     it will end immediately with the vampire not ready unless he plays a new Undead Persistence in the new combat. [LSJ 20030214]
     [ANK 20190624]'
-  - '[FOR] Cannot be used if there is no damage to prevent. [LSJ 20001114]'
-  - '[FOR] Prevents up to 2 damage, it can be used to prevent less. [RTR 20041202]'
-  - '[FOR] Unused prevention does not carry over. [LSJ 20001114]'
-102061|Undead Strength:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 102063|Under Siege:
   - Can be used for intercept even if the vampire is already unlocked. [PIB 20150216]
 102065|Underbridge Stray:
   - He can burn 1 life to give a minion you control a press the turn he is recruited. [ANK 20180517]
 102067|Undue Influence:
   - Cannot be played with no vampire in the uncontrolled region. [LSJ 20060623]
-102068|Undying Tenacity:
-  - '[for] The vampire can play cards which are not usable by vampires going to torpor. [LSJ 19970303]'
 102069|Undying Thirst:
   - If the vampire is empty, he must either hunt or diablerize, this is a mandatory action. [LSJ 20081213-2]
   - Has no effect on a vampire that cannot commit diablerie (eg. because of {Humanitas}). [LSJ 20050324-2]
-102071|Unflinching Persistence:
-  - '[for] Cannot be used if there is no damage to prevent. [LSJ 20001114]'
 102072|Unholy Penance:
   - '[PRE] The additional effect takes place after the end of combat. [RTR 19970630]'
 102074|Unity:
@@ -3272,10 +3130,6 @@
 102078|Unlicensed Taxicab:
   - Offers the additional stealth on actions to equip it from another friendly minion as well, even with other equipment in
     the same action. [LSJ 20060222]
-102081|Unseen Hibernation:
-  - '[abo] The action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards.
-    [LSJ 20041022] [RTR 20180719] [ANK 20220118] [ANK 20221205].'
-  - '[abo] The action has reached resolution, so cannot be attempted again by the same minion this turn. [ANK 20211015]'
 102082|Unwholesome Bond:
   - Can be used by {Angelo} or {New Blood} on a uncontrolled vampire with no circle designation, even another {Angelo} or
     {New Blood}. Multiple uncontrolled Angelos or New Bloods are in distinct "circle of one" though, so you have to choose
@@ -3287,8 +3141,9 @@
     "during" the unlock phase. [ANK 20180702]
   - Unlocking an already unlocked vampire does not trigger the effect. [ANK 20170227] [LSJ 20020408]
   - Any unlock, even one costing blood already, triggers the burning blood effect (eg. {Freak Drive}, {Derange}). [ANK 20221210-2]
-  - The counter is placed after range is determined, before strikes are chosen (defensive strikes like dodge or combat ends
-    do not avoid it). [ANK 20210422] [LSJ 20040830]
+  - The counter is placed before strikes are chosen (i.e. after range is determined, in the same step as {Immortal Grapple}).
+    The second vampire does not get a counter if this step is skipped but will get a counter even if they play defensive strikes
+    like dodge or combat ends. [ANK 20210422] [LSJ 20040830]
 102092|Vast Wealth:
   - The provided action is an "equip action" [TOM 19960130] [RTR 19960124]
   - You only search your library if the action is successful. [TOM 19951107]
@@ -3307,8 +3162,8 @@
     [LSJ 20100728] [LSJ 20090213]
 102097|Veil the Legions:
   - Can only be played by the controller of the acting minion. [LSJ 19990425]
-  - "[OBF] If an action is canceled after it has been played (eg. {Tangle Atropos' Hand} but not {Direct Intervention}) it\
-    \ still counts as \"one of the next X actions\". [ANK 20210124]"
+  - "[OBF] If an action is cancelled after it has been played (e.g. {Tangle Atropos' Hand} but not {Direct Intervention})\
+    \ it still counts as \"one of the next X actions\". [LSJ 20070526] [ANK 20210124]"
 102098|Veiled Sight:
   - '[CHI] The strike can be used on a minion with no blood. [RTR 20010711]'
   - '[CHI] The strike is not ranged. [TOM 19951215-2]'
@@ -3325,8 +3180,6 @@
   - If the combat is canceled by Venenation, the action is still blocked, the blocking minion locks. {Mask of a Thousand Faces}
     cannot be used to continue it, but an effect can be used to continue the action as if unblocked (eg. {Crypt's Sons}, {Momentary
     Delay}). [ANK 20181003] [LSJ 20010803-2] [ANK 20220127]
-102106|Vengeance of Samiel:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 102113|Vessel:
   - Can be used when the vampire is in torpor. [PIB 20150522]
 102118|Victim of Habit:
@@ -3355,15 +3208,15 @@
   - May still be "canceled as it is played" when used as an out-of-turn master. [LSJ 20031201]
 102135|Vulture's Buffet:
   - Is a hunt action. [ANK 20200421]
+102136|Waiting Game:
+  - If an action is cancelled after it has been played (e.g. {Tangle Atropos' Hand} but not {Direct Intervention}) it still
+    counts as taken. [ANK 20210124]
 102141|Walks-With-Might:
   - Only affects the cost of masters played by his controller. [LSJ 20081124-1]
 102143|Wanderer's Counsel:
   - '[ACTION MODIFIER] A hunt is not successful if no blood is gained, even if the hunt action is still successful. [LSJ 20050720-2]'
   - '[ACTION MODIFIER][REACTION] Cannot be used during a referendum that is automatically passing. [PIB 20150105] [LSJ 19980107]'
 102144|War Ghoul:
-  - If you have no other allies and no retainers in play when it is recruited, then you burn it. [RTR 19961113]
-  - An ally or retainer must be burn when it comes into play, regardless of how it did come into play (eg. {Pressing Flesh}).
-    [ANK 20170309-2]
   - Can use its ability to "lock and burn to burn a location" during an action that would steal it (eg. [PRE] {Entrancement}).
     The action will have no effect but is still successful if unblocked and must then be paid. [PIB 20121031]
 102146|Warding the Beast:
@@ -3412,8 +3265,6 @@
   - If the damage is reduced (eg. {Nephandus}) or not inflicted (eg. {Blood Fury}), the corresponding token is not burned
     (contrary to prevented damage). [LSJ 20100519]
   - Full damage is applied if there are any counter left, even just 1. [ANK 20201229-2]
-102173|Wendell Delburton:
-  - Additional damage inherits all of the properties of the base damage. [TOM 19960225]
 102175|Whispers from the Dead:
   - The card to retrieve must be announced when declaring the action. [LSJ 20010627]
 102179|White Phosphorus Grenade:
@@ -3464,8 +3315,6 @@
     after all the combats if the acting vampire is still ready. [ANK 20180910-1] [LSJ 20060903]
 102200|Year of Fortune:
   - The bonus disappears if the card is burned (either burned by a referendum or if the controller is ousted). [PIB 20121028]
-102201|Yoruba Shrine:
-  - The acting player has the opportunity to play "as announced" effects first (eg. {Seduction}). [LSJ 20081105]
 102202|Young Bloods:
   - They may use their built-in action against a vampire with only 1 blood. If successful, that vampire burns his 1 blood.
     [LSJ 20070213]
@@ -3561,6 +3410,8 @@
 102329|Hunting the Quarry:
   - '[cel]/[tha] effects that are played when a combat "would end" (eg. {Telepathic Tracking}) cannot be play afterwards.
     [ANK 20191219]'
+102330|Kiss of Cathari:
+  - '[PRE] If the strike is dodged, the opposing minion is not stunned. [LSJ 20070124]'
 200011|Adana de Sforza:
   - Card with multiple types (eg. Combat/Action Modifier) are considered of the type they are played as, not both. [PIB 20150924-2]
 200017|Aeron:
@@ -3748,8 +3599,6 @@
   - Edith may burn a blood to give {Enid Blount} stealth multiple times each action. [LSJ 20040617]
 200402|Edward Neally:
   - Hand size can be increased more than once per turn (in case of multiple master phase actions). [LSJ 20020814]
-200403|Edward Vignes:
-  - His ability cannot be used if the action is blocked. [LSJ 20041022]
 200417|Ellison Humboldt:
   - Can use his ability only once per referendum. [ANK 20180307-2] [RBK wording-templates]
 200423|Enid Blount:
@@ -3965,9 +3814,9 @@
   - Cannot attempt to steal a piece of equipment that he is prohibited from having (eg. a second {Leather Jacket}). [LSJ 19980206]
   - The stolen equipment cannot be used until the next round. [LSJ 19980206] [RBK steal-equipment]
 200871|Lucian, the Perfect:
-  - Strikes that do not target him (dodge, combat ends) do not cost more. They do if they plan to damage him after combat
-    (eg. [PRE] {Catatonic Fear}). [LSJ 20090528-2] [LSJ 20031118]
+  - Strikes that deal damage after combat are affected (eg. [PRE] {Catatonic Fear}). [LSJ 20031118]
   - Strikes that target cards on him, are not affected (eg. {Target Retainer}, {Canine Horde}). [LSJ 20090528-2]
+  - When using a card that locks you into a strike (eg {.44 Magnum} s maneuver) you cannot chose not to strike [LSJ 20090528-2-2]
 200885|Luna Giovanni:
   - Her ability does not apply to the political action card played for a current action (it is in limbo). [LSJ 20070927]
 200890|Lutz von Hohenzollern:
@@ -4334,8 +4183,9 @@
 201499|Zack North:
   - '[MERGED] Is Anarch. If the base version was the one in play, it changes sect as it is merged. [ANK 20180524]'
 201506|Zhenga:
-  - She can choose the order in which the allies brought by her ability come into play (eg. bring a first ally, then {War
-    Ghoul} second burning the first one). [LSJ 20060530-1]
+  - She can choose the order in which the allies brought by her ability come into play (e.g. bring a first ally, then {War
+    Ghoul} second burning the first one), but cards are not replaced in between (e.g. {Corrupt Construction}). [LSJ 20070707]
+    [LSJ 20060530-1]
   - The allies brought into play by her ability are not "played in the normal way" (eg. {Direct Intervention} cannot be used
     to counter them). [LSJ 20060530-2]
   - Her ability does not work with {Piper} (not an action). [LSJ 20090115-1] [ANK 20170309]
@@ -4370,6 +4220,12 @@
 201648|Regina Blake:
   - She can use her ability to pay for equipments that are locations while in play (eg. {Palatial Estate}). [LSJ 20080107]
     [LSJ 20080114]
+201726|Parijat, the Dark Oracle:
+  - 'If a card forces a block attempt (eg, {Second Tradition: Domain}), burning the top of their library is part of the cost
+    of playing the card. The cost is paid if the card is not cancelled and after the replacement card has been drawn. [ANK
+    20260317]'
+  - If you cannot burn a card from the top of your library (e.g., your library is empty), you cannot attempt to block wraith
+    or zombie allies while Parijat is ready. [ANK 20260317]
 201776|Věnceslava, The Implacable:
   - Their ability is not applied if his controller is ousted by the referendum effects (reversal of previous rulings). [ANK
     20220808]
@@ -4528,7 +4384,7 @@ G00060|Reflex:
     on the minion. [LSJ 20051113]'
 G00061|Cancel an action:
   - If an action is canceled, it is not performed and the minion is free to attempt the same action again. [RBK cancel-a-card]
-  - Can only cancel minion cards played from the hand in the normal fashion (eg. can't cancel allies played via {Piper}).
+  - Cannot cancel cards that are not played from the hand in the normal fashion (e.g. can't cancel allies played via {Piper}).
     [RTR 20001020]
   - Can be used to cancel all action cards, including employ retainer, recruit ally and political action. [ANK 20200813-2]
 G00062|Cancel as a reaction:
@@ -4566,10 +4422,7 @@ G00073|Impersonating requirements to play cards:
     including duration effects. The vampire is not treated as meeting the requirements for effects the card has from being
     in play. [LSJ 20101013] [ANK 20190228] [ANK 20200703-3] [LSJ 20070708] [RTR 20070707]
 G00074|Adding costs to a strike or strike card:
-  - If an effect granting a strike is played/used before another effect that adds a cost to strike (e.g. {Dam the Heart's
-    River}), you may choose not to strike. [LSJ 20071017]
-  - If an effect granting a strike (e.g. {.44 Magnum}) is played/used after another effect that adds a cost to strike, you
-    must pay the additional cost to use that first effect. [LSJ 20090529]
+  - If an opponent then plays an effect that grants a strike (e.g, {Aid from Bats}), they pay the additional cost. [LSJ 20090529]
   - Strikes are paid at declaration. If an ally spends their last life on a strike, combat ends before strike resolution.
     If the strike damage depends on the amount of life/blood of the striking minion, it is calculated after the strike is
     paid for (e.g. {Shambling Hordes}). [LSJ 20090703]
@@ -4644,6 +4497,7 @@ G00095|Play stored card as if from hand:
   - Ignores all "do not replace" clauses and special replacement effects on cards played from it. [LSJ 20081126]
   - The card on it cannot be discarded or burned to satisfy another effect (eg. {Tension in the Ranks} or using political
     action cards for votes). [LSJ 20050118]
+  - A card played "as if from hand" can be canceled "as played" [LSJ 20060106]
 G00096|Optional press:
   - The optional press can only be used during the current round. [TOM 19960521]
 G00097|Burn blood for effect (mandatory):
@@ -4832,3 +4686,46 @@ G00146|Vote reduction:
 G00147|Fail an action as announced:
   - The ability to fail an action must be used before action modifiers or reactions that are not explicitly played "as the
     action is announced". [ANK 20190425]
+  - The acting player has the opportunity to play "as announced" effects first (eg. Seduction). [LSJ 20081105]
+G00148|Adding damage to strikes:
+  - Adding damage to a strike that does not deal damage has no effect, so the strike still will not do damage. [RTR 19960221]
+  - Additional damage inherits all of the properties of the base damage. [RTR 19970630] [TOM 19960225]
+G00149|Usable when going to torpor:
+  - Sequencing rules apply, and if played first, effects that stop a vampire from going to torpor would prevent the use of
+    effects that are only usable on a vampire going to torpor. [RTR 20010711]
+G00150|Allies with enter play effects:
+  - The enter play effect happens regardless of how it comes into play (e.g, {Pressing Flesh}). [ANK 20170309-2]
+G00151|Allies that burn an ally when entering play:
+  - An ally or retainer must be burned when it comes into play, regardless of how it enters play (e.g, {Pressing Flesh}).
+    [ANK 20170309-2]
+  - If you have no other allies or retainers in play when it enters play, it must burn itself. [RTR 19961113]
+G00152|Adding costs to non-card strike:
+  - If the opponent has played an effect that grants a strike before (e.g, {Sniper Rifle}), they may choose not to strike.
+    [LSJ 20071017]
+G00153|Prevents more than 1 damage:
+  - If fewer points of (preventable) damage are being resolved, then the effect prevents all of those points. [RTR 20041202]
+  - Unused prevention points can't be carried over unless optional ('can/may prevent'). [ANK 20200318] [LSJ 20001114]
+G00154|Immideate damage prevention:
+  - Cannot be used if there is no damage to prevent. [LSJ 20001114]
+G00155|Cancel, cost is still paid:
+  - The cost for a canceled non-action-card is still paid, including additional and alternative cost (e.g. to play {Eagle's
+    Sight} to block a Wraith or zombie while {Parijat, the Dark Oracle} is ready the top card of the Library must be burned,
+    even if {Eagle's Sight} was canceled) [RBK cancel-a-card] [ANK 20260216]
+G00156|Fail an action (after 'as announced'):
+  - Cannot be used while a block is being attempted, or has already been successful. [ANK 20260316] [LSJ 20041022]
+G00157|Fail an Action:
+  - If the action fails, modifiers and reactions that can be used at the end/after an action can still be used afterwards
+    (after combat, if any). [ANK 20221205] [ANK 20220118] [RTR 20180719] [LSJ 20041022]
+  - If the action fails, the action has reached resolution, so is subject to NRA (Non Repeatable Action) rules. [ANK 20211015]
+    [RTR 20180719]
+  - If an action fails, it was not blocked. Cards/effects depending on a block (e.g. {Mirror Image}, [FOR] {Freak Drive})
+    cannot be played/used. [LSJ 20070219]
+G00158|Political action with illegal terms:
+  - Cannot be used or played if the conditions for the terms of the referendum cannot be met (e.g. no legal selection, insufficient
+    cards/players to choose from, prohibited by card text, uniqueness, etc). [LSJ 20100129] [ANK 20191228]
+G00159|Gains votes against:
+  - If a minion who has gained the votes provided against the referendum, is subsequently forced to vote in favor, the provided
+    votes are not counted when votes are tallied until that minion is again forced to vote against the referendum. [LSJ 20031115]
+  - Cannot be used by a minion who is voting in favor of the referendum. [LSJ 20031115]
+  - Gaining the provided votes immediately forces the minion to vote against the referendum, if they are not already doing
+    so. [LSJ 20031119]

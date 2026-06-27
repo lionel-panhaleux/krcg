@@ -214,7 +214,8 @@ def card_from_vekn[T: models.Card](
                 card.legal += datetime.timedelta(days=30)
         # promo only (singles)
         else:
-            card.legal = card.prints[0].occurrences[0].date
+            occ = card.prints[0].occurrences
+            card.legal = occ[0].date if occ else None
     return card
 
 
@@ -360,10 +361,13 @@ def prints_from_vekn(
             )
             for expansion, occurences in prints.items()
         ],
+        # dateless prints (e.g. POD with no rarity) sort last so real prints lead
         key=lambda p: (
             (
                 sets[p.set.id].release_date
                 if p.set.id and sets[p.set.id].release_date
+                else datetime.date.max
+                if not p.occurrences
                 else p.occurrences[0].date
             )
             or datetime.date.min
@@ -381,8 +385,7 @@ def compute_urls(cards: DictOfCards, sets: DictofSets) -> None:
         card_name = re.sub(r"[^\w\d]", "", utils.normalize(card.full_name)) + ".jpg"
         card.url = urllib.parse.urljoin(base_url, card_name)
         for lang, translation in card.i18n.items():
-            # url is set dynamically; not a declared Translation field
-            translation.url = urllib.parse.urljoin(  # type: ignore[attr-defined]
+            translation.url = urllib.parse.urljoin(
                 base_url, f"{lang.value}/{card_name}"
             )
         for print_ in card.prints:
