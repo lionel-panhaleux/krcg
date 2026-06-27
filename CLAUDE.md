@@ -61,7 +61,7 @@ External data is intentionally decoupled so new sets/cards work without a librar
 - `deck.py` — `Deck` is a `collections.Counter[Card]` plus metadata (event, date, author, score, comments). Serialization (`from_txt`/`to_txt` in many formats, `to_json`) and remote fetchers (`from_amaranth`, `from_vdb`, `from_vtesdecks` — network-only).
 - `parser.py` — the deck-list parser handling legacy TWDA and many third-party text formats. **Header comment warns: only modify if you know what you're doing.** Tightly coupled to the messy real-world data; lots of special-casing.
 - `twda.py` — TWDA singleton; `load_html` does the hard work of slicing `TWDA.html` into individual decklists and parsing each via `Deck.from_txt(..., twda=True)`.
-- `analyzer.py` — `Analyzer` over a deck collection (typically the TWDA): card "affinity" (co-occurrence), averages/variance, and candidate suggestions for deck building.
+- `analyzer.py` — free functions over a deck collection (typically the TWDA), each taking a loaded `VTES` to resolve cards: `played` (decks per card), `stats` (average/variance of copies), `affinity` (co-occurrence ranking), and `build_deck` (synthesize a TWDA-like deck).
 - `seating.py` — tournament seating optimisation against 9 weighted official rules (`R1`–`R9`); uses numpy + multiprocessing for the search.
 - `rulings.py` — parses ruling text: discipline/type symbols (`ANKHA_SYMBOLS`), card references (`{...}`), and source references (`[LSJ ...]`), with the authoritative `RULING_AUTHORS` timeline.
 - `sets.py` — expansion/set metadata.

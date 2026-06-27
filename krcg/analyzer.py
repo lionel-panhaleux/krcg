@@ -1,302 +1,316 @@
-"""TWDA analyzer: compute cards affinity and build decks based on TWDA."""
+"""Statistics and card affinity over a collection of decks (e.g. the TWDA).
 
-from collections.abc import Callable, Iterable
+A deck collection is treated as a statistical sample. ``played``, ``stats`` and
+``affinity`` are read-only summaries; ``build_deck`` synthesizes a new TWDA-like
+decklist from the sample. Cards are resolved through a loaded ``vtes.VTES`` and
+results are keyed by ``models.Card`` (``played(decks, VTES)[VTES["Villein"]]``).
+"""
+
+from collections.abc import Iterable, Iterator
 import collections
-import itertools
+import logging
 import random
 
 from . import models
-import logging
-
-Candidates = list[tuple[models.Card, int]]
+from . import vtes
 
 logger = logging.getLogger("krcg")
 
+Candidates = list[tuple[models.Card, float]]
+
 
 class AnalysisError(Exception):
-    """Exception raised when the analysis fails."""
-
-    pass
+    """Raised when an analysis cannot be completed (e.g. an empty sample)."""
 
 
-class Analyzer:
-    """Analyze TWDA, compute card affinities, and build decks.
+def _ranked(scores: dict[models.Card, float]) -> Candidates:
+    """Sort a score map by decreasing value."""
+    return sorted(scores.items(), key=lambda kv: kv[1], reverse=True)
 
-    The "affinity" is the number of decks where two cards are played together.
+
+def _cards_in(
+    deck: models.Deck, cards: vtes.VTES, kind: models.Card.Kind | None = None
+) -> Iterator[tuple[models.Card, int]]:
+    """Yield (resolved card, count) for each deck entry of the given kind."""
+    for entry in deck.cards:
+        if kind and entry.kind != kind:
+            continue
+        card = cards.get(entry.id)
+        if card:
+            yield card, entry.count
+
+
+def _spoilers(
+    decks: list[models.Deck], cards: vtes.VTES, threshold: float = 0.25
+) -> dict[models.Card, float]:
+    """Cards present in more than ``threshold`` of the decks, by frequency.
+
+    Such cards carry little signal: affinity excludes nothing on their account
+    but the deck builder avoids them as a seed and when measuring similarity.
+    Samples of 50 decks or fewer yield none.
     """
+    if len(decks) <= 50:
+        return {}
+    counts = collections.Counter(
+        card for deck in decks for card, _ in _cards_in(deck, cards)
+    )
+    return {
+        card: count / len(decks)
+        for card, count in counts.items()
+        if count > len(decks) * threshold
+    }
 
-    def __init__(self, decks: Iterable[models.Deck], spoilers: bool = True):
-        """Constructor.
 
-        Args:
-            decks: An iterable of decks to use as the TWDA sample.
-            spoilers: If True, downweight overly common cards when sampling.
-        """
-        self.decks = list(decks)
-        if spoilers and len(self.decks) > 50:
-            self.spoilers = {
-                name: count / len(self.decks)
-                for name, count in collections.Counter(
-                    itertools.chain.from_iterable(d.keys() for d in self.decks)
-                ).items()
-                if count > len(self.decks) / 4
+def _similar(
+    decks: list[models.Deck],
+    cards: vtes.VTES,
+    reference: set[models.Card],
+    similarity: float,
+    spoilers: dict[models.Card, float],
+) -> list[models.Deck]:
+    """Decks playing at least ``similarity`` of the reference cards.
+
+    Spoiler cards are ignored unless they are part of the reference.
+    """
+    if not reference:
+        return list(decks)
+    return [
+        deck
+        for deck in decks
+        if len(
+            reference
+            & {
+                card
+                for card, _ in _cards_in(deck, cards)
+                if card in reference or card not in spoilers
             }
-            logger.debug("Spoilers: %s", self.spoilers)
-        else:
-            self.spoilers = {}
-        self.examples = list[models.Deck]()
-        self.played = collections.Counter[models.Card]()
-        self.average = collections.Counter[models.Card]()
-        self.variance = collections.Counter[models.Card]()
-        self.affinity: collections.defaultdict[
-            models.Card, collections.Counter[models.Card]
-        ] = collections.defaultdict(collections.Counter)
-        self.refresh_cursor = 0
-        self.deck: models.Deck | None = None
-
-    def build_deck(self, *args: models.Card) -> models.Deck:
-        """Build a deck, using optional card names as reference.
-
-        The analyzer samples the TWDA and builds a deck similar to TWDs.
-        It includes reference decks in the description.
-
-        If no card name is given, a random first-tier card is chosen for seed.
-
-        Args:
-            *args: Card names used as references for deck building.
-
-        Returns:
-            The deck built
-        """
-        self.deck = models.Deck(author="KRCG")
-        self.refresh(*args, condition=Analyzer.is_crypt)
-        # if no seed is given, choose one of the 100 most played cards,
-        # but do not pick a spoiler (card played in more than 25% decks).
-        if not args:
-            args = (
-                [c for c, _ in self.played.most_common() if c not in self.spoilers][
-                    random.randrange(100)
-                ],
-            )
-            logger.info("Randomly selected %s", args[0])
-        # build crypt first, then library
-        self.build_deck_part(*args, condition=Analyzer.is_crypt)
-        self.refresh(condition=Analyzer.is_library)
-        self.build_deck_part(condition=Analyzer.is_library)
-        # add example decks reference in description
-        self.deck.comments = "Inspired by:\n" + "\n".join(
-            f" - {example.id:<20} {example.name or '(No Name)'}"
-            for example in self.examples
         )
-        return self.deck
+        / len(reference)
+        >= similarity
+    ]
 
-    @staticmethod
-    def is_crypt(card: models.Card) -> bool:
-        """Return True if the card is a crypt card."""
-        return card.crypt
 
-    @staticmethod
-    def is_library(card: models.Card) -> bool:
-        """Return True if the card is a library card."""
-        return card.library
+def _affinity(
+    examples: list[models.Deck],
+    card: models.Card,
+    cards: vtes.VTES,
+    kind: models.Card.Kind | None = None,
+) -> dict[models.Card, float]:
+    """Fraction of ``examples`` playing ``card`` that also play each other card."""
+    ret: dict[models.Card, float] = collections.defaultdict(float)
+    for example in examples:
+        if not any(entry.id == card.id for entry in example.cards):
+            continue
+        for friend, _ in _cards_in(example, cards, kind):
+            ret[friend] += 1 / len(examples)
+    return ret
 
-    def refresh(
-        self,
-        *args: models.Card,
-        similarity: float = 0.6,
-        condition: Callable | None = None,
-    ) -> None:
-        """Sample TWDA. This is the core method of the Analyzer.
 
-        Fetch `self.examples` decks from TWDA.
+def _candidates(
+    affinities: dict[models.Card, dict[models.Card, float]],
+    references: Iterable[models.Card],
+) -> Candidates:
+    """Rank cards by summed affinity to the references, excluding them and bans."""
+    references = list(references)
+    exclude = set(references)
+    scores: dict[models.Card, float] = collections.defaultdict(float)
+    for card in references:
+        for candidate, score in affinities.get(card, {}).items():
+            if not (candidate.banned or candidate in exclude):
+                scores[candidate] += score
+    return _ranked(scores)
 
-        If card names are given as args, only examples containing similar cards
-        are selected as examples and `self.affinity` is computed for all given cards.
 
-        Similarity is used to select example decks from TWDA, using Jaccard index.
-        similarity=1 can be used to ensure all cards given as args must be present
-        in the deck for it to be selected as an example.
+def played(
+    decks: Iterable[models.Deck],
+    cards: vtes.VTES,
+    kind: models.Card.Kind | None = None,
+) -> collections.Counter[models.Card]:
+    """Count how many of the decks play each card.
 
-        `self.average` of number played is computed for each example card.
+    Args:
+        decks: The deck sample.
+        cards: A loaded cards database.
+        kind: Restrict to a card kind (crypt or library) if given.
 
-        If `self.deck` has been created (e.g. by calling `build_deck`),
-        `self.cards_left` is set using an average of examples.
-        `self.refresh_cursor` is set to the number of cards to attain before
-        a new refresh is required. It is quadratic, so refreshs happen
-        in O(log) of cards count.
+    Returns:
+        A counter of cards by number of decks playing them.
+    """
+    ret = collections.Counter[models.Card]()
+    for deck in decks:
+        ret.update(card for card, _ in _cards_in(deck, cards, kind))
+    return ret
 
-        Args:
-            *args: Card names to use as references when selecting examples.
-            similarity: Matching cards proportion for selection.
-            condition: Optional filter on card types, clans, etc.
 
-        Raises:
-            AnalysisError: If no example deck is available.
-        """
-        if args:
-            reference = set(args)
+def stats(
+    decks: Iterable[models.Deck],
+    cards: vtes.VTES,
+    kind: models.Card.Kind | None = None,
+) -> dict[models.Card, tuple[float, float]]:
+    """Average and variance of the count played, per card.
+
+    Both are measured over the decks that play the card; decks not playing it do
+    not count as zeroes.
+
+    Args:
+        decks: The deck sample.
+        cards: A loaded cards database.
+        kind: Restrict to a card kind (crypt or library) if given.
+
+    Returns:
+        A mapping of card to (average, variance) of its played count.
+    """
+    decks = list(decks)
+    count = played(decks, cards, kind)
+    average: dict[models.Card, float] = collections.defaultdict(float)
+    for deck in decks:
+        for card, n in _cards_in(deck, cards, kind):
+            average[card] += n / count[card]
+    variance: dict[models.Card, float] = collections.defaultdict(float)
+    for deck in decks:
+        for card, n in _cards_in(deck, cards, kind):
+            variance[card] += (n - average[card]) ** 2 / count[card]
+    return {card: (average[card], variance[card]) for card in count}
+
+
+def affinity(
+    decks: Iterable[models.Deck],
+    cards: vtes.VTES,
+    *reference: models.Card,
+    similarity: float = 1.0,
+    kind: models.Card.Kind | None = None,
+) -> Candidates:
+    """Rank cards by how often they share a deck with the reference cards.
+
+    A deck is selected when it plays at least ``similarity`` of the reference
+    cards (``similarity=1`` requires all of them). A candidate scores the
+    fraction of selected decks that play it. Reference and banned cards are
+    excluded.
+
+    Args:
+        decks: The deck sample.
+        cards: A loaded cards database.
+        *reference: The cards to find affinities for.
+        similarity: Minimum fraction of reference cards a deck must play.
+        kind: Restrict candidates to a card kind (crypt or library) if given.
+
+    Returns:
+        (card, score) pairs by decreasing affinity.
+    """
+    decks = list(decks)
+    examples = _similar(
+        decks, cards, set(reference), similarity, _spoilers(decks, cards)
+    )
+    scores: dict[models.Card, float] = collections.defaultdict(float)
+    for card in reference:
+        for friend, score in _affinity(examples, card, cards, kind).items():
+            if not (friend.banned or friend in reference):
+                scores[friend] += score
+    return _ranked(scores)
+
+
+def build_deck(
+    decks: Iterable[models.Deck],
+    cards: vtes.VTES,
+    *seeds: models.Card,
+    similarity: float = 0.6,
+) -> models.Deck:
+    """Synthesize a TWDA-like deck from a deck sample.
+
+    The sample is mined for decks similar to the cards selected so far, and the
+    most affine card is added in turn, in a count averaged from those decks,
+    until crypt then library reach sample-average sizes. Without seeds a random
+    popular (non-spoiler) crypt card starts the build.
+
+    Args:
+        decks: The deck sample to mine (typically the TWDA).
+        cards: A loaded cards database.
+        *seeds: Optional cards to build around.
+        similarity: Minimum fraction of the reference cards a deck must play to
+            be used as an example.
+
+    Returns:
+        The synthesized deck.
+
+    Raises:
+        AnalysisError: If the sample yields no usable example deck.
+    """
+    decks = list(decks)
+    spoilers = _spoilers(decks, cards)
+    built = collections.Counter[models.Card]()
+    examples: list[models.Deck] = []
+    average: dict[models.Card, float] = collections.defaultdict(float)
+    affinities: dict[models.Card, dict[models.Card, float]] = {}
+    cursor = 0
+    cards_left = 0
+
+    def refresh(part_seeds: tuple[models.Card, ...], kind: models.Card.Kind) -> None:
+        nonlocal examples, average, affinities, cursor, cards_left
+        reference = set(part_seeds) | {c for c in built if c not in spoilers}
+        cursor = len(reference) ** 2
+        examples = _similar(decks, cards, reference, similarity, spoilers)
+        if not examples:
+            raise AnalysisError("no example deck in the sample")
+        logger.info("refreshed examples (%d)", len(examples))
+        affinities = {c: _affinity(examples, c, cards, kind) for c in reference}
+        count = played(examples, cards, kind)
+        average = collections.defaultdict(float)
+        for example in examples:
+            for card, n in _cards_in(example, cards, kind):
+                average[card] += n / count[card]
+        target = round(
+            sum(sum(n for _, n in _cards_in(e, cards, kind)) for e in examples)
+            / len(examples)
+        )
+        if kind == models.Card.Kind.LIBRARY:
+            if target > 82:
+                target = 90
+            target = min(max(target, 60), 90)
         else:
-            reference = set()
-        if self.deck:
-            reference |= set(
-                [
-                    card
-                    for card, _count in self.deck.cards(
-                        lambda c: c not in self.spoilers
-                    )
-                ]
-            )
-        self.refresh_cursor = len(reference) * len(reference)
-        # examples are similar (jaccard index > similarity) decks chosen from TWDA
-        # spoilers (cards played in more than 25% decks) are not considered
-        if reference:
-            self.examples = [
-                example
-                for example in self.decks
-                if len(
-                    reference
-                    & set(
-                        [
-                            card
-                            for card, _count in example.cards(
-                                lambda c: c in reference or c not in self.spoilers
-                            )
-                        ]
-                    )
-                )
-                / len(reference)
-                >= similarity
-            ]
-        else:
-            self.examples = self.decks
-        if not self.examples:
-            logger.error("No example in TWDA")
-            raise AnalysisError()
-        logger.info("Refresh examples (%s)", len(self.examples))
-        self.played = collections.Counter()
-        for example in self.examples:
-            self.played.update(card for card, _ in example.cards(condition))
-        self.affinity = collections.defaultdict(collections.Counter)
-        for card in reference:
-            self.refresh_affinity(card, condition)
-        # compute average number played for each card
-        self.average = collections.Counter()
-        self.variance = collections.Counter()
-        for example in self.examples:
-            self.average.update(
-                {
-                    card: count / self.played[card]
-                    for card, count in example.cards(condition)
-                }
-            )
-        for example in self.examples:
-            self.variance.update(
-                {
-                    card: pow(count - self.average[card], 2) / self.played[card]
-                    for card, count in example.cards(condition)
-                }
-            )
-        if self.deck is not None:
-            # compute number of cards left to find for this deck
-            self.cards_left = round(
-                sum(example.cards_count(condition) for example in self.examples)
-                / len(self.examples)
-            )
-            # make sure cards_left count respects rules
-            if condition == Analyzer.is_library:
-                # averaging examples counts often get us close to 90 without
-                # reaching it, so we push for it
-                if self.cards_left > 82:
-                    self.cards_left = 90
-                self.cards_left = max(self.cards_left, 60)
-                self.cards_left = min(self.cards_left, 90)
-            if condition == Analyzer.is_crypt:
-                self.cards_left = max(self.cards_left, 12)
-            self.cards_left -= self.deck.cards_count(condition)
+            target = max(target, 12)
+        cards_left = target - sum(n for c, n in built.items() if c.kind == kind)
 
-    def refresh_affinity(
-        self, card: models.Card, condition: Callable | None = None
-    ) -> None:
-        """Add a card to `self.affinity` using current examples.
-
-        Args:
-            card: The card for which to refresh affinity.
-            condition: The conditional function candidates have to validate.
-        """
-        self.affinity[card] = collections.Counter()
-        for example in self.examples:
-            if card not in example:
-                continue
-            self.affinity[card].update(
-                {
-                    friend: 1 / len(self.examples)
-                    for friend, _ in example.cards(condition)
-                }
-            )
-
-    def candidates(
-        self, *args: models.Card, spoiler_multiplier: float = 0
-    ) -> Candidates:
-        """Select candidates using `self.affinity`. Filter banned cards out.
-
-        Args:
-            *args: Reference cards.
-            spoiler_multiplier: Multiplier applied to spoiler frequency to
-                downweight overly common cards.
-
-        Returns:
-            List of (card, affinity_score) candidates by decreasing affinity
-        """
-        # score candidates by affinity
-        candidates = collections.Counter[models.Card]()
-        for card in args:
-            candidates.update(
-                {
-                    candidate: score
-                    for candidate, score in self.affinity.get(card, {}).items()
-                    if not (
-                        candidate.banned
-                        or candidate in args
-                        or score < self.spoilers.get(candidate, 0) * spoiler_multiplier
-                    )
-                }
-            )
-        return candidates.most_common()
-
-    def build_deck_part(
-        self, *args: models.Card, condition: Callable | None = None
-    ) -> None:
-        """Build a deck part using given condition.
-
-        Condition is usually `VTES.is_crypt` or `VTES.is_library` but any
-        condition on cards will work.
-
-        Args:
-            *args: Cards already selected for the deck.
-            condition: Condition on the next card to select.
-        """
-        assert self.deck is not None
-        while self.cards_left > 0:
-            if len(self.deck) >= self.refresh_cursor:
-                self.refresh(*args, condition=condition)
-                # adjust count of previously selected cards
-                for card, count in list(self.deck.items()):
-                    if count != round(self.average[card]):
-                        # can be negative
-                        adjust = min(self.cards_left, round(self.average[card]) - count)
-                        self.deck[card] += adjust
-                        self.cards_left -= adjust
-                # refresh can change the number of cards left
-                if self.cards_left <= 0:
+    def build_part(part_seeds: tuple[models.Card, ...], kind: models.Card.Kind) -> None:
+        nonlocal cards_left
+        refresh(part_seeds, kind)
+        while cards_left > 0:
+            if len(built) >= cursor:
+                refresh(part_seeds, kind)
+                for card, n in list(built.items()):
+                    if n != round(average[card]):
+                        adjust = min(cards_left, round(average[card]) - n)
+                        built[card] += adjust
+                        cards_left -= adjust
+                if cards_left <= 0:
                     break
-            # score candidates by affinity
-            candidates = self.candidates(*(self.deck.keys() or args))
-            if not candidates:
-                logger.info("No more candidates")
+            ranked = _candidates(affinities, built.keys() or part_seeds)
+            if not ranked:
+                logger.info("no more candidates")
                 return
-            next_card, score = candidates[0]
-            logger.info("Selected %s (%.2f)", next_card, score)
-            count = min(self.cards_left, round(self.average[next_card]))
-            self.deck.update({next_card: count})
-            self.cards_left -= count
-            self.refresh_affinity(next_card, condition)
+            next_card, score = ranked[0]
+            logger.info("selected %s (%.2f)", next_card, score)
+            n = min(cards_left, round(average[next_card]))
+            built[next_card] += n
+            cards_left -= n
+            affinities[next_card] = _affinity(examples, next_card, cards, kind)
+
+    chosen = seeds
+    if not chosen:
+        popular = [
+            c
+            for c, _ in played(decks, cards, models.Card.Kind.CRYPT).most_common()
+            if c not in spoilers
+        ]
+        if not popular:
+            raise AnalysisError("no crypt card in the sample")
+        chosen = (popular[random.randrange(min(100, len(popular)))],)
+        logger.info("seeded with %s", chosen[0])
+    build_part(chosen, models.Card.Kind.CRYPT)
+    build_part((), models.Card.Kind.LIBRARY)
+
+    deck = models.Deck(author="KRCG")
+    deck.cards = [models.CardInDeck.of(card, n) for card, n in built.items() if n > 0]
+    deck.comment = "Inspired by:\n" + "\n".join(
+        f" - {e.id:<20} {e.name or '(No Name)'}" for e in examples
+    )
+    return deck
