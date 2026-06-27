@@ -1,0 +1,65 @@
+5th Road to Pulled Fang #15
+Olomouc, Czech Republic
+May 16th 2026
+3R+F
+20 players
+Lukáš Simandl
+https://www.vekn.net/event-calendar/event/13259
+
+-- 1GW7 + 2.5vp in final
+
+Deck Name: Lasombra bleed & friends
+
+Crypt (12 cards, min=15, max=27, avg=5.25)
+------------------------------------------
+2x Rinaldo Albizzi             7  DOM OBL POT pre         primogen  Lasombra:6
+2x Azucena                     5  DOM OBL pot                       Lasombra:6
+2x El Monseñor                 4  OBL dom          Death            Lasombra:6
+1x María del Toro              7  DOM OBL POT             prince    Lasombra:6
+1x Aintzane Arriaga            6  DOM OBL POT                       Lasombra:6
+1x Kamaluddin                  6  DOM OBL for pot         primogen  Lasombra:6
+1x Zbigniew, Hunter of Mekhet  5  OBL aus dom tha  Death            Lasombra:6
+1x Braden White                4  dom obl pot                       Lasombra:6
+1x Araceli "Celia" Rivera      3  dom obl                           Lasombra:6
+
+Library (90 cards)
+Master (15; 3 trifle)
+1x Coven, The
+3x Direct Intervention
+2x Dreams of the Sphinx
+1x Elysian Fields
+1x Giant's Blood
+1x Information Highway
+1x Jake Washington
+1x Pentex(TM) Subversion
+2x Perfectionist
+1x Vessel
+1x Wider View
+
+Action (12)
+12x Govern the Unaligned
+
+Ally (13)
+1x Carlton Van Wyk
+12x Spectral Servitor
+
+Action Modifier (25)
+2x Bonding
+5x Conditioning
+5x Shadow Cast
+5x Shadow Cloak
+4x Stygian Shroud
+4x Where the Veil Thins
+
+Reaction (15)
+8x Deflection
+1x On the Qui Vive
+6x Shadow Sentinel
+
+Combat (7)
+3x Pass Through Shadow
+4x Target Vitals
+
+Event (3)
+1x FBI Special Affairs Division
+2x Unmasking, The

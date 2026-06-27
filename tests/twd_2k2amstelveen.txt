@@ -1,0 +1,66 @@
+Praxis Seizure: Amstelveen
+Amstelveen, Netherlands
+April 28th 2002
+22 players
+Tim Eijpe
+
+Deck Name: Protect and Serve
+
+Description: A Smiling Jack deck with an equipment angle. Aus/aus
+vampires and 5 vampires using Magic of the Smith to get Pier 13 and
+the rest of the equipment. Survive and outlast. Use Eagle Sights to
+keep people alive if neccessary. Build for the Amstelveen tourney
+28/04/2002.
+
+Crypt (12 cards, min=8, max=20, avg=3.67)
+-----------------------------------------
+2x Aisling Sturbridge               5  AUS THA dom  Tremere:2
+2x Hannigan                         5  AUS THA dom  Tremere antitribu:2
+1x Aleph                            4  AUS dom      Malkavian:1
+1x Dorian Strack                    4  AUS cel      Toreador:1
+1x Idalia, Prophet of Guadalajara   4  AUS dem      Malkavian antitribu:2
+1x Richard Tauber, Ayelea's Puppet  4  AUS tha      Tremere antitribu:2
+1x Isabel de Leon                   3  AUS          Toreador:2
+1x Brazil                           2  aus          Malkavian:1
+1x Dieter Kleist                    2  aus          Toreador:1
+1x Franciscus                       1  aus          Caitiff:2
+
+Library (90 cards)
+Master (16)
+5x Blood Doll
+1x Club Zombie
+2x Dreams of the Sphinx
+2x Heidelberg Castle, Germany
+1x KRCG News Radio
+1x Powerbase: Montreal
+1x Rack, The
+3x Smiling Jack, The Anarch
+
+Action (5)
+5x Magic of the Smith
+
+Equipment (14)
+2x .44 Magnum
+2x IR Goggles
+1x Ivory Bow
+2x Leather Jacket
+1x Palatial Estate
+2x Pier 13, Port of Baltimore
+2x Sniper Rifle
+2x Sport Bike
+
+Retainer (1)
+1x Mr. Winthrop
+
+Reaction (50)
+8x Eagle's Sight
+4x Enhanced Senses
+15x Forced Awakening
+2x My Enemy's Enemy
+6x Precognition
+6x Spirit's Touch
+5x Telepathic Counter
+4x Telepathic Misdirection
+
+Combat (4)
+4x Anesthetic Touch

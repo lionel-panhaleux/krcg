@@ -4,18 +4,13 @@ import aiohttp
 import pytest
 import warnings
 
-from krcg import collections
-from krcg import models
 from krcg import vtes
 
 
+@pytest.mark.baseline
 @pytest.mark.filterwarnings("ignore::UserWarning")
-def test_card_variants() -> None:
-    """Test the card name variants."""
-    VTES = vtes.VTES.load_local()
-    for k, v in VTES._cards._dict.items():
-        if isinstance(v, int):
-            print(k, v)
+def test_card_variants(VTES: vtes.VTES) -> None:
+    """Card name variants and aliases (translation-dependent — drift is amber)."""
 
     def sorted_variant(id_: int) -> tuple[list[str], list[str]]:
         """Sort the variants of a card (for stable tests)."""
