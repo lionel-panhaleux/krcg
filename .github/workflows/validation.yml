@@ -41,11 +41,4 @@ jobs:
         env:
           LOCAL_CARDS: 1
         run: |
-          uv run coverage run -m pytest
-          uv run coverage xml
-      - name: Upload coverage to Codacy
-        if: github.event_name == 'push' && matrix.python-version == '3.12'
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: coverage.xml
+          uv run pytest
