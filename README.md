@@ -144,8 +144,7 @@ Serialize it with `krcg.providers` - `serialize_twd` renders the full
 TWD format and needs the cards handle, the others don't:
 
 ```python
->>> from krcg import providers
->>> from krcg.models import Card
+>>> from krcg import providers, Card
 >>> sum(c.count for c in deck.cards if c.kind == Card.Kind.CRYPT)
 12
 >>> sum(c.count for c in deck.cards if c.kind == Card.Kind.LIBRARY)
