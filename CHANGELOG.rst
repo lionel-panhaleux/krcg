@@ -1,6 +1,43 @@
 Changelog
 =========
 
+5.0 (2026-06-27)
+----------------
+
+Ground-up rewrite. This is a hard break with the 4.x API; see the README for
+the new surface and the migration notes below.
+
+- Python >= 3.12 required.
+- Cards: ``krcg.load()`` / ``load_local()`` / ``load_online(session)`` return a
+  ``collections.CardDict`` — the single cards handle. The module-level ``VTES``
+  singleton and the ``VTES`` class are gone; ``search``, ``complete`` and
+  ``search_dimensions`` are methods of ``CardDict``.
+- TWDA: ``krcg.twda.load()`` / ``load_local()`` / ``load_online(session)`` return
+  a plain ``dict[str, Deck]``. The ``TWDA`` singleton is gone. HTML scraping is
+  gone — the archive is sourced from the GiottoVerducci ``TWD`` ``.txt`` files and
+  bundled (compressed) for offline use.
+- Models are plain ``dataclasses`` — consumers aren't forced to depend on
+  ``msgspec`` (it is used internally for (de)serialization only). ``Deck`` is no
+  longer a ``collections.Counter``: its cards are a ``list[CardInDeck]`` (filter
+  by ``card.kind``); there are no ``.crypt`` / ``.library`` Counter views. Cards
+  expose ``full_name`` / ``unique_name`` / ``printed_name`` (no ``.name``).
+- Deck operations are free functions: parse with ``parser.deck_from_txt(source,
+  cards, ...)``; serialize with ``providers.serialize_twd(deck, cards)`` (and
+  ``serialize_txt`` / ``serialize_vdb`` / ``serialize_lackey`` / ``serialize_jol``
+  / ``serialize_json_minimal``). ``Deck.to_json`` / ``from_json`` are gone — use
+  ``msgspec`` (e.g. ``msgspec.json.encode``).
+- Remote decks: ``providers.fetch(session, url, cards)`` (async) replaces
+  ``Deck.from_amaranth`` / ``from_vdb`` / ``from_vtesdecks``.
+- Analyzer is free functions over any deck collection: ``played``, ``stats``,
+  ``affinity``, ``build_deck`` (the ``Analyzer`` class is gone).
+- Seating: ``permutations`` renamed to ``get_rounds``.
+- Network I/O is async (``aiohttp``); ``load_online`` takes an
+  ``aiohttp.ClientSession``.
+- Languages trimmed to the ones with synced data: English, French, Spanish.
+- TWD score serialization now emits krcg's canonical form.
+- Tooling: type-checking moved from mypy to ``ty``.
+
+
 4.16 (2025-11-01)
 ----------------
 

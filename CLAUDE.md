@@ -4,7 +4,7 @@ This file provides guidance to **all AI agents** (Claude Code and others — `AG
 
 ## What this is
 
-KRCG is a Python library (>=3.10) that provides an interface to the VTES (Vampire: The Eternal Struggle) card game data: the VEKN official card texts, the Tournament Winning Deck Archive (TWDA), and a community-maintained rulings database. It is the foundation for several offspring projects (krcg-cli, krcg-static, krcg-api, krcg-bot) and is published to PyPI as `krcg`.
+KRCG is a Python library (>=3.12) that provides an interface to the VTES (Vampire: The Eternal Struggle) card game data: the VEKN official card texts, the Tournament Winning Deck Archive (TWDA), and a community-maintained rulings database. It is the foundation for several offspring projects (krcg-cli, krcg-static, krcg-api, krcg-bot) and is published to PyPI as `krcg`.
 
 The README contains extensive usage examples — consult it for the public API surface. This file focuses on architecture and the development workflow.
 
@@ -18,7 +18,7 @@ This project uses [`uv`](https://github.com/astral-sh/uv) for dependencies and [
 - `just update` — `sync-cards` + `uv sync --upgrade --dev`
 - `just build` / `just clean` / `just release` (release bumps minor version, tags, pushes, and publishes to PyPI using `.pypi_token`)
 
-Run a single test: `uv run pytest tests/test_cards.py::test_load -vvs`
+Run a single test: `uv run pytest tests/test_parser.py::test_get_card -vvs`
 
 Lint config lives in `pyproject.toml`: ruff selects `E,D,F,W,UP` with Google docstring convention; type-checking is `ty check krcg` (Astral's `ty`, which replaced mypy). **All new functions need type annotations and Google-style docstrings** — ruff enforces the docstrings; full annotations are the project convention (ty checks them where present). Prefer fixing types over `# ty: ignore`.
 
@@ -36,45 +36,40 @@ Favor compact, functional code over OO ceremony and design patterns:
 
 ## Architecture
 
-### Two in-memory singletons, no database
+### No singletons, no database
 
-By design there is no database. The card list, search engine, TWDA, and rulings are all loaded into memory (128–256MB footprint). The two entry points are module-level singletons:
+By design there is no database: the cards library, its search index, the TWDA, and the rulings all live in memory (~128–256 MB). Nothing is a module-level singleton — load what you need and hold the handle:
 
-- `krcg.vtes.VTES` (`_VTES`) — the cards library. Wraps a `cards.CardMap` and a `cards.CardSearch`.
-- `krcg.twda.TWDA` (`_TWDA`) — the deck archive, an `OrderedDict` of `Deck` keyed by deck id, with a `by_author` index.
+- `krcg.load()` / `load_local()` / `load_online(session)` (in `loader.py`) each return a `collections.CardDict` — the one cards handle. It looks cards up by id or name and owns `search` / `complete` / `search_dimensions`.
+- `krcg.twda.load()` / `load_local()` / `load_online(session)` each return a plain `dict[str, models.Deck]` (`DecksArchive`) keyed by deck id.
 
-Both evaluate as falsy until loaded. `TWDA.load()` will auto-load `VTES` if needed.
+### Data-loading paths
 
-### Three data-loading paths
-
-Understanding these is key to working with the library:
-
-1. **`load()`** — fetches pre-built JSON from the KRCG static server (`https://static.krcg.org`). Fast; the normal path for consumers.
-2. **`load_from_vekn()`** — builds from raw CSVs (VEKN or the `vtescsv` GitHub mirror) plus rulings YAML. Slow; used to *generate* the static JSON and to test incoming card-data changes.
-3. **Offline / `LOCAL_CARDS=1`** — `load_from_vekn()` reads the CSV/YAML snapshot packaged under `cards/` (via `importlib.resources`) instead of the network. The PyPI package ships this snapshot; `just sync-cards` refreshes it.
+1. **`load_online(session)`** — async; fetches pre-built JSON from the KRCG static server (`https://static.krcg.org`). The fast path for online consumers; falls back on failure (cards → `load()`, TWDA → `load_local()`).
+2. **`load()`** (cards only) — reads a version-keyed pickle cache (written by the loaders), else builds via `load_local()`. For the TWDA, `load()` is just `load_local()` (a single decode, no cache).
+3. **`load_local()`** — builds offline from the snapshot packaged under `krcg/cards/` (via `importlib.resources`): CSV/YAML for the cards & rulings, the compressed `twda.json.xz` for the archive. No network, **no environment variable**. `just sync-cards` refreshes the snapshot.
 
 External data is intentionally decoupled so new sets/cards work without a library release.
 
 ### Module map
 
-- `cards.py` (largest, ~1700 lines) — the core. `Card` model, `CardMap` (a `FuzzyDict` indexing cards by integer id *and* many name variants/aliases), and the search engine (`CardSearch` + `CardTrie`). All CSV/JSON/rulings loading lives here. Iterating a `CardMap` yields each card once (by int key); string keys are name aliases.
-- `deck.py` — `Deck` is a `collections.Counter[Card]` plus metadata (event, date, author, score, comments). Serialization (`from_txt`/`to_txt` in many formats, `to_json`) and remote fetchers (`from_amaranth`, `from_vdb`, `from_vtesdecks` — network-only).
-- `parser.py` — the deck-list parser handling legacy TWDA and many third-party text formats. **Header comment warns: only modify if you know what you're doing.** Tightly coupled to the messy real-world data; lots of special-casing.
-- `twda.py` — TWDA singleton; `load_html` does the hard work of slicing `TWDA.html` into individual decklists and parsing each via `Deck.from_txt(..., twda=True)`.
-- `analyzer.py` — free functions over a deck collection (typically the TWDA), each taking a loaded `VTES` to resolve cards: `played` (decks per card), `stats` (average/variance of copies), `affinity` (co-occurrence ranking), and `build_deck` (synthesize a TWDA-like deck).
-- `seating.py` — tournament seating optimisation against 9 weighted official rules (`R1`–`R9`); uses numpy + multiprocessing for the search.
+- `models.py` — the data types: `Card` / `CryptCard` / `LibraryCard` (and `CardInDeck`), `Deck`, `Set`, rulings, and the enums (`Lang`, `Card.Kind`, `SearchDimension`, …). All **plain dataclasses** — msgspec is used for (de)serialization but never imposed on the model objects. `Deck.cards` is a `list[CardInDeck]` (no `Counter`, no `.crypt`/`.library` views — filter by `card.kind`).
+- `collections.py` — `CardDict`, the cards library: a `FuzzyDict` indexing cards by integer id *and* many name variants/aliases, plus the search engine (`CardSearch` + the i18n trie). Iterate distinct cards with `.cards()` (bare iteration yields keys).
+- `loader.py` — the three cards loaders (`load` / `load_local` / `load_online`), re-exported as `krcg.load*`. (Loaders can't live on `CardDict` — `vekn_csv`/`rulings` import `collections`, which would cycle.)
+- `twda.py` — the TWDA loaders (same three names); `DecksArchive = dict[str, Deck]`.
+- `vekn_csv.py` — build cards from the packaged VEKN CSVs; holds the `ALIASES` map (player typos & card-name shorthands seen in the TWDA).
+- `parser.py` — the decklist parser handling legacy TWDA and many third-party text formats. **Header comment warns: only modify if you know what you're doing.** `deck_from_txt(source, cards, *, id, twda)` is the entry point.
+- `providers.py` — fetch decks from external sites (`fetch(session, url, cards)`, async, network-only) and serialize them (`serialize_twd` / `serialize_txt` / `serialize_vdb` / `serialize_lackey` / `serialize_jol` / `serialize_json_minimal`).
+- `analyzer.py` — free functions over a deck collection (typically the TWDA), each taking a `CardDict` to resolve cards: `played` (decks per card), `stats` (average/variance of copies), `affinity` (co-occurrence ranking), and `build_deck` (synthesize a TWDA-like deck).
+- `seating.py` — tournament seating optimisation against 9 weighted official rules (`R1`–`R9`); numpy + multiprocessing. `get_rounds` builds the base rounds; `optimise` searches.
 - `rulings.py` — parses ruling text: discipline/type symbols (`ANKHA_SYMBOLS`), card references (`{...}`), and source references (`[LSJ ...]`), with the authoritative `RULING_AUTHORS` timeline.
-- `sets.py` — expansion/set metadata.
-- `config.py` — static-server URLs, supported languages, deck `TYPE_ORDER`, the large `ALIASES` map (player typos & card-name shorthands seen in the TWDA), and `TWDA_CHECK_DECK_FAILS` (known-malformed decks to skip validation on).
-- `utils.py` — `FuzzyDict` (difflib-backed fuzzy lookup), `i18nMixin`/`NamedMixin`, `normalize`, zip/CSV helpers.
+- `utils/` — `fuzzy_dict.py` (`FuzzyDict`, difflib-backed fuzzy lookup), `trie.py` (`Trie`), `string.py` (`normalize`, …), `csv.py`, and `deck.py` (deck sorting/serialization helpers).
 
 ### Relevant environment variables
 
-- `LOCAL_CARDS=1` — offline mode (load packaged `cards/` data; see above). Translations are skipped offline.
-- `VTESCSV_GITHUB_BRANCH` — point CSV loading at a different `vtescsv` branch to test incoming card data.
-- `NO_TRANSLATIONS` — skip fetching translations from vekn.net.
-- `VEKN_NET_CSV` — force the official VEKN zip instead of the GitHub mirror.
-- `FORCE_OFFLINE` — used by tests to behave as if there's no internet.
+The library itself reads no environment variables (`load_local()` is the offline path). Only the test suite uses one:
+
+- `FORCE_OFFLINE` — make the suite behave as if there's no internet (skips the network-dependent tests).
 
 ## Testing notes
 
