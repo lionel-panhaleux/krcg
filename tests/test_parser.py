@@ -168,6 +168,12 @@ def test_get_card(VTES: vtes.VTES, caplog: pytest.LogCaptureFixture) -> None:
     check_comment(p, VTES)
     assert gc(p, VTES, "joseph pander") == (VTES["Joseph Pander"], 1)
     check_comment(p, VTES)
+    # player shorthand resolves via the ALIASES map
+    assert gc(p, VTES, "1x Mask of 1000 Faces") == (
+        VTES["Mask of a Thousand Faces"],
+        1,
+    )
+    check_comment(p, VTES)
     # only fuzzy-match debug noise here, no parse warnings
     assert [r for r in caplog.record_tuples if r[1] >= logging.WARNING] == []
 
