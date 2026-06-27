@@ -323,7 +323,7 @@ _PUNCTUATED_TRAIT = "|".join(
         # this one often appears after double dashes in legacy deck lists:
         # Bang Nakh -- Tiger's Claws
         # catch it here to avoid putting it in comments,
-        # there's a matching alias in config.ALIASES
+        # there's a matching alias in vekn_csv.ALIASES
         "tiger's claws",
         # this one is still in the card name !
         # "bastet",

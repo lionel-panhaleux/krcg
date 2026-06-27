@@ -76,6 +76,7 @@ ALIASES = {
     100984: ["Info Highway"],
     101067: ["KRCG"],
     101073: ["Laptop"],
+    101179: ["Mask of 1000 Faces"],
     101249: ["Mister Winthrop"],
     101357: ["Patagia: Flaps", "Patagia"],
     101896: ["Sudden"],

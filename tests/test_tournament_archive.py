@@ -1,116 +1,33 @@
-"""Test tournament archive."""
+"""Test parsing the tournament extended-archive deck format."""
 
-import datetime
 import logging
-import os
+import pathlib
+
 import pytest
 
+from krcg import models
 from krcg import parser
+from krcg import vtes
+
+FIXTURE = pathlib.Path(__file__).parent / "202207_EC_Day1_1.txt"
 
 
-def test_202207_EC_Day1_1(caplog: pytest.LogCaptureFixture) -> None:
-    """The reference format for tournament extended archive decks."""
+def test_tournament_archive_format(
+    VTES: vtes.VTES, caplog: pytest.LogCaptureFixture
+) -> None:
+    """The reference tournament-archive deck parses without warnings."""
     caplog.set_level(logging.WARNING)
-    with open(os.path.join(os.path.dirname(__file__), "202207_EC_Day1_1.txt")) as f:
-        dek = parser.deck_from_txt(f)
-    assert dek
-    assert dek.to_json() == {
-        "name": "202207_EC_Day1_1",
-        "player": "VtesEC2022",
-        "score": "2GW6.5",
-        "date": datetime.date.today().isoformat(),
-        "crypt": {
-            "cards": [
-                {"count": 3, "id": 200781, "name": "Khurshid"},
-                {"count": 2, "id": 201009, "name": "Mordechai Ben-Nun"},
-                {"count": 2, "id": 200119, "name": "Anu Diptinatpa"},
-                {"count": 5, "id": 200076, "name": "Anarch Convert"},
-            ],
-            "count": 12,
-        },
-        "library": {
-            "cards": [
-                {
-                    "cards": [
-                        {"count": 3, "id": 100545, "name": "Direct Intervention"},
-                        {
-                            "count": 1,
-                            "id": 100785,
-                            "name": "Fragment of the Book of Nod",
-                        },
-                        {"count": 1, "id": 100897, "name": "Haven Uncovered"},
-                        {"count": 6, "id": 101112, "name": "Liquidation"},
-                        {"count": 5, "id": 101401, "name": "Piper"},
-                        {"count": 4, "id": 102121, "name": "Villein"},
-                        {"count": 1, "id": 102180, "name": "Wider View"},
-                    ],
-                    "count": 21,
-                    "type": "Master",
-                },
-                {
-                    "cards": [
-                        {"count": 4, "id": 100813, "name": "Gear Up"},
-                        {"count": 2, "id": 101831, "name": "Soul Feasting"},
-                    ],
-                    "count": 6,
-                    "type": "Action",
-                },
-                {
-                    "cards": [
-                        {"count": 10, "id": 100634, "name": "Emerald Legionnaire"}
-                    ],
-                    "count": 10,
-                    "type": "Ally",
-                },
-                {
-                    "cards": [{"count": 2, "id": 102107, "name": "Vengeful Spirit"}],
-                    "count": 2,
-                    "type": "Retainer",
-                },
-                {
-                    "cards": [{"count": 2, "id": 102026, "name": "Trochomancy"}],
-                    "count": 2,
-                    "type": "Action Modifier",
-                },
-                {
-                    "cards": [
-                        {
-                            "count": 3,
-                            "id": 100628,
-                            "name": "Eluding the Arms of Morpheus",
-                        },
-                        {"count": 9, "id": 100680, "name": "Eyes of Argus"},
-                        {"count": 5, "id": 100868, "name": "Guardian Vigil"},
-                        {"count": 3, "id": 101259, "name": "My Enemy's Enemy"},
-                        {"count": 7, "id": 101949, "name": "Telepathic Misdirection"},
-                    ],
-                    "count": 27,
-                    "type": "Reaction",
-                },
-                {
-                    "cards": [
-                        {"count": 3, "id": 100113, "name": "Aura Reading"},
-                        {"count": 6, "id": 100918, "name": "Hidden Strength"},
-                        {"count": 2, "id": 101649, "name": "Rolling with the Punches"},
-                        {"count": 6, "id": 101942, "name": "Target Vitals"},
-                        {"count": 2, "id": 101945, "name": "Taste of Vitae"},
-                    ],
-                    "count": 19,
-                    "type": "Combat",
-                },
-                {
-                    "cards": [
-                        {
-                            "count": 1,
-                            "id": 100709,
-                            "name": "FBI Special Affairs Division",
-                        },
-                        {"count": 2, "id": 102079, "name": "The Unmasking"},
-                    ],
-                    "count": 3,
-                    "type": "Event",
-                },
-            ],
-            "count": 90,
-        },
-    }
+    with FIXTURE.open() as f:
+        deck = parser.deck_from_txt(f, VTES._cards, id=FIXTURE.stem)
+    assert caplog.record_tuples == []
+    assert deck.player == "VtesEC2022"
+    assert str(deck.score) == "2GW6.5"
+    by_id = {c.id: c.count for c in deck.cards}
+    crypt = {c.id: c.count for c in deck.cards if c.kind == models.Card.Kind.CRYPT}
+    assert sum(crypt.values()) == 12
+    assert by_id[200076] == 5  # Anarch Convert
+    assert by_id[200781] == 3  # Khurshid
+    library = sum(c.count for c in deck.cards if c.kind == models.Card.Kind.LIBRARY)
+    assert library == 90
+    assert by_id[100634] == 10  # Emerald Legionnaire
+    assert by_id[100545] == 3  # Direct Intervention

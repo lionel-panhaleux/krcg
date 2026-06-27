@@ -1,0 +1,60 @@
+Irish NC 2023
+Dungeons and Donuts, Galway, Ireland
+August 19th 2023
+3R (no final)
+7 players only
+Lotte Siebert
+https://www.vekn.net/event-calendar/event/10842
+
+-- 2GW8 across 3 rounds
+
+Deck Name: Malkavians Go Fast
+
+Crypt (12 cards, min=17, max=30, avg=5.83)
+------------------------------------------
+2x Evan Klein            5  OBF aus dom pre                Malkavian:6
+1x Abraham Mellon        8  AUS DOM OBF for tha            Malkavian:6
+1x Alexander Silverson   8  AUS DOM OBF pre      prince    Malkavian:6
+1x Gilbert Duane         7  AUS DOM OBF          baron     Malkavian:6
+1x Jason "Son" Newberry  7  AUS DOM OBF pre      primogen  Malkavian:6
+1x Andi Liu              6  DOM aus obf pre      prince    Malkavian:6
+1x Darius Shirazi        6  AUS DOM obf                    Malkavian:5
+1x Gelasia Fotiou        6  AUS DOM obf pre                Malkavian:6
+1x Colette               5  AUS OBF dom                    Malkavian:6
+1x Sully                 4  aus dom obf                    Malkavian:6
+1x Ashley                3  dom obf                        Malkavian:6
+
+Library (75 cards)
+Master (7)
+2x Barrens, The
+2x Blood Doll
+2x Dreams of the Sphinx
+1x Elder Library
+
+Action (17)
+1x Conceal
+16x Govern the Unaligned
+
+Equipment (1)
+1x Heart of Nizchetus
+
+Action Modifier (32)
+4x Cloak the Gathering
+8x Conditioning
+4x Elder Impersonation
+4x Faceless Night
+4x Foreshadowing Destruction
+4x Lost in Crowds
+4x Spying Mission
+
+Action Modifier/Combat (4)
+4x Swallowed by the Night
+
+Reaction (12)
+5x Deflection
+2x Eyes of Argus
+4x On the Qui Vive
+1x Wake with Evening's Freshness
+
+Combat (2)
+2x No Trace
