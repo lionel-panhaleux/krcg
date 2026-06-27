@@ -29,16 +29,15 @@ class CardDict(utils.FuzzyDict[int | str, models.Card]):
         for card in cards.values():
             self.add(card)
 
-    # CardDict deliberately iterates values (cards), not keys, unlike a dict
-    def __iter__(self) -> Generator[models.Card]:  # type: ignore[override]
-        """Iterate over cards (values) once each."""
+    def cards(self) -> Generator[models.Card]:
+        """Iterate over cards (values) once each (int keys are the card ids)."""
         for key, card in self.items():
             if isinstance(key, int):
                 yield card
 
     def __len__(self) -> int:
         """Return the number of distinct cards in the map."""
-        return len([c for c in self])
+        return sum(1 for _ in self.cards())
 
     def add(self, card: models.Card) -> None:
         """Add a card."""
@@ -56,7 +55,7 @@ class CardDict(utils.FuzzyDict[int | str, models.Card]):
 
     def pack(self) -> dict[str, models.Card]:
         """Pack for export."""
-        return {str(card.id): card for card in self}
+        return {str(card.id): card for card in self.cards()}
 
     def card_in_deck(self, card_id: int | str, count: int) -> models.CardInDeck:
         """Get a card for a deck."""

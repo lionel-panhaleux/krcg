@@ -12,7 +12,7 @@ The README contains extensive usage examples — consult it for the public API s
 
 This project uses [`uv`](https://github.com/astral-sh/uv) for dependencies and [`just`](https://github.com/casey/just) for tasks. Setup: `uv sync --group dev`.
 
-- `just quality` — runs `ruff check`, `ruff format --check`, and `mypy krcg`
+- `just quality` — runs `ruff check`, `ruff format --check`, and `ty check krcg`
 - `just test` — runs `quality` then `uv run pytest -vvs` (quality runs first; tests won't run if it fails)
 - `just sync-cards` — refresh packaged data (`cards/*.csv` and `cards/*.yaml`) from the external `vtescsv` and `vtes-rulings` GitHub repos
 - `just update` — `sync-cards` + `uv sync --upgrade --dev`
@@ -20,7 +20,7 @@ This project uses [`uv`](https://github.com/astral-sh/uv) for dependencies and [
 
 Run a single test: `uv run pytest tests/test_cards.py::test_load -vvs`
 
-Lint config lives in `pyproject.toml`: ruff selects `E,D,F,W` with Google docstring convention; mypy runs in strict mode (`disallow_untyped_defs`, `no_implicit_optional`, etc.) — **all new functions need type annotations and Google-style docstrings** or quality fails.
+Lint config lives in `pyproject.toml`: ruff selects `E,D,F,W,UP` with Google docstring convention; type-checking is `ty check krcg` (Astral's `ty`, which replaced mypy). **All new functions need type annotations and Google-style docstrings** — ruff enforces the docstrings; full annotations are the project convention (ty checks them where present). Prefer fixing types over `# ty: ignore`.
 
 ## Code style
 

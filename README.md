@@ -421,7 +421,7 @@ This project uses [uv](https://github.com/astral-sh/uv) for dependency managemen
 
 ### Development Commands
 
-- `just quality` - Run code quality checks (ruff check, ruff format --check, mypy, pydoclint)
+- `just quality` - Run code quality checks (ruff check, ruff format --check, ty check)
 - `just test` - Run tests (includes quality)
 - `just update` - Update dependencies and sync external CSV/YAML data
 - `just clean` - Clean build artifacts
