@@ -36,7 +36,10 @@ class Round(list[list[Hashable]]):
 
     @classmethod
     def from_players(cls, players: Sequence[Hashable]) -> "Round":
-        """Build a round structure from a simple list of players."""
+        """Seat players into tables of five, using four-player tables as needed.
+
+        Raises ValueError for 6, 7 or 11 players (they need staggered rounds).
+        """
         players_list = list(players)
         length = len(players_list)
         if length in {6, 7, 11}:
@@ -121,12 +124,12 @@ class Round(list[list[Hashable]]):
         self[index] = value
 
     def get_player(self, index: int) -> Hashable:
-        """Access players directly."""
+        """Get a player by flattened index, counting across all tables."""
         i, j = self.__global_index_to_tuple(index)
         return self[i][j]
 
     def set_player(self, index: int, value: Hashable) -> None:
-        """Modify players directly."""
+        """Set a player by flattened index, counting across all tables."""
         i, j = self.__global_index_to_tuple(index)
         self[i][j] = value
 
@@ -660,7 +663,10 @@ def optimise_table(rounds: list[Round], table: int) -> float:
 def archon_seating(
     players_count: int, rounds_per_player: int
 ) -> tuple[list[Round], Score]:
-    """Compute a full multi-round seating using multiple processes."""
+    """Compute an optimal multi-round seating across all CPU cores.
+
+    Returns the rounds and their Score.
+    """
     rounds = get_rounds(list(range(players_count)), rounds_per_player)
     try:
         cpus = multiprocessing.cpu_count()

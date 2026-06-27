@@ -67,7 +67,7 @@ class SetMinimal:
 
 @dataclass(kw_only=True)
 class Bundle:
-    """A bundle."""
+    """A product within a set (e.g. a preconstructed deck)."""
 
     code: str
     name: str
@@ -76,7 +76,7 @@ class Bundle:
 
 @dataclass(kw_only=True)
 class Set(SetMinimal):
-    """A set."""
+    """A VTES expansion."""
 
     name: str
     company: str = ""
@@ -114,7 +114,7 @@ class Translation:
 
 @dataclass
 class Variant:
-    """A variant of a card."""
+    """A link to a related form of the card (advanced, base, evolution)."""
 
     class Type(StrEnum):
         """The type of variant."""
@@ -131,7 +131,7 @@ class Variant:
 
 @dataclass(kw_only=True, eq=False)
 class CardMinimal:
-    """A minimal card."""
+    """A card reduced to its id and names (shared by Card and CardInDeck)."""
 
     id: int
     printed_name: str = ""
@@ -250,7 +250,7 @@ class DisciplineRequirement:
 
 
 class Title(StrEnum):
-    """A title."""
+    """A political title (Prince, Justicar, Baron, …)."""
 
     PRIMOGEN = "Primogen"
     PRINCE = "Prince"
@@ -271,7 +271,7 @@ class Title(StrEnum):
 
 @dataclass
 class Cost:
-    """A cost."""
+    """A card cost in pool, blood, or conviction (value may be "X")."""
 
     class Type(StrEnum):
         """The type of cost."""
@@ -418,7 +418,7 @@ class Country:
 
 @dataclass(kw_only=True)
 class Event:
-    """An event."""
+    """A tournament."""
 
     name: str = ""
     date: datetime.date | None = None
@@ -435,7 +435,7 @@ class Event:
 
 @dataclass(kw_only=True)
 class Score:
-    """A score."""
+    """A deck's tournament result (game wins and victory points)."""
 
     round_gw: int = 0
     round_vp: float = 0
@@ -458,7 +458,7 @@ class Score:
 
 @dataclass(kw_only=True)
 class Deck:
-    """A deck."""
+    """A decklist with its tournament metadata."""
 
     id: str = ""
     name: str = ""
@@ -512,7 +512,7 @@ class Sect(StrEnum):
 
 
 class SearchDimension(StrEnum):
-    """A search dimension."""
+    """A card search dimension (a keyword key accepted by CardDict.search)."""
 
     NAME = "name"
     CARD_TEXT = "card_text"

@@ -22,6 +22,19 @@ Modules:
 - seating.py: tournament seating optimisation.
 """
 
+from .collections import CardDict
 from .loader import load, load_local, load_online
+from .models import Card, CardInDeck, CryptCard, Deck, LibraryCard, Set
 
-__all__ = ["load", "load_local", "load_online"]
+__all__ = [
+    "load",
+    "load_local",
+    "load_online",
+    "CardDict",
+    "Card",
+    "CryptCard",
+    "LibraryCard",
+    "CardInDeck",
+    "Deck",
+    "Set",
+]

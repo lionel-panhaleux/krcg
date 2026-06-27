@@ -1,4 +1,4 @@
-"""Trie."""
+"""A prefix tree for scored, case-insensitive text search."""
 
 from typing import Any, SupportsIndex, cast
 from collections.abc import Hashable, Mapping

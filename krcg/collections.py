@@ -56,11 +56,11 @@ class CardDict(utils.FuzzyDict[int | str, models.Card]):
                 self.add_alias(variant.name, card.id)
 
     def pack(self) -> dict[str, models.Card]:
-        """Pack for export."""
+        """Cards keyed by their string id, for JSON export."""
         return {str(card.id): card for card in self.cards()}
 
     def card_in_deck(self, card_id: int | str, count: int) -> models.CardInDeck:
-        """Get a card for a deck."""
+        """Build a deck entry (CardInDeck) from a card id and a count."""
         return msgspec.convert(
             msgspec.to_builtins(self[int(card_id)]) | {"count": count},
             models.CardInDeck,
