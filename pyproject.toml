@@ -48,7 +48,6 @@ convention = "google"
 [dependency-groups]
 dev = [
     "certifi",
-    "coverage",
     "ipdb",
     "ipython",
     "pytest",
