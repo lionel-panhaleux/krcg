@@ -41,6 +41,8 @@ HEADERS = {
         "player": "Lotte Siebert",
         "event": "Irish NC 2023",
         "place": "Dungeons and Donuts, Galway, Ireland",
+        "country": "IE",
+        "online": False,
         "date": "2023-08-19",
         "end_date": None,
         "rounds": 3,
@@ -55,6 +57,8 @@ HEADERS = {
         "player": "Lukáš Simandl",
         "event": "5th Road to Pulled Fang #15",
         "place": "Olomouc, Czech Republic",
+        "country": "CZ",
+        "online": False,
         "date": "2026-05-16",
         "end_date": None,
         "rounds": 3,
@@ -69,6 +73,8 @@ HEADERS = {
         "player": "Jorge Delgado",
         "event": "Pressing Flesh",
         "place": "Paris, France",
+        "country": "FR",
+        "online": False,
         "date": "2023-06-24",
         "end_date": None,
         "rounds": 3,
@@ -83,6 +89,8 @@ HEADERS = {
         "player": "Delmar Sittoni",
         "event": "Sede de Vitae Part 29",
         "place": "Online",
+        "country": None,
+        "online": True,
         "date": "2022-02-07",
         "end_date": "2022-02-10",
         "rounds": 2,
@@ -97,6 +105,8 @@ HEADERS = {
         "player": "Tim Eijpe",
         "event": "Praxis Seizure: Amstelveen",
         "place": "Amstelveen, Netherlands",
+        "country": "NL",
+        "online": False,
         "date": "2002-04-28",
         "end_date": None,
         "rounds": 0,
@@ -120,6 +130,8 @@ def test_parse_headers(cards: collections.CardDict, deck_id: str) -> None:
     assert deck.player == exp["player"]
     assert event.name == exp["event"]
     assert event.place == exp["place"]
+    assert (event.country.code if event.country else None) == exp["country"]
+    assert event.online == exp["online"]
     assert str(event.date) == exp["date"]
     assert (str(event.end_date) if event.end_date else None) == exp["end_date"]
     assert event.rounds == exp["rounds"]

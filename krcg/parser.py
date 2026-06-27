@@ -14,6 +14,7 @@ import re
 import arrow
 
 from .collections import CardDict
+from . import countries
 from . import models
 from . import utils
 
@@ -627,6 +628,10 @@ class Parser:
                 pass
         if index == 2:
             self.deck.event.place = line
+            if line.strip().lower() == "online":
+                self.deck.event.online = True
+            else:
+                self.deck.event.country = countries.from_place(line)
             return True
         if not self.deck.event.rounds:
             if m := re.match(
