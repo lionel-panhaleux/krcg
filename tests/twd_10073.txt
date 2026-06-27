@@ -1,0 +1,63 @@
+Sede de Vitae Part 29
+Online
+February 7th 2022 -- February 10th 2022
+2R+F
+14 players
+Delmar Sittoni
+https://www.vekn.net/event-calendar/event/10073
+
+Deck Name: Ministério da Safadeza [#0]
+Description: S&B all the way
+
+Crypt (12 cards, min=14, max=28, avg=5.17)
+------------------------------------------
+2x Nonu Dis            8  OBF PRE PRO for         Follower of Set:6
+2x Jenny Silver        5  PRE PRO obf             Follower of Set:6
+2x Marcel              4  obf pre pro             Follower of Set:6
+2x Milton Fox          3  pre pro                 Follower of Set:6
+1x Crystal Lynn        6  OBF PRE PRO             Follower of Set:6
+1x Elisha Tucker       6  PRE cel obf pro  baron  Follower of Set:6
+1x Aluc Romas de Leon  5  PRE aus obf pro         Follower of Set:6
+1x Doctor Morocco      5  PRO cel obf pre         Follower of Set:6
+
+Library (65 cards)
+Master (16; 8 trifle)
+1x Anarch Railroad
+1x Archon Investigation
+3x Dabbler
+2x Dreams of the Sphinx
+1x Heidelberg Castle, Germany
+1x Information Highway
+1x Opium Den
+1x Parthenon, The
+4x Villein
+1x Wider View
+
+Action (15)
+3x Entrancement
+1x Heart of the City
+11x Platinum Protocol, The
+
+Ally (2)
+1x Carlton Van Wyk
+1x Saatet-ta
+
+Equipment (1)
+1x Laptop Computer
+
+Retainer (3)
+1x J. S. Simmons, Esq.
+1x Robert Carter
+1x Tasha Morgan
+
+Action Modifier (22)
+2x CrimethInc.
+1x Earth Control
+2x Enchanting Gaze
+1x Lost in Crowds
+2x Memory Rift
+14x Revelation of the Serpent
+
+Combat (6)
+1x Donnybrook
+5x Form of Mist

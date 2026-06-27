@@ -1,0 +1,85 @@
+Pressing Flesh
+Paris, France
+June 24th 2023
+3R+F
+15 players
+Jorge Delgado
+https://www.vekn.net/event-calendar/event/10792
+
+Deck Name: Carna & friends
+Description: Classic Carna Grinder deck, nothing exceptional. I built the deck, played it once in a friendly game, did some modifications, and played it only once more before the tournament.
+I wasn't expecting the meta that I saw (warzone), but more a varied meta (some combat rush, some vote, some bleed, not too much intercept).
+It was a total failure my reading of the meta, but I managed to profit from the other players rushing each other (I generaly waited till the other player's vampires where in torpor to launch my bleeds).
+
+Crypt (12 cards, min=14, max=27, avg=5.25)
+------------------------------------------
+3x Carna, The Princess Witch  7  AUS DOM THA      primogen  Tremere:3
+1x Elena Mendoza Vasquez      6  AUS THA dom obt            Tremere antitribu:3  -- will go
+1x Eugenio Estevez            6  AUS THA dom for            Tremere:3            -- will go
+1x Selena                     6  AUS DOM THA                Tremere antitribu:3  -- +1 to be added
+1x Aisling Sturbridge         5  AUS THA dom                Tremere:2
+1x Cohn Rose                  5  THA aus dom pre            Tremere:3            -- will go
+1x Hannigan                   5  AUS THA dom                Tremere antitribu:2
+1x Blythe Candeleria          3  THA aus                    Tremere:2
+1x Martin Franckel            3  AUS tha                    Tremere:3
+1x Masika St. John            3  THA                        Tremere:3
+
+-- in general not very happy with the 6-cap vampires in the crypt (althoug on paper it looks good). All of them will go out except Selena, which I will increase by 1. Probably will add some small Tremere.
+
+Library (80 cards)
+Master (12)
+1x Academic Hunting Ground
+1x Anarch Troublemaker
+1x Arcane Library
+4x Blood Doll
+1x Chantry
+1x Direct Intervention
+1x Misdirection -- will go, didn't find it useful
+1x Pentex(TM) Subversion -- will add another one
+1x Powerbase: Montreal
+
+-- overall happy with the master module, I will probably add 2x Wider View (because it's triffle, I can cycle the crypt and it helps me pool a little bit)
+
+Action (15)
+12x Govern the Unaligned -- will remove 2 govern
+3x Magic of the Smith -- will add 1x MotS
+
+Ally (2)
+1x Carlton Van Wyk
+1x Ponticulus
+
+-- nothing to say, great value
+
+Equipment (4)
+1x Bowl of Convergence
+1x Heart of Nizchetus
+1x Ivory Bow
+1x Sniper Rifle
+
+-- will add 1x Kevlar Vest. removed it from the first version and I regret.
+
+Action Modifier (8)
+3x Bonding -- -1 bonding, 2 should be enough
+4x Conditioning
+1x Foreshadowing Destruction -- will go
+
+-- need to add 2x Mirror Walk
+
+Reaction (27)
+3x Deflection
+2x Delaying Tactics
+2x Eagle's Sight
+6x Eyes of Argus -- -1
+2x Forced Awakening
+3x My Enemy's Enemy
+3x On the Qui Vive
+6x Telepathic Misdirection -- -1
+
+-- I think I should remove some bounce and wake to have better proportions regarding other cards
+
+Combat (12)
+4x Apportation
+1x Flames of the Netherworld -- will go, didn't find it useful
+7x Theft of Vitae
+
+-- I overall feel that the combat module is enough. In a low combat environment it largely does the job. Most of the time combat is cycled against S:CE to try and draw some reactions.
