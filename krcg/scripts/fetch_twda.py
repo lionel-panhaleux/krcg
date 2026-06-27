@@ -30,7 +30,7 @@ def fetch_twda(path: pathlib.Path, cards: collections.CardDict) -> None:
             if file_info.startswith("TWD-master/decks/") and not file_info.endswith(
                 "/"
             ):
-                file_name = os.path.basename(file_info).split(".")[0]
+                file_name = os.path.splitext(os.path.basename(file_info))[0]
                 with zip_file.open(file_info) as source:
                     text_source = io.TextIOWrapper(source, encoding="utf-8")
                     deck = parser.deck_from_txt(
