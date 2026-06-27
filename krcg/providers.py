@@ -277,7 +277,6 @@ def serialize_twd(deck: models.Deck, cards_dict: collections.CardDict) -> str:
             or "-none-"
         )
         title = card.title.lower() if card.title else ""
-        # Sabbat path shown by its first word (e.g. "Death", "Power")
         path = card.path.split()[0] if card.path else ""
         group = (
             "ANY"
@@ -317,7 +316,6 @@ def serialize_twd(deck: models.Deck, cards_dict: collections.CardDict) -> str:
         c.count for c in deck.cards if c.kind == models.Card.Kind.LIBRARY
     )
     lines.append(f"\nLibrary ({library_count} cards)")
-    # form a section for each type with a header displaying the total
     for i, (type_, cards_) in enumerate(utils.sorted_library(deck)):
         trifle_count = ""
         if type_ == "Master":
