@@ -261,34 +261,34 @@ Event (1)
 27
 ```
 
-The `krcg.analyzer` can provide statistics over a collection of decks:
+The `krcg.analyzer` provides statistics and card affinity over any collection of
+decks — the whole TWDA, a fragment of it, or your own decks. Cards are resolved
+through a loaded `VTES`, so results are keyed by card:
 
 ```python
->>> from krcg.analyzer import Analyzer
->>> # You can analyze the whole TWDA, or a fragment of it, or any collection of decks
->>> A = Analyzer([d for d in TWDA.values() if date(2019, 1, 1) < d.date < date(2020, 1, 1)])
->>> # A blank refresh will provide basic statistics
->>> A.refresh()
->>> A.played.most_common(5)
+>>> from krcg import analyzer
+>>> # any deck collection works: here, one year of the TWDA
+>>> decks = [d for d in TWDA.values() if date(2019, 1, 1) < d.date < date(2020, 1, 1)]
+>>> # how many of the decks play each card
+>>> analyzer.played(decks, VTES).most_common(5)
 [(<#100588 Dreams of the Sphinx>, 101),
  (<#101384 Pentex™ Subversion>, 96),
  (<#101321 On the Qui Vive>, 86),
  (<#102121 Villein>, 83),
  (<#100824 Giant's Blood>, 74)]
->>> A.average[VTES["Villein"]]
-4.409638554216869
->>> A.variance[VTES["Villein"]]
-3.6876179416461032
->>> # Refreshing with a list of cards computes card affinity using similar decks.
->>> # similarity=1 selects only decks that contain all provided cards.
->>> A.refresh(VTES["Aid from Bats"], similarity=1)
->>> # Now the candidates method can be used
->>> A.candidates(VTES["Aid from Bats"])[:5]
+>>> # average and variance of the copies played, among decks that play the card
+>>> analyzer.stats(decks, VTES)[VTES["Villein"]]
+(4.409638554216869, 3.6876179416461032)
+>>> # cards most often sharing a deck with a reference card;
+>>> # similarity=1 restricts to decks that play it
+>>> analyzer.affinity(decks, VTES, VTES["Aid from Bats"], similarity=1)[:5]
 [(<#100515 Deep Song>, 1.0000000000000002),
  (<#100301 Carrion Crows>, 1.0000000000000002),
  (<#101945 Taste of Vitae>, 0.7777777777777779),
  (<#200185 Beetleman>, 0.6666666666666667),
  (<#100698 Fame>, 0.6666666666666667)]
+>>> # synthesize a TWDA-like deck around one or more seed cards
+>>> deck = analyzer.build_deck(decks, VTES, VTES["Aid from Bats"])
 ```
 
 The `krcg.seating` module provides functions to compute optimal seatings:

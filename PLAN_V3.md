@@ -64,8 +64,10 @@ Consequence: **`twda.py` must stop building `TWDA` at import time.** Replace the
 - ✅ **deleted** `sets.py` and the dead legacy `__cards/__deck/__utils/__config`.
 - ✅ **lint/types**: ruff fully clean; mypy clean on every module **except `analyzer.py`**.
 
-### 4.A analyzer.py port (clears the last 22 mypy errors → `just quality` green)
-- [ ] Rewrite for `models.Deck` (`.cards` list of `CardInDeck`) instead of `Counter` semantics (`d.keys()`, `d[card]`). Key counters by `models.Card`; thread a cards DB through for `candidates()`. Has `tests/test_analyzer.py`.
+### 4.A analyzer.py port — ✅ DONE (`just quality` now fully green)
+- ✅ **Dropped the `Analyzer` class for free functions** over a deck collection, each taking a loaded `VTES` to resolve `CardInDeck.id` → `models.Card` (mirrors `serialize_twd(deck, cards_dict)`): `played(decks, VTES, kind=)`, `stats(decks, VTES, kind=)` → `(mean, variance)`, `affinity(decks, VTES, *ref, similarity=1.0, kind=)` (folds v2's `refresh(sim=1)` + `candidates` into one ranked call). Float accumulators are `defaultdict[Card, float]` (Counter values are int-typed under mypy-strict).
+- ✅ **`build_deck` kept** (per decision) as a single self-contained function with the build-session state as locals/closures (`refresh`/`build_part` nested), reusing the shared `_spoilers`/`_similar`/`_affinity` helpers. Faithful to v2 (similarity 0.6, crypt-then-library, average-count fill, periodic re-sample); v2's `cursor=0` first-refresh trick replaced by an explicit up-front `refresh` per part. Verified: `build_deck(..., Nana Buruku)` → 12-card crypt + 90-card library.
+- ✅ **README + `test_analyzer.py`** updated to the functional API (2019-slice numbers are unchanged by the port — same data, same math).
 
 ### 4.B seating.py port
 - [ ] Imports clean and mypy-clean already, but **not verified to run** against the new `models.Deck`. Confirm end-to-end and restore `tests/test_seating.py`.
@@ -75,7 +77,7 @@ Consequence: **`twda.py` must stop building `TWDA` at import time.** Replace the
 - [ ] `test_parser.py`: old `Parser()` no-arg + `deck_from_txt(f)` (no cards) signatures → new API.
 - [ ] `test_twda.py` / `test_states.py` / `test_deck.py`: fail at fixture setup on removed `twda.TWDA` / `_TWDA` singleton → migrate to `twda.load_local()` + `providers.*` serializers.
 - [ ] `test_vtes.py`: `vtes.VTES` is now a class; `search()` is keyword-only, returns a **sorted list** (not set), `n` default 100; `complete()` returns `list[Card]`; `search_dimensions` values are `list[str | None]`.
-- [ ] `test_analyzer.py`: after the analyzer port.
+- ✅ `test_analyzer.py`: ported with 4.A (dense test over the bundled TWDA: played/affinity/stats + a build_deck round-trip).
 
 ### 4.D Latent bugs & robustness follow-ups — ✅ DONE
 - ✅ **`Translation.url`** — added `url: str = ""` to `models.Translation` (per-language card URL); removed the `# type: ignore[attr-defined]` in `vekn_csv.py`.
