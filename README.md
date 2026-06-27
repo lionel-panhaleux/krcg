@@ -2,13 +2,12 @@
 
 [![PyPI version](https://badge.fury.io/py/krcg.svg)](https://badge.fury.io/py/krcg)
 [![Validation](https://github.com/lionel-panhaleux/krcg/actions/workflows/validation.yml/badge.svg)](https://github.com/lionel-panhaleux/krcg/actions/workflows/validation.yml)
-[![Coverage](https://api.codacy.com/project/badge/Grade/32d1b809494e4935967608f13f52004a)](https://app.codacy.com/manual/lionel-panhaleux/krcg?utm_source=github.com&utm_medium=referral&utm_content=lionel-panhaleux/krcg&utm_campaign=Badge_Grade_Dashboard)
 [![Python version](https://img.shields.io/badge/python-3.12+-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Code Quality](https://img.shields.io/badge/style-ruff-46aef7?logo=ruff&logoColor=white)](https://docs.astral.sh/ruff/)
 
 A Python package built to serve as an interface for
-the VEKN [official card texts](http://www.vekn.net/card-lists)
+the VEKN [official card texts](http://www.vekn.net/card-lists),
 and the [Tournament Winning Deck Archive (TWDA)](http://www.vekn.fr/decks/twd.htm).
 
 It also contains an ever-growing list of cards rulings, that is kept up to date
