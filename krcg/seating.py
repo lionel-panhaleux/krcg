@@ -132,7 +132,7 @@ class Round(list[list[Hashable]]):
 
 
 Measure = collections.namedtuple("Measure", ["position", "opponents"])
-Measure.__add__ = lambda lhs, rhs: Measure(lhs[0] + rhs[0], lhs[1] + rhs[1])  # type: ignore
+Measure.__add__ = lambda lhs, rhs: Measure(lhs[0] + rhs[0], lhs[1] + rhs[1])
 Measure.__radd__ = lambda rhs, lhs: rhs if lhs == 0 else rhs.__add__(lhs)  # type: ignore
 
 PlayerMapping = dict[Hashable, int]

@@ -30,25 +30,24 @@ class FuzzyDict[H: Hashable, T](MutableMapping[H, T]):
 
     def __init__(
         self,
-        *args: Any,
+        data: Mapping[H, T] | None = None,
+        *,
         threshold: int = 6,
         cutoff: float = 0.85,
         aliases: Mapping[Any, Any] | None = None,
-        **kwargs: Any,
     ) -> None:
         """Constructor.
 
         Args:
+            data: Optional initial mapping of keys to values.
             threshold: Minimum string length for fuzzy matching.
             cutoff: Minimum similarity to consider a close candidate a match.
             aliases: Optional mapping of alias keys to canonical keys.
-            *args: Additional mapping args passed to internal _dict.
-            **kwargs: Additional mapping kwargs passed to internal _dict.
         """
         self._threshold = threshold
         self._cutoff = cutoff
         self._aliases: dict[Hashable, H] = dict(aliases) if aliases else {}
-        self._dict: dict[H, T] = dict(*args, **kwargs)
+        self._dict: dict[H, T] = dict(data) if data else {}
 
     def _fuzzy_match(self, key: Hashable) -> H | None:
         """Use difflib to match incomplete or misspelled keys."""
@@ -110,17 +109,10 @@ class FuzzyDict[H: Hashable, T](MutableMapping[H, T]):
                 return self._dict[fuzzy_match]
             raise
 
-    def get(self, key: H, default: Any = None) -> Any:
-        """Get a key, or default."""
-        try:
-            return self[key]
-        except KeyError:
-            return default
-
     def __contains__(self, key: object) -> bool:
         """Check if a key is in the dict (does fuzzy match)."""
         try:
-            self.__getitem__(key)  # type: ignore
+            self.__getitem__(key)
             return True
         except KeyError:
             return False

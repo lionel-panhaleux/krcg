@@ -108,7 +108,7 @@ class VTES:
             return cls.load()
 
     def _setup(self) -> None:
-        for card in self._cards:
+        for card in self._cards.cards():
             self._search.add(card)
         with open(PICKLE_FILE, "wb") as f:
             pickle.dump(self, f)
@@ -131,7 +131,7 @@ class VTES:
 
     def __iter__(self) -> Generator[models.Card]:
         """Iterate over the cards in the database."""
-        return self._cards.__iter__()
+        return self._cards.cards()
 
     def get(
         self, key: int | str, default: models.Card | None = None

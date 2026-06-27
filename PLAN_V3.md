@@ -69,8 +69,10 @@ Consequence: **`twda.py` must stop building `TWDA` at import time.** Replace the
 - ✅ **`build_deck` kept** (per decision) as a single self-contained function with the build-session state as locals/closures (`refresh`/`build_part` nested), reusing the shared `_spoilers`/`_similar`/`_affinity` helpers. Faithful to v2 (similarity 0.6, crypt-then-library, average-count fill, periodic re-sample); v2's `cursor=0` first-refresh trick replaced by an explicit up-front `refresh` per part. Verified: `build_deck(..., Nana Buruku)` → 12-card crypt + 90-card library.
 - ✅ **README + `test_analyzer.py`** updated to the functional API (2019-slice numbers are unchanged by the port — same data, same math).
 
-### 4.B seating.py port
-- [ ] Imports clean and mypy-clean already, but **not verified to run** against the new `models.Deck`. Confirm end-to-end and restore `tests/test_seating.py`.
+### 4.B seating.py port — ✅ DONE (no code changes needed)
+- ✅ **No deck/card dependency** — the plan's "against the new `models.Deck`" was wrong: seating is self-contained (numpy + multiprocessing over player indices; no `models`/`vtes`/`twda` import). ty + ruff already clean.
+- ✅ **Verified end-to-end**: all 7 `tests/test_seating.py` pass (get_rounds, Round, measure/Measure, Score, optimise, optimise_table), and `archon_seating(12, 3)` runs the ProcessPoolExecutor path → 3 rounds × 3 tables, all 12 players seated.
+- ⚠️ **For 4.F**: the README seating examples call `seating.permutations(...)`, which is now `seating.get_rounds(...)` (v2→v3 rename) — fix in the README rewrite + note in offspring migration notes.
 
 ### 4.C Test migration (tests are NOT yet truth-bearing)
 - [ ] `conftest.py`: session-scoped `VTES` (via `load_local()`) and TWDA fixture. TWDA is now bundled (xz) → tests can use `twda.load_local()`; no network needed.
@@ -93,11 +95,13 @@ Consequence: **`twda.py` must stop building `TWDA` at import time.** Replace the
 ### 4.D follow-up (upstream, external)
 - [ ] **PR GiottoVerducci/TWD: `4R+F` → `3R+F` for deck `2015camb`** (event 8226, Campeonato Alagoano 2015). VEKN records "3 + Final" and the recorded scores are consistent with 3R+F — the `4R+F` in the TWD report is a typo. Until merged, the bundle faithfully re-serializes `4R+F`; after the next `just sync-cards` it becomes `3R+F`. Bundle with the planned TWD score-format PR.
 
-### 4.E Tooling & build
-- [ ] Reconcile type checker: dev deps mention **`ty`** but `just quality` runs `mypy krcg` (and `pyproject` has `[tool.mypy]`). Pick one; update `justfile` + config; `clean` references `.mypy_cache`.
-- [ ] Confirm `pytest-asyncio` config (explicit `@pytest.mark.asyncio`; no `asyncio_mode`).
-- [ ] **Packaging**: verify the wheel ships `krcg/cards/**` **including** the new `twda.json.xz` (decision changed — TWDA is bundled now); hatch uses `packages = ["krcg"]`. Confirm `twda.json.xz` (not a stray `twda.json`) is what's included.
-- [ ] `pydoclint` / `types-requests` removed — ensure nothing in CI/docs calls them.
+### 4.E Tooling & build — ✅ DONE
+- ✅ **Type checker → `ty`** (decision: switch off mypy). `justfile` + CI `validation.yml` now run `ty check krcg`; dropped `[tool.mypy]` and the `types-PyYAML` stub dep (ty vends its own typeshed); removed `.mypy_cache` from `just clean` + `.gitignore`. **Zero `ty: ignore`** — the 3 errors ty surfaced that mypy tolerated were fixed properly: `FuzzyDict.__init__` simplified (the unused `*args/**kwargs`→`dict()` passthrough that forced `H | str` keys → single `data: Mapping | None`), the redundant `FuzzyDict.get` override deleted (inherit `MutableMapping.get`, which also gives callers `Card | None` instead of `Any`), and `CardDict.__iter__`-yields-values turned into an explicit `.cards()` method (internal-only; the public `for c in VTES` still yields cards via `VTES.__iter__`). 2 now-stale mypy `# type: ignore` removed.
+- ✅ **`requires-python` → `>=3.12`** (per request; code is PEP 695 but no 3.13-only syntax — verified). Classifiers now 3.12/3.13/3.14; **CI matrix fixed** `3.10–3.13` → `3.12–3.14` (the old matrix could never pass: PEP 695 needs ≥3.12).
+- ✅ **pytest-asyncio**: all 4 async tests already carry `@pytest.mark.asyncio`; no async fixtures so no `loop_scope` warning. Added explicit `asyncio_mode = "strict"` for clarity/future-proofing.
+- ✅ **Packaging verified**: built wheel ships all 15 `krcg/cards/**` files **including `twda.json.xz`** (no stray uncompressed `twda.json`); `Requires-Python: >=3.12`; `setuptools` dropped from runtime deps (nothing imports it / `pkg_resources`; numpy stays — used by seating).
+- ✅ **`pydoclint` / `types-requests`**: types-requests already gone (no `requests` import); removed the stale `pydoclint`/`mypy` mentions from README + CLAUDE.md.
+- Regression check: full suite is 40 failed / 11 passed / 2 errors **identical** with and without these changes — the CardDict/FuzzyDict refactor added zero regressions (all failures are pre-existing 4.C test debt).
 
 ### 4.F Docs
 - [ ] Rewrite README for the new API (explicit loaders, async, `providers`, no module singleton, `VTES.parse`/`to_twd`).
