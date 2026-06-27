@@ -20,6 +20,14 @@ logger = logging.getLogger("krcg")
 DecksArchive = dict[str, models.Deck]
 
 
+def _mark_winners(archive: DecksArchive) -> DecksArchive:
+    """Flag every scored deck as a tournament win (the WD in TWDA)."""
+    for deck in archive.values():
+        if deck.score:
+            deck.score.win = True
+    return archive
+
+
 def load() -> DecksArchive:
     """Load the TWDA, fast and offline (the bundled snapshot).
 
@@ -32,7 +40,8 @@ def load_local() -> DecksArchive:
     """Load the TWDA from the bundled (compressed) snapshot."""
     path = importlib.resources.files("krcg.cards").joinpath("twda.json.xz")
     with path.open("rb") as f:
-        return msgspec.json.decode(lzma.decompress(f.read()), type=DecksArchive)
+        archive = msgspec.json.decode(lzma.decompress(f.read()), type=DecksArchive)
+    return _mark_winners(archive)
 
 
 async def load_online(session: aiohttp.ClientSession) -> DecksArchive:

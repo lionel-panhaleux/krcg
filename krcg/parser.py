@@ -706,7 +706,13 @@ class Parser:
         return False
 
     def parse_score(self, index: int, line: str) -> models.Score:
-        """Parse a line of text for a score."""
+        """Parse a line of text for a score.
+
+        Parenthesised seeding/table notes (e.g. "(2nd seed)") are dropped so they
+        don't hide the "+ N in final" part; a trailing "!" is read as the win.
+        """
+        line = re.sub(r"\s*\([^)]*\b(?:seed|players?)\b[^)]*\)", "", line, flags=re.I)
+        win = "!" in line
         score = re.match(
             r"(\s*-?-?\s*(?P<game_wins>\d)\s*gw\s*"
             r"(?P<round_vps>\d+(\.|,)?\d?)\s*(vp)?\s*)?"
@@ -727,6 +733,7 @@ class Parser:
             round_gw=int(game_wins) if game_wins else 0,
             round_vp=float(round_vps) if round_vps else 0.0,
             finals_vp=float(finals_vps) if finals_vps else 0.0,
+            win=win,
         )
 
     def get_card(self, line: str) -> models.CardInDeck | None:
