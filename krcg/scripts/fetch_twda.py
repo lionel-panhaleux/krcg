@@ -18,7 +18,6 @@ from krcg import vtes
 
 def fetch_twda(path: pathlib.Path, cards: vtes.VTES) -> None:
     """Fetch the TWDA deck files from GitHub."""
-    # Download the entire repository (master branch head) as ZIP
     zip_url = "https://github.com/GiottoVerducci/TWD/archive/refs/heads/master.zip"
 
     with urllib.request.urlopen(zip_url) as response:
@@ -26,7 +25,6 @@ def fetch_twda(path: pathlib.Path, cards: vtes.VTES) -> None:
 
     twd = dict[str, models.Deck]()
     with zipfile.ZipFile(io.BytesIO(zip_data)) as zip_file:
-        # Extract only the decks folder
         for file_info in zip_file.namelist():
             if file_info.startswith("TWD-master/decks/") and not file_info.endswith(
                 "/"

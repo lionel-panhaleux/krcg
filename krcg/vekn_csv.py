@@ -361,7 +361,6 @@ def prints_from_vekn(
             )
             for expansion, occurences in prints.items()
         ],
-        # dateless prints (e.g. POD with no rarity) sort last so real prints lead
         key=lambda p: (
             (
                 sets[p.set.id].release_date

@@ -26,7 +26,6 @@ class CardDict(utils.FuzzyDict[int | str, models.Card]):
         super().__init__()
         if not cards:
             return
-        # index with name, variants and translations
         for card in cards.values():
             self.add(card)
 
@@ -401,7 +400,6 @@ def _get_sects(card: models.Card) -> list[models.Sect]:
 def _get_bonus(card: models.Card) -> list[models.Bonus]:
     """Bonuses a card provides."""
     ret = set[models.Bonus]()
-    # Stealth & intercept
     if re.search(r"\+(\d|X)\s+(i|I)ntercept", card.text):
         ret.add(models.Bonus.INTERCEPT)
     # do not include stealthed actions as stealth cards
@@ -423,7 +421,6 @@ def _get_bonus(card: models.Card) -> list[models.Bonus]:
     # list block denials as stealth
     if re.search(r"attempt fails", card.text):
         ret.add(models.Bonus.STEALTH)
-    # votes
     elif re.search(r"(\+|-)(\d|X) votes?", card.text):
         ret.add(models.Bonus.VOTES)
     elif re.search(r"abstain", card.text):
@@ -432,24 +429,18 @@ def _get_bonus(card: models.Card) -> list[models.Bonus]:
         ret.add(models.Bonus.VOTES)
     elif card.id in {100406}:
         ret.add(models.Bonus.VOTES)
-    # torpor
     if re.search(r"rescu", card.text.lower()):
         ret.add(models.Bonus.TORPOR)
     if re.search(r"leaves? torpor", card.text.lower()):
         ret.add(models.Bonus.TORPOR)
-    # capacity
     if re.search(r"\+(\d|X)\s+(c|C)apacity", card.text):
         ret.add(models.Bonus.CAPACITY)
-    # strength
     if re.search(r"\+(\d|X)\s+(s|S)trength", card.text):
         ret.add(models.Bonus.STRENGTH)
-    # bleed
     if re.search(r"\+(\d|X)\s+(b|B)leed", card.text):
         ret.add(models.Bonus.BLEED)
-    # hunt
     if re.search(r"\+(\d|X)\s+(h|H)unt", card.text):
         ret.add(models.Bonus.HUNT)
-    # trifle
     if isinstance(card, models.LibraryCard) and card.trifle:
         ret.add(models.Bonus.TRIFLE)
     return sorted(ret)

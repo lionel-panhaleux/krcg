@@ -231,7 +231,6 @@ _TITLE = "|".join(
         "votes",
     ]
 )
-# Sabbat path, shown by its first word in crypt listings
 _PATH = "|".join(
     [
         "caine",
@@ -935,7 +934,6 @@ class Parser:
         if comment and not self.current_comment:
             self.current_comment = Comment(card=card, mark=mark)
         # append the parsed comment, even if it is a blank line
-        # (after the step above, a truthy comment guarantees a current_comment)
         if self.current_comment is not None:
             self.current_comment += comment
         # do nothing on a blank line if we don't have a current comment

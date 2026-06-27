@@ -39,10 +39,9 @@ class Trie[H: Hashable](collections.defaultdict[str, dict[H, int]]):
 
     def __reduce_ex__(self, protocol: SupportsIndex) -> tuple[Any, ...]:
         """Custom pickle support to avoid issues with defaultdict."""
-        # Return a tuple: (callable, args) where callable(*args) recreates the object
         return (
             self.__class__,
-            (dict(self),),  # Pass the dict data as a single argument
+            (dict(self),),
             None,
             None,
             None,

@@ -135,7 +135,6 @@ def to_txt(deck: models.Deck) -> str:
         c.count for c in deck.cards if c.kind == models.Card.Kind.LIBRARY
     )
     lines.append(f"\nLibrary ({library_count} cards)")
-    # form a section for each type with a header displaying the total
     for i, (type_, cards_) in enumerate(sorted_library(deck)):
         cr = "\n" if i > 0 else ""
         lines.append(f"{cr}{type_} ({sum(c.count for c in cards_)})")
