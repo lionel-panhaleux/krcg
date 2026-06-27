@@ -72,7 +72,7 @@ Consequence: **`twda.py` must stop building `TWDA` at import time.** Replace the
 ### 4.B seating.py port — ✅ DONE (no code changes needed)
 - ✅ **No deck/card dependency** — the plan's "against the new `models.Deck`" was wrong: seating is self-contained (numpy + multiprocessing over player indices; no `models`/`vtes`/`twda` import). ty + ruff already clean.
 - ✅ **Verified end-to-end**: all 7 `tests/test_seating.py` pass (get_rounds, Round, measure/Measure, Score, optimise, optimise_table), and `archon_seating(12, 3)` runs the ProcessPoolExecutor path → 3 rounds × 3 tables, all 12 players seated.
-- ⚠️ **For 4.F**: the README seating examples call `seating.permutations(...)`, which is now `seating.get_rounds(...)` (v2→v3 rename) — fix in the README rewrite + note in offspring migration notes.
+- ✅ **Done in 4.F**: README seating examples now use `seating.get_rounds(...)` (was `permutations`); the rename is also called out in the offspring migration section.
 
 ### 4.C Test migration — ✅ DONE (suite now truth-bearing; `just quality` fully green; 47 passed)
 - ✅ **`conftest.py`**: session-scoped `VTES` (`load_local()`) + `TWDA` (`twda.load_local()`) fixtures; offline-skip trimmed to the genuinely internet-dependent tests (static-server load, external deck providers) — i18n and the old `test_states` now run offline (translations/rulings load from the bundle).
@@ -85,7 +85,7 @@ Consequence: **`twda.py` must stop building `TWDA` at import time.** Replace the
 - ✅ **`test_states.py`**: now a ruling test — core `test_ruling_structure` (references/symbols parse) + baseline ruling-card snapshots (`tests/snapshots/`).
 - ✅ **`test_cards.py`**: `test_card_variants` marked baseline (translation-dependent), uses the `VTES` fixture; dropped debug-print cruft.
 - ✅ `test_analyzer.py`: ported with 4.A.
-- ⚠️ **Follow-up**: re-add the `"Mask of 1000 Faces"` shorthand to `config.ALIASES` (dropped from v2; players use it in TWDA lists) — data/config, not test scope.
+- ✅ **Follow-up done**: re-added `"Mask of 1000 Faces"` to `vekn_csv.ALIASES` (not `config.ALIASES` — that module is gone in V3) with its parser-test assertion restored (commit `687b69e`).
 
 ### 4.D Latent bugs & robustness follow-ups — ✅ DONE
 - ✅ **`Translation.url`** — added `url: str = ""` to `models.Translation` (per-language card URL); removed the `# type: ignore[attr-defined]` in `vekn_csv.py`.

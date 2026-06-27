@@ -8,10 +8,8 @@
 
 A Python package built to serve as an interface for
 the VEKN [official card texts](http://www.vekn.net/card-lists),
-and the [Tournament Winning Deck Archive (TWDA)](http://www.vekn.fr/decks/twd.htm).
-
-It also contains an ever-growing list of cards rulings, that is kept up to date
-thanks to the hard work of our contributors.
+the [Tournament Winning Deck Archive (TWDA)](http://www.vekn.fr/decks/twd.htm),
+and the [cards rulings database](https://github.com/vtes-biased/vtes-rulings).
 
 Portions of the materials are the copyrights and trademarks of Paradox Interactive AB,
 and are used with permission. All rights reserved.
@@ -19,8 +17,8 @@ For more information please visit [white-wolf.com](http://www.white-wolf.com).
 
 ![Dark Pack](https://raw.githubusercontent.com/lionel-panhaleux/krcg/main/dark-pack.png)
 
-> **Upgrading from 4.x?** 5.0 is a ground-up rewrite with a new, handle-based
-> API (no module-level singletons). See [Migrating from 4.x](#migrating-from-4x).
+> **Upgrading from 4.x?** 5.0 is a ground-up rewrite with a new API.
+> See [Migrating from 4.x](#migrating-from-4x).
 
 ## Offspring projects
 
@@ -41,9 +39,6 @@ The KRCG library has been used in multiple _offspring_ projects:
     that provides official card text and rulings for free.
     It is [available for free](https://discordapp.com/oauth2/authorize?client_id=703921850270613505&scope=bot).
 
-Rulings have been outsourced to a separated, community-maintained project:
-[`vtes-rulings`](https://github.com/vtes-biased/vtes-rulings)
-
 ## Installation
 
 [Python 3](https://www.python.org/downloads/) (>=3.12) is required.
@@ -56,19 +51,18 @@ pip install krcg
 
 ## Using the library
 
-KRCG is a Python library for VTES. There are no global singletons: you **load**
-the cards (and, optionally, the deck archive) and hold the returned handle. The
-code is well-documented and can be explored with Python's built-in `help`.
+KRCG is a Python library for VTES.
+The code is well-documented and can be explored with Python's built-in `help`.
 
 ### Loading the cards
 
 `krcg.load()` returns a `CardDict` — the cards library. There are three loaders:
 
-| Function                      | Source                                        | Sync/async |
-| ----------------------------- | --------------------------------------------- | ---------- |
-| `krcg.load()`                 | version-keyed cache, else the packaged data   | sync       |
-| `krcg.load_local()`           | always the packaged data (fully offline)      | sync       |
-| `krcg.load_online(session)`   | the pre-built JSON on [static.krcg.org][s]    | async      |
+| Function                    | Source                                      | Mode  |
+| --------------------------- | ------------------------------------------- | ----- |
+| `krcg.load()`               | version-keyed cache, else the packaged data | sync  |
+| `krcg.load_local()`         | always the packaged data (fast and offline) | sync  |
+| `krcg.load_online(session)` | the up-to-date JSON on [static.krcg.org][s] | async |
 
 [s]: https://static.krcg.org
 
@@ -85,8 +79,9 @@ True
 
 The packaged snapshot ships with the wheel, so `load_local()` works offline (no
 environment variable needed); translations and rulings are included. Online
-tools should prefer `load_online`, which is async and needs an
-[`aiohttp`](https://docs.aiohttp.org) session:
+tools should prefer `load_online`, which is more frequently updated.
+
+Online loads are async and need an [`aiohttp`](https://docs.aiohttp.org) session:
 
 ```python
 >>> import aiohttp, asyncio
@@ -121,10 +116,10 @@ tools should prefer `load_online`, which is async and needs an
 ['ABO', 'ANI', 'AUS', 'CEL', 'CHI']
 ```
 
-Within a dimension, multiple values are OR'd (except `trait` / `discipline` /
-`bonus`, which intersect); chain calls and combine the result lists for finer
-control. Text dimensions (`name`, `card_text`, `flavor_text`) do prefix search
-and accept a `lang` (English plus French/Spanish where translated).
+Within a dimension, multiple values are OR'd, except `trait` / `discipline` /
+`bonus`, which intersect. Chain calls and combine the result lists for ANDs.
+Text dimensions (`name`, `card_text`, `flavor_text`) do prefix search
+and accept a `lang` (English, plus French/Spanish translations).
 
 ### TWDA and decks
 
@@ -143,14 +138,13 @@ by deck id (`load()` / `load_local()` / `load_online(session)`):
 ('EC 2019 - Day 2', datetime.date(2019, 8, 18), 50)
 ```
 
-A `Deck` is a dataclass: its `cards` is a `list[CardInDeck]` (filter by
-`card.kind`), plus metadata (`name`, `author`, `player`, `comment`, `event`,
-`score`). Serialize it with `krcg.providers` — `serialize_twd` renders the full
-TWD format and needs the cards handle; the others don't:
+A `Deck` is a dataclass: its `cards` is a `list[CardInDeck]` (filter by `card.kind`),
+plus metadata (`name`, `author`, `player`, `comment`, `event`, `score`).
+Serialize it with `krcg.providers` - `serialize_twd` renders the full
+TWD format and needs the cards handle, the others don't:
 
 ```python
->>> from krcg import providers
->>> from krcg.models import Card
+>>> from krcg import providers, Card
 >>> sum(c.count for c in deck.cards if c.kind == Card.Kind.CRYPT)
 12
 >>> sum(c.count for c in deck.cards if c.kind == Card.Kind.LIBRARY)
@@ -174,11 +168,8 @@ Crypt (12 cards, min=4, max=38, avg=5.75)
 'Finnish Politics'
 ```
 
-For full JSON, encode the dataclass directly with `msgspec` (used internally, not
-imposed on you): `msgspec.json.encode(deck)`.
-
-Parse a decklist from any text source with `krcg.parser.deck_from_txt` (pass
-`twda=True` for the positional TWDA tournament headers):
+Parse a decklist from any text source with `krcg.parser.deck_from_txt`.
+Pass `twda=True` for the positional TWDA tournament headers:
 
 ```python
 >>> from krcg import parser
@@ -207,14 +198,16 @@ Parse a decklist from any text source with `krcg.parser.deck_from_txt` (pass
 >>> # a file object works too: parser.deck_from_txt(open("deck.txt"), cards)
 ```
 
-Fetch a deck from a supported site (Amaranth, VDB, VTESDecks) with
-`providers.fetch` (async):
+Fetch a deck from a supported site (Amaranth, VDB, VTESDecks)
+with `providers.fetch` (async):
 
 ```python
 >>> async def grab(url):
 ...     async with aiohttp.ClientSession() as session:
 ...         return await providers.fetch(session, url, cards)
->>> deck = asyncio.run(grab("https://amaranth.vtes.co.nz/deck/4d3aa426-70da-44b7-8cb7-92377a1a0dbd"))
+>>> deck = asyncio.run(
+...     grab("https://amaranth.vtes.co.nz/deck/4d3aa426-70da-44b7-8cb7-92377a1a0dbd")
+... )
 >>> deck.name
 'First Blood: Tremere'
 ```
@@ -269,6 +262,16 @@ VEKN criteria. Build the base rounds for your players, then optimise:
 >>> help(seating.Score)   # the full Score structure (R1..R9, deviations, totals)
 ```
 
+## Online / Offline usage
+
+The online async loaders are designed for user-facing online tools.
+The [static.krcg.org](https://static.krcg.org) data source is refreshed daily from
+VEKN official repositories, so using online loaders combined with a daily reload
+ensures continued refresh of the data.
+
+The offline loaders can be preferred for simple tools, scripts, or offline work.
+The packaged data is refreshed less frequently, only upon major VTES expansion releases.
+
 ## Migrating from 4.x
 
 5.0 is a hard break. The headline changes:
@@ -303,8 +306,8 @@ See the [CHANGELOG](CHANGELOG.rst) for the full list.
 
 ## Development
 
-This project uses [uv](https://github.com/astral-sh/uv) for dependency management and packaging, with
-`just` recipes for common tasks.
+This project uses [uv](https://github.com/astral-sh/uv) for dependency management and packaging,
+with [just](https://github.com/casey/just) recipes for common tasks.
 
 ### Setup
 
@@ -339,6 +342,11 @@ Publishing uses `uv publish` and reads the token from a `.pypi_token` file at th
 Feel free to submit pull requests, they will be merged as long as they pass the tests.
 Do not hesitate to submit issues or vote on them if you want a feature implemented.
 
+### AI agents contributions
+
+This repo includes a simple default AGENTS.md / CLAUDE.md harness.
+Make sure your AI agents use it when doing pull requests against this repo.
+
 ### Design considerations
 
 The package uses no database by design.
@@ -353,5 +361,4 @@ new data sets as soon as they're available.
 
 Rulings are sourced from the community-maintained repository
 [`vtes-biased/vtes-rulings`](https://github.com/vtes-biased/vtes-rulings).
-Please submit changes there. This library consumes those YAML files directly
-(a current copy is synced upon each release under the `cards/` package).
+Please submit changes there. This library consumes those YAML files directly.
