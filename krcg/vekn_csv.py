@@ -1,4 +1,4 @@
-"""VEKN CSV parser."""
+"""Build cards and sets from the packaged VEKN CSV files."""
 
 from collections.abc import Generator
 import csv
@@ -94,7 +94,7 @@ DictofSets = dict[int | str, models.Set]
 
 
 def from_files() -> tuple[DictOfCards, DictofSets]:
-    """Load cards from local CSV files."""
+    """Build cards and sets from the packaged VEKN CSVs; returns (cards, sets)."""
     cards = DictOfCards()
     sets = dict[int | str, models.Set]()
     sets["Promo"] = models.Set(

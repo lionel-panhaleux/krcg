@@ -44,9 +44,10 @@ def deck_from_txt(
     id: str = "",
     twda: bool = False,
 ) -> models.Deck:
-    """Parse a deck list and return a Deck instance.
+    """Parse a decklist (an iterable of lines) into a Deck.
 
-    Use setup_parser_logging() first to get line# logging.
+    Set twda=True to also read the positional TWDA tournament headers.
+    Call setup_parser_logging() first for line-numbered logs.
     """
     return Parser(cards, twda=twda, id=id).parse(source)
 
