@@ -3,11 +3,11 @@
 [![PyPI version](https://badge.fury.io/py/krcg.svg)](https://badge.fury.io/py/krcg)
 [![Validation](https://github.com/lionel-panhaleux/krcg/actions/workflows/validation.yml/badge.svg)](https://github.com/lionel-panhaleux/krcg/actions/workflows/validation.yml)
 [![Coverage](https://api.codacy.com/project/badge/Grade/32d1b809494e4935967608f13f52004a)](https://app.codacy.com/manual/lionel-panhaleux/krcg?utm_source=github.com&utm_medium=referral&utm_content=lionel-panhaleux/krcg&utm_campaign=Badge_Grade_Dashboard)
-[![Python version](https://img.shields.io/badge/python-3.10+-blue)](https://www.python.org/downloads/)
+[![Python version](https://img.shields.io/badge/python-3.12+-blue)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Code Quality](https://img.shields.io/badge/style-ruff-46aef7?logo=ruff&logoColor=white)](https://docs.astral.sh/ruff/)
 
-A Python package build to serve as an interface for
+A Python package built to serve as an interface for
 the VEKN [official card texts](http://www.vekn.net/card-lists)
 and the [Tournament Winning Deck Archive (TWDA)](http://www.vekn.fr/decks/twd.htm).
 
@@ -20,9 +20,12 @@ For more information please visit [white-wolf.com](http://www.white-wolf.com).
 
 ![Dark Pack](https://raw.githubusercontent.com/lionel-panhaleux/krcg/main/dark-pack.png)
 
+> **Upgrading from 4.x?** 5.0 is a ground-up rewrite with a new, handle-based
+> API (no module-level singletons). See [Migrating from 4.x](#migrating-from-4x).
+
 ## Offspring projects
 
-The KRCG library has been used in multiple _offpsring_ projects:
+The KRCG library has been used in multiple _offspring_ projects:
 
 -   [krcg-cli](https://github.com/lionel-panhaleux/krcg-cli) is a convenient
     Command Line Interface over the library
@@ -44,7 +47,7 @@ Rulings have been outsourced to a separated, community-maintained project:
 
 ## Installation
 
-[Python 3](https://www.python.org/downloads/) (>=3.10) is required.
+[Python 3](https://www.python.org/downloads/) (>=3.12) is required.
 
 Use pip to install the `krcg` tool:
 
@@ -54,349 +57,250 @@ pip install krcg
 
 ## Using the library
 
-KRCG is a Python library for VTES.
-The code is well-documented and can be explored using Python's built-in `help` function.
+KRCG is a Python library for VTES. There are no global singletons: you **load**
+the cards (and, optionally, the deck archive) and hold the returned handle. The
+code is well-documented and can be explored with Python's built-in `help`.
 
-Here are a few quickstart examples to showcase how the library can be used:
+### Loading the cards
 
-### VTES
+`krcg.load()` returns a `CardDict` — the cards library. There are three loaders:
 
-`krcg.vtes.VTES` is the cards library. Load it with `VTES.load()`.
-This pulls data from the [KRCG static](https://static.krcg.org) server, where
-it's already published in JSON.
+| Function                      | Source                                        | Sync/async |
+| ----------------------------- | --------------------------------------------- | ---------- |
+| `krcg.load()`                 | version-keyed cache, else the packaged data   | sync       |
+| `krcg.load_local()`           | always the packaged data (fully offline)      | sync       |
+| `krcg.load_online(session)`   | the pre-built JSON on [static.krcg.org][s]    | async      |
 
-Alternatively, use `VTES.load_from_vekn()` to load directly from the official
-[VEKN CSV files](https://www.vekn.net/card-lists). This is slower and mainly
-used for generating the static JSON.
-
-Then you can access cards, complete card names, or search.
+[s]: https://static.krcg.org
 
 ```python
->>> from krcg.vtes import VTES
->>> VTES.load()
->>> VTES["Alastor"].name
+>>> import krcg
+>>> cards = krcg.load()
+>>> cards["Alastor"].full_name
 'Alastor'
->>> VTES["Alastor"].url
+>>> cards["Alastor"].url
 'https://static.krcg.org/card/alastor.jpg'
->>> VTES.complete("pentex")
-['Pentex™ Loves You!',
- 'Pentex™ Subversion',
- 'Enzo Giovanni, Pentex Board of Directors',
- 'Enzo Giovanni, Pentex Board of Directors (ADV)',
- 'Harold Zettler, Pentex Director']
- >>> VTES.search(type=["political action"], sect=["anarch"], artist=["Drew Tucker"])
-{<#100790 Free States Rant>}
->>> VTES.search(precon=["Fifth Edition: Nosferatu"])
-{<#201534 Aunt Linda>,
- <#201536 Baixinho>,
- <#201537 Belinde>,
- <#100301 Carrion Crows>,
- <#100308 Cats' Guidance>,
- <#102213 Creeping Sabotage>,
- <#100515 Deep Song>,
- <#100698 Fame>,
- <#100863 Guard Dogs>,
- <#100866 Guardian Angel>,
- <#100897 Haven Uncovered>,
- <#201549 Horace Radcliffe>,
- <#100959 Immortal Grapple>,
- <#100995 Instinctive Reaction>,
- <#201553 Larissa Moreira>,
- <#201555 Lenny Burkhead>,
- <#101125 Lost in Crowds>,
- <#101254 Murder of Crows>,
- <#101321 On the Qui Vive>,
- <#101483 Preternatural Strength>,
- <#102214 Protected District>,
- <#101550 Raven Spy>,
- <#101564 Rebel>,
- <#102215 Roundhouse>,
- <#201568 Ryan>,
- <#101808 Slum Hunting Ground>,
- <#101811 Smiling Jack, The Anarch>,
- <#101945 Taste of Vitae>,
- <#201545 The Dowager>,
- <#101070 The Labyrinth>,
- <#102216 The Warrens>,
- <#102065 Underbridge Stray>,
- <#102113 Vessel>,
- <#102149 Warsaw Station>,
- <#201573 Wauneka>}
- >>> VTES.search(set=["Sword of Caine"], rarity=["Rare"])
-{<#100167 Black Hand Emissary>,
- <#100314 Census Taker>,
- <#100360 Cloak of Blood>,
- <#100589 Drink the Blood of Ahriman>,
- <#100590 Drop Point Network>,
- <#100655 Epiphany>,
- <#100757 Follow the Blood>,
- <#100787 Framing an Ancient Grudge>,
- <#100865 Guarded Rubrics>,
- <#101024 Joseph Pander>,
- <#101111 Liquefy the Mortal Coil>,
- <#101161 Mantle of the Bestial Majesty>,
- <#101446 Praetorian Backer>,
- <#101489 Prison of the Mind>,
- <#101658 Ruins of Ceoris>,
- <#101724 Seraph's Second>,
- <#102057 The Uncoiling>,
- <#102022 Tribunal Judgment>,
- <#102027 Trophy: Chosen>,
- <#102158 Watchtower: The Wolves Feed>}
+>>> cards[100038] is cards["Alastor"]      # look up by id or by any name variant
+True
 ```
 
-### Offline mode (LOCAL_CARDS=1)
-
-You can use the library fully offline for cards and rulings by leveraging the
-packaged CSV/YAML data.
-
-- Set the environment variable `LOCAL_CARDS=1`.
-- Load cards with `VTES.load_from_vekn()` (not `VTES.load()`).
-- Cards and rulings will be loaded from the packaged YAML automatically.
-
-Notes:
-
-- The PyPI package includes a snapshot of CSV/YAML files at release time. For
-  development from source, run `just sync-cards` to refresh them before packaging.
-- Translations from VEKN are skipped in offline mode; only English text is
-  available.
-- TWDA still requires a local source: use a previously saved JSON via
-  `TWDA.from_json(...)` or parse a downloaded `TWDA.html` with
-  `TWDA.load_html(open("TWDA.html", encoding="utf-8"))`.
-- Network-dependent helpers like `Deck.from_amaranth`, `Deck.from_vdb`,
-  and `Deck.from_vtesdecks` are not available offline.
-
-Example:
+The packaged snapshot ships with the wheel, so `load_local()` works offline (no
+environment variable needed); translations and rulings are included. Online
+tools should prefer `load_online`, which is async and needs an
+[`aiohttp`](https://docs.aiohttp.org) session:
 
 ```python
->>> import os
->>> os.environ["LOCAL_CARDS"] = "1"
->>> from krcg.vtes import VTES
->>> VTES.load_from_vekn()
->>> VTES["Villein"].name
-'Villein'
+>>> import aiohttp, asyncio
+>>> async def fetch_cards():
+...     async with aiohttp.ClientSession() as session:
+...         return await krcg.load_online(session)
+>>> cards = asyncio.run(fetch_cards())
 ```
 
-### TWDA, Analyzer and Deck
+### Completion and search
 
-`krcg.twda.TWDA` interfaces the TWDA. Load it with `TWDA.load()` (from KRCG static).
-`TWDA.load_from_vekn()` loads directly from VEKN and is considerably slower.
-
-Once loaded, it can be used to browse the decks in it.
+`CardDict` owns the name-completion and search index:
 
 ```python
->>> from krcg.twda import TWDA
->>> TWDA.load()
->>> TWDA["2019ecday2pf"]
-<Deck #2019ecday2pf: Finnish Politics>
->>> print(TWDA["2019ecday2pf"].to_txt())
+>>> [c.full_name for c in cards.complete("pentex")]
+['Pentex™ Subversion',
+ 'Pentex™ Loves You!',
+ 'Enzo Giovanni, Pentex Board of Directors (G2)',
+ 'Enzo Giovanni, Pentex Board of Directors (G2 ADV)',
+ 'Harold Zettler, Pentex Director (G4)']
+>>> # search takes keyword dimensions, each a list of values; returns a list of cards
+>>> cards.search(type=["Political Action"], sect=["Anarch"], artist=["Drew Tucker"])
+[100790|Free States Rant]
+>>> cards.search(clan=["Banu Haqim"], title=["Justicar"])
+[201598|Kasim Bayar, 201353|Tegyrius, Vizier (G2 ADV)]
+>>> # the available dimensions and their possible values
+>>> sorted(cards.search_dimensions)
+['artist', 'bonus', 'capacity', 'city', 'clan', 'discipline', 'group', 'kind',
+ 'path', 'precon', 'rarity', 'sect', 'set', 'title', 'trait', 'type']
+>>> # values may include None (cards with no value in that dimension)
+>>> [d for d in cards.search_dimensions["discipline"] if d][:5]
+['ABO', 'ANI', 'AUS', 'CEL', 'CHI']
+```
+
+Within a dimension, multiple values are OR'd (except `trait` / `discipline` /
+`bonus`, which intersect); chain calls and combine the result lists for finer
+control. Text dimensions (`name`, `card_text`, `flavor_text`) do prefix search
+and accept a `lang` (English plus French/Spanish where translated).
+
+### TWDA and decks
+
+`krcg.twda` mirrors the cards loaders and returns a plain `dict[str, Deck]` keyed
+by deck id (`load()` / `load_local()` / `load_online(session)`):
+
+```python
+>>> from krcg import twda
+>>> decks = twda.load()
+>>> len(decks)
+4538
+>>> deck = decks["2019ecday2pf"]
+>>> deck.name, deck.player
+('Finnish Politics', 'Otso Saariluoma')
+>>> deck.event.name, deck.event.date, deck.event.players_count
+('EC 2019 - Day 2', datetime.date(2019, 8, 18), 50)
+```
+
+A `Deck` is a dataclass: its `cards` is a `list[CardInDeck]` (filter by
+`card.kind`), plus metadata (`name`, `author`, `player`, `comment`, `event`,
+`score`). Serialize it with `krcg.providers` — `serialize_twd` renders the full
+TWD format and needs the cards handle; the others don't:
+
+```python
+>>> from krcg import providers
+>>> from krcg.models import Card
+>>> sum(c.count for c in deck.cards if c.kind == Card.Kind.CRYPT)
+12
+>>> sum(c.count for c in deck.cards if c.kind == Card.Kind.LIBRARY)
+65
+>>> print(providers.serialize_twd(deck, cards))
 EC 2019 - Day 2
 Paris, France
 August 18th 2019
 3R+F
 50 players
 Otso Saariluoma
+https://www.vekn.net/event-calendar/event/9327
 
--- 2GW3+1
+-- 2GW8.5+1.5!
 
 Deck Name: Finnish Politics
 
 Crypt (12 cards, min=4, max=38, avg=5.75)
------------------------------------------
-4x Anarch Convert     1 -none-                     Caitiff:ANY
-3x Nana Buruku        8 ANI POT PRE                Guruhi:4
-2x Nangila Were       9 ANI POT PRE obf ser        Guruhi:4
-1x Enkidu, The Noah  11 ANI CEL OBF POT PRO for    Gangrel antitribu:4
-1x Black Annis        9 OBF POT ani pro            Nosferatu antitribu:4
-1x Andre LeRoux       3 aus                        Toreador:5
-
-Library (65 cards)
-Master (26; 6 trifle)
-4x Anarch Revolt
-1x Archon Investigation
-6x Ashur Tablets
-1x Dreams of the Sphinx
-1x Fame
-1x Giant's Blood
-1x Information Highway
-1x Mbare Market, Harare
-2x Pentex(TM) Subversion
-1x Powerbase: Luanda
-1x Powerbase: Montreal
-5x Villein
-1x Wider View
-
-Action (5)
-3x Deep Song
-1x Entrancement
-1x Well-Marked
-
-Retainer (1)
-1x Mr. Winthrop
-
-Reaction (6)
-1x Cats' Guidance
-1x Delaying Tactics
-2x On the Qui Vive
-2x Sense the Savage Way
-
-Combat (26)
-1x Canine Horde
-5x Carrion Crows
-1x Glancing Blow
-5x Immortal Grapple
-1x Mighty Grapple
-1x Slam
-1x Stunt Cycle
-4x Taste of Vitae
-2x Thrown Sewer Lid
-4x Torn Signpost
-1x Undead Strength
-
-Event (1)
-1x Dragonbound
-
->>> from datetime import date
->>> len([d for d in TWDA.values() if date(2019, 1, 1) < d.date < date(2020, 1, 1) and d.players_count >= 25])
-27
+...
+>>> providers.serialize_json_minimal(deck)["name"]      # also: serialize_txt/vdb/lackey/jol
+'Finnish Politics'
 ```
 
-The `krcg.analyzer` provides statistics and card affinity over any collection of
-decks — the whole TWDA, a fragment of it, or your own decks. Cards are resolved
-through a loaded `VTES`, so results are keyed by card:
+For full JSON, encode the dataclass directly with `msgspec` (used internally, not
+imposed on you): `msgspec.json.encode(deck)`.
+
+Parse a decklist from any text source with `krcg.parser.deck_from_txt` (pass
+`twda=True` for the positional TWDA tournament headers):
+
+```python
+>>> from krcg import parser
+>>> decklist = """\
+... Deck Name: First Blood: Nosferatu
+...
+... Crypt (12 cards)
+... 2x Gustaphe Brunnelle
+... 2x Harold Tanner
+... 2x Jeremy "Wix" Wyzchovsky
+... 2x Petra
+... 2x Beetleman
+... 2x Benjamin Rose
+...
+... Library (12 cards)
+... 2x Fame
+... 2x Animalism
+... 6x Aid from Bats
+... 2x Cloak the Gathering
+... """
+>>> deck = parser.deck_from_txt(decklist.splitlines(), cards)
+>>> deck.name
+'First Blood: Nosferatu'
+>>> sum(c.count for c in deck.cards if c.kind == Card.Kind.LIBRARY)
+12
+>>> # a file object works too: parser.deck_from_txt(open("deck.txt"), cards)
+```
+
+Fetch a deck from a supported site (Amaranth, VDB, VTESDecks) with
+`providers.fetch` (async):
+
+```python
+>>> async def grab(url):
+...     async with aiohttp.ClientSession() as session:
+...         return await providers.fetch(session, url, cards)
+>>> deck = asyncio.run(grab("https://amaranth.vtes.co.nz/deck/4d3aa426-70da-44b7-8cb7-92377a1a0dbd"))
+>>> deck.name
+'First Blood: Tremere'
+```
+
+### Analyzer
+
+`krcg.analyzer` provides statistics and card affinity over **any** collection of
+decks — the whole TWDA, a slice of it, or your own decks. Each function takes the
+cards handle to resolve cards, so results are keyed by `Card`:
 
 ```python
 >>> from krcg import analyzer
->>> # any deck collection works: here, one year of the TWDA
->>> decks = [d for d in TWDA.values() if date(2019, 1, 1) < d.date < date(2020, 1, 1)]
+>>> from datetime import date
+>>> sample = [d for d in decks.values()
+...           if d.event and date(2019, 1, 1) < d.event.date < date(2020, 1, 1)]
 >>> # how many of the decks play each card
->>> analyzer.played(decks, VTES).most_common(5)
-[(<#100588 Dreams of the Sphinx>, 101),
- (<#101384 Pentex™ Subversion>, 96),
- (<#101321 On the Qui Vive>, 86),
- (<#102121 Villein>, 83),
- (<#100824 Giant's Blood>, 74)]
+>>> analyzer.played(sample, cards).most_common(3)
+[(100588|Dreams of the Sphinx, 107),
+ (101384|Pentex™ Subversion, 101),
+ (101321|On the Qui Vive, 94)]
 >>> # average and variance of the copies played, among decks that play the card
->>> analyzer.stats(decks, VTES)[VTES["Villein"]]
-(4.409638554216869, 3.6876179416461032)
->>> # cards most often sharing a deck with a reference card;
->>> # similarity=1 restricts to decks that play it
->>> analyzer.affinity(decks, VTES, VTES["Aid from Bats"], similarity=1)[:5]
-[(<#100515 Deep Song>, 1.0000000000000002),
- (<#100301 Carrion Crows>, 1.0000000000000002),
- (<#101945 Taste of Vitae>, 0.7777777777777779),
- (<#200185 Beetleman>, 0.6666666666666667),
- (<#100698 Fame>, 0.6666666666666667)]
+>>> analyzer.stats(sample, cards)[cards["Villein"]]
+(4.441860465116283, 3.6884802595997837)
+>>> # cards most often sharing a deck with a reference card
+>>> # (similarity=1 restricts to decks that actually play it)
+>>> analyzer.affinity(sample, cards, cards["Aid from Bats"], similarity=1)[:3]
+[(100515|Deep Song, 1.0), (100301|Carrion Crows, 1.0), (101945|Taste of Vitae, 0.818)]
 >>> # synthesize a TWDA-like deck around one or more seed cards
->>> deck = analyzer.build_deck(decks, VTES, VTES["Aid from Bats"])
+>>> built = analyzer.build_deck(sample, cards, cards["Aid from Bats"])
 ```
 
-The `krcg.seating` module provides functions to compute optimal seatings:
+### Seating
+
+`krcg.seating` computes optimal tournament seatings against the nine official
+VEKN criteria. Build the base rounds for your players, then optimise:
 
 ```python
 >>> from krcg import seating
->>> # permutations gives you the list of players for each round
->>> seating.permutations(12, 3)
-[[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
- [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
- [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]]
->>> # things get funny when you have 6, 7 or 11 players: you need more rounds
->>> # but not all players play every round
->>> seating.permutations(7, 3)
-[[4, 5, 6, 7],
- [1, 2, 3, 7],
- [3, 4, 5, 6],
- [1, 2, 6, 7],
- [1, 2, 3, 4, 5]]
->>> # you can use the Round class to get tables from the permutations
->>> [seating.Round(p) for p in seating.permutations(14, 3)]
-[[[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14]],
- [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14]],
- [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14]]]
->>> # and the optimise function to search for an optimal seating
->>> result, score = seating.optimise(seating.permutations(12, 3), iterations=50000)
->>> result
-[[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]],
- [[2, 9, 6, 10], [12, 8, 1, 5], [3, 7, 4, 11]],
- [[11, 5, 10, 1], [6, 4, 12, 7], [8, 3, 9, 2]]]
->>> # score.rules gives a score over the nine official rules for optimal seating
->>> score.rules
-[0, 0, 0.0, 9, 0, 0, 0, 1.118033988749895, 2]
->>> # you can inspect violations individually, e.g. pairs of players for R4:
->>> score.R4  # list of PairViolation(player_1=..., player_2=...)
->>> # for more details about the Score structure, check the docstring
->>> help(seating.Score)
+>>> # the base rounds for 12 players over 3 rounds (handles the 6/7/11 edge cases)
+>>> rounds = seating.get_rounds(list(range(1, 13)), 3)
+>>> list(rounds[0].iter_tables())
+[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]
+>>> # pre-compute a full seating when attendance is fixed: fixed=1 keeps the
+>>> # (arbitrary) first round and optimises the rest. The default (fixed=len-1)
+>>> # only re-seats the last round — for building rounds one at a time as
+>>> # attendance changes round to round.
+>>> result, score = seating.optimise(rounds, iterations=50000, fixed=1)
+>>> score.R1          # the mandatory predator-prey rule: no violations
+[]
+>>> score.rules       # one value per rule R1..R9 (minor rules R4/R8/R9 may remain)
+[0, 0, 0.0, 9, 0, 0, 0, 0.37, 2]
+>>> help(seating.Score)   # the full Score structure (R1..R9, deviations, totals)
 ```
 
-And finally, the `krcg.deck.Deck` class can parse and manipulate decks.
+## Migrating from 4.x
 
-```python
->>> from krcg.deck import Deck
->>> with open("First_Blood_Nosferatu.txt") as f:
->>>     deck = Deck.from_txt(f)
->>> deck.crypt
-[(<#200549 Gustaphe Brunnelle>, 2),
- (<#200571 Harold Tanner>, 2),
- (<#200696 Jeremy "Wix" Wyzchovsky>, 2),
- (<#201116 Petra>, 2),
- (<#200185 Beetleman>, 2),
- (<#200190 Benjamin Rose>, 2)]
->>> deck.library
-[(<#100698 Fame>, 2),
- (<#100070 Animalism>, 2),
- (<#101015 J. S. Simmons, Esq.>, 1),
- (<#101070 The Labyrinth>, 1),
- (<#101073 Laptop Computer>, 2),
- (<#101125 Lost in Crowds>, 6),
- (<#100093 Army of Rats>, 2),
- (<#101550 Raven Spy>, 4),
- (<#101808 Slum Hunting Ground>, 1),
- (<#100199 Blood Doll>, 6),
- (<#100029 Aid from Bats>, 12),
- (<#100308 Cats' Guidance>, 4),
- (<#100362 Cloak the Gathering>, 6),
- (<#100390 Computer Hacking>, 4)]
->>> # fetch a deck from Amaranth UID
->>> deck = Deck.from_amaranth("4d3aa426-70da-44b7-8cb7-92377a1a0dbd")
->>> deck.name
-'First Blood: Tremere'
->>> deck.crypt
-[(<Card #201020 Muhsin Samir>, 2),
- (<Card #201213 Rutor>, 2),
- (<Card #201388 Troius>, 2),
- (<Card #201501 Zane>, 2),
- (<Card #200025 Aidan Lyle>, 2),
- (<Card #200280 Claus Wegener>, 2)]
->>> print(deck.to_txt("lackey"))
-1	Academic Hunting Ground
-1	Arcane Library
-4	Blood Doll
-1	Chantry
-2	Vast Wealth
-12	Govern the Unaligned
-1	Thadius Zho
-4	.44 Magnum
-1	Ivory Bow
-2	Sport Bike
-1	Charnas the Imp
-6	Bonding
-4	Enhanced Senses
-5	Forced Awakening
-5	On the Qui Vive
-4	Precognition
-4	Spirit's Touch
-8	Telepathic Misdirection
-8	Apportation
-10	Theft of Vitae
-2	Walk of Flame
-Crypt:
-2	Muhsin Samir
-2	Rutor
-2	Troius
-2	Zane
-2	Aidan Lyle
-2	Claus Wegener
-```
+5.0 is a hard break. The headline changes:
+
+- **No singletons.** `krcg.vtes.VTES` (the class and the module-level instance)
+  is gone. Load a `CardDict` with `krcg.load()` / `load_local()` /
+  `load_online(session)` and pass it where you need it. Likewise `krcg.twda.TWDA`
+  is gone — `krcg.twda.load*()` returns a plain `dict[str, Deck]`.
+- **Search / complete** moved onto the `CardDict`: `cards.search(...)`,
+  `cards.complete(...)`, `cards.search_dimensions`. `search` returns a `list`.
+- **Deck operations are free functions**, not methods:
+  - `VTES.parse(...)` → `parser.deck_from_txt(source, cards, ...)`
+  - `deck.to_txt("twd")` → `providers.serialize_twd(deck, cards)` (and
+    `serialize_txt` / `serialize_vdb` / `serialize_lackey` / `serialize_jol` /
+    `serialize_json_minimal`)
+  - `Deck.from_amaranth/from_vdb/from_vtesdecks(...)` →
+    `await providers.fetch(session, url, cards)`
+- **Models are plain dataclasses.** `Deck` is no longer a `collections.Counter`:
+  its cards are a `list[CardInDeck]` — filter by `card.kind` instead of the old
+  `deck.crypt` / `deck.library` views. Cards expose `full_name` / `unique_name` /
+  `printed_name` (there is no `.name`).
+- **JSON:** `Deck.to_json()` / `from_json()` are gone — use `msgspec`
+  (`msgspec.json.encode(deck)`), or `providers.serialize_json_minimal(deck)`.
+- **Network I/O is async** (`aiohttp`); `load_online` / `fetch` take a session.
+- **Offline mode** no longer uses `LOCAL_CARDS` — `load_local()` is the offline
+  path. HTML scraping of the TWDA is gone (the archive ships bundled).
+- **Renames:** `seating.permutations` → `seating.get_rounds`; the `analyzer.Analyzer`
+  class → the free functions `played` / `stats` / `affinity` / `build_deck`.
+- TWD scores now serialize in krcg's canonical form.
+
+See the [CHANGELOG](CHANGELOG.rst) for the full list.
 
 ## Development
 
@@ -434,7 +338,7 @@ Publishing uses `uv publish` and reads the token from a `.pypi_token` file at th
 ## Contribute
 
 Feel free to submit pull requests, they will be merged as long as they pass the tests.
-Do not hestitate to submit issues or vote on them if you want a feature implemented.
+Do not hesitate to submit issues or vote on them if you want a feature implemented.
 
 ### Design considerations
 

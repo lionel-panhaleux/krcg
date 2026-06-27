@@ -109,10 +109,18 @@ Consequence: **`twda.py` must stop building `TWDA` at import time.** Replace the
 - ✅ **`pydoclint` / `types-requests`**: types-requests already gone (no `requests` import); removed the stale `pydoclint`/`mypy` mentions from README + CLAUDE.md.
 - Regression check: full suite is 40 failed / 11 passed / 2 errors **identical** with and without these changes — the CardDict/FuzzyDict refactor added zero regressions (all failures are pre-existing 4.C test debt).
 
-### 4.F Docs
-- [ ] Rewrite README for the new API (explicit loaders, async, `providers`, no module singleton, `VTES.parse`/`to_twd`).
-- [ ] CHANGELOG under **5.0**; bump `pyproject` version 4.x → 5.0.
-- [ ] Migration notes for offspring (krcg-cli, krcg-api, krcg-static, krcg-bot) — they consume the old singleton / `Deck`-as-`Counter` API. Note the **TWD score format change** (we emit our canonical form) and that a PR to GiottoVerducci/TWD will realign the archive.
+### 4.E′ Drop the `VTES` class — ✅ DONE (commit `f0d281a`)
+- ✅ **`collections.CardDict` is the single cards handle** (option b): it owns the search index and sets, and exposes `index()` / `complete()` / `search()` / `search_dimensions` directly. Deck ops stay free functions (`parser.deck_from_txt`, `providers.serialize_twd`); the `VTES.parse` / `VTES.to_twd` wrappers and the `_cards` leak are gone. New `loader.py` (`load` / `load_local` / `load_online` → `CardDict`, re-exported as `krcg.load*`); `vtes.py` deleted; `twda.load()` added to mirror; `search` coerces a bare string to a one-element list.
+- ✅ **Test suite re-migrated** to the loader/`CardDict` API (f0d281a had updated the package but not the tests, breaking collection): `VTES` fixture → `cards` (`loader.load_local()`); `VTES.parse/to_twd` → `parser.deck_from_txt`/`providers.serialize_twd`; `VTES._cards` → `cards`; `list(VTES)` → `cards.cards()`. `just quality` green; **47 passed**.
+
+### 4.F Docs — ✅ DONE
+- ✅ **README rewritten** for the new API: explicit loaders (sync `load`/`load_local`, async `load_online(session)`), `CardDict.search`/`complete`, `twda.load*` → `dict[str, Deck]`, `parser.deck_from_txt`, `providers.serialize_*`/`fetch`, analyzer free functions, `seating.get_rounds`. All examples run against the current bundled data. Added a **"Migrating from 4.x"** section (the offspring migration notes). Badge/installation → `>=3.12`.
+- ✅ **CHANGELOG** `5.0` entry; `pyproject` version `4.19` → `5.0`.
+- ✅ **CLAUDE.md** architecture rewritten (no-singletons, the real data-loading paths, current module map, env-vars trimmed to `FORCE_OFFLINE`); stale `config.py`/`load_html`/`load_from_vekn` references removed.
+- ✅ **Re-added `"Mask of 1000 Faces"`** to `vekn_csv.ALIASES` (the 4.C follow-up) with its parser-test assertion restored (commit `687b69e`).
+- ✅ **Removed obsolete/vestigial code**: `utils/csv.py` (dead network-CSV fetch), `utils/deck.py:to_txt` (superseded by `providers.serialize_txt`), the no-op `LOCAL_CARDS`/`VEKN_NET_CSV` test monkeypatch, and the stub `tests/__init__.py` / `profiling/__init__.py`.
+- ⚠️ **Follow-up (separate)**: `seating.optimise` does not converge — a 12-player / 3-round run after 50–100k iterations still reports `R1=12` predator-prey violations (total ~1.2e11). 4.B confirmed it *runs*, not that it *optimises*; needs investigation (possible regression or API-usage issue). README keeps the seating example API-level (no pinned score).
+- ✅ Migration notes for offspring (krcg-cli, krcg-api, krcg-static, krcg-bot) — folded into the README **"Migrating from 4.x"** section (old singleton / `Deck`-as-`Counter` → loader/`CardDict`; free-function deck ops; async I/O; `seating.permutations` → `get_rounds`). The **TWD score format change** (we emit our canonical form) and the GiottoVerducci/TWD realign PR are tracked under the 4.D follow-up above.
 
 ## 5. Decisions (resolved)
 
