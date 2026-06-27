@@ -334,7 +334,7 @@ class Card(CardMinimal):
             self.types = [
                 self.Type(t.strip()) if isinstance(t, str) else t
                 for t in self.types
-                if t  # Filter out empty strings
+                if t
             ]
 
 
@@ -426,8 +426,8 @@ class Event:
     online: bool = False
     format: Format = Format.STANDARD
     players_count: int = 0
-    rounds: int = 0  # number of preliminary rounds (0 if unknown)
-    finals: bool = True  # whether a final round was played
+    rounds: int = 0
+    finals: bool = True
     place: str = ""
     country: Country | None = None
     url: str = ""
