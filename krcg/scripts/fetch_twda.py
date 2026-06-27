@@ -36,8 +36,6 @@ def fetch_twda(path: pathlib.Path, cards: collections.CardDict) -> None:
                     deck = parser.deck_from_txt(
                         text_source, cards, id=file_name, twda=True
                     )
-                    if deck.score:
-                        deck.score.win = True
                     twd[deck.id] = deck
     with path.open("wb") as target:
         target.write(lzma.compress(msgspec.json.encode(twd), preset=9))
