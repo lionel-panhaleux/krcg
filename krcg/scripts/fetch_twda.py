@@ -11,12 +11,13 @@ import sys
 import urllib.request
 import zipfile
 
+from krcg import collections
+from krcg import loader
 from krcg import models
 from krcg import parser
-from krcg import vtes
 
 
-def fetch_twda(path: pathlib.Path, cards: vtes.VTES) -> None:
+def fetch_twda(path: pathlib.Path, cards: collections.CardDict) -> None:
     """Fetch the TWDA deck files from GitHub."""
     zip_url = "https://github.com/GiottoVerducci/TWD/archive/refs/heads/master.zip"
 
@@ -32,7 +33,9 @@ def fetch_twda(path: pathlib.Path, cards: vtes.VTES) -> None:
                 file_name = os.path.basename(file_info).split(".")[0]
                 with zip_file.open(file_info) as source:
                     text_source = io.TextIOWrapper(source, encoding="utf-8")
-                    deck = cards.parse(text_source, id=file_name, twda=True)
+                    deck = parser.deck_from_txt(
+                        text_source, cards, id=file_name, twda=True
+                    )
                     if deck.score:
                         deck.score.win = True
                     twd[deck.id] = deck
@@ -53,7 +56,7 @@ def main() -> None:
     except OSError:
         print(f"Cannot create file {output}: {sys.exc_info()[1]}", file=sys.stderr)
         return
-    cards = vtes.VTES.load_local()
+    cards = loader.load_local()
     parser.setup_parser_logging(True)
     fetch_twda(output, cards)
 
