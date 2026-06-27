@@ -69,8 +69,10 @@ Consequence: **`twda.py` must stop building `TWDA` at import time.** Replace the
 - ✅ **`build_deck` kept** (per decision) as a single self-contained function with the build-session state as locals/closures (`refresh`/`build_part` nested), reusing the shared `_spoilers`/`_similar`/`_affinity` helpers. Faithful to v2 (similarity 0.6, crypt-then-library, average-count fill, periodic re-sample); v2's `cursor=0` first-refresh trick replaced by an explicit up-front `refresh` per part. Verified: `build_deck(..., Nana Buruku)` → 12-card crypt + 90-card library.
 - ✅ **README + `test_analyzer.py`** updated to the functional API (2019-slice numbers are unchanged by the port — same data, same math).
 
-### 4.B seating.py port
-- [ ] Imports clean and mypy-clean already, but **not verified to run** against the new `models.Deck`. Confirm end-to-end and restore `tests/test_seating.py`.
+### 4.B seating.py port — ✅ DONE (no code changes needed)
+- ✅ **No deck/card dependency** — the plan's "against the new `models.Deck`" was wrong: seating is self-contained (numpy + multiprocessing over player indices; no `models`/`vtes`/`twda` import). ty + ruff already clean.
+- ✅ **Verified end-to-end**: all 7 `tests/test_seating.py` pass (get_rounds, Round, measure/Measure, Score, optimise, optimise_table), and `archon_seating(12, 3)` runs the ProcessPoolExecutor path → 3 rounds × 3 tables, all 12 players seated.
+- ⚠️ **For 4.F**: the README seating examples call `seating.permutations(...)`, which is now `seating.get_rounds(...)` (v2→v3 rename) — fix in the README rewrite + note in offspring migration notes.
 
 ### 4.C Test migration (tests are NOT yet truth-bearing)
 - [ ] `conftest.py`: session-scoped `VTES` (via `load_local()`) and TWDA fixture. TWDA is now bundled (xz) → tests can use `twda.load_local()`; no network needed.
