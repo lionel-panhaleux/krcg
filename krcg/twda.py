@@ -20,6 +20,14 @@ logger = logging.getLogger("krcg")
 DecksArchive = dict[str, models.Deck]
 
 
+def load() -> DecksArchive:
+    """Load the TWDA, fast and offline (the bundled snapshot).
+
+    Mirrors `loader.load` for the cards; the archive needs no cache (one decode).
+    """
+    return load_local()
+
+
 def load_local() -> DecksArchive:
     """Load the TWDA from the bundled (compressed) snapshot."""
     path = importlib.resources.files("krcg.cards").joinpath("twda.json.xz")

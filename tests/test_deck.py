@@ -6,8 +6,9 @@ import pathlib
 import aiohttp
 import pytest
 
+from krcg import collections
+from krcg import parser
 from krcg import providers
-from krcg import vtes
 
 FIXTURE = pathlib.Path(__file__).parent / "twd_2010tcdbng.txt"
 
@@ -22,9 +23,11 @@ VDB_URL = (
 )
 
 
-def test_serialize_formats(VTES: vtes.VTES) -> None:
+def test_serialize_formats(cards: collections.CardDict) -> None:
     """Each provider format renders a parsed deck as expected."""
-    deck = VTES.parse(io.StringIO(FIXTURE.read_text()), id="2010tcdbng", twda=True)
+    deck = parser.deck_from_txt(
+        io.StringIO(FIXTURE.read_text()), cards, id="2010tcdbng", twda=True
+    )
 
     # compact, fully-deterministic formats: assert exactly
     assert providers.serialize_vdb(deck) == VDB_URL
@@ -35,7 +38,7 @@ def test_serialize_formats(VTES: vtes.VTES) -> None:
     assert len(minimal["cards"]) == 41
 
     # text formats: assert the distinctive structure
-    twd = VTES.to_twd(deck)
+    twd = providers.serialize_twd(deck, cards)
     assert twd.startswith(
         "Trading Card Day\nBad Nauheim, Germany\nMay 8th 2010\n2R+F\n"
     )
@@ -54,13 +57,13 @@ def test_serialize_formats(VTES: vtes.VTES) -> None:
 
 
 @pytest.mark.asyncio
-async def test_from_amaranth(VTES: vtes.VTES) -> None:
+async def test_from_amaranth(cards: collections.CardDict) -> None:
     """Fetch and parse a deck from Amaranth (skipped offline, cf. conftest)."""
     async with aiohttp.ClientSession() as session:
         deck = await providers.fetch(
             session,
             "https://amaranth.vtes.co.nz/deck/4d3aa426-70da-44b7-8cb7-92377a1a0dbd",
-            VTES,
+            cards,
         )
     assert deck.name == "First Blood: Tremere"
     assert deck.author == "BCP"
@@ -69,10 +72,10 @@ async def test_from_amaranth(VTES: vtes.VTES) -> None:
 
 
 @pytest.mark.asyncio
-async def test_from_vdb(VTES: vtes.VTES) -> None:
+async def test_from_vdb(cards: collections.CardDict) -> None:
     """Fetch and parse a deck from VDB (skipped offline, cf. conftest)."""
     async with aiohttp.ClientSession() as session:
-        deck = await providers.fetch(session, "https://vdb.im/decks/5b4312a1f", VTES)
+        deck = await providers.fetch(session, "https://vdb.im/decks/5b4312a1f", cards)
     assert deck.name == "First Blood Tremere"
     assert deck.author == "BCP"
     assert "blackchantry.com" in deck.comment
@@ -80,13 +83,13 @@ async def test_from_vdb(VTES: vtes.VTES) -> None:
 
 
 @pytest.mark.asyncio
-async def test_from_vtesdecks(VTES: vtes.VTES) -> None:
+async def test_from_vtesdecks(cards: collections.CardDict) -> None:
     """Fetch and parse a deck from VTESDecks (skipped offline, cf. conftest)."""
     async with aiohttp.ClientSession() as session:
         deck = await providers.fetch(
             session,
             "https://vtesdecks.com/deck/user-lionelpx-bf26e06e078348e8b5852d4e86dbdf6c",
-            VTES,
+            cards,
         )
     assert deck.name == "Test"
     assert deck.author == "lionelpx"

@@ -11,17 +11,19 @@ import pathlib
 import msgspec.json
 import pytest
 
+from krcg import collections
 from krcg import models
+from krcg import parser
+from krcg import providers
 from krcg import twda
-from krcg import vtes
 
 FIXTURES = pathlib.Path(__file__).parent
 
 
-def _parse(VTES: vtes.VTES, deck_id: str) -> models.Deck:
+def _parse(cards: collections.CardDict, deck_id: str) -> models.Deck:
     """Parse a frozen .txt fixture as a TWDA deck."""
     text = (FIXTURES / f"twd_{deck_id}.txt").read_text(encoding="utf-8")
-    return VTES.parse(io.StringIO(text), id=deck_id, twda=True)
+    return parser.deck_from_txt(io.StringIO(text), cards, id=deck_id, twda=True)
 
 
 def _count(deck: models.Deck, kind: models.Card.Kind) -> int:
@@ -105,10 +107,10 @@ HEADERS = {
 
 
 @pytest.mark.parametrize("deck_id", list(HEADERS))
-def test_parse_headers(VTES: vtes.VTES, deck_id: str) -> None:
+def test_parse_headers(cards: collections.CardDict, deck_id: str) -> None:
     """Each fixture parses to its expected header fields and card counts."""
     exp = HEADERS[deck_id]
-    deck = _parse(VTES, deck_id)
+    deck = _parse(cards, deck_id)
     event = deck.event
     assert event is not None
     assert deck.name == exp["name"]
@@ -125,43 +127,43 @@ def test_parse_headers(VTES: vtes.VTES, deck_id: str) -> None:
     assert _count(deck, models.Card.Kind.LIBRARY) == exp["library"]
 
 
-def test_rounds_no_final(VTES: vtes.VTES) -> None:
+def test_rounds_no_final(cards: collections.CardDict) -> None:
     """10842: 'NR (no final)' rounds, score across rounds, quoted crypt name."""
-    deck = _parse(VTES, "10842")
+    deck = _parse(cards, "10842")
     assert deck.event is not None
     assert deck.event.rounds == 3 and deck.event.finals is False
     assert str(deck.score) == "2GW8"
     assert any(c.unique_name == 'Jason "Son" Newberry' for c in deck.cards)
 
 
-def test_sabbat_path(VTES: vtes.VTES) -> None:
+def test_sabbat_path(cards: collections.CardDict) -> None:
     """13259: a Sabbat-path crypt card resolves to its path; accents kept."""
-    deck = _parse(VTES, "13259")
+    deck = _parse(cards, "13259")
     assert deck.player == "Lukáš Simandl"
     monsenor = next(c for c in deck.cards if c.unique_name == "El Monseñor")
-    assert VTES[monsenor.id].path == "Death and the Soul"
+    assert cards[monsenor.id].path == "Death and the Soul"
 
 
-def test_preface_and_card_comments(VTES: vtes.VTES) -> None:
+def test_preface_and_card_comments(cards: collections.CardDict) -> None:
     """10792: '&' in the deck name, a multi-line preface, many card comments."""
-    deck = _parse(VTES, "10792")
+    deck = _parse(cards, "10792")
     assert deck.name == "Carna & friends"
     assert "Carna Grinder" in deck.comment
     assert sum(1 for c in deck.cards if c.comment) >= 10
     assert any(c.unique_name == "Pentex™ Subversion" for c in deck.cards)
 
 
-def test_date_range(VTES: vtes.VTES) -> None:
+def test_date_range(cards: collections.CardDict) -> None:
     """10073: an event date range (start -- end) and accented deck name."""
-    deck = _parse(VTES, "10073")
+    deck = _parse(cards, "10073")
     assert deck.event is not None
     assert str(deck.event.date) == "2022-02-07"
     assert str(deck.event.end_date) == "2022-02-10"
 
 
-def test_legacy_no_rounds_header(VTES: vtes.VTES) -> None:
+def test_legacy_no_rounds_header(cards: collections.CardDict) -> None:
     """2k2amstelveen: a 2002 deck with no rounds header and no event URL."""
-    deck = _parse(VTES, "2k2amstelveen")
+    deck = _parse(cards, "2k2amstelveen")
     assert deck.event is not None
     assert str(deck.event.date) == "2002-04-28"
     assert deck.event.rounds == 0 and deck.event.finals is True
@@ -169,10 +171,12 @@ def test_legacy_no_rounds_header(VTES: vtes.VTES) -> None:
 
 
 @pytest.mark.parametrize("deck_id", list(HEADERS))
-def test_round_trip(VTES: vtes.VTES, deck_id: str) -> None:
+def test_round_trip(cards: collections.CardDict, deck_id: str) -> None:
     """Serializing a parsed deck and re-parsing preserves its key fields."""
-    deck = _parse(VTES, deck_id)
-    again = VTES.parse(io.StringIO(VTES.to_twd(deck)), id=deck_id, twda=True)
+    deck = _parse(cards, deck_id)
+    again = parser.deck_from_txt(
+        io.StringIO(providers.serialize_twd(deck, cards)), cards, id=deck_id, twda=True
+    )
     assert again.event is not None and deck.event is not None
     assert again.name == deck.name
     assert again.event.date == deck.event.date

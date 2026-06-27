@@ -5,20 +5,20 @@ import pathlib
 
 import pytest
 
+from krcg import collections
 from krcg import models
 from krcg import parser
-from krcg import vtes
 
 FIXTURE = pathlib.Path(__file__).parent / "202207_EC_Day1_1.txt"
 
 
 def test_tournament_archive_format(
-    VTES: vtes.VTES, caplog: pytest.LogCaptureFixture
+    cards: collections.CardDict, caplog: pytest.LogCaptureFixture
 ) -> None:
     """The reference tournament-archive deck parses without warnings."""
     caplog.set_level(logging.WARNING)
     with FIXTURE.open() as f:
-        deck = parser.deck_from_txt(f, VTES._cards, id=FIXTURE.stem)
+        deck = parser.deck_from_txt(f, cards, id=FIXTURE.stem)
     assert caplog.record_tuples == []
     assert deck.player == "VtesEC2022"
     assert str(deck.score) == "2GW6.5"

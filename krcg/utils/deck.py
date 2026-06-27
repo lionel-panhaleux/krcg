@@ -1,7 +1,6 @@
 """Deck utilities."""
 
 from collections.abc import Generator
-import arrow
 import itertools
 import msgspec
 import unicodedata
@@ -91,60 +90,6 @@ def sorted_crypt(deck: models.Deck) -> list[models.CardInDeck]:
         (c for c in deck.cards if c.kind == models.Card.Kind.CRYPT),
         key=lambda c: (c.count, vekn_name(c)),
     )
-
-
-def to_txt(deck: models.Deck) -> str:
-    """Serialize a deck to TWD-like format, without card database info."""
-    lines = []
-    if deck.event and deck.event.name:
-        lines.append(deck.event.name)
-    if deck.event and deck.event.place:
-        lines.append(deck.event.place)
-    if deck.event and deck.event.date:
-        lines.append(arrow.get(deck.event.date).format("MMMM Do YYYY"))
-    if deck.event and deck.event.format:
-        lines.append(deck.event.format)
-    if deck.event and deck.event.players_count:
-        lines.append(f"{deck.event.players_count} players")
-    if deck.player:
-        lines.append(deck.player)
-    if deck.event and deck.event.url:
-        lines.append(deck.event.url)
-    if lines:
-        lines.append("")
-    if deck.score:
-        lines.append(f"-- {deck.score}")
-        lines.append("")
-    if deck.name:
-        lines.append(f"Deck Name: {deck.name}")
-    if deck.author:
-        lines.append(f"Created by: {deck.author}")
-    if deck.comment:
-        if deck.name or deck.author:
-            lines.append("")
-        lines.append(deck.comment)
-    elif lines and lines[-1] != "":
-        lines.append("")
-    crypt = sorted_crypt(deck)
-    lines.append(f"Crypt ({sum(c.count for c in crypt)} cards)")
-    lines.append("-" * len(lines[-1]))
-    max_name = max(len(card.unique_name) for card in crypt) + 1
-    for card in crypt:
-        lines.append(f"{card.count}x {card.unique_name:<{max_name}}")
-    library_count = sum(
-        c.count for c in deck.cards if c.kind == models.Card.Kind.LIBRARY
-    )
-    lines.append(f"\nLibrary ({library_count} cards)")
-    for i, (type_, cards_) in enumerate(sorted_library(deck)):
-        cr = "\n" if i > 0 else ""
-        lines.append(f"{cr}{type_} ({sum(c.count for c in cards_)})")
-        for card in cards_:
-            if card.comment:
-                comment = card.comment.replace("\n", " ").strip()
-                lines.append(f"{card.count}x {card.unique_name:<23} -- {comment}")
-            else:
-                lines.append(f"{card.count}x {card.unique_name}")
-    return "\n".join(lines)
 
 
 def add_card(

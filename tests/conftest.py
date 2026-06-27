@@ -1,7 +1,7 @@
 """Configuration for pytest.
 
 Fixtures:
-    VTES: the cards database, built once per session from the bundled CSVs.
+    cards: the cards database, built once per session from the bundled CSVs.
     TWDA: the decks archive, loaded once per session from the bundled snapshot.
 
 The ``baseline`` marker flags tests that track live source data (cards, rulings,
@@ -15,14 +15,15 @@ import urllib.request
 import urllib.error
 import pytest
 
+from krcg import collections
+from krcg import loader
 from krcg import twda
-from krcg import vtes
 
 
 @pytest.fixture(scope="session")
-def VTES() -> vtes.VTES:
+def cards() -> collections.CardDict:
     """The cards database, built once from the bundled CSV snapshot."""
-    return vtes.VTES.load_local()
+    return loader.load_local()
 
 
 @pytest.fixture(scope="session")
