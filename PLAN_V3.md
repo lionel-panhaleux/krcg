@@ -77,11 +77,19 @@ Consequence: **`twda.py` must stop building `TWDA` at import time.** Replace the
 - [ ] `test_vtes.py`: `vtes.VTES` is now a class; `search()` is keyword-only, returns a **sorted list** (not set), `n` default 100; `complete()` returns `list[Card]`; `search_dimensions` values are `list[str | None]`.
 - [ ] `test_analyzer.py`: after the analyzer port.
 
-### 4.D Latent bugs & robustness follow-ups (found during the round-trip work)
-- [ ] **`Translation.url`** — `vekn_csv` sets `translation.url = ...` but `models.Translation` has no `url` field (one surviving `# type: ignore[attr-defined]` in `vekn_csv.py`). The value is dropped by msgspec and never read. **Decide:** add `url: str = ""` to `models.Translation` (likely intended — per-language card URL) **or** delete the assignment.
-- [ ] **Non-standard TWD headers** (~1–2% of decks misparse) — parser's strict patterns miss free-form headers: rounds `\s*(\d+R\+F)` doesn't match `"3R (no final)"`; players `\s*(\d+|\?+)\s*player` misses `"7 players only"` (extra word); free-form scores. Fragments then land in the wrong field (e.g. deck 10842: `"3R"` → player). Location: `parser.py::parse_twda_headers`. Broaden patterns / add fallbacks. **Cards are unaffected — header metadata only.**
-- [ ] **`serialize_txt` date ranges** — `serialize_twd` now emits `start -- end`, but `serialize_txt` (cards-DB-free format, `providers.py` ~line 333) still emits only `event.date`. Mirror the range logic.
-- [ ] **`parser.py` remaining `# type: ignore`** — one at the `self.current_comment += comment` line (`Comment.__iadd__` on a possibly-`None`); pre-existing, low priority.
+### 4.D Latent bugs & robustness follow-ups — ✅ DONE
+- ✅ **`Translation.url`** — added `url: str = ""` to `models.Translation` (per-language card URL); removed the `# type: ignore[attr-defined]` in `vekn_csv.py`.
+- ✅ **Non-standard TWD headers / faithful rounds** — root cause was a rigid `RoundFormat` enum (`N/A`/`2R+F`/`3R+F`) that couldn't hold `4R+F` or `3R (no final)`, so the line fell through `parse_twda_headers` and poisoned the `player` field (decks 10842, 2015camb). Fixed by replacing the enum with `Event.rounds: int` + `Event.finals: bool` (faithful: round-trips `3R (no final)` byte-perfect). Parser now consumes any `NR…` line so `player` is never poisoned; `serialize_twd`/`serialize_txt` render from count+finals. Verified against VEKN event pages + forum: `10842` = genuine "3 rounds, no finals" (Lotte Siebert, 7 players); `8226`/`2015camb` `4R+F` is a **TWD-report typo**, real = `3R+F` (see 4.D follow-up below).
+- ✅ **`serialize_txt` date ranges** — mirrors `serialize_twd` (`start -- end`).
+- ✅ **`parser.py` `# type: ignore`** — removed; narrowed `self.current_comment is not None` (after the create step, a truthy comment guarantees a current comment).
+
+### 4.D′ Found & fixed during the card re-sync (needed to regenerate the TWDA under the new model)
+- ✅ **`vekn_csv` empty-occurrences crash** — a set tag with no rarity/date (e.g. `"Gehenna:U1, POD"` → the `POD` tag) yields a `Print` with empty `occurrences`; `prints_from_vekn` sort key and `card.legal` both did `occurrences[0]` → `IndexError`. Fixed: empty prints sort **last** (so real dated prints lead `card.legal`); `card.legal` guards empty occurrences.
+- ✅ **Sabbat path support in parser + serializer** — recent group-6/7 crypts show a path word (`Caine`/`Cathari`/`Death`/`Power`) in a column between disciplines and title. The parser's `_CRYPT_TAIL` choked on it (29 crypt cards dropped across the newest decks); `serialize_twd` didn't emit it. Added `_PATH` to the crypt-tail alternation and a path column to the crypt serializer (`disc · path · title · clan`). Path decks now round-trip byte-identical.
+- ✅ **Card + rulings + TWDA re-sync** — refreshed `vtescrypt.csv`/`vteslib.csv`, `groups/references/rulings.yaml`, and regenerated `twda.json.xz` (now **4538** decks, up from 4375; new `rounds`/`finals` schema). Zero parse failures.
+
+### 4.D follow-up (upstream, external)
+- [ ] **PR GiottoVerducci/TWD: `4R+F` → `3R+F` for deck `2015camb`** (event 8226, Campeonato Alagoano 2015). VEKN records "3 + Final" and the recorded scores are consistent with 3R+F — the `4R+F` in the TWD report is a typo. Until merged, the bundle faithfully re-serializes `4R+F`; after the next `just sync-cards` it becomes `3R+F`. Bundle with the planned TWD score-format PR.
 
 ### 4.E Tooling & build
 - [ ] Reconcile type checker: dev deps mention **`ty`** but `just quality` runs `mypy krcg` (and `pyproject` has `[tool.mypy]`). Pick one; update `justfile` + config; `clean` references `.mypy_cache`.

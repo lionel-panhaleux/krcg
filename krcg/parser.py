@@ -231,6 +231,15 @@ _TITLE = "|".join(
         "votes",
     ]
 )
+# Sabbat path, shown by its first word in crypt listings
+_PATH = "|".join(
+    [
+        "caine",
+        "cathari",
+        "death",
+        "power",
+    ]
+)
 _CLAN = "|".join(
     [
         "none",
@@ -287,7 +296,7 @@ _CLAN = "|".join(
 )
 _CRYPT_TAIL = (
     rf"(?(ante_count)(?P<crypt_tail>\s+(\d{{1,2}}|{_DISCIPLINE_TRIGRAM})\s+"
-    rf"({_DISCIPLINE_TRIGRAM}|{_TITLE}|{_CLAN}|\s|:|g?\d{{1,2}}|any|g\*)*)"
+    rf"({_DISCIPLINE_TRIGRAM}|{_TITLE}|{_PATH}|{_CLAN}|\s|:|g?\d{{1,2}}|any|g\*)*)"
     r"|%NOMATCH%)?"
 )
 _PUNCTUATED_TRAIT = "|".join(
@@ -619,13 +628,13 @@ class Parser:
         if index == 2:
             self.deck.event.place = line
             return True
-        if self.deck.event.rounds == models.RoundFormat.NA:
-            if m := re.match(r"\s*(\d+R\+F)", line):
-                try:
-                    self.deck.event.rounds = models.RoundFormat(m.group(1))
-                    return True
-                except ValueError:
-                    pass
+        if not self.deck.event.rounds:
+            if m := re.match(
+                r"^\s*(\d+)\s*R(?:\s*\+\s*F|\s*\(no final\))?\s*$", line, re.I
+            ):
+                self.deck.event.rounds = int(m.group(1))
+                self.deck.event.finals = "no final" not in line.lower()
+                return True
         if not self.deck.event.players_count:
             if m := re.match(r"\s*(\d+|\?+)\s*player", line):
                 try:
@@ -926,6 +935,7 @@ class Parser:
         if comment and not self.current_comment:
             self.current_comment = Comment(card=card, mark=mark)
         # append the parsed comment, even if it is a blank line
-        if comment or self.current_comment:
-            self.current_comment += comment  # type: ignore
+        # (after the step above, a truthy comment guarantees a current_comment)
+        if self.current_comment is not None:
+            self.current_comment += comment
         # do nothing on a blank line if we don't have a current comment
