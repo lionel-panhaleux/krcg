@@ -179,6 +179,28 @@ def test_card_variants(cards: collections.CardDict) -> None:
     )
 
 
+def test_card_names_and_urls(cards: collections.CardDict) -> None:
+    """Names are stored as printed; the article is never filed as a suffix."""
+    base = "https://static.krcg.org/card/"
+    # the image URL is the ascii of the name as printed (article prefixed)
+    assert cards["The Ankou"].url == base + "theankoug5.jpg"
+    assert cards["The Louvre, Paris"].url == base + "thelouvreparis.jpg"
+    assert cards["An Anarch Manifesto"].url == base + "ananarchmanifesto.jpg"
+    assert cards["El Monseñor"].url == base + "elmonsenorg6.jpg"
+    assert cards["Le Dinh Tho"].url == base + "ledinhthog2.jpg"
+    assert cards["Theo Bell (G2)"].url == base + "theobellg2.jpg"
+    # translations and prints share the same filename
+    assert all(p.url.endswith("/theankoug5.jpg") for p in cards["The Ankou"].prints)
+    # filing/sort order drops the leading article, for every language
+    assert cards["The Ankou"].filing_name == "Ankou"
+    assert cards["El Monseñor"].filing_name == "Monseñor"
+    # but a suffix-written name still resolves, for every filing article
+    assert cards["Ankou, The"].id == cards["The Ankou"].id
+    assert cards["Monseñor, El"].id == cards["El Monseñor"].id
+    assert cards["Dinh Tho, Le"].id == cards["Le Dinh Tho"].id
+    assert cards["Anarch Manifesto, An"].id == cards["An Anarch Manifesto"].id
+
+
 @pytest.mark.asyncio
 async def test_load_from_static_server() -> None:
     """Test loading cards from the static server."""
