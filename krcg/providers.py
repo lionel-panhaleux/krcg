@@ -17,10 +17,17 @@ LOG = logging.getLogger("krcg")
 async def get_amaranth_cards_map(
     session: aiohttp.ClientSession, cards_dict: collections.CardDict
 ) -> dict[str, models.Card]:
-    """Get the Amaranth cards map."""
-    async with session.get("http://static.krcg.org/data/amaranth_ids.json") as response:
+    """Map Amaranth card ids to cards, from Amaranth's live catalog.
+
+    Compute once and pass to `fetch_amaranth` to reuse across many decks.
+    """
+    async with session.get("https://amaranth.vtes.co.nz/api/cards") as response:
         data = await response.json()
-        return {k: cards_dict[v] for k, v in data.items()}
+    return {
+        str(card["id"]): cards_dict[card["name"]]
+        for card in data["result"]
+        if card["name"] in cards_dict  # skip storyline / counter cards
+    }
 
 
 async def fetch(
@@ -92,12 +99,14 @@ async def fetch_amaranth(
     session: aiohttp.ClientSession,
     url: urllib.parse.ParseResult,
     cards_dict: collections.CardDict,
+    *,
+    amaranth_map: dict[str, models.Card] | None = None,
 ) -> models.Deck:
     """Fetch a deck from Amaranth."""
-    async with session.get("http://static.krcg.org/data/amaranth_ids.json") as response:
-        amaranth_map = await response.json()
     if not url.path.startswith("/deck/"):
         raise ValueError("Invalid URL")
+    if amaranth_map is None:
+        amaranth_map = await get_amaranth_cards_map(session, cards_dict)
     uid = url.path[6:]
     fetch_url = "https://amaranth.vtes.co.nz/api/deck?id=" + uid
     async with session.get(fetch_url) as response:
@@ -115,7 +124,7 @@ async def fetch_amaranth(
         count = int(count)
         if count <= 0:
             continue
-        utils.add_card(ret, cards_dict[amaranth_map[cid]], count)
+        utils.add_card(ret, amaranth_map[cid], count)
     utils.sort_cards(ret)
     return ret
 
