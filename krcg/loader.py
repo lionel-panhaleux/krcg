@@ -53,12 +53,12 @@ def load() -> collections.CardDict:
 async def load_online(session: aiohttp.ClientSession) -> collections.CardDict:
     """Fetch the pre-built cards library from KRCG static, else fall back to `load`.
 
-    https://static.krcg.org/data/vtes.json
-    https://static.krcg.org/data/expansions.json
+    https://static.krcg.org/data/v5/vtes.json
+    https://static.krcg.org/data/v5/expansions.json
     """
     try:
         cards = collections.CardDict()
-        async with session.get("https://static.krcg.org/data/vtes.json") as response:
+        async with session.get("https://static.krcg.org/data/v5/vtes.json") as response:
             data = await response.json()
         for card in data:
             # dispatch on kind: a bare Card silently drops crypt/library fields
@@ -69,7 +69,7 @@ async def load_online(session: aiohttp.ClientSession) -> collections.CardDict:
             )
             cards.add(msgspec.convert(card, type=cls_))
         async with session.get(
-            "https://static.krcg.org/data/expansions.json"
+            "https://static.krcg.org/data/v5/expansions.json"
         ) as response:
             data = await response.json()
         for item in data:

@@ -47,10 +47,10 @@ def load_local() -> DecksArchive:
 async def load_online(session: aiohttp.ClientSession) -> DecksArchive:
     """Load the TWDA from KRCG static, falling back to the bundled snapshot.
 
-    https://static.krcg.org/data/twda.json
+    https://static.krcg.org/data/v5/twda.json
     """
     try:
-        async with session.get("https://static.krcg.org/data/twda.json") as response:
+        async with session.get("https://static.krcg.org/data/v5/twda.json") as response:
             data = await response.read()
         return msgspec.json.decode(data, type=DecksArchive)
     except Exception:
