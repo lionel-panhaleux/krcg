@@ -114,6 +114,10 @@ def fix_card_text(row: dict[str, str], name_2: str | None = None) -> dict[str, s
 def fix_card_row(row: dict[str, str]) -> dict[str, str]:
     """Fix a card row."""
     card_id = int(row["Id"])
+    if card_id in POD_TAG_ADDITIONS and "POD" not in {
+        tag.split(":", 1)[0] for tag in row["Set"].split(", ")
+    }:
+        row["Set"] += ", POD:DTC"
     row["Set"] = fix_set_field(row)
     artists = re_split(r"[;,&]+(?!\sJr\.)", row["Artist"])
     artists = [ARTISTS_FIXES.get(artist, artist) for artist in artists]
@@ -168,31 +172,37 @@ def fix_set_field(row: dict[str, str]) -> str:
             if not match:
                 warnings.warn(f"failed to parse rarity ({card_id}): {rarity}")
                 exit(1)
-            bundle, count = match.groups()
+            # cur is a per-rarity copy: a replacement/addition must not leak the
+            # set code onto the following rarities of the same slash-joined tag
+            cur, (bundle, count) = set_, match.groups()
             # skip our own additions
             if bundle in SKIP_ADDITIONS:
                 continue
-            if set_ == "Promo" or set_ == "POD":
+            if cur == "Promo" or cur == "POD":
                 bundle, count = count[:8], ""
-            if (set_, bundle) in SET_REPLACEMENTS:
-                set_, bundle = SET_REPLACEMENTS[(set_, bundle)]
-            if (set_, bundle) in SET_REMOVALS:
+            # addition keys on the pre-replacement code: the Anthology:LARP →
+            # Anthology: rewrite must not then trigger the Anthology: → Ant1:
+            # alias (only the originally empty-coded cards are reprinted in Ant1)
+            addition_key = (cur, bundle)
+            if (cur, bundle) in SET_REPLACEMENTS:
+                cur, bundle = SET_REPLACEMENTS[(cur, bundle)]
+            if (cur, bundle) in SET_REMOVALS:
                 continue
-            if set_ == "POD" and not bundle:
+            if cur == "POD" and not bundle:
                 bundle = get_pod_release_date(row)
-            if set_ != "Promo" and set_ != "POD" and not count:
+            if cur != "Promo" and cur != "POD" and not count:
                 count = 1
-            ret.append(f"{set_}{':' if bundle or count else ''}" + f"{bundle}{count}")
-            if (set_, bundle) in SET_ADDITIONS:
-                set_, bundle = SET_ADDITIONS[(set_, bundle)]
-                if (set_, bundle) in ADDITION_CARD_COUNTS:
+            ret.append(f"{cur}{':' if bundle or count else ''}" + f"{bundle}{count}")
+            if addition_key in SET_ADDITIONS:
+                cur, bundle = SET_ADDITIONS[addition_key]
+                if (cur, bundle) in ADDITION_CARD_COUNTS:
                     try:
-                        count = ADDITION_CARD_COUNTS[(set_, bundle)][card_id]
+                        count = ADDITION_CARD_COUNTS[(cur, bundle)][card_id]
                     except KeyError:
-                        warnings.warn(f"missing {card_id} in {set_}:{bundle}")
+                        warnings.warn(f"missing {card_id} in {cur}:{bundle}")
                         exit(1)
                 ret.append(
-                    f"{set_}{':' if bundle or count else ''}" + f"{bundle}{count}"
+                    f"{cur}{':' if bundle or count else ''}" + f"{bundle}{count}"
                 )
     return ", ".join(ret)
 
@@ -398,7 +408,9 @@ MISSING_SETS = [
 MISSING_SETS_ABBREVS = {set["Abbrev"] for set in MISSING_SETS}
 
 SET_REPLACEMENTS = {
-    # ("Anthology", "LARP"): ("Anthology", ""),
+    # drop the LARP code: Anthology is one product. Reprinted cards are told
+    # apart only by the Ant1 addition, which keys on the original empty code.
+    ("Anthology", "LARP"): ("Anthology", ""),
     ("BSC", "X"): ("BSC", ""),
     ("HttB", "A"): ("HttBR", "A"),
     ("HttB", "B"): ("HttBR", "B"),
@@ -469,9 +481,11 @@ POD_RELEASES_WORDS = {
     "Daimoinon": "20230306",
     "Daughter of Cacophony": "20230306",
     "Daughters of Cacophony": "20230306",
+    "Dementation": "20260119",
     "Giovanni": "20210307",
     "infernal": "20230306",
     "Lasombra": "20210307",
+    "Malkavian antitribu": "20260119",
     "Ministry": "20210307",
     "Ministries": "20210307",
     "Necromancy": "20210307",
@@ -483,7 +497,7 @@ POD_RELEASES_WORDS = {
     "Salubri": "20220427",
     "Serpentis": "20210307",
     "Temporis": "20250317",
-    "Tremere Antitribu": "20230825",
+    "Tremere antitribu": "20230825",
     "True Brujah": "20250317",
     "Tzimisce": "20220427",
     "Vicissitude": "20220427",
@@ -502,6 +516,7 @@ POD_RELEASES_DISC = {
     "dai": "20230306",
     "tem": "20250317",
     "mel": "20230306",
+    "dem": "20260119",
 }
 
 RE_POD_DISC = re.compile(r"|".join(POD_RELEASES_DISC.keys()))
@@ -510,6 +525,75 @@ POD_RELEASES_CARDS = {
     100545: "20210411",  # Direct Intervention
     100106: "20240101",  # Ashur Tablets
     100634: "20240101",  # Emerald Legionnaire
+    100500: "20230825",  # Dauntain Black Magician (Tremere antitribu wave, Malk req)
+    201421: "20230825",  # Valerius Maior, Hell's Fool (base clan is Tremere)
+}
+
+#: Cards in a Legacy Singles (POD) wave that upstream vtescsv hasn't tagged
+#: "POD:DTC" yet — we inject the tag so get_pod_release_date can date them.
+#: Drop entries once upstream adds them (the loader skips cards already tagged).
+POD_TAG_ADDITIONS = {
+    # 2023-08-25 Tremere antitribu wave (57 cards)
+    100440,
+    100454,
+    100500,
+    100914,
+    100979,
+    101272,
+    101571,
+    101658,
+    101849,
+    101892,
+    102075,
+    102102,
+    200044,
+    200116,
+    200146,
+    200152,
+    200221,
+    200225,
+    200246,
+    200408,
+    200418,
+    200429,
+    200437,
+    200438,
+    200485,
+    200507,
+    200528,
+    200529,
+    200567,
+    200583,
+    200616,
+    200661,
+    200674,
+    200714,
+    200767,
+    200782,
+    200796,
+    200803,
+    200827,
+    200833,
+    200877,
+    200905,
+    200931,
+    201013,
+    201056,
+    201084,
+    201100,
+    201182,
+    201186,
+    201222,
+    201261,
+    201356,
+    201360,
+    201418,
+    201421,
+    201422,
+    201483,
+    # 2024-01-01 Ashur Tablets, Emerald Legionnaire (already Promo:20240101 upstream)
+    100106,
+    100634,
 }
 
 V5_CARDS = {

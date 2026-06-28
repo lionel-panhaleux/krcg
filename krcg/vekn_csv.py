@@ -147,10 +147,16 @@ def set_from_vekn(line: dict[str, str]) -> models.Set:
 def add_bundle(sets: DictofSets, line: dict[str, str]) -> None:
     """Add bundle to sets."""
     bundle = line["Bundle"]
+    release_date = line.get("Release Date")
     sets[line["Set"]].bundles[bundle] = models.Bundle(
         code=bundle,
         name=line["Name"],
         size=int(line["Size"]),
+        release_date=(
+            datetime.datetime.strptime(release_date, "%Y%m%d").date()
+            if release_date
+            else None
+        ),
     )
 
 
@@ -207,10 +213,22 @@ def card_from_vekn[T: models.Card](
             )
     if line["Banned"]:
         card.banned = datetime.datetime.strptime(line["Banned"], "%Y%m%d").date()
-    if card.prints and len(card.prints) > 1:
+    if card.prints:
         original = sets.get(card.prints[0].set.id)
         if original and original.release_date:
             card.legal = original.release_date
+            occurrences = card.prints[0].occurrences
+            overrides = [
+                original.bundles[o.bundle].release_date
+                for o in occurrences
+                if o.type == models.Occurrence.Type.PRECON
+                and o.bundle in original.bundles
+                and original.bundles[o.bundle].release_date
+            ]
+            if overrides and all(
+                o.type == models.Occurrence.Type.PRECON for o in occurrences
+            ):
+                card.legal = min(overrides)
             if card.legal < LEGAL_ON_RELEASE:
                 card.legal += datetime.timedelta(days=30)
         # promo only (singles)
@@ -334,6 +352,8 @@ def prints_from_vekn(
                     )
                 )
             elif count:
+                if base not in sets[expansion].bundles:
+                    warnings.warn(f"unknown precon bundle: {expansion}:{base}")
                 prints[expansion].append(
                     models.Occurrence(
                         type=models.Occurrence.Type.PRECON,

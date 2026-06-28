@@ -11,7 +11,6 @@ from . import models
 from . import utils
 from . import collections
 
-
 LOG = logging.getLogger("krcg")
 
 

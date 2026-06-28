@@ -72,6 +72,7 @@ class Bundle:
     code: str
     name: str
     size: int
+    release_date: datetime.date | None = None
 
 
 @dataclass(kw_only=True)
