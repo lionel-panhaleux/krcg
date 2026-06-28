@@ -8,6 +8,11 @@ import os
 import re
 import warnings
 
+#: Filing articles, longest-first so 'An' is matched before 'A' and 'The' before
+#: nothing. Names are stored as printed (article prefixed); filing/sort order is
+#: a separate concern (see models.filing_name). Mirrors models.FILING_PREFIXES.
+PREFIX_ARTICLES = ["Une", "Una", "Les", "The", "An", "El", "La", "Le", "Un", "A"]
+
 
 def fix_sets_csv(path: str | os.PathLike[str]) -> None:
     """Fix the sets csv file."""
@@ -87,15 +92,25 @@ def re_split(pattern: str, s: str) -> list[str]:
     return list(filter(bool, ret))
 
 
+def fix_name_articles(name: str) -> str:
+    """Store names as printed: move a trailing filing article back to a prefix.
+
+    'Ankou, The' -> 'The Ankou', 'Manifesto, An' -> 'An Manifesto'. Filing/sort
+    order (which ignores the article) is handled separately by models.filing_name.
+    """
+    for article in PREFIX_ARTICLES:
+        if name.endswith(f", {article}"):
+            return f"{article} {name[: -len(article) - 2]}"
+    return name
+
+
 def fix_card_text(row: dict[str, str], name_2: str | None = None) -> dict[str, str]:
     """Fix card name."""
-    row["Name"] = row["Name"].replace("(TM)", "™").strip()
+    row["Name"] = fix_name_articles(row["Name"].replace("(TM)", "™").strip())
     if name_2:
         if not row[name_2]:
             row[name_2] = row["Name"]
-        row[name_2] = row[name_2].replace("(TM)", "™").strip()
-        if name_2 == "Name es-ES" and row[name_2].endswith(", El"):
-            row[name_2] = f"El {row[name_2][:-4]}"
+        row[name_2] = fix_name_articles(row[name_2].replace("(TM)", "™").strip())
 
     text = row["Card Text"]
     text = text.replace("(D)", "Ⓓ")
