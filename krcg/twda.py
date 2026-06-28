@@ -6,18 +6,27 @@ tools can use ``load_online()`` to fetch the latest archive from KRCG static.
 """
 
 import importlib.resources
+import io
 import logging
 import lzma
+import os.path
+import urllib.request
+import zipfile
 
 import aiohttp
 import msgspec.json
 
+from . import collections
 from . import models
+from . import parser
 
 logger = logging.getLogger("krcg")
 
 
 DecksArchive = dict[str, models.Deck]
+
+#: The TWDA original source: a GitHub tree of one decklist `.txt` per deck.
+TWD_SOURCE_URL = "https://github.com/GiottoVerducci/TWD/archive/refs/heads/master.zip"
 
 
 def _mark_winners(archive: DecksArchive) -> DecksArchive:
@@ -41,6 +50,28 @@ def load_local() -> DecksArchive:
     path = importlib.resources.files("krcg.cards").joinpath("twda.json.xz")
     with path.open("rb") as f:
         archive = msgspec.json.decode(lzma.decompress(f.read()), type=DecksArchive)
+    return _mark_winners(archive)
+
+
+def fetch_from_source(cards: collections.CardDict) -> DecksArchive:
+    """Build the TWDA fresh from its GitHub source, parsed against `cards`.
+
+    The network path used to regenerate the archive (the bundled snapshot and
+    the KRCG static build both go through here); `load_local` reads the packaged
+    snapshot instead. Decks are parsed with the TWDA decklist parser.
+    """
+    with urllib.request.urlopen(TWD_SOURCE_URL) as response:
+        zip_data = response.read()
+    archive: DecksArchive = {}
+    with zipfile.ZipFile(io.BytesIO(zip_data)) as zip_file:
+        for name in zip_file.namelist():
+            if not name.startswith("TWD-master/decks/") or name.endswith("/"):
+                continue
+            deck_id = os.path.splitext(os.path.basename(name))[0]
+            with zip_file.open(name) as source:
+                text = io.TextIOWrapper(source, encoding="utf-8")
+                deck = parser.deck_from_txt(text, cards, id=deck_id, twda=True)
+            archive[deck.id] = deck
     return _mark_winners(archive)
 
 
