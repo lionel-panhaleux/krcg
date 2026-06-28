@@ -51,7 +51,7 @@ class Occurrence:
 
     type: Type
     frequency: Frequency | None = None  # RARITY
-    multiplier: float = 0  # RARITY
+    multiplier: float = 0.0  # RARITY
     bundle: str = ""  # PRECON
     copies: int = 0  # PRECON
     date: datetime.date | None = None  # SINGLE
