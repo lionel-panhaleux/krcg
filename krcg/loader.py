@@ -29,14 +29,20 @@ PICKLE_FILE = os.path.join(tempfile.gettempdir(), f"krcg_cards_{VERSION}.pkl")
 logger = logging.getLogger("krcg")
 
 
-def load_local() -> collections.CardDict:
-    """Build the cards library from the packaged VEKN CSVs and rulings."""
-    raw, sets = vekn_csv.from_files()
+def load_local(available: set[str] | None = None) -> collections.CardDict:
+    """Build the cards library from the packaged VEKN CSVs and rulings.
+
+    ``available`` is forwarded to `vekn_csv.compute_urls` to publish only image
+    URLs that resolve; when given, the version cache is left untouched (the
+    pruned build is specialized and must not become the default `load()`).
+    """
+    raw, sets = vekn_csv.from_files(available)
     cards = collections.CardDict(raw)
     cards.sets = sets
     rulings.load_local(cards)
     cards.index()
-    _cache(cards)
+    if available is None:
+        _cache(cards)
     return cards
 
 

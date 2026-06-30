@@ -199,3 +199,24 @@ def test_load_local() -> None:
         cm = loader.load_local()
     assert not [w.message for w in wrec]
     assert 200076 in cm  # Anarch Convert
+
+
+def test_compute_urls_available(cards: collections.CardDict) -> None:
+    """`available` keeps only image URLs whose file is listed (existence-verified)."""
+    base = "https://static.krcg.org/card/"
+    card = cards["Aid from Bats"]
+    main = card.url.removeprefix(base)  # aidfrombats.jpg
+    one_print = card.prints[0].url.removeprefix(base)  # set/<set>/aidfrombats.jpg
+    assert main and one_print and card.prints[0].url  # optimistic build has them
+
+    # publish only the main image and a single set print as "available"
+    pruned = loader.load_local(available={main, one_print})
+    pc = pruned["Aid from Bats"]
+    assert pc.url == base + main  # listed -> kept
+    assert [p.url for p in pc.prints if p.url] == [base + one_print]  # others pruned
+    assert all(t.url == "" for t in pc.i18n.values())  # no translation image listed
+    # a card whose image is not in the manifest gets an empty url
+    assert pruned["Theo Bell (G2)"].url == ""
+
+    # the default (available=None) stays optimistic
+    assert cards["Theo Bell (G2)"].url == base + "theobellg2.jpg"

@@ -93,8 +93,14 @@ DictOfCards = dict[int, models.Card]
 DictofSets = dict[int | str, models.Set]
 
 
-def from_files() -> tuple[DictOfCards, DictofSets]:
-    """Build cards and sets from the packaged VEKN CSVs; returns (cards, sets)."""
+def from_files(
+    available: set[str] | None = None,
+) -> tuple[DictOfCards, DictofSets]:
+    """Build cards and sets from the packaged VEKN CSVs; returns (cards, sets).
+
+    ``available`` is forwarded to `compute_urls` to publish only image URLs that
+    resolve (see that function); None emits every URL optimistically.
+    """
     cards = DictOfCards()
     sets = dict[int | str, models.Set]()
     sets["Promo"] = models.Set(
@@ -128,7 +134,7 @@ def from_files() -> tuple[DictOfCards, DictofSets]:
             for line in csv.DictReader(f):
                 add_translation(cards, line, lang)
     compute_variants(cards)
-    compute_urls(cards, sets)
+    compute_urls(cards, sets, available)
     return cards, sets
 
 
@@ -395,19 +401,38 @@ def prints_from_vekn(
     )
 
 
-def compute_urls(cards: DictOfCards, sets: DictofSets) -> None:
-    """Compute the URLs for a card.
+def compute_urls(
+    cards: DictOfCards,
+    sets: DictofSets,
+    available: set[str] | None = None,
+) -> None:
+    """Compute the image URLs for cards, translations and prints.
+
+    Each URL points to a ``card_name`` image under the KRCG static ``/card/``
+    base: the card itself, its per-language variants (``<lang>/<card_name>``)
+    and its per-set variants (``set/<set_name>/<card_name>``).
+
+    If ``available`` is given — a set of paths relative to ``/card/``, e.g.
+    ``"theankoug5.jpg"``, ``"fr/theankoug5.jpg"``,
+    ``"set/jyhad/theankoug5.jpg"`` — a URL is only set when its image is in the
+    set; otherwise the field is left empty. This lets the static-files builder
+    publish only links that actually resolve. When ``available`` is None every
+    URL is emitted optimistically (the default).
 
     WARNING: compute_variants must be called before this function.
     """
     base_url = urllib.parse.urljoin(KRCG_STATIC_SERVER, "/card/")
+
+    def url_for(path: str) -> str:
+        if available is not None and path not in available:
+            return ""
+        return urllib.parse.urljoin(base_url, path)
+
     for card in cards.values():
         card_name = re.sub(r"[^\w\d]", "", utils.normalize(card.full_name)) + ".jpg"
-        card.url = urllib.parse.urljoin(base_url, card_name)
+        card.url = url_for(card_name)
         for lang, translation in card.i18n.items():
-            translation.url = urllib.parse.urljoin(
-                base_url, f"{lang.value}/{card_name}"
-            )
+            translation.url = url_for(f"{lang.value}/{card_name}")
         for print_ in card.prints:
             set_name = (
                 sets[print_.set.code]
@@ -417,7 +442,7 @@ def compute_urls(cards: DictOfCards, sets: DictofSets) -> None:
                 .replace(")", "")
                 .replace(" ", "-")
             )
-            print_.url = urllib.parse.urljoin(base_url, f"set/{set_name}/{card_name}")
+            print_.url = url_for(f"set/{set_name}/{card_name}")
 
 
 def add_translation(
