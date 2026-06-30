@@ -2888,6 +2888,8 @@
 101902|Summoning, The:
   - '[PRE] The ally cannot act this turn. [RBK recruit-ally]'
   - "[PRE] The ally card itself cannot be cancelled (eg. {Louhi (G4)}'s ability cannot cancel it). [ANK 20201229]"
+  - '[PRE] Is not an action to recruit a specific type of ally (i.e. {Paths in Two Worlds} or {Shroud Mastery} cannot be played)
+    [ANK 20250526]'
 101906|Supernatural Resistance:
   - If used to cancel the opposing minion's strike, that minion must still choose a strike and could play the same one again.
     [RBK cancel-a-card] [LSJ 20090818]
