@@ -34,7 +34,6 @@ sync-cards:
     @mkdir -p krcg/cards
     @curl -f -s -o krcg/cards/vtescrypt.csv "{{ VTESCSV_GITHUB }}/vtescrypt.csv"
     @curl -f -s -o krcg/cards/vteslib.csv "{{ VTESCSV_GITHUB }}/vteslib.csv"
-    @curl -f -s -o krcg/cards/vteslibmeta.csv "{{ VTESCSV_GITHUB }}/vteslibmeta.csv"
     @curl -f -s -o krcg/cards/vtessets.csv "{{ VTESCSV_GITHUB }}/vtessets.csv"
     @echo "📥 Syncing rulings YAML files from vtes-biased/vtes-rulings..."
     @curl -f -s -o krcg/cards/groups.yaml "{{ RULINGS_GITHUB }}/groups.yaml"
