@@ -434,14 +434,11 @@ def compute_urls(
         for lang, translation in card.i18n.items():
             translation.url = url_for(f"{lang.value}/{card_name}")
         for print_ in card.prints:
-            set_name = (
-                sets[print_.set.code]
-                .name.lower()
-                .replace(":", "")
-                .replace("(", "")
-                .replace(")", "")
-                .replace(" ", "-")
-            )
+            # slug the set name: collapse any run of non-alphanumerics to a
+            # single "-" (so "Promo Pack 3 — Icons" -> "promo-pack-3-icons")
+            set_name = re.sub(
+                r"[^a-z0-9]+", "-", sets[print_.set.code].name.lower()
+            ).strip("-")
             print_.url = url_for(f"set/{set_name}/{card_name}")
 
 
