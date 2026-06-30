@@ -140,6 +140,11 @@ def fix_card_row(row: dict[str, str]) -> dict[str, str]:
     if row["Banned"]:
         row["Banned"] = BAN_MAP.get(row["Banned"], row["Banned"])
     aka = re_split(";", row["Aka"]) + AKA.get(card_id, [])
+    # store akas as printed too, unless that only re-articles the canonical name
+    # (a bare prefix<->suffix of Name is redundant: indexing emits both forms)
+    aka = [
+        a if fix_name_articles(a) == row["Name"] else fix_name_articles(a) for a in aka
+    ]
     row["Aka"] = ";".join(collections.Counter(aka).keys())  # preserve order
     sets = set(a[0] for r in row["Set"].split(", ") for a in r.split(":", 1))
     if V5_SETS & sets:

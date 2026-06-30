@@ -1998,7 +1998,7 @@ John Milton, ""Paradise Lost""","Sabbat:U1, SW:U1, BH:PTo1","","Mike Dringenberg
 Unlock this vampire, choose a Discipline they have at superior, and put this card on another ready non-titled vampire you control. The attached vampire is considered Anarch and gets +1 level of the chosen Discipline. If the attached vampire changes sect, burn this card. A vampire can have only one Field Training.","","AU:2, Anthology:4, Ant1:4","","Tomáš ""zelgaris"" Zahradníček;Ginés Quiñonero-Santiago","",""
 "100726","Fiendish Tongue","","Action","","","","","","","","Requires a Sabbat vampire.
 Ⓓ Bleed with +1 bleed. Anarchs get -1 intercept during this action. If this vampire is Tzimisce and the bleed is successful, this Tzimisce can burn 1 blood during your next discard phase to unlock.","","Anarchs:C2, Third:C1, POD:20220427, SV5:PCaine2","","Fred Harper","",""
-"100727","Fifth Tradition: Hospitality","Fifth Tradition: Hospitality, The","Action","","","","","1","","","+1 stealth action. Requires a prince or justicar.
+"100727","Fifth Tradition: Hospitality","The Fifth Tradition: Hospitality","Action","","","","","1","","","+1 stealth action. Requires a prince or justicar.
 Add 4 blood to another vampire.","When thou comest to a foreign city, thou shalt present thyself to the one who ruleth there.","Jyhad:U1, VTES:U1, CE:U1, KoT:U1, NB:PV1","","Melissa Benson;Peter Bergting","",""
 "100728","Filchware's Pawn Shop","","Master","","","","","","","","Master: unique location. Trifle.
 Any minion may equip with any non-location equipment card in any Methuselah's ash heap as an undirected +1 stealth equip action (he or she must meet the requirements of the card, if any). That action costs 1 additional pool if the minion chooses a card from his or her controller's ash heap. Otherwise, the action costs 1 less pool or blood (but never less than zero).","","Anarchs:R1","","Brian LeBlanc","",""
@@ -2024,7 +2024,7 @@ Put this card on a Sabbat vampire. Once each combat, the vampire with this card 
 Shandy, Follower of Set","LoB:R1","","Greg Boychuk","",""
 "100736","Firebrand","","Political Action","","","","","","","","Requires an anarch.
 If this referendum is successful, put this card on the acting anarch. This anarch gets 1 additional vote during a political action. During your minion phase, this anarch can burn 1 blood to unlock a ready younger anarch. Burn this card if this anarch goes to torpor. An anarch may have only 1 Firebrand.","","Anarchs:C1, Anarchs:PAB1","","Andrew Bates","",""
-"100737","First Tradition: The Masquerade","First Tradition: The Masquerade, The","Political Action","","","","","","","","Requires a prince or justicar.
+"100737","First Tradition: The Masquerade","The First Tradition: The Masquerade","Political Action","","","","","","","","Requires a prince or justicar.
 If this referendum is successful, put this card in play. Each Methuselah must burn 2 pool during his or her unlock phase. A Methuselah can choose to skip his or her entire turn. Burn this card when the controller has either skipped 3 turns or burned a total of 6 pool by this effect.","Thou shalt not reveal thy true nature to those not of the Blood.","Jyhad:R2, VTES:R1, CE:R1, KoT:R1","","Pete Venters;Mike Danza","",""
 "100738","Fists of Death","","Combat","","","pot","","1","","","Only usable before range is chosen.
 [pot] This vampire gets +1 strength for the remainder of the combat.
@@ -2160,7 +2160,7 @@ Waldorf, Toreador antitribu","BH:R2, SP:LB3","","Steve Ellis","",""
 Put this card on a younger Laibon in your uncontrolled region and move 4 blood from the blood bank to that vampire. (This card remains in play.) A vampire may have only one Founders of the Ebony Kingdom. Burn this card if the vampire leaves the uncontrolled region.","","LoB:C1","","Andrew Trabbold","",""
 "100781","The Fourth Cycle","","Event","","","","","","","","Requires 2 or more Gehenna events in play.
 After this card enters play, burn all Gehenna events and conviction cards, then send all vampires with capacity 3 or less to torpor. Gehenna events cannot be played.","","Promo:20090401, EoG:1","","Jeremy McHugh","",""
-"100782","Fourth Tradition: The Accounting","Fourth Tradition: The Accounting, The","Action","","","","","1","","","+1 stealth action. Requires a prince or justicar.
+"100782","Fourth Tradition: The Accounting","The Fourth Tradition: The Accounting","Action","","","","","1","","","+1 stealth action. Requires a prince or justicar.
 Add 3 blood to a younger vampire in your uncontrolled region.","Those thou dost create are thine own children.","Jyhad:U1, VTES:U1, CE:U1, KoT:U1, KoT:PV3, NB:PV1, NB2:PBH2","","Mark Poole;Kieran Yanner","",""
 "100783","Fractura","","Combat","","","str/cel","","X","","","[cel] X is 0. Strike: dodge.
 [str] This vampire gets X additional strikes (limited) each round. Those additional strikes can only be hand strikes. [str] is not a Discipline.
@@ -3062,7 +3062,7 @@ Samuel Taylor Coleridge, ""The Rime of the Ancient Mariner""","Jyhad:C1, VTES:C1
 Lock this reacting vampire. Choose another Methuselah other than the acting minion's controller. The acting minion is now bleeding the chosen Methuselah. Only one Lost in Translation may be played each action.","","LotN:C1, LotN:PA1","","Becky Jollensten","",""
 "102273","Loup","","Action Modifier","Toreador","","","","","","","Only one Loup can be played each turn.
 Put this card in play. Toreador get +1 stealth. Burn this card at the end of the turn or after a Toreador performs a successful action.","","30th:6","","Raquel Cornejo","",""
-"101127","The Louvre, Paris","Louvre, Paris, Le","Master","Toreador","","","","","","","Unique location.
+"101127","The Louvre, Paris","Le Louvre, Paris","Master","Toreador","","","","","","","Unique location.
 You can lock this location to lock a Toreador. If you control the Prince of Paris, you can lock this location to lock a minion. Minions can steal this location as a Ⓓ action.","","DS:C2, CE:PTo1, 30th:1","","Ken Meyer, Jr.","",""
 "101128","Loving Agony","","Combat","","","val/ani","","1","","","Only usable at close range.
 [ani] Strike: hand strike at +1 damage.
@@ -4567,7 +4567,7 @@ Put this card in play. Lock during your master phase to make a ready non-titled,
 "101705","Second Sight","","Conviction","","","","","","","","An imbued may burn only one Second Sight for the following effects each action.
 Burn when a monster is acting to give this imbued +1 intercept for that action.
 Burn when this imbued declares an action to give monsters -1 intercept for this action.","","NoR:C1","","Avery Butterworth","",""
-"101706","Second Tradition: Domain","Second Tradition: Domain, The","Reaction","","","","","","","","Requires a prince or justicar.
+"101706","Second Tradition: Domain","The Second Tradition: Domain","Reaction","","","","","","","","Requires a prince or justicar.
 [REACTION] +2 intercept.
 [REACTION] Only usable by a locked prince or justicar. This vampire burns 1 blood to unlock and attempt to block with +2 intercept, even if intercept is not yet needed.","None may challenge thy word while in thy domain.","Jyhad:U1, VTES:U1, CE:U1, CE:PTo1, CE:PV2, KMW:PAl3, KoT:U1, KoT:PV3, 25th:3, FB:PV2, V5:PL6, V5:PTo4, V5:PV4, V5A:PBh8, NB:PTo3, NB:PV2, NB2:PBH4, 30th:2, NB3:PL3","","L. A. Williams;Durwin Talon;Cos Koniotis","",""
 "101707","Secret Horde","","Master","","","","X","","","","Master: investment.
@@ -4802,7 +4802,7 @@ The vampire with this equipment is immune to frenzy cards (including Brujah Fren
 "101787","Sires Command, Childer Inherit","","Action","","","","","","","","+1 stealth action. Requires a ready Laibon.
 Move 1 blood from the blood bank to any other Laibon. Alternatively, if this Laibon is a magaji, Ⓓ lock two ready Laibon who belong to the same clan (as each other) and are controlled by the same Methuselah (as each other).","An egg never sits on a hen.
 Kiswahili proverb","LoB:C1","","William O'Connor","",""
-"101788","Sixth Tradition: Destruction","Sixth Tradition: Destruction, The","Action","","","","","","","","+1 stealth action. Requires a ready prince or justicar.
+"101788","Sixth Tradition: Destruction","The Sixth Tradition: Destruction","Action","","","","","","","","+1 stealth action. Requires a ready prince or justicar.
 Ⓓ Burn a vampire who has committed diablerie since your last turn.","Thou art forbidden to destroy another of thy kind.","Jyhad:U1, VTES:U1, CE:R1, KoT:R1","","Kaja Foglio;William O'Connor","",""
 "101789","Skaald","","Action","Gangrel","","","","","","","+1 stealth action. Requires a non-titled Gangrel with capacity 5 or more. Unique.
 Put this card on this Gangrel and unlock them. This non-titled Gangrel gets +2 votes in referendums called by a Gangrel. Any older non-titled Gangrel can steal this card as a +1 stealth Ⓓ action.","","TU:A1","","Ginés Quiñonero-Santiago","",""
@@ -5304,7 +5304,7 @@ Spike Milligan","LotN:R1","","Becky Jollensten","",""
 Put this card into play; it becomes a 1-capacity vampire. This vampire is clanless and sterile. This vampire is not considered unique, must hunt this turn and is the same sect as the acting vampire. Cards that cost blood cost this vampire twice as much blood to play. During your unlock phase, you may lock this vampire to look at the top two cards of any Methuselah's library.","","BH:R1","","Brian LeBlanc","1",""
 "101972","Thing","","Action","Gangrel","","","","","","","+1 stealth action.
 Add 2 blood to a Gangrel in your uncontrolled region.","","TU:B4, V5A:PG4, NB2:PG5","","Javier Santos","",""
-"101973","Third Tradition: Progeny","Third Tradition: Progeny, The","Action","","","","","1","","","+1 stealth action. Requires a non-sterile prince or justicar.
+"101973","Third Tradition: Progeny","The Third Tradition: Progeny","Action","","","","","1","","","+1 stealth action. Requires a non-sterile prince or justicar.
 Put this card in play. It becomes a 1-capacity (non-unique) Camarilla vampire of the same clan as the acting vampire and cannot perform actions this turn. You can search your library (shuffle afterward), hand andor ash heap for a Discipline master card and put it on this new vampire. Move up to 2 blood from the acting vampire to this new vampire.","Thou shalt only sire another with the permission of thine elder.","Jyhad:U1, VTES:U1, CE:U1, KoT:U1, 30th:1","","L. A. Williams;Julie Collins;Randy Gallegos","1",""
 "101974","Thirst","","Event","","","","","","","","Gehenna.
 After each Methuselah's minion phase ends, each ready vampire controlled by that Methuselah with capacity less than the number of Gehenna events in play who did not hunt during that minion phase burns 1 blood.","Night after night. Rising, hunting, killing, feeding. Nothing more than ambulatory corpses without the good sense to lie down and be still.
