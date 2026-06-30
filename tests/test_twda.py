@@ -7,6 +7,7 @@ the end is a baseline test (amber on source-data drift).
 
 import io
 import pathlib
+import zipfile
 
 import msgspec.json
 import pytest
@@ -230,3 +231,26 @@ def test_bundle_integrity(TWDA: twda.DecksArchive) -> None:
     encoded = msgspec.json.encode(TWDA)
     restored = msgspec.json.decode(encoded, type=twda.DecksArchive)
     assert restored["10842"].player == "Lotte Siebert"
+
+
+def test_fetch_from_source(cards: collections.CardDict, tmp_path: pathlib.Path) -> None:
+    """`fetch_from_source` parses the upstream zip layout and marks winners.
+
+    Served over a ``file://`` URL so the parsing path runs offline; only deck
+    files under ``TWD-master/decks/`` are picked up.
+    """
+    zpath = tmp_path / "twd.zip"
+    with zipfile.ZipFile(zpath, "w") as zf:
+        for deck_id in ("10842", "2010tcdbng"):
+            zf.writestr(
+                f"TWD-master/decks/{deck_id}.txt",
+                (FIXTURES / f"twd_{deck_id}.txt").read_text(encoding="utf-8"),
+            )
+        zf.writestr("TWD-master/README.md", "ignored: not under decks/")
+        zf.writestr("TWD-master/decks/", "")  # directory entry, skipped
+
+    archive = twda.fetch_from_source(cards, url=zpath.as_uri())
+
+    assert set(archive) == {"10842", "2010tcdbng"}
+    assert archive["10842"].player == "Lotte Siebert"
+    assert archive["10842"].score and archive["10842"].score.win is True
