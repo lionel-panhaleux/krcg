@@ -58,9 +58,18 @@ def test_serialize_formats(cards: collections.CardDict) -> None:
 
 @pytest.mark.asyncio
 async def test_from_amaranth(cards: collections.CardDict) -> None:
-    """Fetch and parse a deck from Amaranth (skipped offline, cf. conftest)."""
+    """Fetch and parse a deck from Amaranth (skipped offline, cf. conftest).
+
+    The share URL is fragment-based (#deck/<uid>, Amaranth is a hash-routed
+    SPA); the plain path form is accepted too.
+    """
     async with aiohttp.ClientSession() as session:
         deck = await providers.fetch(
+            session,
+            "https://amaranth.vtes.co.nz/#deck/4d3aa426-70da-44b7-8cb7-92377a1a0dbd",
+            cards,
+        )
+        path_form = await providers.fetch(
             session,
             "https://amaranth.vtes.co.nz/deck/4d3aa426-70da-44b7-8cb7-92377a1a0dbd",
             cards,
@@ -69,6 +78,10 @@ async def test_from_amaranth(cards: collections.CardDict) -> None:
     assert deck.author == "BCP"
     assert "blackchantry.com" in deck.comment
     assert {c.id: c.count for c in deck.cards}[200025] == 2  # Aidan Lyle
+    assert path_form.name == deck.name
+    assert [(c.id, c.count) for c in path_form.cards] == [
+        (c.id, c.count) for c in deck.cards
+    ]
 
 
 @pytest.mark.asyncio

@@ -103,11 +103,16 @@ async def fetch_amaranth(
     amaranth_map: dict[str, models.Card] | None = None,
 ) -> models.Deck:
     """Fetch a deck from Amaranth."""
-    if not url.path.startswith("/deck/"):
+    # Amaranth is a hash-routed SPA: share URLs carry the deck in the
+    # fragment (https://amaranth.vtes.co.nz/#deck/<uid>)
+    path = url.path
+    if url.fragment.startswith("deck/"):
+        path = "/" + url.fragment
+    if not path.startswith("/deck/"):
         raise ValueError("Invalid URL")
     if amaranth_map is None:
         amaranth_map = await get_amaranth_cards_map(session, cards_dict)
-    uid = url.path[6:]
+    uid = path[6:]
     fetch_url = "https://amaranth.vtes.co.nz/api/deck?id=" + uid
     async with session.get(fetch_url) as response:
         response.raise_for_status()
