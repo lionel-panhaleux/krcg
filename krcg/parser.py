@@ -414,9 +414,14 @@ _POST_COUNT = (
     r"(?!(st|nd|rd|th|.?\d|b|p|(..?port)))"
     r"(\s|\(|\)|\[|\]|:|cards?|total|\d|trifles?|,)*"
 )
-# three card names have parentheses - do not parse as comment
+# Parentheses that are NOT comments: three card names contain them, and the crypt
+# group/advanced qualifiers "(G3)", "(G3 ADV)", "(ADV)" that VDB, Amaranth and card
+# exports append to disambiguate a printing. Keep the qualifier in the name so the
+# parenthesis-tolerant card lookup resolves the right group/advanced card instead of
+# the base (a bare-suffix crypt tail is handled separately, further down).
 _BRACED_COMMENT = (
-    r"\s+(\((?!bastet|endless night|olaf holte)(?P<parenthesis_comment>[^\)]+)\)"
+    r"\s+(\((?!bastet|endless night|olaf holte|g\d+(?: adv)?\)|adv\))"
+    r"(?P<parenthesis_comment>[^\)]+)\)"
     r"|\[(?P<bracket_comment>[^\]]+?)\s*\])"
 )
 _LINE_COMMENT = (

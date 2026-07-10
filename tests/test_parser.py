@@ -130,6 +130,23 @@ def test_get_card(
         "5x sascha vykos, the angel of caine (adv) 8   "
         "aus tha vic ani dom  archbishop	tzimisce:2",
     ) == (cards["Sascha Vykos, The Angel of Caine (ADV)"], 5)
+    # the same group / advanced qualifiers must resolve WITHOUT a crypt tail: the
+    # parenthesised form VDB, Amaranth and card exports emit, where the qualifier
+    # sits where a comment would and must not be stripped as one
+    assert gc(p, cards, "2x xaviar (g3 adv)") == (cards["Xaviar (G3 ADV)"], 2)
+    assert gc(p, cards, "1x alan sovereign (g3 adv)") == (
+        cards["Alan Sovereign (G3 ADV)"],
+        1,
+    )
+    assert gc(p, cards, "alan sovereign (adv)") == (cards["Alan Sovereign (ADV)"], 1)
+    # a bare group qualifier picks the right printing, not the base/default
+    assert gc(p, cards, "3x theo bell (g6)") == (cards["Theo Bell (G6)"], 3)
+    assert gc(p, cards, "2x theo bell (g2)") == (cards["Theo Bell (G2)"], 2)
+    # a real trailing comment is still stripped, the qualifier kept
+    assert gc(p, cards, "2x alan sovereign (g3 adv) (great card)") == (
+        cards["Alan Sovereign (G3 ADV)"],
+        2,
+    )
 
     caplog.clear()
     # names beginning with a number are hard
