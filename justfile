@@ -43,9 +43,9 @@ sync-cards:
     @mkdir -p krcg/cards/vtescsv-fr && curl -f -s "{{ VTESCSV_VEKN_NET_FR }}" | bsdtar -xf - -C krcg/cards/vtescsv-fr
     @mkdir -p krcg/cards/vtescsv-es && curl -f -s "{{ VTESCSV_VEKN_NET_ES }}" | bsdtar -xf - -C krcg/cards/vtescsv-es
     @echo "📥 Fixing CSV files..."
-    @python krcg/scripts/fix_csv.py
+    @uv run python krcg/scripts/fix_csv.py
     @echo "📥 Syncing TWDA..."
-    @python krcg/scripts/fetch_twda.py --output krcg/cards/twda.json.xz
+    @uv run python krcg/scripts/fetch_twda.py --output krcg/cards/twda.json.xz
     @echo "✅ CSV files synced successfully!"
 
 # Upgrade all dependencies (including dev dependencies)
