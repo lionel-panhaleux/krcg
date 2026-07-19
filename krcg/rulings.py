@@ -141,6 +141,13 @@ RE_RULING_REFERENCE = re.compile(
 )
 RE_SYMBOL = re.compile(r"\[(?:" + r"|".join(ANKHA_SYMBOLS) + r")\]")
 RE_CARD = re.compile(r"{[^}]+}")
+RE_REMINDER = re.compile(r"\s*\[REMINDER\]\s*$", re.IGNORECASE)
+
+
+def strip_reminder(text: str) -> tuple[str, bool]:
+    """Strip a trailing [REMINDER] tag: return (clean text, is_reminder)."""
+    clean = RE_REMINDER.sub("", text)
+    return clean, clean != text
 
 
 def parse_symbols(text: str) -> collections.abc.Generator[tuple[str, str]]:
@@ -213,10 +220,26 @@ def load_from_files(
             ]
         else:
             members = [(cards[int(id_)], "", "")]
-        for text in rulings_list:
+        for entry in rulings_list:
+            # An entry is a plain string, or a {text, overrides} map giving
+            # per-card wording for some member cards of a group ruling. A REMINDER
+            # ends its text with a trailing [REMINDER] tag.
+            if isinstance(entry, dict):
+                text, reminder = strip_reminder(entry["text"])
+                overrides = {
+                    int(k.split("|")[0]): v
+                    for k, v in (entry.get("overrides") or {}).items()
+                }
+            else:
+                text, reminder = strip_reminder(entry)
+                overrides = {}
             for card, prefix, group_name in members:
-                ruling = _parse_text(cards, prefix + text, references)
+                member_text = (
+                    overrides[card.id] if card.id in overrides else prefix + text
+                )
+                ruling = _parse_text(cards, member_text, references)
                 ruling.group = group_name
+                ruling.reminder = reminder
                 card.rulings.append(ruling)
 
 

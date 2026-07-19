@@ -208,6 +208,7 @@ class Ruling:
 
     text: str
     group: str = ""
+    reminder: bool = False
     references: list[Reference] = field(default_factory=list)
     cards: list[CardMinimal] = field(default_factory=list)
     symbols: list[Symbol] = field(default_factory=list)
