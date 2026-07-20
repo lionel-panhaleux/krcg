@@ -1,6 +1,65 @@
 Changelog
 =========
 
+5.9 (2026-07-20)
+----------------
+
+- Card text marks a card it names: ``<Card Name>``, as a ruling marks one
+  ``{Card Name}``. ``Card.cards`` and ``Translation.cards`` list the cards named,
+  as ``Ruling.cards`` does. Every marker left in a text resolves.
+- Fix: ``/`` is no longer stripped from card text, which was corrupting 32 cards
+  (``and/or`` became ``andor``).
+- Card text search matches through the markup, so searching a card name also
+  finds the cards that name it.
+
+5.8 (2026-07-19)
+----------------
+
+- Rulings update.
+
+5.7 (2026-07-19)
+----------------
+
+- Rulings accept the ``[REMINDER]`` tag and ``{text, overrides}`` maps; a
+  reminder is flagged by ``Ruling.reminder``.
+
+5.6 (2026-07-11)
+----------------
+
+- Decklist parsing accepts a parenthesized crypt qualifier (``Theo Bell (G2)``).
+
+5.5 (2026-07-04)
+----------------
+
+- Version bump only.
+
+5.4 (2026-07-04)
+----------------
+
+- ``providers.fetch`` accepts Amaranth fragment share URLs (``#deck/<uid>``).
+
+5.3 (2026-07-01)
+----------------
+
+- Card names are stored as printed: ``The Ankou``, not ``Ankou, The``. This
+  changes ``printed_name`` / ``full_name`` / ``unique_name`` and the ``Aka``
+  names. Sort order is unaffected — use ``filing_name``, which still ignores the
+  article.
+- ``vteslibmeta.csv`` is no longer packaged.
+
+5.2 (2026-06-30)
+----------------
+
+- ``twda.fetch_from_source(cards)`` builds a live TWDA from the upstream
+  ``.txt`` files, for callers that don't want to wait on a package release.
+
+5.1 (2026-06-30)
+----------------
+
+- ``load_local(available)`` (and ``vekn_csv.from_files``) publishes only the
+  image URLs that resolve. The version cache is left alone when it is given.
+- Set name slugs in image URLs collapse every non-alphanumeric run.
+
 5.0 (2026-06-27)
 ----------------
 
@@ -39,44 +98,44 @@ the new surface and the migration notes below.
 
 
 4.16 (2025-11-01)
-----------------
+-----------------
 
 - V5 Sabbat expansion
 
 
 4.15 (2025-10-16)
-----------------
+-----------------
 
 - Fix parsing common typo on Vozhd of Sofia
 
 
 4.14 (2025-10-09)
-----------------
+-----------------
 
 - Fix non-english search.
 
 
 4.13 (2025-08-11)
-----------------
+-----------------
 
 - Fix minor issues for krcg cli.
 
 
 4.12 (2025-08-10)
-----------------
+-----------------
 
 - Mark package as typed.
 
 
 4.11 (2025-08-10)
-----------------
+-----------------
 
 - Improved packaging & documentation.
 - Group and capacity should always be strings in search methods.
 
 
 4.10 (2025-08-09)
-----------------
+-----------------
 
 - Improved documentation.
 

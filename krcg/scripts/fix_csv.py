@@ -198,6 +198,12 @@ def fix_set_field(row: dict[str, str]) -> str:
         except ValueError:
             warnings.warn(f"failed to parse set ({card_id}): {tag}")
             exit(1)
+        # an addition of ours, from a previous run over this same file: drop it and
+        # let the source tag below regenerate it. Fixing twice is then fixing once,
+        # bar the two cards whose Anthology:LARP was rewritten to a bare Anthology,
+        # which a second pass can no longer tell from a natively bare one.
+        if set_ in SKIP_ADDITIONS:
+            continue
         rarity_list = re_split(r"/", rarities)
         if not rarity_list:
             if set_ == "POD":
@@ -214,9 +220,6 @@ def fix_set_field(row: dict[str, str]) -> str:
             # cur is a per-rarity copy: a replacement/addition must not leak the
             # set code onto the following rarities of the same slash-joined tag
             cur, (bundle, count) = set_, match.groups()
-            # skip our own additions
-            if bundle in SKIP_ADDITIONS:
-                continue
             if cur == "Promo" or cur == "POD":
                 bundle, count = count[:8], ""
             # addition keys on the pre-replacement code: the Anthology:LARP →
