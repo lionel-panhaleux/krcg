@@ -53,7 +53,7 @@ class Trie[H: Hashable](collections.defaultdict[str, dict[H, int]]):
         text = normalize(text)
         if not text:
             return []
-        return re.sub(r"[/:,\(\)'\"]", " ", text).split()
+        return re.sub(r"[/:,\(\)'\"<>]", " ", text).split()
 
     def add(self, text: str, reference: H) -> None:
         """Add text to the trie.

@@ -18,6 +18,7 @@ import tempfile
 import aiohttp
 import msgspec
 
+from . import card_references
 from . import collections
 from . import models
 from . import rulings
@@ -30,7 +31,7 @@ logger = logging.getLogger("krcg")
 
 
 def load_local(available: set[str] | None = None) -> collections.CardDict:
-    """Build the cards library from the packaged VEKN CSVs and rulings.
+    """Build the cards library from the packaged VEKN CSVs, rulings and card references.
 
     ``available`` is forwarded to `vekn_csv.compute_urls` to publish only image
     URLs that resolve; when given, the version cache is left untouched (the
@@ -40,6 +41,7 @@ def load_local(available: set[str] | None = None) -> collections.CardDict:
     cards = collections.CardDict(raw)
     cards.sets = sets
     rulings.load_local(cards)
+    card_references.load(cards)
     cards.index()
     if available is None:
         _cache(cards)

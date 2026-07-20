@@ -111,6 +111,8 @@ class Translation:
     flavor: str = ""
     draft: str = ""
     url: str = ""
+    #: cards named in `text`, which marks each one `<Card Name>`
+    cards: list[CardMinimal] = field(default_factory=list)
 
 
 @dataclass
@@ -324,6 +326,8 @@ class Card(CardMinimal):
     artists: list[str] = field(default_factory=list)
     variants: list[Variant] = field(default_factory=list)
     rulings: list[Ruling] = field(default_factory=list)
+    #: cards named in `text`, which marks each one `<Card Name>`
+    cards: list[CardMinimal] = field(default_factory=list)
     text: str = ""
     draft: str = ""
     flavor: str = ""

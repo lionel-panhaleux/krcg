@@ -44,7 +44,7 @@ Jacob Bragg",""
 "100081","Arcane Library","Bibliothèque des arcanes","Lieu unique.
 Vous pouvez l'incliner durant votre phase d'influence pour ajouter 1 point de sang à un Tremere dans votre région incontrôlée.","",""
 "100093","Army of Rats","Armée de rats","Action à +1 en discrétion.
-[ani] Mettre cette carte en jeu. Durant votre phase de redressement, votre proie brûle 1 point de réserve. Vous ne pouvez brûler qu'1 seul point de réserve chaque tour avec des cartes Armée de rats. N'importe quel serviteur peut brûler cette carte en action Ⓓ.","Puis comme le porcher s'assoupissait à la tâche, une énorme ruée de rats déferla sur l'abîme puant et s'abattit pour dévorer bêtes et hommes.
+[ani] Mettre cette carte en jeu. Durant votre phase de redressement, votre proie brûle 1 point de réserve. Vous ne pouvez brûler qu'1 seul point de réserve chaque tour avec des cartes <Armée de rats>. N'importe quel serviteur peut brûler cette carte en action Ⓓ.","Puis comme le porcher s'assoupissait à la tâche, une énorme ruée de rats déferla sur l'abîme puant et s'abattit pour dévorer bêtes et hommes.
 H.P. Lovecraft, ""Les Rats dans les murs""",""
 "100095","Art Museum","Musée d'art","Lieu unique.
 Vous pouvez l'incliner durant votre phase d'influence pour ajouter 1 point de sang à un Toréador dans votre région incontrôlée.","",""
@@ -153,7 +153,7 @@ Henry Miller",""
 Choisissez un clan. Si le référendum passe, chaque Mathusalem gagne 1 point de réserve pour chaque vampire du clan choisi sous son contrôle.","Même en jouant avec ton frère, aie un témoin.
 Hésiode, ""Les Travaux et les Jours""",""
 "100416","Constant Revolution","Révolution permanente","Action à +1 en discrétion. Requiert un Anarch. Unique.
-Mettre cette carte en jeu avec 1 compteur. Durant votre phase de redressement, ajoutez 1 compteur à cette carte. Durant la phase de redressement de chaque autre Mathusalem, ce Mathusalem brûle X points de réserve etou cartes au hasard de sa main, où X est le nombre de compteurs sur cette carte. N'importe quel vampire peut brûler cette carte en action Ⓓ qui coûte 1 point de réserve.","",""
+Mettre cette carte en jeu avec 1 compteur. Durant votre phase de redressement, ajoutez 1 compteur à cette carte. Durant la phase de redressement de chaque autre Mathusalem, ce Mathusalem brûle X points de réserve et/ou cartes au hasard de sa main, où X est le nombre de compteurs sur cette carte. N'importe quel vampire peut brûler cette carte en action Ⓓ qui coûte 1 point de réserve.","",""
 "100435","The Coven","La cabale","Unique. Triviale.
 Mettez cette carte en jeu. Vous pouvez l'incliner pour ajouter 2 points de sang à un vampire disponible que vous contrôlez. Durant votre phase de défausse, votre prédateur prend le contrôle de cette carte.","",""
 "102213","Creeping Sabotage","Sabotage insidieux","Action à +1 en discrétion.
@@ -315,7 +315,7 @@ Radu Bistri, Tzimisce",""
 [PRE] Comme ci-dessus, mais ce vampire reçoit +2 en morsure.","Nous sommes chacun notre propre démon et nous faisons de ce monde notre enfer.
 Oscar Wilde",""
 "100908","Heidelberg Castle, Germany","Château de Heidelberg, Allemagne","Lieu unique.
-Vous pouvez l'incliner pour déplacer des points de sang, des équipements etou des compagnons entre deux vampires disponibles que vous contrôlez. Non utilisable durant une action.","La nuit. La pluie. Un ciel blafard que déchiquette
+Vous pouvez l'incliner pour déplacer des points de sang, des équipements et/ou des compagnons entre deux vampires disponibles que vous contrôlez. Non utilisable durant une action.","La nuit. La pluie. Un ciel blafard que déchiquette
 De flèches et de tours à jour la silhouette
 D'une ville gothique éteinte au lointain gris.
 Paul Verlaine, ""Effet de nuit""",""
@@ -395,7 +395,7 @@ Ingrid Galt, Anarch",""
 [pre] Ⓓ Mordre à +1 en morsure.","",""
 "101114","Living Manse","Manoir vivant","Tant qu'elle est en jeu, cette carte d'équipement représente un lieu et ne compte pas comme équipement.
 Ce vampire reçoit +1 en morsure. Il peut brûler cette carte avant l'étape de manœuvre pour arrêter le combat. Un vampire ne peut en avoir qu'un seul exemplaire.","",""
-"101125","Lost in Crowds","Perdu dans la foule","[obf] +1 en discrétion. Perdu dans la foule et les cartes nommées Volatilisé ne peuvent être joués durant la même action.
+"101125","Lost in Crowds","Perdu dans la foule","[obf] +1 en discrétion. Perdu dans la foule et les cartes nommées <Volatilisé> ne peuvent être joués durant la même action.
 [OBF] Comme ci-dessus, mais pour +2 en discrétion.","... parce qu'elle croit qu'un être terrible
 Lui ferme la route par-derrière.
 Samuel Taylor Coleridge, ""La Complainte du vieux marin""",""
@@ -492,7 +492,7 @@ Durant votre phase d'influence, vous pouvez ajouter 1 point de sang à un vampir
 [AUS] Comme ci-dessus et ce vampire peut prévenir 1 point de dégâts durant le premier round du combat résultant s'il bloque.","""Une mémoire qui n'opère que dans le passé n'a rien de bien fameux"", déclara la Reine.
 Lewis Carroll, ""De l'autre côté du miroir""",""
 "101483","Preternatural Strength","Force surnaturelle","Action à +2 en discrétion.
-[pot] Mettez cette carte sur ce vampire. Ce vampire reçoit +1 en force. Il ne peut pas jouer Panneau arraché. Un vampire ne peut en avoir qu'un seul exemplaire.
+[pot] Mettez cette carte sur ce vampire. Ce vampire reçoit +1 en force. Il ne peut pas jouer <Panneau arraché>. Un vampire ne peut en avoir qu'un seul exemplaire.
 [POT] Comme ci-dessus, mais ce vampire reçoit +2 en force.","",""
 "101487","Priority Contract","Contrat prioritaire","Contrat unique. Triviale.
 Choisissez un Banu Haqim disponible que vous contrôlez et mettez cette carte sur un serviteur contrôlé par votre proie. L'Banu Haqim choisi peut entrer en combat contre le serviteur attaché en action Ⓓ à +1 en discrétion. Si le serviteur attaché est sur le point de quitter la région disponible, vous pouvez brûler cette carte pour gagner 3 points de réserve.","",""
@@ -664,9 +664,9 @@ Durant votre phase de redressement, un vampire disponible que vous contrôlez pe
 "102109","Ventrue Headquarters","Quartier général Ventrue","Lieu unique.
 Vous pouvez l'incliner durant l'étape de vote de n'importe quel référendum pour recevoir +3 voix.","Le clan Ventrue est assez proche d'une multinationale. Chaque ville importante a son point de rendez-vous où les Ventrues peuvent chercher des allégeances et obtenir des informations.",""
 "102113","Vessel","Calice","Triviale.
-Mettez cette carte sur n'importe quel vampire et vous pouvez brûler une carte nommée Poupée de sang. Durant sa phase de redressement, le contrôleur de ce vampire peut déplacer 1 point de sang de ce vampire vers sa réserve ou de sa réserve vers ce vampire.","",""
+Mettez cette carte sur n'importe quel vampire et vous pouvez brûler une carte nommée <Poupée de sang>. Durant sa phase de redressement, le contrôleur de ce vampire peut déplacer 1 point de sang de ce vampire vers sa réserve ou de sa réserve vers ce vampire.","",""
 "102121","Villein","Serf","Triviale.
-Mettez cette carte sur un vampire que vous contrôlez quel que soit son nombre de points de sang et déplacez de 2 à 5 points de sang de ce vampire vers votre réserve. Les cartes nommées Drainer le serviteur vous coûtent 1 point de réserve de plus à jouer. Serf coûte 1 point de réserve de plus à jouer sur ce vampire.","",""
+Mettez cette carte sur un vampire que vous contrôlez quel que soit son nombre de points de sang et déplacez de 2 à 5 points de sang de ce vampire vers votre réserve. Les cartes nommées <Drainer le serviteur> vous coûtent 1 point de réserve de plus à jouer. Serf coûte 1 point de réserve de plus à jouer sur ce vampire.","",""
 "102126","Visit from the Capuchin","Visite du Capucin","Unique.
 Mettez cette carte en jeu avec 4 compteurs. Vous recevez +1 en taille de main pour chaque compteur sur cette carte. Chaque fois que vous devriez remplacer une carte autre que cette carte, à la place brûlez 1 compteur de cette carte. Brûlez cette carte si elle n'a plus de compteurs.","",""
 "102131","Voter Captivation","Envoûtement des électeurs","Seulement utilisable après résolution d'une action politique dont le référendum est passé.

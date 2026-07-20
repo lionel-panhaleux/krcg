@@ -27,7 +27,7 @@ Pon esta carta en juego. Gírala para darle +1 de intercepción a un Anarquista 
 Gírala para darle +1 de sigilo a un Anarquista.","El Tren de la Libertad te llevará de regreso al este, al menos hasta Staten Island. Si quieres cruzar el puente cuando llegues allí, probablemente estarás por tu cuenta.
 Almiro Suarez, Anarquista Tremere",""
 "100058","Anarch Troublemaker","Alborotador anarquista","Única.
-Pon esta carta en juego. Durante tu fase de enderezamiento, puedes darle el control del Alborotador anarquista a tu presa y girar hasta dos vampiros que controle o bien quemar un equipo de uno de sus siervos.","Soy el acusador y vengador de la sangre...
+Pon esta carta en juego. Durante tu fase de enderezamiento, puedes darle el control del <Alborotador anarquista> a tu presa y girar hasta dos vampiros que controle o bien quemar un equipo de uno de sus siervos.","Soy el acusador y vengador de la sangre...
 William Blake, ""El fantasma de Abel""",""
 "100059","Anarchist Uprising","Alzamiento Anarquista","Si el referéndum prospera, cada Matusalén quema 1 de reserva sanguínea por cada siervo que controle.","Todos somos hermanos de la opresión, y hoy, los hermanos de la opresión se identifican entre sí en todo el mundo.
 Malcolm X.",""
@@ -44,7 +44,7 @@ Jacob Bragg",""
 "100081","Arcane Library","Biblioteca arcana","Lugar único.
 Gírala durante tu fase de influencia para añadir 1 de sangre a un Tremere de tu zona incontrolada.","",""
 "100093","Army of Rats","Ejército de ratas","Acción con +1 de sigilo.
-[ani] Pon esta carta en juego. Durante tu fase de enderezamiento, tu presa quema 1 de reserva sanguínea. Puedes quemar sólo 1 de reserva sanguínea por turno a causa de cartas Ejército de ratas. Cualquier siervo puede quemar esta carta con una acción Ⓓ.","Luego, mientras el porquero se detenía un instante y se inclinaba para divisar su rebaño, un impresionante enjambre de ratas llovió del cielo sobre el hediondo abismo y se puso a devorar a animales y hombre.
+[ani] Pon esta carta en juego. Durante tu fase de enderezamiento, tu presa quema 1 de reserva sanguínea. Puedes quemar sólo 1 de reserva sanguínea por turno a causa de cartas <Ejército de ratas>. Cualquier siervo puede quemar esta carta con una acción Ⓓ.","Luego, mientras el porquero se detenía un instante y se inclinaba para divisar su rebaño, un impresionante enjambre de ratas llovió del cielo sobre el hediondo abismo y se puso a devorar a animales y hombre.
 H.P. Lovecraft, ""Las ratas de las paredes""",""
 "100095","Art Museum","Museo de arte","Lugar único.
 Gírala durante tu fase de influencia para añadir 1 de sangre a un Toreador de tu zona incontrolada.","",""
@@ -154,9 +154,9 @@ Hesíodo, ""Los trabajos y los días""",""
 "100416","Constant Revolution","Revolución constante","Acción con +1 de sigilo. Requiere a un Anarquista. Única.
 Pon esta carta en juego con 1 ficha. Durante tu fase de enderezamiento, añade 1 ficha a esta carta. Durante la fase de enderezamiento de cada uno de los demás Matusalenes, ese Matusalén quema X de reserva sanguínea o cartas de la mano al azar, donde X es la cantidad de fichas que haya en esta carta. Cualquier vampiro puede quemar esta carta con una acción Ⓓ que cuesta 1 de reserva sanguínea.","",""
 "100435","The Coven","La cofradía","Única. Nimiedad.
-Pon esta carta en juego. Gírala para añadir 2 de sangre a un vampiro preparado que controles. Durante tu fase de descarte, tu depredador toma el control de La cofradía.","",""
+Pon esta carta en juego. Gírala para añadir 2 de sangre a un vampiro preparado que controles. Durante tu fase de descarte, tu depredador toma el control de <La cofradía>.","",""
 "102213","Creeping Sabotage","Sabotaje progresivo","Acción con +1 de sigilo.
-X es el número de Sabotajes progresivos que controles. Pon esta carta en juego. Durante tu fase de enderezamiento, tu presa quema 1 de reserva sanguínea. Cualquier siervo puede quemar esta carta con una acción Ⓓ.","",""
+X es el número de <Sabotajes progresivos> que controles. Pon esta carta en juego. Durante tu fase de enderezamiento, tu presa quema 1 de reserva sanguínea. Cualquier siervo puede quemar esta carta con una acción Ⓓ.","",""
 "100444","Creepshow Casino","Casino de los Horrores","Lugar único.
 Gírala cuando un vampiro que controlas anuncia una acción indirecta para dar a dicho vampiro +1 de sigilo, aunque el sigilo no sea necesario.","",""
 "100450","Crocodile's Tongue","Lengua de cocodrilo","Sólo utilizable si un aliado o vampiro menor intenta bloquear.
@@ -268,7 +268,7 @@ Este vampiro se despierta (ignora el requisito de estar enderezado para jugar ca
 "100765","Foreshadowing Destruction","Presagiar la destrucción","Sólo utilizable durante una acción de sangrado.
 [dom] +1 de sangrado (limitada).
 [DOM] +3 de sangrado si el Matusalén objetivo tiene 9 o menos de reserva sanguínea (limitada).","",""
-"100770","Form of Corruption","Forma de corrupción","[ser] Pon esta carta en juego. Cada vez que tu presa obtenga la Ventaja, añade 1 ficha a esta carta. Si el número de fichas de esta carta iguala o supera la cantidad de sangre de un vampiro controlado por tu presa durante tu fase heril, puedes quemar esta carta para robar ese vampiro. Un Matusalén puede tener sólo una Forma de corrupción.
+"100770","Form of Corruption","Forma de corrupción","[ser] Pon esta carta en juego. Cada vez que tu presa obtenga la Ventaja, añade 1 ficha a esta carta. Si el número de fichas de esta carta iguala o supera la cantidad de sangre de un vampiro controlado por tu presa durante tu fase heril, puedes quemar esta carta para robar ese vampiro. Un Matusalén puede tener sólo una <Forma de corrupción>.
 [SER] Como antes, y tu presa quema 1 de reserva sanguínea después de que quemes esta carta.","",""
 "100771","Form of Mist","Forma de niebla","[pro] Ataque: esquiva.
 [PRO] Ataque: el combate termina. Si este vampiro está actuando y la acción fue bloqueada, puede quemar 1 de sangre después de que termine el combate para continuar la acción con +1 de sigilo como si no hubiera sido bloqueada, aunque el sigilo no sea necesario. Un vampiro puede jugar sólo un ejemplar de esta carta a superior por acción.","¡Y sin embargo, yo soy! Y vivo como las sombras echadas.
@@ -326,7 +326,7 @@ Paul Verlaine, ""Efecto nocturno""",""
 [FOR] Como antes, con 1 acoso opcional.","",""
 "100932","Homunculus","Homúnculo","Criado con 1 de vida.
 [pro] Durante la fase de enderezamiento de cualquier Matusalén, este vampiro puede quemar 1 de sangre para enderezarse.
-[PRO] Como antes, pero el Homúnculo tiene 2 de vida.","Un montón de huesos en un saco de piel, un globo desinflado; un bulto horrible.
+[PRO] Como antes, pero el <Homúnculo> tiene 2 de vida.","Un montón de huesos en un saco de piel, un globo desinflado; un bulto horrible.
 R. Chetwynd-Hayes, ""Buscando algo que chupar""",""
 "100934","Horrid Form","Forma horrenda","Sólo utilizable antes de determinar la distancia.
 [vic] Este vampiro obtiene +1 de fuerza en este combate.
@@ -364,7 +364,7 @@ Ataque: 1 de daño agravado a distancia.","",""
 El empleador obtiene +1 de sangrado.","",""
 "101019","Jake Washington","Jake Washington","Única.
 Pon esta carta en juego; se convierte en un aliado mortal único con 1 de vida, 0 de fuerza y 0 de sangrado y no cuenta como carta heril mientras esté en juego. Durante tu fase de enderezamiento, puedes quemar a Jake para añadir hasta 4 de sangre a un vampiro preparado sin sangre.","",""
-"101040","Kevlar Vest","Chaleco de kevlar","Una vez por combate, el portador puede prevenirse de 2 de daño procedente de ataques con armas de fuego o de 1 de daño procedente de otras fuentes. Un siervo puede tener sólo un Chaleco de kevlar.","",""
+"101040","Kevlar Vest","Chaleco de kevlar","Una vez por combate, el portador puede prevenirse de 2 de daño procedente de ataques con armas de fuego o de 1 de daño procedente de otras fuentes. Un siervo puede tener sólo un <Chaleco de kevlar>.","",""
 "101048","Khobar Towers, Al-Khubar","Torres Jobar, Al Jubar","Lugar único.
 Gírala durante tu fase de enderezamiento para retirar de la partida a un siervo preparado que controles y ganar X de reserva sanguínea, donde X es la capacidad de ese vampiro o el costo de sangre o reserva sanguínea de ese aliado.","",""
 "101055","Kindred Spirits","Almas gemelas","[dem] Ⓓ Sangra a cualquier Matusalén. Gana 1 de reserva sanguínea si este sangrado tiene éxito (de 1 o más).
@@ -398,7 +398,7 @@ Ingrid Galt, anarquista.",""
 [pre] Ⓓ Sangra con +1 de sangrado.","",""
 "101114","Living Manse","Mansión viviente","Mientras esté en juego, esta carta de equipo representa un lugar y no cuenta como equipo.
 Este vampiro obtiene +1 de sangrado. Puede quemar esta carta antes de determinar la distancia para terminar el combate. Un vampiro puede tener sólo un ejemplar de esta carta.","",""
-"101125","Lost in Crowds","Perdido en multitudes","[obf] +1 de sigilo. Desaparecer y Perdido en multitudes no se pueden jugar en la misma acción.
+"101125","Lost in Crowds","Perdido en multitudes","[obf] +1 de sigilo. <Desaparecer> y <Perdido en multitudes> no se pueden jugar en la misma acción.
 [OBF] Como antes, pero +2 de sigilo.","...sabe que un temible demonio
 Va cerca detrás de él.
 Samuel Taylor Coleridge, ""La balada del viejo marinero""",""
@@ -427,8 +427,8 @@ Kurt Vonnegut, ""El desayuno de los campeones""",""
 "101249","Mr. Winthrop","Sr. Winthrop","Mortal único con 1 de vida.
 El empleador obtiene +1 de intercepción.","",""
 "101254","Murder of Crows","Bandada de cuervos","Animal con 1 de vida.
-[ani] La Bandada de cuervos inflige 1 de daño a distancia al siervo oponente en cada asalto de combate durante la resolución de ataques normal.
-[ANI] Como antes, pero la Bandada de cuervos tiene 2 de vida.","Y en el fondo del hoyo y de la fosa,
+[ani] La <Bandada de cuervos> inflige 1 de daño a distancia al siervo oponente en cada asalto de combate durante la resolución de ataques normal.
+[ANI] Como antes, pero la <Bandada de cuervos> tiene 2 de vida.","Y en el fondo del hoyo y de la fosa,
 ¡dispersaos!, ¡uníos!
 Arthur Rimbaud, ""Los cuervos""",""
 "101256","Murmur of the False Will","Murmullo de la falsa voluntad","[dom] [ACTION MODIFIER] Sólo utilizable durante una acción de sangrado. +1 de sangrado (limitada).
@@ -495,7 +495,7 @@ Durante tu fase de influencia, puedes añadir 1 de sangre a un vampiro de tu zon
 [AUS] Como antes, y este vampiro puede prevenirse de 1 de daño durante el primer asalto del combate resultante si bloquea.","""Mala memoria, la que sólo funciona hacia atrás"", censuró la Reina.
 Lewis Carroll, ""A través del espejo""",""
 "101483","Preternatural Strength","Fuerza sobrenatural","Acción con +2 de sigilo.
-[pot] Ponle esta carta a este vampiro. Este vampiro obtiene +1 de fuerza, y no puede jugar Poste arrancado. Un vampiro puede tener sólo un ejemplar de esta carta.
+[pot] Ponle esta carta a este vampiro. Este vampiro obtiene +1 de fuerza, y no puede jugar <Poste arrancado>. Un vampiro puede tener sólo un ejemplar de esta carta.
 [POT] Como antes, pero este vampiro obtiene +2 de fuerza.","",""
 "101487","Priority Contract","Contrato prioritario","Contrato único. Nimiedad.
 Elige a un Banu Haqim preparado que controles y ponle esta carta a un siervo controlado por tu presa. El Banu Haqim elegido puede entrar en combate con el siervo adherido con una acción Ⓓ con +1 de sigilo. Si el siervo adherido está a punto de dejar la zona preparada, puedes quemar esta carta para ganar 3 de reserva sanguínea.","",""
@@ -518,7 +518,7 @@ Al jugar esta carta o cuando el controlador de la misma cambie, el controlador e
 Blaise Pascal, ""Pensamientos""",""
 "101550","Raven Spy","Cuervo espía","Animal con 1 de vida.
 [ani] El empleador obtiene +1 de intercepción.
-[ANI] Como antes, pero el Cuervo espía tiene 2 de vida.","",""
+[ANI] Como antes, pero el <Cuervo espía> tiene 2 de vida.","",""
 "101559","Read the Winds","Leer los vientos","No la reemplaces hasta después de esta acción.
 [ani][aus] +1 de intercepción. Este vampiro no se gira por el bloqueo.
 [ANI][AUS] Sólo utilizable por un vampiro girado. Este vampiro se endereza e intenta bloquear con +1 de intercepción, aunque la intercepción no sea necesaria.","Ya no hay sorpresas. La noche tiene mil ojos, y yo he tenido mil noches.
@@ -644,7 +644,7 @@ Elige a un Toreador preparado. Si el referéndum prospera, esta carta se pone en
 [pot] Este vampiro obtiene una fuerza de 2 en este combate.
 [POT] Este vampiro obtiene una fuerza de 3 en este combate.","",""
 "102012","Trap","Trampa","Sólo utilizable antes de determinar la distancia durante el primer asalto del combate.
-Pon esta carta en juego con 3 fichas. Cada vez que se juegue una carta en este combate, restaura el número de fichas de esta carta a 3. Durante la etapa de acosos de cada asalto de este combate, esta Trampa automáticamente quema 1 de sus fichas para proporcionar un acoso para continuar el combate (cualquiera de los dos combatientes puede acosar para terminar el combate). Quema esta carta al final del combate.","",""
+Pon esta carta en juego con 3 fichas. Cada vez que se juegue una carta en este combate, restaura el número de fichas de esta carta a 3. Durante la etapa de acosos de cada asalto de este combate, esta <Trampa> automáticamente quema 1 de sus fichas para proporcionar un acoso para continuar el combate (cualquiera de los dos combatientes puede acosar para terminar el combate). Quema esta carta al final del combate.","",""
 "102041","True Love's Face","Rostro del amor verdadero","[obf][pre] Sólo utilizable durante una acción de sangrado. +1 de sangrado (limitada).
 [OBF][PRE] Sólo utilizable si un siervo intenta bloquear. Ese intento fracasa y el siervo bloqueador no puede intentar bloquear esta acción de nuevo. El controlador del siervo bloqueador puede quemar 1 de reserva sanguínea para cancelar esta carta al ser jugada.","",""
 "102063","Under Siege","Bajo asedio","Acción con +1 de sigilo. Requiere a un vampiro Sabbat titulado. Única.
@@ -669,9 +669,9 @@ Durante tu fase de enderezamiento, un vampiro preparado que controles puede gana
 "102109","Ventrue Headquarters","Cuartel general Ventrue","Lugar único.
 Gírala durante la fase de votación de cualquier referéndum para conseguir +3 votos.","El clan Ventrue está organizado como si se tratara de una corporación multinacional. Cada ciudad importante tiene un lugar de reunión donde los Ventrue pueden buscar lealtades y obtener información.",""
 "102113","Vessel","Recipiente","Nimiedad.
-Ponle esta carta a cualquier vampiro, y puedes quemar una Muñeca de sangre (si la hay). Durante su fase de enderezamiento, el controlador de este vampiro puede pasar 1 de sangre de este vampiro a su reserva sanguínea o de su reserva sanguínea a este vampiro.","",""
+Ponle esta carta a cualquier vampiro, y puedes quemar una <Muñeca de sangre> (si la hay). Durante su fase de enderezamiento, el controlador de este vampiro puede pasar 1 de sangre de este vampiro a su reserva sanguínea o de su reserva sanguínea a este vampiro.","",""
 "102121","Villein","Villano","Nimiedad.
-Ponle esta carta a un vampiro que controles que tenga cualquier cantidad de sangre y pasa de 2 a 5 de sangre de ese vampiro a tu reserva sanguínea. Drenar al siervo te cuesta 1 más de reserva sanguínea. Jugarle un Villano a este vampiro cuesta 1 más de reserva sanguínea.","",""
+Ponle esta carta a un vampiro que controles que tenga cualquier cantidad de sangre y pasa de 2 a 5 de sangre de ese vampiro a tu reserva sanguínea. <Drenar al siervo> te cuesta 1 más de reserva sanguínea. Jugarle un <Villano> a este vampiro cuesta 1 más de reserva sanguínea.","",""
 "102126","Visit from the Capuchin","Visita del Capuchino","Única.
 Pon esta carta en juego con 4 fichas. Obtienes +1 a la mano por cada ficha de esta carta. Cada vez que vayas a reemplazar una carta que no sea ésta, en vez de eso quema 1 ficha de esta carta. Quema esta carta cuando ya no tenga fichas.","",""
 "102131","Voter Captivation","Cautivar al votante","Sólo utilizable tras la resolución de una acción política cuyo referéndum haya prosperado.

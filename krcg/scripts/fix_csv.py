@@ -13,6 +13,13 @@ import warnings
 #: a separate concern (see models.filing_name). Mirrors models.FILING_PREFIXES.
 PREFIX_ARTICLES = ["Une", "Una", "Les", "The", "An", "El", "La", "Le", "Un", "A"]
 
+#: Upstream delimits a referenced card name with slashes ("cards named /Choir/").
+#: The delimiters are whitespace-bounded, which is what separates them from the
+#: slash of "and/or" and "that/those" — those sit between word characters. The
+#: span itself may not start or end on whitespace, or two unrelated slashes on one
+#: line would pair up ("1 blood / pool, or burn 1 blood / pool").
+RE_CARD_REFERENCE = re.compile(r"(?<!\S)/(\S|\S[^/\n]*?\S)/(?![^\s,.;:)])")
+
 
 def fix_sets_csv(path: str | os.PathLike[str]) -> None:
     """Fix the sets csv file."""
@@ -117,11 +124,23 @@ def fix_card_text(row: dict[str, str], name_2: str | None = None) -> dict[str, s
     text = text.replace("{", "")
     text = text.replace("}", "")
     text = text.replace("@", "")
-    text = text.replace("/", "")
+    # before marking: a rename inside a marker would leave a name that resolves to
+    # nothing ("<Thaumaturgy>" -> "<Blood Sorcery>", both real but different cards)
     for old, new in CLAN_RENAMES.items():
         text = text.replace(old, new)
     for old, new in DISC_RENAMES.items():
         text = text.replace(old, new)
+    text = RE_CARD_REFERENCE.sub(r"<\1>", text)
+    if not name_2:
+        # longest first: marking "Frenzy" before "Terror Frenzy" would split the latter
+        for literal in sorted(
+            CARD_REFERENCES.get(int(row["Id"]), []), key=len, reverse=True
+        ):
+            text = re.sub(
+                rf"<[^<>]*>|(?<![\w']){re.escape(literal)}(?![\w])",
+                lambda m: m.group(0) if m.group(0)[0] == "<" else f"<{m.group(0)}>",
+                text,
+            )
     row["Card Text"] = text.strip()
     return row
 
@@ -271,6 +290,52 @@ def fix_lib_row(row: dict[str, str]) -> dict[str, str]:
     row["Clan"] = "/".join(clans)
     return row
 
+
+#: Card names the upstream CSV names in prose but leaves unmarked, tagged here so
+#: the parser sees every reference. A name is only listed when it means that card:
+#: on Sire's Index Finger the enumerated "Frenzy" is the card, while elsewhere
+#: "Frenzy cards" is the family and is left alone. A card naming itself is not a
+#: reference. Entries become redundant as upstream marks them, and the marking is
+#: idempotent, so a stale entry is harmless.
+CARD_REFERENCES = {
+    100050: ["Ivory Bow"],  # Anachronism
+    100148: ["Earth Meld"],  # Becoming of Ennoia
+    100161: ["Kerrie"],  # Bind the Night-Walker
+    100452: ["Lucita"],  # Crusade: Aragon
+    100554: ["Immortal Grapple", "Mighty Grapple"],  # Disengage
+    100919: ["Illuminate"],  # Hide
+    100953: ["The Unmasking"],  # Illuminate
+    100960: ["Blood Hunt"],  # Imperator
+    101001: ["Lost in Crowds"],  # Into Thin Air
+    101115: ["Cleave"],  # Living Wood Staff
+    101307: ["Taste of Vitae"],  # The Oath
+    101343: ["Elder Intervention"],  # Pack Tactics
+    101752: ["Humanitas", "Memories of Mortality"],  # Shame
+    101785: [
+        "Brujah Frenzy",
+        "Drawing Out the Beast",
+        "Frenzy",
+        "Rötschreck",
+        "Terror Frenzy",
+    ],  # Sire's Index Finger
+    101812: ["IR Goggles", "Laptop Computer", "Phased Motion Detector"],  # Smite
+    102186: ["Dodge"],  # Winged Second
+    102311: ["Path of Death and the Soul"],  # Burial Site Hunting Ground
+    200199: [
+        "Arcane Library",
+        "Elder Library",
+        "Fragment of the Book of Nod",
+    ],  # Bindusara, Historian of the Kindred
+    200312: ["Giant's Blood"],  # Dan Murdock
+    200401: ["Enid Blount"],  # Edith Blount
+    200423: ["Edith Blount"],  # Enid Blount
+    200493: ["Ubende"],  # Ganhuru
+    200613: ["Greensleeves"],  # Humo
+    200683: ["Society of Leopold"],  # Jayne Jonestown
+    201189: ["Bomb"],  # Rico Loco
+    201342: ["Blood Doll", "Minion Tap"],  # Tarautas
+    201771: ["Path of Death and the Soul"],  # Sakura, The Merciless
+}
 
 CLAN_RENAMES = {
     "Followers of Set": "Ministries",
