@@ -207,6 +207,7 @@ class Ruling:
 
         text: str
         symbol: str
+        count: str = ""
 
     text: str
     group: str = ""

@@ -139,7 +139,8 @@ RULING_AUTHORS = {
 RE_RULING_REFERENCE = re.compile(
     r"\[(?:" + r"|".join(RULING_AUTHORS) + r")\s[\w0-9-]+\]"
 )
-RE_SYMBOL = re.compile(r"\[(?:" + r"|".join(ANKHA_SYMBOLS) + r")\]")
+# [1 CONVICTION] is the CSV's own form for an imbued power's cost.
+RE_SYMBOL = re.compile(r"\[(?:(\d+) )?(" + r"|".join(ANKHA_SYMBOLS) + r")\]")
 RE_CARD = re.compile(r"{[^}]+}")
 RE_REMINDER = re.compile(r"\s*\[REMINDER\]\s*$", re.IGNORECASE)
 
@@ -150,10 +151,16 @@ def strip_reminder(text: str) -> tuple[str, bool]:
     return clean, clean != text
 
 
-def parse_symbols(text: str) -> collections.abc.Generator[tuple[str, str]]:
-    """Yield all symbols in the given text."""
-    for symbol in RE_SYMBOL.findall(text):
-        yield symbol, ANKHA_SYMBOLS[symbol[1:-1]]
+def parse_symbols(text: str) -> collections.abc.Generator[tuple[str, str, str]]:
+    """Yield all symbols in the given text, as (token, glyph, count).
+
+    The count is the one a cost marker carries, ``[1 CONVICTION]``, empty for
+    every other symbol. It never belongs to the glyph: in the ankha font, digits
+    are other icons.
+    """
+    for match in RE_SYMBOL.finditer(text):
+        count, key = match.groups()
+        yield match.group(0), ANKHA_SYMBOLS[key], count or ""
 
 
 def parse_cards(text: str) -> collections.abc.Generator[tuple[str, int | str]]:
@@ -262,6 +269,8 @@ def _parse_text(
         )
     for token, key in parse_cards(text):
         ruling.cards.append(models.CardMinimal.from_card(cards[key]))
-    for token, substitute in parse_symbols(text):
-        ruling.symbols.append(models.Ruling.Symbol(text=token, symbol=substitute))
+    for token, substitute, count in parse_symbols(text):
+        ruling.symbols.append(
+            models.Ruling.Symbol(text=token, symbol=substitute, count=count)
+        )
     return ruling

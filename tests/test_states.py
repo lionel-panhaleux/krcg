@@ -26,6 +26,33 @@ def test_ruling_structure(cards: collections.CardDict) -> None:
     )
 
 
+def test_cost_marker_count() -> None:
+    """A cost marker carries its count inside the brackets, [1 CONVICTION].
+
+    In the ankha font the digits are other icons — "1" is the action modifier — so
+    the count comes apart from the glyph rather than joining it.
+    """
+    assert list(rulings.parse_symbols("[ACTION MODIFIER] [1 CONVICTION]")) == [
+        ("[ACTION MODIFIER]", "1", ""),
+        ("[1 CONVICTION]", "\u00a4", "1"),
+    ]
+    raw, sets = vekn_csv.from_files()
+    cards = collections.CardDict(raw)
+    cards.sets = sets
+    cards.index()
+    rulings.load_from_files(
+        cards,
+        io.StringIO("100038|Alastor:\n  - '[REACTION] [1 CONVICTION] Costs one.'\n"),
+        io.StringIO("{}\n"),
+        io.StringIO("{}\n"),
+    )
+    (ruling,) = cards[100038].rulings
+    assert [(s.text, s.symbol, s.count) for s in ruling.symbols] == [
+        ("[REACTION]", "7", ""),
+        ("[1 CONVICTION]", "\u00a4", "1"),
+    ]
+
+
 def test_new_format_parsing() -> None:
     """New ruling formats parse: reminders, the overrides map, and per-card overrides.
 

@@ -1,6 +1,17 @@
 Changelog
 =========
 
+5.11 (2026-08-22)
+-----------------
+
+- ``[1 CONVICTION]`` parses: a cost marker carries its count inside the brackets,
+  the form the VEKN CSV itself prints for an imbued power's cost (37 occurrences
+  over 29 card texts, and the rulings quoting one). ``Ruling.Symbol`` gains a
+  ``count``, apart from the glyph: in the ankha font the digits are other icons.
+  **Breaking**: ``parse_symbols`` yields ``(token, glyph, count)``, one element
+  more than before, and ``RE_SYMBOL`` now carries two groups — ``findall`` on it
+  returns those groups rather than the whole match.
+
 5.10 (2026-08-22)
 -----------------
 
