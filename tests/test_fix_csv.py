@@ -24,7 +24,10 @@ def test_set_field_is_idempotent() -> None:
 
 def test_set_field_keeps_larp_out_of_anthology_1() -> None:
     """Only the natively bare Anthology cards are reprinted in Ant1."""
-    assert fix_csv.fix_set_field(row("101110", "Anthology:LARP, SoB:1")) == (
-        "Anthology:1, SoB:1"
-    )
+    larp = fix_csv.fix_set_field(row("101110", "Anthology:LARP1, SoB:1"))
+    assert larp == "Anthology:LARP1, SoB:1"
+    assert fix_csv.fix_set_field(row("101110", larp)) == larp
+    bare = fix_csv.fix_set_field(row("101112", "Anthology:1, SoB:1"))
+    assert bare == "Anthology:1, Ant1:1, SoB:1"
+    assert fix_csv.fix_set_field(row("101112", bare)) == bare
     assert fix_csv.fix_set_field(row("101112", "Anthology")) == "Anthology"

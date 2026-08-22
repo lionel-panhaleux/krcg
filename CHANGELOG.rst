@@ -1,6 +1,18 @@
 Changelog
 =========
 
+5.10 (2026-08-22)
+-----------------
+
+- Anthology keeps its ``LARP`` code: the 11 cards Anthology I did not reprint
+  are tagged ``Anthology:LARP1`` and no longer get a spurious ``Ant1`` print.
+  ``Anthology`` gains a matching ``LARP`` bundle, and re-running the csv fixups
+  over their own output is now a no-op.
+- Fix: ``Path of Death and the Soul`` on Burial Site Hunting Ground and Sakura,
+  The Merciless names the Sabbat path, not the card — it is no longer marked.
+- Fix: the ``Promo Pack 1`` bundle size is 56, not 59, and the ``Anthology I``
+  bundle keys on the ``Ant1`` set code like every other bundle row.
+
 5.9 (2026-07-20)
 ----------------
 

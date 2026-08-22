@@ -725,7 +725,7 @@ Put this card on any minion. While it is not this minion's turn, using an effect
 Put this card in play. Political actions cost 1 additional blood. Any vampire can call a referendum to burn this card as a +1 stealth political action.","Create constancy of purpose toward improvements of products and services, with the aim to become competitive...
 Dr. Deming, ""Fourteen Points for the Transformation of Management""","DS:U2, CE:PM1","","Drew Tucker","",""
 "102311","Burial Site Hunting Ground","","Master","","Death and the Soul","","2","","","","Unique location. Hunting ground.
-During your unlock phase, a ready vampire you control who follows the <Path of Death and the Soul> can gain 1 blood, or a wraith or zombie ally you control can gain 1 life, not to exceed its starting life. A vampire can gain blood from only one hunting ground each turn.","","SV5:PDeath1","","Mitch Mueller","",""
+During your unlock phase, a ready vampire you control who follows the Path of Death and the Soul can gain 1 blood, or a wraith or zombie ally you control can gain 1 life, not to exceed its starting life. A vampire can gain blood from only one hunting ground each turn.","","SV5:PDeath1","","Mitch Mueller","",""
 "100270","Burning Touch","","Action Modifier/Combat","","","val/tha","","","","","[tha] [COMBAT] Strike: 1 damage. This damage cannot be prevented by cards that require Fortitude [for].
 [val] [ACTION MODIFIER] If this action is blocked, the blocking minion burns one blood or life before combat begins. Any minion currently attempting to block may now choose not to block.
 [VAL] [ACTION MODIFIER] Only usable during a bleed action. +1 bleed (limited).","","BL:C2, LoB:C1","","Leif Jones","",""
@@ -3008,7 +3008,7 @@ Put this card in play. As a master phase action, you may lock this card to searc
 "101109","Lily Prelude","","Political Action","","","mel","","1","","","[mel] Allocate 4 points among one or more Methuselahs. Successful referendum means each Methuselah burns 1 pool for each point allocated.
 [MEL] As above, and choose a Methuselah. Successful referendum means the chosen Methuselah gains 1 pool.","","HttB:C1, HttBR:B1, POD:20230306","","Leif Jones","",""
 "101110","The Line","","Master","","","","","","","","Unique location.
-You can lock this location to reduce the cost of an action card a vampire you control plays by 1 blood (this location is not locked if that card is canceled as it is played). Vampires can steal this location as a Ⓓ action.","","Anthology:1, SoB:1","","Carmen Cornet","",""
+You can lock this location to reduce the cost of an action card a vampire you control plays by 1 blood (this location is not locked if that card is canceled as it is played). Vampires can steal this location as a Ⓓ action.","","Anthology:LARP1, SoB:1","","Carmen Cornet","",""
 "102229","Line Brawl","","Action","","","cel/pot/pre","","","","","Requires an Anarch.
 [cel] Ⓓ Steal 1 pool from another Methuselah.
 [pot] Ⓓ Enter combat with a minion.
@@ -5730,7 +5730,7 @@ Put this card in play with 4 counters. You get +1 hand size for each counter on 
 [obe] Put this card in play and move up to 2 blood from the opposing vampire to this card. During your unlock phase, move all the blood from this card to the opposing vampire and burn this card.
 [OBE] As [obe] above, but move up to 3 blood to this card.","","BL:U2, LoB:R1, POD:20220427","","Jim Nelson","",""
 "102128","Vivienne Géroux","","Ally","","","","1","","","","Unique ghoul with 2 life. 2 strength, 1 bleed. Requires an Anarch.
-Vivienne can play cards requiring basic Celerity [cel] and/or Fortitude [for] as an Anarch vampire. Vampires you control get -1 stealth during political actions. A vampire you control can give another Methuselah control of Vivienne as a Ⓓ action. A vampire controlled by another Methuselah can steal Vivienne as a Ⓓ action.","","Anthology:1, Promo:20210709","","Mark Kelly","",""
+Vivienne can play cards requiring basic Celerity [cel] and/or Fortitude [for] as an Anarch vampire. Vampires you control get -1 stealth during political actions. A vampire you control can give another Methuselah control of Vivienne as a Ⓓ action. A vampire controlled by another Methuselah can steal Vivienne as a Ⓓ action.","","Anthology:LARP1, Promo:20210709","","Mark Kelly","",""
 "102129","Voice of Madness","","Reaction","","","dem","","1","","","Only usable if this vampire blocks an ally or younger vampire, before block resolution.
 [dem] Lock this vampire and end the action.
 [DEM] As above, and the acting minion burns 1 blood or life.","It is everything singing in my head at once.

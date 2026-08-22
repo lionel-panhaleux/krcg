@@ -89,6 +89,8 @@ def fix_set_row(row: dict[str, str]) -> dict[str, str] | None:
         return None
     if row["Abbrev"] in MISSING_SETS_ABBREVS:
         return None
+    # 8 upstream rows put whitespace outside the quotes (DM/TU/AU trail a space,
+    # the five Promo-* rows lead with one), so the parser folds it into the value
     row["Company"] = row["Company"].strip()
     return row
 
@@ -199,9 +201,7 @@ def fix_set_field(row: dict[str, str]) -> str:
             warnings.warn(f"failed to parse set ({card_id}): {tag}")
             exit(1)
         # an addition of ours, from a previous run over this same file: drop it and
-        # let the source tag below regenerate it. Fixing twice is then fixing once,
-        # bar the two cards whose Anthology:LARP was rewritten to a bare Anthology,
-        # which a second pass can no longer tell from a natively bare one.
+        # let the source tag below regenerate it, so fixing twice is fixing once.
         if set_ in SKIP_ADDITIONS:
             continue
         rarity_list = re_split(r"/", rarities)
@@ -222,9 +222,8 @@ def fix_set_field(row: dict[str, str]) -> str:
             cur, (bundle, count) = set_, match.groups()
             if cur == "Promo" or cur == "POD":
                 bundle, count = count[:8], ""
-            # addition keys on the pre-replacement code: the Anthology:LARP →
-            # Anthology: rewrite must not then trigger the Anthology: → Ant1:
-            # alias (only the originally empty-coded cards are reprinted in Ant1)
+            # addition keys on the pre-replacement code, so a replacement cannot
+            # make a card look eligible for an alias meant for the original code
             addition_key = (cur, bundle)
             if (cur, bundle) in SET_REPLACEMENTS:
                 cur, bundle = SET_REPLACEMENTS[(cur, bundle)]
@@ -323,7 +322,6 @@ CARD_REFERENCES = {
     ],  # Sire's Index Finger
     101812: ["IR Goggles", "Laptop Computer", "Phased Motion Detector"],  # Smite
     102186: ["Dodge"],  # Winged Second
-    102311: ["Path of Death and the Soul"],  # Burial Site Hunting Ground
     200199: [
         "Arcane Library",
         "Elder Library",
@@ -337,7 +335,6 @@ CARD_REFERENCES = {
     200683: ["Society of Leopold"],  # Jayne Jonestown
     201189: ["Bomb"],  # Rico Loco
     201342: ["Blood Doll", "Minion Tap"],  # Tarautas
-    201771: ["Path of Death and the Soul"],  # Sakura, The Merciless
 }
 
 CLAN_RENAMES = {
@@ -496,9 +493,6 @@ MISSING_SETS = [
 MISSING_SETS_ABBREVS = {set["Abbrev"] for set in MISSING_SETS}
 
 SET_REPLACEMENTS = {
-    # drop the LARP code: Anthology is one product. Reprinted cards are told
-    # apart only by the Ant1 addition, which keys on the original empty code.
-    ("Anthology", "LARP"): ("Anthology", ""),
     ("BSC", "X"): ("BSC", ""),
     ("HttB", "A"): ("HttBR", "A"),
     ("HttB", "B"): ("HttBR", "B"),
@@ -507,6 +501,11 @@ SET_REPLACEMENTS = {
     ("POD", "DTC"): ("POD", ""),
 }
 
+#: Aliases emitted alongside the source tag, carrying the source count unless
+#: ADDITION_CARD_COUNTS overrides it. Anthology keys on the bare code only: the
+#: set is the EC Berlin edition (65 cards, 100 copies) and Anthology I reprinted
+#: the 54 bare-coded ones at the same per-card counts (89 copies), so the count
+#: carries over and the 11 LARP-coded cards get no Ant1.
 SET_ADDITIONS = {
     ("Anthology", ""): ("Ant1", ""),
     ("Promo", "20190408"): ("PP1", ""),
