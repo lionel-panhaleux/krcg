@@ -936,10 +936,6 @@
     a reaction card. [LSJ 20070403] [LSJ 20070413]'
 100576|Donnybrook:
   - '[ser] can target a minion with less than 2 blood or life. [RTR 20010711]'
-100578|Draba:
-  - '[CHI] Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Draba at the
-    time it was played. [RTR 20030519]'
-  - '[CHI] Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]'
 100580|Dragon's Breath Rounds:
   - 'Does not burn the gun if combat ends before the strike resolves (eg. {Rötschreck} or if the opponent uses a "strike:
     combat ends"). [LSJ 19981006] [LSJ 20001127-2]'
@@ -1380,7 +1376,7 @@
   - Does not burn nor inflict damage if combat ends before it resolves. [LSJ 20001127-2] [LSJ 20010806-1] [LSJ 19981006]
 100858|Grey Thorne:
   - Can play cards requiring [cel] or [pot] but not both. [ANK 20180731-1]
-  - Is not Anarch (eg. does not benefit from {Anarch Manifesto, An}). [RBK allies] [ANK 20230417]
+  - Is not Anarch (eg. does not benefit from {An Anarch Manifesto}). [RBK allies] [ANK 20230417]
 100861|Groundfighting:
   - Can cancel cards preventing the use of equipment if the target has a weapon. [LSJ 20050221]
   - Cannot cancel maneuvering, setting the range or strikes that "cannot be dodge". [LSJ 20050221]
@@ -1536,7 +1532,7 @@
   - If the illusionary vampire is burned in combat (aggravated damage or blood hunt referendum after an {Amaranth}), they
     go to the ash heap and cannot be removed from the game. [PIB 20110810]
   - Even if they have the same name as a vampire in play, the illusionary vampire is considered different for all purposes
-    (eg. {Jimmy Dunn (G2)}'s ability does not trigger). [LSJ 20100213] [LSJ 19991110]
+    (eg. {Jimmy Dunn}'s ability does not trigger). [LSJ 20100213] [LSJ 19991110]
   - If the illusionary vampire has a title, they can use the votes (eg. in a Blood Hunt referendum) even if there is another
     instance of the title in play. [LSJ 20030419]
   - If the card drawn is an imbued, the imbued would briefly come into play, become incapacitated, and then be removed from
@@ -2890,7 +2886,7 @@
   - '[NEC] Is removed from play as part of the resolution, it cannot be retrieved by {Shroudsight}. [ANK 20170331]'
 101902|The Summoning:
   - '[PRE] The ally cannot act this turn. [RBK recruit-ally]'
-  - "[PRE] The ally card itself cannot be cancelled (eg. {Louhi (G4)}'s ability cannot cancel it). [ANK 20201229]"
+  - "[PRE] The ally card itself cannot be cancelled (eg. {Louhi}'s ability cannot cancel it). [ANK 20201229]"
   - '[PRE] Is not an action to recruit a specific type of ally (i.e. {Paths in Two Worlds} or {Shroud Mastery} cannot be played)
     [ANK 20250526]'
 101906|Supernatural Resistance:
@@ -3208,7 +3204,7 @@
   - If another effect offers an alternative for card replacement (eg. {Steely Tenacity}), you choose which to apply. [ANK
     20200905]
 102128|Vivienne Géroux:
-  - Is not Anarch (eg. does not benefit from {Anarch Manifesto, An}). [RBK allies] [ANK 20230417]
+  - Is not Anarch (eg. does not benefit from {An Anarch Manifesto}). [RBK allies] [ANK 20230417]
 102133|Vox Senis:
   - May still be "canceled as it is played" when used as an out-of-turn master. [LSJ 20031201]
 102135|Vulture's Buffet:
@@ -3368,15 +3364,12 @@
     (eg. clan or discipline). [ANK 20230621]
 102247|Break the Bonds:
   - '[pre] There must be an uncontrolled vampire, and it is chosen upon declaration. [ANK 20240706]'
-  - '[obf] The prey need not control a minion, the target is chosen upon resolution. [ANK 20240706]'
+  - '[obf] The prey needs not control a minion, the target is chosen upon resolution. [ANK 20240706]'
 102248|Feast of the Soul's Secrets:
   - '[DOM] The target vampire is chosen when the card is played. [ANK 20240724-2]'
   - '[DOM] Is affected by {Blood Cult Awareness Network}, when choosing a younger vampire in your uncontrolled region. [LSJ
     20060414] [ANK 20240118-2]'
 102254|Night Terrors:
-  - Effectively gives a -X stealth modifier to the action, where X is the amount of stealth reduced by Night Terrors at the
-    time it was played. [RTR 20030519]"
-  - Can be played on a minion with no or negative stealth, in which case it has no effect. [LSJ 20021211]
   - '[OBF][PRE] The strike: combat ends can only be used in the combat resulting from a successful block. It does not carry
     over to follow-up combats (eg. [CEL] {Psyche!}). [LSJ 20010813] [LSJ 20010819-2]'
   - '[OBF][PRE] The strike: combat ends is provided again if a second block happens on the same action (eg. after [PRO] {Form
@@ -4207,7 +4200,7 @@
 201608|Nonu Dis:
   - His ability can be used only once per master phase. [ANK 20220617]
 201613|Theo Bell:
-  - Can be merged with {Theo Bell (ADV)} if you get to control one (eg. {Graverobbing}). [ANK 20220805-2]
+  - Can be merged with {Theo Bell (G2 ADV)} if you get to control one (eg. {Graverobbing}). [ANK 20220805-2]
 201621|Karl Schrekt:
   - When considered a Justicar, he is also implicitly considered Camarilla. [LSJ 20050128]
   - When he changes Sects, he can't play votes that "requires a titled camarilla Vampire" (e.g. {Camarilla's Iron Fist}) [ANK
@@ -4735,3 +4728,14 @@ G00159|Gains votes against:
   - Cannot be used by a minion who is voting in favor of the referendum. [LSJ 20031115]
   - Gaining the provided votes immediately forces the minion to vote against the referendum, if they are not already doing
     so. [LSJ 20031119]
+G00160|Can draw from empty:
+  - You can draw more cards than are in the library or crypt (even from an empty library or crypt); draw as much as you can.
+    [LSJ 20060620]
+G00161|Master on vampire who can use it:
+  - overrides:
+      100326|Chanjelin Ward: The vampire's controller chooses to burn the card to fail an action or not.
+    text: The vampire's controller chooses to use the effect of the card or not. [ANK 20210309-3]
+G00162|Reduce stealth to 0:
+  - Can be played on a minion with zero or negative stealth, leaving the stealth unchanged. [LSJ 20021211]
+  - Effectively gives a -X stealth modifier to the action, where X is the amount of stealth that was reduced when this card
+    was played. [RTR 20030519]
