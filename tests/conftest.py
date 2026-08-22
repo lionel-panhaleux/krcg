@@ -13,11 +13,20 @@ failure. Genuine code regressions live in unmarked tests and fail red.
 import os
 import urllib.request
 import urllib.error
+import aiohttp
 import pytest
 
 from krcg import collections
 from krcg import loader
 from krcg import twda
+
+
+INTERNET_TESTS = {
+    "tests/test_cards.py::test_load_from_static_server",
+    "tests/test_deck.py::test_from_amaranth",
+    "tests/test_deck.py::test_from_vdb",
+    "tests/test_deck.py::test_from_vtesdecks",
+}
 
 
 @pytest.fixture(scope="session")
@@ -53,12 +62,24 @@ def pytest_configure(config: pytest.Config) -> None:
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):  # type: ignore
-    """Downgrade a failing ``baseline`` test to an amber xfail (data drift)."""
+    """Downgrade failures we do not own: data drift and provider outages.
+
+    A ``baseline`` failure becomes an amber xfail; an internet-dependent test
+    that cannot reach its provider (DNS, refused connection, expired
+    certificate) is skipped rather than failing the build.
+    """
     outcome = yield
     report = outcome.get_result()
-    if report.when == "call" and report.failed and item.get_closest_marker("baseline"):
+    if report.when != "call" or not report.failed:
+        return
+    if item.get_closest_marker("baseline"):
         report.outcome = "skipped"
         report.wasxfail = "baseline data drift — source data changed, eyeball it"
+    elif item.nodeid in INTERNET_TESTS and isinstance(
+        call.excinfo.value if call.excinfo else None, aiohttp.ClientConnectorError
+    ):
+        report.outcome = "skipped"
+        report.longrepr = (__file__, 0, f"provider unreachable: {call.excinfo.value}")
 
 
 def pytest_collection_modifyitems(
@@ -67,13 +88,7 @@ def pytest_collection_modifyitems(
     """Skip only internet-dependent tests when offline."""
     if _internet_available():
         return
-    internet_tests = {
-        "tests/test_cards.py::test_load_from_static_server",
-        "tests/test_deck.py::test_from_amaranth",
-        "tests/test_deck.py::test_from_vdb",
-        "tests/test_deck.py::test_from_vtesdecks",
-    }
     skip_marker = pytest.mark.skip(reason="Skipped: no internet connection available")
     for item in items:
-        if item.nodeid in internet_tests:
+        if item.nodeid in INTERNET_TESTS:
             item.add_marker(skip_marker)

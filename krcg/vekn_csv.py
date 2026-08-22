@@ -225,11 +225,11 @@ def card_from_vekn[T: models.Card](
             card.legal = original.release_date
             occurrences = card.prints[0].occurrences
             overrides = [
-                original.bundles[o.bundle].release_date
+                release
                 for o in occurrences
                 if o.type == models.Occurrence.Type.PRECON
-                and o.bundle in original.bundles
-                and original.bundles[o.bundle].release_date
+                and (bundle := original.bundles.get(o.bundle))
+                and (release := bundle.release_date)
             ]
             if overrides and all(
                 o.type == models.Occurrence.Type.PRECON for o in occurrences

@@ -112,7 +112,7 @@ class FuzzyDict[H: Hashable, T](MutableMapping[H, T]):
     def __contains__(self, key: object) -> bool:
         """Check if a key is in the dict (does fuzzy match)."""
         try:
-            self.__getitem__(key)
+            self.__getitem__(cast(H, key))
             return True
         except KeyError:
             return False
