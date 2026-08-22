@@ -156,10 +156,16 @@ def parse_symbols(text: str) -> collections.abc.Generator[tuple[str, str]]:
         yield symbol, ANKHA_SYMBOLS[symbol[1:-1]]
 
 
-def parse_cards(text: str) -> collections.abc.Generator[tuple[str, str]]:
-    """Yield all cards in the given text."""
+def parse_cards(text: str) -> collections.abc.Generator[tuple[str, int | str]]:
+    """Yield all cards in the given text, as (token, the key they resolve through).
+
+    A token names the card id ahead of the name, `{101565|Rebirth}`, as the ruling keys
+    do. The id is an exact key; the bare `{Rebirth}` form it supersedes resolves only
+    through fuzzy matching, so it survives a card rename and the name alone does not.
+    """
     for token in RE_CARD.findall(text):
-        yield token, token[1:-1]
+        uid, pipe, _ = token[1:-1].partition("|")
+        yield token, int(uid) if pipe and uid.isdigit() else token[1:-1]
 
 
 def parse_references(text: str) -> collections.abc.Generator[tuple[str, str]]:
@@ -254,8 +260,8 @@ def _parse_text(
         ruling.references.append(
             models.Ruling.Reference(text=token, label=ref, url=references[ref])
         )
-    for token, name in parse_cards(text):
-        ruling.cards.append(models.CardMinimal.from_card(cards[name]))
+    for token, key in parse_cards(text):
+        ruling.cards.append(models.CardMinimal.from_card(cards[key]))
     for token, substitute in parse_symbols(text):
         ruling.symbols.append(models.Ruling.Symbol(text=token, symbol=substitute))
     return ruling

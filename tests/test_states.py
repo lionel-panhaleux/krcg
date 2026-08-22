@@ -70,6 +70,57 @@ def test_new_format_parsing() -> None:
     assert [ref.label for ref in inherited.references] == ["LSJ 20040518"]
 
 
+def test_card_token_carries_the_id() -> None:
+    """A card token resolves by id when it names one, and by name when it does not.
+
+    The id form is what vtes-rulings serializes; the bare name predates it and a
+    packaged snapshot can still hold either.
+    """
+    raw, sets = vekn_csv.from_files()
+    cards = collections.CardDict(raw)
+    cards.sets = sets
+    cards.index()
+    rulings.load_from_files(
+        cards,
+        io.StringIO(
+            "100038|Alastor:\n"
+            "  - Names {101565|Rebirth} by id and {Abbot} by name.\n"
+            "  - 'Names {100015|Academic Hunting Ground} twice:"
+            " {100015|Academic Hunting Ground}.'\n"
+        ),
+        io.StringIO("{}\n"),
+        io.StringIO("{}\n"),
+    )
+    by_text = {r.text: r for r in cards[100038].rulings}
+    mixed = by_text["Names {101565|Rebirth} by id and {Abbot} by name."]
+    assert [c.id for c in mixed.cards] == [101565, 100006]
+    assert [c.printed_name for c in mixed.cards] == ["Rebirth", "Abbot"]
+    # every occurrence is yielded, as for symbols: a renderer places one span per token
+    ahg = "{100015|Academic Hunting Ground}"
+    repeated = by_text[f"Names {ahg} twice: {ahg}."]
+    assert [c.id for c in repeated.cards] == [100015, 100015]
+
+
+def test_card_token_id_beats_a_stale_name() -> None:
+    """The id wins over the name beside it, which is the point of carrying it.
+
+    A rename upstream leaves the name in the file stale until the next serialization;
+    fuzzy matching on it could land on a different card, the id cannot.
+    """
+    raw, sets = vekn_csv.from_files()
+    cards = collections.CardDict(raw)
+    cards.sets = sets
+    cards.index()
+    rulings.load_from_files(
+        cards,
+        io.StringIO("100038|Alastor:\n  - 'Stale name: {101565|Rebrith}.'\n"),
+        io.StringIO("{}\n"),
+        io.StringIO("{}\n"),
+    )
+    (ruling,) = cards[100038].rulings
+    assert [c.id for c in ruling.cards] == [101565]
+
+
 @pytest.mark.baseline
 @pytest.mark.parametrize(
     "card_id, snapshot",

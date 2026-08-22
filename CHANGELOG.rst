@@ -4,6 +4,11 @@ Changelog
 5.10 (2026-08-22)
 -----------------
 
+- A ruling's card token may name the card id ahead of the name,
+  ``{101565|Rebirth}``, as the ruling keys do; the bare ``{Rebirth}`` form still
+  loads. The id is an exact key, so a token survives a card rename — which the
+  name alone does not, since ``The Ankou`` and the CSV's ``Ankou, The`` are now
+  different strings. ``parse_cards`` yields that key, an ``int`` id or a name.
 - Anthology keeps its ``LARP`` code: the 11 cards Anthology I did not reprint
   are tagged ``Anthology:LARP1`` and no longer get a spurious ``Ant1`` print.
   ``Anthology`` gains a matching ``LARP`` bundle, and re-running the csv fixups
