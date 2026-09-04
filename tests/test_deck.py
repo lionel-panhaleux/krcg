@@ -85,6 +85,22 @@ async def test_from_amaranth(cards: collections.CardDict) -> None:
 
 
 @pytest.mark.asyncio
+async def test_vdb_deck_in_url(cards: collections.CardDict) -> None:
+    """A VDB deck-in-URL round-trips through the serializer and the fetcher.
+
+    The path word is the literal ``deck``, not a deck id: the fetcher reads the
+    fragment and never asks VDB's API.
+    """
+    deck = parser.deck_from_txt(
+        io.StringIO(FIXTURE.read_text()), cards, id="2010tcdbng", twda=True
+    )
+    async with aiohttp.ClientSession() as session:
+        fetched = await providers.fetch(session, providers.serialize_vdb(deck), cards)
+    assert fetched.name == deck.name
+    assert {c.id: c.count for c in fetched.cards} == {c.id: c.count for c in deck.cards}
+
+
+@pytest.mark.asyncio
 async def test_from_vdb(cards: collections.CardDict) -> None:
     """Fetch and parse a deck from VDB (skipped offline, cf. conftest)."""
     async with aiohttp.ClientSession() as session:

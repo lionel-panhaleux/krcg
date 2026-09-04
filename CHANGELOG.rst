@@ -1,6 +1,18 @@
 Changelog
 =========
 
+5.12 (2026-09-04)
+-----------------
+
+- VDB "deck in URL" links import: the literal path ``/decks/deck`` selects the
+  fragment branch, where the path word used to be read as a deck id and sent to
+  VDB's API. A ``/decks`` path with neither id nor fragment raises ``ValueError``
+  rather than ``UnboundLocalError``.
+- A dead deck id fails as such: ``fetch_vdb`` raises the ``ClientResponseError``
+  VDB's 400 warrants instead of a ``ContentTypeError`` on its HTML body, and
+  ``fetch_amaranth`` raises ``ValueError`` on Amaranth's ``success: false``
+  answer instead of ``KeyError`` on the missing result.
+
 5.11 (2026-08-22)
 -----------------
 

@@ -53,16 +53,18 @@ async def fetch_vdb(
     url: urllib.parse.ParseResult,
     cards_dict: collections.CardDict,
 ) -> models.Deck:
-    """Fetch a deck from VDB."""
-    if not url.path.startswith("/decks"):
-        raise ValueError("Unknown VDB URL path")
+    """Fetch a deck from VDB.
+
+    The "deck in URL" form carries the deck itself: the literal path
+    ``/decks/deck``, the name, author and description as query parameters and
+    the cards as ``id=count;…`` in the fragment. It is decoded locally.
+    """
     params = urllib.parse.parse_qs(url.query)
     if "id" in params:
         uid = params["id"][0]
-    elif url.path.startswith("/decks/"):
-        uid = url.path[7:]
-    # no ID in paramse, try to parse "deck in URL" format
-    elif url.fragment:
+    elif url.path == "/decks/deck":
+        if not url.fragment:
+            raise ValueError("Empty VDB deck in URL")
         ret = models.Deck(
             id="",
             name=params.get("name", [None])[0] or "",
@@ -75,9 +77,15 @@ async def fetch_vdb(
             if count <= 0:
                 continue
             utils.add_card(ret, cards_dict[int(cid)], count)
+        utils.sort_cards(ret)
         return ret
+    elif url.path.startswith("/decks/"):
+        uid = url.path[7:]
+    else:
+        raise ValueError("Unknown VDB URL path")
     fetch_url = "https://vdb.im/api/deck/" + uid
     async with session.get(fetch_url) as response:
+        response.raise_for_status()
         data = await response.json()
         LOG.debug("VDB replied: %s", data, extra={"url": fetch_url})
     ret = models.Deck(
@@ -118,6 +126,8 @@ async def fetch_amaranth(
         response.raise_for_status()
         data = await response.json()
         LOG.debug("Amaranth replied: %s", data, extra={"url": fetch_url})
+    if not data.get("success"):
+        raise ValueError(f"Amaranth: {data.get('error', {}).get('message')}")
     result = data["result"]
     ret = models.Deck(
         id=uid,
