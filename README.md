@@ -33,7 +33,10 @@ The KRCG library has been used in multiple _offspring_ projects:
 
 -   [krcg-api](https://github.com/lionel-panhaleux/krcg-api)
     is a free RESTful web API to get the most out of the library for web projects.
-    It is available online at [v2.api.krcg.org](https://v2.api.krcg.org)
+    It is available online at [api.krcg.org](https://api.krcg.org).
+    New projects should target [v4.api.krcg.org](https://v4.api.krcg.org), which
+    serves the krcg 5 model described below; the apex currently aliases the
+    older 3.x API and will move to v4.
 
 -   [krcg-bot](https://github.com/lionel-panhaleux/krcg-bot) is a friendly Discord bot
     that provides official card text and rulings for free.
