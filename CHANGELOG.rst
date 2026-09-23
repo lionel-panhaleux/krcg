@@ -1,7 +1,7 @@
 Changelog
 =========
 
-5.13 (unreleased)
+5.13 (2026-09-23)
 -----------------
 
 - A score serializes in the TWDA's own wording, ``1GW4 + 4vp in final``
