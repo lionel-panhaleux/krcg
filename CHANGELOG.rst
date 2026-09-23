@@ -1,6 +1,13 @@
 Changelog
 =========
 
+5.13 (unreleased)
+-----------------
+
+- A score serializes in the TWDA's own wording, ``1GW4 + 4vp in final``
+  (``2GW8`` with no final, ``4vp in final`` with only the final), where it used to
+  write ``1GW4+4!``. The win flag stays on the model: every TWDA deck carries it.
+
 5.12 (2026-09-04)
 -----------------
 

@@ -451,18 +451,14 @@ class Score:
 
     def __str__(self) -> str:
         """String representation of a score."""
-        ret = ""
+        parts = []
         # emit the GW count whenever there is a rounds VP: a bare leading VP
         # would otherwise parse back as a finals VP (round-trip safety).
         if self.round_gw or self.round_vp:
-            ret += f"{self.round_gw}GW"
-        if self.round_vp:
-            ret += f"{self.round_vp:g}"
+            parts.append(f"{self.round_gw}GW{self.round_vp:g}")
         if self.finals_vp:
-            ret += f"+{self.finals_vp:g}"
-        if self.win:
-            ret += "!"
-        return ret
+            parts.append(f"{self.finals_vp:g}vp in final")
+        return " + ".join(parts)
 
 
 @dataclass(kw_only=True)

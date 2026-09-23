@@ -49,7 +49,7 @@ HEADERS = {
         "rounds": 3,
         "finals": False,
         "players_count": 7,
-        "score": "2GW8!",
+        "score": "2GW8",
         "crypt": 12,
         "library": 75,
     },
@@ -65,7 +65,7 @@ HEADERS = {
         "rounds": 3,
         "finals": True,
         "players_count": 20,
-        "score": "1GW7+2.5!",
+        "score": "1GW7 + 2.5vp in final",
         "crypt": 12,
         "library": 90,
     },
@@ -148,7 +148,7 @@ def test_rounds_no_final(cards: collections.CardDict) -> None:
     deck = _parse(cards, "10842")
     assert deck.event is not None
     assert deck.event.rounds == 3 and deck.event.finals is False
-    assert str(deck.score) == "2GW8!"
+    assert str(deck.score) == "2GW8"
     assert any(c.unique_name == 'Jason "Son" Newberry' for c in deck.cards)
 
 
@@ -211,16 +211,15 @@ def test_round_trip(cards: collections.CardDict, deck_id: str) -> None:
 def test_decks_are_winners(
     cards: collections.CardDict, TWDA: twda.DecksArchive
 ) -> None:
-    """Scored decks load as wins (the WD in TWDA); the parser reads back the '!'."""
+    """Scored decks load as wins (the WD in TWDA), and the score line keeps the
+    archive's own wording through a serialize/parse round trip."""
     scored = [d for d in TWDA.values() if d.score]
     assert scored and all(d.score and d.score.win for d in scored)
-    # serialize emits the '!' marker, which the parser reads back as the win flag
     deck = TWDA["10842"]
-    assert deck.score and str(deck.score).endswith("!")
     again = parser.deck_from_txt(
         io.StringIO(providers.serialize_twd(deck, cards)), cards, id="10842", twda=True
     )
-    assert again.score and again.score.win is True
+    assert again.score and str(again.score) == str(deck.score)
 
 
 @pytest.mark.baseline
