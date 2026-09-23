@@ -211,8 +211,7 @@ def test_round_trip(cards: collections.CardDict, deck_id: str) -> None:
 def test_decks_are_winners(
     cards: collections.CardDict, TWDA: twda.DecksArchive
 ) -> None:
-    """Scored decks load as wins (the WD in TWDA), and the score line keeps the
-    archive's own wording through a serialize/parse round trip."""
+    """Scored decks load as wins, and a score survives a serialize/parse round trip."""
     scored = [d for d in TWDA.values() if d.score]
     assert scored and all(d.score and d.score.win for d in scored)
     deck = TWDA["10842"]
