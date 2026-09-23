@@ -84,7 +84,7 @@ bump level="minor": check
     #!/usr/bin/env bash
     set -euo pipefail
     uv version --bump "{{ level }}"
-    VERSION="$(uv version --short)"
+    VERSION="$(uv version --short --color never)"
     echo "📝 Committing version ${VERSION}..."
     git add pyproject.toml
     git commit -m "Release ${VERSION}" && git tag "v${VERSION}"
