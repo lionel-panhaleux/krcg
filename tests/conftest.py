@@ -25,6 +25,7 @@ INTERNET_TESTS = {
     "tests/test_cards.py::test_load_from_static_server",
     "tests/test_deck.py::test_from_amaranth",
     "tests/test_deck.py::test_from_vdb",
+    "tests/test_deck.py::test_from_vdb_precon",
     "tests/test_deck.py::test_from_vtesdecks",
 }
 

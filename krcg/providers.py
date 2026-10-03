@@ -80,11 +80,14 @@ async def fetch_vdb(
         utils.sort_cards(ret)
         return ret
     elif url.path.startswith("/decks/"):
-        uid = url.path[7:]
+        uid = urllib.parse.unquote(url.path[7:])
     else:
         raise ValueError("Unknown VDB URL path")
     fetch_url = "https://vdb.im/api/deck/" + uid
     async with session.get(fetch_url) as response:
+        if response.status == 400 and ":" in uid:
+            # VDB's API may not serve precons: fall back to its static file
+            return await fetch_vdb_precon(session, uid, cards_dict)
         response.raise_for_status()
         data = await response.json()
         LOG.debug("VDB replied: %s", data, extra={"url": fetch_url})
@@ -99,6 +102,46 @@ async def fetch_vdb(
         if count <= 0:
             continue
         utils.add_card(ret, cards_dict[int(cid)], count)
+    utils.sort_cards(ret)
+    return ret
+
+
+async def fetch_vdb_precon(
+    session: aiohttp.ClientSession,
+    uid: str,
+    cards_dict: collections.CardDict,
+) -> models.Deck:
+    """Fetch a VDB preconstructed deck (``SET:PRECON`` id, e.g. ``V5L:PL``).
+
+    Read from VDB's static precons file, under VDB's own set codes: the name
+    comes from krcg's set data only when the codes match.
+    """
+    set_code, _, bundle_code = uid.replace("_", " ").partition(":")
+    if set_code == "playtest":
+        raise ValueError("VDB playtest precons are restricted")
+    fetch_url = "https://vdb.im/data/precon_decks.json"
+    async with session.get(fetch_url) as response:
+        response.raise_for_status()
+        data = await response.json()
+    try:
+        precon = data[set_code][bundle_code]
+    except KeyError:
+        raise ValueError(f"Unknown VDB precon: {uid}") from None
+    name = uid.rstrip(":")
+    if expansion := cards_dict.sets.get(set_code):
+        name = expansion.name
+        if bundle := expansion.bundles.get(bundle_code):
+            name = f"{name}: {bundle.name}"
+    ret = models.Deck(id=uid, name=name, author="VTES Team")
+    for cid, count in precon.items():
+        count = int(count)
+        if count <= 0:
+            continue
+        try:
+            card = cards_dict[int(cid)]
+        except KeyError:
+            raise ValueError(f"Unknown card in VDB precon {uid}: {cid}") from None
+        utils.add_card(ret, card, count)
     utils.sort_cards(ret)
     return ret
 

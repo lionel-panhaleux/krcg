@@ -124,3 +124,23 @@ async def test_from_vtesdecks(cards: collections.CardDict) -> None:
     assert deck.author == "lionelpx"
     assert deck.comment == "Here goes my description!"
     assert {c.id: c.count for c in deck.cards}[200001] == 7  # Aabbt Kindred
+
+
+@pytest.mark.asyncio
+async def test_from_vdb_precon(cards: collections.CardDict) -> None:
+    """Fetch a VDB preconstructed deck (skipped offline, cf. conftest)."""
+    async with aiohttp.ClientSession() as session:
+        deck = await providers.fetch(session, "https://vdb.im/decks/V5:PTo", cards)
+    assert deck.id == "V5:PTo"
+    assert "Toreador" in deck.name
+    assert sum(c.count for c in deck.cards) == 89
+    async with aiohttp.ClientSession() as session:
+        deck = await providers.fetch(session, "https://vdb.im/decks/V5L:PL", cards)
+    assert deck.id == "V5L:PL"
+    assert deck.name
+    assert sum(c.count for c in deck.cards) == 89
+    async with aiohttp.ClientSession() as session:
+        with pytest.raises(ValueError):
+            await providers.fetch(session, "https://vdb.im/decks/V5:XX", cards)
+        with pytest.raises(ValueError):
+            await providers.fetch(session, "https://vdb.im/decks/playtest:BbN", cards)
