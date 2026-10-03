@@ -1,6 +1,14 @@
 Changelog
 =========
 
+5.14 (2026-10-03)
+-----------------
+
+- VDB precon links import (``/decks/V5L:PL``): VDB's deck API answers 400 for a
+  ``SET:PRECON`` id, so ``fetch_vdb`` falls back to VDB's static precons file.
+  The name comes from krcg's set data when VDB's set code matches, else the id.
+  A playtest precon or an unknown card raises ``ValueError``.
+
 5.13 (2026-09-23)
 -----------------
 
