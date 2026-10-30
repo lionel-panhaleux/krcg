@@ -15,6 +15,7 @@ This project uses [`uv`](https://github.com/astral-sh/uv) for dependencies and [
 - `just quality` — runs `ruff check`, `ruff format --check`, and `ty check krcg`
 - `just test` — runs `quality` then `uv run pytest -vvs` (quality runs first; tests won't run if it fails)
 - `just sync-cards` — refresh packaged data (`cards/*.csv` and `cards/*.yaml`) from the external `vtescsv` and `vtes-rulings` GitHub repos
+- `just SOURCE=vdb sync-cards` (or `just SOURCE=vdb release`) — take the crypt and library CSVs from VDB's repo instead, for a set VDB has but `vtescsv` doesn't yet
 - `just update` — `sync-cards` + `uv sync --upgrade --dev`
 - `just build` / `just clean` / `just release` (release bumps minor version, tags, pushes, and publishes to PyPI using `.pypi_token`)
 

@@ -1,6 +1,18 @@
 Changelog
 =========
 
+5.15 (2026-10-30)
+-----------------
+
+- New sets: Secrets of New York and Noites Brasileiras, 63 cards legal on
+  2026-10-31. Their cards are tagged ``V5:SoNY1`` and ``V5:NBr1``, so they are
+  ``V5`` bundles (``SoNY``, ``NBr``) rather than sets of their own.
+- Brujah *antitribu* Legacy Singles wave: 57 cards dated ``POD:20260717``.
+- Every card printed in a V5-era set now has the ``V5`` format, where only a
+  hand-listed few did: the set codes were compared by their first letter.
+- ``just SOURCE=vdb sync-cards`` takes the crypt and library CSVs from VDB's repo,
+  for a set VDB has before ``vtescsv`` does. ``release`` and ``update`` take it too.
+
 5.14 (2026-10-03)
 -----------------
 

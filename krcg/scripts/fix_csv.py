@@ -87,7 +87,7 @@ def fix_set_row(row: dict[str, str]) -> dict[str, str] | None:
     """Fix a set row."""
     if row["Abbrev"].startswith("Promo"):
         return None
-    if row["Abbrev"] in MISSING_SETS_ABBREVS:
+    if row["Abbrev"] in MISSING_SETS_ABBREVS or row["Abbrev"] in V5_BUNDLE_SETS:
         return None
     # 8 upstream rows put whitespace outside the quotes (DM/TU/AU trail a space,
     # the five Promo-* rows lead with one), so the parser folds it into the value
@@ -150,6 +150,9 @@ def fix_card_text(row: dict[str, str], name_2: str | None = None) -> dict[str, s
 def fix_card_row(row: dict[str, str]) -> dict[str, str]:
     """Fix a card row."""
     card_id = int(row["Id"])
+    if card_id in PROMO_RELEASES_CARDS:
+        tags = [t for t in row["Set"].split(", ") if t.split(":")[0].upper() != "PROMO"]
+        row["Set"] = ", ".join([f"Promo:{PROMO_RELEASES_CARDS[card_id]}", *tags])
     if card_id in POD_TAG_ADDITIONS and "POD" not in {
         tag.split(":", 1)[0] for tag in row["Set"].split(", ")
     }:
@@ -167,7 +170,7 @@ def fix_card_row(row: dict[str, str]) -> dict[str, str]:
         a if fix_name_articles(a) == row["Name"] else fix_name_articles(a) for a in aka
     ]
     row["Aka"] = ";".join(collections.Counter(aka).keys())  # preserve order
-    sets = set(a[0] for r in row["Set"].split(", ") for a in r.split(":", 1))
+    sets = {tag.split(":", 1)[0] for tag in row["Set"].split(", ")}
     if V5_SETS & sets:
         row["Format"] = "V5"
     elif card_id in V5_CARDS:
@@ -418,6 +421,7 @@ LEGAL_ON_RELEASE = datetime.date(2025, 9, 21)
 
 ARTISTS_FIXES = {
     "Alejandro Collucci": "Alejandro Colucci",
+    "Anastasiia Horbunoval": "Anastasiia Horbunova",
     "Chet Masterz": "Chet Masters",
     "Dimple": 'Nicolas "Dimple" Bigot',
     "EM Gist": "E.M. Gist",
@@ -427,6 +431,7 @@ ARTISTS_FIXES = {
     "Glenn Osterberger": "Glen Osterberger",
     "Heather Kreiter": "Heather V. Kreiter",
     'Jeff "el jefe" Holt': "Jeff Holt",
+    "Krzysztof Bieniawskir": "Krzysztof Bieniawski",
     "L. Snelly": "Lawrence Snelly",
     "Martín de Diego": "Martín de Diego Sábada",
     "Mathias Tapia": "Matias Tapia",
@@ -491,6 +496,10 @@ MISSING_SETS = [
 ]
 
 MISSING_SETS_ABBREVS = {set["Abbrev"] for set in MISSING_SETS}
+
+#: Listed as sets upstream, but the cards are tagged V5:SoNY1 and V5:NBr1, so they
+#: are V5 bundles here: their release date lives in vtesbundles.csv.
+V5_BUNDLE_SETS = {"SoNY", "NBr"}
 
 SET_REPLACEMENTS = {
     ("BSC", "X"): ("BSC", ""),
@@ -564,6 +573,7 @@ ADDITION_CARD_COUNTS = {
 POD_RELEASES_WORDS = {
     "Baali": "20230306",
     "Banu Haqim": "20191224",
+    "Brujah antitribu": "20260717",
     "Chimerstry": "20210923",
     "Daimoinon": "20230306",
     "Daughter of Cacophony": "20230306",
@@ -611,9 +621,17 @@ RE_POD_DISC = re.compile(r"|".join(POD_RELEASES_DISC.keys()))
 POD_RELEASES_CARDS = {
     100545: "20210411",  # Direct Intervention
     100106: "20240101",  # Ashur Tablets
+    100176: "20260717",  # Blade of Enoch (Brujah antitribu wave)
+    100471: "20260717",  # Crusade: Rome (Brujah antitribu wave)
     100634: "20240101",  # Emerald Legionnaire
     100500: "20230825",  # Dauntain Black Magician (Tremere antitribu wave, Malk req)
     201421: "20230825",  # Valerius Maior, Hell's Fool (base clan is Tremere)
+}
+
+#: Promos tagged a bare "PROMO" upstream (BCP) or not at all (VDB): first distribution
+#: date, here the Brazilian National Championship, Campina Grande.
+PROMO_RELEASES_CARDS = {
+    102366: "20260524",  # Porto de Santos
 }
 
 #: Cards in a Legacy Singles (POD) wave that upstream vtescsv hasn't tagged

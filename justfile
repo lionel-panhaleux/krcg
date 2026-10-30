@@ -3,6 +3,10 @@ set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
 
 # Configuration variables
 VTESCSV_GITHUB := "https://raw.githubusercontent.com/GiottoVerducci/vtescsv/main"
+VDB_GITHUB := "https://raw.githubusercontent.com/smeea/vdb/master/misc/cards-update"
+# Set SOURCE=vdb to sync and release before vtescsv catches up with a new set
+SOURCE := "vtescsv"
+CARDS_GITHUB := if SOURCE == "vdb" { VDB_GITHUB } else if SOURCE == "vtescsv" { VTESCSV_GITHUB } else { error("SOURCE must be vtescsv or vdb") }
 RULINGS_GITHUB := "https://raw.githubusercontent.com/vtes-biased/vtes-rulings/main/rulings"
 VTESCSV_VEKN_NET_FR := "https://www.vekn.net/images/stories/downloads/french/vtescsv_utf8.fr-FR.zip"
 VTESCSV_VEKN_NET_ES := "https://www.vekn.net/images/stories/downloads/spanish/vtescsv_utf8.es-ES.zip"
@@ -30,10 +34,10 @@ test: quality
 
 # Sync CSV files from vtescsv repository
 sync-cards:
-    @echo "📥 Syncing CSV files from vtescsv repository..."
+    @echo "📥 Syncing CSV files from {{ SOURCE }}..."
     @mkdir -p krcg/cards
-    @curl -f -s -o krcg/cards/vtescrypt.csv "{{ VTESCSV_GITHUB }}/vtescrypt.csv"
-    @curl -f -s -o krcg/cards/vteslib.csv "{{ VTESCSV_GITHUB }}/vteslib.csv"
+    @curl -f -s -o krcg/cards/vtescrypt.csv "{{ CARDS_GITHUB }}/vtescrypt.csv"
+    @curl -f -s -o krcg/cards/vteslib.csv "{{ CARDS_GITHUB }}/vteslib.csv"
     @curl -f -s -o krcg/cards/vtessets.csv "{{ VTESCSV_GITHUB }}/vtessets.csv"
     @echo "📥 Syncing rulings YAML files from vtes-biased/vtes-rulings..."
     @curl -f -s -o krcg/cards/groups.yaml "{{ RULINGS_GITHUB }}/groups.yaml"
